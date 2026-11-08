@@ -1,6 +1,6 @@
-# Learn Finance with AI
+# AI-Tutored Finance
 
-Website: https://ianding1.github.io/learn-finance-with-ai/ · [简体中文说明](README.zh-CN.md)
+Website: https://ianding1.github.io/ai-tutored-finance/ · [简体中文说明](README.zh-CN.md)
 
 An economics and finance course written by AI, set in the US market. The course teaches you to:
 
@@ -21,7 +21,7 @@ learners paste into their own AI assistant.
 
 Contributions are welcome, especially:
 
-- **Corrections.** If you find an error, [open an issue](https://github.com/ianding1/learn-finance-with-ai/issues/new?labels=content-error)
+- **Corrections.** If you find an error, [open an issue](https://github.com/ianding1/ai-tutored-finance/issues/new?labels=content-error)
   (every page has a "Report an error" link) or send a pull request with the fix.
 - **New languages.** See [Adding a language](#adding-a-language).
 
@@ -44,7 +44,7 @@ Requirements: Node.js 20.3 or later, Python 3 with PyYAML.
 
 ```bash
 npm install
-npm run dev          # local preview at http://localhost:4321/learn-finance-with-ai/
+npm run dev          # local preview at http://localhost:4321/ai-tutored-finance/
 npm run build        # production build
 npm run check        # consistency checks (python3 scripts/check.py)
 npm run i18n:lock    # record that all language versions are in sync (see below)

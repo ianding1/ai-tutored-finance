@@ -1,4 +1,4 @@
-# Learn Finance with AI
+# AI-Tutored Finance
 
 A static course website. Lessons are MDX pages with interactive figures. The site never calls an AI:
 for grading and explanations it builds a prompt that the learner copies into their own assistant.
@@ -36,7 +36,7 @@ languages; the site root sends each visitor to the language of their browser.
 
 ```bash
 npm install
-npm run dev          # local preview at http://localhost:4321/learn-finance-with-ai/
+npm run dev          # local preview at http://localhost:4321/ai-tutored-finance/
 npm run build        # production build; fails on bad LaTeX or unknown question/reference ids
 npm run check        # python3 scripts/check.py (needs PyYAML)
 npm run i18n:lock    # after all language versions are in sync again, record their hashes

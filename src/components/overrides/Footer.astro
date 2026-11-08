@@ -11,7 +11,7 @@ const url = absolute(Astro.url.pathname);
 const title = t(lang, 'reportTitle', { page: route.entry.data.title });
 const body = t(lang, 'reportBody', { url });
 const isHome = route.entry.data.template === 'splash';
-const issue = `https://github.com/ianding1/learn-finance-with-ai/issues/new?labels=content-error&title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
+const issue = `https://github.com/ianding1/ai-tutored-finance/issues/new?labels=content-error&title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
 ---
 
 {!isHome && (

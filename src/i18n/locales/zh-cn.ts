@@ -1,7 +1,7 @@
 // Simplified Chinese UI strings and prompt templates.
 import type { Locale } from '../types';
 
-const COURSE = '「跟 AI 学金融」';
+const COURSE = '「AI 辅导学金融」';
 const DISCLAIMER = '本课程的课件、题目和参考答案都由 AI 生成，未经专业人员审核，可能有错误。';
 
 const locale: Locale = {

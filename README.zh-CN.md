@@ -1,6 +1,6 @@
-# 跟 AI 学金融
+# AI 辅导学金融
 
-网站：https://ianding1.github.io/learn-finance-with-ai/ · [English](README.md)
+网站：https://ianding1.github.io/ai-tutored-finance/ · [English](README.md)
 
 一门由 AI 编写的经济学与金融课程，以美国市场为背景。这门课教你：
 
@@ -18,7 +18,7 @@
 
 欢迎贡献，特别是：
 
-- **勘误**：发现错误请[提交 issue](https://github.com/ianding1/learn-finance-with-ai/issues/new?labels=content-error)（每个页面底部都有“报告本页的错误”链接），或者直接提交修改的 pull request。
+- **勘误**：发现错误请[提交 issue](https://github.com/ianding1/ai-tutored-finance/issues/new?labels=content-error)（每个页面底部都有“报告本页的错误”链接），或者直接提交修改的 pull request。
 - **新语言**：见下文“增加一种语言”。
 
 所有语言的地位相同。修改了某个页面或文本字段的一种语言版本后，`npm run check` 会列出还需要做相同修改的其他语言。如果你只能修改其中一部分，也请提交 pull request，并说明缺少哪些语言。
@@ -36,7 +36,7 @@
 
 ```bash
 npm install
-npm run dev          # 本地预览 http://localhost:4321/learn-finance-with-ai/
+npm run dev          # 本地预览 http://localhost:4321/ai-tutored-finance/
 npm run build        # 生产构建
 npm run check        # 一致性检查（python3 scripts/check.py）
 npm run i18n:lock    # 记录所有语言版本已经同步（见下文）

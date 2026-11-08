@@ -34,7 +34,7 @@ jobs:
             REPO: ${{ github.repository }}
             PR NUMBER: ${{ github.event.pull_request.number }}
 
-            Review this pull request for the course website "Learn Finance with AI".
+            Review this pull request for the course website "AI-Tutored Finance".
             First read CLAUDE.md and .github/review-rules.md. Apply every rule in review-rules.md
             to the changed files, and to unchanged files that depend on them (rule 5).
             Use `gh pr diff` to see the changes.

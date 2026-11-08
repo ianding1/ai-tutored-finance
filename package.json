@@ -1,9 +1,9 @@
 {
-  "name": "learn-finance-with-ai",
+  "name": "ai-tutored-finance",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Learn Finance with AI: a static, multilingual economics and finance course with AI-graded exercises",
+  "description": "AI-Tutored Finance: a static, multilingual economics and finance course with AI-graded exercises",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

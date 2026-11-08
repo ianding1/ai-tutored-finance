@@ -7,7 +7,7 @@ import { readFileSync } from 'node:fs';
 import { parse } from 'yaml';
 import remarkHeadingId from './src/plugins/remark-heading-id.mjs';
 
-const REPO = 'https://github.com/ianding1/learn-finance-with-ai';
+const REPO = 'https://github.com/ianding1/ai-tutored-finance';
 
 // Languages: see src/i18n/languages.json. Every language lives in its own folder (no root locale).
 const { default: DEFAULT_LANG, languages } = JSON.parse(
@@ -32,16 +32,16 @@ const lessonGroups = curriculum.stages
 // (how to use, course outline). Keep those old URLs working.
 const OLD_ZH_LESSONS = curriculum.stages.flatMap((s) => s.lessons.filter((l) => l.published).map((l) => `lessons/${l.slug}`));
 const redirects = Object.fromEntries([
-	...OLD_ZH_LESSONS.map((p) => [`/${p}`, `/learn-finance-with-ai/zh-cn/${p}/`]),
+	...OLD_ZH_LESSONS.map((p) => [`/${p}`, `/ai-tutored-finance/zh-cn/${p}/`]),
 	...['how-to-use', 'curriculum'].flatMap((g) => [
-		[`/guide/${g}`, '/learn-finance-with-ai/zh-cn/'],
-		...languages.map((l) => [`/${l.code}/guide/${g}`, `/learn-finance-with-ai/${l.code}/`]),
+		[`/guide/${g}`, '/ai-tutored-finance/zh-cn/'],
+		...languages.map((l) => [`/${l.code}/guide/${g}`, `/ai-tutored-finance/${l.code}/`]),
 	]),
 ]);
 
 export default defineConfig({
 	site: 'https://ianding1.github.io',
-	base: '/learn-finance-with-ai',
+	base: '/ai-tutored-finance',
 	redirects,
 	markdown: {
 		remarkPlugins: [remarkMath, remarkHeadingId],
