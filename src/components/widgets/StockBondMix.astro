@@ -68,7 +68,7 @@ const zeroPts = Array.from({ length: 101 }, (_, k) => k / 100);
 			<line class="viz-axis" x1={pad.l} x2={pad.l} y1={pad.t} y2={H - pad.b} />
 			<text class="viz-tick" x={(pad.l + W - pad.r) / 2} y={H - 8} text-anchor="middle">{L.x}</text>
 			<text class="viz-tick" transform={`translate(12 ${(pad.t + H - pad.b) / 2}) rotate(-90)`} text-anchor="middle">{L.y}</text>
-			<polyline class="viz-avg" points={zeroPts.map((w) => `${X(w).toFixed(1)},${Y(sd(w, 0)).toFixed(1)}`).join(' ')} />
+			<polyline class="viz-avg" fill="none" points={zeroPts.map((w) => `${X(w).toFixed(1)},${Y(sd(w, 0)).toFixed(1)}`).join(' ')} />
 			<polyline class="viz-curve" data-el="cur" points="" />
 			<circle class="viz-min" data-el="pt" r="6" cx="0" cy="0" />
 		</svg>
