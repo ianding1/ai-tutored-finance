@@ -246,3 +246,12 @@ term-structure:
   fixed:
     s1: 4
     decay: 0.7
+
+tips-nominal:
+  component: src/components/widgets/TipsNominal.astro
+  params:
+    y: { min: 2, max: 7, step: 0.1, default: 4.2 }
+    ry: { min: -1, max: 3, step: 0.1, default: 1.9 }
+    pi: { min: 0, max: 8, step: 0.5, default: 2 }
+  fixed:
+    years: 10

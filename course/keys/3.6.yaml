@@ -1,0 +1,317 @@
+# Answer key for lesson 3.6. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[3.4#duration]] (section), [[concept:credit-spread]], [[check:Q3]], [[fig:4-1]].
+# expected: values are recomputed by course/verify/3.6.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+
+lesson: "3.6"
+
+context:
+  - zh-cn: |-
+      学习者学过现值、期望、相关系数（第 0 阶段）、逆向选择和委托–代理问题（[[1.9]]）、CPI、通胀和实际利率（第 2 阶段）、股债相关性（[[2.8]]）、债券定价（[[3.3]]）、久期和免疫（[[3.4]]）、期限溢价（[[3.5]]）。金额保留两位小数，百分数用百分点表示。
+    en: |-
+      The learner has studied present value, expected value and correlation (Stage 0), adverse selection and the principal–agent problem ([[1.9]]), the CPI, inflation and real interest rates (Stage 2), the stock-bond correlation ([[2.8]]), bond pricing ([[3.3]]), duration and immunization ([[3.4]]) and the term premium ([[3.5]]). Amounts to two decimals; percentages in percentage points.
+  - concepts: [default-risk, recovery-rate, credit-spread]
+    zh-cn: |-
+      讲义：违约概率 $p$、回收率 $R$，1 年期零息债到期得到金额的期望 $100[1 - p(1 - R)]$，预期损失率 $p(1 - R)$；到期收益率按全部按约定支付计算；投资者不在乎风险时信用利差约等于 $p(1 - R)$。Moody's 1920 年以来：投资级年违约率约 0.1%，投机级约 4%，高级无担保债券平均回收率约 40%；投资级利差常在 1 个百分点左右。利差大于预期损失的原因：违约集中在衰退时（风险溢价）、流动性较差、国债免州税。
+    en: |-
+      The lesson: with default probability $p$ and recovery rate $R$, a 1-year zero pays $100[1 - p(1 - R)]$ in expectation, an expected loss rate of $p(1 - R)$; the yield to maturity assumes every payment is made; if investors did not care about risk, the credit spread would be about $p(1 - R)$. Moody's since 1920: about 0.1% annual default rate for investment grade, about 4% for speculative grade, about 40% average recovery on senior unsecured bonds; investment-grade spreads are often around 1 percentage point. Spreads exceed expected losses because defaults cluster in recessions (risk premium), liquidity is poorer, and Treasuries are exempt from state tax.
+  - concepts: [credit-rating]
+    zh-cn: |-
+      讲义：标普和 Fitch 的等级 AAA 到 CCC 等，Moody's 的 Aaa 到 Caa 等；BBB−（Baa3）及以上为投资级，以下为投机级（高收益债）。评级是对违约可能性的排序，不是价格预测，变化较慢；许多机构只允许或主要持有投资级债券；评级机构的收入主要来自被评级的发行人。
+    en: |-
+      The lesson: S&P and Fitch grades AAA to CCC and so on, Moody's Aaa to Caa and so on; BBB− (Baa3) and above is investment grade, below is speculative grade (high yield). A rating ranks the likelihood of default, is not a price forecast, and changes slowly; many institutions may hold only or mainly investment-grade bonds; rating agencies earn most of their income from the issuers they rate.
+  - concepts: [municipal-bond, tax-equivalent-yield]
+    zh-cn: |-
+      讲义：国债利息交联邦所得税、免州和地方所得税；公司债利息交联邦和州所得税；市政债利息通常免联邦所得税，本州的通常也免本州所得税。含税等价收益率 $y_{\text{te}} = \frac{y_m}{1 - t}$。2026 年联邦边际税率 10% 到 37%（IRS）。
+    en: |-
+      The lesson: Treasury interest is subject to federal income tax and exempt from state and local income tax; corporate interest is subject to both; municipal interest is usually exempt from federal income tax, and in-state bonds usually from state tax as well. Tax-equivalent yield $y_{\text{te}} = \frac{y_m}{1 - t}$. 2026 federal marginal rates range from 10% to 37% (IRS).
+  - concepts: [tips, breakeven-inflation]
+    zh-cn: |-
+      讲义：TIPS 本金按 CPI 调整，票息按调整后本金计算，到期至少偿还原始面值；收益率为实际收益率。$1 + \pi_{\text{be}} = \frac{1 + y}{1 + y_r}$，$\pi_{\text{be}} \approx y - y_r$。本金调整每年作为利息收入纳税，适合放在延迟纳税的账户。[[fig:4-1]]：分别投资 100 于 10 年期名义零息国债和 TIPS 零息债，持有到期，不考虑税收；滑块：名义收益率 2% 到 7%（步长 0.1，默认 4.2），TIPS 实际收益率 −1% 到 3%（步长 0.1，默认 1.9），10 年平均通胀 0% 到 8%（步长 0.5，默认 2）；读数显示盈亏平衡通胀率和所选通胀率下两者 10 年后的实际价值。
+    en: |-
+      The lesson: TIPS principal is adjusted by the CPI, coupons are paid on the adjusted principal, and at least the original face value is repaid; the yield is a real yield. $1 + \pi_{\text{be}} = \frac{1 + y}{1 + y_r}$, $\pi_{\text{be}} \approx y - y_r$. The principal adjustment is taxed as interest income every year, so TIPS suit tax-deferred accounts. [[fig:4-1]]: 100 in a 10-year nominal zero Treasury and 100 in a TIPS zero, held to maturity, taxes ignored; sliders: nominal yield 2% to 7% (in steps of 0.1, default 4.2), TIPS real yield −1% to 3% (in steps of 0.1, default 1.9), average inflation over 10 years 0% to 8% (in steps of 0.5, default 2); the readout shows breakeven inflation and the real value of each after 10 years at the chosen inflation.
+  - questions: [Q5]
+    zh-cn: |-
+      讲义：单只债券有到期日，持有到期得到确定的名义金额；债券基金没有到期日，久期大致不变，分散违约风险，交易成本低但收管理费。讲义提出“单只债券持有到期就不会亏、基金会因利率上升而亏损”这一说法，留给练习题分析。
+    en: |-
+      The lesson: an individual bond has a maturity date and pays a known nominal amount if held to maturity; a bond fund has no maturity date, keeps a roughly constant duration, diversifies default risk, and has low trading costs but charges a fee. The lesson raises the claim that "an individual bond held to maturity cannot lose money, while a fund loses when rates rise" and leaves it to an exercise.
+
+common_errors:
+  - questions: [C1, Q1]
+    zh-cn: |-
+      把有违约风险的债券的到期收益率当作预期收益率。到期收益率是全部按约定支付时的收益，预期收益要扣除预期损失。
+    en: |-
+      Treating the yield to maturity of a bond with default risk as its expected return. The yield assumes every payment is made; the expected return deducts the expected loss.
+  - questions: [C2, Q2]
+    zh-cn: |-
+      把信用评级当作对债券价格或收益的预测，或者认为同一评级的债券风险完全相同。
+    en: |-
+      Treating a credit rating as a forecast of a bond's price or return, or assuming bonds with the same rating carry exactly the same risk.
+  - questions: [C3, Q3]
+    zh-cn: |-
+      直接比较免税债券和应税债券的收益率，不换算成税后收益；或者忽略国债免州税、本州市政债免本州税。
+    en: |-
+      Comparing tax-exempt and taxable yields directly without converting to after-tax returns, or ignoring that Treasuries are exempt from state tax and in-state municipal bonds from that state's tax.
+  - questions: [C4, Q4]
+    zh-cn: |-
+      以为 TIPS 在任何情况下都比名义国债好。只有实际通胀高于盈亏平衡通胀率时，TIPS 才更好。
+    en: |-
+      Thinking TIPS always beat nominal Treasuries. TIPS do better only when inflation turns out above breakeven inflation.
+  - questions: [Q5]
+    zh-cn: |-
+      以为持有单只债券到期就避免了利率风险。利率上升时，单只债券的市场价值同样下降；持有到期只是不确认这个损失，而放弃了按更高利率再投资的机会。
+    en: |-
+      Thinking that holding an individual bond to maturity avoids interest rate risk. When rates rise, its market value falls just the same; holding to maturity only avoids recording the loss, while giving up the chance to reinvest at the higher rate.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: credit-spread
+    concepts: [default-risk, recovery-rate, credit-spread]
+    expected: { p: "95.00", y: "5.26" }
+    question:
+      zh-cn: |-
+        一张 1 年期公司零息债，面值 100，违约概率 2%，违约时回收 40。1 年期国债利率为 4%。(a) 如果投资者不在乎风险，按到期金额的期望用 4% 折现，这张债券的价格和到期收益率各是多少？(b) 投资者买入它的预期收益率是多少？与到期收益率相比说明了什么？
+      en: |-
+        A 1-year corporate zero has face value 100, a default probability of 2% and a recovery of 40 if it defaults. The 1-year Treasury rate is 4%. (a) If investors do not care about risk and discount the expected payoff at 4%, what are the bond's price and yield to maturity? (b) What is the expected return of an investor who buys it? What does the comparison with the yield to maturity show?
+    answer:
+      zh-cn: |-
+        (a) 到期金额的期望 $0.98 \times 100 + 0.02 \times 40 = 98.8$，价格 $\frac{98.8}{1.04} = 95.00$；到期收益率 $\frac{100}{95} - 1 \approx 5.26\%$，信用利差约 1.26 个百分点，接近预期损失率 $2\% \times (1 - 0.4) = 1.2\%$。
+        (b) 预期收益率为 $\frac{98.8}{95} - 1 = 4\%$，与国债相同。5.26% 只有在不违约时才能得到，是“承诺”的收益；把它当作预期收益会高估回报。
+      en: |-
+        (a) The expected payoff is $0.98 \times 100 + 0.02 \times 40 = 98.8$, so the price is $\frac{98.8}{1.04} = 95.00$ and the yield to maturity $\frac{100}{95} - 1 \approx 5.26\%$, a credit spread of about 1.26 percentage points, close to the expected loss rate $2\% \times (1 - 0.4) = 1.2\%$.
+        (b) The expected return is $\frac{98.8}{95} - 1 = 4\%$, the same as Treasuries. The 5.26% is earned only if there is no default; it is a "promised" return, and treating it as the expected return overstates the reward.
+    rubric:
+      zh-cn:
+        - "(a) 价格 95.00，到期收益率约 5.26%。"
+        - "(b) 预期收益率 4%，区分承诺收益和预期收益。"
+      en:
+        - "(a) Price 95.00; yield to maturity about 5.26%."
+        - "(b) Expected return 4%; distinguishes promised and expected returns."
+
+  - id: C2
+    kind: check
+    section: ratings
+    concepts: [credit-rating, principal-agent-problem]
+    question:
+      zh-cn: |-
+        (a) 一家公司的债券评级从 BBB− 降为 BB+，而公司的实际经营几乎没有新的变化。为什么债券价格可能下跌得比违约风险的变化所能解释的更多？(b) 评级机构的收入主要来自被评级的发行人。用 [[1.9]] 的委托–代理问题说明这可能带来什么问题。
+      en: |-
+        (a) A company's bonds are downgraded from BBB− to BB+, while almost nothing new has happened to the business. Why might the bond price fall more than the change in default risk can explain? (b) Rating agencies earn most of their income from the issuers they rate. Use the principal–agent problem from [[1.9]] to explain what problem this may cause.
+    answer:
+      zh-cn: |-
+        (a) 这次降级使债券从投资级变成投机级。许多机构的规定只允许或主要持有投资级债券，它们要在短时间内一起卖出，而能买高收益债的投资者有限，价格要下跌到足以吸引新的买家。下跌来自被迫卖出和需求的变化，而不只是违约风险。
+        (b) 投资者（委托人）依靠评级判断风险，但评级机构（代理人）的收入来自发行人，发行人希望得到高评级，还可以在几家机构中选择评级最高的一家。评级机构因此有给出较高评级的动机，投资者又难以监督它们的工作；2008 年前许多被评为 AAA 的抵押贷款证券后来大量违约，就是一个例子。
+      en: |-
+        (a) The downgrade moves the bonds from investment grade to speculative grade. Many institutions may hold only or mainly investment-grade bonds, so they sell at the same time, while the investors able to buy high-yield bonds are limited; the price must fall far enough to attract new buyers. The fall comes from forced selling and a change in demand, not only from default risk.
+        (b) Investors (the principals) rely on ratings to judge risk, but the agencies (the agents) are paid by issuers, who want high ratings and can choose the agency that gives the highest one. So agencies have an incentive to give generous ratings, and investors find it hard to monitor their work; many mortgage securities rated AAA before 2008 later suffered heavy defaults.
+    rubric:
+      zh-cn:
+        - "(a) 指出投资级分界和被迫卖出。"
+        - "(b) 说明发行人付费带来的激励问题。"
+      en:
+        - "(a) Points to the investment-grade line and forced selling."
+        - "(b) Explains the incentive problem of issuer-pays."
+
+  - id: C3
+    kind: check
+    section: munis
+    concepts: [tax-equivalent-yield, municipal-bond]
+    expected: { t24: "3.95", t37: "4.76" }
+    question:
+      zh-cn: |-
+        一只本州以外的市政债收益率为 3%，一只评级和期限相近的公司债收益率为 4.5%（只考虑联邦所得税）。(a) 边际税率为 24% 和 37% 的投资者，市政债的含税等价收益率各是多少？各应选择哪一只？(b) 如果这笔钱放在延迟纳税的退休账户里，应选择哪一只？
+      en: |-
+        An out-of-state municipal bond yields 3%, and a corporate bond with a similar rating and maturity yields 4.5% (consider only federal income tax). (a) For investors with marginal tax rates of 24% and 37%, what is the tax-equivalent yield of the municipal bond? Which bond should each choose? (b) If the money is held in a tax-deferred retirement account, which bond should be chosen?
+    answer:
+      zh-cn: |-
+        (a) 24%：$\frac{3\%}{1 - 0.24} \approx 3.95\%$，低于 4.5%，选公司债；37%：$\frac{3\%}{1 - 0.37} \approx 4.76\%$，高于 4.5%，选市政债。
+        (b) 公司债。退休账户里的利息本来就不在当年纳税，市政债的免税优势用不上，只剩下较低的收益率。
+      en: |-
+        (a) 24%: $\frac{3\%}{1 - 0.24} \approx 3.95\%$, below 4.5%, so the corporate bond; 37%: $\frac{3\%}{1 - 0.37} \approx 4.76\%$, above 4.5%, so the municipal bond.
+        (b) The corporate bond. Interest in a retirement account is not taxed in the current year anyway, so the municipal bond's exemption is wasted and only its lower yield remains.
+    rubric:
+      zh-cn:
+        - "(a) 约 3.95% 和 4.76%，选择正确。"
+        - "(b) 公司债，说明免税优势用不上。"
+      en:
+        - "(a) About 3.95% and 4.76%, with the right choices."
+        - "(b) The corporate bond, explaining that the exemption is wasted."
+
+  - id: C4
+    kind: check
+    section: tips
+    concepts: [tips, breakeven-inflation]
+    widget: { id: tips-nominal, set: { y: 4.2, ry: 1.9, pi: 4 } }
+    expected: { be: "2.26", nom: "101.94", tips: "120.71" }
+    question:
+      zh-cn: |-
+        在 [[fig:4-1]] 中，名义国债收益率为 4.2%，TIPS 实际收益率为 1.9%。(a) 读出盈亏平衡通胀率。如果未来 10 年平均通胀为 4%，两者 10 年后的实际价值各是多少？(b) 盈亏平衡通胀率能否直接当作市场预期的通胀率？说出一个原因。
+      en: |-
+        In [[fig:4-1]], the nominal Treasury yields 4.2% and TIPS yield 1.9% real. (a) Read off breakeven inflation. If inflation averages 4% over the next 10 years, what is the real value of each after 10 years? (b) Can breakeven inflation be read directly as the market's expected inflation? Give one reason.
+    answer:
+      zh-cn: |-
+        (a) 盈亏平衡通胀率 $\frac{1.042}{1.019} - 1 \approx 2.26\%$。平均通胀为 4% 时，名义国债的实际价值约 101.94，TIPS 约 120.71：通胀高于盈亏平衡通胀率，TIPS 好得多。
+        (b) 不能完全。名义国债的持有者承担通胀风险，可能要求通胀风险溢价，使名义收益率和盈亏平衡通胀率偏高；TIPS 的交易不如普通国债活跃，投资者要求流动性补偿，TIPS 收益率偏高，又使盈亏平衡通胀率偏低。
+      en: |-
+        (a) Breakeven inflation is $\frac{1.042}{1.019} - 1 \approx 2.26\%$. With 4% average inflation, the nominal Treasury's real value is about 101.94 and the TIPS about 120.71: inflation above breakeven makes TIPS much better.
+        (b) Not exactly. Holders of nominal Treasuries bear inflation risk and may demand an inflation risk premium, which pushes the nominal yield and breakeven inflation up; TIPS trade less actively than ordinary Treasuries, so investors demand compensation for liquidity, which raises the TIPS yield and pushes breakeven inflation down.
+    rubric:
+      zh-cn:
+        - "(a) 约 2.26%；约 101.94 和 120.71。"
+        - "(b) 一个合理的原因（通胀风险溢价或流动性）。"
+      en:
+        - "(a) About 2.26%; about 101.94 and 120.71."
+        - "(b) One reasonable reason (inflation risk premium or liquidity)."
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    star: true
+    concepts: [credit-spread, default-risk, recovery-rate, stock-bond-correlation]
+    expected: { er: "5.1" }
+    question:
+      zh-cn: |-
+        一只高收益债基金的到期收益率为 7.5%，同期限国债为 4.3%。假设基金持有的债券每年违约率为 4%，回收率为 40%。
+        (a) 基金每年的预期收益率约为多少？比国债高多少？
+        (b) 一位投资者想用这只基金代替组合中的国债，因为“收益高得多”。结合违约发生的时间（[[2.8]]），说明这样做的问题。
+      en: |-
+        A high-yield bond fund has a yield to maturity of 7.5%, while Treasuries of the same maturity yield 4.3%. Assume the fund's bonds default at 4% a year with a recovery rate of 40%.
+        (a) Roughly what is the fund's expected annual return? How much above Treasuries is it?
+        (b) An investor wants to replace the Treasuries in his portfolio with this fund because it "yields much more". Using when defaults happen ([[2.8]]), explain the problem with this.
+    answer:
+      zh-cn: |-
+        (a) 预期损失约 $4\% \times (1 - 0.4) = 2.4\%$，预期收益率约 $7.5\% - 2.4\% = 5.1\%$，比国债高约 0.8 个百分点，而不是到期收益率之差 3.2 个百分点。
+        (b) 违约集中在衰退时，这时股市也在下跌，高收益债的价格同时大跌，与股票的相关性高；国债在衰退中通常上涨（需求冲击时），能抵消股票的损失。用高收益债代替国债，组合在最需要保护的时候失去了保护，风险比看起来大得多。
+      en: |-
+        (a) The expected loss is about $4\% \times (1 - 0.4) = 2.4\%$, so the expected return is about $7.5\% - 2.4\% = 5.1\%$, about 0.8 percentage points above Treasuries, not the 3.2-point gap in yields.
+        (b) Defaults cluster in recessions, when stocks also fall, so high-yield bond prices drop at the same time and are highly correlated with stocks; Treasuries usually rise in recessions (in demand shocks) and offset stock losses. Replacing Treasuries with high-yield bonds removes protection exactly when it is most needed, so the portfolio is much riskier than it looks.
+    rubric:
+      zh-cn:
+        - "(a) 约 5.1%，高约 0.8。"
+        - "(b) 说明违约与衰退、股市下跌同时发生。"
+      en:
+        - "(a) About 5.1%, about 0.8 above."
+        - "(b) Explains that defaults coincide with recessions and falling stocks."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [default-risk, credit-rating, correlation]
+    expected: { cum: "9.61" }
+    question:
+      zh-cn: |-
+        (a) 一只债券每年的违约概率为 2%（各年相互独立）。5 年内违约的概率是多少？
+        (b) 把很多这样的贷款打包，按损失的先后分成几层证券，最先承担损失的层吸收前 10% 的损失，其上的“高级层”只在损失超过 10% 时才受损。如果各笔贷款的违约相互独立，高级层几乎不会受损。为什么当违约高度相关时（例如房价全国性下跌），这样的高级层可能比评级显示的危险得多？
+      en: |-
+        (a) A bond has a 2% chance of default each year (independent across years). What is the probability that it defaults within 5 years?
+        (b) Many such loans are pooled and split into layers of securities by the order in which they absorb losses: the first layer absorbs the first 10% of losses, and the "senior layer" above it loses only if losses exceed 10%. If defaults on the loans were independent, the senior layer would almost never lose. Why can such a senior layer be far more dangerous than its rating suggests when defaults are highly correlated (for example, in a nationwide fall in house prices)?
+    answer:
+      zh-cn: |-
+        (a) 5 年都不违约的概率为 $0.98^5$，5 年内违约的概率为 $1 - 0.98^5 \approx 9.61\%$。
+        (b) 违约独立时，大量贷款的损失率很接近平均值（[[0.3]] 的分散），超过 10% 的可能性极小。违约高度相关时，分散的作用消失：好的时候大家都不违约，坏的时候很多贷款一起违约，损失率可能远超过 10%，高级层也会受到大的损失。评级如果按独立或低相关的假设计算，就会严重低估这种风险；2008 年许多 AAA 抵押贷款证券的损失就是这样发生的。
+      en: |-
+        (a) The probability of no default in all 5 years is $0.98^5$, so the probability of default within 5 years is $1 - 0.98^5 \approx 9.61\%$.
+        (b) With independent defaults, the loss rate of a large pool stays very close to its average (diversification, [[0.3]]), so losses above 10% are extremely unlikely. With highly correlated defaults, diversification disappears: in good times nobody defaults, in bad times many loans default together, the loss rate can far exceed 10%, and the senior layer also suffers large losses. Ratings computed under independence or low correlation badly understate this risk; this is how many AAA mortgage securities lost money in 2008.
+    rubric:
+      zh-cn:
+        - "(a) 约 9.61%。"
+        - "(b) 说明相关性使分散失效，高级层在坏的情形中受损。"
+      en:
+        - "(a) About 9.61%."
+        - "(b) Explains that correlation defeats diversification and the senior layer loses in the bad state."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [tax-equivalent-yield, municipal-bond]
+    expected: { tr: "2.65", co: "2.63" }
+    question:
+      zh-cn: |-
+        一位投资者的联邦边际税率为 37%，州所得税税率为 9.3%（简化：两种税率直接相加）。可选：本州市政债 3.2%，国债 4.2%，公司债 4.9%，期限相近。
+        (a) 在应税账户中，三者的税后收益率各是多少？应选哪一只？
+        (b) 如果同一投资者用退休账户（延迟纳税）买债券，选择会怎样改变？由此说明“资产放在哪种账户里”为什么重要。
+      en: |-
+        An investor has a federal marginal tax rate of 37% and a state income tax rate of 9.3% (simplification: add the two rates). The choices are an in-state municipal bond at 3.2%, a Treasury at 4.2% and a corporate bond at 4.9%, with similar maturities.
+        (a) In a taxable account, what is the after-tax yield of each? Which should he choose?
+        (b) If the same investor buys bonds in a tax-deferred retirement account, how does the choice change? Use this to explain why it matters which account an asset is held in.
+    answer:
+      zh-cn: |-
+        (a) 本州市政债免联邦和州税：3.2%；国债只交联邦税：$4.2\% \times (1 - 0.37) \approx 2.65\%$；公司债交两种税：$4.9\% \times (1 - 0.37 - 0.093) \approx 2.63\%$。选市政债。
+        (b) 在退休账户里利息不在当年纳税，比较的是税前收益率，应选公司债（4.9%，在违约风险可以接受时），市政债反而最差。同一种资产在不同账户里的税后收益不同，所以应把税负重的资产（例如公司债、TIPS）放在延迟纳税的账户，把免税或税负轻的资产放在应税账户。
+      en: |-
+        (a) The in-state municipal bond is exempt from both taxes: 3.2%; the Treasury pays only federal tax: $4.2\% \times (1 - 0.37) \approx 2.65\%$; the corporate bond pays both: $4.9\% \times (1 - 0.37 - 0.093) \approx 2.63\%$. Choose the municipal bond.
+        (b) In a retirement account interest is not taxed in the current year, so pre-tax yields are compared and the corporate bond is best (4.9%, if its default risk is acceptable), while the municipal bond becomes the worst. The same asset gives different after-tax returns in different accounts, so heavily taxed assets (such as corporate bonds and TIPS) belong in tax-deferred accounts and tax-exempt or lightly taxed assets in taxable accounts.
+    rubric:
+      zh-cn:
+        - "(a) 3.2%、约 2.65% 和 2.63%，选市政债。"
+        - "(b) 改选公司债，并说明账户的作用。"
+      en:
+        - "(a) 3.2%, about 2.65% and 2.63%; the municipal bond."
+        - "(b) Switches to the corporate bond and explains the role of the account."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [tips, real-interest-rate]
+    expected: { inc: "45.45" }
+    question:
+      zh-cn: |-
+        买入面值 1000 的 TIPS，实际票面利率 1.5%（简化为每年付息一次）。第一年 CPI 上涨 3%。
+        (a) 年末调整后的本金和当年收到的票息各是多少？在美国，当年要纳税的利息收入是多少？这比实际收到的现金多还是少？
+        (b) 为什么 TIPS 更适合放在延迟纳税的账户里？如果到期前累计出现通缩，使调整后的本金低于 1000，到期时会得到多少？
+      en: |-
+        You buy TIPS with face value 1000 and a real coupon rate of 1.5% (simplified to one payment a year). In the first year the CPI rises 3%.
+        (a) What are the adjusted principal at year end and the coupon received that year? In the US, how much interest income is taxable that year? Is this more or less than the cash received?
+        (b) Why are TIPS better held in tax-deferred accounts? If cumulative deflation before maturity pushes the adjusted principal below 1000, how much is paid at maturity?
+    answer:
+      zh-cn: |-
+        (a) 本金 $1000 \times 1.03 = 1030$，票息 $1030 \times 1.5\% = 15.45$。应纳税的利息收入为票息加本金调整：$15.45 + 30 = 45.45$，远多于实际收到的现金 15.45。
+        (b) 本金调整要到期才收回，却每年纳税，投资者要用别的钱交税，通胀越高越明显；在延迟纳税的账户里没有这个问题。到期时如果调整后的本金低于 1000，仍偿还 1000：TIPS 对通缩也有保护。
+      en: |-
+        (a) The principal is $1000 \times 1.03 = 1030$ and the coupon $1030 \times 1.5\% = 15.45$. Taxable interest income is the coupon plus the principal adjustment: $15.45 + 30 = 45.45$, far more than the 15.45 of cash received.
+        (b) The principal adjustment is received only at maturity but taxed every year, so the investor must pay the tax with other money, more so when inflation is high; a tax-deferred account avoids this. At maturity, if the adjusted principal is below 1000, 1000 is still repaid: TIPS also protect against deflation.
+    rubric:
+      zh-cn:
+        - "(a) 1030、15.45，应税收入 45.45，多于现金。"
+        - "(b) 说明“没有收到现金却要纳税”，并指出到期至少偿还 1000。"
+      en:
+        - "(a) 1030 and 15.45; taxable income 45.45, more than the cash."
+        - "(b) Explains tax on income not yet received, and that at least 1000 is repaid."
+
+  - id: Q5
+    kind: exercise
+    level: B
+    concepts: [modified-duration, immunization]
+    expected: { dp: "-9.6" }
+    question:
+      zh-cn: |-
+        一位投资者 5 年后要用一笔钱。他可以买一只 5 年后到期的国债，持有到期；也可以买一只修正久期为 4.8、Macaulay 久期约为 5 年的国债基金。买入后，所有期限的利率立即上升 2 个百分点。
+        (a) 基金的净值大约变化多少？单只国债的市场价值呢？
+        (b) “单只债券持有到期就不会亏”这个说法对吗？结合 [[3.4#immunization]]，说明 5 年后两种做法的结果大致怎样。
+      en: |-
+        An investor will need money in 5 years. He can buy a Treasury maturing in 5 years and hold it to maturity, or buy a Treasury fund with a modified duration of 4.8 and a Macaulay duration of about 5 years. Right after he buys, rates of all maturities rise by 2 percentage points.
+        (a) Roughly how much does the fund's value change? What about the market value of the individual Treasury?
+        (b) Is the claim "an individual bond held to maturity cannot lose money" right? Using [[3.4#immunization]], explain roughly how the two approaches end up after 5 years.
+    answer:
+      zh-cn: |-
+        (a) 基金约 $-4.8 \times 2\% = -9.6\%$。单只国债的久期相近，市场价值也下跌约 9.6%（只是如果不卖，账面上不一定显示）。
+        (b) 不完全对。持有到期确实得到约定的名义金额，但利率上升后，同样的钱可以买到收益更高的债券，持有旧债券放弃了这个机会，经济上的损失是一样的，只是没有被确认。基金的久期约等于 5 年的投资期限，正是 [[3.4#immunization]] 的免疫条件：价格下跌之后，基金按更高的利率再投资，5 年后的价值大致回到原先预期的水平，与持有单只债券到期的结果接近。两种做法的主要区别不在利率风险，而在于单只债券的到期金额确定，基金的结果只是近似（基金久期不随投资者的剩余期限缩短）。
+      en: |-
+        (a) The fund changes by about $-4.8 \times 2\% = -9.6\%$. The individual Treasury has a similar duration, so its market value also falls about 9.6% (it just may not show on a statement if it is not sold).
+        (b) Not quite. Holding to maturity does deliver the promised nominal amount, but after rates rise the same money could buy higher-yielding bonds, so holding the old bond gives up that chance; the economic loss is the same, only not recorded. The fund's duration of about 5 years matches the 5-year horizon, which is the immunization condition of [[3.4#immunization]]: after the price fall, the fund reinvests at the higher rates, and after 5 years its value is roughly back to the originally expected level, close to the result of holding the individual bond to maturity. The main difference is not interest rate risk: the individual bond's maturity value is certain, while the fund's result is only approximate (the fund's duration does not shrink with the investor's remaining horizon).
+    rubric:
+      zh-cn:
+        - "(a) 约 −9.6%（写作 - 或 − 均可），单只债券也下跌约同样多。"
+        - "(b) 指出持有到期没有消除经济损失，并用免疫说明 5 年后的结果接近。"
+      en:
+        - "(a) About −9.6% (written with - or −); the individual bond falls about as much."
+        - "(b) Points out that holding to maturity does not remove the economic loss, and uses immunization to show the results after 5 years are close."

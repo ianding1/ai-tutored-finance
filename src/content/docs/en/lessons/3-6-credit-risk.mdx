@@ -1,0 +1,107 @@
+---
+title: 3.6 Credit Risk
+description: "Default risk, recovery rates and credit spreads; promised versus expected returns; credit ratings and their limits; Treasuries, corporate bonds and municipal bonds, including the tax-equivalent yield; Treasury Inflation-Protected Securities (TIPS) and breakeven inflation; bond funds versus individual bonds."
+lesson: "3.6"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import CheckAll from '../../../../components/CheckAll.astro';
+import TipsNominal from '../../../../components/widgets/TipsNominal.astro';
+
+## Default risk and credit spreads [#credit-spread]
+
+The last two lessons assumed that bonds always pay as promised. US Treasuries are usually treated as free of default risk, but companies and local governments may fail to pay interest or principal. The risk that a borrower does not pay as promised is <Def id="default-risk">default risk</Def>. After a default, creditors usually do not lose everything: after the company is reorganized or liquidated, they recover part of what they are owed. The share of face value finally recovered is the <Def id="recovery-rate">recovery rate</Def>.
+
+Consider a 1-year zero-coupon bond with face value 100. Let the probability of default be $p$, and let the creditor recover $100R$ after a default. The expected amount received at maturity is
+
+$$
+E[\text{CF}] = (1 - p) \times 100 + p \times 100R = 100\,[1 - p(1 - R)]
+$$
+
+$p(1 - R)$ is the expected loss rate. A bond's yield to maturity is computed as if every payment is made as promised. The amount by which it exceeds the yield of a Treasury of the same maturity is the <Def id="credit-spread">credit spread</Def>. If investors did not care about risk, the credit spread would only need to cover the expected loss, roughly $p(1 - R)$.
+
+<Check id="C1" />
+
+In practice, credit spreads are usually much larger than expected losses. Moody's long-run statistics since 1920 show average annual default rates of about 0.1% for investment-grade corporate bonds and about 4% for speculative-grade bonds, and an average recovery rate of about 40% for senior unsecured bonds. Investment-grade spreads are often around 1 percentage point, far above an expected loss of about 0.06 percentage points. The main reasons are:
+
+- defaults are concentrated in recessions, when investors' other assets (stocks, income from work) are also suffering, so investors demand a risk premium;
+- corporate bonds trade less actively than Treasuries and have wider bid-ask spreads, so investors demand compensation for liquidity;
+- in the US, Treasury interest is exempt from state and local income tax, while corporate bond interest is not.
+
+## Credit ratings [#ratings]
+
+Most investors cannot analyze every issuer themselves. Rating agencies such as S&P, Moody's and Fitch grade the default risk of issuers or bonds; this grade is a <Def id="credit-rating">credit rating</Def>. The grades of S&P and Fitch, from highest to lowest, are AAA, AA, A, BBB, BB, B, CCC and so on (with + or −); Moody's uses Aaa, Aa, A, Baa, Ba, B, Caa and so on (with 1, 2 or 3). BBB− (Baa3) and above is investment grade; below that is speculative grade or high yield (informally, "junk"). The lower the rating, the higher the default rate and the wider the credit spread.
+
+When using ratings, keep several points in mind:
+
+- A rating ranks the likelihood of default; it is not a forecast of prices. Market prices change every day, while ratings usually change slowly, often only after prices have already moved a lot.
+- Many institutional investors (for example, some insurers, pension funds and funds) have rules that allow them to hold only, or mainly, investment-grade bonds, so the line between investment grade and speculative grade matters a great deal.
+- Rating agencies earn most of their income from the issuers they rate.
+
+<Check id="C2" />
+
+## Treasuries, corporate bonds and municipal bonds [#munis]
+
+US bonds fall into three main groups by issuer:
+
+- Treasuries: issued by the federal government and usually treated as free of default risk; interest is subject to federal income tax but exempt from state and local income tax.
+- Corporate bonds: have default risk; interest is subject to federal and state income tax.
+- <Def id="municipal-bond">Municipal bond</Def>: a bond issued by a state or local government (or one of its agencies). Interest is usually exempt from federal income tax; for bonds issued in the investor's own state, it is usually also exempt from that state's income tax.
+
+To compare tax-exempt and taxable bonds, look at after-tax returns. An investor with marginal tax rate $t$ who holds a taxable bond yielding $y$ keeps $y(1 - t)$ after tax. To match the after-tax return of a tax-exempt municipal bond yielding $y_m$, a taxable bond must yield
+
+$$
+y_{\text{te}} = \frac{y_m}{1 - t}
+$$
+
+This is the <Def id="tax-equivalent-yield">tax-equivalent yield</Def>. In 2026, US federal marginal income tax rates range from 10% to 37% (IRS). The higher the tax rate, the more the exemption is worth, so the main buyers of municipal bonds are investors with high tax rates.
+
+<Check id="C3" />
+
+## Inflation-protected Treasuries [#tips]
+
+Ordinary Treasuries pay fixed nominal amounts, so the higher the inflation, the lower their real value. The principal of <Def id="tips">TIPS</Def> (Treasury Inflation-Protected Securities) is adjusted by the <Ref concept="cpi" /> (CPI): inflation raises the principal in the same proportion, and coupons are paid at a fixed coupon rate on the adjusted principal. At maturity, if the adjusted principal is below the original face value, the original face value is repaid. So the yield of TIPS is a real yield (<Ref concept="real-interest-rate" />).
+
+Let the yield of a nominal Treasury be $y$ and the real yield of a TIPS of the same maturity be $y_r$. If average inflation is $\pi$, the real return of the nominal Treasury is $\frac{1 + y}{1 + \pi} - 1$. The inflation rate at which the two are equal is <Def id="breakeven-inflation">breakeven inflation</Def>:
+
+$$
+1 + \pi_{\text{be}} = \frac{1 + y}{1 + y_r}, \qquad \pi_{\text{be}} \approx y - y_r
+$$
+
+If inflation turns out above it, TIPS do better; if below, the nominal Treasury does better.
+
+<Figure id="4-1" title="100 invested in a 10-year nominal zero-coupon Treasury and 100 in a 10-year TIPS zero, held to maturity: real value after 10 years (in today's prices) against average inflation over the 10 years. Taxes are ignored." observe="Change average inflation and compare the two lines; then change the two yields and see how the point where the lines cross moves.">
+	<TipsNominal />
+</Figure>
+
+<Check id="C4" />
+
+Although the principal adjustment of TIPS is received only at maturity, in the US it is taxed as interest income every year, so TIPS are better held in accounts that defer tax, such as retirement accounts (<Ref check="Q4" />).
+
+## Bond funds and individual bonds [#bond-funds]
+
+Individual investors can buy individual bonds or bond funds. The main differences are:
+
+- An individual bond has a maturity date; held to maturity (without default), it pays a known nominal amount. A bond fund keeps buying new bonds and selling bonds near maturity; it has no maturity date, and its duration stays roughly constant.
+- A fund holds hundreds or even thousands of bonds and so diversifies away the default risk of single issuers; buying corporate bonds yourself, such diversification is hard to achieve.
+- Trading individual corporate and municipal bonds is usually costly (wide bid-ask spreads); a fund's size keeps its trading costs low, but it charges a management fee.
+
+A common claim is: "An individual bond held to maturity cannot lose money, while a fund loses when rates rise." Is this right? <Ref check="Q5" /> analyzes this question using <Ref lesson="3.4" sec="immunization" />.
+
+## Summary [#summary]
+
+- Default risk is described by the probability of default $p$ and the recovery rate $R$; the expected loss rate is $p(1 - R)$. Credit spreads also include a risk premium, compensation for liquidity and tax differences, so they are usually larger than expected losses.
+- Credit ratings rank default risk; BBB− (Baa3) and above is investment grade. Ratings change slowly, and agencies are paid by issuers.
+- Municipal bond interest is usually exempt from federal income tax; the tax-equivalent yield is $y_{\text{te}} = \frac{y_m}{1 - t}$.
+- The principal of TIPS is adjusted by the CPI and their yield is a real yield; breakeven inflation is $\pi_{\text{be}} \approx y - y_r$.
+- Bond funds diversify default risk and have low trading costs, but have no maturity date, and their duration stays roughly constant.
+
+<CheckAll />
+
+## Exercises [#exercises]
+
+<Exercises />

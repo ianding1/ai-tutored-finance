@@ -1,0 +1,99 @@
+---
+// Figure 4-1 of lesson 3.6: real value after 10 years of 100 invested in a 10-year nominal zero and in a
+// 10-year TIPS zero, against average realized inflation. Both are held to maturity; taxes are ignored.
+// Sliders: nominal yield, TIPS real yield, and the inflation rate to mark.
+// Parameters are registered in course/widgets.yaml (id: tips-nominal).
+import { toLang } from '../../i18n/ui';
+
+const lang = toLang(Astro.locals.starlightRoute.lang);
+const L = {
+	'zh-cn': {
+		y: '名义国债收益率（%）',
+		ry: 'TIPS 实际收益率（%）',
+		pi: '10 年平均通胀率（%）',
+		x: '10 年平均通胀率（%）',
+		yl: '10 年后的实际价值',
+		nom: '名义国债',
+		tips: 'TIPS',
+		readout: '盈亏平衡通胀率 {be}%。平均通胀为 {pi}% 时，10 年后的实际价值：名义国债 {n}，TIPS {t}。',
+	},
+	en: {
+		y: 'Nominal Treasury yield (%)',
+		ry: 'TIPS real yield (%)',
+		pi: 'Average inflation over 10 years (%)',
+		x: 'Average inflation over 10 years (%)',
+		yl: 'Real value after 10 years',
+		nom: 'Nominal Treasury',
+		tips: 'TIPS',
+		readout: 'Breakeven inflation {be}%. With average inflation of {pi}%, real value after 10 years: nominal Treasury {n}, TIPS {t}.',
+	},
+}[lang];
+
+const xr = [0, 8];
+const yr = [40, 200];
+const xticks = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+const yticks = [40, 60, 80, 100, 120, 140, 160, 180, 200];
+const layouts = [
+	{ cls: 'viz-wide', W: 640, H: 300, pad: { l: 50, r: 20, t: 14, b: 44 } },
+	{ cls: 'viz-narrow', W: 360, H: 280, pad: { l: 50, r: 12, t: 14, b: 44 } },
+].map((g) => ({
+	...g,
+	X: (v: number) => g.pad.l + ((v - xr[0]) / (xr[1] - xr[0])) * (g.W - g.pad.l - g.pad.r),
+	Y: (v: number) => g.pad.t + ((yr[1] - v) / (yr[1] - yr[0])) * (g.H - g.pad.t - g.pad.b),
+}));
+---
+
+<div class="lfwai-widget" data-widget="tips-nominal" data-readout={L.readout}>
+	<div class="lfwai-sliders">
+		<label>
+			<span>{L.y} = <output data-out="y">4.2</output></span>
+			<input type="range" min="2" max="7" step="0.1" value="4.2" data-param="y" />
+		</label>
+		<label>
+			<span>{L.ry} = <output data-out="ry">1.9</output></span>
+			<input type="range" min="-1" max="3" step="0.1" value="1.9" data-param="ry" />
+		</label>
+		<label>
+			<span>{L.pi} = <output data-out="pi">2</output></span>
+			<input type="range" min="0" max="8" step="0.5" value="2" data-param="pi" />
+		</label>
+	</div>
+	{layouts.map(({ cls, W, H, pad, X, Y }) => (
+		<svg class={`lfwai-viz ${cls}`} viewBox={`0 0 ${W} ${H}`} role="img" aria-label={L.yl} data-geom={JSON.stringify({ W, H, pad, xr, yr })}>
+			<defs>
+				<clipPath id={`tn-clip-${cls}`}>
+					<rect x={pad.l} y={pad.t} width={W - pad.l - pad.r} height={H - pad.t - pad.b} />
+				</clipPath>
+			</defs>
+			{yticks.map((v) => (
+				<g>
+					<line class="viz-grid" x1={pad.l} x2={W - pad.r} y1={Y(v)} y2={Y(v)} />
+					<text class="viz-tick" x={pad.l - 8} y={Y(v) + 4} text-anchor="end">{v}</text>
+				</g>
+			))}
+			{xticks.map((v) => (
+				<text class="viz-tick" x={X(v)} y={H - pad.b + 18} text-anchor="middle">{v}</text>
+			))}
+			<line class="viz-axis" x1={pad.l} x2={W - pad.r} y1={H - pad.b} y2={H - pad.b} />
+			<line class="viz-axis" x1={pad.l} x2={pad.l} y1={pad.t} y2={H - pad.b} />
+			<text class="viz-tick" x={(pad.l + W - pad.r) / 2} y={H - 8} text-anchor="middle">{L.x}</text>
+			<text class="viz-tick" transform={`translate(12 ${(pad.t + H - pad.b) / 2}) rotate(-90)`} text-anchor="middle">{L.yl}</text>
+			<g clip-path={`url(#tn-clip-${cls})`}>
+				<polyline class="viz-curve" fill="none" data-el="nom" points="" />
+				<polyline class="viz-avg" fill="none" data-el="tips" points="" />
+				<line class="viz-mean" data-el="vx" x1="0" y1={pad.t} x2="0" y2={H - pad.b} />
+				<circle class="viz-min" data-el="be" r="5" cx="0" cy="0" />
+			</g>
+		</svg>
+	))}
+	<ul class="lfwai-legend">
+		<li><span class="sw sw-curve"></span>{L.nom}</li>
+		<li><span class="sw sw-avg"></span>{L.tips}</li>
+	</ul>
+	<p class="lfwai-readout" data-el="readout" aria-live="polite"></p>
+</div>
+
+<script>
+	import { initTipsNominal } from '../../scripts/widgets/tips-nominal';
+	initTipsNominal();
+</script>

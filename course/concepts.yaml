@@ -1710,6 +1710,70 @@ preferred-habitat:
     zh-cn: "投资者偏好与自己需要相符的期限，各期限的供求影响期限溢价。"
     en: "Investors prefer maturities that fit their needs, so supply and demand at each maturity affect the term premium."
 
+default-risk:
+  defined_in: "3.6"
+  zh-cn: 违约风险
+  en: default risk
+  short:
+    zh-cn: "借款人不能按约定支付利息或本金的风险。"
+    en: "The risk that a borrower fails to pay interest or principal as promised."
+
+recovery-rate:
+  defined_in: "3.6"
+  zh-cn: 回收率
+  en: recovery rate
+  short:
+    zh-cn: "违约后债权人最终收回的金额占面值的比例。"
+    en: "The share of face value that creditors finally recover after a default."
+
+credit-spread:
+  defined_in: "3.6"
+  zh-cn: 信用利差
+  en: credit spread
+  short:
+    zh-cn: "有违约风险的债券的收益率超过同期限国债收益率的部分。"
+    en: "The amount by which the yield of a bond with default risk exceeds the yield of a Treasury of the same maturity."
+
+credit-rating:
+  defined_in: "3.6"
+  zh-cn: 信用评级
+  en: credit rating
+  short:
+    zh-cn: "评级机构对发行人或债券违约风险的等级评价；BBB−（Baa3）及以上为投资级。"
+    en: "A rating agency's grade of the default risk of an issuer or a bond; BBB− (Baa3) and above is investment grade."
+
+municipal-bond:
+  defined_in: "3.6"
+  zh-cn: 市政债
+  en: municipal bond
+  short:
+    zh-cn: "美国州和地方政府发行的债券，利息通常免联邦所得税。"
+    en: "A bond issued by a US state or local government; its interest is usually exempt from federal income tax."
+
+tax-equivalent-yield:
+  defined_in: "3.6"
+  zh-cn: 含税等价收益率
+  en: tax-equivalent yield
+  short:
+    zh-cn: "应税债券要达到与免税债券相同的税后收益所需的收益率：免税收益率除以 1 减边际税率。"
+    en: "The yield a taxable bond needs to match a tax-exempt bond after tax: the tax-exempt yield divided by one minus the marginal tax rate."
+
+tips:
+  defined_in: "3.6"
+  zh-cn: 通胀保值国债
+  en: TIPS
+  short:
+    zh-cn: "本金按 CPI 调整的美国国债，收益率是实际收益率。"
+    en: "US Treasury securities whose principal is adjusted by the CPI; their yield is a real yield."
+
+breakeven-inflation:
+  defined_in: "3.6"
+  zh-cn: 盈亏平衡通胀率
+  en: breakeven inflation
+  short:
+    zh-cn: "使名义国债与同期限 TIPS 收益相同的通胀率，约等于两者收益率之差。"
+    en: "The inflation rate at which a nominal Treasury and a TIPS of the same maturity give the same return, roughly the difference in their yields."
+
 risk-measures:
   defined_in: "4.1"
   zh-cn: 风险度量

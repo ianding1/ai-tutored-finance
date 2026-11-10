@@ -290,7 +290,15 @@ stages:
         published: true
         introduces: [term-structure, expectations-hypothesis, term-premium, preferred-habitat]
         uses: [yield-curve, spot-rate, forward-rate, zero-coupon-bond, yield-to-maturity, modified-duration, macaulay-duration, immunization, quantitative-easing, forward-guidance, expected-value]
-      - { id: "3.6", slug: "3-6-credit-risk", title: { zh-cn: "信用风险", en: "Credit Risk" } }
+      - id: "3.6"
+        slug: "3-6-credit-risk"
+        title: { zh-cn: "信用风险", en: "Credit Risk" }
+        summary:
+          zh-cn: "违约风险、回收率与信用利差；承诺收益与预期收益；信用评级及其局限；国债、公司债与市政债，含税等价收益率；通胀保值国债（TIPS）与盈亏平衡通胀率；债券基金与单只债券。"
+          en: "Default risk, recovery rates and credit spreads; promised versus expected returns; credit ratings and their limits; Treasuries, corporate bonds and municipal bonds, including the tax-equivalent yield; Treasury Inflation-Protected Securities (TIPS) and breakeven inflation; bond funds versus individual bonds."
+        published: true
+        introduces: [default-risk, recovery-rate, credit-spread, credit-rating, municipal-bond, tax-equivalent-yield, tips, breakeven-inflation]
+        uses: [yield-to-maturity, zero-coupon-bond, present-value, expected-value, correlation, principal-agent-problem, adverse-selection, cpi, inflation, real-interest-rate, modified-duration, immunization, recession, stock-bond-correlation, term-premium]
       - { id: "E3a", slug: "e3a-quiz", exam: true, title: { zh-cn: "测验 E3a：金融市场与固定收益", en: "Quiz E3a: Financial Markets and Fixed Income" } }
       - { id: "3.7", slug: "3-7-financial-statements", title: { zh-cn: "财务报表分析", en: "Financial Statement Analysis" } }
       - { id: "3.8", slug: "3-8-financial-ratios", title: { zh-cn: "财务比率", en: "Financial Ratios" } }
