@@ -1,0 +1,95 @@
+---
+title: 3.3 Bond Pricing
+description: "Bond cash flows and prices; the inverse relation between yield to maturity and price; premium, discount and how prices change over time; zero-coupon bonds and spot rates; forward rates; the coupon effect."
+lesson: "3.3"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import CheckAll from '../../../../components/CheckAll.astro';
+import BondPrice from '../../../../components/widgets/BondPrice.astro';
+
+## Bond cash flows [#bonds]
+
+An ordinary bond promises two kinds of payment: the face value (often 1000 or 100) repaid at maturity, and regular interest payments before maturity, called coupons. The yearly coupon divided by the face value is the <Def id="coupon-rate">coupon rate</Def>. For example, a bond with a face value of 1000, a 6% coupon rate, 5 years to maturity and one payment a year pays 60 each year for 5 years and repays 1000 in year 5. US Treasuries and most corporate bonds pay every six months, half of the yearly coupon each time.
+
+So a bond is an annuity plus a single payment at maturity (<Ref concept="annuity" />). At a discount rate $y$, a bond with face value $F$, coupon $C$ per period and $T$ periods to maturity has the price
+
+$$
+P = C \times \frac{1 - (1 + y)^{-T}}{y} + \frac{F}{(1 + y)^T}
+$$
+
+<Check id="C1" />
+
+## Yield to maturity [#ytm]
+
+What can be observed in the market is the bond's price. The discount rate $y$ that makes the formula hold is called the <Def id="yield-to-maturity">yield to maturity</Def> (YTM): it is the <Ref concept="internal-rate-of-return" /> of buying the bond at its market price.
+
+The formula shows:
+
+- **Price and yield to maturity move in opposite directions**: when the yield rises, the present value of future cash flows falls, and the price falls.
+- When the coupon rate equals the yield, the price equals the face value (par); when the coupon rate is above the yield, the price is above face value (premium); when below, the price is below face value (discount).
+- The relation between price and yield is not a straight line but a curve bowed toward the origin: the price rises more when the yield falls than it falls when the yield rises by the same amount (<Ref lesson="3.4" /> discusses this convexity).
+
+The yearly coupon divided by the price is called the current yield. It reflects only the coupon, not the movement of the price toward face value, so a premium bond's current yield is above its yield to maturity and a discount bond's is below.
+
+<Figure id="2-1" title="Price of a bond with face value 100 and annual coupons, against its yield to maturity. The dashed line is face value." observe="Set the yield equal to the coupon rate and check whether the price equals face value; then compare the price changes when the yield rises by 1 point and falls by 1 point. How does the curve change with a longer maturity?">
+	<BondPrice />
+</Figure>
+
+<Check id="C2" />
+
+## How prices change over time [#price-over-time]
+
+Even if the yield to maturity does not change, a bond's price changes over time: at maturity the price must equal face value. So a premium bond's price falls year by year and a discount bond's rises, both moving toward face value (pull to par).
+
+If the yield does not change, the holding return for a year (the coupon plus the change in price, divided by the price at the start of the year) equals the yield to maturity exactly: a premium bond pays higher coupons, but part of them is offset each year by the fall in price; a discount bond is the reverse (<Ref check="C3" />).
+
+But the yield to maturity is not a return the investor is sure to earn: it assumes the bond is held to maturity, the issuer does not default, and all coupons received can be reinvested at the same yield (<Ref check="Q5" />).
+
+<Check id="C3" />
+
+## Zero-coupon bonds and spot rates [#spot-rates]
+
+A bond that pays a single amount at maturity, with no coupons in between, is called a <Def id="zero-coupon-bond">zero-coupon bond</Def>. It sells below face value, and its whole return comes from the price rising toward face value. Through its STRIPS program, the US Treasury lets each coupon and the principal of a Treasury be separated and traded as separate zero-coupon bonds.
+
+The yield to maturity of a $t$-year zero-coupon bond is called the $t$-year <Def id="spot-rate">spot rate</Def>, written $s_t$: the yearly return from investing today and receiving a single payment in $t$ years.
+
+A coupon bond can be seen as a set of zero-coupon bonds: each cash flow is one zero. So each cash flow should be discounted at the spot rate for **its own** maturity:
+
+$$
+P = \sum_{t=1}^{T} \frac{\text{CF}_t}{(1 + s_t)^t}
+$$
+
+If a coupon bond's price differs from this value, one can buy the cheap side and sell the expensive side (for example, strip a coupon Treasury and sell the zeros), earning a risk-free arbitrage profit. The yield to maturity replaces all the spot rates with a single discount rate; it is a kind of weighted average of the spot rates. So bonds with the same maturity but different coupon rates can have different yields to maturity even when all are priced from the same spot rates; this is called the coupon effect (<Ref check="Q3" />).
+
+<Check id="C4" />
+
+## Forward rates [#forward-rates]
+
+Suppose the 1-year spot rate is $s_1$ and the 2-year rate $s_2$. An investor can invest for two years in two ways: buy a 2-year zero directly, or buy a 1-year zero and reinvest for another year when it matures. The rate for the second year under the second plan is not known today, but an "implied" rate that makes the two plans equal can be computed from today's prices:
+
+$$
+(1 + s_2)^2 = (1 + s_1)(1 + f_{1,2})
+$$
+
+$f_{1,2}$ is called the <Def id="forward-rate">forward rate</Def> from year 1 to year 2. It is a future rate that can be locked in today: for example, buying a 2-year zero while shorting a 1-year zero amounts to investing for one year from year 1 at $f_{1,2}$. How forward rates relate to the rates people expect in the future is the subject of <Ref lesson="3.5" />.
+
+<Check id="C5" />
+
+## Summary [#summary]
+
+- A bond = an annuity (coupons) + face value at maturity; price $P = C \times \frac{1 - (1 + y)^{-T}}{y} + \frac{F}{(1 + y)^T}$.
+- The yield to maturity is the IRR of buying at the market price; price and yield move inversely along a convex curve. A coupon rate above the yield gives a premium, below it a discount.
+- With an unchanged yield, the price is pulled to par and the holding return equals the yield to maturity; but the yield to maturity assumes holding to maturity, no default and reinvestment of coupons at the same yield.
+- The yield on a zero is a spot rate; each cash flow of a coupon bond should be discounted at the spot rate for its maturity, or there is arbitrage.
+- The forward rate $f_{1,2}$ satisfies $(1 + s_2)^2 = (1 + s_1)(1 + f_{1,2})$ and can be locked in today.
+
+<CheckAll />
+
+## Exercises [#exercises]
+
+<Exercises />

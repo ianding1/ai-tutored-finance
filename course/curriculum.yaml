@@ -263,7 +263,15 @@ stages:
         published: true
         introduces: [net-present-value, cost-of-capital, internal-rate-of-return, payback-period, profitability-index]
         uses: [present-value, annuity, sunk-cost, fisher-equation, real-interest-rate, first-order-condition, expected-value]
-      - { id: "3.3", slug: "3-3-bond-pricing", title: { zh-cn: "债券定价", en: "Bond Pricing" } }
+      - id: "3.3"
+        slug: "3-3-bond-pricing"
+        title: { zh-cn: "债券定价", en: "Bond Pricing" }
+        summary:
+          zh-cn: "债券的现金流与价格；到期收益率与价格的反向关系；溢价、折价与价格随时间的变化；零息债与即期利率；远期利率；票息效应。"
+          en: "Bond cash flows and prices; the inverse relation between yield to maturity and price; premium, discount and how prices change over time; zero-coupon bonds and spot rates; forward rates; the coupon effect."
+        published: true
+        introduces: [coupon-rate, yield-to-maturity, zero-coupon-bond, spot-rate, forward-rate]
+        uses: [present-value, annuity, ear, future-value, internal-rate-of-return, net-present-value]
       - { id: "3.4", slug: "3-4-interest-rate-risk", title: { zh-cn: "利率风险", en: "Interest Rate Risk" } }
       - { id: "3.5", slug: "3-5-term-structure", title: { zh-cn: "利率期限结构", en: "The Term Structure of Interest Rates" } }
       - { id: "3.6", slug: "3-6-credit-risk", title: { zh-cn: "信用风险", en: "Credit Risk" } }

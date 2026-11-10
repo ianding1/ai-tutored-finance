@@ -1606,6 +1606,46 @@ profitability-index:
     zh-cn: "NPV 除以初始投资，资本配给时用于排序。"
     en: "NPV divided by the initial investment, used to rank projects under capital rationing."
 
+coupon-rate:
+  defined_in: "3.3"
+  zh-cn: 票面利率
+  en: coupon rate
+  short:
+    zh-cn: "每年的票息除以面值。"
+    en: "The yearly coupon divided by the face value."
+
+yield-to-maturity:
+  defined_in: "3.3"
+  zh-cn: 到期收益率
+  en: yield to maturity
+  short:
+    zh-cn: "使债券现金流的现值等于市场价格的折现率，即按市场价格买入的内部收益率。"
+    en: "The discount rate that makes the present value of a bond's cash flows equal its market price: the IRR of buying at that price."
+
+zero-coupon-bond:
+  defined_in: "3.3"
+  zh-cn: 零息债
+  en: zero-coupon bond
+  short:
+    zh-cn: "只在到期时支付面值、中间没有票息的债券。"
+    en: "A bond that pays only its face value at maturity, with no coupons."
+
+spot-rate:
+  defined_in: "3.3"
+  zh-cn: 即期利率
+  en: spot rate
+  short:
+    zh-cn: "t 年期零息债的到期收益率；每笔现金流应按它自己期限的即期利率折现。"
+    en: "The yield on a t-year zero-coupon bond; each cash flow should be discounted at the spot rate for its own maturity."
+
+forward-rate:
+  defined_in: "3.3"
+  zh-cn: 远期利率
+  en: forward rate
+  short:
+    zh-cn: "由即期利率隐含、今天可以锁定的未来一段时间的利率：$(1 + s_2)^2 = (1 + s_1)(1 + f_{1,2})$。"
+    en: "The rate for a future period implied by spot rates and lockable today: $(1 + s_2)^2 = (1 + s_1)(1 + f_{1,2})$."
+
 risk-measures:
   defined_in: "4.1"
   zh-cn: 风险度量
