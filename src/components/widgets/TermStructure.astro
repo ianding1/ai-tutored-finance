@@ -1,0 +1,86 @@
+---
+// Figure 3-1 of lesson 3.5: yield curve built from expected short rates and a term premium.
+// The 1-year rate is 4%. The expected 1-year rate in year t is lr + (4 - lr) * 0.7^(t-1).
+// The forward rate for year t adds a term premium tp * (t - 1) / 9 (tp in year 10).
+// The n-year yield is approximated by the arithmetic mean of the first n forward rates.
+// Dashed curve: yields with no term premium (expectations hypothesis). Solid curve: with the premium.
+// Parameters are registered in course/widgets.yaml (id: term-structure).
+import { toLang } from '../../i18n/ui';
+
+const lang = toLang(Astro.locals.starlightRoute.lang);
+const L = {
+	'zh-cn': {
+		lr: '预期的长期短期利率水平（%）',
+		tp: '第 10 年远期利率中的期限溢价（百分点）',
+		x: '期限（年）',
+		y: '收益率（%）',
+		eh: '只有预期（无期限溢价）',
+		full: '预期加期限溢价',
+		readout: '2 年期收益率 {y2}%，10 年期收益率 {y10}%：其中预期的短期利率平均为 {e10}%，期限溢价 {t10} 个百分点。',
+	},
+	en: {
+		lr: 'Expected long-run level of short rates (%)',
+		tp: 'Term premium in the year-10 forward rate (percentage points)',
+		x: 'Maturity (years)',
+		y: 'Yield (%)',
+		eh: 'Expectations only (no term premium)',
+		full: 'Expectations plus term premium',
+		readout: '2-year yield {y2}%, 10-year yield {y10}%: average expected short rate {e10}%, term premium {t10} percentage points.',
+	},
+}[lang];
+
+const xr = [0, 10];
+const yr = [0, 8];
+const xticks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const yticks = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+const layouts = [
+	{ cls: 'viz-wide', W: 640, H: 300, pad: { l: 44, r: 20, t: 14, b: 44 } },
+	{ cls: 'viz-narrow', W: 360, H: 280, pad: { l: 44, r: 12, t: 14, b: 44 } },
+].map((g) => ({
+	...g,
+	X: (v: number) => g.pad.l + ((v - xr[0]) / (xr[1] - xr[0])) * (g.W - g.pad.l - g.pad.r),
+	Y: (v: number) => g.pad.t + ((yr[1] - v) / (yr[1] - yr[0])) * (g.H - g.pad.t - g.pad.b),
+}));
+---
+
+<div class="lfwai-widget" data-widget="term-structure" data-readout={L.readout}>
+	<div class="lfwai-sliders">
+		<label>
+			<span>{L.lr} = <output data-out="lr">4</output></span>
+			<input type="range" min="1" max="7" step="0.5" value="4" data-param="lr" />
+		</label>
+		<label>
+			<span>{L.tp} = <output data-out="tp">0.5</output></span>
+			<input type="range" min="0" max="2" step="0.25" value="0.5" data-param="tp" />
+		</label>
+	</div>
+	{layouts.map(({ cls, W, H, pad, X, Y }) => (
+		<svg class={`lfwai-viz ${cls}`} viewBox={`0 0 ${W} ${H}`} role="img" aria-label={L.full} data-geom={JSON.stringify({ W, H, pad, xr, yr })}>
+			{yticks.map((v) => (
+				<g>
+					<line class={v === 0 ? 'viz-axis' : 'viz-grid'} x1={pad.l} x2={W - pad.r} y1={Y(v)} y2={Y(v)} />
+					<text class="viz-tick" x={pad.l - 8} y={Y(v) + 4} text-anchor="end">{v}</text>
+				</g>
+			))}
+			{xticks.map((v) => (
+				<text class="viz-tick" x={X(v)} y={H - pad.b + 18} text-anchor="middle">{v}</text>
+			))}
+			<line class="viz-axis" x1={pad.l} x2={pad.l} y1={pad.t} y2={H - pad.b} />
+			<text class="viz-tick" x={(pad.l + W - pad.r) / 2} y={H - 8} text-anchor="middle">{L.x}</text>
+			<text class="viz-tick" transform={`translate(12 ${(pad.t + H - pad.b) / 2}) rotate(-90)`} text-anchor="middle">{L.y}</text>
+			<polyline class="viz-avg" fill="none" data-el="eh" points="" />
+			<polyline class="viz-curve" fill="none" data-el="full" points="" />
+			<g data-el="dots"></g>
+		</svg>
+	))}
+	<ul class="lfwai-legend">
+		<li><span class="sw sw-avg"></span>{L.eh}</li>
+		<li><span class="sw sw-curve"></span>{L.full}</li>
+	</ul>
+	<p class="lfwai-readout" data-el="readout" aria-live="polite"></p>
+</div>
+
+<script>
+	import { initTermStructure } from '../../scripts/widgets/term-structure';
+	initTermStructure();
+</script>

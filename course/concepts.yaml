@@ -1678,6 +1678,38 @@ immunization:
     zh-cn: "使资产与负债的现值和久期相等，让一次利率变化的价格影响和再投资影响相互抵消。"
     en: "Matching the present values and durations of assets and liabilities so that the price and reinvestment effects of a rate change offset."
 
+term-structure:
+  defined_in: "3.5"
+  zh-cn: 利率期限结构
+  en: term structure of interest rates
+  short:
+    zh-cn: "同一发行人的利率与期限之间的关系，用收益率曲线表示。"
+    en: "The relation between interest rates and maturity for one issuer, shown by the yield curve."
+
+expectations-hypothesis:
+  defined_in: "3.5"
+  zh-cn: 预期假说
+  en: expectations hypothesis
+  short:
+    zh-cn: "长期利率是预期的未来短期利率的几何平均；远期利率等于预期的未来短期利率。"
+    en: "Long rates are the geometric average of expected future short rates; forward rates equal expected future short rates."
+
+term-premium:
+  defined_in: "3.5"
+  zh-cn: 期限溢价
+  en: term premium
+  short:
+    zh-cn: "远期利率（或长期利率）超过预期的未来短期利率的部分，补偿持有长期债券的风险，可正可负。"
+    en: "The amount by which forward rates (or long rates) exceed expected future short rates, compensating for the risk of long bonds; it can be positive or negative."
+
+preferred-habitat:
+  defined_in: "3.5"
+  zh-cn: 优先偏好理论
+  en: preferred habitat theory
+  short:
+    zh-cn: "投资者偏好与自己需要相符的期限，各期限的供求影响期限溢价。"
+    en: "Investors prefer maturities that fit their needs, so supply and demand at each maturity affect the term premium."
+
 risk-measures:
   defined_in: "4.1"
   zh-cn: 风险度量

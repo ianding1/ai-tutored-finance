@@ -1,0 +1,100 @@
+---
+title: 3.5 The Term Structure of Interest Rates
+description: "The term structure of interest rates and the shapes of the yield curve; the expectations hypothesis: long rates and expected future short rates; the term premium and the liquidity premium theory; the preferred habitat theory; what the slope of the yield curve tells us."
+lesson: "3.5"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import CheckAll from '../../../../components/CheckAll.astro';
+import TermStructure from '../../../../components/widgets/TermStructure.astro';
+
+## The yield curve [#yield-curve]
+
+In <Ref lesson="3.3" />, zero-coupon bonds of different maturities had different <Ref concept="spot-rate" />s. The relation between interest rates and maturity for one issuer (usually the government) is the <Def id="term-structure">term structure of interest rates</Def>, and its graph is the <Ref concept="yield-curve" />. This lesson writes $s_n$ for the $n$-year spot rate and $r_t$ for the 1-year rate in year $t$ (the first year's $r_1 = s_1$ is known today; those of later years are not yet known).
+
+The yield curve has several common shapes:
+
+- upward-sloping: long rates are above short rates; this is the most common shape;
+- flat: rates of all maturities are close;
+- inverted: long rates are below short rates (<Ref lesson="2.8" sec="yield-curve" />);
+- humped: medium-term rates are highest, with lower rates at both ends.
+
+Why does the curve take different shapes? The usual explanations involve three things: expectations about future short rates, compensation for the risk of holding long bonds, and supply and demand at different maturities. We discuss them in turn.
+
+## The expectations hypothesis [#expectations]
+
+First suppose investors care only about expected returns, not about risk. An investor with a two-year horizon can buy a 2-year zero, or buy a 1-year zero and, when it matures, another 1-year zero. If the two approaches had different expected returns, everyone would choose the better one until they became equal:
+
+$$
+(1 + s_2)^2 = (1 + s_1)(1 + E[r_2])
+$$
+
+$E[r_2]$ is the 1-year rate the market expects next year. For any maturity,
+
+$$
+(1 + s_n)^n = (1 + s_1)(1 + E[r_2]) \cdots (1 + E[r_n])
+$$
+
+so the $n$-year rate is the geometric average of the expected short rates of each year, roughly $s_n \approx \frac{1}{n}(s_1 + E[r_2] + \cdots + E[r_n])$. Compared with the definition in <Ref lesson="3.3" sec="forward-rates" />, this says that forward rates are the expected future short rates:
+
+$$
+f_{t-1,t} = E[r_t]
+$$
+
+This is the <Def id="expectations-hypothesis">expectations hypothesis</Def>. Under it, an upward-sloping curve means the market expects short rates to rise, and an inverted curve means it expects them to fall; <Ref check="Q5" lesson="2.5" /> and <Ref lesson="2.8" /> used this idea.
+
+When the curve slopes upward, long bonds have higher yields. Under the expectations hypothesis, are long bonds the better choice for an investor with a 1-year horizon? <Ref check="C1" /> answers this with an example.
+
+<Check id="C1" />
+
+## The term premium [#term-premium]
+
+The expectations hypothesis ignores risk. <Ref lesson="3.4" /> showed that for an investor with a 1-year horizon, a 1-year bill is riskless, while the price of a long bond after a year depends on the rates at that time: it has price risk, and the longer the duration, the larger the risk. If most investors have short horizons and are risk-averse, they demand an extra expected return from long bonds. Then forward rates are above expected future short rates:
+
+$$
+f_{t-1,t} = E[r_t] + \phi_t
+$$
+
+$\phi_t$ is the <Def id="term-premium">term premium</Def>. The theory that the term premium is positive and rises with maturity is the liquidity premium theory. In that case, forward rates used as forecasts of future short rates are too high on average.
+
+So a long rate is roughly the average expected short rate plus the term premium. <Ref fig="3-1" /> draws the two parts separately.
+
+<Figure id="3-1" title="The 1-year rate is 4%. The expected 1-year rate moves toward a long-run level each year (closing 30% of the gap each year); the term premium in forward rates rises linearly with the year and equals the chosen value in year 10. The yield of each maturity is approximated by the arithmetic average of forward rates." observe="First set the term premium to 0 and change the expected long-run level to see how the curve follows expectations; then add a term premium and see whether the slope of the curve still shows directly whether the market expects rates to rise or fall.">
+	<TermStructure />
+</Figure>
+
+<Check id="C2" />
+
+The term premium can also be negative. The <Def id="preferred-habitat">preferred habitat theory</Def> holds that different investors prefer different maturities. For example, money market funds and corporate cash management prefer short bonds, while some investors have needs that make long bonds a better fit. Investors will leave their preferred maturity, but only for compensation, so supply and demand at each maturity affect the term premium: when the government issues more long-term debt, the term premium rises; when the central bank buys long Treasuries through <Ref concept="quantitative-easing" />, it falls. Estimates from the New York Fed's ACM model show that the US 10-year term premium was negative for most of the time from around 2016 to the early 2020s. Which investors would hold long bonds at lower yields? <Ref check="C3" /> discusses an example.
+
+<Check id="C3" />
+
+## Shapes of the curve and what they mean [#curve-shapes]
+
+The yield curve contains two kinds of information at the same time: the market's expectations of future short rates, and the term premium. The term premium cannot be observed directly; it can only be estimated with models, and estimates from different models can differ a lot.
+
+- The US Treasury yield curve slopes upward most of the time, and on average long Treasuries yield more than short ones, which is consistent with a term premium that is positive on average.
+- Inversions usually follow sharp rate increases by the central bank: short rates are high, and the market expects cuts later (<Ref lesson="2.8" sec="yield-curve" />).
+- Most movements of the curve can be described by three kinds of change: level, a shift of the whole curve up or down; slope, a change in the spread between long and short rates; and curvature, a change in medium-term rates relative to both ends. Litterman and Scheinkman (1991) found that these three explain most of the variation in US Treasury returns.
+- Must long rates fall when the central bank cuts its rate? <Ref check="Q3" /> discusses this question.
+
+For investors, extending duration earns the term premium on average but carries price risk. A common practice is "riding the yield curve": when the curve slopes upward, buy bonds longer than the investment horizon and sell them before maturity. If the curve does not change, the bond's remaining maturity shortens over time, its yield moves down along the curve, and its price rises. Under what conditions does this earn more? <Ref check="C4" />
+
+<Check id="C4" />
+
+## Summary [#summary]
+
+- The term structure of interest rates is the relation between rates and maturity for one issuer, shown by the yield curve; common shapes are upward-sloping, flat, inverted and humped.
+- Expectations hypothesis: $(1 + s_n)^n = (1 + s_1)(1 + E[r_2]) \cdots (1 + E[r_n])$; forward rates equal expected future short rates.
+- Term premium: $f_{t-1,t} = E[r_t] + \phi_t$. The liquidity premium theory holds that it is positive and rises with maturity; the preferred habitat theory holds that it depends on supply and demand at each maturity and can be positive or negative.
+- A long rate is roughly the average expected short rate plus the term premium; most movements of the curve can be described by changes in level, slope and curvature.
+
+<CheckAll />
+
+## Exercises [#exercises]
+
+<Exercises />

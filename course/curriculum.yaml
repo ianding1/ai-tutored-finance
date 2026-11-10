@@ -281,7 +281,15 @@ stages:
         published: true
         introduces: [macaulay-duration, modified-duration, convexity, immunization]
         uses: [present-value, perpetuity, derivative, yield-to-maturity, zero-coupon-bond, coupon-rate, bank-run]
-      - { id: "3.5", slug: "3-5-term-structure", title: { zh-cn: "利率期限结构", en: "The Term Structure of Interest Rates" } }
+      - id: "3.5"
+        slug: "3-5-term-structure"
+        title: { zh-cn: "利率期限结构", en: "The Term Structure of Interest Rates" }
+        summary:
+          zh-cn: "利率期限结构与收益率曲线的形状；预期假说：长期利率与预期的未来短期利率；期限溢价与流动性溢价理论；优先偏好理论；收益率曲线的斜率包含哪些信息。"
+          en: "The term structure of interest rates and the shapes of the yield curve; the expectations hypothesis: long rates and expected future short rates; the term premium and the liquidity premium theory; the preferred habitat theory; what the slope of the yield curve tells us."
+        published: true
+        introduces: [term-structure, expectations-hypothesis, term-premium, preferred-habitat]
+        uses: [yield-curve, spot-rate, forward-rate, zero-coupon-bond, yield-to-maturity, modified-duration, macaulay-duration, immunization, quantitative-easing, forward-guidance, expected-value]
       - { id: "3.6", slug: "3-6-credit-risk", title: { zh-cn: "信用风险", en: "Credit Risk" } }
       - { id: "E3a", slug: "e3a-quiz", exam: true, title: { zh-cn: "测验 E3a：金融市场与固定收益", en: "Quiz E3a: Financial Markets and Fixed Income" } }
       - { id: "3.7", slug: "3-7-financial-statements", title: { zh-cn: "财务报表分析", en: "Financial Statement Analysis" } }

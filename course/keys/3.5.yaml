@@ -1,0 +1,273 @@
+# Answer key for lesson 3.5. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[3.4#duration]] (section), [[concept:term-premium]], [[check:Q3]], [[fig:3-1]].
+# expected: values are recomputed by course/verify/3.5.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+
+lesson: "3.5"
+
+context:
+  - zh-cn: |-
+      学习者学过现值、期望（第 0 阶段）、货币政策、量化宽松和前瞻指引（[[2.5]]）、收益率曲线与倒挂（[[2.8]]）、零息债、即期利率和远期利率（[[3.3]]）、久期和免疫（[[3.4]]）。讲义还没有讲违约风险（[[3.6]]）。讲义用 $s_n$ 表示 $n$ 年期即期利率，$r_t$ 表示第 $t$ 年的 1 年期利率，$f_{t-1,t}$ 表示第 $t-1$ 年到第 $t$ 年的远期利率。金额保留两位小数，百分数用百分点表示。
+    en: |-
+      The learner has studied present value and expected value (Stage 0), monetary policy, quantitative easing and forward guidance ([[2.5]]), the yield curve and inversion ([[2.8]]), zero-coupon bonds, spot rates and forward rates ([[3.3]]), and duration and immunization ([[3.4]]). The lesson has not yet covered default risk ([[3.6]]). The lesson writes $s_n$ for the $n$-year spot rate, $r_t$ for the 1-year rate in year $t$, and $f_{t-1,t}$ for the forward rate from year $t-1$ to year $t$. Amounts to two decimals; percentages in percentage points.
+  - concepts: [term-structure, expectations-hypothesis]
+    zh-cn: |-
+      讲义：收益率曲线的常见形状有向上倾斜、平坦、倒挂和驼峰。预期假说假设投资者只关心预期收益：$(1 + s_n)^n = (1 + s_1)(1 + E[r_2]) \cdots (1 + E[r_n])$，近似地 $s_n$ 是预期短期利率的平均值；远期利率等于预期的未来短期利率，$f_{t-1,t} = E[r_t]$。
+    en: |-
+      The lesson: common shapes of the yield curve are upward-sloping, flat, inverted and humped. The expectations hypothesis assumes investors care only about expected returns: $(1 + s_n)^n = (1 + s_1)(1 + E[r_2]) \cdots (1 + E[r_n])$, so $s_n$ is roughly the average of expected short rates; forward rates equal expected future short rates, $f_{t-1,t} = E[r_t]$.
+  - concepts: [term-premium, preferred-habitat]
+    zh-cn: |-
+      讲义：对短期投资者，长期债券有价格风险；$f_{t-1,t} = E[r_t] + \phi_t$，$\phi_t$ 为期限溢价。流动性溢价理论认为它为正并随期限增加，这时远期利率高于预期的未来利率。优先偏好理论：投资者偏好不同的期限，离开偏好的期限要得到补偿，各期限的供求影响期限溢价（政府多发长期国债使它上升，量化宽松使它下降）；纽约联储 ACM 模型估计美国 10 年期国债的期限溢价在 2016 年前后到 2020 年代初的大部分时间为负。[[fig:3-1]]：1 年期利率 4%；预期的 1 年期利率 $E[r_t] = L + (4 - L) \times 0.7^{t-1}$；远期利率中的期限溢价为 $\phi_t = p \times \frac{t - 1}{9}$；收益率用远期利率的算术平均近似。滑块：预期的长期水平 $L$ 为 1 到 7（步长 0.5，默认 4），第 10 年的期限溢价 $p$ 为 0 到 2 个百分点（步长 0.25，默认 0.5）。读数显示 2 年期和 10 年期收益率，以及 10 年期收益率中的预期部分和期限溢价。
+    en: |-
+      The lesson: for short-horizon investors, long bonds carry price risk; $f_{t-1,t} = E[r_t] + \phi_t$, where $\phi_t$ is the term premium. The liquidity premium theory holds that it is positive and rises with maturity, so forward rates exceed expected future rates. The preferred habitat theory: investors prefer different maturities and need compensation to leave them, so supply and demand at each maturity affect the term premium (more long-term government debt raises it, quantitative easing lowers it); the New York Fed's ACM model estimates that the US 10-year term premium was negative for most of the time from around 2016 to the early 2020s. [[fig:3-1]]: the 1-year rate is 4%; the expected 1-year rate is $E[r_t] = L + (4 - L) \times 0.7^{t-1}$; the term premium in forward rates is $\phi_t = p \times \frac{t - 1}{9}$; yields are approximated by the arithmetic average of forward rates. Sliders: the expected long-run level $L$ from 1 to 7 (in steps of 0.5, default 4) and the year-10 term premium $p$ from 0 to 2 percentage points (in steps of 0.25, default 0.5). The readout shows the 2-year and 10-year yields and the expected and term-premium parts of the 10-year yield.
+  - concepts: [term-premium, term-structure]
+    zh-cn: |-
+      讲义：长期利率约等于预期短期利率的平均值加期限溢价。美国国债曲线大部分时间向上倾斜；倒挂通常出现在央行大幅加息之后。曲线的变动大部分可以用水平、斜率、曲率三种变化描述（Litterman 和 Scheinkman，1991）。延长久期平均可以赚取期限溢价，但要承担价格风险。“骑乘收益率曲线”：曲线向上倾斜时买入比投资期限更长的债券，在到期前卖出。
+    en: |-
+      The lesson: a long rate is roughly the average expected short rate plus the term premium. The US Treasury curve slopes upward most of the time; inversions usually follow sharp rate increases by the central bank. Most movements of the curve can be described by three kinds of change: level, slope and curvature (Litterman and Scheinkman, 1991). Extending duration earns the term premium on average but carries price risk. "Riding the yield curve": when the curve slopes upward, buy bonds longer than the investment horizon and sell them before maturity.
+
+common_errors:
+  - questions: [C1, C4, Q1]
+    zh-cn: |-
+      以为曲线向上倾斜时长期债券一定是“更好的投资”。按预期假说，各种期限的预期收益相同；长期债券收益率较高，只是因为预期以后的短期利率更高。
+    en: |-
+      Thinking long bonds are always the "better investment" when the curve slopes upward. Under the expectations hypothesis every maturity has the same expected return; long yields are higher only because future short rates are expected to be higher.
+  - questions: [C2, Q1, Q3]
+    zh-cn: |-
+      直接把远期利率或收益率曲线的斜率当作市场对未来利率的预测，忽略期限溢价。
+    en: |-
+      Reading forward rates or the slope of the yield curve directly as the market's forecast of future rates, ignoring the term premium.
+  - questions: [C3, Q2]
+    zh-cn: |-
+      以为长期债券对所有投资者都风险更高。风险取决于投资期限：对需要在很远的将来付款的投资者，长期零息债没有风险，滚动短期债券反而有再投资风险。
+    en: |-
+      Thinking long bonds are riskier for every investor. Risk depends on the horizon: for an investor who must pay far in the future, a long zero is riskless, while rolling short bonds has reinvestment risk.
+  - questions: [Q3, Q4]
+    zh-cn: |-
+      以为央行降息，长期利率就一定下降。长期利率取决于对整个未来短期利率的预期和期限溢价，而不只是当前的政策利率。
+    en: |-
+      Thinking long rates must fall when the central bank cuts. Long rates depend on expectations of all future short rates and on the term premium, not only on the current policy rate.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: expectations
+    concepts: [expectations-hypothesis, forward-rate]
+    expected: { f: "5.01", p0: "92.46", p1: "95.23", ret: "3.00" }
+    question:
+      zh-cn: |-
+        1 年期即期利率为 3%，2 年期为 4%，预期假说成立。一位投资者只打算投资 1 年，他考虑买入面值 100 的 2 年期零息债，一年后卖出。(a) 市场预期明年的 1 年期利率是多少？一年后这张债券的预期价格是多少？(b) 他持有一年的预期收益率是多少？这说明 2 年期利率较高意味着什么？
+      en: |-
+        The 1-year spot rate is 3% and the 2-year spot rate 4%, and the expectations hypothesis holds. An investor plans to invest for only 1 year and considers buying a 2-year zero with face value 100 and selling it after a year. (a) What 1-year rate does the market expect next year? What is the bond's expected price after a year? (b) What is his expected return for the year? What does this say about the meaning of the higher 2-year rate?
+    answer:
+      zh-cn: |-
+        (a) $E[r_2] = f_{1,2} = \frac{1.04^2}{1.03} - 1 \approx 5.01\%$。一年后它是 1 年期零息债，预期价格 $\frac{100}{1.0501} \approx 95.23$。
+        (b) 今天的价格 $\frac{100}{1.04^2} \approx 92.46$，预期收益率 $\frac{95.23}{92.46} - 1 \approx 3.00\%$，正好等于 1 年期利率。2 年期利率较高，只是因为市场预期明年的短期利率更高；对 1 年期的投资者，长期债券并不提供更高的预期收益。
+      en: |-
+        (a) $E[r_2] = f_{1,2} = \frac{1.04^2}{1.03} - 1 \approx 5.01\%$. After a year it is a 1-year zero, with expected price $\frac{100}{1.0501} \approx 95.23$.
+        (b) Today's price is $\frac{100}{1.04^2} \approx 92.46$, so the expected return is $\frac{95.23}{92.46} - 1 \approx 3.00\%$, exactly the 1-year rate. The 2-year rate is higher only because the market expects a higher short rate next year; for a 1-year investor the long bond offers no higher expected return.
+    rubric:
+      zh-cn:
+        - "(a) 约 5.01%，预期价格约 95.23。"
+        - "(b) 约 3.00%，等于 1 年期利率，并说明含义。"
+      en:
+        - "(a) About 5.01%; expected price about 95.23."
+        - "(b) About 3.00%, equal to the 1-year rate, with its meaning."
+
+  - id: C2
+    kind: check
+    section: term-premium
+    concepts: [term-premium, expectations-hypothesis]
+    widget: { id: term-structure, set: { lr: 3, tp: 2 } }
+    expected: { y10: "4.32", e10: "3.32" }
+    question:
+      zh-cn: |-
+        在 [[fig:3-1]] 中，把预期的长期水平设为 3%，第 10 年的期限溢价设为 2 个百分点。读出 10 年期收益率和其中预期的短期利率平均值。市场预期短期利率将上升还是下降？如果只看 1 年期和 10 年期收益率的高低，会得出什么结论？
+      en: |-
+        In [[fig:3-1]], set the expected long-run level to 3% and the year-10 term premium to 2 percentage points. Read off the 10-year yield and the average expected short rate within it. Does the market expect short rates to rise or fall? What would you conclude by looking only at whether the 10-year yield is above or below the 1-year yield?
+    answer:
+      zh-cn: |-
+        10 年期收益率约 4.32%，其中预期的短期利率平均约 3.32%，期限溢价 1 个百分点。市场预期短期利率从 4% 下降。但 10 年期收益率高于 1 年期的 4%，曲线（在开头略下降之后）向上倾斜，只看两端会误以为市场预期利率上升：期限溢价掩盖了降息的预期。
+      en: |-
+        The 10-year yield is about 4.32%, of which the average expected short rate is about 3.32% and the term premium 1 percentage point. The market expects short rates to fall from 4%. Yet the 10-year yield is above the 1-year 4%, and the curve (after a small dip at the start) slopes upward; looking only at the two ends, one would wrongly conclude that rates are expected to rise: the term premium hides the expected cuts.
+    rubric:
+      zh-cn:
+        - "约 4.32% 和 3.32%；预期下降。"
+        - "指出期限溢价使曲线向上倾斜，斜率不能直接读出预期。"
+      en:
+        - "About 4.32% and 3.32%; rates expected to fall."
+        - "Points out that the term premium makes the curve slope upward, so the slope does not show expectations directly."
+
+  - id: C3
+    kind: check
+    section: term-premium
+    concepts: [preferred-habitat, term-premium, immunization]
+    question:
+      zh-cn: |-
+        一家养老金 30 年后要支付一大笔养老金（[[3.4#immunization]]）。(a) 对它来说，30 年期零息国债和滚动 1 年期国债，哪个风险更低？为什么？(b) 如果这样的投资者很多，长期国债的期限溢价可能怎样？
+      en: |-
+        A pension fund must pay a large sum in 30 years ([[3.4#immunization]]). (a) For it, which is less risky: a 30-year zero-coupon Treasury or rolling 1-year Treasuries? Why? (b) If there are many such investors, what might happen to the term premium on long Treasuries?
+    answer:
+      zh-cn: |-
+        (a) 30 年期零息国债。它的久期等于负债的期限，30 年后得到的金额是确定的，正好免疫；滚动 1 年期国债，30 年后的金额取决于未来所有的短期利率，有很大的再投资风险。
+        (b) 这些投资者偏好长期债券，即使收益率较低也愿意持有；长期债券需求大，价格高、收益率低，期限溢价可能很小甚至为负。期限溢价的正负取决于偏好短期和偏好长期的投资者谁的需求更大，以及各期限债券的供给。
+      en: |-
+        (a) The 30-year zero. Its duration equals the liability's horizon, so the amount received in 30 years is certain: it is an immunized position. Rolling 1-year bills makes the amount in 30 years depend on all future short rates, a large reinvestment risk.
+        (b) These investors prefer long bonds and will hold them even at lower yields; strong demand raises long-bond prices and lowers their yields, so the term premium may be small or even negative. Its sign depends on whether short-horizon or long-horizon investors have the larger demand, and on the supply at each maturity.
+    rubric:
+      zh-cn:
+        - "(a) 30 年期零息债，用期限匹配和再投资风险说明。"
+        - "(b) 期限溢价可能很小或为负，并说明原因。"
+      en:
+        - "(a) The 30-year zero, explained by matching the horizon and by reinvestment risk."
+        - "(b) The term premium may be small or negative, with the reason."
+
+  - id: C4
+    kind: check
+    section: curve-shapes
+    concepts: [term-premium, expectations-hypothesis, zero-coupon-bond]
+    expected: { ride: "4.01" }
+    question:
+      zh-cn: |-
+        1 年期即期利率为 2%，2 年期为 3%。一位投资 1 年的投资者买入 2 年期零息债，一年后卖出。(a) 如果一年后收益率曲线不变（1 年期利率仍为 2%），他的收益率是多少？(b) 按预期假说，这个结果会出现吗？骑乘收益率曲线什么时候才能赚得比买 1 年期国债多？
+      en: |-
+        The 1-year spot rate is 2% and the 2-year spot rate 3%. A 1-year investor buys a 2-year zero and sells it after a year. (a) If the yield curve is unchanged after a year (the 1-year rate is still 2%), what is his return? (b) Under the expectations hypothesis, would this happen? When does riding the yield curve earn more than buying 1-year bills?
+    answer:
+      zh-cn: |-
+        (a) 买入价 $\frac{100}{1.03^2}$，一年后按 2% 卖出，价格 $\frac{100}{1.02}$，收益率 $\frac{1.03^2}{1.02} - 1 \approx 4.01\%$，比 1 年期国债的 2% 高约 2 个百分点。
+        (b) 按预期假说，市场预期明年的 1 年期利率等于远期利率 4.01%，而不是 2%，预期的卖出价更低，预期收益率只有 2%；曲线不变正是市场预期之外的结果。只有当未来的短期利率低于远期利率时（例如存在正的期限溢价，或利率上升得比市场预期的少），骑乘才会赚得更多；如果利率上升得比远期利率还多，就会亏于 1 年期国债。
+      en: |-
+        (a) The purchase price is $\frac{100}{1.03^2}$ and he sells at 2%, at $\frac{100}{1.02}$, so the return is $\frac{1.03^2}{1.02} - 1 \approx 4.01\%$, about 2 percentage points above the 2% on 1-year bills.
+        (b) Under the expectations hypothesis the market expects next year's 1-year rate to equal the forward rate of 4.01%, not 2%, so the expected selling price is lower and the expected return is only 2%; an unchanged curve is an outcome the market did not expect. Riding earns more only when future short rates turn out below the forward rate (for example, with a positive term premium, or when rates rise less than expected); if rates rise above the forward rate, it does worse than 1-year bills.
+    rubric:
+      zh-cn:
+        - "(a) 约 4.01%。"
+        - "(b) 指出曲线不变不符合预期假说，并用未来利率与远期利率的比较说明条件。"
+      en:
+        - "(a) About 4.01%."
+        - "(b) Points out that an unchanged curve contradicts the expectations hypothesis, and states the condition by comparing future rates with the forward rate."
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    star: true
+    concepts: [forward-rate, expectations-hypothesis, term-premium]
+    expected: { f2: "4.00", f3: "5.01", e2: "3.50", e3: "4.01" }
+    question:
+      zh-cn: |-
+        国债的 1 年、2 年、3 年期即期利率分别为 3%、3.5% 和 4%。
+        (a) 求第 2 年和第 3 年的远期利率 $f_{1,2}$ 和 $f_{2,3}$。按预期假说，市场预期短期利率怎样变化？
+        (b) 假设这两个远期利率中的期限溢价分别为 0.5 和 1 个百分点。市场预期的第 2 年和第 3 年的 1 年期利率是多少？与 (a) 的结论相比如何？
+      en: |-
+        The 1-, 2- and 3-year Treasury spot rates are 3%, 3.5% and 4%.
+        (a) Find the forward rates for years 2 and 3, $f_{1,2}$ and $f_{2,3}$. Under the expectations hypothesis, how does the market expect short rates to change?
+        (b) Suppose the term premiums in these forward rates are 0.5 and 1 percentage point. What 1-year rates does the market expect in years 2 and 3? How does this compare with the conclusion in (a)?
+    answer:
+      zh-cn: |-
+        (a) $f_{1,2} = \frac{1.035^2}{1.03} - 1 \approx 4.00\%$，$f_{2,3} = \frac{1.04^3}{1.035^2} - 1 \approx 5.01\%$。按预期假说，市场预期 1 年期利率从 3% 升到约 4% 再升到约 5%，每年上升约 1 个百分点。
+        (b) $E[r_2] \approx 4.00\% - 0.5 = 3.50\%$，$E[r_3] \approx 5.01\% - 1 = 4.01\%$。预期的上升只有每年约 0.5 个百分点，比 (a) 小一半：曲线的斜率中有一半来自期限溢价。
+      en: |-
+        (a) $f_{1,2} = \frac{1.035^2}{1.03} - 1 \approx 4.00\%$ and $f_{2,3} = \frac{1.04^3}{1.035^2} - 1 \approx 5.01\%$. Under the expectations hypothesis, the market expects the 1-year rate to rise from 3% to about 4% and then to about 5%, about 1 percentage point a year.
+        (b) $E[r_2] \approx 4.00\% - 0.5 = 3.50\%$ and $E[r_3] \approx 5.01\% - 1 = 4.01\%$. The expected rise is only about 0.5 percentage points a year, half of that in (a): half the slope of the curve comes from the term premium.
+    rubric:
+      zh-cn:
+        - "(a) 约 4.00% 和 5.01%，预期每年上升约 1 个百分点。"
+        - "(b) 约 3.50% 和 4.01%，指出斜率的一半来自期限溢价。"
+      en:
+        - "(a) About 4.00% and 5.01%; rates expected to rise about 1 a year."
+        - "(b) About 3.50% and 4.01%, noting that half the slope comes from the term premium."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [term-premium, zero-coupon-bond]
+    expected: { up: "3.01", down: "5.01" }
+    question:
+      zh-cn: |-
+        收益率曲线平坦在 4%，市场预期明年的 1 年期利率也是 4%。
+        (a) 一位投资 1 年的投资者买入面值 100 的 2 年期零息债，一年后卖出。如果明年的 1 年期利率为 5% 或 3%，他的收益率各是多少？与买 1 年期国债相比如何？
+        (b) 如果大多数投资者都只投资 1 年、而且厌恶风险，2 年期收益率还会等于 4% 吗？如果大多数投资者都要在 2 年后付款呢？
+      en: |-
+        The yield curve is flat at 4%, and the market expects next year's 1-year rate to be 4% as well.
+        (a) A 1-year investor buys a 2-year zero with face value 100 and sells it after a year. If next year's 1-year rate is 5% or 3%, what is his return in each case? How does this compare with buying a 1-year bill?
+        (b) If most investors invest for only 1 year and are risk-averse, will the 2-year yield still be 4%? What if most investors must make a payment in 2 years?
+    answer:
+      zh-cn: |-
+        (a) 买入价 $\frac{100}{1.04^2} \approx 92.46$。利率为 5% 时卖出价 $\frac{100}{1.05}$，收益率 $\frac{1.04^2}{1.05} - 1 \approx 3.01\%$；为 3% 时 $\frac{1.04^2}{1.03} - 1 \approx 5.01\%$。1 年期国债确定得到 4%，2 年期零息债的预期收益（约 4%）相同，但有风险。
+        (b) 不会。对这些投资者，2 年期债券有价格风险而预期收益不高，他们会要求更高的收益率，2 年期收益率高于 4%，期限溢价为正。如果大多数投资者要在 2 年后付款，对他们来说 2 年期零息债没有风险，滚动 1 年期国债有再投资风险，他们愿意接受低于 4% 的收益率，期限溢价可能为负。
+      en: |-
+        (a) The purchase price is $\frac{100}{1.04^2} \approx 92.46$. At 5% the selling price is $\frac{100}{1.05}$ and the return $\frac{1.04^2}{1.05} - 1 \approx 3.01\%$; at 3%, $\frac{1.04^2}{1.03} - 1 \approx 5.01\%$. The 1-year bill earns 4% for certain; the 2-year zero has about the same expected return (about 4%) but is risky.
+        (b) No. For these investors the 2-year bond has price risk without a higher expected return, so they demand a higher yield: the 2-year yield rises above 4% and the term premium is positive. If most investors must pay in 2 years, the 2-year zero is riskless for them and rolling 1-year bills has reinvestment risk, so they accept a yield below 4% and the term premium may be negative.
+    rubric:
+      zh-cn:
+        - "(a) 约 3.01% 和 5.01%，指出预期收益相同但有风险。"
+        - "(b) 分别说明期限溢价为正和为负的原因。"
+      en:
+        - "(a) About 3.01% and 5.01%, noting the same expected return but with risk."
+        - "(b) Explains why the term premium is positive in one case and negative in the other."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [term-premium, expectations-hypothesis, term-structure]
+    expected: { avg: "3.8" }
+    question:
+      zh-cn: |-
+        1 年期国债收益率为 5%，10 年期为 4.3%。一个模型估计 10 年期收益率中的期限溢价为 0.5 个百分点。
+        (a) 未来 10 年市场预期的短期利率平均约为多少？这与当前的短期利率相比说明什么？
+        (b) 一年后，央行把政策利率下调了 1 个百分点，10 年期收益率却上升了。给出两种可能的解释。
+      en: |-
+        The 1-year Treasury yield is 5% and the 10-year yield 4.3%. A model estimates the term premium in the 10-year yield at 0.5 percentage points.
+        (a) Roughly what average short rate does the market expect over the next 10 years? What does this say compared with the current short rate?
+        (b) A year later, the central bank has cut its policy rate by 1 percentage point, yet the 10-year yield has risen. Give two possible explanations.
+    answer:
+      zh-cn: |-
+        (a) $4.3\% - 0.5 = 3.8\%$。它比当前的 5% 低 1.2 个百分点，说明市场预期央行以后会降息。
+        (b) 例如：(1) 市场对未来短期利率的预期上升了：通胀预期上升，或者经济比预期强，市场认为以后降息会更少、甚至会再加息；(2) 期限溢价上升了：政府赤字扩大使长期国债供给增加（[[2.6]]），或者对通胀和利率的不确定性增加，投资者要求更多的补偿。长期利率取决于对整个未来的预期和期限溢价，而不只是当前的政策利率。
+      en: |-
+        (a) $4.3\% - 0.5 = 3.8\%$. This is 1.2 percentage points below the current 5%, so the market expects the central bank to cut rates later.
+        (b) For example: (1) expected future short rates rose: inflation expectations went up, or the economy was stronger than expected, so the market now expects fewer cuts or even new increases; (2) the term premium rose: larger government deficits increased the supply of long Treasuries ([[2.6]]), or uncertainty about inflation and rates grew, so investors demand more compensation. Long rates depend on expectations about the whole future and on the term premium, not only on the current policy rate.
+    rubric:
+      zh-cn:
+        - "(a) 约 3.8%，预期降息。"
+        - "(b) 两种合理的解释，分别对应预期和期限溢价。"
+      en:
+        - "(a) About 3.8%; cuts expected."
+        - "(b) Two reasonable explanations, one about expectations and one about the term premium."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [preferred-habitat, term-premium, quantitative-easing, modified-duration]
+    expected: { dp: "4.5" }
+    question:
+      zh-cn: |-
+        央行宣布大量购买长期国债（[[2.5]] 的量化宽松）。估计这使 10 年期收益率中的期限溢价下降 0.5 个百分点，而预期的短期利率不变。
+        (a) 一只修正久期为 9 的长期国债基金，净值大约怎样变化？按纯粹的预期假说，这种购买能降低长期利率吗？为什么优先偏好理论认为能？
+        (b) 如果购买同时让市场相信短期利率会更长时间保持在低位（前瞻指引），长期利率还会通过什么渠道下降？
+      en: |-
+        The central bank announces large purchases of long-term Treasuries (quantitative easing, [[2.5]]). This is estimated to lower the term premium in the 10-year yield by 0.5 percentage points, with expected short rates unchanged.
+        (a) Roughly how does the value of a long Treasury fund with modified duration 9 change? Under the pure expectations hypothesis, can such purchases lower long rates? Why does the preferred habitat theory say they can?
+        (b) If the purchases also convince the market that short rates will stay low for longer (forward guidance), through what other channel do long rates fall?
+    answer:
+      zh-cn: |-
+        (a) $\frac{\Delta P}{P} \approx -9 \times (-0.5\%) = 4.5\%$，上涨约 4.5%。按纯粹的预期假说，长期利率只取决于预期的短期利率，与各期限债券的供求无关，购买不改变预期就不能降低长期利率。优先偏好理论认为，央行买走大量长期国债，私人投资者需要持有的长期债券（和久期风险）减少，他们要求的补偿变小，期限溢价下降。
+        (b) 预期渠道：长期利率约等于预期短期利率的平均值加期限溢价，如果市场预期未来几年的短期利率更低，即使期限溢价不变，长期利率也会下降。
+      en: |-
+        (a) $\frac{\Delta P}{P} \approx -9 \times (-0.5\%) = 4.5\%$: a rise of about 4.5%. Under the pure expectations hypothesis, long rates depend only on expected short rates, not on supply and demand at each maturity, so purchases that do not change expectations cannot lower long rates. The preferred habitat theory says that when the central bank takes many long bonds off the market, private investors must hold fewer long bonds (and less duration risk), so they need less compensation and the term premium falls.
+        (b) The expectations channel: a long rate is roughly the average expected short rate plus the term premium, so if the market expects lower short rates over the coming years, long rates fall even with an unchanged term premium.
+    rubric:
+      zh-cn:
+        - "(a) 约 4.5%，并对比两种理论。"
+        - "(b) 指出预期渠道。"
+      en:
+        - "(a) About 4.5%, contrasting the two theories."
+        - "(b) Names the expectations channel."
