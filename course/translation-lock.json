@@ -63,6 +63,14 @@
   "en": "871a39ac4f8b8f37",
   "zh-cn": "2b0f694a13746bda"
  },
+ "course/concepts.yaml#bank-run": {
+  "en": "3a63c22ef49e6357",
+  "zh-cn": "e12ad77d81751e1e"
+ },
+ "course/concepts.yaml#bank-run.short": {
+  "en": "e19a4a49d5699d20",
+  "zh-cn": "b0a0baa1a234afc7"
+ },
  "course/concepts.yaml#barriers-to-entry": {
   "en": "dc4e02232bc12fae",
   "zh-cn": "81bd41532221f0d8"
@@ -251,6 +259,14 @@
   "en": "1c580a3fdbb88b47",
   "zh-cn": "5e59e0a193e09122"
  },
+ "course/concepts.yaml#deposit-insurance": {
+  "en": "272cdfe5914d2c00",
+  "zh-cn": "fed4c5db35615c4d"
+ },
+ "course/concepts.yaml#deposit-insurance.short": {
+  "en": "8c9e288b1822701a",
+  "zh-cn": "88016ef3cc2da459"
+ },
  "course/concepts.yaml#derivative": {
   "en": "f497483c66012dc7",
   "zh-cn": "3abf33b368fbb793"
@@ -370,6 +386,14 @@
  "course/concepts.yaml#fixed-cost.short": {
   "en": "4f5fa6af1e710501",
   "zh-cn": "1776e3cebda8ca4d"
+ },
+ "course/concepts.yaml#fractional-reserve-banking": {
+  "en": "cbfb6d97e27a459b",
+  "zh-cn": "293df27e90481c5d"
+ },
+ "course/concepts.yaml#fractional-reserve-banking.short": {
+  "en": "edf1b3b775a67e3c",
+  "zh-cn": "17912083a4243af5"
  },
  "course/concepts.yaml#future-value": {
   "en": "f5760e20b611d949",
@@ -586,6 +610,30 @@
  "course/concepts.yaml#median.short": {
   "en": "c481187a06b5a083",
   "zh-cn": "3371ffcb3c91126c"
+ },
+ "course/concepts.yaml#monetary-base": {
+  "en": "38bdd084ca3e4721",
+  "zh-cn": "c17e2a2b8ce84926"
+ },
+ "course/concepts.yaml#monetary-base.short": {
+  "en": "6e09660a7fb89e63",
+  "zh-cn": "4fdb89629f22c50f"
+ },
+ "course/concepts.yaml#money-multiplier": {
+  "en": "140f4673ebfc5a27",
+  "zh-cn": "1fe1d384dcd782ce"
+ },
+ "course/concepts.yaml#money-multiplier.short": {
+  "en": "d33384415a6876c5",
+  "zh-cn": "06cab45250f9e172"
+ },
+ "course/concepts.yaml#money-supply": {
+  "en": "edf3509f9c38511a",
+  "zh-cn": "8a28a0d1d0d1de6a"
+ },
+ "course/concepts.yaml#money-supply.short": {
+  "en": "64bb03b12b206cde",
+  "zh-cn": "28cb8cf902df0d63"
  },
  "course/concepts.yaml#monopolistic-competition": {
   "en": "ea40a6b901029543",
@@ -826,6 +874,14 @@
  "course/concepts.yaml#public-good.short": {
   "en": "eaab61db6d29a29a",
   "zh-cn": "9f092a5678231b24"
+ },
+ "course/concepts.yaml#quantity-theory-of-money": {
+  "en": "fdd3cb39531b64dc",
+  "zh-cn": "95ef398b1f895730"
+ },
+ "course/concepts.yaml#quantity-theory-of-money.short": {
+  "en": "26993eafc4896a3e",
+  "zh-cn": "e363249b9adbbea6"
  },
  "course/concepts.yaml#r-squared": {
   "en": "6d841c07467bdbe5",
@@ -1326,6 +1382,10 @@
  "course/curriculum.yaml#stages[2].lessons[2.2].title": {
   "en": "3ffa9431d124a3b3",
   "zh-cn": "5156364258bef1f0"
+ },
+ "course/curriculum.yaml#stages[2].lessons[2.3].summary": {
+  "en": "d819493480e47af2",
+  "zh-cn": "202c7bfea393d487"
  },
  "course/curriculum.yaml#stages[2].lessons[2.3].title": {
   "en": "96f6a2375a45bfd2",
@@ -4235,6 +4295,150 @@
   "en": "d4b1a25086eb5400",
   "zh-cn": "33304914c71223b4"
  },
+ "course/keys/2.3.yaml#common_errors[0]": {
+  "en": "dd1f08b6bda4523b",
+  "zh-cn": "037926468c22c8eb"
+ },
+ "course/keys/2.3.yaml#common_errors[1]": {
+  "en": "4f4aba1349f37460",
+  "zh-cn": "fc222ada8f1d9d20"
+ },
+ "course/keys/2.3.yaml#common_errors[2]": {
+  "en": "6ef1a7857cb9edd3",
+  "zh-cn": "e4c565f47ca7facb"
+ },
+ "course/keys/2.3.yaml#common_errors[3]": {
+  "en": "6440430df95a5c4e",
+  "zh-cn": "d5bb8baaf1fd66c0"
+ },
+ "course/keys/2.3.yaml#common_errors[4]": {
+  "en": "0e1031b5f39ce06d",
+  "zh-cn": "3bdce6057e9a14a2"
+ },
+ "course/keys/2.3.yaml#context[0]": {
+  "en": "024fdfe1ad0167df",
+  "zh-cn": "44a601fa5ad724d7"
+ },
+ "course/keys/2.3.yaml#context[1]": {
+  "en": "a9d9ba859996f023",
+  "zh-cn": "e3d558937068fdd2"
+ },
+ "course/keys/2.3.yaml#context[2]": {
+  "en": "be870155eb9bd789",
+  "zh-cn": "69d435883791882e"
+ },
+ "course/keys/2.3.yaml#context[3]": {
+  "en": "772b596a3aa89e17",
+  "zh-cn": "d3e9ca8b266a78d0"
+ },
+ "course/keys/2.3.yaml#questions[C1].answer": {
+  "en": "0f314d31ea730063",
+  "zh-cn": "484270ba5a93460f"
+ },
+ "course/keys/2.3.yaml#questions[C1].question": {
+  "en": "8228f748fed1b5e5",
+  "zh-cn": "cd30c83baed3d176"
+ },
+ "course/keys/2.3.yaml#questions[C1].rubric": {
+  "en": "72f85cad1c6af051",
+  "zh-cn": "4f385175a8e0086a"
+ },
+ "course/keys/2.3.yaml#questions[C2].answer": {
+  "en": "0784cfe79bddc615",
+  "zh-cn": "73d9a1bd99430eb6"
+ },
+ "course/keys/2.3.yaml#questions[C2].question": {
+  "en": "f5d970becbbf56f0",
+  "zh-cn": "786a1ba31f31e302"
+ },
+ "course/keys/2.3.yaml#questions[C2].rubric": {
+  "en": "d30e92583f3c60be",
+  "zh-cn": "b32b1a59b08dd403"
+ },
+ "course/keys/2.3.yaml#questions[C3].answer": {
+  "en": "099e26726c5e379d",
+  "zh-cn": "4a3de7f4f15c6072"
+ },
+ "course/keys/2.3.yaml#questions[C3].question": {
+  "en": "03aeeeac64505fe9",
+  "zh-cn": "7d93602ae5a81725"
+ },
+ "course/keys/2.3.yaml#questions[C3].rubric": {
+  "en": "5efa7dbb05ef92d7",
+  "zh-cn": "342c38f0f4ae2736"
+ },
+ "course/keys/2.3.yaml#questions[C4].answer": {
+  "en": "0c6f3dc421138167",
+  "zh-cn": "3e3569ee9f505b26"
+ },
+ "course/keys/2.3.yaml#questions[C4].question": {
+  "en": "e156f63e561078d7",
+  "zh-cn": "c823e749be6faad1"
+ },
+ "course/keys/2.3.yaml#questions[C4].rubric": {
+  "en": "b095446d1e423b59",
+  "zh-cn": "d8710ce0a8973d4e"
+ },
+ "course/keys/2.3.yaml#questions[Q1].answer": {
+  "en": "44c5bf62b8c1f2e0",
+  "zh-cn": "66566872aa1aad53"
+ },
+ "course/keys/2.3.yaml#questions[Q1].question": {
+  "en": "28981c8a64a4b549",
+  "zh-cn": "0cc7e01c2f18aef2"
+ },
+ "course/keys/2.3.yaml#questions[Q1].rubric": {
+  "en": "c02bea6a6bca6f96",
+  "zh-cn": "622dabaa3a19af63"
+ },
+ "course/keys/2.3.yaml#questions[Q2].answer": {
+  "en": "b70c3c7c68fb80b2",
+  "zh-cn": "3b4add6a6d13484d"
+ },
+ "course/keys/2.3.yaml#questions[Q2].question": {
+  "en": "aae12a04bc00f457",
+  "zh-cn": "92840fdec356ab4f"
+ },
+ "course/keys/2.3.yaml#questions[Q2].rubric": {
+  "en": "c6a9edb92a13adcb",
+  "zh-cn": "1ac787f4e9db23bf"
+ },
+ "course/keys/2.3.yaml#questions[Q3].answer": {
+  "en": "b56f0ad98f9f3a10",
+  "zh-cn": "54b155c95e44b784"
+ },
+ "course/keys/2.3.yaml#questions[Q3].question": {
+  "en": "54d50c13a9a90da3",
+  "zh-cn": "89179f9d9a2dc39d"
+ },
+ "course/keys/2.3.yaml#questions[Q3].rubric": {
+  "en": "9da0e2dd795cee14",
+  "zh-cn": "fa591e66493979bf"
+ },
+ "course/keys/2.3.yaml#questions[Q4].answer": {
+  "en": "23ca1446a0f8eb36",
+  "zh-cn": "45d3d3894ec9eece"
+ },
+ "course/keys/2.3.yaml#questions[Q4].question": {
+  "en": "8ce1827af1c8c9b1",
+  "zh-cn": "0d2bce5ab73f3063"
+ },
+ "course/keys/2.3.yaml#questions[Q4].rubric": {
+  "en": "b894868d14a4647d",
+  "zh-cn": "3672c8742c18a832"
+ },
+ "course/keys/2.3.yaml#questions[Q5].answer": {
+  "en": "eec9755fb7a0956b",
+  "zh-cn": "6f8466fabd694878"
+ },
+ "course/keys/2.3.yaml#questions[Q5].question": {
+  "en": "e96ee5b2ae785be8",
+  "zh-cn": "dc38aeb7e875ddca"
+ },
+ "course/keys/2.3.yaml#questions[Q5].rubric": {
+  "en": "5462fc80f36e945e",
+  "zh-cn": "6d884fd77499e894"
+ },
  "course/keys/E0.yaml#common_errors[0]": {
   "en": "5892871353963f3f",
   "zh-cn": "4d0b656928c8c79b"
@@ -4610,6 +4814,10 @@
  "src/content/docs/<lang>/lessons/2-2-long-run-growth.mdx": {
   "en": "a8ae1b82068138e4",
   "zh-cn": "3dd5a1b5c7fc0284"
+ },
+ "src/content/docs/<lang>/lessons/2-3-money-banking.mdx": {
+  "en": "a4c5d71cf7117a89",
+  "zh-cn": "93bcc7540f1af7fa"
  },
  "src/content/docs/<lang>/lessons/e0-quiz.mdx": {
   "en": "0909e73cdcf97cfc",

@@ -1,0 +1,87 @@
+---
+// Figure 2-1 of lesson 2.3: money creation by banks. 100 of new base money enters the economy; in each
+// round the public keeps currency c per unit of deposits, banks keep reserves r per unit of deposits and
+// lend the rest, and the loans come back as new money. Bars show the money supply after each round; the
+// dashed line is the limit m · 100 with m = (1 + c) / (c + r).
+// Parameters are registered in course/widgets.yaml (id: money-multiplier).
+import { toLang } from '../../i18n/ui';
+
+const lang = toLang(Astro.locals.starlightRoute.lang);
+const L = {
+	'zh-cn': {
+		r: '准备金率 r',
+		c: '现金与存款之比 c',
+		x: '贷款轮数',
+		y: '货币供给',
+		bar: '经过各轮后的货币供给',
+		lim: '极限 m × 100',
+		readout: '货币乘数 m = {m}。最终货币供给 {M}，其中现金 {C}、存款 {D}；银行准备金 {R}。',
+	},
+	en: {
+		r: 'Reserve ratio r',
+		c: 'Currency-to-deposit ratio c',
+		x: 'Round of lending',
+		y: 'Money supply',
+		bar: 'Money supply after each round',
+		lim: 'Limit m × 100',
+		readout: 'Money multiplier m = {m}. Final money supply {M}: currency {C} and deposits {D}; bank reserves {R}.',
+	},
+}[lang];
+
+const ROUNDS = 20;
+const xr = [-0.5, ROUNDS + 0.5];
+const yr = [0, 1000];
+const xticks = [0, 5, 10, 15, 20];
+const yticks = [0, 250, 500, 750, 1000];
+const layouts = [
+	{ cls: 'viz-wide', W: 640, H: 300, pad: { l: 56, r: 20, t: 14, b: 44 } },
+	{ cls: 'viz-narrow', W: 360, H: 280, pad: { l: 56, r: 12, t: 14, b: 44 } },
+].map((g) => ({
+	...g,
+	X: (v: number) => g.pad.l + ((v - xr[0]) / (xr[1] - xr[0])) * (g.W - g.pad.l - g.pad.r),
+	Y: (v: number) => g.pad.t + ((yr[1] - v) / (yr[1] - yr[0])) * (g.H - g.pad.t - g.pad.b),
+}));
+---
+
+<div class="lfwai-widget" data-widget="money-multiplier" data-readout={L.readout}>
+	<div class="lfwai-sliders">
+		<label>
+			<span>{L.r} = <output data-out="r">0.10</output></span>
+			<input type="range" min="0.1" max="0.5" step="0.05" value="0.1" data-param="r" />
+		</label>
+		<label>
+			<span>{L.c} = <output data-out="c">0.00</output></span>
+			<input type="range" min="0" max="0.5" step="0.05" value="0" data-param="c" />
+		</label>
+	</div>
+	{layouts.map(({ cls, W, H, pad, X, Y }) => (
+		<svg class={`lfwai-viz ${cls}`} viewBox={`0 0 ${W} ${H}`} role="img" aria-label={L.bar} data-geom={JSON.stringify({ W, H, pad, xr, yr, rounds: ROUNDS })}>
+			{yticks.map((v) => (
+				<g>
+					<line class={v === 0 ? 'viz-axis' : 'viz-grid'} x1={pad.l} x2={W - pad.r} y1={Y(v)} y2={Y(v)} />
+					<text class="viz-tick" x={pad.l - 8} y={Y(v) + 4} text-anchor="end">{v}</text>
+				</g>
+			))}
+			{xticks.map((v) => (
+				<text class="viz-tick" x={X(v)} y={H - pad.b + 18} text-anchor="middle">{v}</text>
+			))}
+			<line class="viz-axis" x1={pad.l} x2={pad.l} y1={pad.t} y2={H - pad.b} />
+			<text class="viz-tick" x={(pad.l + W - pad.r) / 2} y={H - 8} text-anchor="middle">{L.x}</text>
+			<text class="viz-tick" transform={`translate(12 ${(pad.t + H - pad.b) / 2}) rotate(-90)`} text-anchor="middle">{L.y}</text>
+			<g data-el="bars">
+				{Array.from({ length: ROUNDS + 1 }, () => <rect class="viz-bar" x="0" y="0" width="0" height="0" />)}
+			</g>
+			<line class="viz-mean" data-el="lim" x1={pad.l} x2={W - pad.r} y1="0" y2="0" />
+		</svg>
+	))}
+	<ul class="lfwai-legend">
+		<li><span class="sw sw-bar"></span>{L.bar}</li>
+		<li><span class="sw sw-mean"></span>{L.lim}</li>
+	</ul>
+	<p class="lfwai-readout" data-el="readout" aria-live="polite"></p>
+</div>
+
+<script>
+	import { initMoneyMultiplier } from '../../scripts/widgets/money-multiplier';
+	initMoneyMultiplier();
+</script>

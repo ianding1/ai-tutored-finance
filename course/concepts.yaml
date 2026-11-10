@@ -1190,6 +1190,62 @@ steady-state:
     zh-cn: "投资恰好等于维持所需、人均资本不再变化的状态。"
     en: "The state in which investment just equals what is needed, so capital per worker no longer changes."
 
+money-supply:
+  defined_in: "2.3"
+  zh-cn: 货币供给
+  en: money supply
+  short:
+    zh-cn: "经济中的货币总量，包括现金和银行存款，常用 M2 衡量。"
+    en: "The total amount of money in the economy, including currency and bank deposits, often measured by M2."
+
+monetary-base:
+  defined_in: "2.3"
+  zh-cn: 基础货币
+  en: monetary base
+  short:
+    zh-cn: "流通中的现金加上商业银行在央行的准备金，由央行直接控制。"
+    en: "Currency in circulation plus banks' reserves at the central bank; directly controlled by the central bank."
+
+fractional-reserve-banking:
+  defined_in: "2.3"
+  zh-cn: 部分准备金制度
+  en: fractional reserve banking
+  short:
+    zh-cn: "银行只把存款的一部分留作准备金，其余贷出；贷款因此创造新的存款。"
+    en: "Banks keep only part of their deposits as reserves and lend the rest, so loans create new deposits."
+
+money-multiplier:
+  defined_in: "2.3"
+  zh-cn: 货币乘数
+  en: money multiplier
+  short:
+    zh-cn: "货币供给与基础货币之比，$m = \\frac{1 + c}{c + r}$。"
+    en: "The ratio of the money supply to the monetary base, $m = \\frac{1 + c}{c + r}$."
+
+bank-run:
+  defined_in: "2.3"
+  zh-cn: 银行挤兑
+  en: bank run
+  short:
+    zh-cn: "存款人担心银行倒闭而争相取款；它会自我实现。"
+    en: "Depositors rushing to withdraw because they fear the bank will fail; it can be self-fulfilling."
+
+deposit-insurance:
+  defined_in: "2.3"
+  zh-cn: 存款保险
+  en: deposit insurance
+  short:
+    zh-cn: "银行倒闭时，政府保证存款人在一定金额内的存款；能防止挤兑，但带来道德风险。"
+    en: "A government guarantee of deposits up to a limit if a bank fails; it prevents runs but brings moral hazard."
+
+quantity-theory-of-money:
+  defined_in: "2.3"
+  zh-cn: 货币数量论
+  en: quantity theory of money
+  short:
+    zh-cn: "由 $MV = PY$ 并假设流通速度稳定、产出与货币无关，得出长期中货币增长主要带来通胀。"
+    en: "From $MV = PY$, assuming stable velocity and output independent of money, the theory that in the long run money growth mainly brings inflation."
+
 risk-measures:
   defined_in: "4.1"
   zh-cn: 风险度量

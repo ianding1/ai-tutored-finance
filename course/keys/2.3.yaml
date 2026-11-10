@@ -1,0 +1,335 @@
+# Answer key for lesson 2.3. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[2.3#bank-runs]] (section), [[concept:money-multiplier]], [[check:Q3]], [[fig:2-1]].
+# expected: values are recomputed by course/verify/2.3.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+
+lesson: "2.3"
+
+context:
+  - zh-cn: |-
+      学习者学过现值、Fisher 方程与名义和实际利率（[[0.1]]、[[1.3]]）、道德风险（[[1.9]]）、囚徒困境（[[1.7]]）、实际 GDP（[[2.1]]）和增长核算（[[2.2]]）。百分数的计算用百分点表示。
+    en: |-
+      The learner has studied present value, the Fisher equation and nominal and real interest rates ([[0.1]], [[1.3]]), moral hazard ([[1.9]]), the prisoners' dilemma ([[1.7]]), real GDP ([[2.1]]) and growth accounting ([[2.2]]). Percentage calculations are in percentage points.
+  - concepts: [monetary-base, fractional-reserve-banking, money-multiplier, money-supply]
+    zh-cn: |-
+      讲义：基础货币 = 现金 + 准备金；贷款创造存款；$M = mB$，$m = \frac{1 + c}{c + r}$（推导留给练习题）。[[fig:2-1]]：100 单位基础货币，准备金率滑块 0.1–0.5、现金比例滑块 0–0.5，步长都是 0.05，默认 0.1 和 0；读数显示乘数、最终货币供给、现金、存款和准备金。讲义还说明：美国 2020 年 3 月 26 日起法定准备金率为 0；2008 年起美联储对准备金付息，银行持有大量超额准备金，货币乘数大幅下降，央行改为控制利率。
+    en: |-
+      The lesson: monetary base = currency + reserves; loans create deposits; $M = mB$ with $m = \frac{1 + c}{c + r}$ (the derivation is left to an exercise). [[fig:2-1]]: 100 units of base money, a reserve-ratio slider from 0.1 to 0.5 and a currency-ratio slider from 0 to 0.5, both in steps of 0.05, defaults 0.1 and 0; the readout shows the multiplier, the final money supply, currency, deposits and reserves. The lesson also says: US reserve requirements have been zero since March 26, 2020; since 2008 the Fed pays interest on reserves, banks hold large excess reserves, the money multiplier fell sharply, and central banks now steer interest rates instead.
+  - concepts: [bank-run, deposit-insurance]
+    zh-cn: |-
+      讲义：银行借短贷长；挤兑会自我实现（与囚徒困境结构相似）；硅谷银行 2023 年 3 月 9 日被取走 420 亿美元，存款约 1750 亿美元；FDIC 每位存款人每家银行每种账户类别保 25 万美元；存款保险防止挤兑但带来道德风险，需要监管。
+    en: |-
+      The lesson: banks borrow short and lend long; runs are self-fulfilling (similar in structure to the prisoners' dilemma); Silicon Valley Bank lost 42 billion dollars of deposits on March 9, 2023, out of about 175 billion; the FDIC insures 250,000 dollars per depositor, per bank, per ownership category; deposit insurance prevents runs but brings moral hazard and needs regulation.
+  - concepts: [quantity-theory-of-money, inflation]
+    zh-cn: |-
+      讲义：$MV = PY$ 按定义成立；货币数量论假设长期中 $V$ 稳定、$Y$ 与货币无关；增长率形式 $g_M + g_V \approx \pi + g_Y$；短期和低通胀时关系不可靠。通胀的成本：预期到的通胀有鞋底成本、菜单成本和对名义收益征税（讲义只提到，计算留给练习题）；未预期到的通胀在债务人和债权人之间重新分配；铸币税（通胀税）。
+    en: |-
+      The lesson: $MV = PY$ holds by definition; the quantity theory assumes $V$ is stable and $Y$ is independent of money in the long run; growth form $g_M + g_V \approx \pi + g_Y$; the relation is unreliable in the short run and at low inflation. Costs of inflation: expected inflation brings shoe-leather costs, menu costs and taxes on nominal returns (the lesson only mentions this; the calculation is left to an exercise); unexpected inflation redistributes between debtors and creditors; seigniorage (the inflation tax).
+
+common_errors:
+  - questions: [C1, Q1, Q2]
+    zh-cn: |-
+      以为银行只是把存款“转交”给借款人，没有创造货币。贷款发放后，原存款人的存款仍在，借款人的付款又成为新的存款，货币总量增加了。
+    en: |-
+      Thinking that a bank only passes deposits on to borrowers and creates no money. After the loan, the original depositor still has the deposit, and the borrower's payment becomes a new deposit, so the total amount of money rises.
+  - questions: [Q2]
+    zh-cn: |-
+      以为基础货币增加多少倍，货币供给就一定增加多少倍。乘数取决于银行愿意持有多少准备金和公众持有多少现金，二者都会变。
+    en: |-
+      Thinking that the money supply must rise in proportion to the monetary base. The multiplier depends on how many reserves banks choose to hold and how much currency the public holds, and both can change.
+  - questions: [C2, Q5]
+    zh-cn: |-
+      以为只有资不抵债的银行才会被挤兑。挤兑是自我实现的：只要存款人担心别人先取钱，即使银行有偿付能力，它也可能因贱卖资产而倒闭。
+    en: |-
+      Thinking that only insolvent banks suffer runs. Runs are self-fulfilling: if depositors fear that others will withdraw first, even a solvent bank can fail through fire sales of its assets.
+  - questions: [C3, Q3]
+    zh-cn: |-
+      把 $MV = PY$ 当成一定会让通胀等于货币增长率，忘了产出增长和流通速度的变化。
+    en: |-
+      Treating $MV = PY$ as if inflation must equal money growth, forgetting growth in output and changes in velocity.
+  - questions: [C4, Q4]
+    zh-cn: |-
+      以为通胀总是对债务人有利。只有**未预期到的**通胀才使债务人得益；预期到的通胀已经反映在名义利率中。
+    en: |-
+      Thinking that inflation always helps debtors. Only **unexpected** inflation helps debtors; expected inflation is already in the nominal interest rate.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: money-creation
+    concepts: [money-multiplier, fractional-reserve-banking]
+    widget: { id: money-multiplier, set: { r: 0.1, c: 0.2 } }
+    expected: { m1: "10", m2: "4", d2: "333.3" }
+    question:
+      zh-cn: |-
+        在 [[fig:2-1]] 中先把准备金率设为 0.1、现金比例设为 0，货币乘数是多少？再把现金比例调到 0.2，乘数变为多少，最终的存款是多少？为什么公众多持有现金会使货币供给变少？
+      en: |-
+        In [[fig:2-1]], first set the reserve ratio to 0.1 and the currency ratio to 0. What is the money multiplier? Then raise the currency ratio to 0.2. What does the multiplier become, and what are final deposits? Why does the public holding more currency make the money supply smaller?
+    answer:
+      zh-cn: |-
+        $c = 0$ 时 $m = \frac{1}{0.1} = 10$，货币供给 1000。$c = 0.2$ 时 $m = \frac{1.2}{0.3} = 4$，货币供给 400，其中存款约 333.3、现金约 66.7。
+        每一轮贷款后，借款人付出的钱有一部分以现金的形式留在公众手中，不再存入银行，银行不能用它作准备金再贷款。漏出银行体系的越多，每轮能继续贷出的越少，乘数越小。
+      en: |-
+        With $c = 0$, $m = \frac{1}{0.1} = 10$ and the money supply is 1000. With $c = 0.2$, $m = \frac{1.2}{0.3} = 4$ and the money supply is 400: deposits about 333.3 and currency about 66.7.
+        After each round of lending, part of the money paid out stays with the public as currency instead of being deposited, so banks cannot hold it as reserves and lend against it. The more leaks out of the banking system, the less can be lent in each round, and the smaller the multiplier.
+    rubric:
+      zh-cn:
+        - "乘数 10 和 4，存款约 333.3。"
+        - "用现金漏出银行体系解释。"
+      en:
+        - "Multipliers 10 and 4, deposits about 333.3."
+        - "Explains by currency leaking out of the banking system."
+
+  - id: C2
+    kind: check
+    section: bank-runs
+    concepts: [bank-run, deposit-insurance]
+    expected: { loss: "9", eq: "-1" }
+    question:
+      zh-cn: |-
+        一家银行的资产是准备金 10 和长期债券 90，负债是存款 92，股东权益 8。利率上升使债券的市场价格下跌 10%。按市场价格，银行的股东权益是多少？
+        另一种情况：债券只跌了 3%，银行按市场价格仍有偿付能力，但大部分存款超过存款保险的上限。为什么这些存款人仍可能抢着取款？存款保险怎样改变他们的选择？
+      en: |-
+        A bank's assets are reserves of 10 and long-term bonds of 90; its liabilities are deposits of 92, and equity is 8. Rising interest rates push the market price of the bonds down 10%. At market prices, what is the bank's equity?
+        In another case, the bonds fall only 3%, so the bank is still solvent at market prices, but most deposits are above the insurance limit. Why might these depositors still rush to withdraw? How does deposit insurance change their choice?
+    answer:
+      zh-cn: |-
+        债券损失 $90 \times 10\% = 9$，大于股东权益 8，股东权益变为 $8 - 9 = -1$，按市场价格资不抵债。
+        第二种情况：准备金只有 10，大量提款要靠卖债券；卖得越急，价格越低，损失可能吃掉剩下的股东权益。每个未受保的存款人都想在别人之前取钱，因为后取的人可能拿不回全额；结果大家都取，银行真的倒闭，挤兑自我实现。有存款保险时，受保的存款人无论银行怎样都能拿回存款，抢先取钱没有好处，挤兑的动机就消失了。
+      en: |-
+        The bond loss is $90 \times 10\% = 9$, more than the equity of 8, so equity becomes $8 - 9 = -1$; at market prices the bank is insolvent.
+        Second case: reserves are only 10, so large withdrawals must be met by selling bonds; the faster the sales, the lower the prices, and the losses can wipe out the remaining equity. Each uninsured depositor wants to withdraw before the others, because those who come later may not get everything back; so everyone withdraws and the bank really fails: the run is self-fulfilling. With deposit insurance, insured depositors get their money back whatever happens, so withdrawing first brings no advantage and the motive for a run disappears.
+    rubric:
+      zh-cn:
+        - "股东权益 −1（写作 -1 或 −1 均可）。"
+        - "说明挤兑的自我实现，以及存款保险如何消除抢先取款的动机。"
+      en:
+        - "Equity −1 (written -1 or −1)."
+        - "Explains the self-fulfilling run and how deposit insurance removes the motive to withdraw first."
+
+  - id: C3
+    kind: check
+    section: quantity-theory
+    concepts: [quantity-theory-of-money]
+    expected: { pi1: "4", pi2: "2" }
+    question:
+      zh-cn: |-
+        某国货币供给每年增长 7%，实际 GDP 增长 3%。(a) 如果流通速度不变，按 $g_M + g_V \approx \pi + g_Y$，通胀约为多少？(b) 如果人们因利率下降而愿意持有更多货币，流通速度每年下降 2%，通胀约为多少？
+      en: |-
+        A country's money supply grows 7% a year and real GDP 3%. (a) If velocity is constant, what is inflation by $g_M + g_V \approx \pi + g_Y$? (b) If falling interest rates make people willing to hold more money and velocity falls 2% a year, what is inflation?
+    answer:
+      zh-cn: |-
+        (a) $\pi \approx 7\% - 3\% = 4\%$。
+        (b) $\pi \approx 7\% - 2\% - 3\% = 2\%$。
+        同样的货币增长，流通速度下降时，多出来的货币被人们持有而不是花掉，对价格的推动变小。这也是货币增长率在短期内不能可靠地预测通胀的原因。
+      en: |-
+        (a) $\pi \approx 7\% - 3\% = 4\%$.
+        (b) $\pi \approx 7\% - 2\% - 3\% = 2\%$.
+        With the same money growth, when velocity falls the extra money is held rather than spent, so it pushes prices up less. This is also why money growth does not reliably predict inflation in the short run.
+    rubric:
+      zh-cn:
+        - "(a) 约 4%；(b) 约 2%。"
+        - "解释流通速度下降的作用。"
+      en:
+        - "(a) About 4%; (b) about 2%."
+        - "Explains the effect of falling velocity."
+
+  - id: C4
+    kind: check
+    section: inflation-costs
+    concepts: [inflation, fisher-equation]
+    expected: { r1: "2.94", r2: "-0.94" }
+    question:
+      zh-cn: |-
+        一笔贷款的名义年利率为 5%，签约时双方都预期通胀为 2%。(a) 预期的实际利率是多少？(b) 实际通胀为 6%，事后的实际利率是多少？谁得益、谁受损？(c) 如果签约时双方就预期到 6% 的通胀，结果会怎样不同？
+      en: |-
+        A loan has a nominal interest rate of 5% a year, and when it is signed both sides expect inflation of 2%. (a) What is the expected real interest rate? (b) Actual inflation turns out to be 6%. What is the realized real interest rate? Who gains and who loses? (c) How would the outcome differ if both sides had expected 6% inflation when signing?
+    answer:
+      zh-cn: |-
+        (a) $\frac{1.05}{1.02} - 1 \approx 2.94\%$。
+        (b) $\frac{1.05}{1.06} - 1 \approx -0.94\%$。债务人得益：还款的实际价值低于预期；债权人受损。
+        (c) 名义利率会在签约时定得更高（约 $1.0294 \times 1.06 - 1 \approx 9.1\%$），实际利率仍约 2.94%，没有财富的重新分配。重新分配来自**未预期到的**通胀。
+      en: |-
+        (a) $\frac{1.05}{1.02} - 1 \approx 2.94\%$.
+        (b) $\frac{1.05}{1.06} - 1 \approx -0.94\%$. The borrower gains: the real value of repayments is lower than expected; the lender loses.
+        (c) The nominal rate would have been set higher at signing (about $1.0294 \times 1.06 - 1 \approx 9.1\%$), the real rate would still be about 2.94%, and there would be no redistribution. Redistribution comes from **unexpected** inflation.
+    rubric:
+      zh-cn:
+        - "(a) 约 2.94%；(b) 约 −0.94%（写作 -0.94 或 −0.94 均可），债务人得益。"
+        - "(c) 说明预期到的通胀会反映在名义利率中。"
+      en:
+        - "(a) About 2.94%; (b) about −0.94% (written -0.94 or −0.94), the borrower gains."
+        - "(c) Explains that expected inflation is built into the nominal rate."
+
+  # ---------- Exercises (reviewed by the AI, not scored) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [fractional-reserve-banking, money-multiplier]
+    expected: { d: "5000", l: "4000", d2: "4000" }
+    question:
+      zh-cn: |-
+        准备金率为 20%，公众不持有现金。央行买入债券，使银行 A 的准备金和存款各增加 1000 美元。
+        (a) 写出前三轮新增的存款。
+        (b) 过程结束时，整个银行体系的存款、贷款和准备金各增加多少？
+        (c) 如果银行出于谨慎，在规定之外再多留存款的 5% 作准备金，存款最终增加多少？
+      en: |-
+        The reserve ratio is 20%, and the public holds no currency. The central bank buys bonds, so bank A's reserves and deposits each rise by 1000 dollars.
+        (a) Write down the new deposits in the first three rounds.
+        (b) When the process ends, by how much have deposits, loans and reserves of the whole banking system risen?
+        (c) If banks, to be careful, keep another 5% of deposits as reserves beyond the requirement, by how much do deposits rise in the end?
+    answer:
+      zh-cn: |-
+        (a) 1000、800、640（每轮是上一轮的 0.8 倍）。
+        (b) 存款 $\frac{1000}{0.2} = 5000$，准备金 1000（全部新增的准备金），贷款 $5000 - 1000 = 4000$。
+        (c) 有效的准备金率为 25%，存款增加 $\frac{1000}{0.25} = 4000$。银行愿意持有的准备金越多，乘数越小。
+      en: |-
+        (a) 1000, 800 and 640 (each round is 0.8 times the previous one).
+        (b) Deposits $\frac{1000}{0.2} = 5000$, reserves 1000 (all of the new reserves), loans $5000 - 1000 = 4000$.
+        (c) The effective reserve ratio is 25%, so deposits rise by $\frac{1000}{0.25} = 4000$. The more reserves banks choose to hold, the smaller the multiplier.
+    rubric:
+      zh-cn:
+        - "(a)(b) 各轮存款正确；存款 5000、贷款 4000、准备金 1000。"
+        - "(c) 4000，并说明银行的选择影响乘数。"
+      en:
+        - "(a)(b) Correct rounds; deposits 5000, loans 4000, reserves 1000."
+        - "(c) 4000, noting that banks' choices affect the multiplier."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    star: true
+    concepts: [money-multiplier, monetary-base, money-supply]
+    expected: { ratio: "37.5" }
+    question:
+      zh-cn: |-
+        记现金为 $C$、存款为 $D$、准备金为 $R$。货币供给 $M = C + D$，基础货币 $B = C + R$。公众按 $C = cD$ 持有现金，银行按 $R = rD$ 持有准备金。
+        (a) 推导 $M = \frac{1 + c}{c + r}\,B$。
+        (b) 假设在若干年中，某国的基础货币增加到原来的 4 倍，货币供给只增加到原来的 1.5 倍。货币乘数变成了原来的百分之多少？按 (a) 的公式，是 $c$ 还是 $r$ 的什么变化最可能造成这一点？为什么银行会这样做？
+      en: |-
+        Write currency as $C$, deposits as $D$ and reserves as $R$. The money supply is $M = C + D$ and the monetary base is $B = C + R$. The public holds currency $C = cD$, and banks hold reserves $R = rD$.
+        (a) Derive $M = \frac{1 + c}{c + r}\,B$.
+        (b) Suppose that over several years a country's monetary base rises to 4 times its earlier level while the money supply rises only to 1.5 times. What percentage of its earlier value is the money multiplier now? By the formula in (a), what change in $c$ or $r$ most likely caused this? Why would banks do this?
+    answer:
+      zh-cn: |-
+        (a) $\frac{M}{B} = \frac{C + D}{C + R} = \frac{cD + D}{cD + rD} = \frac{1 + c}{c + r}$。
+        (b) 新乘数 / 旧乘数 $= \frac{1.5}{4} = 37.5\%$。最可能是 $r$ 大幅上升：银行持有的准备金远多于需要。原因是央行对准备金付息、经济前景不好时值得放的贷款少、监管要求银行持有更多流动资产等；准备金是安全且有收益的资产。所以基础货币大量增加，并不一定带来同样多的贷款和存款。
+      en: |-
+        (a) $\frac{M}{B} = \frac{C + D}{C + R} = \frac{cD + D}{cD + rD} = \frac{1 + c}{c + r}$.
+        (b) New multiplier / old multiplier $= \frac{1.5}{4} = 37.5\%$. Most likely $r$ rose sharply: banks hold far more reserves than needed. Reasons: the central bank pays interest on reserves, there are few loans worth making when the outlook is poor, and regulation requires banks to hold more liquid assets; reserves are a safe asset that earns interest. So a large increase in the monetary base does not necessarily bring as many new loans and deposits.
+    rubric:
+      zh-cn:
+        - "(a) 推导正确。"
+        - "(b) 37.5%，指出 $r$ 上升并给出银行多持有准备金的原因。"
+      en:
+        - "(a) Correct derivation."
+        - "(b) 37.5%, identifies a rise in $r$ and gives reasons banks hold more reserves."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [quantity-theory-of-money, inflation]
+    expected: { approx: "43", exact: "44.12" }
+    question:
+      zh-cn: |-
+        某国政府靠印钞弥补赤字，货币供给每年增长 40%，实际 GDP 每年增长 2%。人们预期物价会继续快速上涨，尽量少持有货币，流通速度每年上升 5%。
+        (a) 用 $g_M + g_V \approx \pi + g_Y$ 估计通胀。
+        (b) 用精确的关系 $(1 + g_M)(1 + g_V) = (1 + \pi)(1 + g_Y)$ 计算通胀。为什么这里两种算法的差别比低通胀时大？
+        (c) 为什么高通胀时流通速度会上升？这对通胀有什么影响？
+      en: |-
+        A government covers its deficit by printing money: the money supply grows 40% a year and real GDP 2% a year. People expect prices to keep rising fast and hold as little money as they can, so velocity rises 5% a year.
+        (a) Estimate inflation with $g_M + g_V \approx \pi + g_Y$.
+        (b) Compute inflation with the exact relation $(1 + g_M)(1 + g_V) = (1 + \pi)(1 + g_Y)$. Why is the gap between the two methods larger here than at low inflation?
+        (c) Why does velocity rise when inflation is high? What does this do to inflation?
+    answer:
+      zh-cn: |-
+        (a) $\pi \approx 40\% + 5\% - 2\% = 43\%$。
+        (b) $\pi = \frac{1.40 \times 1.05}{1.02} - 1 \approx 44.12\%$。近似公式忽略了增长率之间的乘积项（例如 $0.40 \times 0.05$），增长率大时这些项不可忽略。
+        (c) 持有货币的成本就是通胀：钱放一天就少一天的购买力，所以人们拿到钱就尽快花掉或换成外币、实物，流通速度上升。同样的货币增长带来更高的通胀，通胀又使人们更不愿持有货币，可能形成恶性循环。
+      en: |-
+        (a) $\pi \approx 40\% + 5\% - 2\% = 43\%$.
+        (b) $\pi = \frac{1.40 \times 1.05}{1.02} - 1 \approx 44.12\%$. The approximation ignores the cross products of growth rates (such as $0.40 \times 0.05$), which are not negligible when growth rates are large.
+        (c) The cost of holding money is inflation: money loses purchasing power every day, so people spend it or turn it into foreign currency or goods as soon as they get it, and velocity rises. The same money growth then brings higher inflation, which makes people even less willing to hold money, and this can become a vicious circle.
+    rubric:
+      zh-cn:
+        - "(a) 约 43%；(b) 约 44.12%，并说明乘积项。"
+        - "(c) 用持有货币的成本解释流通速度上升及其后果。"
+      en:
+        - "(a) About 43%; (b) about 44.12%, explaining the cross terms."
+        - "(c) Explains rising velocity by the cost of holding money, and its effect."
+
+  - id: Q4
+    kind: exercise
+    level: C
+    star: true
+    concepts: [inflation, fisher-equation]
+    expected: { a: "1.72", b: "0.71", pre: "2.83", eff: "75" }
+    question:
+      zh-cn: |-
+        假设利息收入按 25% 的税率征税，税按名义利息计算。
+        (a) 通胀为 2%，存款的名义利率为 5%。税后的实际利率是多少？
+        (b) 通胀为 6%，名义利率为 9%。税前和税后的实际利率各是多少？
+        (c) 在 (b) 中，税收拿走了税前实际利息的百分之多少？为什么通胀越高，对实际收益的税负越重？
+      en: |-
+        Suppose interest income is taxed at 25%, and the tax is computed on nominal interest.
+        (a) Inflation is 2%, and the nominal interest rate on a deposit is 5%. What is the after-tax real interest rate?
+        (b) Inflation is 6%, and the nominal rate is 9%. What are the before-tax and after-tax real interest rates?
+        (c) In (b), what percentage of the before-tax real interest does the tax take? Why is the tax burden on real returns heavier when inflation is higher?
+    answer:
+      zh-cn: |-
+        (a) 税后名义利率 $5\% \times 0.75 = 3.75\%$，税后实际利率 $\frac{1.0375}{1.02} - 1 \approx 1.72\%$。
+        (b) 税前实际 $\frac{1.09}{1.06} - 1 \approx 2.83\%$；税后名义 $9\% \times 0.75 = 6.75\%$，税后实际 $\frac{1.0675}{1.06} - 1 \approx 0.71\%$。
+        (c) $\frac{2.83 - 0.71}{2.83} \approx 75\%$。名义利息中有一部分只是补偿通胀，并不是真正的收入，但也要交税。通胀越高，这一部分越大，对实际收益的有效税率越高，远高于名义上的 25%。资本利得按名义金额征税也是同样的问题。
+      en: |-
+        (a) After-tax nominal rate $5\% \times 0.75 = 3.75\%$; after-tax real rate $\frac{1.0375}{1.02} - 1 \approx 1.72\%$.
+        (b) Before-tax real $\frac{1.09}{1.06} - 1 \approx 2.83\%$; after-tax nominal $9\% \times 0.75 = 6.75\%$; after-tax real $\frac{1.0675}{1.06} - 1 \approx 0.71\%$.
+        (c) $\frac{2.83 - 0.71}{2.83} \approx 75\%$. Part of nominal interest only makes up for inflation and is not real income, but it is taxed too. The higher inflation is, the larger that part, and the higher the effective tax rate on the real return, far above the nominal 25%. Taxing capital gains in nominal terms has the same problem.
+    rubric:
+      zh-cn:
+        - "(a) 约 1.72%；(b) 约 2.83% 和 0.71%。"
+        - "(c) 约 75%，并说明对补偿通胀的部分征税。"
+      en:
+        - "(a) About 1.72%; (b) about 2.83% and 0.71%."
+        - "(c) About 75%, explaining that the part compensating for inflation is taxed."
+
+  - id: Q5
+    kind: exercise
+    level: B
+    concepts: [bank-run, deposit-insurance, moral-hazard]
+    expected: { share: "75" }
+    question:
+      zh-cn: |-
+        一家公司在一家美国银行有 100 万美元存款，都在同一个账户类别下。
+        (a) 按 FDIC 的上限，有百分之多少的存款没有保险？
+        (b) 这家公司的财务主管听说银行有亏损的传闻。即使他认为银行大概率没有问题，为什么他仍可能把钱转走？如果很多企业存款人都这样想，会发生什么？
+        (c) 有人主张取消保险上限、保证所有存款。这样做有什么好处，可能带来什么问题？
+      en: |-
+        A company has 1 million dollars in deposits at one US bank, all in the same ownership category.
+        (a) Under the FDIC limit, what percentage of the deposits is uninsured?
+        (b) The company's treasurer hears rumors that the bank has losses. Even if he thinks the bank is most likely fine, why might he still move the money? What happens if many corporate depositors think the same way?
+        (c) Some people propose removing the limit and guaranteeing all deposits. What are the benefits, and what problems might it bring?
+    answer:
+      zh-cn: |-
+        (a) 未受保 $\frac{1{,}000{,}000 - 250{,}000}{1{,}000{,}000} = 75\%$。
+        (b) 转走的成本很小，留下的风险是损失大部分存款；只要银行有一点倒闭的可能，转走就更好。如果很多企业存款人都这样做，银行要贱卖资产应付提款，原本没有的损失变成真的，银行可能倒闭：挤兑自我实现。
+        (c) 好处：存款人没有理由挤兑，银行体系更稳定。问题：道德风险更严重，存款人完全不再关心银行的风险，银行可以用有政府担保的低成本存款去冒更大的风险，损失最终由保险基金或纳税人承担；需要更严格的资本和风险监管，或对风险更高的银行收更多保费。
+      en: |-
+        (a) Uninsured share $\frac{1{,}000{,}000 - 250{,}000}{1{,}000{,}000} = 75\%$.
+        (b) Moving the money costs little, while staying risks losing most of the deposit; if there is any chance of failure, moving is better. If many corporate depositors do this, the bank must sell assets at fire-sale prices to pay them, losses that did not exist become real, and the bank may fail: the run is self-fulfilling.
+        (c) Benefit: depositors have no reason to run, and the banking system is more stable. Problem: moral hazard becomes worse; depositors stop caring about banks' risk at all, banks can use cheap government-guaranteed deposits to take more risk, and the losses fall on the insurance fund or taxpayers in the end; this calls for stricter capital and risk regulation, or higher premiums for riskier banks.
+    rubric:
+      zh-cn:
+        - "(a) 75%。"
+        - "(b) 说明不对称的得失和挤兑的自我实现。"
+        - "(c) 稳定的好处和道德风险的问题都要提到。"
+      en:
+        - "(a) 75%."
+        - "(b) Explains the lopsided payoff and the self-fulfilling run."
+        - "(c) Mentions both the stability benefit and the moral-hazard problem."

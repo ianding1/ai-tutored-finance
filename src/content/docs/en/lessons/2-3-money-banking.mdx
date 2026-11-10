@@ -1,0 +1,123 @@
+---
+title: 2.3 Money and Banking
+description: "What money is and how it is measured; how banks create money, the money multiplier and its limits today; bank runs and deposit insurance; the quantity theory of money; the costs of inflation."
+lesson: "2.3"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import CheckAll from '../../../../components/CheckAll.astro';
+import MoneyMultiplier from '../../../../components/widgets/MoneyMultiplier.astro';
+
+## What money is [#money]
+
+Money is an asset that people generally accept in payment for goods and services. It has three functions:
+
+- **Medium of exchange**: instead of bartering, one sells things for money and uses the money to buy other things;
+- **Unit of account**: prices, wages and debts are stated in money;
+- **Store of value**: it carries purchasing power from today into the future. Stocks and houses also store value, but money is the most liquid: it can be used for payment at any time without first being sold.
+
+Most money today is not cash but bank deposits: paying by card or transfer just moves deposits from one account to another. So measures of money count both currency and deposits. The Federal Reserve publishes two measures:
+
+- **M1**: currency in circulation, checking deposits, savings deposits and other deposits that can be used for payment at any time;
+- **M2**: M1 plus small time deposits and retail money market funds.
+
+Since May 2020 the Fed has counted savings deposits in M1, so the two are now close. In September 2026 US M1 was about 20.06 trillion dollars and M2 about 23.41 trillion dollars (seasonally adjusted; Federal Reserve H.6 release, October 27, 2026). What economists call the <Def id="money-supply">money supply</Def> usually means a total such as M2 that includes deposits.
+
+## How banks create money [#money-creation]
+
+What the central bank controls directly is currency in circulation plus the reserves that commercial banks hold at the central bank; together they are called the <Def id="monetary-base">monetary base</Def>. When the central bank buys bonds, it pays into the seller's bank's account at the central bank, and reserves rise.
+
+Banks do not keep all deposits as reserves. Depositors do not all withdraw at once, so a bank keeps only part of its deposits to meet withdrawals and lends the rest to earn interest. This is called <Def id="fractional-reserve-banking">fractional reserve banking</Def>.
+
+Example: someone deposits 100 dollars of cash in bank A. Bank A keeps 10 dollars as reserves (reserve ratio $r = 0.1$) and lends 90 dollars. The borrower pays with the 90 dollars, and the person paid deposits it in bank B; bank B keeps 9 dollars and lends 81 dollars, and so on. In each round the new deposit is new money: the first 100 dollars of deposits still exist, and there are now also deposits of 90 dollars, 81 dollars and so on. Loans create deposits.
+
+If the public also holds currency in proportion $c$ to its deposits (the currency-to-deposit ratio), in each round part of the money stays outside the banks as currency and cannot be lent again. The final money supply $M$ is a multiple of the monetary base $B$:
+
+$$
+M = m\,B, \qquad m = \frac{1 + c}{c + r}
+$$
+
+$m$ is called the <Def id="money-multiplier">money multiplier</Def>. For how this formula follows from $M = C + D$ and $B = C + R$, see <Ref check="Q2" />.
+
+<Figure id="2-1" title="How the money supply grows, round after round of lending and deposits, after 100 units of base money enter the economy. The dashed line is the limit $m \times 100$." observe="First set the currency ratio to 0 and change the reserve ratio; then raise the currency ratio and watch how the limit and the speed of convergence change.">
+	<MoneyMultiplier />
+</Figure>
+
+<Check id="C1" />
+
+## Reserves and the multiplier today [#reserves-today]
+
+The textbook money multiplier assumes that banks hold only the required minimum reserves and always lend out any reserves beyond that. Reality is different:
+
+- **The United States no longer has reserve requirements**: the Fed cut the reserve ratio to 0 on March 26, 2020 (Federal Reserve, 2020).
+- **Whether banks lend depends on whether there are loans worth making, whether they have enough capital, and interest rates**. Since 2008 the Fed has paid interest on banks' reserves; reserves themselves earn a return, and banks are willing to hold far more than they need.
+- So after 2008, when the Fed bought large amounts of bonds, the monetary base rose several times over while M2 rose much less, and the money multiplier fell sharply (<Ref check="Q2" /> shows this with numbers).
+
+For this reason central banks today generally do not control the money supply through the quantity of base money; they control short-term interest rates, which then affect lending and spending (<Ref lesson="2.5" />). The money multiplier is still useful: it shows how the banking system turns one unit of reserves into several units of deposits, and how the currency and reserve ratios affect this process.
+
+## Bank runs and deposit insurance [#bank-runs]
+
+A bank's liabilities are mainly deposits, which depositors can withdraw at any time; its assets are mainly loans and long-term bonds, which cannot quickly be sold at full value. Borrowing short and lending long is a bank's basic business, and it brings a risk: if many depositors want their money at the same time, the bank has to sell assets cheaply and may fail as a result. Depositors rushing to withdraw because they fear the bank will fail is called a <Def id="bank-run">bank run</Def>.
+
+A run can be self-fulfilling: even if nothing is wrong with the bank, as long as each depositor fears that others will withdraw first, withdrawing first is the best choice for everyone (similar in structure to the <Ref concept="prisoners-dilemma" />).
+
+Silicon Valley Bank in March 2023 is an example. It had invested much of its deposits in long-term bonds; when interest rates rose, the prices of these bonds fell sharply (<Ref concept="present-value" />). Once this became known, depositors withdrew 42 billion dollars in one day, March 9, and asked to withdraw about 100 billion dollars more on March 10, out of total deposits of about 175 billion dollars at the end of 2022 (testimony of Fed Vice Chair Barr to Congress, March 28, 2023). The bank was closed on March 10. Most of its deposits came from companies and were far above the deposit insurance limit.
+
+To prevent runs, many countries have <Def id="deposit-insurance">deposit insurance</Def>: if a bank fails, the government guarantees depositors' deposits up to a limit. In the United States it is provided by the Federal Deposit Insurance Corporation (FDIC), and the limit is 250,000 dollars per depositor, per bank, per ownership category (since 2008, made permanent by the Dodd-Frank Act in 2010). With insurance, insured depositors have no reason to withdraw first, and runs become unlikely. The cost is <Ref concept="moral-hazard" />: depositors no longer care about the bank's risk, and banks may take more risk. So where deposits are insured, banks' capital and risk must also be regulated.
+
+<Check id="C2" />
+
+## The quantity theory of money [#quantity-theory]
+
+What happens to prices when there is more money? Write the money supply as $M$, the price level as $P$ and real output as $Y$. The total paid with money in a year is nominal GDP $PY$, and the average number of times each unit of money is used is called velocity $V$:
+
+$$
+M\,V = P\,Y
+$$
+
+By the definition of $V$, this always holds. The <Def id="quantity-theory-of-money">quantity theory of money</Def> adds two assumptions: in the long run $V$ is fairly stable, and $Y$ is determined by the factors of production and total factor productivity of <Ref lesson="2.2" />, independently of money. Then more money mainly means higher prices. In growth rates (in the same way as the growth accounting of <Ref lesson="2.2" />):
+
+$$
+g_M + g_V \approx \pi + g_Y
+$$
+
+In the long run, data across countries support this: countries where money grows fast have high inflation, and hyperinflation always comes with governments printing large amounts of money.
+
+But in the short run, and when inflation is low, the relation is not reliable: velocity changes with interest rates, financial innovation and people's expectations. After both 2008 and 2020, the velocity of US M2 fell markedly. So central banks no longer target the growth of the money supply.
+
+<Check id="C3" />
+
+## The costs of inflation [#inflation-costs]
+
+What is wrong with <Ref concept="inflation" />? Distinguish two cases.
+
+**Expected inflation**: if everyone expects 3% inflation, nominal interest rates and wages adjust accordingly (<Ref concept="fisher-equation" />), and the costs are smaller, but not zero:
+
+- people hold less currency, which pays no interest, and have to withdraw money more often ("shoe-leather costs");
+- firms have to change prices more often ("menu costs");
+- taxes are computed on nominal amounts: the part of interest and capital gains that only makes up for inflation is taxed too, and the higher inflation is, the heavier the tax on real returns (<Ref check="Q4" />).
+
+**Unexpected inflation**: it redistributes wealth between debtors and creditors. The nominal rate of a loan contract is set according to expected inflation; if inflation turns out higher than expected, debtors repay with "cheaper" money and gain, while creditors lose; if it is lower, the reverse happens. What investors holding long-term fixed-rate bonds fear most is unexpected inflation. Higher inflation is usually also more variable and harder to predict, which makes long-term contracts and investment plans harder.
+
+Printing money is also a source of government revenue, called seigniorage: new money can buy goods and services, and the cost falls on people who hold money (their money loses value), so it is also called the inflation tax. The more a government relies on printing money to cover deficits, the higher inflation is; most hyperinflations come from this, for example Germany in 1923 and Zimbabwe in 2008.
+
+<Check id="C4" />
+
+## Summary [#summary]
+
+- Money is a medium of exchange, a unit of account and a store of value; money today is mainly bank deposits. M1 and M2 are common measures of the money supply.
+- The central bank controls the monetary base (currency plus reserves). Under fractional reserve banking, loans create deposits; the money multiplier is $m = \frac{1 + c}{c + r}$.
+- Since 2020 the United States has had no reserve requirements; banks hold large interest-paying reserves, the money multiplier is unstable, and central banks control interest rates instead.
+- Banks borrow short and lend long and can suffer self-fulfilling runs; deposit insurance prevents runs but brings moral hazard and needs regulation.
+- Quantity theory of money: $MV = PY$; in the long run, countries with fast money growth have high inflation; in the short run, velocity is unstable.
+- Expected inflation brings shoe-leather costs, menu costs and tax distortions; unexpected inflation redistributes wealth between debtors and creditors.
+
+<CheckAll />
+
+## Exercises [#exercises]
+
+<Exercises />

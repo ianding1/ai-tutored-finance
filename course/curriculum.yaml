@@ -186,7 +186,15 @@ stages:
         published: true
         introduces: [total-factor-productivity, growth-accounting, solow-model, steady-state]
         uses: [compound-interest, returns-to-scale, marginal-product, real-gdp, growing-perpetuity, first-order-condition, production-function]
-      - { id: "2.3", slug: "2-3-money-banking", title: { zh-cn: "货币与银行", en: "Money and Banking" } }
+      - id: "2.3"
+        slug: "2-3-money-banking"
+        title: { zh-cn: "货币与银行", en: "Money and Banking" }
+        summary:
+          zh-cn: "货币是什么、怎样度量；银行怎样创造货币，货币乘数和它在今天的局限；银行挤兑与存款保险；货币数量论；通胀的成本。"
+          en: "What money is and how it is measured; how banks create money, the money multiplier and its limits today; bank runs and deposit insurance; the quantity theory of money; the costs of inflation."
+        published: true
+        introduces: [money-supply, monetary-base, fractional-reserve-banking, money-multiplier, bank-run, deposit-insurance, quantity-theory-of-money]
+        uses: [inflation, fisher-equation, nominal-interest-rate, real-interest-rate, present-value, moral-hazard, prisoners-dilemma, real-gdp, growth-accounting]
       - { id: "2.4", slug: "2-4-short-run-fluctuations", title: { zh-cn: "短期波动", en: "Short-Run Fluctuations" } }
       - { id: "2.5", slug: "2-5-monetary-policy", title: { zh-cn: "货币政策", en: "Monetary Policy" } }
       - { id: "2.6", slug: "2-6-fiscal-policy", title: { zh-cn: "财政政策", en: "Fiscal Policy" } }

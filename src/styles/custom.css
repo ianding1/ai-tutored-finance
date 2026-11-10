@@ -322,6 +322,18 @@
 .lfwai-legend .sw.sw-dwl {
 	background: color-mix(in srgb, var(--viz-neg) 45%, transparent);
 }
+/* Lesson 2.3 figure */
+.viz-bar {
+	fill: color-mix(in srgb, var(--viz-a) 70%, transparent);
+}
+.lfwai-legend .sw.sw-bar {
+	height: 0.75rem;
+	border: none;
+	background: color-mix(in srgb, var(--viz-a) 70%, transparent);
+}
+.lfwai-legend .sw.sw-mean {
+	border-top: 2px dashed var(--viz-text);
+}
 /* Lesson 1.5 figure */
 .viz-profit {
 	fill: var(--viz-pos);
