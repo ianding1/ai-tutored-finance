@@ -176,3 +176,13 @@ taylor-rule:
     target: 2
     a_pi: 0.5
     a_gap: 0.5
+
+debt-dynamics:
+  component: src/components/widgets/DebtDynamics.astro
+  params:
+    d: { min: -3, max: 6, step: 0.5, default: 3 }
+    r: { min: 0, max: 8, step: 0.5, default: 3.5 }
+    g: { min: 0, max: 8, step: 0.5, default: 4 }
+  fixed:
+    b0: 100
+    years: 30

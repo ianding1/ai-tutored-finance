@@ -213,7 +213,15 @@ stages:
         published: true
         introduces: [federal-funds-rate, zero-lower-bound, quantitative-easing, forward-guidance, taylor-rule, neutral-interest-rate]
         uses: [present-value, annuity, growing-perpetuity, fisher-equation, real-interest-rate, inflation, pce-price-index, output-gap, aggregate-demand, phillips-curve, natural-rate-of-unemployment, unemployment-rate]
-      - { id: "2.6", slug: "2-6-fiscal-policy", title: { zh-cn: "财政政策", en: "Fiscal Policy" } }
+      - id: "2.6"
+        slug: "2-6-fiscal-policy"
+        title: { zh-cn: "财政政策", en: "Fiscal Policy" }
+        summary:
+          zh-cn: "政府的收支、赤字和债务；财政乘数与自动稳定器；挤出效应；债务的可持续性；Ricardo 等价。"
+          en: "Government revenue, spending, deficits and debt; fiscal multipliers and automatic stabilizers; crowding out; debt sustainability; Ricardian equivalence."
+        published: true
+        introduces: [budget-deficit, primary-deficit, fiscal-multiplier, automatic-stabilizer, crowding-out, ricardian-equivalence]
+        uses: [present-value, deadweight-loss, gdp, inflation, is-curve, aggregate-demand, potential-output, zero-lower-bound, solow-model, steady-state]
       - { id: "2.7", slug: "2-7-open-economy", title: { zh-cn: "开放经济", en: "The Open Economy" } }
       - { id: "2.8", slug: "2-8-business-cycle-asset-prices", title: { zh-cn: "经济周期与资产价格", en: "Business Cycles and Asset Prices" } }
       - { id: "E2", slug: "e2-quiz", exam: true, title: { zh-cn: "测验 E2：宏观经济学", en: "Quiz E2: Macroeconomics" } }

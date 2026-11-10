@@ -1,0 +1,101 @@
+---
+title: 2.6 Fiscal Policy
+description: "Government revenue, spending, deficits and debt; fiscal multipliers and automatic stabilizers; crowding out; debt sustainability; Ricardian equivalence."
+lesson: "2.6"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import CheckAll from '../../../../components/CheckAll.astro';
+import DebtDynamics from '../../../../components/widgets/DebtDynamics.astro';
+
+## Government revenue and spending [#budget]
+
+Fiscal policy is the government's choice of spending and taxes. Government spending includes the government purchases $G$ of <Ref lesson="2.1" />, but also transfer payments such as Social Security and Medicare, and interest on the debt.
+
+The amount by which spending exceeds revenue is the <Def id="budget-deficit">budget deficit</Def>; each year's deficit is financed by issuing government bonds, and the accumulated deficits are the government debt. The deficit excluding interest payments is the <Def id="primary-deficit">primary deficit</Def>: it reflects current spending and taxes, while interest is the result of past borrowing.
+
+In fiscal year 2026 (October 2025 to September 2026), US federal revenue was about 5.40 trillion dollars and outlays about 7.40 trillion dollars, for a deficit of about 1.99 trillion dollars; net interest was about 1.14 trillion dollars (CBO, Monthly Budget Review, October 8, 2026). Federal debt held by the public is about 100% of GDP, the highest level since World War II (CBO, February 2026).
+
+## Fiscal multipliers [#multiplier]
+
+If the government spends one more dollar, by how much does output rise? The change in output divided by the change in spending or taxes is called the <Def id="fiscal-multiplier">fiscal multiplier</Def>.
+
+<Ref check="Q1" lesson="2.4" /> showed that, at a constant interest rate, when government purchases rise, producers' income rises, they spend a share $b$ of it (the marginal propensity to consume), which becomes someone else's income, and so on. The government purchases multiplier is
+
+$$
+k_G = \frac{1}{1 - b}
+$$
+
+Tax cuts also raise demand, but their effect differs from that of higher government purchases (<Ref check="C1" />).
+
+Real-world multipliers are much smaller than this formula: part of income goes to taxes and part to imports, and interest rates may rise (next section). Empirical estimates vary widely, roughly between 0.5 and 2; multipliers are generally thought to be larger in a recession and at the zero lower bound, and smaller when the economy is near potential output.
+
+Some fiscal policy needs no decision by the government: in a recession incomes fall, so income taxes fall and unemployment benefits rise automatically; in a boom the reverse happens. Taxes and spending that automatically move against economic fluctuations are each called an <Def id="automatic-stabilizer">automatic stabilizer</Def>. They also make the multiplier smaller and so soften the effect of shocks (<Ref check="Q2" />).
+
+<Check id="C1" />
+
+## Crowding out [#crowding-out]
+
+When the government borrows to spend more, private investment may fall; this is called <Def id="crowding-out">crowding out</Def>. There are two ways to see it, which are essentially the same:
+
+- **Through interest rates**: higher demand brings output close to or above its potential, the central bank raises rates to prevent inflation (<Ref lesson="2.5" />), and investment falls.
+- **Through saving**: a country's saving is private saving plus government saving (a deficit is negative government saving). A larger deficit means less national saving, less money available for investment and a higher real interest rate.
+
+How much crowding out there is depends on the state of the economy. Near potential output there is more crowding out, and a fiscal expansion mainly changes the composition of output (more government spending, less investment) rather than its total. In a recession at the zero lower bound, the central bank will not raise rates and much saving is idle, so there is less crowding out. In the long run, persistent deficits reduce capital accumulation and, by the Solow model of <Ref lesson="2.2" />, lower steady-state output per worker.
+
+<Check id="C2" />
+
+## Debt sustainability [#debt]
+
+Let $b_t$ be government debt as a share of GDP at the end of year $t$, $d_t$ the primary deficit as a share of GDP, $r$ the average nominal interest rate on the debt and $g$ the growth rate of nominal GDP. Debt grows with interest at $r$ each year and GDP grows at $g$, so
+
+$$
+b_{t+1} = \frac{1 + r}{1 + g}\,b_t + d_{t+1}
+$$
+
+What drives the debt ratio is **the gap between the interest rate and the growth rate**, together with the primary deficit:
+
+- when $r < g$, the debt ratio can be stable even with a small primary deficit;
+- when $r > g$, the government must run a primary surplus, or the debt ratio rises without limit.
+
+The primary deficit that keeps the debt ratio constant can be found from this equation (<Ref check="C3" />).
+
+<Figure id="4-1" title="How government debt as a share of GDP changes. Starting at 100%, computed for 30 years with $b_{t+1} = \frac{1 + r}{1 + g} b_t + d$." observe="First hold the primary deficit fixed and compare the paths when the interest rate is slightly below and slightly above growth; then find the primary deficit that keeps the debt ratio constant.">
+	<DebtDynamics />
+</Figure>
+
+A debt ratio that rises without limit is not sustainable. In the end, either taxes are raised or spending is cut, or the government defaults, or inflation reduces the real value of the debt (<Ref concept="inflation" />). The risk of the last two makes investors demand higher interest rates, and a higher $r$ makes the debt even harder to sustain. For a country like the United States, which borrows in its own currency and whose bonds are treated worldwide as a safe asset, the risk of default is considered very low, but a rising interest burden squeezes other spending.
+
+<Check id="C3" />
+
+## Ricardian equivalence [#ricardian]
+
+If the government cuts taxes today and borrows, it will have to raise taxes later to repay the debt. If households look far enough ahead, they will see that the tax cut does not raise their lifetime wealth: the extra money today exactly equals the present value of the extra taxes later (<Ref concept="present-value" />). So they save the whole tax cut to pay the future taxes, consumption does not change, and the tax cut has no effect on demand. This conclusion is called <Def id="ricardian-equivalence">Ricardian equivalence</Def>: given government spending, financing it with taxes or with debt has the same effect.
+
+Ricardian equivalence needs strong assumptions and usually does not fully hold in reality:
+
+- many households are liquidity-constrained and cannot borrow, so they spend a tax cut when they get it;
+- households may not look that far ahead, or may think future taxes will fall on others (the next generation, high earners);
+- taxes themselves change people's behavior (the deadweight loss of <Ref lesson="1.8" />).
+
+Empirical studies find that households spend part, but not all, of temporary tax cuts or payments; so tax cuts do stimulate, but usually less than government purchases of the same amount.
+
+<Check id="C4" />
+
+## Summary [#summary]
+
+- Deficit = spending − revenue; the primary deficit excludes interest. The US federal deficit in fiscal year 2026 was about 1.99 trillion dollars, net interest about 1.14 trillion dollars, and debt held by the public is about 100% of GDP.
+- In the simple model the government purchases multiplier is $\frac{1}{1 - b}$; in reality taxes, imports, interest rates and the state of the economy usually make it much smaller. Automatic stabilizers soften fluctuations automatically.
+- Deficits can crowd out private investment, more so near potential output and less in recessions and at the zero lower bound.
+- Debt ratio: $b_{t+1} = \frac{1 + r}{1 + g} b_t + d_{t+1}$. When $r > g$, a primary surplus is needed to stabilize the debt ratio.
+- Ricardian equivalence: rational, far-sighted households save a tax cut; in reality it holds only in part.
+
+<CheckAll />
+
+## Exercises [#exercises]
+
+<Exercises />

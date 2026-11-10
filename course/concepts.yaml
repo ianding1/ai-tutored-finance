@@ -1350,6 +1350,54 @@ neutral-interest-rate:
     zh-cn: "既不刺激也不抑制经济的实际利率 $r^*$，只能估计。"
     en: "The real interest rate $r^*$ that neither stimulates nor restrains the economy; it can only be estimated."
 
+budget-deficit:
+  defined_in: "2.6"
+  zh-cn: 财政赤字
+  en: budget deficit
+  short:
+    zh-cn: "政府支出大于收入的部分，靠发债弥补。"
+    en: "The amount by which government spending exceeds revenue, financed by borrowing."
+
+primary-deficit:
+  defined_in: "2.6"
+  zh-cn: 基本赤字
+  en: primary deficit
+  short:
+    zh-cn: "不含利息支出的财政赤字。"
+    en: "The budget deficit excluding interest payments."
+
+fiscal-multiplier:
+  defined_in: "2.6"
+  zh-cn: 财政乘数
+  en: fiscal multiplier
+  short:
+    zh-cn: "产出的变化与政府支出或税收的变化之比。"
+    en: "The change in output divided by the change in government spending or taxes."
+
+automatic-stabilizer:
+  defined_in: "2.6"
+  zh-cn: 自动稳定器
+  en: automatic stabilizer
+  short:
+    zh-cn: "随经济波动自动反向调整的税收和支出，例如所得税和失业救济。"
+    en: "Taxes and spending that move against the cycle automatically, such as income taxes and unemployment benefits."
+
+crowding-out:
+  defined_in: "2.6"
+  zh-cn: 挤出效应
+  en: crowding out
+  short:
+    zh-cn: "政府借款增加支出使利率上升、私人投资减少。"
+    en: "Government borrowing for spending that raises interest rates and reduces private investment."
+
+ricardian-equivalence:
+  defined_in: "2.6"
+  zh-cn: Ricardo 等价
+  en: Ricardian equivalence
+  short:
+    zh-cn: "给定政府支出，用税收还是发债融资结果相同，因为理性的家庭会把减税存起来准备将来交税。"
+    en: "Given government spending, financing by taxes or by debt has the same effect, because rational households save a tax cut to pay future taxes."
+
 risk-measures:
   defined_in: "4.1"
   zh-cn: 风险度量

@@ -1,0 +1,97 @@
+---
+// Figure 4-1 of lesson 2.6: government debt as a percent of GDP, b(t+1) = (1 + r) / (1 + g) · b(t) + d,
+// starting from 100% of GDP, over 30 years. d is the primary deficit (% of GDP), r the average nominal
+// interest rate on the debt, g nominal GDP growth. The dashed line is the starting level.
+// Parameters are registered in course/widgets.yaml (id: debt-dynamics).
+import { toLang } from '../../i18n/ui';
+
+const lang = toLang(Astro.locals.starlightRoute.lang);
+const L = {
+	'zh-cn': {
+		d: '基本赤字 d（占 GDP 的 %）',
+		r: '债务的平均利率 r（%）',
+		g: '名义 GDP 增长率 g（%）',
+		x: '年',
+		y: '债务占 GDP 的 %',
+		path: '债务比例',
+		start: '起点 100%',
+		readout: '30 年后债务为 GDP 的 {b}%。要使债务比例保持在 100%，基本赤字需为 GDP 的 {s}%（负数表示基本盈余）。',
+	},
+	en: {
+		d: 'Primary deficit d (% of GDP)',
+		r: 'Average interest rate on the debt r (%)',
+		g: 'Nominal GDP growth g (%)',
+		x: 'Year',
+		y: 'Debt, % of GDP',
+		path: 'Debt ratio',
+		start: 'Starting level 100%',
+		readout: 'After 30 years debt is {b}% of GDP. To keep the debt ratio at 100%, the primary deficit must be {s}% of GDP (a negative number is a primary surplus).',
+	},
+}[lang];
+
+const YEARS = 30;
+const xr = [0, YEARS];
+const yr = [0, 250];
+const xticks = [0, 5, 10, 15, 20, 25, 30];
+const yticks = [0, 50, 100, 150, 200, 250];
+const layouts = [
+	{ cls: 'viz-wide', W: 640, H: 300, pad: { l: 50, r: 20, t: 14, b: 44 } },
+	{ cls: 'viz-narrow', W: 360, H: 280, pad: { l: 50, r: 12, t: 14, b: 44 } },
+].map((g) => ({
+	...g,
+	X: (v: number) => g.pad.l + ((v - xr[0]) / (xr[1] - xr[0])) * (g.W - g.pad.l - g.pad.r),
+	Y: (v: number) => g.pad.t + ((yr[1] - v) / (yr[1] - yr[0])) * (g.H - g.pad.t - g.pad.b),
+}));
+---
+
+<div class="lfwai-widget" data-widget="debt-dynamics" data-readout={L.readout}>
+	<div class="lfwai-sliders">
+		<label>
+			<span>{L.d} = <output data-out="d">3</output></span>
+			<input type="range" min="-3" max="6" step="0.5" value="3" data-param="d" />
+		</label>
+		<label>
+			<span>{L.r} = <output data-out="r">3.5</output></span>
+			<input type="range" min="0" max="8" step="0.5" value="3.5" data-param="r" />
+		</label>
+		<label>
+			<span>{L.g} = <output data-out="g">4</output></span>
+			<input type="range" min="0" max="8" step="0.5" value="4" data-param="g" />
+		</label>
+	</div>
+	{layouts.map(({ cls, W, H, pad, X, Y }) => (
+		<svg class={`lfwai-viz ${cls}`} viewBox={`0 0 ${W} ${H}`} role="img" aria-label={L.path} data-geom={JSON.stringify({ W, H, pad, xr, yr, years: YEARS })}>
+			<defs>
+				<clipPath id={`debt-clip-${cls}`}>
+					<rect x={pad.l} y={pad.t} width={W - pad.l - pad.r} height={H - pad.t - pad.b} />
+				</clipPath>
+			</defs>
+			{yticks.map((v) => (
+				<g>
+					<line class={v === 0 ? 'viz-axis' : 'viz-grid'} x1={pad.l} x2={W - pad.r} y1={Y(v)} y2={Y(v)} />
+					<text class="viz-tick" x={pad.l - 8} y={Y(v) + 4} text-anchor="end">{v}</text>
+				</g>
+			))}
+			{xticks.map((v) => (
+				<text class="viz-tick" x={X(v)} y={H - pad.b + 18} text-anchor="middle">{v}</text>
+			))}
+			<line class="viz-axis" x1={pad.l} x2={pad.l} y1={pad.t} y2={H - pad.b} />
+			<text class="viz-tick" x={(pad.l + W - pad.r) / 2} y={H - 8} text-anchor="middle">{L.x}</text>
+			<text class="viz-tick" transform={`translate(12 ${(pad.t + H - pad.b) / 2}) rotate(-90)`} text-anchor="middle">{L.y}</text>
+			<g clip-path={`url(#debt-clip-${cls})`}>
+				<line class="viz-avg" x1={pad.l} x2={W - pad.r} y1={Y(100)} y2={Y(100)} />
+				<polyline class="viz-curve" data-el="path" points="" />
+			</g>
+		</svg>
+	))}
+	<ul class="lfwai-legend">
+		<li><span class="sw sw-curve"></span>{L.path}</li>
+		<li><span class="sw sw-avg"></span>{L.start}</li>
+	</ul>
+	<p class="lfwai-readout" data-el="readout" aria-live="polite"></p>
+</div>
+
+<script>
+	import { initDebtDynamics } from '../../scripts/widgets/debt-dynamics';
+	initDebtDynamics();
+</script>
