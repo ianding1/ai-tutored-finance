@@ -30,9 +30,9 @@ const L = {
 }[lang];
 
 const xr = [-3, 3];
-const yr = [-40, 50];
+const yr = [-30, 40];
 const xticks = [-3, -2, -1, 0, 1, 2, 3];
-const yticks = [-40, -20, 0, 20, 40];
+const yticks = [-30, -20, -10, 0, 10, 20, 30, 40];
 const layouts = [
 	{ cls: 'viz-wide', W: 640, H: 320, pad: { l: 50, r: 20, t: 14, b: 44 } },
 	{ cls: 'viz-narrow', W: 360, H: 300, pad: { l: 50, r: 12, t: 14, b: 44 } },
@@ -76,8 +76,8 @@ const layouts = [
 			<text class="viz-tick" transform={`translate(12 ${(pad.t + H - pad.b) / 2}) rotate(-90)`} text-anchor="middle">{L.y}</text>
 			<g clip-path={`url(#dc-clip-${cls})`}>
 				<polyline class="viz-curve-fat" fill="none" data-el="dur" points="" />
-				<polyline class="viz-avg" fill="none" data-el="cvx" points="" />
 				<polyline class="viz-curve" fill="none" data-el="exact" points="" />
+				<polyline class="viz-avg" fill="none" data-el="cvx" points="" />
 				<line class="viz-mean" data-el="vx" x1="0" y1={pad.t} x2="0" y2={H - pad.b} />
 				<circle class="viz-min" data-el="pt" r="5" cx="0" cy="0" />
 			</g>
