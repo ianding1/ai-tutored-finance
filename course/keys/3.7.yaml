@@ -1,0 +1,266 @@
+# Answer key for lesson 3.7. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[3.7#linkages]] (section), [[concept:working-capital]], [[check:Q3]], [[fig:2-1]].
+# expected: values are recomputed by course/verify/3.7.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+
+lesson: "3.7"
+
+context:
+  - zh-cn: |-
+      学习者学过经济利润（[[1.5]]）、委托–代理问题（[[1.9]]）、现值和资本成本（[[3.2]]）。讲义还没有讲财务比率（[[3.8]]）和自由现金流估值（[[3.10]]）。金额保留两位小数。
+    en: |-
+      The learner has studied economic profit ([[1.5]]), the principal–agent problem ([[1.9]]), and present value and the cost of capital ([[3.2]]). The lesson has not yet covered financial ratios ([[3.8]]) or free cash flow valuation ([[3.10]]). Amounts to two decimals.
+  - concepts: [balance-sheet, income-statement, cash-flow-statement, accrual-accounting, depreciation]
+    zh-cn: |-
+      讲义：资产负债表 $A = L + E$，股东权益主要是投入资本和留存收益；利润表从收入依次减去销售成本、费用、折旧（得到 EBIT）、利息、所得税，得到净利润；权责发生制：交付时确认收入，费用与收入配比；折旧把长期资产成本分摊到使用年限，不是当期现金支出；会计利润不扣除股东资本的机会成本。现金流量表分经营、投资、筹资活动。
+    en: |-
+      The lesson: balance sheet $A = L + E$, with equity mainly paid-in capital and retained earnings; the income statement goes from revenue minus cost of goods sold, expenses and depreciation (giving EBIT), minus interest and income tax, to net income; accrual accounting: revenue at delivery, expenses matched to revenue; depreciation spreads the cost of a long-lived asset over its life and is not a cash payment in the period; accounting profit does not deduct the opportunity cost of shareholders' capital. The cash flow statement has operating, investing and financing activities.
+  - concepts: [working-capital, cash-flow-statement]
+    zh-cn: |-
+      讲义：期末留存收益 = 期初留存收益 + 净利润 − 股息；三类现金流合计 = 现金的变化；$\text{CFO} = \text{NI} + \text{Dep} - \Delta \text{WC}$，营运资本主要是应收账款 + 存货 − 应付账款。[[fig:2-1]]：第 0 年收入 100，按增长率 $g$ 增长，净利润率 10%；应收账款 = 收入 × 应收账款天数 / 365；经营活动现金流 = 净利润 − 应收账款的增加；滑块 $g$ 为 0 到 50%（步长 5，默认 20），应收账款天数 0 到 120（步长 10，默认 60）；读数显示 5 年的净利润合计和经营活动现金流合计。
+    en: |-
+      The lesson: ending retained earnings = beginning retained earnings + net income − dividends; the three groups of cash flows add up to the change in cash; $\text{CFO} = \text{NI} + \text{Dep} - \Delta \text{WC}$, with working capital mainly receivables + inventory − payables. [[fig:2-1]]: revenue 100 in year 0, growing at $g$, net margin 10%; receivables = revenue × days of receivables / 365; operating cash flow = net income − increase in receivables; sliders $g$ from 0 to 50% (in steps of 5, default 20) and days of receivables from 0 to 120 (in steps of 10, default 60); the readout shows five-year totals of net income and operating cash flow.
+  - concepts: [earnings-quality]
+    zh-cn: |-
+      讲义：权责发生制需要估计（使用年限、坏账、存货贬值、多年合同的收入确认）；盈余质量是利润在多大程度上可持续、能变成现金。检查：比较净利润与经营活动现金流，应收账款和存货是否比收入增长快，估计和政策的变更，一次性项目。常见美化：提前确认收入（压货）、费用资本化、调整估计（延长使用年限、减少坏账准备、“饼干罐”准备）、反复出现的“一次性”费用、强调剔除股票薪酬等项目的非 GAAP“调整后”利润。管理层薪酬与利润挂钩是委托–代理问题。
+    en: |-
+      The lesson: accrual accounting needs estimates (useful lives, bad debts, inventory write-downs, revenue on multi-year contracts); earnings quality is how far profit is lasting and turns into cash. Checks: compare net income with operating cash flow, see whether receivables and inventory grow faster than revenue, changes in estimates and policies, one-time items. Common dressing up: early revenue recognition (channel stuffing), capitalizing expenses, adjusting estimates (longer lives, smaller bad-debt allowances, "cookie jar" reserves), recurring "one-time" charges, and stressing non-GAAP "adjusted" earnings that exclude items such as stock-based compensation. Tying managers' pay to profit is a principal–agent problem.
+
+common_errors:
+  - questions: [C1, Q1]
+    zh-cn: |-
+      把折旧当作现金支出，或者把购买设备的支出当作当期费用。
+    en: |-
+      Treating depreciation as a cash payment, or treating the purchase of equipment as a current expense.
+  - questions: [C2, Q1, Q3]
+    zh-cn: |-
+      以为利润高就一定有现金；或者弄错营运资本变化的符号：应收账款和存货增加使现金流减少，应付账款增加使现金流增加。
+    en: |-
+      Assuming high profit always means cash; or getting the sign of working-capital changes wrong: higher receivables and inventory reduce cash flow, higher payables increase it.
+  - questions: [C3, C4, Q4]
+    zh-cn: |-
+      只看报告的利润或“调整后”的利润，不检查估计的变更、现金流和被剔除的项目。
+    en: |-
+      Looking only at reported or "adjusted" earnings without checking changes in estimates, cash flow and excluded items.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: three-statements
+    concepts: [balance-sheet, income-statement, cash-flow-statement, depreciation]
+    question:
+      zh-cn: |-
+        年初，一家公司借款 50 买入一台能用 5 年的设备（不考虑税和利息）。(a) 买入时，三张报表各有什么变化？(b) 第一年末确认折旧 10，三张报表各有什么变化？
+      en: |-
+        At the start of the year a company borrows 50 to buy equipment that lasts 5 years (ignore taxes and interest). (a) At the purchase, what changes in each of the three statements? (b) When depreciation of 10 is recognized at the end of the first year, what changes in each statement?
+    answer:
+      zh-cn: |-
+        (a) 资产负债表：设备增加 50，借款增加 50，两边相等，股东权益不变。利润表：没有变化，买设备不是费用。现金流量表：投资活动现金流 −50，筹资活动现金流 +50，现金不变。
+        (b) 利润表：折旧费用 10，净利润减少 10。资产负债表：设备的账面价值降为 40，留存收益（股东权益）减少 10，两边仍然相等。现金流量表：折旧不付现金，现金没有变化；用间接法时，净利润少了 10，但折旧要加回 10，经营活动现金流不受影响。
+      en: |-
+        (a) Balance sheet: equipment up 50 and borrowing up 50, both sides equal, equity unchanged. Income statement: no change; buying equipment is not an expense. Cash flow statement: investing cash flow −50, financing cash flow +50, cash unchanged.
+        (b) Income statement: depreciation expense 10, net income down 10. Balance sheet: the equipment's book value falls to 40 and retained earnings (equity) fall by 10, so both sides still match. Cash flow statement: depreciation uses no cash, so cash is unchanged; under the indirect method net income is 10 lower but the 10 of depreciation is added back, so operating cash flow is unaffected.
+    rubric:
+      zh-cn:
+        - "(a) 三张报表的变化正确，利润表不变。"
+        - "(b) 净利润和股东权益减少 10，现金不变，并说明折旧加回。"
+      en:
+        - "(a) Correct changes in all three statements; no income statement change."
+        - "(b) Net income and equity down 10, cash unchanged, with the add-back of depreciation."
+
+  - id: C2
+    kind: check
+    section: linkages
+    concepts: [working-capital, accrual-accounting]
+    widget: { id: growth-cash, set: { g: 40, dso: 90 } }
+    expected: { ni: "153.24", cfo: "45.28" }
+    question:
+      zh-cn: |-
+        在 [[fig:2-1]] 中，把收入增长率设为 40%，应收账款天数设为 90。(a) 读出 5 年的净利润合计和经营活动现金流合计。差别是从哪里来的？(b) 这家公司的经营一定有问题吗？它可能需要什么？
+      en: |-
+        In [[fig:2-1]], set revenue growth to 40% and days of receivables to 90. (a) Read off the five-year totals of net income and operating cash flow. Where does the difference come from? (b) Is something necessarily wrong with this business? What might it need?
+    answer:
+      zh-cn: |-
+        (a) 净利润合计约 153.24，经营活动现金流合计约 45.28。收入增长时，应收账款按同样的比例增加，每年新增的应收账款是已经确认为收入、但还没有收到的现金，所以现金流远低于利润。
+        (b) 不一定。如果客户信用良好，这些应收账款最终能收回，增长本身就需要占用资金。但公司需要资金来支持增长：借款或发行股票。快速增长的公司即使盈利，也可能因为现金不足而陷入困境；如果应收账款天数还在上升，就要怀疑收入的质量。
+      en: |-
+        (a) Total net income is about 153.24 and total operating cash flow about 45.28. As revenue grows, receivables grow in the same proportion; each year's new receivables are revenue already recognized but not yet received in cash, so cash flow is far below profit.
+        (b) Not necessarily. If customers are creditworthy, the receivables will be collected; growth simply ties up money. But the company needs funding to support its growth: borrowing or issuing shares. A fast-growing company can get into trouble from lack of cash even while profitable; if the days of receivables keep rising, the quality of revenue becomes suspect.
+    rubric:
+      zh-cn:
+        - "(a) 约 153.24 和 45.28，指出应收账款的增加。"
+        - "(b) 不一定有问题，并指出增长需要资金。"
+      en:
+        - "(a) About 153.24 and 45.28, pointing to the increase in receivables."
+        - "(b) Not necessarily a problem; growth needs funding."
+
+  - id: C3
+    kind: check
+    section: earnings-quality
+    concepts: [depreciation, earnings-quality]
+    expected: { dep4: "300", dep6: "200", diff: "100" }
+    question:
+      zh-cn: |-
+        一家公司有 1200 的服务器，原来按 4 年直线折旧。今年它把服务器的使用年限改为 6 年（不考虑税）。(a) 每年的折旧从多少变为多少？营业利润和经营活动现金流各变化多少？(b) 分析师应该怎样看待由此带来的利润增长？
+      en: |-
+        A company has servers that cost 1200, depreciated straight-line over 4 years. This year it changes their useful life to 6 years (ignore taxes). (a) How does annual depreciation change? How much do operating income and operating cash flow change? (b) How should an analyst view the resulting rise in profit?
+    answer:
+      zh-cn: |-
+        (a) 折旧从 $\frac{1200}{4} = 300$ 变为 $\frac{1200}{6} = 200$，营业利润每年增加 100；经营活动现金流不变，因为折旧不是现金支出。
+        (b) 这部分利润增长来自会计估计的变化，而不是经营的改善，也没有带来更多的现金。如果服务器实际上确实能用 6 年，新的估计更准确；如果技术更新很快，服务器 4 年后就要更换，利润就被高估了，以后会以更高的资本支出或资产减值的形式反映出来。分析时应把估计变更的影响单独列出，与以前的年份比较时剔除它。
+      en: |-
+        (a) Depreciation goes from $\frac{1200}{4} = 300$ to $\frac{1200}{6} = 200$, so operating income rises by 100 a year; operating cash flow is unchanged, because depreciation is not a cash payment.
+        (b) This rise in profit comes from a change in an accounting estimate, not from a better business, and brings no extra cash. If the servers really do last 6 years, the new estimate is more accurate; if technology changes fast and they must be replaced after 4 years, profit is overstated, and this will show up later as higher capital spending or write-downs. An analyst should separate the effect of the change and remove it when comparing with earlier years.
+    rubric:
+      zh-cn:
+        - "(a) 300 变为 200，利润增加 100，现金流不变。"
+        - "(b) 指出利润增长来自估计变化，并讨论估计是否合理。"
+      en:
+        - "(a) From 300 to 200; profit up 100; cash flow unchanged."
+        - "(b) Points out that the rise comes from an estimate change and discusses whether the estimate is reasonable."
+
+  - id: C4
+    kind: check
+    section: red-flags
+    concepts: [earnings-quality]
+    expected: { adj: "200", share: "40" }
+    question:
+      zh-cn: |-
+        一家公司的 GAAP 净利润为 120，其中扣除了 80 的股票薪酬（以股票或期权支付给员工的报酬）。公司强调“调整后净利润”，剔除了股票薪酬（不考虑税）。调整后净利润是多少？股票薪酬占调整后利润的比例是多少？为什么说股票薪酬是真实的成本？
+      en: |-
+        A company's GAAP net income is 120, after deducting 80 of stock-based compensation (pay to employees in shares or options). The company stresses "adjusted net income", which excludes stock-based compensation (ignore taxes). What is adjusted net income? What share of adjusted earnings is the stock-based compensation? Why is stock-based compensation a real cost?
+    answer:
+      zh-cn: |-
+        调整后净利润为 $120 + 80 = 200$，股票薪酬占 $\frac{80}{200} = 40\%$。股票薪酬是员工劳动的报酬，如果不用股票支付，公司就要多付现金工资。它不减少公司的现金，但发行新股使现有股东的持股比例被稀释；如果公司用现金回购股票来抵消稀释，就会真的花掉现金。剔除它会把对现有股东的成本藏起来。
+      en: |-
+        Adjusted net income is $120 + 80 = 200$, and stock-based compensation is $\frac{80}{200} = 40\%$ of it. Stock-based compensation pays for employees' work; without it the company would have to pay more cash wages. It does not reduce the company's cash, but issuing new shares dilutes existing shareholders; if the company buys back shares with cash to offset the dilution, it really spends cash. Excluding it hides a cost borne by existing shareholders.
+    rubric:
+      zh-cn:
+        - "200，约 40%。"
+        - "说明股票薪酬是报酬并稀释现有股东。"
+      en:
+        - "200; about 40%."
+        - "Explains that it is pay and dilutes existing shareholders."
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    star: true
+    concepts: [working-capital, cash-flow-statement, depreciation]
+    expected: { cfo: "75", after: "15" }
+    question:
+      zh-cn: |-
+        一家公司今年的净利润为 80，折旧 30；应收账款增加 25，存货增加 15，应付账款增加 5。
+        (a) 用间接法求经营活动现金流。
+        (b) 今年资本支出（购买设备）为 60，公司支付了 40 的股息。经营活动现金流减去资本支出是多少？股息的钱可能从哪里来？这能长期持续吗？
+      en: |-
+        This year a company has net income of 80 and depreciation of 30; receivables rose by 25, inventory by 15 and payables by 5.
+        (a) Use the indirect method to find operating cash flow.
+        (b) Capital spending (buying equipment) this year is 60, and the company paid 40 in dividends. What is operating cash flow minus capital spending? Where might the dividend money come from? Can this last?
+    answer:
+      zh-cn: |-
+        (a) $80 + 30 - 25 - 15 + 5 = 75$。
+        (b) $75 - 60 = 15$。股息 40 超过了 15，差额 25 要靠借款、发行股票或动用已有的现金。偶尔一年可以，但长期靠借钱支付股息不能持续；如果资本支出和营运资本的占用在增长期是暂时的，以后现金流会改善，要看原因。
+      en: |-
+        (a) $80 + 30 - 25 - 15 + 5 = 75$.
+        (b) $75 - 60 = 15$. Dividends of 40 exceed 15, so the gap of 25 must come from borrowing, issuing shares or existing cash. That is fine for a single year, but paying dividends with borrowed money cannot last; if capital spending and working capital needs are temporary during growth, cash flow may improve later, so the reason matters.
+    rubric:
+      zh-cn:
+        - "(a) 75。"
+        - "(b) 15，指出差额靠筹资，并讨论能否持续。"
+      en:
+        - "(a) 75."
+        - "(b) 15; points out that the gap is financed and discusses whether it can last."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [balance-sheet, income-statement]
+    expected: { eq: "540" }
+    question:
+      zh-cn: |-
+        (a) 一家公司年初的股东权益为 500。今年净利润 120，支付股息 30，用现金回购股票 50，没有发行新股。年末的股东权益是多少？
+        (b) 另一家盈利稳定的公司多年来回购股票的金额超过了它的净利润，资产负债表上的股东权益变成了负数。这是否说明它已经资不抵债、即将破产？
+      en: |-
+        (a) A company starts the year with equity of 500. This year net income is 120, it pays dividends of 30 and spends 50 in cash buying back shares, with no new shares issued. What is equity at year end?
+        (b) Another company with steady profits has for years spent more on buybacks than its net income, and the equity on its balance sheet has become negative. Does this mean it is insolvent and about to go bankrupt?
+    answer:
+      zh-cn: |-
+        (a) $500 + 120 - 30 - 50 = 540$。
+        (b) 不一定。回购把现金还给股东，同时减少账面上的股东权益；资产按历史成本记账，品牌、客户关系等自己创造的无形资产大多不在资产负债表上。只要公司的现金流足以支付债务的利息和本金，市场上股票的价值仍然为正，它就不是资不抵债。但账面权益为负说明公司更多地依靠负债，财务杠杆高，经营下滑时风险更大；以账面权益为分母的比率（[[3.8]]）也就失去了意义。
+      en: |-
+        (a) $500 + 120 - 30 - 50 = 540$.
+        (b) Not necessarily. Buybacks return cash to shareholders and reduce book equity; assets are recorded at historical cost, and most internally created intangible assets, such as brands and customer relationships, are not on the balance sheet. As long as cash flow covers interest and principal on the debt, the market value of the shares stays positive and the company is not insolvent. But negative book equity means the company relies more on debt and has high leverage, so it is riskier if business declines; ratios with book equity in the denominator ([[3.8]]) also lose their meaning.
+    rubric:
+      zh-cn:
+        - "(a) 540。"
+        - "(b) 不一定，说明账面价值的局限，并指出杠杆的风险。"
+      en:
+        - "(a) 540."
+        - "(b) Not necessarily; explains the limits of book value and notes the leverage risk."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [working-capital, earnings-quality, accrual-accounting]
+    expected: { d0: "36.5", d1: "48.67" }
+    question:
+      zh-cn: |-
+        一家公司的收入从 1000 增长到 1200（增长 20%），年末应收账款从 100 增加到 160。
+        (a) 应收账款天数（应收账款 ÷ 收入 × 365）从多少变为多少？
+        (b) 给出一种无害的解释和一种值得担心的解释。还应该查看哪些信息来区分它们？
+      en: |-
+        A company's revenue grew from 1000 to 1200 (20%), and year-end receivables rose from 100 to 160.
+        (a) How did days of receivables (receivables ÷ revenue × 365) change?
+        (b) Give one harmless explanation and one worrying explanation. What other information should you check to tell them apart?
+    answer:
+      zh-cn: |-
+        (a) 从 $\frac{100}{1000} \times 365 = 36.5$ 天变为 $\frac{160}{1200} \times 365 \approx 48.67$ 天。
+        (b) 无害的解释：例如公司为了进入新市场给大客户更长的付款期，或者年末恰好有一笔大订单。值得担心的解释：季末向经销商压货，提前确认收入；或者客户的付款能力下降，应收账款中有一部分收不回来。应该查看：经营活动现金流是否也在增长；坏账准备是否相应增加；年报附注中对收入确认和主要客户的说明；下一年的收入和应收账款是否反转（压货之后的季度往往收入下降、退货增加）。
+      en: |-
+        (a) From $\frac{100}{1000} \times 365 = 36.5$ days to $\frac{160}{1200} \times 365 \approx 48.67$ days.
+        (b) Harmless: for example, the company gave large customers longer payment terms to enter a new market, or a big order happened to come at year end. Worrying: shipping excess goods to distributors at quarter end to recognize revenue early, or customers becoming less able to pay, so part of the receivables will not be collected. Check: whether operating cash flow also grew; whether the allowance for bad debts rose accordingly; the notes on revenue recognition and major customers; whether revenue and receivables reverse next year (quarters after channel stuffing often show falling revenue and more returns).
+    rubric:
+      zh-cn:
+        - "(a) 36.5 天和约 48.67 天。"
+        - "(b) 两种合理的解释和有用的检查。"
+      en:
+        - "(a) 36.5 days and about 48.67 days."
+        - "(b) Two reasonable explanations and useful checks."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [earnings-quality, accrual-accounting]
+    expected: { a: "-2", b: "6" }
+    question:
+      zh-cn: |-
+        定义应计比率 = (净利润 − 经营活动现金流) ÷ 总资产。A、B 两家公司的总资产都是 1000，净利润都是 100；A 的经营活动现金流为 120，B 为 40。
+        (a) 两家公司的应计比率各是多少？
+        (b) 研究发现（Sloan，1996），应计比率高的公司，以后的利润往往下降，股票收益也较低。为什么由应计项目构成的利润比由现金构成的利润更难持续？为什么市场可能没有充分反映这一点？
+      en: |-
+        Define the accruals ratio = (net income − operating cash flow) ÷ total assets. Companies A and B each have total assets of 1000 and net income of 100; A's operating cash flow is 120 and B's is 40.
+        (a) What is each company's accruals ratio?
+        (b) Research (Sloan, 1996) found that companies with high accruals ratios tend to have falling profits and lower stock returns later. Why are profits made of accruals harder to sustain than profits made of cash? Why might the market not fully reflect this?
+    answer:
+      zh-cn: |-
+        (a) A：$\frac{100 - 120}{1000} = -2\%$；B：$\frac{100 - 40}{1000} = 6\%$。
+        (b) 应计部分依赖估计（应收账款能否收回、存货是否贬值、资产能用多久），乐观的估计以后会反转，例如收不回的应收账款要计提坏账、积压的存货要减值；压货或提前确认的收入也会使以后的收入减少。现金部分已经实现，不会反转。市场可能没有充分反映，因为许多投资者只看利润的总数，不区分其中的现金和应计部分。
+      en: |-
+        (a) A: $\frac{100 - 120}{1000} = -2\%$; B: $\frac{100 - 40}{1000} = 6\%$.
+        (b) Accruals rest on estimates (whether receivables will be collected, whether inventory has lost value, how long assets last), and optimistic estimates reverse later: uncollectible receivables must be written off and excess inventory written down; revenue pulled forward by channel stuffing lowers later revenue. Cash has been realized and does not reverse. The market may not fully reflect this because many investors look only at total profit and do not separate its cash and accrual parts.
+    rubric:
+      zh-cn:
+        - "(a) −2%（写作 -2% 或 −2% 均可）和 6%。"
+        - "(b) 说明应计项目依赖估计、会反转，以及投资者只看利润总数。"
+      en:
+        - "(a) −2% (written -2% or −2%) and 6%."
+        - "(b) Explains that accruals rest on estimates and reverse, and that investors look only at total profit."

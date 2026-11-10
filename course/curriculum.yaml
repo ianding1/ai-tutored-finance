@@ -300,7 +300,15 @@ stages:
         introduces: [default-risk, recovery-rate, credit-spread, credit-rating, municipal-bond, tax-equivalent-yield, tips, breakeven-inflation]
         uses: [yield-to-maturity, zero-coupon-bond, present-value, expected-value, correlation, principal-agent-problem, adverse-selection, cpi, inflation, real-interest-rate, modified-duration, immunization, recession, stock-bond-correlation, term-premium]
       - { id: "E3a", slug: "e3a-quiz", exam: true, title: { zh-cn: "测验 E3a：金融市场与固定收益", en: "Quiz E3a: Financial Markets and Fixed Income" } }
-      - { id: "3.7", slug: "3-7-financial-statements", title: { zh-cn: "财务报表分析", en: "Financial Statement Analysis" } }
+      - id: "3.7"
+        slug: "3-7-financial-statements"
+        title: { zh-cn: "财务报表分析", en: "Financial Statement Analysis" }
+        summary:
+          zh-cn: "资产负债表、利润表和现金流量表；权责发生制与折旧；三张报表之间的联系；营运资本与利润和现金流的差别；盈余质量与常见的会计美化。"
+          en: "The balance sheet, the income statement and the cash flow statement; accrual accounting and depreciation; how the three statements link together; working capital and the gap between profit and cash flow; earnings quality and common ways of dressing up earnings."
+        published: true
+        introduces: [balance-sheet, income-statement, cash-flow-statement, accrual-accounting, depreciation, working-capital, earnings-quality]
+        uses: [economic-profit, principal-agent-problem, present-value, cost-of-capital]
       - { id: "3.8", slug: "3-8-financial-ratios", title: { zh-cn: "财务比率", en: "Financial Ratios" } }
       - { id: "3.9", slug: "3-9-equity-valuation-ddm", title: { zh-cn: "股票估值 I：股利贴现模型", en: "Equity Valuation I: Dividend Discount Models" } }
       - { id: "3.10", slug: "3-10-equity-valuation-dcf", title: { zh-cn: "股票估值 II：自由现金流贴现", en: "Equity Valuation II: Discounted Free Cash Flow" } }

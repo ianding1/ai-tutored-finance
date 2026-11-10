@@ -1774,6 +1774,62 @@ breakeven-inflation:
     zh-cn: "使名义国债与同期限 TIPS 收益相同的通胀率，约等于两者收益率之差。"
     en: "The inflation rate at which a nominal Treasury and a TIPS of the same maturity give the same return, roughly the difference in their yields."
 
+balance-sheet:
+  defined_in: "3.7"
+  zh-cn: 资产负债表
+  en: balance sheet
+  short:
+    zh-cn: "某一时点公司的资产、负债和股东权益，资产 = 负债 + 股东权益。"
+    en: "A company's assets, liabilities and shareholders' equity at a point in time; assets = liabilities + equity."
+
+income-statement:
+  defined_in: "3.7"
+  zh-cn: 利润表
+  en: income statement
+  short:
+    zh-cn: "一段时期的收入、费用和净利润。"
+    en: "Revenue, expenses and net income over a period."
+
+cash-flow-statement:
+  defined_in: "3.7"
+  zh-cn: 现金流量表
+  en: cash flow statement
+  short:
+    zh-cn: "一段时期的现金收支，分为经营、投资和筹资活动。"
+    en: "Cash received and paid over a period, split into operating, investing and financing activities."
+
+accrual-accounting:
+  defined_in: "3.7"
+  zh-cn: 权责发生制
+  en: accrual accounting
+  short:
+    zh-cn: "收入在提供商品或服务时确认，费用与相关收入在同一时期确认，而不看现金何时收付。"
+    en: "Revenue is recognized when goods or services are delivered and expenses in the period of the related revenue, regardless of when cash moves."
+
+depreciation:
+  defined_in: "3.7"
+  zh-cn: 折旧
+  en: depreciation
+  short:
+    zh-cn: "把长期资产的成本在使用年限内分摊为各期费用；它不是当期的现金支出。"
+    en: "Spreading the cost of a long-lived asset over its useful life as an expense in each period; it is not a cash payment in that period."
+
+working-capital:
+  defined_in: "3.7"
+  zh-cn: 营运资本
+  en: working capital
+  short:
+    zh-cn: "日常经营占用的资金，主要是应收账款加存货减应付账款。"
+    en: "Money tied up in daily operations, mainly receivables plus inventory minus payables."
+
+earnings-quality:
+  defined_in: "3.7"
+  zh-cn: 盈余质量
+  en: earnings quality
+  short:
+    zh-cn: "报告的利润在多大程度上反映可持续的、能变成现金的经营成果。"
+    en: "How far reported earnings reflect lasting results of the business that turn into cash."
+
 risk-measures:
   defined_in: "4.1"
   zh-cn: 风险度量

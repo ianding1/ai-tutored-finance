@@ -1,0 +1,84 @@
+---
+// Figure 2-1 of lesson 3.7: net income and operating cash flow of a growing company over 5 years.
+// Revenue starts at 100 and grows at g% a year; net margin 10%; receivables are revenue x DSO / 365;
+// operating cash flow = net income - increase in receivables (nothing else changes).
+// Parameters are registered in course/widgets.yaml (id: growth-cash).
+import { toLang } from '../../i18n/ui';
+
+const lang = toLang(Astro.locals.starlightRoute.lang);
+const L = {
+	'zh-cn': {
+		g: '收入年增长率（%）',
+		dso: '应收账款天数',
+		x: '年',
+		y: '金额',
+		ni: '净利润',
+		cfo: '经营活动现金流',
+		readout: '5 年合计：净利润 {ni}，经营活动现金流 {cfo}。',
+	},
+	en: {
+		g: 'Revenue growth per year (%)',
+		dso: 'Days of receivables',
+		x: 'Year',
+		y: 'Amount',
+		ni: 'Net income',
+		cfo: 'Operating cash flow',
+		readout: 'Five-year totals: net income {ni}, operating cash flow {cfo}.',
+	},
+}[lang];
+
+const yr = [-20, 80];
+const yticks = [-20, 0, 20, 40, 60, 80];
+const years = [1, 2, 3, 4, 5];
+const layouts = [
+	{ cls: 'viz-wide', W: 640, H: 280, pad: { l: 44, r: 20, t: 14, b: 44 } },
+	{ cls: 'viz-narrow', W: 360, H: 260, pad: { l: 44, r: 12, t: 14, b: 44 } },
+].map((g) => ({
+	...g,
+	slot: (g.W - g.pad.l - g.pad.r) / 5,
+	Y: (v: number) => g.pad.t + ((yr[1] - v) / (yr[1] - yr[0])) * (g.H - g.pad.t - g.pad.b),
+}));
+---
+
+<div class="lfwai-widget" data-widget="growth-cash" data-readout={L.readout}>
+	<div class="lfwai-sliders">
+		<label>
+			<span>{L.g} = <output data-out="g">20</output></span>
+			<input type="range" min="0" max="50" step="5" value="20" data-param="g" />
+		</label>
+		<label>
+			<span>{L.dso} = <output data-out="dso">60</output></span>
+			<input type="range" min="0" max="120" step="10" value="60" data-param="dso" />
+		</label>
+	</div>
+	{layouts.map(({ cls, W, H, pad, slot, Y }) => (
+		<svg class={`lfwai-viz ${cls}`} viewBox={`0 0 ${W} ${H}`} role="img" aria-label={L.ni} data-geom={JSON.stringify({ W, H, pad, yr, slot })}>
+			{yticks.map((v) => (
+				<g>
+					<line class={v === 0 ? 'viz-axis' : 'viz-grid'} x1={pad.l} x2={W - pad.r} y1={Y(v)} y2={Y(v)} />
+					<text class="viz-tick" x={pad.l - 8} y={Y(v) + 4} text-anchor="end">{v}</text>
+				</g>
+			))}
+			{years.map((t) => (
+				<g>
+					<text class="viz-tick" x={pad.l + slot * (t - 0.5)} y={H - pad.b + 18} text-anchor="middle">{t}</text>
+					<rect class="viz-bar" data-el={`ni${t}`} x={pad.l + slot * (t - 1) + slot * 0.15} width={slot * 0.33} y="0" height="0" />
+					<rect class="viz-bar-bid" data-el={`cfo${t}`} x={pad.l + slot * (t - 1) + slot * 0.52} width={slot * 0.33} y="0" height="0" />
+				</g>
+			))}
+			<line class="viz-axis" x1={pad.l} x2={pad.l} y1={pad.t} y2={H - pad.b} />
+			<text class="viz-tick" x={(pad.l + W - pad.r) / 2} y={H - 8} text-anchor="middle">{L.x}</text>
+			<text class="viz-tick" transform={`translate(12 ${(pad.t + H - pad.b) / 2}) rotate(-90)`} text-anchor="middle">{L.y}</text>
+		</svg>
+	))}
+	<ul class="lfwai-legend">
+		<li><span class="sw sw-bar"></span>{L.ni}</li>
+		<li><span class="sw sw-bid"></span>{L.cfo}</li>
+	</ul>
+	<p class="lfwai-readout" data-el="readout" aria-live="polite"></p>
+</div>
+
+<script>
+	import { initGrowthCash } from '../../scripts/widgets/growth-cash';
+	initGrowthCash();
+</script>

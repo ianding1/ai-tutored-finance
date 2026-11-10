@@ -1,0 +1,116 @@
+---
+title: 3.7 Financial Statement Analysis
+description: "The balance sheet, the income statement and the cash flow statement; accrual accounting and depreciation; how the three statements link together; working capital and the gap between profit and cash flow; earnings quality and common ways of dressing up earnings."
+lesson: "3.7"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import CheckAll from '../../../../components/CheckAll.astro';
+import GrowthCash from '../../../../components/widgets/GrowthCash.astro';
+
+## The three statements [#three-statements]
+
+To value a stock, you first need to read the company's financial statements. US public companies file a 10-Q report each quarter and a 10-K report each year, with financial statements prepared under US Generally Accepted Accounting Principles (GAAP). Three statements matter most.
+
+The <Def id="balance-sheet">balance sheet</Def> lists, at a point in time, what the company owns (assets $A$), what it owes others (liabilities $L$), and what is left for shareholders (shareholders' equity $E$):
+
+$$
+A = L + E
+$$
+
+Assets include cash, receivables, inventory, plant and equipment; liabilities include payables, loans and bonds; equity consists mainly of capital paid in by shareholders and the profits kept in the company over the years (retained earnings).
+
+The <Def id="income-statement">income statement</Def> records revenue and expenses over a period (a quarter or a year). Here is a simplified example:
+
+| Item | Amount |
+| --- | ---: |
+| Revenue | 1,000 |
+| Less: cost of goods sold | 600 |
+| Gross profit | 400 |
+| Less: selling, general, administrative and R&D expenses | 200 |
+| Less: depreciation | 50 |
+| Operating income (EBIT) | 150 |
+| Less: interest | 30 |
+| Pretax income | 120 |
+| Less: income tax (rate 21%) | 25.2 |
+| Net income | 94.8 |
+
+The income statement follows <Def id="accrual-accounting">accrual accounting</Def>: revenue is recognized when goods or services are delivered, even if the customer has not paid yet; expenses are recognized in the same period as the related revenue, even if the cash was paid long ago or has not been paid yet. For example, a company that spends 500 on a machine that lasts 10 years does not count all 500 as an expense in the year of purchase; it recognizes 50 of <Def id="depreciation">depreciation</Def> each year. Depreciation is an expense, but not a cash payment in that year.
+
+Accounting profit differs from <Ref concept="economic-profit" />: it deducts the interest on borrowing but not the opportunity cost of shareholders' capital (<Ref concept="cost-of-capital" />).
+
+The <Def id="cash-flow-statement">cash flow statement</Def> records the cash actually received and paid over a period, in three groups:
+
+- operating activities: cash received and paid in daily operations;
+- investing activities: buying and selling plant and equipment, acquiring other companies, buying and selling investments;
+- financing activities: borrowing and repaying, issuing and buying back shares, paying dividends.
+
+<Check id="C1" />
+
+## How the statements link [#linkages]
+
+The three statements are different views of the same transactions, and they are tied together exactly:
+
+- Net income increases equity: ending retained earnings = beginning retained earnings + net income − dividends.
+- The total of the three groups of cash flows equals the change in cash on the balance sheet.
+- Operating cash flow can be derived from net income (the indirect method): add back depreciation and other expenses that use no cash, then subtract the increase in <Def id="working-capital">working capital</Def>. Working capital is mainly receivables plus inventory minus payables: higher receivables mean part of revenue has not yet been received in cash; higher inventory means cash was paid for goods not yet sold; higher payables mean part of the expenses has not yet been paid in cash.
+
+$$
+\text{CFO} = \text{NI} + \text{Dep} - \Delta \text{WC}
+$$
+
+Here CFO is operating cash flow, NI is net income, Dep is depreciation, and $\Delta \text{WC}$ is the increase in working capital.
+
+So profit and cash flow can differ a lot. <Ref fig="2-1" /> looks at a company whose revenue grows.
+
+<Figure id="2-1" title="A company's revenue is 100 in year 0 and grows each year at the chosen rate, with a net margin of 10%; receivables equal revenue times days of receivables divided by 365, and nothing else changes. Operating cash flow = net income − increase in receivables." observe="First set days of receivables to 0 and compare the two kinds of bars; then raise the growth rate and the days of receivables and see how operating cash flow changes.">
+	<GrowthCash />
+</Figure>
+
+<Check id="C2" />
+
+## Earnings quality [#earnings-quality]
+
+Accrual accounting makes profit a better measure of a period's results, but it also requires many estimates and judgments: how many years a machine will last, how much of the receivables will never be collected, whether inventory has lost value, how much revenue of a multi-year contract to recognize in each period. When the estimates are reasonable, profit reflects the business better than cash flow; when they are too optimistic, profit is overstated.
+
+How far reported earnings reflect lasting results of the business that eventually turn into cash is <Def id="earnings-quality">earnings quality</Def>. Common checks are:
+
+- Compare net income with operating cash flow: over the long run they should be close; if profit stays well above cash flow, find out why.
+- See whether receivables and inventory grow much faster than revenue.
+- Look at changes in accounting estimates and policies and their effect on profit (explained in the notes to the annual report).
+- Separate lasting profit from one-time items (gains on asset sales, legal settlements and so on).
+
+Not every number on the income statement is equally "hard". A small change in an accounting estimate can change profit noticeably while cash flow does not change at all (<Ref check="C3" />).
+
+<Check id="C3" />
+
+## Common ways of dressing up earnings [#red-flags]
+
+Managers' pay and reputation are often tied to reported profit, another example of the <Ref concept="principal-agent-problem" />. Common ways of dressing up earnings include:
+
+- Recognizing revenue early: for example, shipping large amounts to distributors at the end of a quarter (channel stuffing), so revenue rises and receivables rise even faster.
+- Capitalizing expenses: recording spending that should be a current expense as an asset and spreading it over later years, which raises current profit.
+- Adjusting estimates: lengthening the useful lives of assets, cutting allowances for bad debts, or setting aside large reserves in good years and releasing them in bad years ("cookie jar" reserves).
+- Recurring "one-time" charges: restructuring charges that appear every year, with investors asked every year to ignore them.
+- Stressing "adjusted" earnings: besides GAAP earnings, companies often report non-GAAP earnings that exclude stock-based compensation, amortization, restructuring charges and other items; adjusted earnings are often well above GAAP earnings.
+
+Most of these practices are legal, and some have good reasons, but they widen the gap between profit and cash flow and reverse in later years. In analysis, go back to cash flow and read the notes to the annual report.
+
+<Check id="C4" />
+
+## Summary [#summary]
+
+- Balance sheet: assets = liabilities + equity; income statement: revenue, expenses and net income over a period; cash flow statement: cash from operating, investing and financing activities.
+- Accrual accounting recognizes revenue at delivery and matches expenses to revenue; depreciation spreads the cost of a long-lived asset over its life and is not a cash payment in the period.
+- Net income flows into retained earnings; the three groups of cash flows add up to the change in cash; operating cash flow = net income + depreciation − increase in working capital.
+- Earnings quality asks how far profit is lasting and turns into cash; compare profit with cash flow, and watch for changes in estimates, one-time items and "adjusted" earnings.
+
+<CheckAll />
+
+## Exercises [#exercises]
+
+<Exercises />
