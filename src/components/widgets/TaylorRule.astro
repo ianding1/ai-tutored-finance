@@ -14,10 +14,7 @@ const L = {
 		y: '名义利率（%）',
 		rule: 'Taylor 规则建议的利率',
 		neutral: '中性名义利率 r* + π',
-		zero: '零',
-		readout: '建议的名义利率 {i}%；对应的实际利率 {real}%，比中性实际利率{dir} {d} 个百分点。',
-		above: '高',
-		below: '低',
+		readout: '建议的名义利率 {i}%；对应的实际利率 {real}%，中性实际利率 {rs}%。',
 	},
 	en: {
 		pi: 'Inflation π (%)',
@@ -27,10 +24,7 @@ const L = {
 		y: 'Nominal interest rate (%)',
 		rule: 'Rate suggested by the Taylor rule',
 		neutral: 'Neutral nominal rate r* + π',
-		zero: 'zero',
-		readout: 'Suggested nominal rate {i}%; the implied real rate is {real}%, {d} percentage points {dir} the neutral real rate.',
-		above: 'above',
-		below: 'below',
+		readout: 'Suggested nominal rate {i}%; implied real rate {real}%; neutral real rate {rs}%.',
 	},
 }[lang];
 
@@ -48,7 +42,7 @@ const layouts = [
 }));
 ---
 
-<div class="lfwai-widget" data-widget="taylor-rule" data-readout={L.readout} data-above={L.above} data-below={L.below}>
+<div class="lfwai-widget" data-widget="taylor-rule" data-readout={L.readout}>
 	<div class="lfwai-sliders">
 		<label>
 			<span>{L.pi} = <output data-out="pi">2</output></span>

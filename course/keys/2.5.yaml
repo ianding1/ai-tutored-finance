@@ -23,9 +23,9 @@ context:
       The lesson: the dual mandate; a 2% PCE inflation target. On October 28, 2026 the FOMC kept the federal funds target range at 3.75%–4.00%; the interest rate on reserve balances is 3.90%, the ON RRP rate 3.75%, the discount rate 4.0%. To raise rates, all of these go up together. The zero lower bound; rates near zero in 2008–2015 and 2020–2022; quantitative easing, with Fed assets at about 9 trillion dollars in 2022; forward guidance affects expected future short rates and so long rates (the calculation is left to an exercise).
   - concepts: [taylor-rule, neutral-interest-rate]
     zh-cn: |-
-      讲义：$i = r^* + \pi + 0.5(\pi - \pi^T) + 0.5\,\text{gap}$，$\pi^T = 2\%$；Taylor 原则（通胀高 1 个百分点，名义利率高 1.5 个百分点）；$r^*$ 不可观察、估计不确定；规则是参照。[[fig:3-1]]：通胀滑块 0–8（步长 0.5，默认 2），产出缺口 −6 到 4（步长 0.5，默认 0），中性利率 0–2（步长 0.25，默认 1）；读数显示建议的名义利率、实际利率及其与中性实际利率之差。
+      讲义：$i = r^* + \pi + 0.5(\pi - \pi^T) + 0.5\,\text{gap}$，$\pi^T = 2\%$；Taylor 原则（通胀高 1 个百分点，名义利率高 1.5 个百分点）；$r^*$ 不可观察、估计不确定；规则是参照。[[fig:3-1]]：通胀滑块 0–8（步长 0.5，默认 2），产出缺口 −6 到 4（步长 0.5，默认 0），中性利率 0–2（步长 0.25，默认 1）；读数显示建议的名义利率、对应的实际利率和中性实际利率。
     en: |-
-      The lesson: $i = r^* + \pi + 0.5(\pi - \pi^T) + 0.5\,\text{gap}$ with $\pi^T = 2\%$; the Taylor principle (1 point more inflation means 1.5 points more on the nominal rate); $r^*$ cannot be observed and estimates are uncertain; the rule is a reference. [[fig:3-1]]: an inflation slider from 0 to 8 (in steps of 0.5, default 2), an output gap slider from −6 to 4 (in steps of 0.5, default 0), a neutral-rate slider from 0 to 2 (step 0.25, default 1); the readout shows the suggested nominal rate, the real rate and its difference from the neutral real rate.
+      The lesson: $i = r^* + \pi + 0.5(\pi - \pi^T) + 0.5\,\text{gap}$ with $\pi^T = 2\%$; the Taylor principle (1 point more inflation means 1.5 points more on the nominal rate); $r^*$ cannot be observed and estimates are uncertain; the rule is a reference. [[fig:3-1]]: an inflation slider from 0 to 8 (in steps of 0.5, default 2), an output gap slider from −6 to 4 (in steps of 0.5, default 0), a neutral-rate slider from 0 to 2 (step 0.25, default 1); the readout shows the suggested nominal rate, the implied real rate and the neutral real rate.
   - concepts: [federal-funds-rate]
     questions: [C3, C4, Q4, Q5]
     zh-cn: |-

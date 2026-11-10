@@ -45,12 +45,10 @@ export function initTaylorRule() {
 			root.querySelector('[data-out="pi"]')!.textContent = fmt(pi);
 			root.querySelector('[data-out="gap"]')!.textContent = fmt(gap);
 			root.querySelector('[data-out="rstar"]')!.textContent = fmt(rs);
-			const d = i - pi - rs;
 			root.querySelector<HTMLElement>('[data-el="readout"]')!.textContent = (root.dataset.readout || '')
 				.replace('{i}', fmt(i))
 				.replace('{real}', fmt(i - pi))
-				.replace('{d}', fmt(Math.abs(d)))
-				.replace('{dir}', d >= 0 ? root.dataset.above || '' : root.dataset.below || '');
+				.replace('{rs}', fmt(rs));
 		}
 
 		[piIn, gapIn, rIn].forEach((e) => e.addEventListener('input', draw));
