@@ -1094,6 +1094,70 @@ principal-agent-problem:
     zh-cn: "代理人替委托人做事，但两者利益不一致，委托人又不能完全观察代理人的行动。"
     en: "An agent acts for a principal, but their interests differ and the principal cannot fully observe the agent's actions."
 
+gdp:
+  defined_in: "2.1"
+  zh-cn: 国内生产总值
+  en: gross domestic product
+  short:
+    zh-cn: "一个国家在一段时间内、在境内生产的所有最终产品和服务的市场价值。"
+    en: "The market value of all final goods and services produced within a country in a period."
+
+real-gdp:
+  defined_in: "2.1"
+  zh-cn: 实际 GDP
+  en: real GDP
+  short:
+    zh-cn: "按固定基年价格计算的 GDP，只反映产量的变化。"
+    en: "GDP valued at the prices of a fixed base year, so that it reflects only changes in output."
+
+gdp-deflator:
+  defined_in: "2.1"
+  zh-cn: GDP 平减指数
+  en: GDP deflator
+  short:
+    zh-cn: "名义 GDP 与实际 GDP 之比乘以 100，衡量所有国内生产的产品和服务的价格水平。"
+    en: "Nominal GDP divided by real GDP, times 100; a measure of the price level of all goods and services produced at home."
+
+cpi:
+  defined_in: "2.1"
+  zh-cn: 消费者价格指数
+  en: consumer price index
+  short:
+    zh-cn: "按固定的一篮子消费品和服务计算的价格水平，由美国劳工统计局每月公布。"
+    en: "The price level of a fixed basket of consumer goods and services, published monthly by the US Bureau of Labor Statistics."
+
+pce-price-index:
+  defined_in: "2.1"
+  zh-cn: PCE 价格指数
+  en: PCE price index
+  short:
+    zh-cn: "个人消费支出价格指数：覆盖范围比 CPI 广、权重每期更新的价格指数；美联储的通胀目标按它定义。"
+    en: "The personal consumption expenditures price index: broader than the CPI, with weights updated each period; the Fed defines its inflation target with it."
+
+core-inflation:
+  defined_in: "2.1"
+  zh-cn: 核心通胀
+  en: core inflation
+  short:
+    zh-cn: "去掉波动很大的食品和能源价格之后的通胀率。"
+    en: "Inflation excluding the volatile prices of food and energy."
+
+unemployment-rate:
+  defined_in: "2.1"
+  zh-cn: 失业率
+  en: unemployment rate
+  short:
+    zh-cn: "失业人数占劳动力的比例；失业者是没有工作、可以工作并在找工作的人。"
+    en: "The unemployed as a share of the labor force; the unemployed are people without a job who are available and looking for work."
+
+labor-force-participation-rate:
+  defined_in: "2.1"
+  zh-cn: 劳动参与率
+  en: labor force participation rate
+  short:
+    zh-cn: "劳动力（就业者加失业者）占 16 岁及以上人口的比例。"
+    en: "The labor force (employed plus unemployed) as a share of the population aged 16 and over."
+
 risk-measures:
   defined_in: "4.1"
   zh-cn: 风险度量

@@ -132,3 +132,8 @@ lemons:
     good_seller: 8000
     lemon_buyer: 4000
     lemon_seller: 3000
+
+substitution-bias:
+  component: src/components/widgets/SubstitutionBias.astro
+  params:
+    a: { min: 0, max: 100, step: 5, default: 40 }

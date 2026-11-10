@@ -1,0 +1,151 @@
+---
+title: 2.1 Macroeconomic Data
+description: "How to measure an economy's output, prices and employment: what GDP is and the expenditure approach, nominal and real GDP, CPI and PCE, unemployment and labor force participation, and how to read data releases."
+lesson: "2.1"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import CheckAll from '../../../../components/CheckAll.astro';
+import SubstitutionBias from '../../../../components/widgets/SubstitutionBias.astro';
+
+## Gross domestic product [#gdp]
+
+Stage 1 studied individual markets; macroeconomics studies the economy as a whole: total output, the overall price level and employment. Investors care about these data because companies' revenues, interest rates and asset prices all move with the state of the whole economy.
+
+The most common measure of total output is <Def id="gdp">gross domestic product</Def> (GDP): the market value of all final goods and services produced within a country in a period.
+
+"Final" avoids counting the same thing twice. Example: a farmer grows wheat and sells it to a mill for 30 dollars; the mill grinds it into flour and sells it to a bakery for 50 dollars; the bakery bakes bread and sells it to customers for 100 dollars. The three sales add up to 180 dollars, but the value of the wheat is already in the flour, and the value of the flour is already in the bread. GDP counts only the bread sold to customers: 100 dollars. One can also add up the value created at each stage: $30 + (50 - 30) + (100 - 50) = 100$, with the same result. The value created at each stage is called value added.
+
+The 100 dollars customers spend on bread all ends up as someone's income: wages, profits and rent of the farmer, the mill and the bakery. So GDP can be computed in three ways, which (apart from statistical errors) give the same result:
+
+- **Production approach**: the sum of value added by all producers;
+- **Expenditure approach**: the sum of spending on all final goods and services;
+- **Income approach**: the sum of all incomes earned in production (wages, profits, interest, rent and so on).
+
+Some transactions are not counted in GDP: sales of used goods (they were counted in the year they were produced), purchases of stocks and bonds (only assets change hands; nothing is produced), government transfer payments (such as Social Security, where no good or service is exchanged), and production without a market transaction, such as household work.
+
+## The expenditure approach [#expenditure]
+
+Grouped by buyer, GDP has four parts:
+
+$$
+Y = C + I + G + NX
+$$
+
+- **Consumption** $C$: goods and services bought by households.
+- **Investment** $I$: equipment, buildings, software and similar items bought by firms, new homes bought by households, and changes in firms' inventories. Note that "investment" in macroeconomics means buying new capital goods; it does not include buying shares.
+- **Government purchases** $G$: goods and services bought by all levels of government (not including transfer payments).
+- **Net exports** $NX = X - M$: exports minus imports. Imports are subtracted because spending on imported goods is already included in consumption, investment and government purchases, and these goods were not produced at home.
+
+US GDP in 2025 was about 30.8 trillion dollars, made up as follows (US Bureau of Economic Analysis, BEA, advance estimate published in February 2026):
+
+| Component | Share of GDP |
+| --- | ---: |
+| Consumption $C$ | 68% |
+| Investment $I$ | 18% |
+| Government purchases $G$ | 17% |
+| Net exports $NX$ | −3% |
+
+Consumption is more than two thirds, so household income and confidence matter most for the US economy. Investment is less than a fifth but moves the most: in a recession, buying equipment and buying houses are the first things firms and households put off.
+
+<Check id="C1" />
+
+## Nominal and real GDP [#real-gdp]
+
+GDP can rise because more is produced or simply because prices have risen. GDP valued at each year's prices is called nominal GDP; GDP valued at the prices of a fixed year (the base year) is called <Def id="real-gdp">real GDP</Def>. Changes in real GDP reflect only changes in output, and the growth rate of the economy means the growth rate of real GDP.
+
+Write nominal GDP as $Y^n$ and real GDP as $Y^r$. Their ratio reflects the price level and is called the <Def id="gdp-deflator">GDP deflator</Def>:
+
+$$
+D = \frac{Y^n}{Y^r} \times 100
+$$
+
+As with the Fisher equation of <Ref lesson="1.3" />, write nominal growth as $g^n$, real growth as $g^r$ and price growth as $\pi$; then $1 + g^n = (1 + g^r)(1 + \pi)$. Example: in 2025 US nominal GDP grew 5.0% and real GDP 2.1% (BEA, 2026), so the GDP deflator rose by about $\frac{1.050}{1.021} - 1 \approx 2.8\%$.
+
+When reading the news, watch the time unit as well. US quarterly GDP growth is reported at an annual rate (annualized): one quarter's growth is compounded over a year (<Ref concept="compound-interest" />). If real GDP grows 0.5% in a quarter, the reported annualized growth rate is
+
+$$
+1.005^4 - 1 \approx 2.0\%
+$$
+
+Another common comparison is year over year: against the same quarter a year earlier. The annualized quarterly rate shows the most recent momentum and moves more; the year-over-year rate is smoother but reflects the change accumulated over the past year.
+
+Real GDP measures output, not well-being: it does not count leisure, changes in the environment or how income is shared.
+
+<Check id="C2" />
+
+## Price indexes: CPI and PCE [#price-indexes]
+
+<Ref concept="inflation" /> is the growth rate of the overall price level. How is "the overall price level" measured?
+
+The <Def id="cpi">consumer price index</Def> (CPI) is published monthly by the US Bureau of Labor Statistics (BLS): take the basket of goods and services that urban households bought in a base period, and compute how much the same basket costs now compared with then. Example: the basket is 10 pounds of coffee and 4 movie tickets. In the base period coffee costs 5 dollars a pound and a ticket 10 dollars, so the basket costs 90 dollars; now coffee costs 6 dollars and a ticket 11 dollars, so the same basket costs 104 dollars, and the CPI rises by $\frac{104}{90} - 1 \approx 15.6\%$.
+
+A fixed basket has a problem: when something becomes dearer, people buy less of it and more of other things (<Ref concept="substitution-effect" />), so the cost of keeping the same standard of living rises by less than the cost of the fixed basket. A fixed-basket price index overstates the rise in the cost of living; this is called substitution bias. New products and better quality also make price indexes overstate inflation.
+
+<Figure id="4-1" title="A household spends half of its income on good A and half on good B. When A becomes dearer and B does not, compare the cost of the fixed basket with the cost of keeping the same utility." observe="Raise A's price increase and watch how the gap between the two lines changes. The more A rises, the more the household turns to B.">
+	<SubstitutionBias />
+</Figure>
+
+Another important US price index is the <Def id="pce-price-index">PCE price index</Def> (personal consumption expenditures price index), published monthly by the BEA. It differs from the CPI in two ways: it covers more (including consumption paid for on households' behalf, such as health insurance paid by employers), and its weights are updated every period to the latest pattern of spending, so it reflects substitution; PCE inflation is therefore usually a little lower than CPI inflation. The Federal Reserve's 2% inflation target is defined on the PCE price index (Federal Open Market Committee, since 2012). In 2025 the US PCE price index rose 2.6% (BEA, 2026).
+
+Food and energy prices move a lot, often because of weather and world events, and do not represent the lasting trend of inflation. Inflation without these two items is called <Def id="core-inflation">core inflation</Def>. In 2025 the US core PCE price index rose 2.8% (BEA, 2026). Central banks rely more on core inflation to judge the trend, but an ordinary household's cost of living of course includes food and gasoline.
+
+<Check id="C3" />
+
+## The labor market [#labor-market]
+
+Each month the BLS surveys about 60,000 households and sorts people aged 16 and over (not counting the military or people in institutions such as prisons) into three groups:
+
+- **Employed**: people who have a job;
+- **Unemployed**: people without a job who are available for work and have looked for work in the past 4 weeks;
+- **Not in the labor force**: people who neither have a job nor are looking for one, such as students, retirees and people caring for their families full time.
+
+The employed and the unemployed together form the labor force. Write the number employed as $E$, the number unemployed as $U$ and the population aged 16 and over as $N$; the labor force is $E + U$.
+
+$$
+u = \frac{U}{E + U}, \qquad \text{LFPR} = \frac{E + U}{N}
+$$
+
+These are the <Def id="unemployment-rate">unemployment rate</Def> and the <Def id="labor-force-participation-rate">labor force participation rate</Def>. In October 2026 the US unemployment rate was 4.1% and the participation rate 61.9% (BLS, released November 6, 2026).
+
+The unemployment rate counts only people who are looking for work. People who have looked for a long time without success and stop looking (discouraged workers) move from unemployed to "not in the labor force", so the unemployment rate falls even though no one has found a job. That is why, when looking at the labor market, one should also look at the participation rate and the share of the population with a job. The US participation rate has been falling for a long time, and one main reason is the aging of the population: more and more people are retired.
+
+The BLS also separately surveys about 120,000 businesses and government agencies to count the monthly change in nonfarm payrolls. In October 2026 nonfarm payrolls rose by 165,000 (BLS, November 6, 2026). What the news calls "the jobs report" usually releases the results of both surveys together.
+
+<Check id="C4" />
+
+## How to read data releases [#data-releases]
+
+The main US macroeconomic data come out on a fixed schedule:
+
+- The jobs report: BLS, usually on the first Friday of each month, for the previous month;
+- CPI: BLS, in the middle of each month;
+- GDP: BEA, an advance estimate about a month after the quarter ends, then a revision in each of the next two months; the PCE price index is also published by the BEA at the end of each month.
+
+When reading the data, watch for:
+
+- **Seasonal adjustment**: retail sales are high every December, which does not mean the economy has improved. Most published data have already removed such seasonal patterns (seasonally adjusted).
+- **Time units**: monthly, annualized and year-over-year changes are three different numbers. A 0.3% rise in the CPI in one month is about $1.003^{12} - 1 \approx 3.7\%$ annualized.
+- **Revisions**: first estimates rest on incomplete data, and later revisions are sometimes large.
+- **Expectations**: before a release, financial markets have already formed an expectation (the consensus forecast of analysts). Asset prices react to the difference between the data and that expectation, not to whether the data are good or bad in themselves. A "good" jobs report can even push stock prices down: it may lead investors to expect the central bank to keep interest rates higher (<Ref lesson="2.5" />).
+
+<Check id="C5" />
+
+## Summary [#summary]
+
+- GDP is the market value of final goods and services produced within a country in a period; the production, expenditure and income approaches give the same result. Transfer payments, used goods and purchases of financial assets are not counted.
+- Expenditure approach: $Y = C + I + G + NX$. In the US, consumption is about two thirds of GDP, and investment moves the most.
+- Real GDP uses fixed prices and reflects output; the GDP deflator = nominal GDP / real GDP × 100. Quarterly growth is often reported at an annual rate.
+- The CPI uses a fixed basket and has substitution bias; the PCE price index covers more and reflects substitution, and the Fed's 2% target is defined on PCE. Core inflation excludes food and energy.
+- Unemployment rate = unemployed / labor force; participation rate = labor force / population aged 16 and over. People who stop looking for work lower the unemployment rate.
+- When reading data, watch seasonal adjustment, time units, revisions and market expectations.
+
+<CheckAll />
+
+## Exercises [#exercises]
+
+<Exercises />

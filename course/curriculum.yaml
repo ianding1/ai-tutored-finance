@@ -168,7 +168,15 @@ stages:
   - id: "2"
     title: { zh-cn: "第 2 阶段：宏观经济学", en: "Stage 2: Macroeconomics" }
     lessons:
-      - { id: "2.1", slug: "2-1-macro-data", title: { zh-cn: "宏观数据", en: "Macroeconomic Data" } }
+      - id: "2.1"
+        slug: "2-1-macro-data"
+        title: { zh-cn: "宏观数据", en: "Macroeconomic Data" }
+        summary:
+          zh-cn: "怎样度量一个经济的总产出、物价和就业：GDP 的含义与支出法、名义与实际 GDP、CPI 与 PCE、失业率与劳动参与率，以及怎样读数据发布。"
+          en: "How to measure an economy's output, prices and employment: what GDP is and the expenditure approach, nominal and real GDP, CPI and PCE, unemployment and labor force participation, and how to read data releases."
+        published: true
+        introduces: [gdp, real-gdp, gdp-deflator, cpi, pce-price-index, core-inflation, unemployment-rate, labor-force-participation-rate]
+        uses: [compound-interest, inflation, substitution-effect, utility-function]
       - { id: "2.2", slug: "2-2-long-run-growth", title: { zh-cn: "长期增长", en: "Long-Run Growth" } }
       - { id: "2.3", slug: "2-3-money-banking", title: { zh-cn: "货币与银行", en: "Money and Banking" } }
       - { id: "2.4", slug: "2-4-short-run-fluctuations", title: { zh-cn: "短期波动", en: "Short-Run Fluctuations" } }

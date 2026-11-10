@@ -1,0 +1,393 @@
+# Answer key for lesson 2.1. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.3]] (lesson), [[2.1#gdp]] (section), [[concept:gdp]], [[check:Q3]], [[fig:4-1]].
+# expected: values are recomputed by course/verify/2.1.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+
+lesson: "2.1"
+
+context:
+  - zh-cn: |-
+      本课是宏观经济学的第一课。学习者学过复利（[[0.1]]）、替代效应（[[1.2]]）、名义与实际利率和 Fisher 方程（[[1.3]]）。讲义中的数据：美国 2025 年 GDP 约 30.8 万亿美元，消费 68%、投资 18%、政府购买 17%、净出口 −3%（BEA，2026 年 2 月初步估计）；2025 年名义 GDP 增长 5.0%、实际 GDP 增长 2.1%，PCE 价格指数上涨 2.6%、核心 PCE 2.8%（BEA）；2026 年 10 月失业率 4.1%、劳动参与率 61.9%、非农就业增加 16.5 万（BLS，2026 年 11 月 6 日）。
+    en: |-
+      This is the first lesson of macroeconomics. The learner has studied compounding ([[0.1]]), the substitution effect ([[1.2]]), and nominal and real interest rates and the Fisher equation ([[1.3]]). Data in the lesson: US GDP in 2025 was about 30.8 trillion dollars, with consumption 68%, investment 18%, government purchases 17% and net exports −3% (BEA, advance estimate, February 2026); in 2025 nominal GDP grew 5.0% and real GDP 2.1%, the PCE price index rose 2.6% and core PCE 2.8% (BEA); in October 2026 the unemployment rate was 4.1%, the labor force participation rate 61.9%, and nonfarm payrolls rose by 165,000 (BLS, November 6, 2026).
+  - concepts: [gdp]
+    zh-cn: |-
+      讲义用小麦、面粉、面包的例子说明只算最终产品（100 美元）或各环节增加值之和；GDP 可用生产法、支出法、收入法计算，结果相同。不计入：二手商品、股票债券的买卖、转移支付、家务劳动。支出法 $Y = C + I + G + NX$；宏观的“投资”是购买新的资本品（含新住房和存货变化），不包括买股票；进口要减去。
+    en: |-
+      The lesson uses wheat, flour and bread to show that only the final product (100 dollars) counts, or equivalently the sum of value added at each stage; GDP can be computed by production, expenditure or income, with the same result. Not counted: used goods, purchases of stocks and bonds, transfer payments, household work. Expenditure approach $Y = C + I + G + NX$; "investment" in macroeconomics means buying new capital goods (including new homes and changes in inventories), not buying shares; imports are subtracted.
+  - concepts: [real-gdp, gdp-deflator]
+    zh-cn: |-
+      讲义定义 $D = \frac{Y^n}{Y^r} \times 100$，用 Fisher 方程同样的关系说明 $1 + g^n = (1 + g^r)(1 + \pi)$（名义增长率、实际增长率、价格增长率）；季度增长率按年率公布：$1.005^4 - 1 \approx 2.0\%$；同比与年化的区别。
+    en: |-
+      The lesson defines $D = \frac{Y^n}{Y^r} \times 100$ and uses the same relation as the Fisher equation: $1 + g^n = (1 + g^r)(1 + \pi)$ (nominal growth, real growth, price growth); quarterly growth is reported at an annual rate: $1.005^4 - 1 \approx 2.0\%$; the difference between year-over-year and annualized growth.
+  - concepts: [cpi, pce-price-index, core-inflation]
+    zh-cn: |-
+      CPI 例子：一篮子 10 磅咖啡、4 张电影票，基期 90 美元，现在 104 美元，上涨约 15.6%。固定篮子有替代偏差；PCE 覆盖更广、权重每期更新，通常比 CPI 低；美联储 2% 目标按 PCE 定义（2012 年起）。[[fig:4-1]]：家庭把一半收入花在 A、一半花在 B；A 涨价的滑块从 0 到 100%，步长 5，默认 40；固定篮子上涨 $0.5a$，保持同样效用的成本上涨 $\sqrt{1 + a} - 1$。讲义没有推导这个公式（留给练习题）。
+    en: |-
+      CPI example: a basket of 10 pounds of coffee and 4 movie tickets costs 90 dollars in the base period and 104 dollars now, a rise of about 15.6%. A fixed basket has substitution bias; PCE covers more and updates weights each period, and is usually lower than CPI; the Fed's 2% target is defined on PCE (since 2012). [[fig:4-1]]: a household spends half on A and half on B; a slider for A's price rise from 0 to 100% in steps of 5 (default 40); the fixed basket rises by $0.5a$, the cost of keeping the same utility by $\sqrt{1 + a} - 1$. The lesson does not derive this formula (left to an exercise).
+  - concepts: [unemployment-rate, labor-force-participation-rate]
+    zh-cn: |-
+      讲义定义 $u = \frac{U}{E + U}$，$\text{LFPR} = \frac{E + U}{N}$（$N$ 为 16 岁及以上人口），说明不再找工作的人使失业率下降，劳动参与率长期下降部分源于老龄化；介绍了家庭调查和企业调查（非农就业）。
+    en: |-
+      The lesson defines $u = \frac{U}{E + U}$ and $\text{LFPR} = \frac{E + U}{N}$ ($N$ is the population aged 16 and over), explains that people who stop looking for work lower the unemployment rate, and that the long decline in participation is partly due to aging; it introduces the household survey and the establishment survey (nonfarm payrolls).
+  - questions: [C5, Q5]
+    zh-cn: |-
+      讲义的“怎样读数据发布”一节：发布时间、季节调整、月度 / 年化 / 同比的区别（CPI 一个月 0.3% 年化约 3.7%）、修订，以及资产价格对数据与预期之差作出反应；好的就业报告可能因为利率预期上升而使股价下跌。
+    en: |-
+      The lesson's section on reading data releases: release dates, seasonal adjustment, the difference between monthly, annualized and year-over-year changes (0.3% in a month is about 3.7% annualized), revisions, and that asset prices react to the difference between the data and expectations; a strong jobs report can lower stock prices by raising expected interest rates.
+
+common_errors:
+  - questions: [C1, Q1]
+    zh-cn: |-
+      把买股票或二手商品算作投资或计入 GDP；或者认为进口商品会使 GDP 下降（进口在 $C$ 中加上、在 $NX$ 中减去，对 GDP 没有影响）。
+    en: |-
+      Counting purchases of shares or used goods as investment or as part of GDP; or thinking that buying imported goods lowers GDP (the import is added in $C$ and subtracted in $NX$, so GDP does not change).
+  - questions: [C2, Q5]
+    zh-cn: |-
+      把名义增长当作实际增长，或者把季度增长率直接当作年增长率（或直接乘以 4 而不按复利计算）。
+    en: |-
+      Treating nominal growth as real growth, or taking a quarterly growth rate as a yearly one (or multiplying by 4 instead of compounding).
+  - questions: [C3, Q3]
+    zh-cn: |-
+      认为固定篮子的价格指数准确反映生活成本；忽略了涨价后人们会少买贵的、多买便宜的东西。
+    en: |-
+      Thinking that a fixed-basket price index measures the cost of living exactly, ignoring that people buy less of what has become dearer and more of what is cheaper.
+  - questions: [C4, Q4]
+    zh-cn: |-
+      用全部人口而不是劳动力作为失业率的分母；或者认为失业率下降一定说明就业改善。
+    en: |-
+      Using the whole population instead of the labor force as the denominator of the unemployment rate; or thinking that a falling unemployment rate always means more people have jobs.
+  - questions: [C5]
+    zh-cn: |-
+      认为好的经济数据一定使股价上涨。价格反映的是数据与预期之差，以及它对利率预期的影响。
+    en: |-
+      Thinking that good economic data must raise stock prices. Prices react to the difference from expectations and to the effect on expected interest rates.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: expenditure
+    concepts: [gdp]
+    expected: { y: "1050", inv: "1100" }
+    question:
+      zh-cn: |-
+        某国一年的消费 700、投资 200、政府购买 180、出口 120、进口 150（十亿美元）。
+        (a) GDP 是多少？
+        (b) 如果家庭多花 30 买进口电视，GDP 会怎样变化？
+        (c) 如果企业多生产了 50 的产品但没有卖出去，GDP 会怎样变化？记在哪一项？
+      en: |-
+        In one year a country has consumption 700, investment 200, government purchases 180, exports 120 and imports 150 (billion dollars).
+        (a) What is GDP?
+        (b) If households spend another 30 on imported televisions, how does GDP change?
+        (c) If firms produce another 50 of goods but do not sell them, how does GDP change, and in which component is this recorded?
+    answer:
+      zh-cn: |-
+        (a) $700 + 200 + 180 + (120 - 150) = 1050$。
+        (b) 不变：消费增加 30，进口也增加 30，净出口减少 30，两者抵消。电视不是在本国生产的。
+        (c) 增加 50：没卖出去的产品是存货的增加，记在投资中，GDP 变为 1100。GDP 衡量的是生产，不是销售。
+      en: |-
+        (a) $700 + 200 + 180 + (120 - 150) = 1050$.
+        (b) No change: consumption rises by 30 and imports also rise by 30, so net exports fall by 30, and the two cancel. The televisions were not produced in this country.
+        (c) It rises by 50: unsold goods are an increase in inventories, recorded in investment, so GDP becomes 1100. GDP measures production, not sales.
+    rubric:
+      zh-cn:
+        - "(a) 1050。"
+        - "(b) 不变，说明消费与进口抵消。"
+        - "(c) 增加 50，记在投资（存货），GDP 1100。"
+      en:
+        - "(a) 1050."
+        - "(b) No change, explaining that consumption and imports cancel."
+        - "(c) Rises by 50, recorded in investment (inventories), GDP 1100."
+
+  - id: C2
+    kind: check
+    section: real-gdp
+    concepts: [real-gdp, gdp-deflator]
+    expected: { n1: "200", n2: "252", r2: "210", g: "5", d: "120" }
+    question:
+      zh-cn: |-
+        一个只生产苹果和橙子的经济。第 1 年：苹果 100 个、每个 1 美元，橙子 50 个、每个 2 美元。第 2 年：苹果 110 个、每个 1.2 美元，橙子 50 个、每个 2.4 美元。以第 1 年为基年，求两年的名义 GDP、第 2 年的实际 GDP、实际 GDP 增长率和第 2 年的 GDP 平减指数。名义 GDP 增长了多少？它和实际增长、价格上涨是什么关系？
+      en: |-
+        An economy produces only apples and oranges. Year 1: 100 apples at 1 dollar each and 50 oranges at 2 dollars each. Year 2: 110 apples at 1.2 dollars each and 50 oranges at 2.4 dollars each. With year 1 as the base year, find nominal GDP in both years, real GDP in year 2, the growth rate of real GDP and the GDP deflator in year 2. By how much did nominal GDP grow, and how is that related to real growth and the rise in prices?
+    answer:
+      zh-cn: |-
+        名义 GDP：第 1 年 $100 \times 1 + 50 \times 2 = 200$，第 2 年 $110 \times 1.2 + 50 \times 2.4 = 252$。第 2 年实际 GDP（按第 1 年价格）$110 \times 1 + 50 \times 2 = 210$。实际增长 $\frac{210}{200} - 1 = 5\%$。平减指数 $\frac{252}{210} \times 100 = 120$，价格上涨 20%。
+        名义增长 $\frac{252}{200} - 1 = 26\%$，而 $1.05 \times 1.20 = 1.26$：名义增长 = 实际增长与价格上涨的复合。
+      en: |-
+        Nominal GDP: year 1 $100 \times 1 + 50 \times 2 = 200$, year 2 $110 \times 1.2 + 50 \times 2.4 = 252$. Real GDP in year 2 (at year 1 prices) $110 \times 1 + 50 \times 2 = 210$. Real growth $\frac{210}{200} - 1 = 5\%$. Deflator $\frac{252}{210} \times 100 = 120$, so prices rose 20%.
+        Nominal growth is $\frac{252}{200} - 1 = 26\%$, and $1.05 \times 1.20 = 1.26$: nominal growth compounds real growth and the rise in prices.
+    rubric:
+      zh-cn:
+        - "名义 GDP 200 和 252，实际 GDP 210。"
+        - "实际增长 5%，平减指数 120。"
+        - "名义增长 26% = 1.05 × 1.20 − 1。"
+      en:
+        - "Nominal GDP 200 and 252, real GDP 210."
+        - "Real growth 5%, deflator 120."
+        - "Nominal growth 26% = 1.05 × 1.20 − 1."
+
+  - id: C3
+    kind: check
+    section: price-indexes
+    concepts: [cpi, substitution-effect]
+    widget: { id: substitution-bias, set: { a: 60 } }
+    expected: { fixed: "30", util: "26.49", gap: "3.51" }
+    question:
+      zh-cn: |-
+        在 [[fig:4-1]] 中把 A 的涨价调到 60%。固定篮子的成本上涨多少？保持同样效用的成本上涨多少？差距是多少个百分点？为什么家庭的实际生活成本涨得比固定篮子少？
+      en: |-
+        In [[fig:4-1]], set A's price rise to 60%. By how much does the fixed basket's cost rise? By how much does the cost of keeping the same utility rise? How many percentage points is the gap? Why does the household's actual cost of living rise less than the fixed basket?
+    answer:
+      zh-cn: |-
+        固定篮子上涨 30%（一半支出的价格涨 60%），保持同样效用的成本上涨约 26.49%，差距约 3.51 个百分点。
+        A 变贵后，家庭少买 A、多买 B，用相对便宜的 B 替代一部分 A，所以达到原来的满足程度不需要多花 30%。固定篮子假设购买量不变，忽略了这种替代，所以高估了生活成本的上涨。
+      en: |-
+        The fixed basket rises 30% (prices of half the spending rise 60%), the cost of keeping the same utility rises about 26.49%, and the gap is about 3.51 percentage points.
+        When A becomes dearer, the household buys less A and more B, replacing some A with the relatively cheaper B, so reaching the same satisfaction does not require spending 30% more. The fixed basket assumes unchanged quantities, ignores this substitution, and so overstates the rise in the cost of living.
+    rubric:
+      zh-cn:
+        - "30%、约 26.49%、约 3.51 个百分点。"
+        - "用替代（少买变贵的 A、多买 B）解释。"
+      en:
+        - "30%, about 26.49%, about 3.51 percentage points."
+        - "Explains with substitution (buying less of the dearer A and more B)."
+
+  - id: C4
+    kind: check
+    section: labor-market
+    concepts: [unemployment-rate, labor-force-participation-rate]
+    expected: { u: "4.46", lfpr: "62.8", u2: "3.23", lfpr2: "62" }
+    question:
+      zh-cn: |-
+        某国 16 岁及以上人口 250（百万），就业 150，失业 7。
+        (a) 劳动力、失业率和劳动参与率各是多少？
+        (b) 一年后，失业者中有 2 人不再找工作，其余数字不变。失业率和劳动参与率变为多少？这个国家的劳动市场改善了吗？
+      en: |-
+        A country has a population aged 16 and over of 250 (million), with 150 employed and 7 unemployed.
+        (a) What are the labor force, the unemployment rate and the labor force participation rate?
+        (b) A year later, 2 of the unemployed have stopped looking for work, and nothing else has changed. What are the unemployment rate and the participation rate now? Has the labor market improved?
+    answer:
+      zh-cn: |-
+        (a) 劳动力 $150 + 7 = 157$，失业率 $\frac{7}{157} \approx 4.46\%$，劳动参与率 $\frac{157}{250} = 62.8\%$。
+        (b) 失业 5，劳动力 155：失业率 $\frac{5}{155} \approx 3.23\%$，劳动参与率 $\frac{155}{250} = 62\%$。失业率下降了，但没有一个人找到工作，就业人数仍是 150。劳动市场没有改善，只是有人放弃了找工作。
+      en: |-
+        (a) Labor force $150 + 7 = 157$, unemployment rate $\frac{7}{157} \approx 4.46\%$, participation rate $\frac{157}{250} = 62.8\%$.
+        (b) 5 unemployed and a labor force of 155: unemployment rate $\frac{5}{155} \approx 3.23\%$, participation rate $\frac{155}{250} = 62\%$. The unemployment rate fell, but no one found a job: employment is still 150. The labor market has not improved; some people have only given up looking.
+    rubric:
+      zh-cn:
+        - "(a) 157，约 4.46%，62.8%。"
+        - "(b) 约 3.23%，62%；指出就业没有增加，失业率下降是因为有人退出劳动力。"
+      en:
+        - "(a) 157, about 4.46%, 62.8%."
+        - "(b) About 3.23%, 62%; points out that employment did not rise and the rate fell because people left the labor force."
+
+  - id: C5
+    kind: check
+    section: data-releases
+    concepts: [unemployment-rate]
+    question:
+      zh-cn: |-
+        某月就业报告公布前，分析师的一致预期是非农就业增加 10 万人。实际公布增加 16.5 万人，失业率下降。当天股价指数下跌，10 年期国债收益率上升。就业比预期好，股价为什么反而会跌？
+      en: |-
+        Before a monthly jobs report, the consensus forecast was a rise of 100,000 in nonfarm payrolls. The report showed a rise of 165,000 and a lower unemployment rate. That day the stock index fell and the 10-year Treasury yield rose. Why would stock prices fall when jobs came in better than expected?
+    answer:
+      zh-cn: |-
+        价格已经反映了预期，市场对的是“意外”作出反应。就业比预期强，投资者会预期经济更热、通胀压力更大，央行更可能维持较高的利率或推迟降息，所以收益率上升。更高的利率使未来现金流的现值下降（[[0.1]] 的折现），也提高了债券相对股票的吸引力，股价可能因此下跌，即使企业盈利前景略有改善。
+      en: |-
+        Prices already reflect expectations, so the market reacts to the surprise. Stronger-than-expected jobs lead investors to expect a hotter economy and more inflation pressure, so the central bank is more likely to keep rates high or delay cuts, and yields rise. Higher rates lower the present value of future cash flows (discounting, [[0.1]]) and make bonds more attractive relative to stocks, so stock prices can fall even though the outlook for profits improves a little.
+    rubric:
+      zh-cn:
+        - "指出市场对数据与预期之差作出反应。"
+        - "用利率预期上升、现值下降解释股价下跌。"
+      en:
+        - "Points out that the market reacts to the difference from expectations."
+        - "Explains the fall with higher expected interest rates and lower present values."
+
+  # ---------- Exercises (reviewed by the AI, not scored) ----------
+  - id: Q1
+    kind: exercise
+    level: A
+    concepts: [gdp]
+    question:
+      zh-cn: |-
+        判断下面每一项是否计入美国当年的 GDP；如果计入，记在支出法的哪一项。
+        (a) 一个人买了 100 股苹果公司的股票。
+        (b) 一家建筑公司建好一栋新房，卖给一个家庭。
+        (c) 一个人从邻居手里买了一辆旧车。
+        (d) 一位退休者领到社会保障金。
+        (e) 一辆在美国肯塔基州工厂生产的丰田汽车卖给美国家庭。
+        (f) 美国家庭买了一部在中国组装的手机。
+        (g) 一家公司生产了一批机器，年底还没有卖出。
+      en: |-
+        For each item, decide whether it counts in US GDP for that year and, if so, in which component of the expenditure approach.
+        (a) A person buys 100 shares of Apple stock.
+        (b) A builder finishes a new house and sells it to a family.
+        (c) A person buys a used car from a neighbor.
+        (d) A retiree receives a Social Security payment.
+        (e) A Toyota car made at a factory in Kentucky is sold to a US household.
+        (f) A US household buys a phone assembled in China.
+        (g) A company produces machines that are still unsold at the end of the year.
+    answer:
+      zh-cn: |-
+        (a) 不计入：只是资产换手。（券商的佣金是一项服务，计入消费。）
+        (b) 计入，投资（住宅投资）。
+        (c) 不计入：旧车在生产的那一年已经计算过。（经销商的服务费会计入。）
+        (d) 不计入：转移支付，没有交换产品或服务。退休者用它购买的东西会计入消费。
+        (e) 计入，消费：GDP 按生产地点计算，与公司的国籍无关。
+        (f) 对 GDP 没有影响：消费增加，进口同样增加。
+        (g) 计入，投资（存货增加）。
+      en: |-
+        (a) Not counted: it only changes who owns an asset. (The broker's commission is a service and counts in consumption.)
+        (b) Counted, investment (residential investment).
+        (c) Not counted: the used car was counted in the year it was produced. (A dealer's service fee would count.)
+        (d) Not counted: a transfer payment, with no product or service exchanged. What the retiree buys with it counts in consumption.
+        (e) Counted, consumption: GDP depends on where production takes place, not on the company's nationality.
+        (f) No effect on GDP: consumption rises and imports rise by the same amount.
+        (g) Counted, investment (an increase in inventories).
+    rubric:
+      zh-cn:
+        - "(a)(c)(d) 不计入，理由正确。"
+        - "(b)(g) 计入投资；(e) 计入消费，按生产地点；(f) 消费与进口抵消。"
+      en:
+        - "(a), (c), (d) not counted, with correct reasons."
+        - "(b), (g) investment; (e) consumption, by place of production; (f) consumption and imports cancel."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [gdp]
+    expected: { gdp: "900" }
+    question:
+      zh-cn: |-
+        一个经济只有三家企业。矿山开采铁矿石卖给钢厂，得 200（工资 150，利润 50）；钢厂炼钢卖给汽车厂，得 500（买矿石 200，工资 200，利润 100）；汽车厂造车卖给家庭，得 900（买钢 500，工资 250，利润 150）。分别用支出法、生产法（增加值）和收入法计算 GDP，并说明为什么三种方法的结果相同。
+      en: |-
+        An economy has only three firms. A mine sells iron ore to a steel mill for 200 (wages 150, profit 50); the steel mill sells steel to a car maker for 500 (ore bought 200, wages 200, profit 100); the car maker sells cars to households for 900 (steel bought 500, wages 250, profit 150). Compute GDP by the expenditure, production (value added) and income approaches, and explain why the three give the same result.
+    answer:
+      zh-cn: |-
+        支出法：最终产品只有卖给家庭的汽车，900。
+        生产法：增加值 $200 + (500 - 200) + (900 - 500) = 200 + 300 + 400 = 900$。
+        收入法：工资 $150 + 200 + 250 = 600$，利润 $50 + 100 + 150 = 300$，合计 900。
+        每家企业的增加值等于它付出的工资加上利润；所有增加值加起来就是最终产品的价值。最终支出的每一美元，都在生产的某个环节成为某人的收入，所以三种方法的结果相同。
+      en: |-
+        Expenditure: the only final product is the cars sold to households, 900.
+        Production: value added $200 + (500 - 200) + (900 - 500) = 200 + 300 + 400 = 900$.
+        Income: wages $150 + 200 + 250 = 600$, profits $50 + 100 + 150 = 300$, a total of 900.
+        Each firm's value added equals the wages it pays plus its profit, and all the value added together is the value of the final product. Every dollar of final spending becomes someone's income at some stage of production, so the three approaches agree.
+    rubric:
+      zh-cn:
+        - "三种方法都得到 900，计算正确。"
+        - "解释增加值 = 工资 + 利润，最终支出成为收入。"
+      en:
+        - "All three approaches give 900, computed correctly."
+        - "Explains that value added = wages + profit and that final spending becomes income."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    star: true
+    concepts: [cpi, substitution-effect, utility-function]
+    expected: { fixed: "22", util: "20", gap: "2" }
+    question:
+      zh-cn: |-
+        一个家庭的效用为 $U = \sqrt{xy}$，收入为 $M$，两种商品的价格为 $p_A$、$p_B$。
+        (a) 由 [[1.2]] 的结果，最优选择是 $x = \frac{M}{2p_A}$，$y = \frac{M}{2p_B}$。求最大效用，并证明：达到效用 $\bar U$ 所需的最少支出是 $2\bar U\sqrt{p_A p_B}$。
+        (b) 由此证明：$p_A$ 上涨 $a$、$p_B$ 不变时，保持原来效用的成本上涨 $\sqrt{1 + a} - 1$，而固定篮子的成本上涨 $\frac{a}{2}$。
+        (c) $a = 44\%$ 时两者各是多少？说明为什么前者总是不大于后者。
+      en: |-
+        A household has utility $U = \sqrt{xy}$, income $M$, and prices $p_A$ and $p_B$.
+        (a) From [[1.2]], the optimal choice is $x = \frac{M}{2p_A}$ and $y = \frac{M}{2p_B}$. Find the maximum utility, and show that the least spending needed to reach utility $\bar U$ is $2\bar U\sqrt{p_A p_B}$.
+        (b) Use this to show that when $p_A$ rises by $a$ and $p_B$ is unchanged, the cost of keeping the original utility rises by $\sqrt{1 + a} - 1$, while the cost of the fixed basket rises by $\frac{a}{2}$.
+        (c) What are the two for $a = 44\%$? Explain why the first is never larger than the second.
+    answer:
+      zh-cn: |-
+        (a) $U^* = \sqrt{\frac{M}{2p_A} \cdot \frac{M}{2p_B}} = \frac{M}{2\sqrt{p_A p_B}}$。要使 $U^* = \bar U$，需要 $M = 2\bar U\sqrt{p_A p_B}$；支出更少时最大效用低于 $\bar U$。
+        (b) 原来的成本 $2\bar U\sqrt{p_A p_B}$，新成本 $2\bar U\sqrt{(1 + a)p_A p_B}$，比值 $\sqrt{1 + a}$。原来的篮子中两种商品的支出各占一半，A 的价格涨 $a$，篮子成本涨 $\frac{a}{2}$。
+        (c) $\sqrt{1.44} - 1 = 20\%$，固定篮子 22%，差 2 个百分点。原来的篮子在新价格下仍然能达到原来的效用，所以最少成本不会超过它；家庭还可以改买更多 B，所以成本通常更低。
+      en: |-
+        (a) $U^* = \sqrt{\frac{M}{2p_A} \cdot \frac{M}{2p_B}} = \frac{M}{2\sqrt{p_A p_B}}$. For $U^* = \bar U$ we need $M = 2\bar U\sqrt{p_A p_B}$; with less spending the maximum utility is below $\bar U$.
+        (b) The old cost is $2\bar U\sqrt{p_A p_B}$ and the new one $2\bar U\sqrt{(1 + a)p_A p_B}$, a ratio of $\sqrt{1 + a}$. In the old basket each good takes half of spending, so a rise of $a$ in A's price raises the basket's cost by $\frac{a}{2}$.
+        (c) $\sqrt{1.44} - 1 = 20\%$ and the fixed basket 22%, a gap of 2 percentage points. The old basket still reaches the old utility at the new prices, so the least cost cannot exceed it; the household can also switch to more B, so the cost is usually lower.
+    rubric:
+      zh-cn:
+        - "(a) 最大效用 $\\frac{M}{2\\sqrt{p_A p_B}}$，反解出最少支出。"
+        - "(b) 两个上涨幅度推导正确。"
+        - "(c) 20% 与 22%；用“原篮子仍可行、还可以替代”说明。"
+      en:
+        - "(a) Maximum utility $\\frac{M}{2\\sqrt{p_A p_B}}$, inverted to get the least spending."
+        - "(b) Both rises derived correctly."
+        - "(c) 20% and 22%; explains that the old basket is still affordable and substitution can do better."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [labor-force-participation-rate]
+    expected: { before: "72", after: "68" }
+    question:
+      zh-cn: |-
+        把 16 岁及以上的人口分成两组：65 岁以下的劳动参与率是 80%，65 岁及以上的是 40%。两组的参与率都不变。
+        (a) 65 岁及以上的人占 16 岁及以上人口的 20% 时，总的劳动参与率是多少？
+        (b) 这个比例上升到 30% 时呢？
+        (c) 一位评论员看到总参与率下降，说“人们越来越不愿意工作了”。评价这个说法。
+      en: |-
+        Split the population aged 16 and over into two groups: people under 65 have a participation rate of 80%, and people 65 and over 40%. Neither group's rate changes.
+        (a) If people 65 and over are 20% of the population aged 16 and over, what is the overall participation rate?
+        (b) What if this share rises to 30%?
+        (c) A commentator sees the overall rate fall and says "people are less and less willing to work". Evaluate this statement.
+    answer:
+      zh-cn: |-
+        (a) $0.8 \times 80\% + 0.2 \times 40\% = 72\%$。
+        (b) $0.7 \times 80\% + 0.3 \times 40\% = 68\%$。
+        (c) 两组的参与率都没有变，总参与率下降 4 个百分点完全来自人口结构：退休年龄的人越来越多。这个说法把结构变化误当成了行为变化。判断工作意愿，要看同一年龄组的参与率（例如 25–54 岁的参与率）。
+      en: |-
+        (a) $0.8 \times 80\% + 0.2 \times 40\% = 72\%$.
+        (b) $0.7 \times 80\% + 0.3 \times 40\% = 68\%$.
+        (c) Neither group's rate changed; the 4-point fall in the overall rate comes entirely from the population mix: more people are of retirement age. The statement mistakes a change in composition for a change in behavior. To judge willingness to work, look at the rate within an age group (for example, ages 25 to 54).
+    rubric:
+      zh-cn:
+        - "(a) 72%；(b) 68%。"
+        - "(c) 指出下降来自人口结构而不是各组行为的变化，建议看分年龄组的参与率。"
+      en:
+        - "(a) 72%; (b) 68%."
+        - "(c) Points out that the fall comes from the population mix, not from changes in behavior within groups, and suggests looking at rates by age group."
+
+  - id: Q5
+    kind: exercise
+    level: C
+    concepts: [real-gdp, compound-interest]
+    expected: { ann: "-0.4", yoy: "1.41" }
+    question:
+      zh-cn: |-
+        某国四个季度的实际 GDP 环比增长率（未年化）依次是 0.2%、0.8%、0.5%、−0.1%。
+        (a) 第四季度公布的年化增长率是多少？
+        (b) 第四季度比去年同期（四个季度前）增长了多少？
+        (c) 两家媒体的标题分别是“经济萎缩”和“经济过去一年增长 1.4%”。两者都对吗？它们回答的是什么不同的问题？
+      en: |-
+        A country's real GDP grew by 0.2%, 0.8%, 0.5% and −0.1% in four successive quarters (quarter on quarter, not annualized).
+        (a) What annualized growth rate is reported for the fourth quarter?
+        (b) By how much is fourth-quarter GDP higher than in the same quarter a year earlier (four quarters before)?
+        (c) Two headlines say "the economy shrank" and "the economy grew 1.4% over the past year". Are both correct? What different questions do they answer?
+    answer:
+      zh-cn: |-
+        (a) $0.999^4 - 1 \approx -0.4\%$。
+        (b) $1.002 \times 1.008 \times 1.005 \times 0.999 - 1 \approx 1.41\%$。
+        (c) 都对。年化的季度增长率回答“最近一个季度的势头如何”，最新一个季度略有萎缩；同比增长率回答“和一年前相比如何”，前几个季度的增长使它仍为正。一个季度的负增长还不能说明经济进入衰退，初步数据之后也可能被修订。
+      en: |-
+        (a) $0.999^4 - 1 \approx -0.4\%$.
+        (b) $1.002 \times 1.008 \times 1.005 \times 0.999 - 1 \approx 1.41\%$.
+        (c) Both are correct. The annualized quarterly rate answers "what is the most recent momentum", and the latest quarter shrank slightly; the year-over-year rate answers "how does it compare with a year ago", and growth in the earlier quarters keeps it positive. One quarter of negative growth does not show that the economy is in recession, and the first estimate may also be revised.
+    rubric:
+      zh-cn:
+        - "(a) 约 −0.4%（按复利年化）。"
+        - "(b) 约 1.41%（四个季度连乘）。"
+        - "(c) 说明两者回答不同的问题：最近的势头与过去一年的累计变化。"
+      en:
+        - "(a) About −0.4% (compounded)."
+        - "(b) About 1.41% (product of four quarters)."
+        - "(c) Explains that they answer different questions: recent momentum versus the change over the past year."

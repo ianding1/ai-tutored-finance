@@ -1,0 +1,84 @@
+---
+// Figure 4-1 of lesson 2.1: substitution bias of a fixed-basket price index. A household spends half of its
+// budget on each of two goods (Cobb–Douglas preferences). The price of good A rises by a%, the price of good B
+// is unchanged. A fixed basket costs 0.5 a% more; the cost of keeping the same utility rises by
+// (sqrt(1 + a) − 1), because the household buys less A and more B.
+// Parameters are registered in course/widgets.yaml (id: substitution-bias).
+import { toLang } from '../../i18n/ui';
+
+const lang = toLang(Astro.locals.starlightRoute.lang);
+const L = {
+	'zh-cn': {
+		a: '商品 A 的价格上涨（%）',
+		x: '商品 A 的价格上涨（%）',
+		y: '生活成本的上涨（%）',
+		fixed: '固定篮子（不调整购买量）',
+		true: '保持同样效用所需的成本（允许替代）',
+		readout: '固定篮子的成本上涨 {fixed}%，保持同样效用的成本上涨 {true}%，固定篮子高估了 {gap} 个百分点。',
+	},
+	en: {
+		a: 'Price rise of good A (%)',
+		x: 'Price rise of good A (%)',
+		y: 'Rise in the cost of living (%)',
+		fixed: 'Fixed basket (quantities unchanged)',
+		true: 'Cost of keeping the same utility (substitution allowed)',
+		readout: 'The fixed basket costs {fixed}% more, the cost of keeping the same utility rises by {true}%, so the fixed basket overstates the rise by {gap} percentage points.',
+	},
+}[lang];
+
+const xr = [0, 100];
+const yr = [0, 50];
+const xticks = [0, 20, 40, 60, 80, 100];
+const yticks = [0, 10, 20, 30, 40, 50];
+const trueRise = (a: number) => 100 * (Math.sqrt(1 + a / 100) - 1);
+const layouts = [
+	{ cls: 'viz-wide', W: 640, H: 320, pad: { l: 50, r: 20, t: 14, b: 44 } },
+	{ cls: 'viz-narrow', W: 360, H: 290, pad: { l: 50, r: 12, t: 14, b: 44 } },
+].map((g) => ({
+	...g,
+	X: (v: number) => g.pad.l + ((v - xr[0]) / (xr[1] - xr[0])) * (g.W - g.pad.l - g.pad.r),
+	Y: (v: number) => g.pad.t + ((yr[1] - v) / (yr[1] - yr[0])) * (g.H - g.pad.t - g.pad.b),
+}));
+const curve = (X: (v: number) => number, Y: (v: number) => number) =>
+	Array.from({ length: 51 }, (_, i) => i * 2)
+		.map((a) => `${X(a).toFixed(1)},${Y(trueRise(a)).toFixed(1)}`)
+		.join(' ');
+---
+
+<div class="lfwai-widget" data-widget="substitution-bias" data-readout={L.readout}>
+	<div class="lfwai-sliders">
+		<label>
+			<span>{L.a} = <output data-out="a">40</output></span>
+			<input type="range" min="0" max="100" step="5" value="40" data-param="a" />
+		</label>
+	</div>
+	{layouts.map(({ cls, W, H, pad, X, Y }) => (
+		<svg class={`lfwai-viz ${cls}`} viewBox={`0 0 ${W} ${H}`} role="img" aria-label={L.y} data-geom={JSON.stringify({ W, H, pad, xr, yr })}>
+			{yticks.map((v) => (
+				<g>
+					<line class={v === 0 ? 'viz-axis' : 'viz-grid'} x1={pad.l} x2={W - pad.r} y1={Y(v)} y2={Y(v)} />
+					<text class="viz-tick" x={pad.l - 8} y={Y(v) + 4} text-anchor="end">{v}</text>
+				</g>
+			))}
+			{xticks.map((v) => (
+				<text class="viz-tick" x={X(v)} y={H - pad.b + 18} text-anchor="middle">{v}</text>
+			))}
+			<line class="viz-axis" x1={pad.l} x2={pad.l} y1={pad.t} y2={H - pad.b} />
+			<text class="viz-tick" x={(pad.l + W - pad.r) / 2} y={H - 8} text-anchor="middle">{L.x}</text>
+			<text class="viz-tick" transform={`translate(12 ${(pad.t + H - pad.b) / 2}) rotate(-90)`} text-anchor="middle">{L.y}</text>
+			<line class="viz-curve" x1={X(0)} y1={Y(0)} x2={X(100)} y2={Y(50)} />
+			<polyline class="viz-curve-fat" points={curve(X, Y)} />
+			<line class="viz-gap" data-el="gap" x1="0" y1="0" x2="0" y2="0" />
+		</svg>
+	))}
+	<ul class="lfwai-legend">
+		<li><span class="sw sw-curve"></span>{L.fixed}</li>
+		<li><span class="sw sw-fat"></span>{L.true}</li>
+	</ul>
+	<p class="lfwai-readout" data-el="readout" aria-live="polite"></p>
+</div>
+
+<script>
+	import { initSubstitutionBias } from '../../scripts/widgets/substitution-bias';
+	initSubstitutionBias();
+</script>
