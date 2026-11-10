@@ -1,0 +1,99 @@
+---
+title: 2.5 Monetary Policy
+description: "The Fed's goals and tools: the federal funds rate and the ample-reserves framework, quantitative easing and forward guidance, the Taylor rule, how monetary policy is transmitted, and how markets react to the central bank."
+lesson: "2.5"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import CheckAll from '../../../../components/CheckAll.astro';
+import TaylorRule from '../../../../components/widgets/TaylorRule.astro';
+
+## Goals [#goals]
+
+The central bank of the United States is the Federal Reserve System (the Fed). Congress has given it two goals (the dual mandate): **maximum employment** and **stable prices** (plus moderate long-term interest rates). The Fed defines stable prices as 2% inflation measured by the PCE price index (<Ref lesson="2.1" />, since 2012); it revised its statement of longer-run goals in August 2025, keeping the 2% target.
+
+Interest rate policy is decided by the Federal Open Market Committee (FOMC), which meets 8 times a year. The central bank's decisions are independent of the government: the temptation to cut rates before an election for a temporary boom would damage inflation expectations, and <Ref lesson="2.4" /> showed why expectations matter.
+
+The model of <Ref lesson="2.4" /> tells us what monetary policy can do: in the short run, by changing interest rates it moves aggregate demand, narrowing the output gap and stabilizing inflation; in the long run it determines inflation but cannot keep output above its potential.
+
+## Tools [#tools]
+
+What the FOMC sets is a target range for the <Def id="federal-funds-rate">federal funds rate</Def>: the rate at which banks lend reserves to each other overnight. On October 28, 2026 the FOMC kept the target range at 3.75%–4.00% (Federal Reserve, October 28, 2026).
+
+How does the Fed keep market rates inside this range? <Ref lesson="2.3" /> said that since 2008 banks have held large reserves; the Fed now runs an "ample reserves" framework that relies mainly on two rates:
+
+- **Interest on reserve balances** (IORB): the rate banks earn on money held at the Fed, currently 3.90%. A bank that can earn 3.90% risk-free from the Fed will not lend to others at a much lower rate.
+- **The overnight reverse repo rate** (ON RRP): institutions such as money market funds, which cannot hold reserve accounts at the Fed, can lend to the Fed and earn 3.75%; this puts a floor under market rates.
+
+In addition, banks can borrow from the Fed's discount window, currently at 4.0%, which limits how high market rates go (all rates effective October 29, 2026, Fed implementation note). When the FOMC wants to raise rates by 0.25 percentage points, it raises all of these rates by 0.25 percentage points.
+
+Rates cannot go too low: if bank deposits paid clearly negative rates, people would hold cash instead. Nominal rates cannot go far below zero; this is called the <Def id="zero-lower-bound">zero lower bound</Def>. In 2008–2015 and 2020–2022 the US federal funds rate was near zero. The central bank then has two more tools:
+
+- <Def id="quantitative-easing">Quantitative easing</Def> (QE): buying large amounts of long-term Treasury bonds and mortgage-backed securities to push long-term rates down directly. The Fed's assets reached about 9 trillion dollars in 2022 (Federal Reserve H.4.1 release). The reverse, reducing bond holdings, is called quantitative tightening (QT).
+- <Def id="forward-guidance">Forward guidance</Def>: stating what future rates will be, which affects expectations of future short rates and therefore today's long rates (<Ref check="Q5" />).
+
+<Check id="C1" />
+
+## The Taylor rule [#taylor-rule]
+
+How high should the central bank set its rate? The economist John Taylor (1993) proposed a simple rule called the <Def id="taylor-rule">Taylor rule</Def>:
+
+$$
+i = r^* + \pi + 0.5\,(\pi - \pi^T) + 0.5\,\text{gap}
+$$
+
+where $i$ is the nominal policy rate, $\pi$ is inflation over the past year, $\pi^T = 2\%$ is the target and $\text{gap}$ is the output gap (%). $r^*$ is called the <Def id="neutral-interest-rate">neutral interest rate</Def>: the real interest rate that neither stimulates nor restrains the economy. When inflation equals the target and the output gap is zero, the nominal rate equals $r^* + \pi$ and the real rate equals $r^*$.
+
+The rule has two main points:
+
+- For each point that inflation is higher, the nominal rate rises 1.5 points, **more** than 1 point. Then the real rate also rises, which is needed to restrain demand (the Taylor principle).
+- $r^*$ cannot be observed directly, only estimated, and estimates differ considerably. The rule's answer is sensitive to $r^*$ and to the inflation measure used.
+
+So the Taylor rule is not a formula the central bank must obey but a reference: when the actual rate departs clearly from the rule, there should be a reason.
+
+<Figure id="3-1" title="The Taylor rule: $i = r^* + \pi + 0.5(\pi - 2) + 0.5 \times \text{gap}$. The solid line is the rate the rule suggests, the dashed line is the neutral nominal rate, and the vertical segment between them is the difference between the real rate and the neutral real rate." observe="Raise inflation and compare the slopes of the solid and dashed lines; then change the output gap and the neutral rate and watch how the suggested rate moves.">
+	<TaylorRule />
+</Figure>
+
+<Check id="C2" />
+
+## Transmission [#transmission]
+
+The federal funds rate is only an overnight rate. How does it affect the economy?
+
+- **Other interest rates**: changes in short rates, and in expected future short rates, pass through to Treasury yields, mortgage rates and business loan rates.
+- **Asset prices**: when rates rise, the present value of future cash flows falls (<Ref concept="present-value" />), stock and real estate prices fall, household wealth falls, and consumption falls with it.
+- **The exchange rate**: higher rates attract foreign money, the currency appreciates, and exports fall (<Ref lesson="2.7" />).
+- **Credit**: when rates rise, borrowers' collateral loses value and debt payments rise, and banks lend more cautiously.
+- **Expectations**: the central bank's actions and statements change expectations of inflation and future policy, which affect how wages and prices are set.
+
+All of these channels take time. Monetary policy generally affects output after about a year and inflation later still, and the lags vary ("long and variable lags"). So the central bank must decide on the basis of forecasts; it cannot wait until inflation has already come down before it stops raising rates.
+
+<Check id="C3" />
+
+## How markets see the central bank [#markets]
+
+As with the data releases of <Ref lesson="2.1" />, markets react to the central bank's decision according to how it differs from expectations. Before an FOMC meeting, investors have already formed expectations from prices such as federal funds futures. A rate cut that was expected hardly moves markets; a surprise decision to hold, even though rates "did not change", raises bond yields and lowers stock prices.
+
+So investors care not only about the rate decision itself but also about the FOMC statement, the Chair's press conference and the members' projections of future rates: these change expectations of the whole future path of rates.
+
+<Check id="C4" />
+
+## Summary [#summary]
+
+- The Fed's dual mandate is maximum employment and stable prices; the inflation target is 2% PCE inflation.
+- The FOMC sets a target range for the federal funds rate (3.75%–4.00% in October 2026) and keeps market rates in the range with the rate on reserves, the ON RRP rate and the discount rate.
+- Nominal rates have a zero lower bound; then quantitative easing and forward guidance can be used.
+- Taylor rule: $i = r^* + \pi + 0.5(\pi - \pi^T) + 0.5\,\text{gap}$. When inflation rises, the nominal rate must rise by more, so that the real rate rises; estimates of the neutral rate are uncertain.
+- Monetary policy affects the economy through other interest rates, asset prices, the exchange rate, credit and expectations, with long and variable lags.
+- Markets react to the central bank's decisions according to how they differ from expectations.
+
+<CheckAll />
+
+## Exercises [#exercises]
+
+<Exercises />

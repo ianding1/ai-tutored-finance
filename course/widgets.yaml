@@ -165,3 +165,14 @@ ad-as:
     potential: 100
     ad_slope: 0.5
     sras_slope: 1
+
+taylor-rule:
+  component: src/components/widgets/TaylorRule.astro
+  params:
+    pi: { min: 0, max: 8, step: 0.5, default: 2 }
+    gap: { min: -6, max: 4, step: 0.5, default: 0 }
+    rstar: { min: 0, max: 2, step: 0.25, default: 1 }
+  fixed:
+    target: 2
+    a_pi: 0.5
+    a_gap: 0.5

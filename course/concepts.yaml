@@ -1302,6 +1302,54 @@ phillips-curve:
     zh-cn: "通胀与失业的关系：$\\pi = \\pi^e - \\beta(u - u^*)$。"
     en: "The relation between inflation and unemployment: $\\pi = \\pi^e - \\beta(u - u^*)$."
 
+federal-funds-rate:
+  defined_in: "2.5"
+  zh-cn: 联邦基金利率
+  en: federal funds rate
+  short:
+    zh-cn: "美国银行之间隔夜借贷准备金的利率；FOMC 为它设定目标区间。"
+    en: "The rate at which US banks lend reserves to each other overnight; the FOMC sets a target range for it."
+
+zero-lower-bound:
+  defined_in: "2.5"
+  zh-cn: 零下限
+  en: zero lower bound
+  short:
+    zh-cn: "名义利率不能远低于零，因为人们可以改为持有现金。"
+    en: "Nominal interest rates cannot go far below zero, because people can hold cash instead."
+
+quantitative-easing:
+  defined_in: "2.5"
+  zh-cn: 量化宽松
+  en: quantitative easing
+  short:
+    zh-cn: "央行大量购买长期债券，直接压低长期利率。"
+    en: "Large central bank purchases of long-term bonds to push long-term rates down directly."
+
+forward-guidance:
+  defined_in: "2.5"
+  zh-cn: 前瞻指引
+  en: forward guidance
+  short:
+    zh-cn: "央行说明未来利率的走向，通过改变对未来短期利率的预期影响长期利率。"
+    en: "Central bank statements about the future path of rates, which affect long rates by changing expected future short rates."
+
+taylor-rule:
+  defined_in: "2.5"
+  zh-cn: Taylor 规则
+  en: Taylor rule
+  short:
+    zh-cn: "按通胀和产出缺口设定政策利率的参照规则：$i = r^* + \\pi + 0.5(\\pi - \\pi^T) + 0.5\\,\\text{gap}$。"
+    en: "A reference rule setting the policy rate from inflation and the output gap: $i = r^* + \\pi + 0.5(\\pi - \\pi^T) + 0.5\\,\\text{gap}$."
+
+neutral-interest-rate:
+  defined_in: "2.5"
+  zh-cn: 中性利率
+  en: neutral interest rate
+  short:
+    zh-cn: "既不刺激也不抑制经济的实际利率 $r^*$，只能估计。"
+    en: "The real interest rate $r^*$ that neither stimulates nor restrains the economy; it can only be estimated."
+
 risk-measures:
   defined_in: "4.1"
   zh-cn: 风险度量
