@@ -74,8 +74,8 @@ const layouts = [
 			<text class="viz-tick" transform={`translate(12 ${(pad.t + H - pad.b) / 2}) rotate(-90)`} text-anchor="middle">{L.y}</text>
 			<g clip-path={`url(#adas-clip-${cls})`}>
 				<line class="viz-avg" x1={X(100)} x2={X(100)} y1={Y(120)} y2={Y(80)} />
-				<line class="viz-contour" x1={X(90)} y1={Y(120)} x2={X(110)} y2={Y(80)} />
-				<line class="viz-contour" x1={X(80)} y1={Y(80)} x2={X(120)} y2={Y(120)} />
+				<line class="viz-old" x1={X(90)} y1={Y(120)} x2={X(110)} y2={Y(80)} />
+				<line class="viz-old" x1={X(80)} y1={Y(80)} x2={X(120)} y2={Y(120)} />
 				<line class="viz-curve" data-el="ad" x1="0" y1="0" x2="0" y2="0" />
 				<line class="viz-curve-fat" data-el="as" x1="0" y1="0" x2="0" y2="0" />
 				<circle class="viz-min" data-el="pt" r="6" cx="0" cy="0" />
@@ -86,7 +86,7 @@ const layouts = [
 		<li><span class="sw sw-curve"></span>{L.ad}</li>
 		<li><span class="sw sw-fat"></span>{L.as}</li>
 		<li><span class="sw sw-avg"></span>{L.lr}</li>
-		<li><span class="sw sw-box"></span>{L.old}</li>
+		<li><span class="sw sw-old"></span>{L.old}</li>
 	</ul>
 	<p class="lfwai-readout" data-el="readout" aria-live="polite"></p>
 </div>

@@ -334,6 +334,16 @@
 .lfwai-legend .sw.sw-mean {
 	border-top: 2px dashed var(--viz-text);
 }
+/* Lesson 2.4 figure */
+.viz-old {
+	stroke: var(--viz-muted);
+	stroke-width: 2;
+	opacity: 0.45;
+}
+.lfwai-legend .sw.sw-old {
+	border-top: 2px solid var(--viz-muted);
+	opacity: 0.45;
+}
 /* Lesson 1.5 figure */
 .viz-profit {
 	fill: var(--viz-pos);
