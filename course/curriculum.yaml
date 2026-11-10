@@ -254,7 +254,15 @@ stages:
         published: true
         introduces: [financial-intermediary, money-market, capital-market, primary-market, secondary-market, market-maker, bid-ask-spread, short-selling, limit-order]
         uses: [time-value-of-money, diversification, variance, standard-deviation, expected-value, adverse-selection, moral-hazard, bank-run]
-      - { id: "3.2", slug: "3-2-npv-irr", title: { zh-cn: "NPV、IRR 与资本预算", en: "NPV, IRR and Capital Budgeting" } }
+      - id: "3.2"
+        slug: "3-2-npv-irr"
+        title: { zh-cn: "NPV、IRR 与资本预算", en: "NPV, IRR and Capital Budgeting" }
+        summary:
+          zh-cn: "怎样决定一个投资项目是否值得做：净现值与资本的机会成本、哪些现金流应该计入、内部收益率及其陷阱、回收期与盈利指数。"
+          en: "How to decide whether an investment project is worth doing: net present value and the opportunity cost of capital, which cash flows to include, the internal rate of return and its pitfalls, payback and the profitability index."
+        published: true
+        introduces: [net-present-value, cost-of-capital, internal-rate-of-return, payback-period, profitability-index]
+        uses: [present-value, annuity, sunk-cost, fisher-equation, real-interest-rate, first-order-condition, expected-value]
       - { id: "3.3", slug: "3-3-bond-pricing", title: { zh-cn: "债券定价", en: "Bond Pricing" } }
       - { id: "3.4", slug: "3-4-interest-rate-risk", title: { zh-cn: "利率风险", en: "Interest Rate Risk" } }
       - { id: "3.5", slug: "3-5-term-structure", title: { zh-cn: "利率期限结构", en: "The Term Structure of Interest Rates" } }

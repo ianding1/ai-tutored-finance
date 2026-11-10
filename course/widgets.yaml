@@ -210,3 +210,11 @@ order-book:
     midpoint: 100
     asks: "100.05 x 500, 100.10 x 500, 100.20 x 1000, 100.40 x 2000"
     bids: "99.95 x 500, 99.90 x 800, 99.80 x 1000, 99.60 x 2000"
+
+npv-profile:
+  component: src/components/widgets/NpvProfile.astro
+  params:
+    r: { min: 0, max: 25, step: 0.5, default: 10 }
+  fixed:
+    project_a: "-100, 60, 50, 20"
+    project_b: "-100, 10, 20, 115"

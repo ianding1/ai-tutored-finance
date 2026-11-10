@@ -1,0 +1,100 @@
+---
+title: 3.2 NPV、IRR 与资本预算
+description: 怎样决定一个投资项目是否值得做：净现值与资本的机会成本、哪些现金流应该计入、内部收益率及其陷阱、回收期与盈利指数。
+lesson: "3.2"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import CheckAll from '../../../../components/CheckAll.astro';
+import NpvProfile from '../../../../components/widgets/NpvProfile.astro';
+
+## 净现值 [#npv]
+
+企业每天都要决定：建不建新工厂，买不买新设备，推不推出新产品。这类长期投资决策叫资本预算（capital budgeting）。它们的共同点是：现在付出，将来得到。
+
+<Ref lesson="0.1" /> 的<Ref concept="present-value" />给出了比较的方法。记第 $t$ 年的现金流为 $C_t$（$C_0$ 通常为负，是初始投资），折现率为 $r$，项目的<Def id="net-present-value">净现值</Def>（net present value，NPV）是
+
+$$
+\text{NPV} = \sum_{t=0}^{T} \frac{C_t}{(1 + r)^t}
+$$
+
+NPV 法则：**NPV 为正就接受，为负就拒绝**；在几个只能选一个的项目中，选 NPV 最大的。NPV 为正，意味着项目创造的价值超过了投入；股东的财富正好增加 NPV。
+
+折现率 $r$ 应该是<Def id="cost-of-capital">资本成本</Def>（cost of capital）：投资者把钱投到**风险相同**的其他地方能得到的预期收益。它是机会成本，不是企业实际借款的利率。风险越高的项目，资本成本越高（第 4 阶段会讨论怎样估计它）。
+
+<Check id="C1" />
+
+## 哪些现金流应该计入 [#cash-flows]
+
+NPV 只应包括因为做这个项目而**增加**的现金流（增量现金流），也就是“做”与“不做”之间的差别：
+
+- **沉没成本不计入**：已经花掉、无论做不做都收不回的钱，例如已经完成的市场调研（<Ref concept="sunk-cost" />）。
+- **机会成本要计入**：项目占用的已有资源，如果不做这个项目能卖掉或出租，放弃的这部分收入就是项目的成本。
+- **副作用要计入**：新产品抢走了公司原有产品的销售（蚕食效应，cannibalization），减少的现金流算在新项目上；反过来，带动其他产品的销售也要计入。
+- **营运资本**：项目需要的存货和应收账款占用资金，开始时是现金流出，结束时收回。
+- **税**：折旧本身不是现金流出，但它减少应税利润，从而减少要交的税（<Ref check="Q5" />）。美国联邦公司所得税率为 21%（2018 年起，《减税与就业法案》）。
+- **名义与实际要一致**：名义现金流用名义折现率，实际现金流用实际折现率（<Ref concept="fisher-equation" />）。
+
+<Check id="C2" />
+
+## 内部收益率 [#irr]
+
+使 NPV 等于零的折现率叫<Def id="internal-rate-of-return">内部收益率</Def>（internal rate of return，IRR）：
+
+$$
+\sum_{t=0}^{T} \frac{C_t}{(1 + \text{IRR})^t} = 0
+$$
+
+IRR 一般要用试算或计算器求出。它很直观：项目本身的“收益率”是多少。IRR 法则：**IRR 高于资本成本就接受**。
+
+把 NPV 看作折现率的函数，画出来就是 NPV 曲线（NPV profile）。对“先付出、后收回”的常规项目，折现率越高，NPV 越低，曲线和横轴只交于一点，这一点就是 IRR。所以资本成本低于 IRR 时 NPV 为正：对一个单独的常规项目，IRR 法则和 NPV 法则的结论相同。
+
+<Figure id="3-1" title="两个项目的 NPV 曲线，各自的初始投资都是 100。曲线与横轴的交点是 IRR。" observe="移动折现率，比较两个项目 NPV 的高低；注意两条曲线在哪里相交，以及 IRR 较高的项目是否总是 NPV 较大。">
+	<NpvProfile />
+</Figure>
+
+<Check id="C3" />
+
+## IRR 的陷阱 [#irr-pitfalls]
+
+IRR 简单易懂，但在以下情况下会给出错误的结论：
+
+- **互斥项目**：只能选一个时，不能选 IRR 较高的那个。项目的规模不同、现金流的时间不同，IRR 的排序和 NPV 的排序可能相反（<Ref fig="3-1" /> 中的两个项目就是这样）。较早收回现金的项目，NPV 对折现率不太敏感；较晚收回的项目，在折现率低时 NPV 更大、在折现率高时更小。
+- **多个 IRR**：如果现金流的符号变化不止一次（例如结束时有一大笔清理费用），NPV 曲线可能和横轴相交多次，有多个 IRR，或者一个也没有（<Ref check="Q2" />）。
+- **借款型项目**：先收到钱、后付出（例如预收款），这时 IRR 是借款的成本，IRR **低于**资本成本才应接受。
+- **资本成本随期限变化**：如果不同年份的现金流适用不同的折现率（<Ref lesson="3.5" />），就没有一个单一的门槛可以和 IRR 比较。
+
+这些情况下，NPV 仍然给出正确的结论。实践中 IRR 常被用来沟通，最终的决策应以 NPV 为准。
+
+<Check id="C4" />
+
+## 其他方法 [#other-rules]
+
+<Def id="payback-period">回收期</Def>（payback period）是累计现金流收回初始投资所需的时间。它简单，也反映了流动性，但有两个缺陷：不考虑货币的时间价值，也完全忽略回收期之后的现金流，因此会偏向短期项目、拒绝长期内很有价值的项目。
+
+资金有限、不能做所有 NPV 为正的项目时（资本配给），可以用<Def id="profitability-index">盈利指数</Def>（profitability index），即 NPV 除以初始投资 $-C_0$：
+
+$$
+\text{PI} = \frac{\text{NPV}}{-C_0}
+$$
+
+按 PI 从高到低选择，直到预算用完，可以使总 NPV 尽量大（<Ref check="Q4" />）。这只是近似：项目不能分割时，还要比较不同组合的总 NPV。
+
+<Check id="C5" />
+
+## 小结 [#summary]
+
+- NPV $= \sum_t \frac{C_t}{(1 + r)^t}$；NPV 为正就接受，互斥项目选 NPV 最大的。折现率是风险相同的投资的预期收益，即资本成本。
+- 只计入增量现金流：不计沉没成本，计入机会成本、副作用、营运资本和税；名义与实际要一致。
+- IRR 是使 NPV 为零的折现率。对单独的常规项目，IRR 法则与 NPV 法则一致；对互斥项目、符号多次变化的现金流、借款型项目和随期限变化的资本成本，IRR 可能出错。
+- 回收期忽略时间价值和后期现金流；资本配给时可用盈利指数近似排序。
+
+<CheckAll />
+
+## 练习题 [#exercises]
+
+<Exercises />

@@ -1566,6 +1566,46 @@ limit-order:
     zh-cn: "只在指定价格或更好价格成交的订单；价格有保证，成交没有保证。"
     en: "An order that trades only at a stated price or better; the price is guaranteed, execution is not."
 
+net-present-value:
+  defined_in: "3.2"
+  zh-cn: 净现值
+  en: net present value
+  short:
+    zh-cn: "项目所有现金流按资本成本折现后的总和；为正则项目增加股东财富。"
+    en: "The sum of all of a project's cash flows discounted at the cost of capital; if positive, the project adds to shareholder wealth."
+
+cost-of-capital:
+  defined_in: "3.2"
+  zh-cn: 资本成本
+  en: cost of capital
+  short:
+    zh-cn: "风险相同的投资的预期收益，是项目折现率所用的机会成本。"
+    en: "The expected return on investments of the same risk; the opportunity cost used as a project's discount rate."
+
+internal-rate-of-return:
+  defined_in: "3.2"
+  zh-cn: 内部收益率
+  en: internal rate of return
+  short:
+    zh-cn: "使项目 NPV 等于零的折现率。"
+    en: "The discount rate at which a project's NPV is zero."
+
+payback-period:
+  defined_in: "3.2"
+  zh-cn: 回收期
+  en: payback period
+  short:
+    zh-cn: "累计现金流收回初始投资所需的时间；忽略时间价值和之后的现金流。"
+    en: "The time for cumulative cash flows to recover the initial investment; it ignores time value and later cash flows."
+
+profitability-index:
+  defined_in: "3.2"
+  zh-cn: 盈利指数
+  en: profitability index
+  short:
+    zh-cn: "NPV 除以初始投资，资本配给时用于排序。"
+    en: "NPV divided by the initial investment, used to rank projects under capital rationing."
+
 risk-measures:
   defined_in: "4.1"
   zh-cn: 风险度量

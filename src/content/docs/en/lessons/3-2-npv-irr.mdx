@@ -1,0 +1,100 @@
+---
+title: 3.2 NPV, IRR and Capital Budgeting
+description: "How to decide whether an investment project is worth doing: net present value and the opportunity cost of capital, which cash flows to include, the internal rate of return and its pitfalls, payback and the profitability index."
+lesson: "3.2"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import CheckAll from '../../../../components/CheckAll.astro';
+import NpvProfile from '../../../../components/widgets/NpvProfile.astro';
+
+## Net present value [#npv]
+
+Companies decide every day whether to build a new plant, buy new equipment or launch a new product. These long-term investment decisions are called capital budgeting. What they have in common: pay now, receive later.
+
+<Ref lesson="0.1" /> gives the way to compare: <Ref concept="present-value" />. Write the cash flow in year $t$ as $C_t$ ($C_0$ is usually negative: the initial investment) and the discount rate as $r$. The project's <Def id="net-present-value">net present value</Def> (NPV) is
+
+$$
+\text{NPV} = \sum_{t=0}^{T} \frac{C_t}{(1 + r)^t}
+$$
+
+The NPV rule: **accept if the NPV is positive, reject if it is negative**; among projects of which only one can be chosen, choose the one with the largest NPV. A positive NPV means the project creates more value than it uses; shareholders' wealth rises by exactly the NPV.
+
+The discount rate $r$ should be the <Def id="cost-of-capital">cost of capital</Def>: the expected return investors could earn by putting their money elsewhere at **the same risk**. It is an opportunity cost, not the rate at which the company actually borrows. The riskier the project, the higher the cost of capital (Stage 4 discusses how to estimate it).
+
+<Check id="C1" />
+
+## Which cash flows to include [#cash-flows]
+
+NPV should include only the cash flows that **change** because of the project (incremental cash flows): the difference between doing it and not doing it.
+
+- **Sunk costs are excluded**: money already spent that cannot be recovered whether or not the project goes ahead, such as completed market research (<Ref concept="sunk-cost" />).
+- **Opportunity costs are included**: if the project uses an existing resource that could otherwise be sold or rented out, the income given up is a cost of the project.
+- **Side effects are included**: if a new product takes sales from the company's existing products (cannibalization), the lost cash flows count against the new project; if it raises sales of other products, that counts too.
+- **Working capital**: the inventory and receivables the project needs tie up money; this is a cash outflow at the start and is recovered at the end.
+- **Taxes**: depreciation is not itself a cash outflow, but it lowers taxable profit and so lowers the tax paid (<Ref check="Q5" />). The US federal corporate income tax rate is 21% (since 2018, under the Tax Cuts and Jobs Act).
+- **Nominal and real must match**: discount nominal cash flows at a nominal rate and real cash flows at a real rate (<Ref concept="fisher-equation" />).
+
+<Check id="C2" />
+
+## The internal rate of return [#irr]
+
+The discount rate that makes NPV equal to zero is the <Def id="internal-rate-of-return">internal rate of return</Def> (IRR):
+
+$$
+\sum_{t=0}^{T} \frac{C_t}{(1 + \text{IRR})^t} = 0
+$$
+
+The IRR usually has to be found by trial or with a calculator. It is intuitive: what "rate of return" does the project itself earn? The IRR rule: **accept if the IRR is above the cost of capital**.
+
+Viewing NPV as a function of the discount rate and plotting it gives the NPV profile. For a conventional project, which pays out first and receives later, the higher the rate the lower the NPV, and the curve crosses the horizontal axis only once, at the IRR. So the NPV is positive whenever the cost of capital is below the IRR: for a single conventional project, the IRR rule and the NPV rule agree.
+
+<Figure id="3-1" title="NPV profiles of two projects, each with an initial investment of 100. Where a curve crosses the horizontal axis is that project's IRR." observe="Move the discount rate and compare the two NPVs; notice where the two curves cross, and whether the project with the higher IRR always has the larger NPV.">
+	<NpvProfile />
+</Figure>
+
+<Check id="C3" />
+
+## Pitfalls of the IRR [#irr-pitfalls]
+
+The IRR is simple and easy to understand, but it gives wrong answers in these cases:
+
+- **Mutually exclusive projects**: when only one can be chosen, do not pick the one with the higher IRR. If projects differ in scale or in the timing of their cash flows, the IRR ranking and the NPV ranking can be opposite (as for the two projects in <Ref fig="3-1" />). A project that recovers cash early has an NPV that is less sensitive to the discount rate; a project that recovers cash late has a larger NPV at low rates and a smaller one at high rates.
+- **Multiple IRRs**: if the cash flows change sign more than once (for example, a large cleanup cost at the end), the NPV profile may cross the axis several times, giving several IRRs or none at all (<Ref check="Q2" />).
+- **Borrowing-type projects**: if money is received first and paid later (for example, payment in advance), the IRR is the cost of borrowing, and the project should be accepted only if the IRR is **below** the cost of capital.
+- **A cost of capital that varies with maturity**: if cash flows in different years call for different discount rates (<Ref lesson="3.5" />), there is no single hurdle to compare the IRR with.
+
+In these cases NPV still gives the right answer. In practice the IRR is often used for communication, but decisions should rest on NPV.
+
+<Check id="C4" />
+
+## Other methods [#other-rules]
+
+The <Def id="payback-period">payback period</Def> is the time it takes for cumulative cash flows to recover the initial investment. It is simple and reflects liquidity, but it has two flaws: it ignores the time value of money, and it ignores all cash flows after the payback period, so it favors short-term projects and rejects projects that are very valuable over the long run.
+
+When funds are limited and not every positive-NPV project can be done (capital rationing), one can use the <Def id="profitability-index">profitability index</Def>, the NPV divided by the initial investment $-C_0$:
+
+$$
+\text{PI} = \frac{\text{NPV}}{-C_0}
+$$
+
+Choosing projects from the highest PI down until the budget runs out makes the total NPV as large as possible (<Ref check="Q4" />). This is only an approximation: when projects cannot be split, one must also compare the total NPV of different combinations.
+
+<Check id="C5" />
+
+## Summary [#summary]
+
+- NPV $= \sum_t \frac{C_t}{(1 + r)^t}$; accept if positive, and among mutually exclusive projects choose the largest NPV. The discount rate is the expected return on investments of the same risk: the cost of capital.
+- Include only incremental cash flows: exclude sunk costs; include opportunity costs, side effects, working capital and taxes; keep nominal and real consistent.
+- The IRR is the discount rate that makes NPV zero. For a single conventional project the IRR rule agrees with the NPV rule; for mutually exclusive projects, cash flows that change sign more than once, borrowing-type projects and a cost of capital that varies with maturity, the IRR can mislead.
+- Payback ignores time value and later cash flows; under capital rationing the profitability index gives an approximate ranking.
+
+<CheckAll />
+
+## Exercises [#exercises]
+
+<Exercises />

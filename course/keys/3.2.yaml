@@ -1,0 +1,349 @@
+# Answer key for lesson 3.2. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[3.2#irr]] (section), [[concept:net-present-value]], [[check:Q3]], [[fig:3-1]].
+# expected: values are recomputed by course/verify/3.2.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+
+lesson: "3.2"
+
+context:
+  - zh-cn: |-
+      学习者学过现值、年金公式（[[0.1]]）、沉没成本（[[1.5]]）、Fisher 方程（[[1.3]]）。讲义还没有讲怎样估计资本成本（第 4 阶段）和期限结构（[[3.5]]）。金额保留两位小数，百分数用百分点表示。
+    en: |-
+      The learner has studied present value and the annuity formula ([[0.1]]), sunk costs ([[1.5]]) and the Fisher equation ([[1.3]]). The lesson has not yet covered how to estimate the cost of capital (Stage 4) or the term structure ([[3.5]]). Amounts to two decimals; percentages in percentage points.
+  - concepts: [net-present-value, cost-of-capital]
+    zh-cn: |-
+      讲义：$\text{NPV} = \sum_t \frac{C_t}{(1 + r)^t}$；NPV 为正接受，互斥项目选 NPV 最大的；折现率是风险相同的投资的预期收益（机会成本）。增量现金流：不计沉没成本，计入机会成本、蚕食等副作用、营运资本和税（折旧减税，计算留给练习题）；美国联邦公司所得税率 21%（2018 年起）；名义与实际一致。
+    en: |-
+      The lesson: $\text{NPV} = \sum_t \frac{C_t}{(1 + r)^t}$; accept if NPV is positive and pick the largest NPV among mutually exclusive projects; the discount rate is the expected return on investments of the same risk (an opportunity cost). Incremental cash flows: exclude sunk costs; include opportunity costs, side effects such as cannibalization, working capital and taxes (the depreciation tax saving is left to an exercise); the US federal corporate tax rate is 21% (since 2018); nominal and real must be consistent.
+  - concepts: [internal-rate-of-return, payback-period, profitability-index]
+    zh-cn: |-
+      讲义：IRR 使 NPV 为零；对单独的常规项目与 NPV 法则一致；陷阱：互斥项目（规模、时间）、多个 IRR、借款型项目、随期限变化的资本成本。[[fig:3-1]]：项目 A 的现金流 −100、60、50、20，项目 B 为 −100、10、20、115（第 0–3 年）；折现率滑块 0 到 25%，步长 0.5，默认 10；读数显示两个项目的 NPV。回收期忽略时间价值和后期现金流；$\text{PI} = \frac{\text{NPV}}{-C_0}$ 用于资本配给。
+    en: |-
+      The lesson: the IRR makes NPV zero; for a single conventional project it agrees with the NPV rule; pitfalls: mutually exclusive projects (scale, timing), multiple IRRs, borrowing-type projects, a cost of capital that varies with maturity. [[fig:3-1]]: project A has cash flows −100, 60, 50, 20 and project B −100, 10, 20, 115 (years 0–3); a discount-rate slider from 0 to 25% in steps of 0.5, default 10; the readout shows both NPVs. Payback ignores time value and later cash flows; $\text{PI} = \frac{\text{NPV}}{-C_0}$ is used under capital rationing.
+
+common_errors:
+  - questions: [C2, Q5]
+    zh-cn: |-
+      把沉没成本算进 NPV，或者漏掉机会成本和蚕食效应；把折旧当作现金流出。
+    en: |-
+      Including sunk costs in NPV, or leaving out opportunity costs and cannibalization; treating depreciation as a cash outflow.
+  - questions: [C4, Q3]
+    zh-cn: |-
+      在互斥项目中选 IRR 较高的项目。规模和现金流时间不同时，应比较 NPV。
+    en: |-
+      Picking the project with the higher IRR among mutually exclusive projects. When scale or timing differ, compare NPVs.
+  - questions: [Q1]
+    zh-cn: |-
+      用名义折现率折现实际现金流（或反过来），低估或高估了项目价值。
+    en: |-
+      Discounting real cash flows at a nominal rate (or the reverse), under- or overstating the project's value.
+  - questions: [Q2]
+    zh-cn: |-
+      以为每个项目只有一个 IRR，并且 IRR 高于资本成本就一定应该接受。
+    en: |-
+      Thinking every project has exactly one IRR and should always be accepted when the IRR exceeds the cost of capital.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: npv
+    concepts: [net-present-value, cost-of-capital, annuity]
+    expected: { npv: "137.24" }
+    question:
+      zh-cn: |-
+        一台设备今天花费 1000，今后 5 年每年年末带来 300 的现金流，风险相同的投资预期收益为 10%。(a) 求 NPV。(b) 公司可以从银行以 6% 借到这 1000，有人说“应该用 6% 折现”。这种说法对吗？
+      en: |-
+        A machine costs 1000 today and brings cash flows of 300 at the end of each of the next 5 years; investments of the same risk are expected to return 10%. (a) Find the NPV. (b) The company can borrow the 1000 from a bank at 6%, and someone says "we should discount at 6%". Is this right?
+    answer:
+      zh-cn: |-
+        (a) $\text{NPV} = -1000 + 300 \times \frac{1 - 1.1^{-5}}{0.1} \approx -1000 + 1137.24 = 137.24$。
+        (b) 不对。折现率应反映项目现金流的风险：投资者把钱投到风险相同的地方能得到 10%，这是机会成本。借款利率反映的是银行贷款（有优先偿还权、风险较低）的成本，不是这个项目风险的价格。
+      en: |-
+        (a) $\text{NPV} = -1000 + 300 \times \frac{1 - 1.1^{-5}}{0.1} \approx -1000 + 1137.24 = 137.24$.
+        (b) No. The discount rate should reflect the risk of the project's cash flows: investors can earn 10% on investments of the same risk, and that is the opportunity cost. The borrowing rate reflects the cost of a bank loan (which is repaid first and is less risky), not the price of this project's risk.
+    rubric:
+      zh-cn:
+        - "(a) 约 137.24。"
+        - "(b) 说明折现率是风险相同的机会成本。"
+      en:
+        - "(a) About 137.24."
+        - "(b) Explains that the discount rate is the opportunity cost for the same risk."
+
+  - id: C2
+    kind: check
+    section: cash-flows
+    concepts: [net-present-value, sunk-cost]
+    expected: { npv: "11.42" }
+    question:
+      zh-cn: |-
+        沿用 [[check:C1]] 的设备项目，补充以下信息：(i) 去年已经花了 200 做市场调研；(ii) 项目要使用公司闲置的一块场地，这块场地现在可以 50 卖掉，项目结束后没有价值；(iii) 新产品会使公司原有产品今后 5 年每年的现金流减少 20。项目的 NPV 是多少？逐项说明是否计入。
+      en: |-
+        Continue the machine project of [[check:C1]] with more information: (i) 200 was spent on market research last year; (ii) the project uses an idle plot of the company's land, which could be sold now for 50 and will be worth nothing after the project; (iii) the new product will reduce the cash flows of the company's existing product by 20 a year for the next 5 years. What is the project's NPV? State for each item whether it is included.
+    answer:
+      zh-cn: |-
+        (i) 沉没成本，不计入。(ii) 机会成本 50，计入。(iii) 蚕食效应，计入：现值 $20 \times 3.7908 \approx 75.82$。
+        $\text{NPV} \approx 137.24 - 50 - 75.82 = 11.42$，仍为正，但比原来小得多。
+      en: |-
+        (i) A sunk cost: not included. (ii) An opportunity cost of 50: included. (iii) Cannibalization: included, with present value $20 \times 3.7908 \approx 75.82$.
+        $\text{NPV} \approx 137.24 - 50 - 75.82 = 11.42$: still positive, but much smaller.
+    rubric:
+      zh-cn:
+        - "三项判断正确。"
+        - "NPV 约 11.42。"
+      en:
+        - "All three items handled correctly."
+        - "NPV about 11.42."
+
+  - id: C3
+    kind: check
+    section: irr
+    concepts: [internal-rate-of-return, net-present-value]
+    widget: { id: npv-profile, set: { r: 15 } }
+    expected: { ia: "17.21", na: "3.13" }
+    question:
+      zh-cn: |-
+        看 [[fig:3-1]] 中的项目 A。(a) 它的 IRR 约是多少？（读出 NPV 曲线与横轴的交点，或用试算验证约为 17.21%。）(b) 资本成本为 15% 时，项目 A 的 NPV 是多少？IRR 法则和 NPV 法则的结论是否一致？为什么？
+      en: |-
+        Look at project A in [[fig:3-1]]. (a) What is its IRR, roughly? (Read where the NPV curve crosses the axis, or check by trial that it is about 17.21%.) (b) At a cost of capital of 15%, what is project A's NPV? Do the IRR rule and the NPV rule agree? Why?
+    answer:
+      zh-cn: |-
+        (a) 约 17.21%：在这个折现率下，$-100 + \frac{60}{1.1721} + \frac{50}{1.1721^2} + \frac{20}{1.1721^3} \approx 0$。
+        (b) NPV 约 3.13，为正，接受；IRR 17.21% 高于 15%，也接受，两者一致。原因：A 是常规项目，NPV 曲线随折现率下降、只与横轴交一次，所以折现率低于 IRR 时 NPV 必为正。
+      en: |-
+        (a) About 17.21%: at this rate, $-100 + \frac{60}{1.1721} + \frac{50}{1.1721^2} + \frac{20}{1.1721^3} \approx 0$.
+        (b) The NPV is about 3.13, positive, so accept; the IRR of 17.21% is above 15%, so also accept: the rules agree. Reason: A is a conventional project, its NPV falls as the rate rises and crosses the axis once, so the NPV must be positive at any rate below the IRR.
+    rubric:
+      zh-cn:
+        - "(a) 约 17.21%；(b) 约 3.13。"
+        - "说明常规项目 NPV 曲线单调、只交一次。"
+      en:
+        - "(a) About 17.21%; (b) about 3.13."
+        - "Explains that a conventional project's NPV curve is monotonic and crosses once."
+
+  - id: C4
+    kind: check
+    section: irr-pitfalls
+    concepts: [internal-rate-of-return, net-present-value]
+    widget: { id: npv-profile, set: { r: 5 } }
+    expected: { na: "19.77", nb: "27.01", x: "11.07" }
+    question:
+      zh-cn: |-
+        [[fig:3-1]] 中项目 B 的 IRR 约为 14.76%，低于 A。两个项目只能选一个。(a) 资本成本为 5% 时，两个项目的 NPV 各是多少？应选哪个？(b) 两条 NPV 曲线约在什么折现率相交？资本成本高于这个值时应选哪个？(c) 为什么 B 的 NPV 曲线更陡？
+      en: |-
+        In [[fig:3-1]], project B's IRR is about 14.76%, lower than A's. Only one project can be chosen. (a) At a cost of capital of 5%, what are the two NPVs? Which project should be chosen? (b) At about what discount rate do the two NPV curves cross? Above it, which project should be chosen? (c) Why is B's NPV curve steeper?
+    answer:
+      zh-cn: |-
+        (a) A 约 19.77，B 约 27.01，选 B，尽管它的 IRR 较低。
+        (b) 约 11.07%；资本成本高于 11.07% 时 A 的 NPV 较大，选 A（但仍要求 NPV 为正）。
+        (c) B 的现金流集中在第 3 年，折现的期数多，折现率变化对它的现值影响更大；A 的现金流来得早，受折现率的影响小。
+      en: |-
+        (a) A about 19.77, B about 27.01: choose B, even though its IRR is lower.
+        (b) About 11.07%; above 11.07% A has the larger NPV and should be chosen (as long as its NPV is still positive).
+        (c) B's cash comes mostly in year 3 and is discounted over more periods, so changes in the rate affect its present value more; A's cash comes early and is less affected.
+    rubric:
+      zh-cn:
+        - "(a) 约 19.77 和 27.01，选 B；(b) 约 11.07%。"
+        - "(c) 用现金流的时间解释。"
+      en:
+        - "(a) About 19.77 and 27.01, choose B; (b) about 11.07%."
+        - "(c) Explains with the timing of cash flows."
+
+  - id: C5
+    kind: check
+    section: other-rules
+    concepts: [payback-period]
+    expected: { pa: "1.8", pb: "2.61" }
+    question:
+      zh-cn: |-
+        求 [[fig:3-1]] 中两个项目的回收期（假设每年的现金流在年内均匀到来）。回收期法会选哪个？资本成本为 5% 时这个选择对吗？回收期法忽略了什么？
+      en: |-
+        Find the payback periods of the two projects in [[fig:3-1]] (assume each year's cash flow arrives evenly during the year). Which project does the payback rule pick? Is that choice right at a cost of capital of 5%? What does the payback rule ignore?
+    answer:
+      zh-cn: |-
+        A：第 1 年收回 60，还差 40，第 2 年的 50 中要 $\frac{40}{50} = 0.8$ 年，回收期 1.8 年。B：前两年收回 30，还差 70，第 3 年要 $\frac{70}{115} \approx 0.61$ 年，回收期约 2.61 年。回收期法选 A。
+        资本成本为 5% 时 B 的 NPV 更大，回收期法选错了。它忽略了货币的时间价值，也忽略了回收之后的现金流（无论多少），所以偏向早回收的项目，与资本成本无关。
+      en: |-
+        A: year 1 brings 60, leaving 40, which takes $\frac{40}{50} = 0.8$ of year 2: payback 1.8 years. B: the first two years bring 30, leaving 70, which takes $\frac{70}{115} \approx 0.61$ of year 3: payback about 2.61 years. The payback rule picks A.
+        At 5% B has the larger NPV, so the payback rule picks wrong. It ignores the time value of money and all cash flows after payback, however large, so it favors early payback whatever the cost of capital.
+    rubric:
+      zh-cn:
+        - "回收期 1.8 和约 2.61 年，选 A。"
+        - "指出在 5% 时选错，并说明忽略的两点。"
+      en:
+        - "Paybacks 1.8 and about 2.61 years; picks A."
+        - "Notes the wrong choice at 5% and the two things ignored."
+
+  # ---------- Exercises (reviewed by the AI, not scored) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [net-present-value, fisher-equation, real-interest-rate]
+    expected: { rr: "4.85", right: "273.07", wrong: "257.71" }
+    question:
+      zh-cn: |-
+        一个项目今后 3 年每年带来按今天的价格计算（实际）100 的现金流。名义资本成本为 8%，预期通胀为 3%。
+        (a) 实际资本成本是多少（用 Fisher 方程的精确形式）？
+        (b) 现金流的现值是多少？
+        (c) 一位分析师直接用 8% 折现这些实际现金流，得到多少？他低估还是高估了项目的价值？如果改为先把现金流换成名义值再用 8% 折现，结果如何？
+      en: |-
+        A project brings cash flows of 100 a year for 3 years, stated in today's prices (real). The nominal cost of capital is 8% and expected inflation 3%.
+        (a) What is the real cost of capital (using the exact Fisher equation)?
+        (b) What is the present value of the cash flows?
+        (c) An analyst discounts these real cash flows at 8% directly. What does he get? Does he under- or overstate the value? What if the cash flows are first converted to nominal terms and then discounted at 8%?
+    answer:
+      zh-cn: |-
+        (a) $\frac{1.08}{1.03} - 1 \approx 4.85\%$。
+        (b) $100 \times \frac{1 - 1.0485^{-3}}{0.0485} \approx 273.07$。
+        (c) 用 8% 折现得约 257.71，低估了：实际现金流不含通胀，却用了包含通胀的折现率。换成名义值 $100 \times 1.03^t$ 再用 8% 折现，第 $t$ 年的现值为 $100 \times \left(\frac{1.03}{1.08}\right)^t$，与用实际利率折现完全相同，也是约 273.07。
+      en: |-
+        (a) $\frac{1.08}{1.03} - 1 \approx 4.85\%$.
+        (b) $100 \times \frac{1 - 1.0485^{-3}}{0.0485} \approx 273.07$.
+        (c) Discounting at 8% gives about 257.71, an understatement: the real cash flows exclude inflation but the rate includes it. Converting to nominal $100 \times 1.03^t$ and discounting at 8% gives a year-$t$ present value of $100 \times \left(\frac{1.03}{1.08}\right)^t$, exactly the same as discounting real flows at the real rate: about 273.07.
+    rubric:
+      zh-cn:
+        - "(a) 约 4.85%；(b) 约 273.07。"
+        - "(c) 约 257.71，低估，并说明两种一致的做法结果相同。"
+      en:
+        - "(a) About 4.85%; (b) about 273.07."
+        - "(c) About 257.71, an understatement, and shows that the two consistent methods agree."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    star: true
+    concepts: [internal-rate-of-return, net-present-value]
+    expected: { i1: "10", i2: "20", n5: "-0.68", n15: "0.19", n25: "-0.48" }
+    question:
+      zh-cn: |-
+        一个矿山项目：今天投资 100，第 1 年得到 230，第 2 年要付 132 的环境修复费用。
+        (a) 用 $x = 1 + \text{IRR}$ 把 NPV = 0 写成一元二次方程，求出所有 IRR。
+        (b) 折现率为 5%、15%、25% 时，NPV 各是多少？
+        (c) 资本成本在什么范围内这个项目值得做？为什么“IRR 高于资本成本就接受”在这里没有意义？
+      en: |-
+        A mine: invest 100 today, receive 230 in year 1, and pay 132 for environmental cleanup in year 2.
+        (a) With $x = 1 + \text{IRR}$, write NPV = 0 as a quadratic equation and find all the IRRs.
+        (b) What is the NPV at discount rates of 5%, 15% and 25%?
+        (c) For what range of the cost of capital is the project worth doing? Why does "accept if the IRR exceeds the cost of capital" make no sense here?
+    answer:
+      zh-cn: |-
+        (a) $-100 + \frac{230}{x} - \frac{132}{x^2} = 0$，即 $100x^2 - 230x + 132 = 0$，$x = \frac{230 \pm \sqrt{230^2 - 4 \times 100 \times 132}}{200} = \frac{230 \pm 10}{200}$，$x = 1.1$ 或 $1.2$：IRR 为 10% 和 20%。
+        (b) 5%：约 -0.68；15%：约 0.19；25%：约 -0.48。
+        (c) 只有资本成本在 10% 到 20% 之间时 NPV 为正。现金流的符号变化了两次，NPV 曲线先升后降，有两个 IRR；比较哪一个 IRR 和资本成本都不能给出正确结论，应直接看 NPV。
+      en: |-
+        (a) $-100 + \frac{230}{x} - \frac{132}{x^2} = 0$, so $100x^2 - 230x + 132 = 0$ and $x = \frac{230 \pm \sqrt{230^2 - 4 \times 100 \times 132}}{200} = \frac{230 \pm 10}{200}$, giving $x = 1.1$ or $1.2$: IRRs of 10% and 20%.
+        (b) 5%: about -0.68; 15%: about 0.19; 25%: about -0.48.
+        (c) The NPV is positive only for a cost of capital between 10% and 20%. The cash flows change sign twice, the NPV curve rises and then falls, and there are two IRRs; comparing either IRR with the cost of capital cannot give the right answer, so one should look at NPV directly.
+    rubric:
+      zh-cn:
+        - "(a) 10% 和 20%；(b) 约 −0.68、0.19、−0.48（写作 - 或 − 均可）。"
+        - "(c) 10% 到 20%，说明多个 IRR 的原因。"
+      en:
+        - "(a) 10% and 20%; (b) about −0.68, 0.19, −0.48 (written with - or −)."
+        - "(c) 10% to 20%, explaining why there are several IRRs."
+
+  - id: Q3
+    kind: exercise
+    level: C
+    star: true
+    concepts: [internal-rate-of-return, net-present-value]
+    expected: { nx: "3.64", ny: "90.91", inc: "19.70" }
+    question:
+      zh-cn: |-
+        资本成本为 10%，两个互斥项目：X 今天投资 10，一年后得到 15；Y 今天投资 1000，一年后得到 1200。
+        (a) 两个项目的 IRR 和 NPV 各是多少？应选哪个？
+        (b) 计算“从 X 换成 Y”的增量现金流的 IRR（增量 IRR）。用它也能做出正确的选择吗？
+        (c) 有人说“X 的收益率 50%，Y 只有 20%，当然选 X”。他忽略了什么？
+      en: |-
+        The cost of capital is 10%, and there are two mutually exclusive projects: X invests 10 today and receives 15 in a year; Y invests 1000 today and receives 1200 in a year.
+        (a) What are the IRR and NPV of each project? Which should be chosen?
+        (b) Compute the IRR of the incremental cash flows from "switching from X to Y" (the incremental IRR). Does it also give the right choice?
+        (c) Someone says "X returns 50% and Y only 20%, so obviously X". What is being ignored?
+    answer:
+      zh-cn: |-
+        (a) X：IRR 50%，NPV $-10 + \frac{15}{1.1} \approx 3.64$；Y：IRR 20%，NPV $-1000 + \frac{1200}{1.1} \approx 90.91$。选 Y。
+        (b) 增量现金流：今天 $-990$，一年后 $+1185$，增量 IRR $= \frac{1185}{990} - 1 \approx 19.70\%$，高于 10%，说明多投入的 990 值得，选 Y，与 NPV 一致。
+        (c) 规模。IRR 是比率，不反映创造的价值有多少；X 的收益率高，但只投入 10，创造的价值很小。股东关心的是财富增加多少，即 NPV。
+      en: |-
+        (a) X: IRR 50%, NPV $-10 + \frac{15}{1.1} \approx 3.64$; Y: IRR 20%, NPV $-1000 + \frac{1200}{1.1} \approx 90.91$. Choose Y.
+        (b) Incremental cash flows: $-990$ today and $+1185$ in a year, so the incremental IRR is $\frac{1185}{990} - 1 \approx 19.70\%$, above 10%: the extra 990 is worth investing, so choose Y, as NPV says.
+        (c) Scale. The IRR is a ratio and does not show how much value is created; X has a high rate but invests only 10 and creates little value. Shareholders care about how much their wealth rises, which is the NPV.
+    rubric:
+      zh-cn:
+        - "(a) 约 3.64 和 90.91，选 Y。"
+        - "(b) 约 19.70%，结论与 NPV 一致；(c) 指出规模。"
+      en:
+        - "(a) About 3.64 and 90.91; choose Y."
+        - "(b) About 19.70%, agreeing with NPV; (c) points to scale."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [profitability-index, net-present-value]
+    expected: { best: "27" }
+    question:
+      zh-cn: |-
+        预算为 100，项目不能分割，三个项目都可以单独做：P1 投资 100，NPV 20；P2 投资 50，NPV 15；P3 投资 50，NPV 12。
+        (a) 求三个项目的盈利指数。
+        (b) 应该做哪些项目？总 NPV 是多少？
+        (c) 如果 P3 的投资改为 60，答案会怎样变化？这说明盈利指数有什么局限？
+      en: |-
+        The budget is 100, projects cannot be split, and each project can be done alone: P1 invests 100 with NPV 20; P2 invests 50 with NPV 15; P3 invests 50 with NPV 12.
+        (a) Find the profitability index of each project.
+        (b) Which projects should be done? What is the total NPV?
+        (c) If P3 needs 60 instead, how does the answer change? What limitation of the profitability index does this show?
+    answer:
+      zh-cn: |-
+        (a) P1：0.2；P2：0.3；P3：0.24。
+        (b) 按 PI 选 P2 和 P3，正好用完 100，总 NPV $15 + 12 = 27$，大于只做 P1 的 20。
+        (c) P2 + P3 需要 110，超出预算。可行的组合是只做 P1（NPV 20）、只做 P2（15）、只做 P3（12），应选 P1。按 PI 先选 P2 后，剩下的 50 不够做 P3，结果只有 15。项目不能分割时，按 PI 排序可能选错，要比较所有可行组合的总 NPV。
+      en: |-
+        (a) P1: 0.2; P2: 0.3; P3: 0.24.
+        (b) By PI, choose P2 and P3, using exactly 100, for a total NPV of $15 + 12 = 27$, more than 20 from P1 alone.
+        (c) P2 + P3 now needs 110, over budget. The feasible choices are P1 alone (NPV 20), P2 alone (15) or P3 alone (12), so choose P1. Ranking by PI would pick P2 first and leave 50, not enough for P3, giving only 15. With indivisible projects, ranking by PI can go wrong; compare the total NPV of all feasible combinations.
+    rubric:
+      zh-cn:
+        - "(a) 0.2、0.3、0.24；(b) P2 和 P3，总 NPV 27。"
+        - "(c) 选 P1，并说明 PI 在不可分割时的局限。"
+      en:
+        - "(a) 0.2, 0.3, 0.24; (b) P2 and P3, total NPV 27."
+        - "(c) Chooses P1 and explains the limitation with indivisible projects."
+
+  - id: Q5
+    kind: exercise
+    level: B
+    concepts: [net-present-value, annuity]
+    expected: { shield: "42", pv: "159.21" }
+    question:
+      zh-cn: |-
+        一台设备今天花费 1000，按 5 年直线折旧（每年 200），公司所得税率为 21%，资本成本为 10%。
+        (a) 折旧不是现金流出，为什么它会影响项目的现金流？每年因折旧少交多少税？
+        (b) 这些节税的现值是多少？
+        (c) 如果税法允许第一年就把 1000 全部扣除，节税的现值会变大还是变小？为什么？
+      en: |-
+        A machine costs 1000 today and is depreciated straight-line over 5 years (200 a year); the corporate tax rate is 21% and the cost of capital 10%.
+        (a) Depreciation is not a cash outflow, so why does it affect the project's cash flows? How much less tax is paid each year because of depreciation?
+        (b) What is the present value of these tax savings?
+        (c) If tax law allowed the whole 1000 to be deducted in the first year, would the present value of the tax savings be larger or smaller? Why?
+    answer:
+      zh-cn: |-
+        (a) 折旧作为费用减少了应税利润，从而减少了实际支付的税。每年少交 $200 \times 21\% = 42$。
+        (b) $42 \times \frac{1 - 1.1^{-5}}{0.1} \approx 159.21$。
+        (c) 变大：节税的总额同样是 210，但来得更早，折现损失更少（第一年末得到 210，现值约 190.91）。所以加速折旧提高了投资的 NPV。
+      en: |-
+        (a) Depreciation is an expense that lowers taxable profit and so lowers the tax actually paid. Tax falls by $200 \times 21\% = 42$ a year.
+        (b) $42 \times \frac{1 - 1.1^{-5}}{0.1} \approx 159.21$.
+        (c) Larger: the total saving is the same 210, but it comes sooner, so less is lost to discounting (210 at the end of year 1 has a present value of about 190.91). So faster depreciation raises the NPV of investment.
+    rubric:
+      zh-cn:
+        - "(a) 每年 42；(b) 约 159.21。"
+        - "(c) 变大，用时间价值解释。"
+      en:
+        - "(a) 42 a year; (b) about 159.21."
+        - "(c) Larger, explained by the time value of money."
