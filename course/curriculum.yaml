@@ -177,7 +177,15 @@ stages:
         published: true
         introduces: [gdp, real-gdp, gdp-deflator, cpi, pce-price-index, core-inflation, unemployment-rate, labor-force-participation-rate]
         uses: [compound-interest, inflation, substitution-effect, utility-function]
-      - { id: "2.2", slug: "2-2-long-run-growth", title: { zh-cn: "长期增长", en: "Long-Run Growth" } }
+      - id: "2.2"
+        slug: "2-2-long-run-growth"
+        title: { zh-cn: "长期增长", en: "Long-Run Growth" }
+        summary:
+          zh-cn: "长期中什么决定一个经济的人均产出：总量生产函数、全要素生产率、增长核算、Solow 模型与稳态，以及经济增长与长期股票收益的关系。"
+          en: "What determines an economy's output per worker in the long run: the aggregate production function, total factor productivity, growth accounting, the Solow model and the steady state, and how economic growth relates to long-run stock returns."
+        published: true
+        introduces: [total-factor-productivity, growth-accounting, solow-model, steady-state]
+        uses: [compound-interest, returns-to-scale, marginal-product, real-gdp, growing-perpetuity, first-order-condition, production-function]
       - { id: "2.3", slug: "2-3-money-banking", title: { zh-cn: "货币与银行", en: "Money and Banking" } }
       - { id: "2.4", slug: "2-4-short-run-fluctuations", title: { zh-cn: "短期波动", en: "Short-Run Fluctuations" } }
       - { id: "2.5", slug: "2-5-monetary-policy", title: { zh-cn: "货币政策", en: "Monetary Policy" } }

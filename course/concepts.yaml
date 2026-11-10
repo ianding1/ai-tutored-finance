@@ -1158,6 +1158,38 @@ labor-force-participation-rate:
     zh-cn: "劳动力（就业者加失业者）占 16 岁及以上人口的比例。"
     en: "The labor force (employed plus unemployed) as a share of the population aged 16 and over."
 
+total-factor-productivity:
+  defined_in: "2.2"
+  zh-cn: 全要素生产率
+  en: total factor productivity
+  short:
+    zh-cn: "生产函数中的 $A$：同样的资本和劳动能生产多少，包括技术、组织效率和制度。"
+    en: "The $A$ in the production function: how much the same capital and labor can produce, including technology, organization and institutions."
+
+growth-accounting:
+  defined_in: "2.2"
+  zh-cn: 增长核算
+  en: growth accounting
+  short:
+    zh-cn: "把产出增长分解为资本、劳动和全要素生产率的贡献：$g_Y = g_A + \\alpha g_K + (1 - \\alpha) g_L$。"
+    en: "Splitting output growth into the contributions of capital, labor and TFP: $g_Y = g_A + \\alpha g_K + (1 - \\alpha) g_L$."
+
+solow-model:
+  defined_in: "2.2"
+  zh-cn: Solow 模型
+  en: Solow model
+  short:
+    zh-cn: "描述资本积累的增长模型：人均资本的变化等于人均投资减去维持人均资本所需的投资。"
+    en: "A growth model of capital accumulation: the change in capital per worker is investment per worker minus the investment needed to keep capital per worker constant."
+
+steady-state:
+  defined_in: "2.2"
+  zh-cn: 稳态
+  en: steady state
+  short:
+    zh-cn: "投资恰好等于维持所需、人均资本不再变化的状态。"
+    en: "The state in which investment just equals what is needed, so capital per worker no longer changes."
+
 risk-measures:
   defined_in: "4.1"
   zh-cn: 风险度量

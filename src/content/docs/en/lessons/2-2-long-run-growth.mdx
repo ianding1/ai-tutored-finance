@@ -1,0 +1,113 @@
+---
+title: 2.2 Long-Run Growth
+description: "What determines an economy's output per worker in the long run: the aggregate production function, total factor productivity, growth accounting, the Solow model and the steady state, and how economic growth relates to long-run stock returns."
+lesson: "2.2"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import CheckAll from '../../../../components/CheckAll.astro';
+import SolowDiagram from '../../../../components/widgets/SolowDiagram.astro';
+
+## Why long-run growth matters [#why-growth]
+
+<Ref lesson="2.1" /> said that the most common measure of living standards is real GDP per person. Whether it grows 1% or 2% a year makes little difference in the short run but a large one in the long run: after 50 years, the first gives $1.01^{50} \approx 1.64$ times the starting level and the second $1.02^{50} \approx 2.69$ times.
+
+By the rule of 72 of <Ref lesson="0.1" />, at a growth rate of $g$% a level doubles in about $70 / g$ years (70 instead of 72 because $\ln 2 \approx 0.693$, which is more accurate for low growth rates). At 2% a year, it doubles in about 35 years.
+
+This is a short lesson: it looks only at what determines the level and growth of output in the long run, not at business cycles (<Ref lesson="2.4" />).
+
+## The aggregate production function [#production-function]
+
+Apply the production function of <Ref lesson="1.5" /> to the whole economy: total output $Y$ depends on capital $K$, labor $L$ and the level of technology. A common form is
+
+$$
+Y = A\,K^{\alpha}L^{1-\alpha}
+$$
+
+The exponents add up to 1, so there are constant returns to scale (<Ref concept="returns-to-scale" />). In the United States capital income is about one third of total income, so $\alpha$ is usually taken as $\frac13$.
+
+$A$ is called <Def id="total-factor-productivity">total factor productivity</Def> (TFP): how much the same capital and labor can produce. It includes technology, but also the efficiency of organization and management, institutions and the legal environment. $A$ cannot be observed directly; it is usually estimated as the part of output that capital and labor do not explain.
+
+Divide both sides by $L$ and write capital per worker as $k = \frac{K}{L}$ and output per worker as $y = \frac{Y}{L}$:
+
+$$
+y = A\,k^{\alpha}
+$$
+
+Because $\alpha < 1$, the marginal product of capital per worker diminishes (<Ref concept="marginal-product" />): the more machines each worker has, the less one more machine adds to output.
+
+## Growth accounting [#growth-accounting]
+
+From the production function one can show that the growth rates satisfy (for the derivation see <Ref check="Q1" />):
+
+$$
+g_Y = g_A + \alpha\,g_K + (1 - \alpha)\,g_L
+$$
+
+where $g$ denotes the growth rate of each quantity. Splitting output growth into the contributions of capital, labor and total factor productivity is called <Def id="growth-accounting">growth accounting</Def>. The growth of capital and labor can be measured; TFP growth is what is left over.
+
+Growth accounting tells us why an economy grows: because it uses more inputs (more machines and workers), or because the same inputs produce more. The first has limits; only the second is a source of lasting growth in income per person. The Solow model in the next section shows why.
+
+<Check id="C1" />
+
+## The Solow model [#solow]
+
+The <Def id="solow-model">Solow model</Def> describes how capital builds up over time. Assume:
+
+- each year a share $s$ of output is saved and invested (the saving rate);
+- capital depreciates at the rate $\delta$ each year;
+- the labor force grows at the rate $n$ each year.
+
+Investment per worker each year is $s\,A\,k^{\alpha}$. To keep capital per worker constant, investment must cover depreciation and also equip new workers with the same amount of capital, which takes $(\delta + n)\,k$ per worker. So the change in capital per worker is
+
+$$
+\Delta k = s\,A\,k^{\alpha} - (\delta + n)\,k
+$$
+
+When capital per worker is low, investment exceeds what is needed, and $k$ rises; but because of diminishing marginal product, the larger $k$ is, the smaller the excess, until the two are equal and $k$ stops changing. This point is called the <Def id="steady-state">steady state</Def>.
+
+<Figure id="4-1" title="The Solow model: $y = k^{1/3}$, $\delta + n = 0.06$. The curve is investment per worker, the line is the investment needed to keep capital per worker constant, and the intersection is the steady state." observe="Raise the saving rate and watch how steady-state capital and output per worker change. Then ask: once the new steady state is reached, does output per worker keep growing?">
+	<SolowDiagram />
+</Figure>
+
+The model has three important implications:
+
+- **The saving rate affects the level, not the long-run growth rate**: with a higher saving rate, steady-state capital and output per worker are higher; during the transition to the new steady state output per worker grows faster, and at the steady state it stops growing.
+- **Lasting growth of output per worker can only come from rising total factor productivity**: if $A$ rises every year, the steady state itself moves up every year.
+- **Convergence**: other things equal, an economy farther from its steady state (with less capital per worker) grows faster. But countries differ in saving rates, population growth and TFP, so their steady states differ, and poor countries do not necessarily catch up with rich ones.
+
+Is a higher saving rate always better? More saving means more output, but a smaller share of it is left to consume. For the saving rate that maximizes steady-state consumption per worker, see <Ref check="Q3" />.
+
+<Check id="C2" />
+
+## Growth and stock returns [#growth-and-stocks]
+
+How is economic growth related to stock returns? Three points are worth noting.
+
+First, total corporate profits cannot grow faster than GDP in the long run; otherwise the profit share of GDP would rise without limit. So in the long run, the growth of total corporate profits is roughly bounded by the growth of nominal GDP.
+
+Second, investors own shares of existing companies. Much of an economy's growth comes from newly founded companies, and existing companies also issue new shares. New companies and new shares take part of the growth in profits, so earnings per share of existing shareholders grow more slowly than total corporate profits. Bernstein and Arnott (2003) estimate that in the United States this dilution makes earnings per share grow about 2 percentage points a year more slowly than total profits.
+
+Third, faster-growing countries do not necessarily have higher stock returns. Ritter (2005) studied data for 16 countries over 1900–2002 and found that countries with faster growth of GDP per person did not have higher real stock returns. One reason: if investors already expect a country to grow fast, its share prices are already high, and later returns are not higher (<Ref check="C3" /> shows this). In addition, growth driven by heavy investment (saving) does not necessarily bring profits to shareholders.
+
+So an estimate of long-run stock returns cannot rest only on how fast the economy grows. <Ref lesson="4.11" /> splits stock returns into the dividend yield, the growth of dividends per share and the change in valuation.
+
+<Check id="C3" />
+
+## Summary [#summary]
+
+- The growth rate of real GDP per person determines long-run living standards; at a growth rate of $g$% a level doubles in about $70 / g$ years.
+- Aggregate production function $Y = A K^{\alpha} L^{1-\alpha}$; per worker $y = A k^{\alpha}$, with diminishing marginal product of capital per worker. $A$ is total factor productivity.
+- Growth accounting: $g_Y = g_A + \alpha g_K + (1 - \alpha) g_L$; TFP growth is what is left over.
+- Solow model: $\Delta k = sAk^{\alpha} - (\delta + n)k$. The saving rate affects the steady-state level, not the long-run growth rate; lasting growth of output per worker comes from rising total factor productivity.
+- Profits are bounded by GDP growth in the long run; new companies and new shares dilute existing shareholders; faster-growing countries do not necessarily have higher stock returns, because expected growth is already in share prices.
+
+<CheckAll />
+
+## Exercises [#exercises]
+
+<Exercises />

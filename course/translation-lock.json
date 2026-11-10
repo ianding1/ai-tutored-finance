@@ -423,6 +423,14 @@
   "en": "4a16f5517d3b42c8",
   "zh-cn": "efdc91d82e67454b"
  },
+ "course/concepts.yaml#growth-accounting": {
+  "en": "67d2da2ca539aca2",
+  "zh-cn": "0d8d490696d9caae"
+ },
+ "course/concepts.yaml#growth-accounting.short": {
+  "en": "3e0b425650514a8e",
+  "zh-cn": "b3ccc573c250b373"
+ },
  "course/concepts.yaml#hypothesis-test": {
   "en": "956c1db9802c7ed3",
   "zh-cn": "c07adfb99bc2bef5"
@@ -1007,6 +1015,14 @@
   "en": "b0200ce7c9abfe01",
   "zh-cn": "c2c67abc72f7ecbf"
  },
+ "course/concepts.yaml#solow-model": {
+  "en": "3016c22fd14ea47c",
+  "zh-cn": "0df9547be7dcfb4e"
+ },
+ "course/concepts.yaml#solow-model.short": {
+  "en": "f29d3ef3639e07f5",
+  "zh-cn": "76a24735c10a2533"
+ },
  "course/concepts.yaml#standard-deviation": {
   "en": "daa87d713dfc2004",
   "zh-cn": "298421849b83b74e"
@@ -1030,6 +1046,14 @@
  "course/concepts.yaml#statistical-significance.short": {
   "en": "997952ea063d2d69",
   "zh-cn": "3369083d187dcfe4"
+ },
+ "course/concepts.yaml#steady-state": {
+  "en": "282ed0a39a08c916",
+  "zh-cn": "4973a209b74243a7"
+ },
+ "course/concepts.yaml#steady-state.short": {
+  "en": "05a73ffa65e635a6",
+  "zh-cn": "d07b8d8c8ef2bf78"
  },
  "course/concepts.yaml#substitution-effect": {
   "en": "bb29dd78d880306f",
@@ -1102,6 +1126,14 @@
  "course/concepts.yaml#time-value-of-money.short": {
   "en": "ce5e1c51af575dfe",
   "zh-cn": "c729ca3093e0d45e"
+ },
+ "course/concepts.yaml#total-factor-productivity": {
+  "en": "02f3ee940d408c4d",
+  "zh-cn": "11a1baef5d1fbcdd"
+ },
+ "course/concepts.yaml#total-factor-productivity.short": {
+  "en": "328d03ed42e26cd7",
+  "zh-cn": "0d1ab7c8ca462667"
  },
  "course/concepts.yaml#unemployment-rate": {
   "en": "92ac93a6f7d93477",
@@ -1286,6 +1318,10 @@
  "course/curriculum.yaml#stages[2].lessons[2.1].title": {
   "en": "62f301d5dbd15a68",
   "zh-cn": "c1144fe930c9cc8a"
+ },
+ "course/curriculum.yaml#stages[2].lessons[2.2].summary": {
+  "en": "21f8df059f6351c7",
+  "zh-cn": "1b98a50704820c38"
  },
  "course/curriculum.yaml#stages[2].lessons[2.2].title": {
   "en": "3ffa9431d124a3b3",
@@ -4071,6 +4107,134 @@
   "en": "efd57d8ad29f08a2",
   "zh-cn": "17940f857621d51c"
  },
+ "course/keys/2.2.yaml#common_errors[0]": {
+  "en": "5e96d70034d3a8ac",
+  "zh-cn": "9db6d20d75e32500"
+ },
+ "course/keys/2.2.yaml#common_errors[1]": {
+  "en": "165b2a2e48d28c3d",
+  "zh-cn": "1338acf8954f3674"
+ },
+ "course/keys/2.2.yaml#common_errors[2]": {
+  "en": "9d28b5654c3b6c17",
+  "zh-cn": "26095f34f4645133"
+ },
+ "course/keys/2.2.yaml#common_errors[3]": {
+  "en": "c5d0c8564f1497f6",
+  "zh-cn": "7fe72c464134154a"
+ },
+ "course/keys/2.2.yaml#context[0]": {
+  "en": "cb05637ec4a1e784",
+  "zh-cn": "78897be259836945"
+ },
+ "course/keys/2.2.yaml#context[1]": {
+  "en": "964dd2475291dc5e",
+  "zh-cn": "f286e2222d0d15e0"
+ },
+ "course/keys/2.2.yaml#context[2]": {
+  "en": "7f4d6a997b4584b1",
+  "zh-cn": "ea122307eb9b9ccb"
+ },
+ "course/keys/2.2.yaml#context[3]": {
+  "en": "499c732f69111218",
+  "zh-cn": "379b61848559186b"
+ },
+ "course/keys/2.2.yaml#questions[C1].answer": {
+  "en": "7d202ec1c613f03e",
+  "zh-cn": "6adf876435643074"
+ },
+ "course/keys/2.2.yaml#questions[C1].question": {
+  "en": "08af616799c0103e",
+  "zh-cn": "739d6c26305554f3"
+ },
+ "course/keys/2.2.yaml#questions[C1].rubric": {
+  "en": "1fa042de801a0e11",
+  "zh-cn": "1be55bb87d39cf3f"
+ },
+ "course/keys/2.2.yaml#questions[C2].answer": {
+  "en": "7db836096831b1a1",
+  "zh-cn": "1b22888faf337dc4"
+ },
+ "course/keys/2.2.yaml#questions[C2].question": {
+  "en": "96d85fd93089ac18",
+  "zh-cn": "b5316174a5409727"
+ },
+ "course/keys/2.2.yaml#questions[C2].rubric": {
+  "en": "717352bd072ca1f6",
+  "zh-cn": "e58578af3d5edc44"
+ },
+ "course/keys/2.2.yaml#questions[C3].answer": {
+  "en": "37447074c38d9fba",
+  "zh-cn": "f4a7fcb5b9cf5168"
+ },
+ "course/keys/2.2.yaml#questions[C3].question": {
+  "en": "08b3a2b677295413",
+  "zh-cn": "568fb4c9e1d788d2"
+ },
+ "course/keys/2.2.yaml#questions[C3].rubric": {
+  "en": "cdcfa9cfd7f75c2a",
+  "zh-cn": "c187153c45311590"
+ },
+ "course/keys/2.2.yaml#questions[Q1].answer": {
+  "en": "d3bbe3d8893d4b93",
+  "zh-cn": "41216719ec777d3b"
+ },
+ "course/keys/2.2.yaml#questions[Q1].question": {
+  "en": "6bd2c6e434041504",
+  "zh-cn": "81a90a0aa845beef"
+ },
+ "course/keys/2.2.yaml#questions[Q1].rubric": {
+  "en": "f0fd905a8dbbcab9",
+  "zh-cn": "d0d25ab05f554335"
+ },
+ "course/keys/2.2.yaml#questions[Q2].answer": {
+  "en": "4cc302a01a80fc4b",
+  "zh-cn": "74f7f414edec0f5d"
+ },
+ "course/keys/2.2.yaml#questions[Q2].question": {
+  "en": "d9c600047923cad4",
+  "zh-cn": "0ff11320c66a32df"
+ },
+ "course/keys/2.2.yaml#questions[Q2].rubric": {
+  "en": "94d80609c96b134e",
+  "zh-cn": "796fbe92640d3da2"
+ },
+ "course/keys/2.2.yaml#questions[Q3].answer": {
+  "en": "094941cee59af1a6",
+  "zh-cn": "8239a62f84d96f7a"
+ },
+ "course/keys/2.2.yaml#questions[Q3].question": {
+  "en": "be8bdc373638d474",
+  "zh-cn": "425b9591949c713b"
+ },
+ "course/keys/2.2.yaml#questions[Q3].rubric": {
+  "en": "7fdec8fd5895cb6f",
+  "zh-cn": "3d8c91a93c101f09"
+ },
+ "course/keys/2.2.yaml#questions[Q4].answer": {
+  "en": "998ae864bdc8b49b",
+  "zh-cn": "87edb7b4ba9ea81e"
+ },
+ "course/keys/2.2.yaml#questions[Q4].question": {
+  "en": "9d0f8b1f65ef3a49",
+  "zh-cn": "38e8ebf2cefb0101"
+ },
+ "course/keys/2.2.yaml#questions[Q4].rubric": {
+  "en": "fecef6460f658d89",
+  "zh-cn": "0f3d3f675f23e384"
+ },
+ "course/keys/2.2.yaml#questions[Q5].answer": {
+  "en": "36435be8ad219c4e",
+  "zh-cn": "0beec7fd5bc6739d"
+ },
+ "course/keys/2.2.yaml#questions[Q5].question": {
+  "en": "f56ee2a76dacc91f",
+  "zh-cn": "3802f6c46d5c2065"
+ },
+ "course/keys/2.2.yaml#questions[Q5].rubric": {
+  "en": "d4b1a25086eb5400",
+  "zh-cn": "33304914c71223b4"
+ },
  "course/keys/E0.yaml#common_errors[0]": {
   "en": "5892871353963f3f",
   "zh-cn": "4d0b656928c8c79b"
@@ -4442,6 +4606,10 @@
  "src/content/docs/<lang>/lessons/2-1-macro-data.mdx": {
   "en": "1cfd5237e0400f6a",
   "zh-cn": "c561c91473222369"
+ },
+ "src/content/docs/<lang>/lessons/2-2-long-run-growth.mdx": {
+  "en": "a8ae1b82068138e4",
+  "zh-cn": "3dd5a1b5c7fc0284"
  },
  "src/content/docs/<lang>/lessons/e0-quiz.mdx": {
   "en": "0909e73cdcf97cfc",
