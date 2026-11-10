@@ -336,7 +336,15 @@ stages:
         published: true
         introduces: [fcff, fcfe, wacc, interest-tax-shield, terminal-value, enterprise-value]
         uses: [present-value, growing-perpetuity, net-present-value, cost-of-capital, cost-of-equity, income-statement, cash-flow-statement, depreciation, working-capital, return-on-invested-capital, financial-leverage, gordon-growth-model, dividend-discount-model, pvgo, real-interest-rate]
-      - { id: "3.11", slug: "3-11-relative-valuation", title: { zh-cn: "股票估值 III：相对估值", en: "Equity Valuation III: Relative Valuation" } }
+      - id: "3.11"
+        slug: "3-11-relative-valuation"
+        title: { zh-cn: "股票估值 III：相对估值", en: "Equity Valuation III: Relative Valuation" }
+        summary:
+          zh-cn: "用可比公司的倍数估值；市盈率与增长、ROE 和股权成本的关系；EV/EBITDA、市净率和市销率，以及分子分母要一致；周期性公司的市盈率；CAPE 与市场整体的估值。"
+          en: "Valuation with multiples of comparable companies; how the P/E ratio relates to growth, ROE and the cost of equity; EV/EBITDA, price-to-book and price-to-sales, and keeping numerator and denominator consistent; the P/E of cyclical companies; CAPE and the valuation of the whole market."
+        published: true
+        introduces: [price-earnings-ratio, ev-ebitda, price-to-book, price-to-sales, cape]
+        uses: [gordon-growth-model, payout-ratio, sustainable-growth-rate, return-on-equity, cost-of-equity, enterprise-value, financial-leverage, earnings-quality, dividend-discount-model, business-cycle, real-interest-rate, fcff]
       - { id: "E3b", slug: "e3b-quiz", exam: true, title: { zh-cn: "测验 E3b：财务分析与股票估值", en: "Quiz E3b: Financial Analysis and Equity Valuation" } }
 
   - id: "4"

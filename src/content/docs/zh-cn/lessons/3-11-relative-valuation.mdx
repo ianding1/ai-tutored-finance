@@ -1,0 +1,74 @@
+---
+title: 3.11 股票估值 III：相对估值
+description: 用可比公司的倍数估值；市盈率与增长、ROE 和股权成本的关系；EV/EBITDA、市净率和市销率，以及分子分母要一致；周期性公司的市盈率；CAPE 与市场整体的估值。
+lesson: "3.11"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import CheckAll from '../../../../components/CheckAll.astro';
+import CyclePe from '../../../../components/widgets/CyclePe.astro';
+
+## 用倍数估值 [#multiples]
+
+<Ref lesson="3.9" /> 和 <Ref lesson="3.10" /> 的方法是直接估计未来的现金流。实践中更常用的是相对估值：找到一组业务相似的公司（可比公司），计算它们的股价与利润、收入或账面价值之比（倍数），再用这个倍数乘以目标公司的相应数字。
+
+最常用的倍数是<Def id="price-earnings-ratio">市盈率</Def>（price-earnings ratio，P/E）：股价除以每股利润。用过去 12 个月的利润计算的叫静态市盈率（trailing P/E），用分析师预测的未来 12 个月利润计算的叫动态市盈率（forward P/E）。
+
+相对估值简单、直观，而且直接反映市场当前的价格水平。但它有两个前提：可比公司在增长、风险和盈利能力上确实与目标公司相似；市场对可比公司的定价本身是合理的。如果整个行业都被高估，用行业倍数得到的价值也会被高估。
+
+<Check id="C1" />
+
+## 市盈率的含义 [#pe]
+
+倍数并不是一个与 DCF 无关的方法，它隐含了对增长和风险的假设。由 Gordon 模型（<Ref concept="gordon-growth-model" />），明年的股息 $D_1 = (1 - b)E_1$，$b$ 是留存比率：
+
+$$
+\frac{P_0}{E_1} = \frac{1 - b}{r - g}
+$$
+
+所以动态市盈率取决于三个因素：派息率、股权成本 $r$ 和增长率 $g$。在其他条件相同时，增长越快、风险越低（$r$ 越低），市盈率越高。而增长本身又取决于再投资的回报（<Ref concept="sustainable-growth-rate" />）：<Ref check="Q1" /> 推导市盈率怎样取决于 ROE。
+
+市盈率的倒数 $\frac{E_1}{P_0}$ 叫盈利收益率（earnings yield）。
+
+<Check id="C2" />
+
+## 其他倍数 [#other-multiples]
+
+- <Def id="ev-ebitda">EV/EBITDA</Def>：企业价值（<Ref concept="enterprise-value" />）除以 EBITDA。分子包括股权和债务，分母是支付利息之前的利润，两者都属于所有投资者，所以它不受资本结构的影响，也不受折旧政策的影响，常用来比较负债水平不同的公司。但它忽略了资本支出：资本密集的公司 EBITDA 看起来很高，很大一部分却要用于更新设备。
+- <Def id="price-to-book">市净率</Def>（price-to-book ratio，P/B）：股价除以每股账面股东权益。它适用于资产主要是金融资产、账面价值接近市场价值的公司，例如银行和保险公司。市净率与 ROE 和股权成本的关系见 <Ref check="Q2" />。
+- <Def id="price-to-sales">市销率</Def>（price-to-sales ratio，P/S）：股权市值除以收入。它可以用于利润为负或很不稳定的公司，但收入不等于利润，必须结合利润率来看（<Ref check="Q3" />）。
+
+使用倍数时，分子和分母必须对应同一类投资者：股权价值（股价、市值）对应属于股东的数字（净利润、账面股东权益），企业价值对应属于所有投资者的数字（EBITDA、EBIT、收入也常与企业价值相除）。
+
+<Check id="C3" />
+
+## 周期性公司与 CAPE [#cape]
+
+钢铁、汽车、半导体等周期性公司的利润随 <Ref concept="business-cycle" /> 大幅波动，而股价反映的是长期的价值，波动小得多。这时当年的市盈率会产生误导。<Ref fig="4-1" /> 用一个简化的例子说明。
+
+<Figure id="4-1" title="一家周期性公司的股价一直为 100，每年的利润在 5 上下按 8 年一个周期波动。市盈率用当年利润计算，CAPE 用过去 10 年的平均利润计算。" observe="先把利润周期的幅度设为 0，再逐步加大，比较两条线的变化；注意市盈率在利润周期的哪个阶段最高。">
+	<CyclePe />
+</Figure>
+
+<Check id="C4" />
+
+对整个股票市场，Shiller 提出用过去 10 年经通胀调整的平均利润代替当年的利润，叫<Def id="cape">周期调整市盈率</Def>（cyclically adjusted P/E，CAPE），又称 Shiller 市盈率。按 Shiller 的数据，标普 500 指数的 CAPE 自 1881 年以来的平均约为 17，1999 年 12 月达到约 44 的历史最高值；2025 年底到 2026 年，它大约在 39 到 41 之间。
+
+研究发现，CAPE 较高时，此后 10 年股市的平均实际收益往往较低。但这个关系很不精确：CAPE 可以在很高的水平上停留多年，用它判断买卖的时机效果很差。CAPE 能否用来估计长期预期收益，以及要注意什么，见 <Ref check="Q4" />；<Ref lesson="4.11" /> 会更系统地讨论怎样估计长期预期收益。
+
+## 小结 [#summary]
+
+- 相对估值用可比公司的倍数乘以目标公司的利润、收入或账面价值；前提是可比公司确实相似，且市场定价合理。
+- 动态市盈率 $\frac{P_0}{E_1} = \frac{1 - b}{r - g}$：取决于派息率、股权成本和增长率。
+- EV/EBITDA 不受资本结构和折旧政策影响，但忽略资本支出；市净率适用于银行等金融公司；市销率要结合利润率。分子和分母要对应同一类投资者。
+- 周期性公司的当年市盈率会误导；CAPE 用 10 年平均实际利润，与此后 10 年的平均收益负相关，但不能用来精确择时。
+
+<CheckAll />
+
+## 练习题 [#exercises]
+
+<Exercises />

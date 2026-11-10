@@ -1,0 +1,74 @@
+---
+title: "3.11 Equity Valuation III: Relative Valuation"
+description: "Valuation with multiples of comparable companies; how the P/E ratio relates to growth, ROE and the cost of equity; EV/EBITDA, price-to-book and price-to-sales, and keeping numerator and denominator consistent; the P/E of cyclical companies; CAPE and the valuation of the whole market."
+lesson: "3.11"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import CheckAll from '../../../../components/CheckAll.astro';
+import CyclePe from '../../../../components/widgets/CyclePe.astro';
+
+## Valuation with multiples [#multiples]
+
+The methods of <Ref lesson="3.9" /> and <Ref lesson="3.10" /> estimate future cash flows directly. In practice, relative valuation is used more often: find a group of companies with similar businesses (comparable companies), compute the ratio of their price to earnings, revenue or book value (a multiple), and multiply the target company's corresponding number by this multiple.
+
+The most common multiple is the <Def id="price-earnings-ratio">price-earnings ratio</Def> (P/E): price divided by earnings per share. Computed with the last 12 months of earnings it is the trailing P/E; with analysts' forecast earnings for the next 12 months it is the forward P/E.
+
+Relative valuation is simple and intuitive, and it reflects the market's current price level directly. But it rests on two conditions: the comparable companies really are similar to the target in growth, risk and profitability, and the market prices the comparable companies reasonably. If a whole industry is overvalued, a value based on industry multiples is overvalued too.
+
+<Check id="C1" />
+
+## What the P/E ratio means [#pe]
+
+Multiples are not a method separate from DCF; they carry assumptions about growth and risk. From the Gordon model (<Ref concept="gordon-growth-model" />), next year's dividend is $D_1 = (1 - b)E_1$, where $b$ is the retention ratio:
+
+$$
+\frac{P_0}{E_1} = \frac{1 - b}{r - g}
+$$
+
+So the forward P/E depends on three factors: the payout ratio, the cost of equity $r$ and the growth rate $g$. Other things equal, faster growth and lower risk (lower $r$) mean a higher P/E. Growth in turn depends on the return on reinvestment (<Ref concept="sustainable-growth-rate" />): <Ref check="Q1" /> derives how the P/E depends on ROE.
+
+The inverse of the P/E, $\frac{E_1}{P_0}$, is the earnings yield.
+
+<Check id="C2" />
+
+## Other multiples [#other-multiples]
+
+- <Def id="ev-ebitda">EV/EBITDA</Def>: enterprise value (<Ref concept="enterprise-value" />) divided by EBITDA. The numerator includes equity and debt, and the denominator is profit before interest; both belong to all investors, so the ratio is unaffected by capital structure, and also by depreciation policy. It is often used to compare companies with different debt levels. But it ignores capital spending: a capital-intensive company has a high EBITDA, but much of it must go into replacing equipment.
+- <Def id="price-to-book">Price-to-book ratio</Def> (P/B): price divided by book equity per share. It suits companies whose assets are mainly financial and carried close to market value, such as banks and insurers. How P/B relates to ROE and the cost of equity is in <Ref check="Q2" />.
+- <Def id="price-to-sales">Price-to-sales ratio</Def> (P/S): market value of equity divided by revenue. It can be used for companies with negative or very unstable profit, but revenue is not profit, so it must be read together with margins (<Ref check="Q3" />).
+
+In any multiple, numerator and denominator must belong to the same investors: equity value (price, market value) goes with numbers that belong to shareholders (net income, book equity), and enterprise value goes with numbers that belong to all investors (EBITDA, EBIT; revenue is also commonly divided into enterprise value).
+
+<Check id="C3" />
+
+## Cyclical companies and CAPE [#cape]
+
+The profits of cyclical companies such as steel, automobiles and semiconductors swing widely with the <Ref concept="business-cycle" />, while their prices reflect long-run value and move much less. Then the current P/E can mislead. <Ref fig="4-1" /> uses a simplified example.
+
+<Figure id="4-1" title="A cyclical company's price stays at 100, while its annual earnings move around 5 in an 8-year cycle. P/E uses current earnings; CAPE uses the average earnings of the last 10 years." observe="First set the amplitude of the earnings cycle to 0, then raise it step by step and compare how the two lines change; notice at which stage of the earnings cycle the P/E is highest.">
+	<CyclePe />
+</Figure>
+
+<Check id="C4" />
+
+For the stock market as a whole, Shiller proposed replacing current earnings with the average inflation-adjusted earnings of the past 10 years; this is the <Def id="cape">cyclically adjusted P/E</Def> (CAPE), also called the Shiller P/E. In Shiller's data, the CAPE of the S&P 500 has averaged about 17 since 1881 and reached a record of about 44 in December 1999; from late 2025 into 2026 it has been roughly between 39 and 41.
+
+Research finds that when CAPE is high, the stock market's average real return over the following 10 years tends to be low. But the relation is far from exact: CAPE can stay very high for years, and using it to time purchases and sales works poorly. Whether CAPE can be used to estimate long-run expected returns, and what to watch for, is in <Ref check="Q4" />; <Ref lesson="4.11" /> discusses estimating long-run expected returns more systematically.
+
+## Summary [#summary]
+
+- Relative valuation multiplies the target's earnings, revenue or book value by the multiple of comparable companies; this assumes the comparables really are similar and the market prices them reasonably.
+- Forward P/E $\frac{P_0}{E_1} = \frac{1 - b}{r - g}$: it depends on the payout ratio, the cost of equity and the growth rate.
+- EV/EBITDA is unaffected by capital structure and depreciation policy but ignores capital spending; P/B suits banks and other financial companies; P/S must be read with margins. Numerator and denominator must belong to the same investors.
+- The current P/E of cyclical companies misleads; CAPE uses 10-year average real earnings and is negatively related to average returns over the next 10 years, but cannot be used to time the market precisely.
+
+<CheckAll />
+
+## Exercises [#exercises]
+
+<Exercises />

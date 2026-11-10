@@ -1,0 +1,83 @@
+---
+// Figure 4-1 of lesson 3.11: P/E and CAPE of a cyclical company whose price stays at 100 while earnings
+// follow 5 x (1 + a sin(2 pi t / 8)). CAPE divides the price by the average earnings of the last 10 years.
+// Slider: amplitude a of the earnings cycle. Parameters are registered in course/widgets.yaml (id: cycle-pe).
+import { toLang } from '../../i18n/ui';
+
+const lang = toLang(Astro.locals.starlightRoute.lang);
+const L = {
+	'zh-cn': {
+		a: '利润周期的幅度',
+		x: '年',
+		y: '倍数',
+		pe: '市盈率（当年利润）',
+		cape: 'CAPE（10 年平均利润）',
+		readout: '16 年中，市盈率在 {lo} 到 {hi} 之间；CAPE 在 {clo} 到 {chi} 之间。',
+	},
+	en: {
+		a: 'Amplitude of the earnings cycle',
+		x: 'Year',
+		y: 'Multiple',
+		pe: 'P/E (current earnings)',
+		cape: 'CAPE (10-year average earnings)',
+		readout: 'Over the 16 years, P/E ranges from {lo} to {hi}; CAPE ranges from {clo} to {chi}.',
+	},
+}[lang];
+
+const xr = [1, 16];
+const yr = [0, 60];
+const xticks = [1, 4, 8, 12, 16];
+const yticks = [0, 10, 20, 30, 40, 50, 60];
+const layouts = [
+	{ cls: 'viz-wide', W: 640, H: 280, pad: { l: 44, r: 20, t: 14, b: 44 } },
+	{ cls: 'viz-narrow', W: 360, H: 260, pad: { l: 44, r: 12, t: 14, b: 44 } },
+].map((g) => ({
+	...g,
+	X: (v: number) => g.pad.l + ((v - xr[0]) / (xr[1] - xr[0])) * (g.W - g.pad.l - g.pad.r),
+	Y: (v: number) => g.pad.t + ((yr[1] - v) / (yr[1] - yr[0])) * (g.H - g.pad.t - g.pad.b),
+}));
+---
+
+<div class="lfwai-widget" data-widget="cycle-pe" data-readout={L.readout}>
+	<div class="lfwai-sliders">
+		<label>
+			<span>{L.a} = <output data-out="a">0.5</output></span>
+			<input type="range" min="0" max="0.8" step="0.1" value="0.5" data-param="a" />
+		</label>
+	</div>
+	{layouts.map(({ cls, W, H, pad, X, Y }) => (
+		<svg class={`lfwai-viz ${cls}`} viewBox={`0 0 ${W} ${H}`} role="img" aria-label={L.pe} data-geom={JSON.stringify({ W, H, pad, xr, yr })}>
+			<defs>
+				<clipPath id={`cp-clip-${cls}`}>
+					<rect x={pad.l} y={pad.t} width={W - pad.l - pad.r} height={H - pad.t - pad.b} />
+				</clipPath>
+			</defs>
+			{yticks.map((v) => (
+				<g>
+					<line class={v === 0 ? 'viz-axis' : 'viz-grid'} x1={pad.l} x2={W - pad.r} y1={Y(v)} y2={Y(v)} />
+					<text class="viz-tick" x={pad.l - 8} y={Y(v) + 4} text-anchor="end">{v}</text>
+				</g>
+			))}
+			{xticks.map((v) => (
+				<text class="viz-tick" x={X(v)} y={H - pad.b + 18} text-anchor="middle">{v}</text>
+			))}
+			<line class="viz-axis" x1={pad.l} x2={pad.l} y1={pad.t} y2={H - pad.b} />
+			<text class="viz-tick" x={(pad.l + W - pad.r) / 2} y={H - 8} text-anchor="middle">{L.x}</text>
+			<text class="viz-tick" transform={`translate(12 ${(pad.t + H - pad.b) / 2}) rotate(-90)`} text-anchor="middle">{L.y}</text>
+			<g clip-path={`url(#cp-clip-${cls})`}>
+				<polyline class="viz-avg" fill="none" data-el="cape" points="" />
+				<polyline class="viz-curve" fill="none" data-el="pe" points="" />
+			</g>
+		</svg>
+	))}
+	<ul class="lfwai-legend">
+		<li><span class="sw sw-curve"></span>{L.pe}</li>
+		<li><span class="sw sw-avg"></span>{L.cape}</li>
+	</ul>
+	<p class="lfwai-readout" data-el="readout" aria-live="polite"></p>
+</div>
+
+<script>
+	import { initCyclePe } from '../../scripts/widgets/cycle-pe';
+	initCyclePe();
+</script>

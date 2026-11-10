@@ -1982,6 +1982,46 @@ enterprise-value:
     zh-cn: "公司经营业务对所有投资者的价值；股权价值 = 企业价值 − 净债务。"
     en: "The value of the operating business to all investors; equity value = enterprise value − net debt."
 
+price-earnings-ratio:
+  defined_in: "3.11"
+  zh-cn: 市盈率
+  en: price-earnings ratio
+  short:
+    zh-cn: "股价除以每股利润（P/E）；按过去 12 个月的利润计算叫静态，按预测利润计算叫动态。"
+    en: "Price divided by earnings per share (P/E); trailing if based on the last 12 months of earnings, forward if based on forecast earnings."
+
+ev-ebitda:
+  defined_in: "3.11"
+  zh-cn: EV/EBITDA
+  en: EV/EBITDA
+  short:
+    zh-cn: "企业价值除以 EBITDA，不受资本结构和折旧政策的影响。"
+    en: "Enterprise value divided by EBITDA, unaffected by capital structure and depreciation policy."
+
+price-to-book:
+  defined_in: "3.11"
+  zh-cn: 市净率
+  en: price-to-book ratio
+  short:
+    zh-cn: "股价除以每股账面股东权益（P/B）。"
+    en: "Price divided by book equity per share (P/B)."
+
+price-to-sales:
+  defined_in: "3.11"
+  zh-cn: 市销率
+  en: price-to-sales ratio
+  short:
+    zh-cn: "股权市值除以收入（P/S），适用于利润为负或不稳定的公司，但要结合利润率。"
+    en: "Market value of equity divided by revenue (P/S), usable for companies with negative or unstable profit, but only together with margins."
+
+cape:
+  defined_in: "3.11"
+  zh-cn: 周期调整市盈率
+  en: cyclically adjusted P/E
+  short:
+    zh-cn: "价格除以过去 10 年经通胀调整的平均利润；CAPE，又称 Shiller 市盈率。"
+    en: "Price divided by average inflation-adjusted earnings of the past 10 years; CAPE, also called the Shiller P/E."
+
 risk-measures:
   defined_in: "4.1"
   zh-cn: 风险度量
