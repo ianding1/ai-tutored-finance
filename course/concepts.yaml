@@ -1886,6 +1886,54 @@ current-ratio:
     zh-cn: "流动资产除以流动负债，衡量短期偿债能力。"
     en: "Current assets divided by current liabilities, a measure of the ability to pay short-term obligations."
 
+dividend-discount-model:
+  defined_in: "3.9"
+  zh-cn: 股利贴现模型
+  en: dividend discount model
+  short:
+    zh-cn: "股票的内在价值等于预期未来股息按股权成本折现的现值；DDM。"
+    en: "A stock's intrinsic value equals the present value of expected future dividends, discounted at the cost of equity; DDM."
+
+cost-of-equity:
+  defined_in: "3.9"
+  zh-cn: 股权成本
+  en: cost of equity
+  short:
+    zh-cn: "股东根据股票的风险要求的预期收益率，用来折现股东得到的现金流。"
+    en: "The expected return shareholders require given the stock's risk, used to discount cash flows to shareholders."
+
+gordon-growth-model:
+  defined_in: "3.9"
+  zh-cn: Gordon 增长模型
+  en: Gordon growth model
+  short:
+    zh-cn: "股息永远以不变的 g 增长时，股价 P0 = D1 / (r − g)，要求 g < r。"
+    en: "If dividends grow forever at a constant g, the price is P0 = D1 / (r − g), which requires g < r."
+
+payout-ratio:
+  defined_in: "3.9"
+  zh-cn: 派息率
+  en: payout ratio
+  short:
+    zh-cn: "股息占净利润的比例；1 减派息率是留存比率。"
+    en: "Dividends as a share of net income; one minus the payout ratio is the retention ratio."
+
+sustainable-growth-rate:
+  defined_in: "3.9"
+  zh-cn: 可持续增长率
+  en: sustainable growth rate
+  short:
+    zh-cn: "不增加杠杆、不发新股时，靠留存利润能达到的增长率：g = 留存比率 × ROE。"
+    en: "The growth rate reachable by retaining profit without more leverage or new shares: g = retention ratio × ROE."
+
+pvgo:
+  defined_in: "3.9"
+  zh-cn: 增长机会的现值
+  en: present value of growth opportunities
+  short:
+    zh-cn: "股价中超过“不增长时价值” E1 / r 的部分；PVGO。"
+    en: "The part of the price above the no-growth value E1 / r; PVGO."
+
 risk-measures:
   defined_in: "4.1"
   zh-cn: 风险度量

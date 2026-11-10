@@ -1,0 +1,108 @@
+---
+title: 3.9 股票估值 I：股利贴现模型
+description: 股票的内在价值是未来股息的现值；股权成本；Gordon 增长模型及其对增长率和折现率的敏感性；派息率、可持续增长率与增长机会的现值；多阶段模型；不派息的公司与回购。
+lesson: "3.9"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import CheckAll from '../../../../components/CheckAll.astro';
+import GordonPrice from '../../../../components/widgets/GordonPrice.astro';
+
+## 股票的内在价值 [#intrinsic-value]
+
+债券的价值是约定现金流的现值（<Ref lesson="3.3" />）。股票没有约定的现金流，股东得到的是股息和将来卖出股票的价格。设第 $t$ 年末的每股股息为 $D_t$，股价为 $P_t$，股东要求的预期收益率为 $r$。持有一年的投资者愿意付的价格是
+
+$$
+P_0 = \frac{D_1 + P_1}{1 + r}
+$$
+
+一年后的买家也这样给股票定价：$P_1 = \frac{D_2 + P_2}{1 + r}$。一直代入下去，只要 $\frac{P_T}{(1 + r)^T}$ 随 $T$ 增大趋于 0，就得到
+
+$$
+P_0 = \sum_{t=1}^{\infty} \frac{D_t}{(1 + r)^t}
+$$
+
+股票的内在价值等于预期未来股息的现值，这叫<Def id="dividend-discount-model">股利贴现模型</Def>（dividend discount model，DDM）。无论投资者打算持有多久，结果都一样：短期投资者卖出的价格，取决于下一个买家预期的股息。
+
+折现率 $r$ 是股东根据股票的风险要求的预期收益率，叫<Def id="cost-of-equity">股权成本</Def>（cost of equity）。它通常高于公司的借款利率，因为股东在债权人之后才得到偿付，承担的风险更大。怎样根据风险确定它，是 <Ref lesson="4.4" /> 的内容；本课把它当作已知。
+
+<Check id="C1" />
+
+## Gordon 增长模型 [#gordon]
+
+预期每笔股息都要单独估计是不现实的。最简单的假设是股息永远以不变的速度 $g$ 增长：$D_t = D_1(1 + g)^{t-1}$。这时股息是一个 <Ref concept="growing-perpetuity" />，当 $g < r$ 时（推导见 <Ref check="Q1" />）：
+
+$$
+P_0 = \frac{D_1}{r - g}
+$$
+
+这叫 <Def id="gordon-growth-model">Gordon 增长模型</Def>（Gordon growth model）。把它改写为
+
+$$
+r = \frac{D_1}{P_0} + g
+$$
+
+股东的预期收益等于股息率加上股息的增长率。
+
+公式的分母是 $r - g$，两个都不确定的数之差。当 $g$ 接近 $r$ 时，分母很小，$g$ 或 $r$ 的一点变化都会使价格大幅变化。<Ref fig="2-1" /> 画出了这种关系。
+
+<Figure id="2-1" title="Gordon 模型的股价与股息增长率的关系，明年每股股息为 2。虚线是增长率等于要求的收益率的位置。" observe="先在增长率较低时把它提高 0.5 个百分点，看股价变化多少；再在接近虚线的地方做同样的事；最后改变要求的收益率，看整条曲线怎样移动。">
+	<GordonPrice />
+</Figure>
+
+<Check id="C2" />
+
+## 增长从哪里来 [#growth]
+
+公司把净利润的一部分作为股息发给股东，其余留在公司里再投资。股息占净利润的比例叫<Def id="payout-ratio">派息率</Def>（payout ratio），留下的比例 $b$ 叫留存比率。
+
+留存的利润使股东权益增加。如果公司对新增的权益也能赚取同样的 ROE（<Ref concept="return-on-equity" />），并且不增加负债比例、不发新股，那么利润、股息和股东权益都以同样的速度增长：
+
+$$
+g = b \times \text{ROE}
+$$
+
+这叫<Def id="sustainable-growth-rate">可持续增长率</Def>（sustainable growth rate）。
+
+设明年的每股利润为 $E_1$。如果公司把利润全部派发、不再增长，股价就是一个永续年金 $\frac{E_1}{r}$。实际股价超过它的部分，来自市场对公司未来投资的预期，叫<Def id="pvgo">增长机会的现值</Def>（present value of growth opportunities，PVGO）：
+
+$$
+P_0 = \frac{E_1}{r} + \text{PVGO}
+$$
+
+把利润留下来投资，股价一定更高吗？<Ref check="C3" /> 用一个例子说明。
+
+<Check id="C3" />
+
+## 多阶段模型 [#multistage]
+
+很多公司现在的增长率很高，不可能永远这样增长。多阶段模型先逐年估计前几年的股息，再假设从第 $T$ 年以后按一个较低的、可以永远维持的增长率 $g_L$ 增长（<Ref check="Q4" />）：
+
+$$
+P_0 = \sum_{t=1}^{T} \frac{D_t}{(1 + r)^t} + \frac{P_T}{(1 + r)^T}, \qquad P_T = \frac{D_{T+1}}{r - g_L}
+$$
+
+$P_T$ 叫终值（terminal value）。
+
+许多公司不派股息，或者主要用回购把现金还给股东。回购减少流通的股数，使留下来的股东每股得到的未来现金增加。这时可以把股息换成股东得到的全部现金（股息加回购），先求整个公司股权的价值，再除以现在的股数；或者直接估计公司为所有股东创造的现金流，这是 <Ref lesson="3.10" /> 的方法。
+
+DDM 的结论对假设很敏感：股权成本和长期增长率都只能估计，而它们的小变化就会使价值大幅变化。因此估值的结果应该看作一个区间，而不是一个精确的数。
+
+<Check id="C4" />
+
+## 小结 [#summary]
+
+- 股票的内在价值是预期未来股息按股权成本折现的现值：$P_0 = \sum_{t=1}^{\infty} \frac{D_t}{(1 + r)^t}$。
+- Gordon 增长模型：$P_0 = \frac{D_1}{r - g}$，要求 $g < r$；预期收益 $r = \frac{D_1}{P_0} + g$。价格对 $r - g$ 非常敏感。
+- 可持续增长率 $g = b \times \text{ROE}$；$P_0 = \frac{E_1}{r} + \text{PVGO}$。
+- 多阶段模型先逐年估计高增长期的股息，再用终值表示以后的价值；不派息或主要回购的公司，可以用股东得到的全部现金估值。
+
+<CheckAll />
+
+## 练习题 [#exercises]
+
+<Exercises />

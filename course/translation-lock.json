@@ -299,6 +299,14 @@
   "en": "16fff9c0a45dea9c",
   "zh-cn": "d7177334e1aba76d"
  },
+ "course/concepts.yaml#cost-of-equity": {
+  "en": "8c94e21db621925b",
+  "zh-cn": "020212cd53177a64"
+ },
+ "course/concepts.yaml#cost-of-equity.short": {
+  "en": "c35fde0a0700ebd6",
+  "zh-cn": "82c76b476d3e7f97"
+ },
  "course/concepts.yaml#coupon-rate": {
   "en": "ae793f13085cbf97",
   "zh-cn": "b35f613d332946a3"
@@ -470,6 +478,14 @@
  "course/concepts.yaml#diversification.short": {
   "en": "eb219ff654aaaf5c",
   "zh-cn": "c44098874de138a9"
+ },
+ "course/concepts.yaml#dividend-discount-model": {
+  "en": "6321a31bdcf8fa66",
+  "zh-cn": "a6c7b30e8ee93732"
+ },
+ "course/concepts.yaml#dividend-discount-model.short": {
+  "en": "b3f5f1cd815e74d2",
+  "zh-cn": "39162a8d2d312676"
  },
  "course/concepts.yaml#dominant-strategy": {
   "en": "498c9d5d73462cc6",
@@ -694,6 +710,14 @@
  "course/concepts.yaml#giffen-good.short": {
   "en": "b20c98a72ec9204e",
   "zh-cn": "9c2862a4f45dbde5"
+ },
+ "course/concepts.yaml#gordon-growth-model": {
+  "en": "7a21ac207b5e517c",
+  "zh-cn": "bcddb814fd3432a4"
+ },
+ "course/concepts.yaml#gordon-growth-model.short": {
+  "en": "d69480cf0790d7b6",
+  "zh-cn": "9c59b91576c129df"
  },
  "course/concepts.yaml#growing-perpetuity": {
   "en": "6966bebbbc92e543",
@@ -1147,6 +1171,14 @@
   "en": "60779523efeb3169",
   "zh-cn": "d526788dc73cc818"
  },
+ "course/concepts.yaml#payout-ratio": {
+  "en": "45183a1ef2156ad8",
+  "zh-cn": "ae3954f57d9fb357"
+ },
+ "course/concepts.yaml#payout-ratio.short": {
+  "en": "9d09cf8a20566aa3",
+  "zh-cn": "fca9f9751ac7a495"
+ },
  "course/concepts.yaml#pce-price-index": {
   "en": "2dee0c106b6a3e3a",
   "zh-cn": "3666ff45578d8390"
@@ -1330,6 +1362,14 @@
  "course/concepts.yaml#purchasing-power-parity.short": {
   "en": "d6be5e0f5554e130",
   "zh-cn": "e8e2a5e51ab3c618"
+ },
+ "course/concepts.yaml#pvgo": {
+  "en": "9cff20622fb5bd57",
+  "zh-cn": "e2ff01ceaedcd0fa"
+ },
+ "course/concepts.yaml#pvgo.short": {
+  "en": "4afcdb2d2e511e02",
+  "zh-cn": "e1cbb9b885af4727"
  },
  "course/concepts.yaml#quantitative-easing": {
   "en": "54ca7ec854c524ea",
@@ -1690,6 +1730,14 @@
  "course/concepts.yaml#supply.short": {
   "en": "82dbab0ee9217596",
   "zh-cn": "f01f0451295d1009"
+ },
+ "course/concepts.yaml#sustainable-growth-rate": {
+  "en": "634cdcd6c19fa9c6",
+  "zh-cn": "50a1debea32047b7"
+ },
+ "course/concepts.yaml#sustainable-growth-rate.short": {
+  "en": "8bf8d43fe46a4aa2",
+  "zh-cn": "e688769d9bffd3fb"
  },
  "course/concepts.yaml#systematic-risk": {
   "en": "bddea2f0b67e9d2e",
@@ -2150,6 +2198,10 @@
  "course/curriculum.yaml#stages[3].lessons[3.8].title": {
   "en": "165a464035eaa854",
   "zh-cn": "57a8d45261bfb986"
+ },
+ "course/curriculum.yaml#stages[3].lessons[3.9].summary": {
+  "en": "88cbad900d447fc0",
+  "zh-cn": "543d2c58d7ad93a0"
  },
  "course/curriculum.yaml#stages[3].lessons[3.9].title": {
   "en": "c02d359a92ef3d98",
@@ -6915,6 +6967,138 @@
   "en": "1f5a90649290fecd",
   "zh-cn": "da4274a0a7099401"
  },
+ "course/keys/3.9.yaml#common_errors[0]": {
+  "en": "bd7b9793c50aa86b",
+  "zh-cn": "2fda65b9865a1cec"
+ },
+ "course/keys/3.9.yaml#common_errors[1]": {
+  "en": "b4afd308dbab5250",
+  "zh-cn": "ea9f392708f548f5"
+ },
+ "course/keys/3.9.yaml#common_errors[2]": {
+  "en": "108ee698b227aeea",
+  "zh-cn": "45452731568f97b9"
+ },
+ "course/keys/3.9.yaml#common_errors[3]": {
+  "en": "9e82b5711b458a67",
+  "zh-cn": "e0028f26d2f0960b"
+ },
+ "course/keys/3.9.yaml#context[0]": {
+  "en": "2eb86eebb394ecaf",
+  "zh-cn": "e89641fb9f1f74b9"
+ },
+ "course/keys/3.9.yaml#context[1]": {
+  "en": "7822139f478d7d10",
+  "zh-cn": "2bdcf856c029a37c"
+ },
+ "course/keys/3.9.yaml#context[2]": {
+  "en": "0874cc87ce95ce60",
+  "zh-cn": "58e3980cf7e462a8"
+ },
+ "course/keys/3.9.yaml#context[3]": {
+  "en": "8d7c34b45a5e5bd4",
+  "zh-cn": "96679321f66fe7f0"
+ },
+ "course/keys/3.9.yaml#context[4]": {
+  "en": "a027e28a0645d051",
+  "zh-cn": "1ab05e1d5164751b"
+ },
+ "course/keys/3.9.yaml#questions[C1].answer": {
+  "en": "f48f1832410a30ed",
+  "zh-cn": "36e5b1de5544ef59"
+ },
+ "course/keys/3.9.yaml#questions[C1].question": {
+  "en": "a2670aac13078544",
+  "zh-cn": "95c6425a089e89aa"
+ },
+ "course/keys/3.9.yaml#questions[C1].rubric": {
+  "en": "ad124368d7d7544a",
+  "zh-cn": "3373da3f794d4c20"
+ },
+ "course/keys/3.9.yaml#questions[C2].answer": {
+  "en": "b49547d47763b2bd",
+  "zh-cn": "61c409176452a1c0"
+ },
+ "course/keys/3.9.yaml#questions[C2].question": {
+  "en": "c137178b9e52b435",
+  "zh-cn": "91515832bfa3d99a"
+ },
+ "course/keys/3.9.yaml#questions[C2].rubric": {
+  "en": "424fe5954f46e1c6",
+  "zh-cn": "346523562eb6f290"
+ },
+ "course/keys/3.9.yaml#questions[C3].answer": {
+  "en": "5e874bf2eb169dc8",
+  "zh-cn": "9d5817cdcd63f2ec"
+ },
+ "course/keys/3.9.yaml#questions[C3].question": {
+  "en": "30a24539dc7a234a",
+  "zh-cn": "cfc0f6b2f9d57034"
+ },
+ "course/keys/3.9.yaml#questions[C3].rubric": {
+  "en": "abba91a248cf64eb",
+  "zh-cn": "ce18536b462e61c8"
+ },
+ "course/keys/3.9.yaml#questions[C4].answer": {
+  "en": "2d092f5b9833a9c1",
+  "zh-cn": "e1ccbe0eef155fa8"
+ },
+ "course/keys/3.9.yaml#questions[C4].question": {
+  "en": "96d12d490bc329b6",
+  "zh-cn": "53634d2cb6d52deb"
+ },
+ "course/keys/3.9.yaml#questions[C4].rubric": {
+  "en": "e3f83e4babe9713d",
+  "zh-cn": "a6e120ea8db30c89"
+ },
+ "course/keys/3.9.yaml#questions[Q1].answer": {
+  "en": "983c1d7e949048c2",
+  "zh-cn": "e5d7bde9cae9f0e0"
+ },
+ "course/keys/3.9.yaml#questions[Q1].question": {
+  "en": "d31e8dbad08fd537",
+  "zh-cn": "8d19854cffefb70c"
+ },
+ "course/keys/3.9.yaml#questions[Q1].rubric": {
+  "en": "f54e841b0b44dd90",
+  "zh-cn": "0ae71392b6515966"
+ },
+ "course/keys/3.9.yaml#questions[Q2].answer": {
+  "en": "6962caf8f0f6fb3a",
+  "zh-cn": "a35f1811d436d88a"
+ },
+ "course/keys/3.9.yaml#questions[Q2].question": {
+  "en": "5ea5313e599f1230",
+  "zh-cn": "5ef4b8ea6e0864cc"
+ },
+ "course/keys/3.9.yaml#questions[Q2].rubric": {
+  "en": "18d0ffe6f51ee402",
+  "zh-cn": "f643c9e4a82ae9a8"
+ },
+ "course/keys/3.9.yaml#questions[Q3].answer": {
+  "en": "5a158091a5d98d42",
+  "zh-cn": "c4182ecadbececfd"
+ },
+ "course/keys/3.9.yaml#questions[Q3].question": {
+  "en": "89fd079a9bb02764",
+  "zh-cn": "239e24d6d0364579"
+ },
+ "course/keys/3.9.yaml#questions[Q3].rubric": {
+  "en": "7cf736808823ddad",
+  "zh-cn": "9a3f05c54e1f37b4"
+ },
+ "course/keys/3.9.yaml#questions[Q4].answer": {
+  "en": "45b656f27b0554b2",
+  "zh-cn": "d38f472b851810e2"
+ },
+ "course/keys/3.9.yaml#questions[Q4].question": {
+  "en": "90bfaf85160122c1",
+  "zh-cn": "4052228a9137428b"
+ },
+ "course/keys/3.9.yaml#questions[Q4].rubric": {
+  "en": "6320f951fb480d2f",
+  "zh-cn": "934fc2747f6cfa6b"
+ },
  "course/keys/E0.yaml#common_errors[0]": {
   "en": "5892871353963f3f",
   "zh-cn": "4d0b656928c8c79b"
@@ -7346,6 +7530,10 @@
  "src/content/docs/<lang>/lessons/3-8-financial-ratios.mdx": {
   "en": "8094c30d0593e889",
   "zh-cn": "356f94052b1a2fce"
+ },
+ "src/content/docs/<lang>/lessons/3-9-equity-valuation-ddm.mdx": {
+  "en": "108b2f55669003f0",
+  "zh-cn": "58dc1862b7211a80"
  },
  "src/content/docs/<lang>/lessons/e0-quiz.mdx": {
   "en": "0909e73cdcf97cfc",

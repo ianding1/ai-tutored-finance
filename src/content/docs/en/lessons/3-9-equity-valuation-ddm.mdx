@@ -1,0 +1,108 @@
+---
+title: "3.9 Equity Valuation I: Dividend Discount Models"
+description: "A stock's intrinsic value as the present value of future dividends; the cost of equity; the Gordon growth model and its sensitivity to growth and discount rates; the payout ratio, the sustainable growth rate and the present value of growth opportunities; multistage models; companies that pay no dividends, and buybacks."
+lesson: "3.9"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import CheckAll from '../../../../components/CheckAll.astro';
+import GordonPrice from '../../../../components/widgets/GordonPrice.astro';
+
+## A stock's intrinsic value [#intrinsic-value]
+
+A bond is worth the present value of its promised cash flows (<Ref lesson="3.3" />). A stock has no promised cash flows; shareholders receive dividends and the price at which they later sell. Let $D_t$ be the dividend per share at the end of year $t$, $P_t$ the price, and $r$ the expected return shareholders require. An investor holding for one year will pay
+
+$$
+P_0 = \frac{D_1 + P_1}{1 + r}
+$$
+
+The buyer a year later prices the stock the same way: $P_1 = \frac{D_2 + P_2}{1 + r}$. Substituting again and again, as long as $\frac{P_T}{(1 + r)^T}$ goes to 0 as $T$ grows, we get
+
+$$
+P_0 = \sum_{t=1}^{\infty} \frac{D_t}{(1 + r)^t}
+$$
+
+A stock's intrinsic value is the present value of its expected future dividends; this is the <Def id="dividend-discount-model">dividend discount model</Def> (DDM). The result is the same however long the investor plans to hold: the price a short-term investor sells at depends on the dividends the next buyer expects.
+
+The discount rate $r$ is the expected return shareholders require given the stock's risk, the <Def id="cost-of-equity">cost of equity</Def>. It is usually above the company's borrowing rate, because shareholders are paid after creditors and bear more risk. How to set it from risk is the subject of <Ref lesson="4.4" />; this lesson takes it as given.
+
+<Check id="C1" />
+
+## The Gordon growth model [#gordon]
+
+Estimating every future dividend separately is not realistic. The simplest assumption is that dividends grow forever at a constant rate $g$: $D_t = D_1(1 + g)^{t-1}$. The dividends are then a <Ref concept="growing-perpetuity" />, and when $g < r$ (derivation in <Ref check="Q1" />):
+
+$$
+P_0 = \frac{D_1}{r - g}
+$$
+
+This is the <Def id="gordon-growth-model">Gordon growth model</Def>. Rewritten,
+
+$$
+r = \frac{D_1}{P_0} + g
+$$
+
+the shareholder's expected return equals the dividend yield plus the growth rate of dividends.
+
+The denominator of the formula is $r - g$, the difference of two uncertain numbers. When $g$ is close to $r$ the denominator is small, and a small change in $g$ or $r$ changes the price a lot. <Ref fig="2-1" /> plots this relation.
+
+<Figure id="2-1" title="Gordon model price against the dividend growth rate, with next year's dividend per share of 2. The dashed line marks where the growth rate equals the required return." observe="First raise the growth rate by 0.5 percentage points where it is low and see how much the price changes; then do the same near the dashed line; finally change the required return and see how the whole curve moves.">
+	<GordonPrice />
+</Figure>
+
+<Check id="C2" />
+
+## Where growth comes from [#growth]
+
+A company pays part of its net income to shareholders as dividends and keeps the rest to reinvest. Dividends as a share of net income is the <Def id="payout-ratio">payout ratio</Def>; the share kept, $b$, is the retention ratio.
+
+Retained profit increases shareholders' equity. If the company earns the same ROE (<Ref concept="return-on-equity" />) on the new equity, and neither raises its debt ratio nor issues new shares, then profit, dividends and equity all grow at the same rate:
+
+$$
+g = b \times \text{ROE}
+$$
+
+This is the <Def id="sustainable-growth-rate">sustainable growth rate</Def>.
+
+Let $E_1$ be next year's earnings per share. If the company paid out all its profit and never grew, the price would be a perpetuity, $\frac{E_1}{r}$. The part of the actual price above this comes from what the market expects of the company's future investments; it is the <Def id="pvgo">present value of growth opportunities</Def> (PVGO):
+
+$$
+P_0 = \frac{E_1}{r} + \text{PVGO}
+$$
+
+Does keeping profit to invest always raise the price? <Ref check="C3" /> uses an example to answer.
+
+<Check id="C3" />
+
+## Multistage models [#multistage]
+
+Many companies grow fast now but cannot grow that fast forever. A multistage model estimates the dividends of the first few years one by one, and then assumes that from year $T$ on they grow at a lower rate $g_L$ that can last forever (<Ref check="Q4" />):
+
+$$
+P_0 = \sum_{t=1}^{T} \frac{D_t}{(1 + r)^t} + \frac{P_T}{(1 + r)^T}, \qquad P_T = \frac{D_{T+1}}{r - g_L}
+$$
+
+$P_T$ is called the terminal value.
+
+Many companies pay no dividends, or return cash to shareholders mainly through buybacks. Buybacks reduce the number of shares, so each remaining shareholder gets more future cash per share. One can then replace dividends with all the cash shareholders receive (dividends plus buybacks), value the company's equity as a whole and divide by today's number of shares; or estimate directly the cash flow the company generates for all its investors, the method of <Ref lesson="3.10" />.
+
+The conclusions of a DDM are very sensitive to its assumptions: the cost of equity and the long-run growth rate can only be estimated, and small changes in them change the value a lot. So a valuation should be read as a range, not as a precise number.
+
+<Check id="C4" />
+
+## Summary [#summary]
+
+- A stock's intrinsic value is the present value of expected future dividends at the cost of equity: $P_0 = \sum_{t=1}^{\infty} \frac{D_t}{(1 + r)^t}$.
+- Gordon growth model: $P_0 = \frac{D_1}{r - g}$, which requires $g < r$; expected return $r = \frac{D_1}{P_0} + g$. The price is very sensitive to $r - g$.
+- Sustainable growth rate $g = b \times \text{ROE}$; $P_0 = \frac{E_1}{r} + \text{PVGO}$.
+- Multistage models estimate dividends year by year during high growth and capture later value in a terminal value; companies that pay no dividends or mainly buy back shares can be valued with all the cash shareholders receive.
+
+<CheckAll />
+
+## Exercises [#exercises]
+
+<Exercises />

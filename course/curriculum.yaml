@@ -318,7 +318,15 @@ stages:
         published: true
         introduces: [return-on-assets, return-on-equity, dupont-analysis, financial-leverage, return-on-invested-capital, interest-coverage, current-ratio]
         uses: [income-statement, balance-sheet, working-capital, earnings-quality, cost-of-capital, economic-profit, depreciation, net-present-value]
-      - { id: "3.9", slug: "3-9-equity-valuation-ddm", title: { zh-cn: "股票估值 I：股利贴现模型", en: "Equity Valuation I: Dividend Discount Models" } }
+      - id: "3.9"
+        slug: "3-9-equity-valuation-ddm"
+        title: { zh-cn: "股票估值 I：股利贴现模型", en: "Equity Valuation I: Dividend Discount Models" }
+        summary:
+          zh-cn: "股票的内在价值是未来股息的现值；股权成本；Gordon 增长模型及其对增长率和折现率的敏感性；派息率、可持续增长率与增长机会的现值；多阶段模型；不派息的公司与回购。"
+          en: "A stock's intrinsic value as the present value of future dividends; the cost of equity; the Gordon growth model and its sensitivity to growth and discount rates; the payout ratio, the sustainable growth rate and the present value of growth opportunities; multistage models; companies that pay no dividends, and buybacks."
+        published: true
+        introduces: [dividend-discount-model, cost-of-equity, gordon-growth-model, payout-ratio, sustainable-growth-rate, pvgo]
+        uses: [present-value, growing-perpetuity, geometric-series, return-on-equity, cost-of-capital, net-present-value, return-on-invested-capital, balance-sheet]
       - { id: "3.10", slug: "3-10-equity-valuation-dcf", title: { zh-cn: "股票估值 II：自由现金流贴现", en: "Equity Valuation II: Discounted Free Cash Flow" } }
       - { id: "3.11", slug: "3-11-relative-valuation", title: { zh-cn: "股票估值 III：相对估值", en: "Equity Valuation III: Relative Valuation" } }
       - { id: "E3b", slug: "e3b-quiz", exam: true, title: { zh-cn: "测验 E3b：财务分析与股票估值", en: "Quiz E3b: Financial Analysis and Equity Valuation" } }
