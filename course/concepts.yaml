@@ -1830,6 +1830,62 @@ earnings-quality:
     zh-cn: "报告的利润在多大程度上反映可持续的、能变成现金的经营成果。"
     en: "How far reported earnings reflect lasting results of the business that turn into cash."
 
+return-on-assets:
+  defined_in: "3.8"
+  zh-cn: 资产收益率
+  en: return on assets
+  short:
+    zh-cn: "利润除以总资产，衡量资产创造利润的能力；ROA。"
+    en: "Profit divided by total assets, measuring how much profit the assets earn; ROA."
+
+return-on-equity:
+  defined_in: "3.8"
+  zh-cn: 净资产收益率
+  en: return on equity
+  short:
+    zh-cn: "净利润除以股东权益，股东投入的账面资本得到的回报；ROE。"
+    en: "Net income divided by shareholders' equity, the return on shareholders' book capital; ROE."
+
+dupont-analysis:
+  defined_in: "3.8"
+  zh-cn: DuPont 分解
+  en: DuPont analysis
+  short:
+    zh-cn: "把 ROE 分解为净利润率 × 资产周转率 × 权益乘数。"
+    en: "Splitting ROE into net margin × asset turnover × equity multiplier."
+
+financial-leverage:
+  defined_in: "3.8"
+  zh-cn: 财务杠杆
+  en: financial leverage
+  short:
+    zh-cn: "用负债为资产融资；资产收益率高于借款利率时提高 ROE，低于时降低 ROE，并使 ROE 波动更大。"
+    en: "Financing assets with debt; it raises ROE when the return on assets exceeds the interest rate, lowers it otherwise, and makes ROE more volatile."
+
+return-on-invested-capital:
+  defined_in: "3.8"
+  zh-cn: 投入资本回报率
+  en: return on invested capital
+  short:
+    zh-cn: "税后营业利润除以投入资本（股东权益加有息负债），与融资方式无关；ROIC。"
+    en: "After-tax operating profit divided by invested capital (equity plus interest-bearing debt), independent of financing; ROIC."
+
+interest-coverage:
+  defined_in: "3.8"
+  zh-cn: 利息保障倍数
+  en: interest coverage
+  short:
+    zh-cn: "营业利润（EBIT）除以利息费用。"
+    en: "Operating income (EBIT) divided by interest expense."
+
+current-ratio:
+  defined_in: "3.8"
+  zh-cn: 流动比率
+  en: current ratio
+  short:
+    zh-cn: "流动资产除以流动负债，衡量短期偿债能力。"
+    en: "Current assets divided by current liabilities, a measure of the ability to pay short-term obligations."
+
 risk-measures:
   defined_in: "4.1"
   zh-cn: 风险度量

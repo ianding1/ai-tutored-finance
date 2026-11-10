@@ -1,0 +1,281 @@
+# Answer key for lesson 3.8. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[3.8#leverage]] (section), [[concept:return-on-equity]], [[check:Q3]], [[fig:2-1]].
+# expected: values are recomputed by course/verify/3.8.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+
+lesson: "3.8"
+
+context:
+  - zh-cn: |-
+      学习者学过经济利润（[[1.5]]）、资本成本与 NPV（[[3.2]]）、信用评级（[[3.6]]）、三张财务报表、营运资本和盈余质量（[[3.7]]）。讲义还没有讲股票估值模型（[[3.9]]）和 WACC（[[3.10]]）。讲义用 $S$、$\text{NI}$、$A$、$E$、$D$ 表示收入、净利润、总资产、股东权益、有息负债。百分数用百分点表示。
+    en: |-
+      The learner has studied economic profit ([[1.5]]), the cost of capital and NPV ([[3.2]]), credit ratings ([[3.6]]), and the three financial statements, working capital and earnings quality ([[3.7]]). The lesson has not yet covered equity valuation models ([[3.9]]) or WACC ([[3.10]]). The lesson writes $S$, $\text{NI}$, $A$, $E$, $D$ for revenue, net income, total assets, equity and interest-bearing debt. Percentages in percentage points.
+  - concepts: [return-on-assets, return-on-equity, dupont-analysis]
+    zh-cn: |-
+      讲义：毛利率、营业利润率、净利润率；ROA $= \frac{\text{NI}}{A}$，ROE $= \frac{\text{NI}}{E}$；DuPont：$\text{ROE} = \frac{\text{NI}}{S} \times \frac{S}{A} \times \frac{A}{E}$（净利润率 × 资产周转率 × 权益乘数）。超市靠高周转，软件公司靠高利润率，银行靠高杠杆；同样的 ROE 来源不同，风险和可持续性不同。
+    en: |-
+      The lesson: gross, operating and net margins; ROA $= \frac{\text{NI}}{A}$, ROE $= \frac{\text{NI}}{E}$; DuPont: $\text{ROE} = \frac{\text{NI}}{S} \times \frac{S}{A} \times \frac{A}{E}$ (net margin × asset turnover × equity multiplier). Supermarkets rely on high turnover, software companies on high margins, banks on high leverage; the same ROE from different sources differs in risk and how long it lasts.
+  - concepts: [financial-leverage]
+    zh-cn: |-
+      讲义：不考虑税、ROA 指支付利息前的利润除以总资产时，$\text{ROE} = \text{ROA} + (\text{ROA} - r)\frac{D}{E}$。[[fig:2-1]]：横轴资产收益率 −10% 到 20%，虚线为没有负债，实线为有负债；滑块：负债 / 股东权益 0 到 3（步长 0.25，默认 1），借款利率 2% 到 10%（步长 0.5，默认 5），资产收益率 −10% 到 20%（步长 1，默认 10）；读数显示所选资产收益率下的两种 ROE。
+    en: |-
+      The lesson: ignoring taxes and reading ROA as profit before interest divided by total assets, $\text{ROE} = \text{ROA} + (\text{ROA} - r)\frac{D}{E}$. [[fig:2-1]]: return on assets from −10% to 20% on the horizontal axis; dashed line without debt, solid line with debt; sliders: debt/equity 0 to 3 (in steps of 0.25, default 1), interest rate 2% to 10% (in steps of 0.5, default 5), return on assets −10% to 20% (in steps of 1, default 10); the readout shows both ROEs at the chosen return on assets.
+  - concepts: [return-on-invested-capital]
+    zh-cn: |-
+      讲义：资产周转率、应收账款天数 DSO、存货天数 DIO（存货 ÷ 销售成本 × 365）、应付账款天数 DPO；现金转换周期 = DSO + DIO − DPO。$\text{ROIC} = \frac{\text{EBIT}\,(1 - t)}{D + E}$，与融资方式无关，要与资本成本比较（与经济利润的思路相同）。
+    en: |-
+      The lesson: asset turnover, days of receivables DSO, days of inventory DIO (inventory ÷ cost of goods sold × 365), days of payables DPO; cash conversion cycle = DSO + DIO − DPO. $\text{ROIC} = \frac{\text{EBIT}\,(1 - t)}{D + E}$, independent of financing, to be compared with the cost of capital (the same idea as economic profit).
+  - concepts: [interest-coverage, current-ratio]
+    zh-cn: |-
+      讲义：负债 ÷ 股东权益、负债 ÷ 总资产、有息负债 ÷ EBITDA；利息保障倍数 = EBIT ÷ 利息费用；流动比率 = 流动资产 ÷ 流动负债，速动比率 = （流动资产 − 存货）÷ 流动负债。评级机构重视杠杆比率和利息保障倍数。注意事项：行业内、按时间比较；会计数字的问题；回购使 ROE 升高甚至使权益为负；ASC 842（2019 财年起）把大多数经营租赁记入资产负债表。
+    en: |-
+      The lesson: debt ÷ equity, debt ÷ total assets, interest-bearing debt ÷ EBITDA; interest coverage = EBIT ÷ interest expense; current ratio = current assets ÷ current liabilities, quick ratio = (current assets − inventory) ÷ current liabilities. Rating agencies watch leverage and interest coverage. Cautions: compare within an industry and over time; problems of accounting numbers; buybacks raise ROE and can make equity negative; ASC 842 (from fiscal year 2019) puts most operating leases on the balance sheet.
+
+common_errors:
+  - questions: [C1, Q1]
+    zh-cn: |-
+      只看 ROE 的高低，不分解它的来源；把由杠杆提高的 ROE 当作经营改善。
+    en: |-
+      Looking only at the level of ROE without decomposing it; treating a rise in ROE from leverage as an improvement in the business.
+  - questions: [C2, Q2]
+    zh-cn: |-
+      以为借款总能提高 ROE。只有资产收益率高于借款利率时才提高，而且杠杆同时放大损失和波动。
+    en: |-
+      Thinking borrowing always raises ROE. It does so only when the return on assets exceeds the interest rate, and leverage also magnifies losses and volatility.
+  - questions: [C3, Q2]
+    zh-cn: |-
+      以为增长总是创造价值，或者用 ROE 与资本成本比较；应该用 ROIC 与资本成本比较。
+    en: |-
+      Thinking growth always creates value, or comparing ROE with the cost of capital; ROIC should be compared with the cost of capital.
+  - questions: [C4, Q4]
+    zh-cn: |-
+      只看一个比率的高低就下结论，不考虑行业特点、资产的质量（例如存货能否卖出）和经营的波动。
+    en: |-
+      Drawing conclusions from the level of a single ratio without considering the industry, the quality of assets (for example, whether inventory can be sold) and the volatility of operations.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: dupont
+    concepts: [dupont-analysis, return-on-equity]
+    expected: { roe: "20", mb: "2", tb: "2.5", lb: "4" }
+    question:
+      zh-cn: |-
+        A 公司：净利润 200，收入 1000，总资产 2000，股东权益 1000。B 公司：净利润 50，收入 2500，总资产 1000，股东权益 250。(a) 两家公司的 ROE 各是多少？用 DuPont 分解 B 公司的 ROE。(b) 如果两家公司的收入都下降 10%，而成本不能按比例下降，哪一家的 ROE 更可能大幅下降？为什么？
+      en: |-
+        Company A: net income 200, revenue 1000, total assets 2000, equity 1000. Company B: net income 50, revenue 2500, total assets 1000, equity 250. (a) What is each company's ROE? Decompose B's ROE with DuPont analysis. (b) If both companies' revenue falls 10% and their costs cannot fall in proportion, whose ROE is more likely to fall sharply? Why?
+    answer:
+      zh-cn: |-
+        (a) 两家的 ROE 都是 20%（$\frac{200}{1000}$，$\frac{50}{250}$）。B：净利润率 $\frac{50}{2500} = 2\%$，资产周转率 $\frac{2500}{1000} = 2.5$，权益乘数 $\frac{1000}{250} = 4$，$2\% \times 2.5 \times 4 = 20\%$。（A 为 $20\% \times 0.5 \times 2$。）
+        (b) B。它的利润率只有 2%，收入下降 10% 而成本降不下来，利润很容易变为负数；而且它的杠杆是 A 的两倍，利润的下降按 4 倍反映在 ROE 上。A 的利润率高、杠杆低，有更大的缓冲。
+      en: |-
+        (a) Both have an ROE of 20% ($\frac{200}{1000}$, $\frac{50}{250}$). B: net margin $\frac{50}{2500} = 2\%$, asset turnover $\frac{2500}{1000} = 2.5$, equity multiplier $\frac{1000}{250} = 4$, and $2\% \times 2.5 \times 4 = 20\%$. (A is $20\% \times 0.5 \times 2$.)
+        (b) B. Its margin is only 2%, so a 10% fall in revenue with costs that cannot fall easily turns profit negative; and its leverage is twice A's, so the fall in profit shows up four times over in ROE. A's high margin and low leverage give more cushion.
+    rubric:
+      zh-cn:
+        - "(a) 都是 20%；B 为 2%、2.5、4。"
+        - "(b) B，用低利润率和高杠杆说明。"
+      en:
+        - "(a) Both 20%; B is 2%, 2.5 and 4."
+        - "(b) B, explained by low margin and high leverage."
+
+  - id: C2
+    kind: check
+    section: leverage
+    concepts: [financial-leverage, return-on-equity]
+    widget: { id: leverage-roe, set: { de: 2, r: 5, roa: 10 } }
+    expected: { r10: "20", r2: "-4" }
+    question:
+      zh-cn: |-
+        在 [[fig:2-1]] 中，把负债 / 股东权益设为 2，借款利率设为 5%。(a) 资产收益率为 10% 时，ROE 是多少？资产收益率降到 2% 时呢？(b) 一家公司通过多借款把 ROE 从 10% 提高到 20%，股东的状况一定变好了吗？
+      en: |-
+        In [[fig:2-1]], set debt/equity to 2 and the interest rate to 5%. (a) With a return on assets of 10%, what is ROE? What if the return on assets falls to 2%? (b) A company raises its ROE from 10% to 20% by borrowing more. Are its shareholders necessarily better off?
+    answer:
+      zh-cn: |-
+        (a) $10\% + (10\% - 5\%) \times 2 = 20\%$；资产收益率为 2% 时，$2\% + (2\% - 5\%) \times 2 = -4\%$（没有负债时分别为 10% 和 2%）。
+        (b) 不一定。较高的 ROE 是承担更多风险换来的：资产收益率高于利率时 ROE 提高，低于利率时 ROE 下降得更多，ROE 的波动变大，破产的可能也增加。股东会因此要求更高的回报，所以 ROE 提高并不等于股东得到了“免费”的好处。
+      en: |-
+        (a) $10\% + (10\% - 5\%) \times 2 = 20\%$; with a return on assets of 2%, $2\% + (2\% - 5\%) \times 2 = -4\%$ (without debt they would be 10% and 2%).
+        (b) Not necessarily. The higher ROE is bought with more risk: when the return on assets exceeds the interest rate ROE rises, and when it falls below, ROE falls further; ROE becomes more volatile, and the chance of bankruptcy rises. Shareholders therefore require a higher return, so a higher ROE is not a "free" gain for them.
+    rubric:
+      zh-cn:
+        - "(a) 20% 和 −4%（写作 -4% 或 −4% 均可）。"
+        - "(b) 不一定，说明风险和要求的回报上升。"
+      en:
+        - "(a) 20% and −4% (written -4% or −4%)."
+        - "(b) Not necessarily; explains higher risk and a higher required return."
+
+  - id: C3
+    kind: check
+    section: efficiency
+    concepts: [return-on-invested-capital, cost-of-capital, economic-profit]
+    expected: { ep: "-3" }
+    question:
+      zh-cn: |-
+        一家公司的 ROIC 为 6%，资本成本为 9%，ROIC 预计不会改变。它计划今年再投入 100 的资本扩张业务。(a) 这 100 的新投资每年的经济利润约为多少？(b) 公司的收入和利润都会增长。这次扩张对股东是好事吗？
+      en: |-
+        A company's ROIC is 6% and its cost of capital is 9%, and ROIC is not expected to change. It plans to invest another 100 of capital this year to expand. (a) Roughly what is the annual economic profit on the new 100? (b) The company's revenue and profit will both grow. Is this expansion good for shareholders?
+    answer:
+      zh-cn: |-
+        (a) $(6\% - 9\%) \times 100 = -3$，每年约 -3。
+        (b) 不是。会计利润增加了 6，但投资者为这 100 资本要求 9 的回报；投资的 NPV 为负（[[3.2]]），扩张使公司价值减少。增长只有在 ROIC 高于资本成本时才创造价值；ROIC 低于资本成本时，增长越快，损失越大。
+      en: |-
+        (a) $(6\% - 9\%) \times 100 = -3$: about -3 a year.
+        (b) No. Accounting profit rises by 6, but investors require 9 on this 100 of capital; the investment has a negative NPV ([[3.2]]) and the expansion lowers the company's value. Growth creates value only when ROIC exceeds the cost of capital; when ROIC is below it, faster growth means larger losses.
+    rubric:
+      zh-cn:
+        - "(a) 约 −3（写作 -3 或 −3 均可）。"
+        - "(b) 不是，用 ROIC 与资本成本比较说明。"
+      en:
+        - "(a) About −3 (written -3 or −3)."
+        - "(b) No, explained by comparing ROIC with the cost of capital."
+
+  - id: C4
+    kind: check
+    section: solvency
+    concepts: [interest-coverage, financial-leverage]
+    expected: { c0: "3", c1: "1.8" }
+    question:
+      zh-cn: |-
+        一家公司的 EBIT 为 300，利息费用为 100。(a) 利息保障倍数是多少？如果衰退使 EBIT 下降 40%，变为多少？(b) 两家公司的负债 ÷ 股东权益相同，一家是电力公司，一家是半导体公司。对债权人来说，哪一家的风险更大？为什么只看负债比率不够？
+      en: |-
+        A company has EBIT of 300 and interest expense of 100. (a) What is its interest coverage? If a recession cuts EBIT by 40%, what does it become? (b) Two companies have the same debt ÷ equity; one is an electric utility and the other a semiconductor company. Which is riskier for creditors? Why is the debt ratio alone not enough?
+    answer:
+      zh-cn: |-
+        (a) $\frac{300}{100} = 3$ 倍；EBIT 降为 180，变为 1.8 倍。
+        (b) 半导体公司。它的需求和利润随周期大幅波动，衰退时 EBIT 可能下降很多，利息保障倍数会迅速下降；电力公司的需求稳定，利润波动小，能承受同样的负债。负债比率只说明借了多少，偿债能力还取决于利润和现金流的水平与稳定性。
+      en: |-
+        (a) $\frac{300}{100} = 3$ times; with EBIT down to 180 it becomes 1.8 times.
+        (b) The semiconductor company. Its demand and profit swing widely with the cycle, so EBIT can drop a lot in a recession and coverage falls fast; the utility has stable demand and profit, so it can carry the same debt. The debt ratio shows only how much was borrowed; the ability to pay also depends on the level and stability of profit and cash flow.
+    rubric:
+      zh-cn:
+        - "(a) 3 倍和 1.8 倍。"
+        - "(b) 半导体公司，说明利润的稳定性。"
+      en:
+        - "(a) 3 times and 1.8 times."
+        - "(b) The semiconductor company, explained by the stability of profit."
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    star: true
+    concepts: [dupont-analysis, return-on-equity, financial-leverage]
+    expected: { roe1: "20", roe2: "25", lev2: "2.63" }
+    question:
+      zh-cn: |-
+        一家公司第 1 年：净利润 100，收入 1000，总资产 1000，股东权益 500。第 2 年，它借款回购了部分股票：净利润 95（利息增加），收入 1000，总资产 1000，股东权益 380。
+        (a) 用 DuPont 分解两年的 ROE。
+        (b) ROE 的变化说明公司的经营变好了吗？股东应该怎样看这次回购？
+      en: |-
+        A company in year 1: net income 100, revenue 1000, total assets 1000, equity 500. In year 2 it borrowed to buy back some shares: net income 95 (higher interest), revenue 1000, total assets 1000, equity 380.
+        (a) Decompose ROE in both years with DuPont analysis.
+        (b) Does the change in ROE show that the business improved? How should shareholders view the buyback?
+    answer:
+      zh-cn: |-
+        (a) 第 1 年：$10\% \times 1 \times 2 = 20\%$。第 2 年：净利润率 9.5%，资产周转率 1，权益乘数 $\frac{1000}{380} \approx 2.63$，ROE $= \frac{95}{380} = 25\%$。
+        (b) 没有。利润率下降了，周转率不变，ROE 的上升完全来自杠杆。回购本身不创造价值：它改变了资本结构，使每股收益和 ROE 更依赖于经营的好坏，风险也更大。回购是否对股东有利，要看回购的价格是否低于股票的内在价值，以及增加的负债是否在公司能承受的范围内。
+      en: |-
+        (a) Year 1: $10\% \times 1 \times 2 = 20\%$. Year 2: net margin 9.5%, asset turnover 1, equity multiplier $\frac{1000}{380} \approx 2.63$, ROE $= \frac{95}{380} = 25\%$.
+        (b) No. The margin fell and turnover was unchanged; the rise in ROE comes entirely from leverage. A buyback does not create value by itself: it changes the capital structure, making earnings per share and ROE more dependent on how the business does, and riskier. Whether it benefits shareholders depends on whether the shares were bought below their intrinsic value and whether the extra debt is within what the company can carry.
+    rubric:
+      zh-cn:
+        - "(a) 20% 和 25%，第 2 年权益乘数约 2.63。"
+        - "(b) 指出 ROE 上升来自杠杆，并讨论回购的价值和风险。"
+      en:
+        - "(a) 20% and 25%; year 2 equity multiplier about 2.63."
+        - "(b) Points out that the rise comes from leverage and discusses the value and risk of the buyback."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [return-on-invested-capital, financial-leverage, return-on-equity, cost-of-capital]
+    expected: { roe: "14.5" }
+    question:
+      zh-cn: |-
+        一家公司的 ROIC 为 7%，税后借款成本为 4%，负债 ÷ 股东权益为 2.5。可以证明，这时 $\text{ROE} = \text{ROIC} + (\text{ROIC} - r_d)\frac{D}{E}$，$r_d$ 为税后借款成本。
+        (a) ROE 是多少？
+        (b) 公司的资本成本（按负债和股权加权）为 8%。管理层说：“我们的 ROE 远高于 8%，所以在为股东创造价值。”这个说法错在哪里？
+      en: |-
+        A company has an ROIC of 7%, an after-tax cost of debt of 4%, and debt ÷ equity of 2.5. One can show that $\text{ROE} = \text{ROIC} + (\text{ROIC} - r_d)\frac{D}{E}$, where $r_d$ is the after-tax cost of debt.
+        (a) What is ROE?
+        (b) The company's cost of capital (weighted over debt and equity) is 8%. Management says: "Our ROE is far above 8%, so we are creating value for shareholders." What is wrong with this claim?
+    answer:
+      zh-cn: |-
+        (a) $7\% + (7\% - 4\%) \times 2.5 = 14.5\%$。
+        (b) ROE 是股东资本的回报，应与股东要求的回报（股权成本）比较，而不是与按负债和股权加权的资本成本比较；高杠杆使股东承担更大的风险，股权成本也随之上升，可能高于 14.5%。衡量业务是否创造价值，应比较 ROIC 与资本成本：7% 低于 8%，业务本身在损失价值，较高的 ROE 只是杠杆的结果。
+      en: |-
+        (a) $7\% + (7\% - 4\%) \times 2.5 = 14.5\%$.
+        (b) ROE is the return on shareholders' capital and should be compared with the return shareholders require (the cost of equity), not with a cost of capital weighted over debt and equity; high leverage makes shareholders bear more risk, so the cost of equity also rises and may exceed 14.5%. To judge whether the business creates value, compare ROIC with the cost of capital: 7% is below 8%, so the business itself loses value, and the high ROE comes only from leverage.
+    rubric:
+      zh-cn:
+        - "(a) 14.5%。"
+        - "(b) 指出应比较 ROIC 与资本成本，以及杠杆提高股权成本。"
+      en:
+        - "(a) 14.5%."
+        - "(b) Points out that ROIC should be compared with the cost of capital and that leverage raises the cost of equity."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [working-capital, return-on-invested-capital]
+    expected: { ccc: "75", free: "200" }
+    question:
+      zh-cn: |-
+        一家公司的应收账款天数为 45，存货天数为 60，应付账款天数为 30。年收入为 3650（简化：三项都按收入计算，每天收入为 10）。
+        (a) 现金转换周期是多少天？
+        (b) 公司改进库存管理，把存货天数降到 40。大约能释放多少现金？这对 ROIC 有什么影响？
+      en: |-
+        A company has 45 days of receivables, 60 days of inventory and 30 days of payables. Annual revenue is 3650 (simplification: compute all three on revenue, so revenue is 10 a day).
+        (a) How many days is the cash conversion cycle?
+        (b) The company improves inventory management and cuts days of inventory to 40. Roughly how much cash is freed? How does this affect ROIC?
+    answer:
+      zh-cn: |-
+        (a) $45 + 60 - 30 = 75$ 天。
+        (b) 存货减少约 $10 \times (60 - 40) = 200$，这些现金可以用来还债、分给股东或投资。营业利润不变时，投入资本减少 200，ROIC 提高：同样的利润用更少的资本获得。
+      en: |-
+        (a) $45 + 60 - 30 = 75$ days.
+        (b) Inventory falls by about $10 \times (60 - 40) = 200$, cash that can repay debt, go to shareholders or be invested. With operating profit unchanged, invested capital falls by 200 and ROIC rises: the same profit is earned with less capital.
+    rubric:
+      zh-cn:
+        - "(a) 75 天。"
+        - "(b) 约 200，ROIC 提高。"
+      en:
+        - "(a) 75 days."
+        - "(b) About 200; ROIC rises."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [current-ratio]
+    expected: { cr: "1.25", qr: "0.5" }
+    question:
+      zh-cn: |-
+        一家公司的流动资产为 500（现金 50，应收账款 150，存货 300），流动负债为 400。
+        (a) 流动比率和速动比率各是多少？
+        (b) 为什么流动比率高不一定说明短期偿债能力强？为什么一些大型零售商的流动比率低于 1 却经营正常？
+      en: |-
+        A company has current assets of 500 (cash 50, receivables 150, inventory 300) and current liabilities of 400.
+        (a) What are its current ratio and quick ratio?
+        (b) Why does a high current ratio not necessarily mean strong short-term solvency? Why do some large retailers operate normally with a current ratio below 1?
+    answer:
+      zh-cn: |-
+        (a) 流动比率 $\frac{500}{400} = 1.25$，速动比率 $\frac{50 + 150}{400} = 0.5$。
+        (b) 流动资产中的存货可能卖不出去或要打折才能卖出，应收账款也可能收不回来；这家公司的流动资产大部分是存货，速动比率只有 0.5，如果存货卖得慢，就可能付不出到期的负债。大型零售商的存货周转很快，顾客当场付款（应收账款很少），而对供应商的付款期较长，现金转换周期很短甚至为负，经营本身不断产生现金，所以流动比率低于 1 也能按时付款。
+      en: |-
+        (a) Current ratio $\frac{500}{400} = 1.25$; quick ratio $\frac{50 + 150}{400} = 0.5$.
+        (b) Inventory in current assets may not sell, or may sell only at a discount, and receivables may not be collected; most of this company's current assets are inventory and its quick ratio is only 0.5, so if inventory sells slowly it may be unable to pay liabilities when due. Large retailers turn inventory fast, customers pay on the spot (few receivables), and suppliers are paid later, so the cash conversion cycle is very short or even negative and operations keep generating cash; they can pay on time with a current ratio below 1.
+    rubric:
+      zh-cn:
+        - "(a) 1.25 和 0.5。"
+        - "(b) 说明资产的质量，以及零售商的现金转换周期。"
+      en:
+        - "(a) 1.25 and 0.5."
+        - "(b) Explains asset quality and the retailers' cash conversion cycle."

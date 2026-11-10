@@ -1,0 +1,102 @@
+---
+title: 3.8 财务比率
+description: 利润率、资产收益率与净资产收益率；DuPont 分解；财务杠杆怎样放大收益和损失；周转率、现金转换周期与投入资本回报率；杠杆、利息保障倍数与流动性比率；使用比率的注意事项。
+lesson: "3.8"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import CheckAll from '../../../../components/CheckAll.astro';
+import LeverageRoe from '../../../../components/widgets/LeverageRoe.astro';
+
+## 盈利能力与 DuPont 分解 [#dupont]
+
+<Ref lesson="3.7" /> 的报表给出的是金额。金额的大小取决于公司的规模，比较不同公司、或者同一公司的不同年份，要用比率。本课用 $S$ 表示收入，$\text{NI}$ 表示净利润，$A$ 表示总资产，$E$ 表示股东权益，$D$ 表示有息负债。
+
+衡量盈利能力的比率有：
+
+- 毛利率、营业利润率、净利润率：毛利、营业利润（EBIT）、净利润分别除以收入；
+- <Def id="return-on-assets">资产收益率</Def>（return on assets，ROA）：$\frac{\text{NI}}{A}$，资产创造利润的能力；
+- <Def id="return-on-equity">净资产收益率</Def>（return on equity，ROE）：$\frac{\text{NI}}{E}$，股东投入的账面资本得到的回报。
+
+ROE 是股东最关心的比率之一。它可以分解为三个比率的乘积：
+
+$$
+\text{ROE} = \frac{\text{NI}}{S} \times \frac{S}{A} \times \frac{A}{E}
+$$
+
+三项分别是净利润率、资产周转率（每 1 元资产带来多少收入）和权益乘数（每 1 元股东权益支撑多少资产）。这叫 <Def id="dupont-analysis">DuPont 分解</Def>（DuPont analysis）。它说明 ROE 可以来自三种不同的途径：卖得贵（高利润率），卖得多（高周转），或者借得多（高杠杆）。超市的利润率很低，靠高周转；软件公司的利润率很高，周转较低；银行的利润率和周转都不高，靠很高的杠杆。同样的 ROE，来源不同，风险和可持续性也不同。
+
+<Check id="C1" />
+
+## 财务杠杆 [#leverage]
+
+用负债为资产融资叫<Def id="financial-leverage">财务杠杆</Def>（financial leverage）。为了看清它的作用，暂不考虑税，并把 ROA 理解为支付利息之前的利润除以总资产。资产 $A = D + E$，利息为 $rD$，所以股东得到的利润为 $\text{ROA} \times A - rD$，除以 $E$：
+
+$$
+\text{ROE} = \text{ROA} + (\text{ROA} - r)\frac{D}{E}
+$$
+
+<Figure id="2-1" title="净资产收益率与资产收益率的关系（不考虑税；资产收益率指支付利息之前的利润除以总资产）。虚线：没有负债；实线：按所设的负债与股东权益之比和借款利率借款。" observe="先把负债调为 0，再逐步增加负债，看实线怎样转动；改变借款利率，看两条线的交点在哪里；最后移动资产收益率，比较好年份和坏年份。">
+	<LeverageRoe />
+</Figure>
+
+<Check id="C2" />
+
+## 效率与资本回报 [#efficiency]
+
+衡量经营效率的比率有：
+
+- 资产周转率：收入 ÷ 总资产；
+- 应收账款天数（DSO）：应收账款 ÷ 收入 × 365；
+- 存货天数（DIO）：存货 ÷ 销售成本 × 365；
+- 应付账款天数（DPO）：应付账款 ÷ 销售成本 × 365。
+
+三者合起来是现金转换周期：DSO + DIO − DPO，即从付钱买原料到收回货款平均要多少天。周期越长，<Ref concept="working-capital" /> 占用的资金越多。
+
+ROE 和 ROA 都受融资方式影响：ROE 随杠杆变化，ROA 的分子扣除了利息、分母却包括了用负债买的资产。要衡量业务本身的回报，常用<Def id="return-on-invested-capital">投入资本回报率</Def>（return on invested capital，ROIC）：
+
+$$
+\text{ROIC} = \frac{\text{EBIT}\,(1 - t)}{D + E}
+$$
+
+分子是不考虑融资方式时的税后营业利润，分母是股东和债权人投入的资本，$t$ 是税率。ROIC 应与投资者对这些资本要求的回报，即 <Ref concept="cost-of-capital" /> 比较，这与 <Ref concept="economic-profit" /> 的思路相同。一家 ROIC 低于资本成本的公司，扩张是不是好事？<Ref check="C3" />
+
+<Check id="C3" />
+
+## 偿债能力与流动性 [#solvency]
+
+债权人更关心公司能否按时还钱：
+
+- 杠杆比率：负债 ÷ 股东权益，负债 ÷ 总资产，有息负债 ÷ EBITDA（EBITDA 是营业利润加折旧和摊销，大致衡量经营产生的现金）；
+- <Def id="interest-coverage">利息保障倍数</Def>（interest coverage）：EBIT ÷ 利息费用，营业利润是利息的多少倍；
+- <Def id="current-ratio">流动比率</Def>（current ratio）：流动资产 ÷ 流动负债；速动比率：（流动资产 − 存货）÷ 流动负债。流动资产和流动负债是一年内会变成现金或需要支付的项目。
+
+评级机构（<Ref lesson="3.6" sec="ratings" />）评级时很重视杠杆比率和利息保障倍数。
+
+<Check id="C4" />
+
+## 使用比率的注意事项 [#cautions]
+
+- 比较要在同一行业内进行，并看同一公司的历史趋势；不同行业的“正常”比率差别很大。
+- 比率继承了会计数字的问题（<Ref lesson="3.7" sec="earnings-quality" />）：一次性项目、会计估计和会计政策的差别都会影响比率。
+- 大量回购股票会减少股东权益，使 ROE 和权益乘数升高，甚至使账面权益为负，这时 ROE 失去意义。
+- 会计规则的变化会改变比率：例如美国上市公司从 2019 财年起按新的租赁准则（ASC 842）把大多数经营租赁记入资产负债表，零售、航空等租赁多的行业的资产和负债明显增加。
+- 比率描述的是过去；估值关心的是未来（<Ref lesson="3.9" />）。
+
+## 小结 [#summary]
+
+- ROA $= \frac{\text{NI}}{A}$，ROE $= \frac{\text{NI}}{E}$；DuPont 分解：ROE = 净利润率 × 资产周转率 × 权益乘数。
+- 不考虑税时，$\text{ROE} = \text{ROA} + (\text{ROA} - r)\frac{D}{E}$：杠杆使 ROE 对 ROA 更敏感。
+- 效率：周转率、应收账款天数、存货天数、应付账款天数和现金转换周期。ROIC $= \frac{\text{EBIT}(1 - t)}{D + E}$ 与融资方式无关，要与资本成本比较。
+- 偿债能力与流动性：负债比率、有息负债 ÷ EBITDA、利息保障倍数、流动比率和速动比率。
+- 比率要在行业内、按时间比较，并注意会计数字、回购和会计规则变化的影响。
+
+<CheckAll />
+
+## 练习题 [#exercises]
+
+<Exercises />

@@ -395,6 +395,14 @@
   "en": "0f5afd40c37abfc4",
   "zh-cn": "59ef6441ed31092d"
  },
+ "course/concepts.yaml#current-ratio": {
+  "en": "f8f8ee34b573502d",
+  "zh-cn": "aaff66921619fc42"
+ },
+ "course/concepts.yaml#current-ratio.short": {
+  "en": "fa2ed0f551dbf3d4",
+  "zh-cn": "06631982d2a3c3cf"
+ },
  "course/concepts.yaml#deadweight-loss": {
   "en": "e7cca999395a5e01",
   "zh-cn": "d6a00d936d58a7fa"
@@ -470,6 +478,14 @@
  "course/concepts.yaml#dominant-strategy.short": {
   "en": "f93c49ab6180932d",
   "zh-cn": "20bca17d052dd4ca"
+ },
+ "course/concepts.yaml#dupont-analysis": {
+  "en": "8d43590808fd3ab4",
+  "zh-cn": "873136ae532b25b9"
+ },
+ "course/concepts.yaml#dupont-analysis.short": {
+  "en": "4310f1707c965357",
+  "zh-cn": "6f0fc5daeb53d4e4"
  },
  "course/concepts.yaml#ear": {
   "en": "897550ce81dea91e",
@@ -570,6 +586,14 @@
  "course/concepts.yaml#financial-intermediary.short": {
   "en": "a99a33be34b6a3de",
   "zh-cn": "98290480d4dc3acb"
+ },
+ "course/concepts.yaml#financial-leverage": {
+  "en": "a6750e3431605d29",
+  "zh-cn": "f0e6fc5f611edd95"
+ },
+ "course/concepts.yaml#financial-leverage.short": {
+  "en": "621b37a819ba5087",
+  "zh-cn": "30cd234996b9aaf6"
  },
  "course/concepts.yaml#first-order-condition": {
   "en": "7b63b1510cdeba61",
@@ -742,6 +766,14 @@
  "course/concepts.yaml#inflation.short": {
   "en": "da3cc11ca3704553",
   "zh-cn": "c7e49e55125bdeda"
+ },
+ "course/concepts.yaml#interest-coverage": {
+  "en": "d858ebad255ee12b",
+  "zh-cn": "b9e09d299b86f86d"
+ },
+ "course/concepts.yaml#interest-coverage.short": {
+  "en": "6f79bc19245c0dd2",
+  "zh-cn": "1e03a1f548eb74f0"
  },
  "course/concepts.yaml#internal-rate-of-return": {
   "en": "a45e658538b93f54",
@@ -1410,6 +1442,30 @@
  "course/concepts.yaml#residual.short": {
   "en": "db7cb9bd18c6d164",
   "zh-cn": "183dfe4bfcf6210f"
+ },
+ "course/concepts.yaml#return-on-assets": {
+  "en": "6ac10c97be6b60b9",
+  "zh-cn": "67ac7992c16427db"
+ },
+ "course/concepts.yaml#return-on-assets.short": {
+  "en": "e85720e463dc281e",
+  "zh-cn": "3889e47e23ae7506"
+ },
+ "course/concepts.yaml#return-on-equity": {
+  "en": "8ee624c3eef66b8b",
+  "zh-cn": "5d64cf33e6e2c7c1"
+ },
+ "course/concepts.yaml#return-on-equity.short": {
+  "en": "2b95d2af07c220e0",
+  "zh-cn": "6fa4d3738cf613ef"
+ },
+ "course/concepts.yaml#return-on-invested-capital": {
+  "en": "17ca68bd48d70359",
+  "zh-cn": "731beca979a18d4f"
+ },
+ "course/concepts.yaml#return-on-invested-capital.short": {
+  "en": "b4f9f549aaf5cb87",
+  "zh-cn": "0632581e33761b65"
  },
  "course/concepts.yaml#returns-to-scale": {
   "en": "5463462a89399e77",
@@ -2086,6 +2142,10 @@
  "course/curriculum.yaml#stages[3].lessons[3.7].title": {
   "en": "d5276f5ad217387c",
   "zh-cn": "5fc2f6dd19ba2ee1"
+ },
+ "course/curriculum.yaml#stages[3].lessons[3.8].summary": {
+  "en": "69a3c00112756f42",
+  "zh-cn": "203e9db8ba3231f2"
  },
  "course/curriculum.yaml#stages[3].lessons[3.8].title": {
   "en": "165a464035eaa854",
@@ -6723,6 +6783,138 @@
   "en": "ad910ea9c4df24c8",
   "zh-cn": "c81ddbc99a2363c1"
  },
+ "course/keys/3.8.yaml#common_errors[0]": {
+  "en": "6a8e2111effa4fd8",
+  "zh-cn": "539138e3dbb2ae2b"
+ },
+ "course/keys/3.8.yaml#common_errors[1]": {
+  "en": "8b96308b5f951946",
+  "zh-cn": "9db9e36fd46fecb0"
+ },
+ "course/keys/3.8.yaml#common_errors[2]": {
+  "en": "b82bbc80ecfd42f8",
+  "zh-cn": "63fb4367a704b9b6"
+ },
+ "course/keys/3.8.yaml#common_errors[3]": {
+  "en": "e0f49af087013585",
+  "zh-cn": "08c16533ea9f6ef5"
+ },
+ "course/keys/3.8.yaml#context[0]": {
+  "en": "8937c14d85db9ee3",
+  "zh-cn": "434e1a53180fa7e6"
+ },
+ "course/keys/3.8.yaml#context[1]": {
+  "en": "cc87820884dac8c5",
+  "zh-cn": "c5ab5b8fdfc8f3b8"
+ },
+ "course/keys/3.8.yaml#context[2]": {
+  "en": "97c5ec179d853755",
+  "zh-cn": "99c78503ab6a3647"
+ },
+ "course/keys/3.8.yaml#context[3]": {
+  "en": "f8f35c35ea92bc11",
+  "zh-cn": "fdba1713628541a0"
+ },
+ "course/keys/3.8.yaml#context[4]": {
+  "en": "e993390c97013a9d",
+  "zh-cn": "9fbe217a55825bee"
+ },
+ "course/keys/3.8.yaml#questions[C1].answer": {
+  "en": "f96b50b2b17f797a",
+  "zh-cn": "a760c4319b8d9568"
+ },
+ "course/keys/3.8.yaml#questions[C1].question": {
+  "en": "bf1465bf7ce597de",
+  "zh-cn": "5aff62dd3f0c75c2"
+ },
+ "course/keys/3.8.yaml#questions[C1].rubric": {
+  "en": "7754436a81be96f5",
+  "zh-cn": "8247ffd359cfb728"
+ },
+ "course/keys/3.8.yaml#questions[C2].answer": {
+  "en": "3c4a3e188ef4c452",
+  "zh-cn": "6ae99f0cab2619bf"
+ },
+ "course/keys/3.8.yaml#questions[C2].question": {
+  "en": "e5c410d327bcebcd",
+  "zh-cn": "0cdd3e8db593e930"
+ },
+ "course/keys/3.8.yaml#questions[C2].rubric": {
+  "en": "e459ebdd9134a0c6",
+  "zh-cn": "ecc6dd62ec27c4ed"
+ },
+ "course/keys/3.8.yaml#questions[C3].answer": {
+  "en": "72159ec38d8f1fad",
+  "zh-cn": "4dea5d312d51daef"
+ },
+ "course/keys/3.8.yaml#questions[C3].question": {
+  "en": "3d8e067757109cab",
+  "zh-cn": "ad7bef4d7ae9ec85"
+ },
+ "course/keys/3.8.yaml#questions[C3].rubric": {
+  "en": "e07d0401d7ab130f",
+  "zh-cn": "1f660b7c907de13f"
+ },
+ "course/keys/3.8.yaml#questions[C4].answer": {
+  "en": "1cb4178d9bd87943",
+  "zh-cn": "681b364da8ba6212"
+ },
+ "course/keys/3.8.yaml#questions[C4].question": {
+  "en": "1681dfdf37548d12",
+  "zh-cn": "b5ef39b91b5b0d16"
+ },
+ "course/keys/3.8.yaml#questions[C4].rubric": {
+  "en": "4b53fd1fe0d080d2",
+  "zh-cn": "875e2711d595e714"
+ },
+ "course/keys/3.8.yaml#questions[Q1].answer": {
+  "en": "b2d74832f988d930",
+  "zh-cn": "040d25bffee8364b"
+ },
+ "course/keys/3.8.yaml#questions[Q1].question": {
+  "en": "493cd53692f9041d",
+  "zh-cn": "b515c9e233372d5e"
+ },
+ "course/keys/3.8.yaml#questions[Q1].rubric": {
+  "en": "b0d4cb7ff84269ac",
+  "zh-cn": "15268568328fc772"
+ },
+ "course/keys/3.8.yaml#questions[Q2].answer": {
+  "en": "c3a36692c3c21577",
+  "zh-cn": "ca79444b2347d9d2"
+ },
+ "course/keys/3.8.yaml#questions[Q2].question": {
+  "en": "9da8ac17efdc999b",
+  "zh-cn": "354347d44a4b87f4"
+ },
+ "course/keys/3.8.yaml#questions[Q2].rubric": {
+  "en": "fed67d536826301d",
+  "zh-cn": "7dfb758f69986af8"
+ },
+ "course/keys/3.8.yaml#questions[Q3].answer": {
+  "en": "bb2f9ee8bcded624",
+  "zh-cn": "d7e1e521a7a26159"
+ },
+ "course/keys/3.8.yaml#questions[Q3].question": {
+  "en": "09bb0287808d8750",
+  "zh-cn": "1123efa289b9a4ec"
+ },
+ "course/keys/3.8.yaml#questions[Q3].rubric": {
+  "en": "3d0bb4d0fc289d11",
+  "zh-cn": "98d992b31243b343"
+ },
+ "course/keys/3.8.yaml#questions[Q4].answer": {
+  "en": "1755d00b382cdcf6",
+  "zh-cn": "8fbe29ddc38f10fc"
+ },
+ "course/keys/3.8.yaml#questions[Q4].question": {
+  "en": "6ad630fa236186f3",
+  "zh-cn": "18a5df534ac36e49"
+ },
+ "course/keys/3.8.yaml#questions[Q4].rubric": {
+  "en": "1f5a90649290fecd",
+  "zh-cn": "da4274a0a7099401"
+ },
  "course/keys/E0.yaml#common_errors[0]": {
   "en": "5892871353963f3f",
   "zh-cn": "4d0b656928c8c79b"
@@ -7150,6 +7342,10 @@
  "src/content/docs/<lang>/lessons/3-7-financial-statements.mdx": {
   "en": "95ea2b24e3b54a59",
   "zh-cn": "38cf3f1e0461fd8c"
+ },
+ "src/content/docs/<lang>/lessons/3-8-financial-ratios.mdx": {
+  "en": "8094c30d0593e889",
+  "zh-cn": "356f94052b1a2fce"
  },
  "src/content/docs/<lang>/lessons/e0-quiz.mdx": {
   "en": "0909e73cdcf97cfc",

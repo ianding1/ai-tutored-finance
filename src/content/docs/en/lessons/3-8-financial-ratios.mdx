@@ -1,0 +1,102 @@
+---
+title: 3.8 Financial Ratios
+description: "Profit margins, return on assets and return on equity; the DuPont decomposition; how financial leverage magnifies gains and losses; turnover ratios, the cash conversion cycle and return on invested capital; leverage, interest coverage and liquidity ratios; cautions in using ratios."
+lesson: "3.8"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import CheckAll from '../../../../components/CheckAll.astro';
+import LeverageRoe from '../../../../components/widgets/LeverageRoe.astro';
+
+## Profitability and the DuPont decomposition [#dupont]
+
+The statements in <Ref lesson="3.7" /> give amounts. Amounts depend on the size of the company, so to compare different companies, or one company across years, we use ratios. This lesson writes $S$ for revenue, $\text{NI}$ for net income, $A$ for total assets, $E$ for shareholders' equity and $D$ for interest-bearing debt.
+
+Ratios that measure profitability include:
+
+- gross margin, operating margin and net margin: gross profit, operating income (EBIT) and net income, each divided by revenue;
+- <Def id="return-on-assets">return on assets</Def> (ROA): $\frac{\text{NI}}{A}$, how much profit the assets earn;
+- <Def id="return-on-equity">return on equity</Def> (ROE): $\frac{\text{NI}}{E}$, the return on the book capital shareholders have put in.
+
+ROE is one of the ratios shareholders care about most. It can be split into the product of three ratios:
+
+$$
+\text{ROE} = \frac{\text{NI}}{S} \times \frac{S}{A} \times \frac{A}{E}
+$$
+
+The three terms are the net margin, asset turnover (how much revenue each dollar of assets brings in) and the equity multiplier (how many dollars of assets each dollar of equity supports). This is <Def id="dupont-analysis">DuPont analysis</Def>. It shows that ROE can come from three different sources: selling at a high price (high margin), selling a lot (high turnover), or borrowing a lot (high leverage). Supermarkets have very low margins and rely on high turnover; software companies have very high margins and lower turnover; banks have neither high margins nor high turnover and rely on very high leverage. The same ROE from different sources carries different risk and may last differently.
+
+<Check id="C1" />
+
+## Financial leverage [#leverage]
+
+Financing assets with debt is <Def id="financial-leverage">financial leverage</Def>. To see what it does, ignore taxes for now and read ROA as profit before interest divided by total assets. Assets are $A = D + E$ and interest is $rD$, so the profit left for shareholders is $\text{ROA} \times A - rD$; dividing by $E$:
+
+$$
+\text{ROE} = \text{ROA} + (\text{ROA} - r)\frac{D}{E}
+$$
+
+<Figure id="2-1" title="Return on equity against return on assets (taxes ignored; return on assets means profit before interest divided by total assets). Dashed line: no debt; solid line: borrowing at the chosen debt-to-equity ratio and interest rate." observe="First set debt to 0, then raise it step by step and see how the solid line turns; change the interest rate and see where the two lines cross; finally move the return on assets and compare good years with bad years.">
+	<LeverageRoe />
+</Figure>
+
+<Check id="C2" />
+
+## Efficiency and return on capital [#efficiency]
+
+Ratios that measure efficiency include:
+
+- asset turnover: revenue ÷ total assets;
+- days of receivables (DSO): receivables ÷ revenue × 365;
+- days of inventory (DIO): inventory ÷ cost of goods sold × 365;
+- days of payables (DPO): payables ÷ cost of goods sold × 365.
+
+Together they give the cash conversion cycle: DSO + DIO − DPO, the average number of days from paying for materials to collecting from customers. The longer the cycle, the more money is tied up in <Ref concept="working-capital" />.
+
+ROE and ROA both depend on financing: ROE changes with leverage, and ROA deducts interest in the numerator while including assets bought with debt in the denominator. To measure the return of the business itself, a common ratio is <Def id="return-on-invested-capital">return on invested capital</Def> (ROIC):
+
+$$
+\text{ROIC} = \frac{\text{EBIT}\,(1 - t)}{D + E}
+$$
+
+The numerator is after-tax operating profit regardless of financing, the denominator is the capital supplied by shareholders and creditors, and $t$ is the tax rate. ROIC should be compared with the return investors require on this capital, the <Ref concept="cost-of-capital" />, in the same spirit as <Ref concept="economic-profit" />. Is expansion good for a company whose ROIC is below its cost of capital? <Ref check="C3" />
+
+<Check id="C3" />
+
+## Solvency and liquidity [#solvency]
+
+Creditors care more about whether the company can pay on time:
+
+- leverage ratios: debt ÷ equity, debt ÷ total assets, interest-bearing debt ÷ EBITDA (EBITDA is operating income plus depreciation and amortization, a rough measure of cash generated by operations);
+- <Def id="interest-coverage">interest coverage</Def>: EBIT ÷ interest expense, how many times operating income covers interest;
+- <Def id="current-ratio">current ratio</Def>: current assets ÷ current liabilities; quick ratio: (current assets − inventory) ÷ current liabilities. Current assets and current liabilities are items that will turn into cash or must be paid within a year.
+
+Rating agencies (<Ref lesson="3.6" sec="ratings" />) pay close attention to leverage ratios and interest coverage.
+
+<Check id="C4" />
+
+## Cautions in using ratios [#cautions]
+
+- Compare within the same industry, and look at a company's own trend over time; "normal" ratios differ a lot across industries.
+- Ratios inherit the problems of accounting numbers (<Ref lesson="3.7" sec="earnings-quality" />): one-time items, accounting estimates and differences in accounting policies all affect them.
+- Large share buybacks reduce equity and raise ROE and the equity multiplier, and can even make book equity negative, in which case ROE loses its meaning.
+- Changes in accounting rules change ratios: for example, from fiscal year 2019 US public companies put most operating leases on the balance sheet under the new lease standard (ASC 842), noticeably raising assets and liabilities in lease-heavy industries such as retail and airlines.
+- Ratios describe the past; valuation is about the future (<Ref lesson="3.9" />).
+
+## Summary [#summary]
+
+- ROA $= \frac{\text{NI}}{A}$, ROE $= \frac{\text{NI}}{E}$; DuPont analysis: ROE = net margin × asset turnover × equity multiplier.
+- Ignoring taxes, $\text{ROE} = \text{ROA} + (\text{ROA} - r)\frac{D}{E}$: leverage makes ROE more sensitive to ROA.
+- Efficiency: turnover, days of receivables, days of inventory, days of payables and the cash conversion cycle. ROIC $= \frac{\text{EBIT}(1 - t)}{D + E}$ does not depend on financing and should be compared with the cost of capital.
+- Solvency and liquidity: debt ratios, interest-bearing debt ÷ EBITDA, interest coverage, the current ratio and the quick ratio.
+- Compare ratios within an industry and over time, and watch for the effects of accounting numbers, buybacks and changes in accounting rules.
+
+<CheckAll />
+
+## Exercises [#exercises]
+
+<Exercises />

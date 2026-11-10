@@ -309,7 +309,15 @@ stages:
         published: true
         introduces: [balance-sheet, income-statement, cash-flow-statement, accrual-accounting, depreciation, working-capital, earnings-quality]
         uses: [economic-profit, principal-agent-problem, present-value, cost-of-capital]
-      - { id: "3.8", slug: "3-8-financial-ratios", title: { zh-cn: "财务比率", en: "Financial Ratios" } }
+      - id: "3.8"
+        slug: "3-8-financial-ratios"
+        title: { zh-cn: "财务比率", en: "Financial Ratios" }
+        summary:
+          zh-cn: "利润率、资产收益率与净资产收益率；DuPont 分解；财务杠杆怎样放大收益和损失；周转率、现金转换周期与投入资本回报率；杠杆、利息保障倍数与流动性比率；使用比率的注意事项。"
+          en: "Profit margins, return on assets and return on equity; the DuPont decomposition; how financial leverage magnifies gains and losses; turnover ratios, the cash conversion cycle and return on invested capital; leverage, interest coverage and liquidity ratios; cautions in using ratios."
+        published: true
+        introduces: [return-on-assets, return-on-equity, dupont-analysis, financial-leverage, return-on-invested-capital, interest-coverage, current-ratio]
+        uses: [income-statement, balance-sheet, working-capital, earnings-quality, cost-of-capital, economic-profit, depreciation, net-present-value]
       - { id: "3.9", slug: "3-9-equity-valuation-ddm", title: { zh-cn: "股票估值 I：股利贴现模型", en: "Equity Valuation I: Dividend Discount Models" } }
       - { id: "3.10", slug: "3-10-equity-valuation-dcf", title: { zh-cn: "股票估值 II：自由现金流贴现", en: "Equity Valuation II: Discounted Free Cash Flow" } }
       - { id: "3.11", slug: "3-11-relative-valuation", title: { zh-cn: "股票估值 III：相对估值", en: "Equity Valuation III: Relative Valuation" } }
