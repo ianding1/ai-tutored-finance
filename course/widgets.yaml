@@ -201,3 +201,12 @@ stock-bond-mix:
   fixed:
     sd_stocks: 16
     sd_bonds: 6
+
+order-book:
+  component: src/components/widgets/OrderBook.astro
+  params:
+    q: { min: 100, max: 4000, step: 100, default: 500 }
+  fixed:
+    midpoint: 100
+    asks: "100.05 x 500, 100.10 x 500, 100.20 x 1000, 100.40 x 2000"
+    bids: "99.95 x 500, 99.90 x 800, 99.80 x 1000, 99.60 x 2000"

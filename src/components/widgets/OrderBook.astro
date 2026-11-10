@@ -1,0 +1,99 @@
+---
+// Figure 5-1 of lesson 3.1: a limit order book with four bid and four ask levels around a midpoint of
+// 100.00. A market buy order of q shares fills against the asks from the lowest price up; the darker part
+// of each ask bar shows the shares taken. Parameters are registered in course/widgets.yaml (id: order-book).
+import { toLang } from '../../i18n/ui';
+
+const lang = toLang(Astro.locals.starlightRoute.lang);
+const L = {
+	'zh-cn': {
+		q: '市价买单的股数 q',
+		x: '价格（美元）',
+		y: '挂单股数',
+		bid: '买单（出价）',
+		ask: '卖单（要价）',
+		fill: '被这笔市价单成交的部分',
+		readout: '买入 {q} 股：平均成交价 {avg} 美元，比中间价 100.00 高 {bp}%，比按中间价成交多付 {cost} 美元。',
+	},
+	en: {
+		q: 'Shares in the market buy order q',
+		x: 'Price (dollars)',
+		y: 'Shares on the book',
+		bid: 'Buy orders (bids)',
+		ask: 'Sell orders (asks)',
+		fill: 'Part filled by this market order',
+		readout: 'Buying {q} shares: average price {avg} dollars, {bp}% above the midpoint of 100.00; {cost} dollars more than trading at the midpoint.',
+	},
+}[lang];
+
+const BIDS: [number, number][] = [
+	[99.6, 2000],
+	[99.8, 1000],
+	[99.9, 800],
+	[99.95, 500],
+];
+const ASKS: [number, number][] = [
+	[100.05, 500],
+	[100.1, 500],
+	[100.2, 1000],
+	[100.4, 2000],
+];
+const levels = [...BIDS.map(([p, n]) => ({ p, n, side: 'bid' })), ...ASKS.map(([p, n]) => ({ p, n, side: 'ask' }))];
+const yr = [0, 2000];
+const yticks = [0, 500, 1000, 1500, 2000];
+const layouts = [
+	{ cls: 'viz-wide', W: 640, H: 300, pad: { l: 56, r: 20, t: 14, b: 50 }, font: 12 },
+	{ cls: 'viz-narrow', W: 360, H: 280, pad: { l: 50, r: 10, t: 14, b: 50 }, font: 12 },
+].map((g) => {
+	const slot = (g.W - g.pad.l - g.pad.r) / levels.length;
+	return {
+		...g,
+		slot,
+		X: (k: number) => g.pad.l + slot * k + slot * 0.15,
+		Y: (v: number) => g.pad.t + ((yr[1] - v) / (yr[1] - yr[0])) * (g.H - g.pad.t - g.pad.b),
+	};
+});
+---
+
+<div class="lfwai-widget" data-widget="order-book" data-readout={L.readout} data-asks={JSON.stringify(ASKS)}>
+	<div class="lfwai-sliders">
+		<label>
+			<span>{L.q} = <output data-out="q">500</output></span>
+			<input type="range" min="100" max="4000" step="100" value="500" data-param="q" />
+		</label>
+	</div>
+	{layouts.map(({ cls, W, H, pad, slot, X, Y }) => (
+		<svg class={`lfwai-viz ${cls}`} viewBox={`0 0 ${W} ${H}`} role="img" aria-label={L.ask} data-geom={JSON.stringify({ W, H, pad, yr, slot, nBids: BIDS.length })}>
+			{yticks.map((v) => (
+				<g>
+					<line class={v === 0 ? 'viz-axis' : 'viz-grid'} x1={pad.l} x2={W - pad.r} y1={Y(v)} y2={Y(v)} />
+					<text class="viz-tick" x={pad.l - 8} y={Y(v) + 4} text-anchor="end">{v}</text>
+				</g>
+			))}
+			{levels.map((lv, k) => (
+				<g>
+					<rect class={lv.side === 'bid' ? 'viz-bar-bid' : 'viz-bar'} x={X(k)} y={Y(lv.n)} width={slot * 0.7} height={Y(0) - Y(lv.n)} />
+					<text class="viz-tick" x={X(k) + slot * 0.35} y={H - pad.b + 16} text-anchor="middle">{lv.p.toFixed(2)}</text>
+				</g>
+			))}
+			{ASKS.map((_, j) => (
+				<rect class="viz-bar-fill" data-el={`fill-${j}`} x={X(BIDS.length + j)} y={Y(0)} width={slot * 0.7} height="0" />
+			))}
+			<line class="viz-axis" x1={pad.l} x2={pad.l} y1={pad.t} y2={H - pad.b} />
+			<line class="viz-mean" x1={pad.l + slot * BIDS.length} x2={pad.l + slot * BIDS.length} y1={pad.t} y2={H - pad.b} />
+			<text class="viz-tick" x={(pad.l + W - pad.r) / 2} y={H - 10} text-anchor="middle">{L.x}</text>
+			<text class="viz-tick" transform={`translate(12 ${(pad.t + H - pad.b) / 2}) rotate(-90)`} text-anchor="middle">{L.y}</text>
+		</svg>
+	))}
+	<ul class="lfwai-legend">
+		<li><span class="sw sw-bid"></span>{L.bid}</li>
+		<li><span class="sw sw-bar"></span>{L.ask}</li>
+		<li><span class="sw sw-fill"></span>{L.fill}</li>
+	</ul>
+	<p class="lfwai-readout" data-el="readout" aria-live="polite"></p>
+</div>
+
+<script>
+	import { initOrderBook } from '../../scripts/widgets/order-book';
+	initOrderBook();
+</script>

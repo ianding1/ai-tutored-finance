@@ -344,6 +344,24 @@
 	border-top: 2px solid var(--viz-muted);
 	opacity: 0.45;
 }
+/* Lesson 3.1 figure */
+.viz-bar-bid {
+	fill: color-mix(in srgb, var(--viz-b) 55%, transparent);
+}
+.viz-bar-fill {
+	fill: var(--viz-violet);
+}
+.lfwai-legend .sw.sw-bid,
+.lfwai-legend .sw.sw-fill {
+	height: 0.75rem;
+	border: none;
+}
+.lfwai-legend .sw.sw-bid {
+	background: color-mix(in srgb, var(--viz-b) 55%, transparent);
+}
+.lfwai-legend .sw.sw-fill {
+	background: var(--viz-violet);
+}
 /* Lesson 1.5 figure */
 .viz-profit {
 	fill: var(--viz-pos);

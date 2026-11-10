@@ -115,6 +115,14 @@
   "en": "aca89214f1220d4e",
   "zh-cn": "1f4ebf613e99fed0"
  },
+ "course/concepts.yaml#bid-ask-spread": {
+  "en": "71e8902981385068",
+  "zh-cn": "59b9feda08c43b46"
+ },
+ "course/concepts.yaml#bid-ask-spread.short": {
+  "en": "b1258f4ad3f86872",
+  "zh-cn": "2b2b0b4a8cbc2a9e"
+ },
  "course/concepts.yaml#budget-constraint": {
   "en": "3d98888dffedd26d",
   "zh-cn": "64e0653ff91c4e93"
@@ -138,6 +146,14 @@
  "course/concepts.yaml#business-cycle.short": {
   "en": "bbc76d4cea9e964c",
   "zh-cn": "ce2afb5ef9219e52"
+ },
+ "course/concepts.yaml#capital-market": {
+  "en": "be0b50aa92ec10c7",
+  "zh-cn": "b13031fffbe5f708"
+ },
+ "course/concepts.yaml#capital-market.short": {
+  "en": "54b735af9b3593a6",
+  "zh-cn": "416cfb2229b50e14"
  },
  "course/concepts.yaml#central-limit-theorem": {
   "en": "be47f71cf97c0ead",
@@ -443,6 +459,14 @@
   "en": "d445ea971ee3c06c",
   "zh-cn": "89aab4edf5f087bf"
  },
+ "course/concepts.yaml#financial-intermediary": {
+  "en": "c4ad303a3dce1b54",
+  "zh-cn": "a928aea2f1b6dc91"
+ },
+ "course/concepts.yaml#financial-intermediary.short": {
+  "en": "a99a33be34b6a3de",
+  "zh-cn": "98290480d4dc3acb"
+ },
  "course/concepts.yaml#first-order-condition": {
   "en": "7b63b1510cdeba61",
   "zh-cn": "ca8089411cd0db7f"
@@ -639,6 +663,14 @@
   "en": "4b63f3f0d57569cb",
   "zh-cn": "faeb56df71443148"
  },
+ "course/concepts.yaml#limit-order": {
+  "en": "9fe6c8dd8929c161",
+  "zh-cn": "269c45e31fe91f2f"
+ },
+ "course/concepts.yaml#limit-order.short": {
+  "en": "bb53a22046c25649",
+  "zh-cn": "3c99d4666696eaec"
+ },
  "course/concepts.yaml#log-return": {
   "en": "e23f67677e9f9fe6",
   "zh-cn": "d30fa28f19e18985"
@@ -715,6 +747,14 @@
   "en": "e058dddb5384467c",
   "zh-cn": "1a5794b128703aeb"
  },
+ "course/concepts.yaml#market-maker": {
+  "en": "49729596bdf6da67",
+  "zh-cn": "e241bac91d0a29ec"
+ },
+ "course/concepts.yaml#market-maker.short": {
+  "en": "ac648dde23cbeff5",
+  "zh-cn": "71fcfe5efda69ad7"
+ },
  "course/concepts.yaml#median": {
   "en": "4759bee99ff089a5",
   "zh-cn": "14604324b45586ef"
@@ -730,6 +770,14 @@
  "course/concepts.yaml#monetary-base.short": {
   "en": "6e09660a7fb89e63",
   "zh-cn": "4fdb89629f22c50f"
+ },
+ "course/concepts.yaml#money-market": {
+  "en": "49f3a85bb4d3e7b0",
+  "zh-cn": "dd3337acf00cc23f"
+ },
+ "course/concepts.yaml#money-market.short": {
+  "en": "1807deb2e55d1a94",
+  "zh-cn": "10d7c6515ab19266"
  },
  "course/concepts.yaml#money-multiplier": {
   "en": "140f4673ebfc5a27",
@@ -987,6 +1035,14 @@
   "en": "a12777c2ab24a7f1",
   "zh-cn": "06945ec951f3cc1b"
  },
+ "course/concepts.yaml#primary-market": {
+  "en": "fbb8c9231d83e849",
+  "zh-cn": "78f011f97635330e"
+ },
+ "course/concepts.yaml#primary-market.short": {
+  "en": "f548a119869f7d43",
+  "zh-cn": "ba7917ee8a9ab0a7"
+ },
  "course/concepts.yaml#principal-agent-problem": {
   "en": "db707d72644de2bc",
   "zh-cn": "c2e9f176ceabb6e1"
@@ -1231,6 +1287,14 @@
   "en": "e9c89d8eab3bd556",
   "zh-cn": "545cc4899579d0f9"
  },
+ "course/concepts.yaml#secondary-market": {
+  "en": "6392c5f4c2ff4650",
+  "zh-cn": "1d03ad9774c19c4f"
+ },
+ "course/concepts.yaml#secondary-market.short": {
+  "en": "266dfcde0dca13ea",
+  "zh-cn": "0d39da8a87e7a5b6"
+ },
  "course/concepts.yaml#shadow-price": {
   "en": "e2423cb1d3ed78f8",
   "zh-cn": "04e37261902624a5"
@@ -1246,6 +1310,14 @@
  "course/concepts.yaml#short-run.short": {
   "en": "fa74e68d3d642932",
   "zh-cn": "7eedc355cff1dbea"
+ },
+ "course/concepts.yaml#short-selling": {
+  "en": "1f80867490c970cc",
+  "zh-cn": "95ec82d378c74275"
+ },
+ "course/concepts.yaml#short-selling.short": {
+  "en": "882dd6f37699c8f4",
+  "zh-cn": "9d97551afdd4e17b"
  },
  "course/concepts.yaml#shutdown-point": {
   "en": "9f1d1ba9938f1991",
@@ -1694,6 +1766,10 @@
  "course/curriculum.yaml#stages[3].lessons[3.11].title": {
   "en": "45a91d2e77161a07",
   "zh-cn": "26e4e657fbb545ea"
+ },
+ "course/curriculum.yaml#stages[3].lessons[3.1].summary": {
+  "en": "e4f1a5d51db00b0b",
+  "zh-cn": "c23e273d78e1a05f"
  },
  "course/curriculum.yaml#stages[3].lessons[3.1].title": {
   "en": "dbc67d5df0a3dd39",
@@ -5399,6 +5475,130 @@
   "en": "5ecaf82fb20b372f",
   "zh-cn": "dbcd634a2ae9a8f6"
  },
+ "course/keys/3.1.yaml#common_errors[0]": {
+  "en": "82f3eb7735d338c8",
+  "zh-cn": "89c0718a7c613686"
+ },
+ "course/keys/3.1.yaml#common_errors[1]": {
+  "en": "030f6d595d26c8a4",
+  "zh-cn": "9fa2d40a8f4ade46"
+ },
+ "course/keys/3.1.yaml#common_errors[2]": {
+  "en": "525e68fc9bf3a2b0",
+  "zh-cn": "cfbda641d301381e"
+ },
+ "course/keys/3.1.yaml#common_errors[3]": {
+  "en": "c935d48edcdfbd45",
+  "zh-cn": "6b53d767c015f44b"
+ },
+ "course/keys/3.1.yaml#context[0]": {
+  "en": "31f2c52116a11eb9",
+  "zh-cn": "0c51ad2d6880b90f"
+ },
+ "course/keys/3.1.yaml#context[1]": {
+  "en": "648cfabab471fe2a",
+  "zh-cn": "5abfd3735e3a20c6"
+ },
+ "course/keys/3.1.yaml#context[2]": {
+  "en": "b740ef666766ec1b",
+  "zh-cn": "3a9b082cfad61d01"
+ },
+ "course/keys/3.1.yaml#questions[C1].answer": {
+  "en": "7e7b0943a328863a",
+  "zh-cn": "c44a65267bfc4015"
+ },
+ "course/keys/3.1.yaml#questions[C1].question": {
+  "en": "831574731b7298a7",
+  "zh-cn": "89af113d2c32de49"
+ },
+ "course/keys/3.1.yaml#questions[C1].rubric": {
+  "en": "2d649e6dc2be40d8",
+  "zh-cn": "64fb5237d8873399"
+ },
+ "course/keys/3.1.yaml#questions[C2].answer": {
+  "en": "014cfa4b0fd137a9",
+  "zh-cn": "2739021d4ebbd39e"
+ },
+ "course/keys/3.1.yaml#questions[C2].question": {
+  "en": "04a919294a129ac2",
+  "zh-cn": "69a2f80d552fed7e"
+ },
+ "course/keys/3.1.yaml#questions[C2].rubric": {
+  "en": "59257644f2d50f7d",
+  "zh-cn": "79f914e90d93ea60"
+ },
+ "course/keys/3.1.yaml#questions[C3].answer": {
+  "en": "ee415a6fddb2ab39",
+  "zh-cn": "0e7a250c38203da5"
+ },
+ "course/keys/3.1.yaml#questions[C3].question": {
+  "en": "5b4b90a06ff7fb38",
+  "zh-cn": "b4130f42adf7d97a"
+ },
+ "course/keys/3.1.yaml#questions[C3].rubric": {
+  "en": "2e1ea05e4109f94f",
+  "zh-cn": "e9dc437e7930e56e"
+ },
+ "course/keys/3.1.yaml#questions[Q1].answer": {
+  "en": "4e15c2d9b0103452",
+  "zh-cn": "5db7456910290cb5"
+ },
+ "course/keys/3.1.yaml#questions[Q1].question": {
+  "en": "c562995c355dbe8a",
+  "zh-cn": "93a0ad122882136e"
+ },
+ "course/keys/3.1.yaml#questions[Q1].rubric": {
+  "en": "3865c72c969cdf5b",
+  "zh-cn": "c49a3d6f6ae6b1f4"
+ },
+ "course/keys/3.1.yaml#questions[Q2].answer": {
+  "en": "08c5025dd1879698",
+  "zh-cn": "a664d85ba084805b"
+ },
+ "course/keys/3.1.yaml#questions[Q2].question": {
+  "en": "75871bb61b1896c9",
+  "zh-cn": "dd7db496facc53ac"
+ },
+ "course/keys/3.1.yaml#questions[Q2].rubric": {
+  "en": "ef72204c160c6675",
+  "zh-cn": "14e5cf1700daeceb"
+ },
+ "course/keys/3.1.yaml#questions[Q3].answer": {
+  "en": "4aebd18bedd59856",
+  "zh-cn": "6fe5b224bf51dfd0"
+ },
+ "course/keys/3.1.yaml#questions[Q3].question": {
+  "en": "d540f11ed0884498",
+  "zh-cn": "822bcb9ae499a49f"
+ },
+ "course/keys/3.1.yaml#questions[Q3].rubric": {
+  "en": "1194a09217e2460f",
+  "zh-cn": "10e40a6ea1ad3525"
+ },
+ "course/keys/3.1.yaml#questions[Q4].answer": {
+  "en": "3692e5645134ef1e",
+  "zh-cn": "1f7506a48ee08a37"
+ },
+ "course/keys/3.1.yaml#questions[Q4].question": {
+  "en": "fa8013c9187f2731",
+  "zh-cn": "70250843e1f567f0"
+ },
+ "course/keys/3.1.yaml#questions[Q4].rubric": {
+  "en": "8eaf247ff4732522",
+  "zh-cn": "a34ff68913d4cc41"
+ },
+ "course/keys/3.1.yaml#questions[Q5].answer": {
+  "en": "aa4ae08aeed12ecf",
+  "zh-cn": "6a641ab72543688d"
+ },
+ "course/keys/3.1.yaml#questions[Q5].question": {
+  "en": "cbd71e85aea6e0bf",
+  "zh-cn": "207884060c18ed4c"
+ },
+ "course/keys/3.1.yaml#questions[Q5].rubric": {
+  "en": "89c0662d3fb85e55",
+  "zh-cn": "c5d670dacddc4368"
+ },
  "course/keys/E0.yaml#common_errors[0]": {
   "en": "5892871353963f3f",
   "zh-cn": "4d0b656928c8c79b"
@@ -5798,6 +5998,10 @@
  "src/content/docs/<lang>/lessons/2-8-business-cycle-asset-prices.mdx": {
   "en": "27550386f49cd3c2",
   "zh-cn": "fd7c9ec4c2c2f146"
+ },
+ "src/content/docs/<lang>/lessons/3-1-financial-system.mdx": {
+  "en": "d87d8169bb178721",
+  "zh-cn": "228eadb10bacd408"
  },
  "src/content/docs/<lang>/lessons/e0-quiz.mdx": {
   "en": "0909e73cdcf97cfc",

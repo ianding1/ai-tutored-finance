@@ -1494,6 +1494,78 @@ stock-bond-correlation:
     zh-cn: "股票收益与债券收益的相关系数；需求冲击为主时为负，通胀冲击为主时为正。"
     en: "The correlation between stock and bond returns; negative when demand shocks dominate, positive when inflation shocks dominate."
 
+financial-intermediary:
+  defined_in: "3.1"
+  zh-cn: 金融中介
+  en: financial intermediary
+  short:
+    zh-cn: "在储蓄者和借款者之间转移资金的机构，例如银行、保险公司和基金。"
+    en: "An institution that channels funds from savers to borrowers, such as a bank, an insurer or a fund."
+
+money-market:
+  defined_in: "3.1"
+  zh-cn: 货币市场
+  en: money market
+  short:
+    zh-cn: "交易一年以内短期债务工具的市场，例如短期国债、商业票据和回购。"
+    en: "The market for short-term debt of up to a year, such as Treasury bills, commercial paper and repos."
+
+capital-market:
+  defined_in: "3.1"
+  zh-cn: 资本市场
+  en: capital market
+  short:
+    zh-cn: "交易期限超过一年的债务工具和股票的市场。"
+    en: "The market for debt with maturities over a year and for stocks."
+
+primary-market:
+  defined_in: "3.1"
+  zh-cn: 一级市场
+  en: primary market
+  short:
+    zh-cn: "证券第一次发行、资金从投资者流向发行者的市场。"
+    en: "The market where securities are first issued and money flows from investors to the issuer."
+
+secondary-market:
+  defined_in: "3.1"
+  zh-cn: 二级市场
+  en: secondary market
+  short:
+    zh-cn: "投资者之间买卖已发行证券的市场，提供流动性和价格。"
+    en: "The market where investors trade securities already issued; it provides liquidity and prices."
+
+market-maker:
+  defined_in: "3.1"
+  zh-cn: 做市商
+  en: market maker
+  short:
+    zh-cn: "持续报出买价和卖价、随时与投资者交易的机构。"
+    en: "A firm that continuously quotes bid and ask prices and stands ready to trade."
+
+bid-ask-spread:
+  defined_in: "3.1"
+  zh-cn: 买卖价差
+  en: bid-ask spread
+  short:
+    zh-cn: "卖价与买价之差，是立即交易的成本。"
+    en: "The ask price minus the bid price; the cost of trading immediately."
+
+short-selling:
+  defined_in: "3.1"
+  zh-cn: 卖空
+  en: short selling
+  short:
+    zh-cn: "借入股票卖出、以后买回归还；价格下跌时获利，潜在损失无上限。"
+    en: "Selling borrowed shares and buying them back later; it gains when the price falls and has unlimited potential loss."
+
+limit-order:
+  defined_in: "3.1"
+  zh-cn: 限价单
+  en: limit order
+  short:
+    zh-cn: "只在指定价格或更好价格成交的订单；价格有保证，成交没有保证。"
+    en: "An order that trades only at a stated price or better; the price is guaranteed, execution is not."
+
 risk-measures:
   defined_in: "4.1"
   zh-cn: 风险度量

@@ -245,7 +245,15 @@ stages:
   - id: "3"
     title: { zh-cn: "第 3 阶段：金融市场与证券估值", en: "Stage 3: Financial Markets and Security Valuation" }
     lessons:
-      - { id: "3.1", slug: "3-1-financial-system", title: { zh-cn: "金融体系概览", en: "Overview of the Financial System" } }
+      - id: "3.1"
+        slug: "3-1-financial-system"
+        title: { zh-cn: "金融体系概览", en: "Overview of the Financial System" }
+        summary:
+          zh-cn: "金融体系做什么：金融中介、货币市场与资本市场、一级市场与二级市场、交易所与做市商、买卖价差，以及市价单、限价单和止损单。"
+          en: "What the financial system does: financial intermediaries, money and capital markets, primary and secondary markets, exchanges and market makers, the bid-ask spread, and market, limit and stop orders."
+        published: true
+        introduces: [financial-intermediary, money-market, capital-market, primary-market, secondary-market, market-maker, bid-ask-spread, short-selling, limit-order]
+        uses: [time-value-of-money, diversification, variance, standard-deviation, expected-value, adverse-selection, moral-hazard, bank-run]
       - { id: "3.2", slug: "3-2-npv-irr", title: { zh-cn: "NPV、IRR 与资本预算", en: "NPV, IRR and Capital Budgeting" } }
       - { id: "3.3", slug: "3-3-bond-pricing", title: { zh-cn: "债券定价", en: "Bond Pricing" } }
       - { id: "3.4", slug: "3-4-interest-rate-risk", title: { zh-cn: "利率风险", en: "Interest Rate Risk" } }

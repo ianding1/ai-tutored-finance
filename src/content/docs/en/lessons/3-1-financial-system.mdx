@@ -1,0 +1,90 @@
+---
+title: 3.1 Overview of the Financial System
+description: "What the financial system does: financial intermediaries, money and capital markets, primary and secondary markets, exchanges and market makers, the bid-ask spread, and market, limit and stop orders."
+lesson: "3.1"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import CheckAll from '../../../../components/CheckAll.astro';
+import OrderBook from '../../../../components/widgets/OrderBook.astro';
+
+## What the financial system does [#intermediation]
+
+Some people have money they do not need for now (savers); others have good projects but lack money (borrowers). The financial system moves money from the first group to the second, and along the way it does several things:
+
+- **Moves resources over time**: savers spend less today and more later; borrowers invest today and repay later (<Ref concept="time-value-of-money" />).
+- **Shares risk**: it spreads a project's risk over many people, or places it with those willing to bear it.
+- **Pools small amounts**: many small savings together can finance a factory.
+- **Produces information**: it judges the quality of borrowers and monitors how money is used.
+
+Money can flow directly from savers to borrowers (**direct finance**, for example buying the stocks and bonds a company issues), or through a <Def id="financial-intermediary">financial intermediary</Def> such as a bank, an insurer or a fund (**indirect finance**). Reasons intermediaries exist:
+
+- They can diversify. A single loan is very risky, but a bank that makes thousands of loans has a stable default rate (<Ref concept="diversification" />, <Ref check="C1" />).
+- They lower information costs. The adverse selection and moral hazard of <Ref lesson="1.9" /> make it hard for an individual to judge whether a small firm deserves a loan; banks specialize in this and also gain information through long relationships.
+- They transform maturity and liquidity: banks take deposits that can be withdrawn at any time and make long-term loans (<Ref lesson="2.3" /> showed that this also brings the risk of runs).
+
+<Check id="C1" />
+
+## Money markets and capital markets [#markets]
+
+By maturity, financial markets fall into two groups:
+
+- The <Def id="money-market">money market</Def>: short-term debt with maturities of up to a year, such as Treasury bills, commercial paper issued by companies and repurchase agreements (repo) between financial institutions. These instruments have low risk and good liquidity and are used mainly to manage short-term cash. Individuals usually take part through money market funds: in early December 2025, US money market funds held about 7.65 trillion dollars (Investment Company Institute, ICI).
+- The <Def id="capital-market">capital market</Def>: debt with maturities over a year, and stocks, such as Treasury notes and bonds, corporate bonds, municipal bonds, mortgages and stocks. They finance long-term investment, and their prices move more.
+
+Debt gives its holder a fixed promise of payment: the borrower must pay interest and principal as agreed, or it defaults. Equity (stock) represents ownership of a company: shareholders share the profits left after paying the debt, with no fixed promise, but also no upper limit.
+
+## Primary and secondary markets [#primary-secondary]
+
+The market in which securities are first issued, with money flowing from investors to the issuer, is the <Def id="primary-market">primary market</Def>. A company's first sale of shares to the public is an initial public offering (IPO), usually underwritten by an investment bank: the bank helps set the price, buys the shares from the company at slightly below the expected market price, sells them to investors, and earns an underwriting fee.
+
+After issuance, the market in which investors trade existing securities with each other is the <Def id="secondary-market">secondary market</Def>. Trading in the secondary market brings no new money to the company, but it matters:
+
+- **Liquidity**: investors are willing to buy in the primary market because they know they can sell later at any time;
+- **Price discovery**: secondary market prices pool the information of many people, and companies can use them to judge the cost of raising more money and to evaluate investment projects.
+
+## Exchanges and market makers [#trading]
+
+Secondary market trading takes place on exchanges (such as the New York Stock Exchange, NYSE, and Nasdaq) and other trading venues. Buyers and sellers do not have to arrive at the same time: a <Def id="market-maker">market maker</Def> continuously quotes a price at which it will buy (the bid) and a price at which it will sell (the ask), and trades with investors as they arrive.
+
+The ask is above the bid, and the difference is the <Def id="bid-ask-spread">bid-ask spread</Def>. Buying immediately means paying the ask and selling immediately means receiving the bid, so a purchase followed by a sale loses one spread even if prices have not changed. The spread is the market maker's pay for providing the service of "trading at any time", and it also compensates for risk: some of the people who come to trade know more than the market maker (<Ref concept="adverse-selection" />). The more actively a security is traded, the narrower its spread.
+
+After a trade, money and securities take time to change hands (settlement). Since May 28, 2024, US stocks have settled T+1: on the next business day after the trade (US Securities and Exchange Commission, SEC).
+
+Investors can also sell shares they do not own; this is called <Def id="short-selling">short selling</Def>: borrowing shares from someone, selling them, and buying them back later to return them. The short seller gains when the price falls and loses when it rises; when the borrowed shares pay a dividend, the short seller must pay the same amount to the lender. Because there is no upper limit to how high a price can rise, the potential loss on a short sale also has no limit (<Ref check="Q2" />).
+
+<Check id="C2" />
+
+## Order types [#orders]
+
+Investors submit orders through brokers. Common types:
+
+- **Market order**: trades immediately at the best price available in the market. Execution is guaranteed; the price is not.
+- <Def id="limit-order">Limit order</Def>: trades only at a stated price or better, for example "buy, at most 99.98 dollars". The price is guaranteed; execution is not.
+- **Stop order**: becomes a market order when the price reaches a trigger, for example selling a stock you hold if it falls to 90 dollars. Once triggered it trades at the market price, which in a sharp fall can be far below the trigger.
+
+Limit orders that have not yet traded wait in the **order book**: buy orders ranked from the highest price down, sell orders from the lowest price up. The highest bid and the lowest ask are the market's quotes. A large market buy order takes the sell orders at the lowest price, then the next lowest, and so on, so its average price rises; this is called price impact.
+
+<Figure id="5-1" title="An order book with a midpoint of 100.00 dollars. Waiting buy orders are on the left and waiting sell orders on the right; the dark parts show how much a market buy order takes." observe="Increase the size of the market buy order and watch how the average price and the extra amount paid change. When the size doubles, does the extra amount only double?">
+	<OrderBook />
+</Figure>
+
+<Check id="C3" />
+
+## Summary [#summary]
+
+- The financial system moves money from savers to borrowers and also shares risk, pools funds and produces information. Financial intermediaries do this through diversification, lower information costs and maturity transformation.
+- The money market trades short-term debt of up to a year; the capital market trades long-term debt and stocks. Debt carries a fixed promise of payment; equity shares the remaining profits.
+- The primary market issues new securities and raises money for companies; the secondary market trades existing securities and provides liquidity and prices.
+- Market makers quote bids and asks, and the bid-ask spread is the cost of trading immediately. US stocks settle T+1. The potential loss on a short sale is unlimited.
+- Market orders guarantee execution but not price; limit orders guarantee price but not execution; large market orders have price impact.
+
+<CheckAll />
+
+## Exercises [#exercises]
+
+<Exercises />
