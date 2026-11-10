@@ -34,6 +34,9 @@ def results():
 
     r["Q3.r22"] = 0.6 * -18.1 + 0.4 * -13.0
     r["Q3.r2"] = 0.6 * -18.1 + 0.4 * 6
+    # Values that the questions now give or no longer ask for.
+    for k in ['Q2.y1', 'Q2.p1', 'Q2.y2', 'Q2.p2']:
+        del r[k]
     return r
 
 

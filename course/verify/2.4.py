@@ -55,6 +55,9 @@ def results():
     res["Q5.d2"] = 1.5 * (res["Q5.y"] - 100) + 0.5 * 6
     y, p = adas(res["Q5.d2"], 6)
     assert abs(p - 100) < 1e-9 and abs(y - res["Q5.y"]) < 1e-9
+    # Values that the questions now give or no longer ask for.
+    for k in ['Q2.y', 'Q2.p']:
+        del res[k]
     return res
 
 

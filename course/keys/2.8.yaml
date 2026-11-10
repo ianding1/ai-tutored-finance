@@ -63,25 +63,23 @@ questions:
     expected: { avg: "4.43", diff: "0.53" }
     question:
       zh-cn: |-
-        最近 3 个月的失业率为 4.3%、4.4% 和 4.6%；过去 12 个月中，3 个月平均失业率的最低值为 3.9%。(a) Sahm 规则是否被触发？(b) 为什么失业率一旦明显上升，往往会继续上升？(c) 说出一种情况，使这个规则发出错误信号。
+        最近 3 个月的失业率为 4.3%、4.4% 和 4.6%；过去 12 个月中，3 个月平均失业率的最低值为 3.9%。(a) Sahm 规则是否被触发？(b) 说出一种情况，使这个规则发出错误信号。
       en: |-
-        Unemployment over the last 3 months was 4.3%, 4.4% and 4.6%; over the past 12 months, the lowest 3-month average was 3.9%. (a) Is the Sahm rule triggered? (b) Why does unemployment, once it has risen clearly, tend to keep rising? (c) Name a situation in which the rule gives a false signal.
+        The unemployment rate in the last 3 months was 4.3%, 4.4% and 4.6%; over the past 12 months the lowest 3-month average was 3.9%. (a) Is the Sahm rule triggered? (b) Name a situation in which the rule gives a false signal.
     answer:
       zh-cn: |-
         (a) 3 个月平均 $\frac{4.3 + 4.4 + 4.6}{3} \approx 4.43\%$，比 3.9% 高约 0.53 个百分点，超过 0.5，触发。
-        (b) 失业的人收入减少，消费减少，企业的销售下降，又会裁员，形成循环。
-        (c) 例如劳动力增长很快（移民或更多人开始找工作），新进入的人需要时间找到工作，失业率上升，但并没有大量裁员。
+        (b) 例如劳动力增长很快（移民或更多人开始找工作），新进入的人需要时间找到工作，失业率上升，但并没有大量裁员，也没有“失业—消费减少—再裁员”的循环。
       en: |-
-        (a) The 3-month average is $\frac{4.3 + 4.4 + 4.6}{3} \approx 4.43\%$, about 0.53 points above 3.9%, which exceeds 0.5, so the rule is triggered.
-        (b) People who lose their jobs have less income and spend less, firms' sales fall, and they lay off more workers: a self-reinforcing cycle.
-        (c) For example, when the labor force grows fast (immigration or more people starting to look for work), newcomers need time to find jobs and unemployment rises without large layoffs.
+        (a) The 3-month average is $\frac{4.3 + 4.4 + 4.6}{3} \approx 4.43\%$, about 0.53 percentage points above 3.9%, more than 0.5, so it is triggered.
+        (b) For example, the labor force grows fast (immigration, or more people starting to look for work); newcomers take time to find jobs, so unemployment rises without large layoffs and without the chain of job losses, lower spending and further layoffs.
     rubric:
       zh-cn:
-        - "(a) 约 4.43% 和 0.53，触发。"
-        - "(b)(c) 说明自我强化和一种错误信号的情况。"
+        - "(a) 约 4.43%，高出约 0.53，触发。"
+        - "(b) 一种失业率上升而没有大量裁员的合理情况。"
       en:
-        - "(a) About 4.43% and 0.53, triggered."
-        - "(b)(c) Explains the self-reinforcing cycle and one false-signal case."
+        - "(a) About 4.43%, about 0.53 higher; triggered."
+        - "(b) A reasonable situation in which unemployment rises without large layoffs."
 
   - id: C2
     kind: check
@@ -168,64 +166,55 @@ questions:
     question:
       zh-cn: |-
         设想 1000 个 12 个月的时期。其中 15% 的时期内会开始一次衰退。在会开始衰退的时期之前，收益率曲线倒挂的比例是 90%；在不会开始衰退的时期之前，倒挂的比例是 10%。
-        (a) 1000 个时期中，有多少个之前出现了倒挂？其中多少个随后开始了衰退？
-        (b) 看到倒挂后，接下来 12 个月开始衰退的概率约是多少？
-        (c) 如果一位投资者每次看到倒挂就卖出全部股票，你预计会发生什么？
+        (a) 看到倒挂后，接下来 12 个月开始衰退的概率约是多少？
+        (b) 如果一位投资者每次看到倒挂就卖出全部股票，你预计会发生什么？
       en: |-
-        Imagine 1000 periods of 12 months. In 15% of them a recession begins. Before the periods in which a recession begins, the yield curve is inverted 90% of the time; before the other periods, 10% of the time.
-        (a) Of the 1000 periods, how many are preceded by an inversion? How many of these are followed by a recession?
-        (b) After seeing an inversion, what is the probability that a recession begins in the next 12 months?
-        (c) If an investor sold all stocks every time the curve inverted, what would you expect to happen?
+        Imagine 1000 periods of 12 months. A recession starts in 15% of them. Before periods in which a recession starts, the yield curve is inverted 90% of the time; before periods without one, 10% of the time.
+        (a) After an inversion, what is the probability that a recession starts in the next 12 months?
+        (b) If an investor sells all stocks every time the curve inverts, what do you expect to happen?
     answer:
       zh-cn: |-
-        (a) 会开始衰退的时期 150 个，其中倒挂 $150 \times 90\% = 135$ 个；不会开始衰退的 850 个，其中倒挂 $850 \times 10\% = 85$ 个。共 220 个倒挂，其中 135 个随后衰退。
-        (b) $\frac{135}{220} \approx 61.4\%$。
-        (c) 倒挂之后约有四成的情况没有衰退；即使有衰退，时间也不确定，倒挂到衰退之间股市可能继续上涨。频繁地全部卖出，会错过很多上涨，还可能在错误的时间重新买入。信号有用，但不足以决定全部仓位。
+        (a) 会开始衰退的时期 150 个，其中倒挂 $150 \times 90\% = 135$ 个；不会开始衰退的 850 个，其中倒挂 $850 \times 10\% = 85$ 个。概率为 $\frac{135}{220} \approx 61.4\%$。
+        (b) 倒挂之后约有四成的情况没有衰退；即使有衰退，时间也不确定，倒挂到衰退之间股市可能继续上涨。频繁地全部卖出，会错过很多上涨，还可能在错误的时间重新买入。信号有用，但不足以决定全部仓位。
       en: |-
-        (a) There are 150 periods with a recession, of which $150 \times 90\% = 135$ are preceded by an inversion; of the 850 without, $850 \times 10\% = 85$ are. In total 220 inversions, of which 135 are followed by a recession.
-        (b) $\frac{135}{220} \approx 61.4\%$.
-        (c) About four in ten inversions are not followed by a recession; even when one follows, the timing is uncertain, and stocks may keep rising between the inversion and the recession. Selling everything often would miss many gains and might mean buying back at the wrong time. The signal is useful but not enough to decide the whole position.
+        (a) Recessions start in 150 periods, of which $150 \times 90\% = 135$ follow an inversion; of the 850 without one, $850 \times 10\% = 85$ follow an inversion. The probability is $\frac{135}{220} \approx 61.4\%$.
+        (b) About four in ten inversions are not followed by a recession; even when one follows, its timing is uncertain, and stocks may keep rising between the inversion and the recession. Selling everything often misses many gains and risks buying back at the wrong time. The signal is useful but not enough to decide the whole position.
     rubric:
       zh-cn:
-        - "(a) 220 个，其中 135 个；(b) 约 61.4%。"
-        - "(c) 说明错误信号和时滞的代价。"
+        - "(a) 约 61.4%。"
+        - "(b) 说明错误信号和时间的不确定。"
       en:
-        - "(a) 220, of which 135; (b) about 61.4%."
-        - "(c) Explains the cost of false signals and uncertain timing."
+        - "(a) About 61.4%."
+        - "(b) Explains false signals and uncertain timing."
 
   - id: Q2
     kind: exercise
     level: B
     star: true
     concepts: [stock-bond-correlation, aggregate-demand, aggregate-supply]
-    expected: { y1: "97.33", p1: "97.33", y2: "98", p2: "104" }
     question:
       zh-cn: |-
-        用 [[2.4#ad-as]] 中图的模型：AD 为 $Y = 100 + D - 0.5(P - 100)$，SRAS 为 $P = 100 + S + (Y - 100)$。
-        (a) 需求冲击 $D = -4$（$S = 0$）和供给冲击 $S = 6$（$D = 0$）下，产出和价格水平各是多少？
-        (b) 假设央行按 Taylor 规则（[[2.5]]）对通胀和产出缺口作出反应，两种情况下利率各大致朝哪个方向变化？股票和债券的价格呢？
-        (c) 如果一个时期的冲击以 (a) 中的第二种为主，股债组合的风险会怎样？
+        在 [[2.4#ad-as]] 中图的模型里，需求冲击（$D = -4$）使产出降到约 97.33、价格水平降到约 97.33；供给冲击（$S = 6$）使产出降到 98、价格水平升到 104。
+        (a) 假设央行按 Taylor 规则（[[2.5]]）对通胀和产出缺口作出反应，两种情况下利率各大致朝哪个方向变化？股票和债券的价格呢？
+        (b) 如果一个时期的冲击以供给冲击为主，股债组合的风险会怎样？
       en: |-
-        Use the model of the figure in [[2.4#ad-as]]: AD is $Y = 100 + D - 0.5(P - 100)$ and SRAS is $P = 100 + S + (Y - 100)$.
-        (a) Under a demand shock $D = -4$ (with $S = 0$) and under a supply shock $S = 6$ (with $D = 0$), what are output and the price level?
-        (b) Assuming the central bank responds to inflation and the output gap by the Taylor rule ([[2.5]]), in which direction do interest rates roughly move in each case? And stock and bond prices?
-        (c) If a period's shocks are mainly of the second kind in (a), what happens to the risk of a stock–bond portfolio?
+        In the model of the figure in [[2.4#ad-as]], a demand shock ($D = -4$) lowers output to about 97.33 and the price level to about 97.33; a supply shock ($S = 6$) lowers output to 98 and raises the price level to 104.
+        (a) If the central bank responds to inflation and the output gap by the Taylor rule ([[2.5]]), in which direction does the interest rate roughly move in each case? What about stock and bond prices?
+        (b) If the shocks of a period are mainly supply shocks, what happens to the risk of a stock-bond portfolio?
     answer:
       zh-cn: |-
-        (a) 需求冲击：$Y \approx 97.33$，$P \approx 97.33$；供给冲击：$Y = 98$，$P = 104$。
-        (b) 需求冲击：产出和价格都下降，央行降息；利润下降，股价下跌，利率下降使债券上涨：股债反向。供给冲击：产出下降、价格上升，按 Taylor 规则通胀的系数更大，央行倾向于加息；股价下跌，利率上升使债券也下跌：股债同向。
-        (c) 股债相关性为正，债券不再能抵消股票的损失，组合的风险上升（如 2022 年）。
+        (a) 需求冲击：产出和价格都下降，央行降息；利润下降，股价下跌，利率下降使债券上涨：股债反向。供给冲击：产出下降、价格上升，按 Taylor 规则通胀的系数更大，央行倾向于加息；股价下跌，利率上升使债券也下跌：股债同向。
+        (b) 股债相关性为正，债券不再能抵消股票的损失，组合的风险上升（如 2022 年）。
       en: |-
-        (a) Demand shock: $Y \approx 97.33$, $P \approx 97.33$; supply shock: $Y = 98$, $P = 104$.
-        (b) Demand shock: output and prices both fall, and the central bank cuts rates; profits fall so stocks fall, while lower rates lift bonds: stocks and bonds move in opposite directions. Supply shock: output falls and prices rise; under the Taylor rule the weight on inflation is larger, so the central bank tends to raise rates; stocks fall, and higher rates make bonds fall too: stocks and bonds move together.
-        (c) The stock–bond correlation is positive, bonds no longer offset stock losses, and the portfolio's risk rises (as in 2022).
+        (a) Demand shock: output and prices both fall and the central bank cuts rates; profits fall so stocks fall, while lower rates lift bonds: stocks and bonds move in opposite directions. Supply shock: output falls and prices rise; the Taylor rule puts the larger weight on inflation, so the central bank tends to raise rates; stocks fall and higher rates push bonds down too: they move together.
+        (b) The stock-bond correlation turns positive, bonds no longer offset stock losses, and portfolio risk rises (as in 2022).
     rubric:
       zh-cn:
-        - "(a) 约 97.33 和 97.33；98 和 104。"
-        - "(b)(c) 两种冲击下利率、股票和债券的方向，以及组合风险上升。"
+        - "(a) 两种冲击下利率、股票和债券的方向。"
+        - "(b) 相关性为正，风险上升。"
       en:
-        - "(a) About 97.33 and 97.33; 98 and 104."
-        - "(b)(c) Directions of rates, stocks and bonds in both cases, and the higher portfolio risk."
+        - "(a) Directions of rates, stocks and bonds under each shock."
+        - "(b) Positive correlation; higher risk."
 
   - id: Q3
     kind: exercise
@@ -236,30 +225,26 @@ questions:
     question:
       zh-cn: |-
         一个 60% 股票、40% 债券的组合（每年初调回这个比例）。
-        (a) 用讲义中 2022 年的收益（股票 −18.1%，债券 −13.0%），组合当年的收益是多少？
-        (b) 假设另一个股票同样下跌 18.1%、但债券上涨 6% 的年份，组合的收益是多少？
-        (c) 两者的差别说明了什么？如果投资者担心未来的冲击主要来自通胀，他可能会考虑哪些类型的资产来分散风险？（只说明理由，不涉及具体证券。）
+        (a) 用讲义中 2022 年的收益（股票 −18.1%，债券 −13.0%），组合当年的收益是多少？如果另一年股票同样下跌 18.1%、但债券上涨 6%，组合的收益是多少？
+        (b) 两者的差别说明了什么？如果投资者担心未来的冲击主要来自通胀，他可能会考虑哪些类型的资产来分散风险？（只说明理由，不涉及具体证券。）
       en: |-
         A portfolio of 60% stocks and 40% bonds (rebalanced to these weights at the start of each year).
-        (a) Using the lesson's 2022 returns (stocks −18.1%, bonds −13.0%), what was the portfolio's return that year?
-        (b) In another year when stocks also fall 18.1% but bonds rise 6%, what is the portfolio's return?
-        (c) What does the difference show? If an investor fears that future shocks will come mainly from inflation, what kinds of assets might diversify the risk? (Give reasons only; do not name specific securities.)
+        (a) Using the lesson's 2022 returns (stocks −18.1%, bonds −13.0%), what was the portfolio's return that year? In another year in which stocks also fall 18.1% but bonds rise 6%, what is the portfolio's return?
+        (b) What does the difference show? If an investor worries that future shocks will come mainly from inflation, what types of assets might they consider for diversification? (Give reasons only; no specific securities.)
     answer:
       zh-cn: |-
-        (a) $0.6 \times (-18.1\%) + 0.4 \times (-13.0\%) = -16.06\%$。
-        (b) $0.6 \times (-18.1\%) + 0.4 \times 6\% = -8.46\%$。
-        (c) 同样的股市下跌，组合的损失相差约 7.6 个百分点：分散的效果取决于股债相关性。通胀冲击下，名义债券和股票都受利率上升的打击。可以考虑的是收益与通胀挂钩或在通胀上升时往往表现较好的资产，例如通胀保值债券（本金随 CPI 调整）、短期债券（利率上升时很快按新利率再投资）、大宗商品等；它们各有自己的风险，在需求冲击下的表现也可能更差。
+        (a) $0.6 \times (-18.1\%) + 0.4 \times (-13.0\%) = -16.06\%$；$0.6 \times (-18.1\%) + 0.4 \times 6\% = -8.46\%$。
+        (b) 同样的股市下跌，组合的损失相差约 7.6 个百分点：分散的效果取决于股债相关性。通胀冲击下，名义债券和股票都受利率上升的打击。可以考虑的是收益与通胀挂钩或在通胀上升时往往表现较好的资产，例如通胀保值债券（本金随 CPI 调整）、短期债券（利率上升时很快按新利率再投资）、大宗商品等；它们各有自己的风险，在需求冲击下的表现也可能更差。
       en: |-
-        (a) $0.6 \times (-18.1\%) + 0.4 \times (-13.0\%) = -16.06\%$.
-        (b) $0.6 \times (-18.1\%) + 0.4 \times 6\% = -8.46\%$.
-        (c) With the same stock market fall, the portfolio losses differ by about 7.6 points: diversification depends on the stock–bond correlation. Under inflation shocks, nominal bonds and stocks are both hurt by rising rates. Candidates are assets whose returns are linked to inflation or that tend to do well when inflation rises, such as inflation-protected bonds (principal adjusted with the CPI), short-term bonds (reinvested quickly at new rates when rates rise) and commodities; each has its own risks and may do worse under demand shocks.
+        (a) $0.6 \times (-18.1\%) + 0.4 \times (-13.0\%) = -16.06\%$; $0.6 \times (-18.1\%) + 0.4 \times 6\% = -8.46\%$.
+        (b) For the same stock decline, the portfolio losses differ by about 7.6 percentage points: the benefit of diversification depends on the stock-bond correlation. In an inflation shock, nominal bonds and stocks are both hit by rising rates. Candidates are assets whose returns are linked to inflation or tend to do well when inflation rises, such as inflation-protected bonds (principal adjusted with the CPI), short-term bonds (quickly reinvested at new, higher rates) and commodities; each has its own risks and may do worse in a demand shock.
     rubric:
       zh-cn:
-        - "(a) −16.06%；(b) −8.46%（写作 - 或 − 均可）。"
-        - "(c) 说明分散效果取决于相关性，并合理说明能对冲通胀的资产类型。"
+        - "(a) −16.06% 和 −8.46%（写作 - 或 − 均可）。"
+        - "(b) 说明相关性的作用，并给出有理由的资产类型。"
       en:
-        - "(a) −16.06%; (b) −8.46% (written with - or −)."
-        - "(c) Explains that diversification depends on correlation and reasonably describes asset types that hedge inflation."
+        - "(a) −16.06% and −8.46% (written with - or −)."
+        - "(b) Explains the role of correlation and gives asset types with reasons."
 
   - id: Q4
     kind: exercise
@@ -268,30 +253,26 @@ questions:
     question:
       zh-cn: |-
         某国连续两个季度实际 GDP 按年率下降 0.5% 和 0.3%；同期非农就业每月增加约 40 万人，失业率保持在 3.6%，实际消费继续增长。
-        (a) 按“两个季度负增长”的标准，这是衰退吗？
-        (b) 按 NBER 的标准，委员会可能怎样判断？为什么？
-        (c) GDP 的初步估计后来常被修订（[[2.1]]）。这对实时判断衰退有什么影响？
+        (a) 按“两个季度负增长”的粗略标准这是衰退。按 NBER 的标准，委员会可能怎样判断？为什么？
+        (b) GDP 的初步估计后来常被修订（[[2.1]]）。这对实时判断衰退有什么影响？
       en: |-
-        A country's real GDP falls at annual rates of 0.5% and 0.3% in two consecutive quarters; over the same period nonfarm payrolls grow by about 400,000 a month, unemployment stays at 3.6%, and real consumption keeps growing.
-        (a) By the "two negative quarters" rule, is this a recession?
-        (b) By the NBER's criteria, how might the committee judge it? Why?
-        (c) First GDP estimates are often revised later ([[2.1]]). What does this mean for judging recessions in real time?
+        A country's real GDP fell at annual rates of 0.5% and 0.3% in two consecutive quarters; over the same period nonfarm employment rose by about 400,000 a month, unemployment stayed at 3.6% and real consumption kept growing.
+        (a) By the rough "two quarters of negative growth" rule this is a recession. How might the NBER committee judge it? Why?
+        (b) Early GDP estimates are often revised later ([[2.1]]). What does this mean for judging recessions in real time?
     answer:
       zh-cn: |-
-        (a) 按这个粗略标准是。
-        (b) 很可能不认定为衰退。NBER 要求经济活动显著、广泛、持续地下降；这里 GDP 的下降很小，而就业强劲增长、失业率很低、消费增长，衰退没有遍及整个经济。GDP 的小幅下降可能来自存货或净出口等波动较大的部分。
-        (c) 实时数据不完整，后来的修订可能改变下降的幅度甚至方向，所以单看初步的 GDP 数据容易误判；这也是 NBER 要等较长时间、综合多种指标才认定的原因。
+        (a) 很可能不认定为衰退。NBER 要求经济活动显著、广泛、持续地下降；这里 GDP 的下降很小，而就业强劲增长、失业率很低、消费增长，衰退没有遍及整个经济。GDP 的小幅下降可能来自存货或净出口等波动较大的部分。
+        (b) 实时数据不完整，后来的修订可能改变下降的幅度甚至方向，所以单看初步的 GDP 数据容易误判；这也是 NBER 要等较长时间、综合多种指标才认定的原因。
       en: |-
-        (a) Yes, by that rough rule.
-        (b) Probably not a recession. The NBER looks for a significant, widespread and lasting decline in activity; here the GDP decline is small, while employment grows strongly, unemployment is low and consumption grows, so the downturn is not spread across the economy. A small GDP decline can come from volatile parts such as inventories or net exports.
-        (c) Real-time data are incomplete, and later revisions can change the size or even the direction of the decline, so first GDP estimates alone can mislead; this is one reason the NBER waits and looks at many indicators before deciding.
+        (a) Most likely not a recession. The NBER requires a significant, broad and lasting decline in economic activity; here the GDP decline is small, while employment grows strongly, unemployment is low and consumption grows, so the decline does not spread across the economy. The small GDP fall may come from volatile parts such as inventories or net exports.
+        (b) Real-time data are incomplete, and later revisions may change the size or even the direction of the decline, so judging from early GDP data alone is error-prone; this is why the NBER waits a long time and looks at many indicators before deciding.
     rubric:
       zh-cn:
-        - "(a) 按粗略标准是；(b) 用显著、广泛、持续的标准说明可能不认定。"
-        - "(c) 说明数据修订带来的不确定性。"
+        - "(a) 很可能不是衰退，用显著、广泛、持续说明。"
+        - "(b) 说明数据修订带来的误判。"
       en:
-        - "(a) Yes by the rough rule; (b) explains with the significant, widespread, lasting criteria why it probably is not one."
-        - "(c) Explains the uncertainty from data revisions."
+        - "(a) Most likely not a recession, explained by significant, broad and lasting."
+        - "(b) Explains misjudgment caused by data revisions."
 
   - id: Q5
     kind: exercise
@@ -299,26 +280,22 @@ questions:
     concepts: [leading-indicator, present-value]
     question:
       zh-cn: |-
-        (a) 把下列指标分为领先、同步和滞后：首次申领失业救济的人数、工业生产、失业的平均持续时间、新建住房许可、非农就业、银行贷款利率、股价指数。
-        (b) 用现值（[[0.1]]）说明为什么股价是领先指标。
-        (c) 为什么新建住房许可会领先于经济？
+        (a) 用现值（[[0.1]]）说明为什么股价是领先指标。
+        (b) 为什么新建住房许可会领先于经济，而失业的平均持续时间是滞后指标？
       en: |-
-        (a) Classify these indicators as leading, coincident or lagging: initial claims for unemployment benefits, industrial production, the average duration of unemployment, new housing permits, nonfarm payrolls, bank lending rates, a stock price index.
-        (b) Use present value ([[0.1]]) to explain why stock prices are a leading indicator.
-        (c) Why do new housing permits lead the economy?
+        (a) Use present value ([[0.1]]) to explain why stock prices are a leading indicator.
+        (b) Why do new housing permits lead the economy, while the average duration of unemployment is a lagging indicator?
     answer:
       zh-cn: |-
-        (a) 领先：首次申领失业救济的人数、新建住房许可、股价指数；同步：工业生产、非农就业；滞后：失业的平均持续时间、银行贷款利率。
-        (b) 股价是未来利润（股息）的现值。投资者一旦预期未来的利润会下降或回升，今天的股价就会立即变化，而利润和经济的实际变化要以后才出现。
-        (c) 盖房子之前先要申请许可，许可的变化反映了建筑商对未来需求的判断和对利率的反应（房贷利率上升，许可减少）；住宅投资又是 GDP 中波动最大的部分之一，会通过就业和收入影响整个经济。
+        (a) 股价是未来利润（股息）的现值。投资者一旦预期未来的利润会下降或回升，今天的股价就会立即变化，而利润和经济的实际变化要以后才出现。
+        (b) 盖房子之前先要申请许可，许可的变化反映了建筑商对未来需求的判断和对利率的反应（房贷利率上升，许可减少）；住宅投资又是 GDP 中波动最大的部分之一，会通过就业和收入影响整个经济。失业的平均持续时间要等失业的人找了一段时间工作才会变长；经济回升后，长期失业的人也要过一段时间才找到工作，所以它在衰退开始后才上升，在复苏后才下降。
       en: |-
-        (a) Leading: initial claims, new housing permits, the stock price index; coincident: industrial production, nonfarm payrolls; lagging: the average duration of unemployment, bank lending rates.
-        (b) A stock price is the present value of future profits (dividends). As soon as investors expect future profits to fall or recover, today's price changes, while the actual changes in profits and the economy come later.
-        (c) Permits are needed before building starts, so changes in permits reflect builders' views of future demand and their response to interest rates (higher mortgage rates mean fewer permits); residential investment is one of the most volatile parts of GDP and affects the whole economy through jobs and incomes.
+        (a) A stock price is the present value of future profits (dividends). As soon as investors expect future profits to fall or recover, today's price changes, while the actual changes in profits and the economy come later.
+        (b) A permit must be obtained before a house is built, so permits reflect builders' views of future demand and their response to interest rates (higher mortgage rates, fewer permits); residential investment is one of the most volatile parts of GDP and affects the whole economy through jobs and income. The average duration of unemployment rises only after the unemployed have searched for a while, and after a recovery begins the long-term unemployed also take time to find jobs, so it rises after a recession starts and falls after the recovery.
     rubric:
       zh-cn:
-        - "(a) 分类正确。"
-        - "(b)(c) 用现值和预期解释股价领先，说明住房许可领先的原因。"
+        - "(a) 用未来利润的现值说明。"
+        - "(b) 分别说明领先和滞后的原因。"
       en:
-        - "(a) Correct classification."
-        - "(b)(c) Explains with present value and expectations why stocks lead, and why permits lead."
+        - "(a) Explains with the present value of future profits."
+        - "(b) Explains both the lead and the lag."

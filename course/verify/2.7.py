@@ -32,6 +32,9 @@ def results():
     r["Q5.sd0"] = sqrt(16**2 + 8**2)
     r["Q5.sdneg"] = sqrt(16**2 + 8**2 + 2 * -0.3 * 16 * 8)
     r["Q5.sdb"] = sqrt(3**2 + 8**2)
+    # Values that the questions now give or no longer ask for.
+    for k in ['C1.ca2', 'C3.up', 'C3.down', 'C4.naive', 'Q1.ca1', 'Q3.loss']:
+        del r[k]
     return r
 
 

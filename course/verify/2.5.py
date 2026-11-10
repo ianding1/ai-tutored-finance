@@ -41,6 +41,9 @@ def results():
 
     r["Q5.r0"] = (4 + 4) / 2
     r["Q5.r1"] = (4 + 3) / 2
+    # Values that the questions now give or no longer ask for.
+    for k in ['C3.p0', 'C3.p1', 'Q1.gap', 'Q1.i2', 'Q4.p1', 'Q4.p2', 'Q4.ch']:
+        del r[k]
     return r
 
 

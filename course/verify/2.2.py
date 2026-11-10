@@ -46,6 +46,9 @@ def results():
     r["Q5.gps"] = 100 * (1.05 / 1.02 - 1)
     r["Q5.ret"] = 1.5 + r["Q5.gps"]
     r["Q5.naive"] = 1.5 + 5
+    # Values that the questions now give or no longer ask for.
+    for k in ['C1.gy', 'C2.k1', 'C2.k2', 'C3.r', 'Q3.c1', 'Q3.c2', 'Q3.c3']:
+        del r[k]
     return r
 
 

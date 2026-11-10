@@ -54,6 +54,9 @@ def results():
     res["Q5.rev"] = 100 * 1.143 / 5.403
     res["Q5.add"] = 31 * 0.01
     res["Q5.prim"] = (7.396 - 5.403) - 1.143
+    # Values that the questions now give or no longer ask for.
+    for k in ['C1.kg', 'C1.dg', 'C3.b30', 'Q3.b1', 'Q5.add']:
+        del res[k]
     return res
 
 

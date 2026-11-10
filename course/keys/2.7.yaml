@@ -60,28 +60,26 @@ questions:
     kind: check
     section: bop
     concepts: [current-account]
-    expected: { ca: "-3.6", ca2: "-1.6" }
+    expected: { ca: "-3.6" }
     question:
       zh-cn: |-
-        某国的国民储蓄为 GDP 的 18%，投资为 GDP 的 21.6%（忽略净投资收入和转移）。(a) 经常账户差额占 GDP 的百分之几？外国资本净流入呢？(b) 政府把财政赤字减少 GDP 的 2%，私人储蓄和投资不变，经常账户差额变为多少？(c) 如果经常账户赤字是因为企业投资增加造成的，是否一定是坏事？
+        某国的国民储蓄为 GDP 的 18%，投资为 GDP 的 21.6%（忽略净投资收入和转移）。(a) 经常账户差额占 GDP 的百分之几？外国资本净流入呢？(b) 如果这个赤字是因为企业投资增加造成的，是否一定是坏事？
       en: |-
-        A country's national saving is 18% of GDP and investment 21.6% of GDP (ignore net investment income and transfers). (a) What is the current account balance as a percentage of GDP? And the net capital inflow from abroad? (b) The government cuts its budget deficit by 2% of GDP, with private saving and investment unchanged. What does the current account balance become? (c) If a current account deficit comes from higher business investment, is it necessarily bad?
+        A country's national saving is 18% of GDP and its investment is 21.6% of GDP (ignore net investment income and transfers). (a) What is the current account balance as a percentage of GDP? What is the net inflow of foreign capital? (b) If the deficit was caused by higher business investment, is it necessarily bad?
     answer:
       zh-cn: |-
         (a) $S - I = 18\% - 21.6\% = -3.6\%$，经常账户赤字为 GDP 的 3.6%；外国资本净流入也是 GDP 的 3.6%。
-        (b) 政府储蓄增加 2%，国民储蓄变为 20%，经常账户差额为 $20\% - 21.6\% = -1.6\%$。
-        (c) 不一定。借外国的钱投资，如果投资的收益高于借款的成本，将来的产出足以偿还，就是合理的；如果赤字来自消费或政府赤字，未来要用更多的产出偿还而没有相应的资产，更值得担心。
+        (b) 不一定。借外国的钱投资，如果投资的收益高于借款的成本，将来的产出足以偿还，就是合理的；如果赤字来自消费或政府赤字，未来要用更多的产出偿还而没有相应的资产，更值得担心。
       en: |-
-        (a) $S - I = 18\% - 21.6\% = -3.6\%$: a current account deficit of 3.6% of GDP; the net capital inflow is also 3.6% of GDP.
-        (b) Government saving rises by 2%, national saving becomes 20%, and the current account balance is $20\% - 21.6\% = -1.6\%$.
-        (c) Not necessarily. Borrowing from abroad to invest is reasonable if the investment earns more than the borrowing costs, because future output can repay it; a deficit that comes from consumption or government deficits must be repaid with future output without matching assets and is more worrying.
+        (a) $S - I = 18\% - 21.6\% = -3.6\%$: a current account deficit of 3.6% of GDP, and a net inflow of foreign capital of 3.6% of GDP.
+        (b) Not necessarily. Borrowing from abroad to invest is reasonable if the investment earns more than the cost of borrowing, so that future output can repay it; a deficit that comes from consumption or a government deficit is more worrying, because more output must be paid back later with no matching assets.
     rubric:
       zh-cn:
-        - "(a) −3.6%（写作 -3.6 或 −3.6 均可），资本净流入 3.6%；(b) −1.6%。"
-        - "(c) 区分投资和消费造成的赤字。"
+        - "(a) −3.6%（写作 - 或 − 均可），资本净流入 3.6%。"
+        - "(b) 比较投资收益和借款成本。"
       en:
-        - "(a) −3.6% (written -3.6 or −3.6), net inflow 3.6%; (b) −1.6%."
-        - "(c) Distinguishes deficits from investment and from consumption."
+        - "(a) −3.6% (written with - or −); net capital inflow 3.6%."
+        - "(b) Compares the return on investment with the cost of borrowing."
 
   - id: C2
     kind: check
@@ -90,114 +88,102 @@ questions:
     expected: { e10: "1.2127" }
     question:
       zh-cn: |-
-        现在 1 欧元 = 1.10 美元。假设今后 10 年美国每年通胀 3%，欧元区每年 2%。(a) 按相对购买力平价（精确形式 $\frac{E_{t+1}}{E_t} = \frac{1 + \pi}{1 + \pi^*}$），10 年后的汇率是多少？哪种货币贬值？(b) 这时实际汇率有没有变化？(c) 为什么不能用这个方法预测明年的汇率？
+        现在 1 欧元 = 1.10 美元。假设今后 10 年美国每年通胀 3%，欧元区每年 2%。(a) 按相对购买力平价（精确形式 $\frac{E_{t+1}}{E_t} = \frac{1 + \pi}{1 + \pi^*}$），10 年后的汇率是多少？哪种货币贬值？(b) 为什么不能用这个方法预测明年的汇率？
       en: |-
-        Today 1 euro = 1.10 dollars. Suppose that over the next 10 years US inflation is 3% a year and euro area inflation 2%. (a) By relative PPP (in exact form, $\frac{E_{t+1}}{E_t} = \frac{1 + \pi}{1 + \pi^*}$), what is the exchange rate after 10 years? Which currency depreciates? (b) Has the real exchange rate changed? (c) Why can this method not be used to forecast next year's exchange rate?
+        Now 1 euro = 1.10 dollars. Suppose that over the next 10 years US inflation is 3% a year and euro-area inflation 2% a year. (a) By relative purchasing power parity (exact form $\frac{E_{t+1}}{E_t} = \frac{1 + \pi}{1 + \pi^*}$), what is the exchange rate after 10 years? Which currency depreciates? (b) Why can this method not be used to forecast next year's exchange rate?
     answer:
       zh-cn: |-
-        (a) $E_{10} = 1.10 \times \left(\frac{1.03}{1.02}\right)^{10} \approx 1.2127$ 美元。$E$ 上升，欧元升值，美元贬值，每年约 1%，正好抵消美国较高的通胀。
-        (b) 没有：$\varepsilon = \frac{EP^*}{P}$ 中，$E$ 和 $\frac{P}{P^*}$ 以同样的速度上升，实际汇率不变。这正是购买力平价的含义。
-        (c) 短期中汇率主要受资本流动、利率和预期影响，可以多年偏离购买力平价；通胀的差别每年只有 1 个百分点左右，远小于汇率每年的波动。
+        (a) $E_{10} = 1.10 \times \left(\frac{1.03}{1.02}\right)^{10} \approx 1.2127$ 美元。$E$ 上升，欧元升值，美元贬值，每年约 1%，正好抵消美国较高的通胀，实际汇率不变。
+        (b) 短期中汇率主要受资本流动、利率和预期影响，可以多年偏离购买力平价；通胀的差别每年只有 1 个百分点左右，远小于汇率每年的波动。
       en: |-
-        (a) $E_{10} = 1.10 \times \left(\frac{1.03}{1.02}\right)^{10} \approx 1.2127$ dollars. $E$ rises: the euro appreciates and the dollar depreciates, by about 1% a year, exactly offsetting the higher US inflation.
-        (b) No: in $\varepsilon = \frac{EP^*}{P}$, $E$ and $\frac{P}{P^*}$ rise at the same rate, so the real exchange rate is unchanged. This is exactly what PPP means.
-        (c) In the short run exchange rates are driven mainly by capital flows, interest rates and expectations and can stay away from PPP for years; the inflation gap is only about 1 percentage point a year, far smaller than yearly exchange rate swings.
+        (a) $E_{10} = 1.10 \times \left(\frac{1.03}{1.02}\right)^{10} \approx 1.2127$ dollars. $E$ rises: the euro appreciates and the dollar depreciates, by about 1% a year, which exactly offsets the higher US inflation and leaves the real exchange rate unchanged.
+        (b) In the short run exchange rates are driven mainly by capital flows, interest rates and expectations, and can stay away from purchasing power parity for years; the inflation difference is only about 1 percentage point a year, far smaller than yearly exchange-rate swings.
     rubric:
       zh-cn:
-        - "(a) 约 1.2127，美元贬值。"
-        - "(b) 实际汇率不变；(c) 说明短期的其他影响。"
+        - "(a) 约 1.2127 美元，美元贬值。"
+        - "(b) 说明短期汇率的主要影响因素。"
       en:
-        - "(a) About 1.2127, the dollar depreciates."
-        - "(b) Real rate unchanged; (c) explains the short-run influences."
+        - "(a) About 1.2127 dollars; the dollar depreciates."
+        - "(b) Explains what drives exchange rates in the short run."
 
   - id: C3
     kind: check
     section: interest-parity
     concepts: [covered-interest-parity, uncovered-interest-parity]
     widget: { id: fx-return, set: { i: 4, istar: 2 } }
-    expected: { f: "1.1216", up: "5.06", down: "-1.06", be: "1.96" }
+    expected: { f: "1.1216", be: "1.96" }
     question:
       zh-cn: |-
-        美元 1 年期利率 4%，欧元 2%，即期汇率 1 欧元 = 1.10 美元。(a) 由抛补利率平价，1 年期远期汇率是多少？(b) 美国投资者买欧元国债，不对冲。一年后欧元升值 3% 或贬值 3% 时，以美元计的收益各是多少？对冲时呢？(c) 在 [[fig:4-1]] 中读出：欧元的变化要高于多少，不对冲才比对冲好？按非抛补利率平价，市场预期欧元怎样变化？
+        美元 1 年期利率 4%，欧元 2%，即期汇率 1 欧元 = 1.10 美元。(a) 由抛补利率平价，1 年期远期汇率是多少？美国投资者买欧元国债并对冲，收益是多少？(b) 在 [[fig:4-1]] 中读出：不对冲时，欧元的变化要高于多少才比对冲好？按非抛补利率平价，市场预期欧元怎样变化？
       en: |-
-        The 1-year dollar rate is 4%, the euro rate 2%, and the spot rate is 1 euro = 1.10 dollars. (a) By covered interest parity, what is the 1-year forward rate? (b) A US investor buys a euro government bond without hedging. If the euro rises 3% or falls 3% over the year, what is the return in dollars? And if hedged? (c) From [[fig:4-1]]: above what change in the euro is not hedging better than hedging? Under uncovered interest parity, how is the euro expected to move?
+        The 1-year dollar rate is 4%, the euro rate 2%, and the spot rate 1 euro = 1.10 dollars. (a) By covered interest parity, what is the 1-year forward rate? What does a US investor earn on euro government bonds when hedged? (b) In [[fig:4-1]], read off how much the euro must change for not hedging to beat hedging. Under uncovered interest parity, what change in the euro does the market expect?
     answer:
       zh-cn: |-
-        (a) $F = 1.10 \times \frac{1.04}{1.02} \approx 1.1216$ 美元。
-        (b) 欧元升值 3%：$1.02 \times 1.03 - 1 \approx 5.06\%$；贬值 3%：$1.02 \times 0.97 - 1 \approx -1.06\%$。对冲：按远期汇率换回，收益为 4%，与美国国债相同。
-        (c) 欧元的变化要高于约 1.96%（$\frac{1.04}{1.02} - 1$）。按非抛补利率平价，市场正是预期欧元升值约 1.96%，使两种投资的预期收益相等；欧元利率低，是由预期的升值补偿的。
+        (a) $F = 1.10 \times \frac{1.04}{1.02} \approx 1.1216$ 美元。对冲时按远期汇率换回，收益为 4%，与美国国债相同。
+        (b) 欧元的变化要高于约 1.96%（$\frac{1.04}{1.02} - 1$）。按非抛补利率平价，市场正是预期欧元升值约 1.96%，使两种投资的预期收益相等；欧元利率低，是由预期的升值补偿的。
       en: |-
-        (a) $F = 1.10 \times \frac{1.04}{1.02} \approx 1.1216$ dollars.
-        (b) Euro up 3%: $1.02 \times 1.03 - 1 \approx 5.06\%$; euro down 3%: $1.02 \times 0.97 - 1 \approx -1.06\%$. Hedged: converting back at the forward rate gives 4%, the same as a US bond.
-        (c) The euro must change by more than about 1.96% ($\frac{1.04}{1.02} - 1$). Under uncovered interest parity, markets expect the euro to rise by exactly about 1.96%, so that both investments have the same expected return; the euro's lower interest rate is compensated by the expected appreciation.
+        (a) $F = 1.10 \times \frac{1.04}{1.02} \approx 1.1216$ dollars. Hedged, the euros are converted back at the forward rate and the return is 4%, the same as on US Treasuries.
+        (b) The euro must change by more than about 1.96% ($\frac{1.04}{1.02} - 1$). Under uncovered interest parity the market expects exactly this appreciation of about 1.96%, which makes the expected returns equal; the lower euro rate is offset by the expected appreciation.
     rubric:
       zh-cn:
-        - "(a) 约 1.1216；(b) 约 5.06%、−1.06%（写作 -1.06 或 −1.06 均可），对冲 4%。"
-        - "(c) 约 1.96%，并说明非抛补利率平价的预期。"
+        - "(a) 约 1.1216 美元，对冲收益 4%。"
+        - "(b) 约 1.96%，说明预期升值补偿利差。"
       en:
-        - "(a) About 1.1216; (b) about 5.06% and −1.06% (written -1.06 or −1.06), hedged 4%."
-        - "(c) About 1.96%, explaining the expectation under uncovered interest parity."
+        - "(a) About 1.1216 dollars; hedged return 4%."
+        - "(b) About 1.96%, explaining that expected appreciation offsets the rate gap."
 
   - id: C4
     kind: check
     section: fx-risk
     concepts: [currency-hedging]
-    expected: { r: "1.2", naive: "2" }
+    expected: { r: "1.2" }
     question:
       zh-cn: |-
-        一位美国投资者持有日本股票。一年中，以日元计的收益为 10%，日元对美元贬值 8%。(a) 以美元计的收益是多少？(b) 有人直接算 $10\% - 8\% = 2\%$，差别来自哪里？(c) 如果他事先对冲了汇率风险，结果大致会怎样？
+        一位美国投资者持有日本股票。一年中，以日元计的收益为 10%，日元对美元贬值 8%。以美元计的收益是多少？有人直接算 $10\% - 8\% = 2\%$，差别来自哪里？
       en: |-
-        A US investor holds Japanese stocks. Over a year, the return in yen is 10%, and the yen falls 8% against the dollar. (a) What is the return in dollars? (b) Someone simply computes $10\% - 8\% = 2\%$. Where does the difference come from? (c) If the investor had hedged the currency risk in advance, what would roughly have happened?
+        A US investor holds Japanese stocks. Over a year the return in yen is 10% and the yen falls 8% against the dollar. What is the return in dollars? Someone simply computes $10\% - 8\% = 2\%$; where does the difference come from?
     answer:
       zh-cn: |-
-        (a) $1.10 \times 0.92 - 1 = 1.2\%$。
-        (b) 直接相减得 2%，忽略了交叉项 $10\% \times (-8\%) = -0.8\%$：日元贬值不只作用于本金，也作用于 10% 的收益。
-        (c) 对冲后，日元贬值的损失被远期合约的收益抵消，以美元计的收益接近 10%，再加上或减去对冲的成本（约为两国的利差）；美元利率高于日元时，对冲还会带来额外的收益。
+        $1.10 \times 0.92 - 1 = 1.2\%$。直接相减忽略了交叉项 $10\% \times (-8\%) = -0.8\%$：日元贬值不只作用于本金，也作用于 10% 的收益。
       en: |-
-        (a) $1.10 \times 0.92 - 1 = 1.2\%$.
-        (b) Simple subtraction gives 2% and ignores the cross term $10\% \times (-8\%) = -0.8\%$: the yen's fall applies to the gain as well as the principal.
-        (c) With a hedge, the loss from the yen's fall is offset by the gain on the forward contract, so the dollar return is close to 10%, plus or minus the cost of hedging (about the interest differential); when dollar rates are above yen rates, hedging even adds to the return.
+        $1.10 \times 0.92 - 1 = 1.2\%$. Simple subtraction ignores the cross term $10\% \times (-8\%) = -0.8\%$: the fall of the yen applies not only to the principal but also to the 10% gain.
     rubric:
       zh-cn:
-        - "(a) 1.2%；(b) 指出交叉项。"
-        - "(c) 说明对冲抵消汇率损失，成本约为利差。"
+        - "1.2%。"
+        - "指出交叉项。"
       en:
-        - "(a) 1.2%; (b) identifies the cross term."
-        - "(c) Explains that the hedge offsets the currency loss at a cost of about the interest differential."
+        - "1.2%."
+        - "Points to the cross term."
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1
     kind: exercise
     level: B
     concepts: [current-account]
-    expected: { ca1: "-3", ca2: "-5" }
+    expected: { ca2: "-5" }
     question:
       zh-cn: |-
-        某国 GDP 为 100，国民储蓄 20，投资 23（忽略净投资收入和转移）。
-        (a) 经常账户差额和资本净流入各是多少？
-        (b) 新技术使企业投资增加到 25，储蓄不变。经常账户差额变为多少？外国人用什么换来了这些产品？
-        (c) 政府宣布对进口加征关税。如果储蓄和投资都不变，长期中经常账户差额会变吗？为什么？
+        某国 GDP 为 100，国民储蓄 20，投资 23（忽略净投资收入和转移），经常账户赤字为 3。
+        (a) 新技术使企业投资增加到 25，储蓄不变。经常账户差额变为多少？外国人用什么换来了这些产品？
+        (b) 政府宣布对进口加征关税。如果储蓄和投资都不变，长期中经常账户差额会变吗？为什么？
       en: |-
-        A country has GDP of 100, national saving of 20 and investment of 23 (ignore net investment income and transfers).
-        (a) What are the current account balance and the net capital inflow?
-        (b) New technology raises business investment to 25, with saving unchanged. What does the current account balance become? What do foreigners get in exchange for these goods?
-        (c) The government announces tariffs on imports. If saving and investment do not change, does the current account balance change in the long run? Why?
+        A country's GDP is 100, national saving 20 and investment 23 (ignore net investment income and transfers), so the current account deficit is 3.
+        (a) A new technology raises business investment to 25, with saving unchanged. What is the current account balance now? What do foreigners get in exchange for the extra goods?
+        (b) The government announces tariffs on imports. If saving and investment do not change, does the current account balance change in the long run? Why?
     answer:
       zh-cn: |-
-        (a) $20 - 23 = -3$，经常账户赤字 3，外国资本净流入 3。
-        (b) $20 - 25 = -5$。外国人得到本国的资产：股票、债券、工厂的所有权，或者对本国的贷款。
-        (c) 不会：$S - I = NX$ 是恒等式，只要储蓄和投资不变，经常账户差额就不变。关税可能减少进口，但也会通过汇率（本币升值）或其他渠道减少出口，或者改变储蓄和投资；只靠关税而不改变储蓄和投资，不能改变经常账户的总差额。
+        (a) $20 - 25 = -5$。外国人得到本国的资产：股票、债券、工厂的所有权，或者对本国的贷款。
+        (b) 不会：$S - I = NX$ 是恒等式，只要储蓄和投资不变，经常账户差额就不变。关税可能减少进口，但也会通过汇率（本币升值）或其他渠道减少出口，或者改变储蓄和投资；只靠关税而不改变储蓄和投资，不能改变经常账户的总差额。
       en: |-
-        (a) $20 - 23 = -3$: a current account deficit of 3 and a net capital inflow of 3.
-        (b) $20 - 25 = -5$. Foreigners get domestic assets: shares, bonds, ownership of factories, or loans to domestic borrowers.
-        (c) No: $S - I = NX$ is an identity, so as long as saving and investment are unchanged, the current account balance is unchanged. Tariffs may cut imports, but they also cut exports through the exchange rate (the home currency appreciates) or other channels, or they change saving and investment; tariffs alone, without a change in saving and investment, cannot change the overall current account balance.
+        (a) $20 - 25 = -5$. Foreigners get domestic assets: shares, bonds, ownership of factories, or loans to the country.
+        (b) No: $S - I = NX$ is an identity, so as long as saving and investment are unchanged, the current account balance is unchanged. Tariffs may reduce imports, but they also reduce exports through the exchange rate (the home currency appreciates) or other channels, or they change saving and investment; tariffs alone, without a change in saving and investment, cannot change the overall current account balance.
     rubric:
       zh-cn:
-        - "(a) −3，流入 3；(b) −5（写作 - 或 − 均可），外国人得到资产。"
-        - "(c) 用 $S - I = NX$ 说明关税本身不改变总差额。"
+        - "(a) −5（写作 -5 或 −5 均可），外国人得到本国资产。"
+        - "(b) 用恒等式说明不变，并指出抵消的渠道。"
       en:
-        - "(a) −3, inflow 3; (b) −5 (written with - or −), foreigners get assets."
-        - "(c) Uses $S - I = NX$ to explain that tariffs alone do not change the balance."
+        - "(a) −5 (written -5 or −5); foreigners get domestic assets."
+        - "(b) Uses the identity to explain why it does not change, and names an offsetting channel."
 
   - id: Q2
     kind: exercise
@@ -234,34 +220,30 @@ questions:
     level: C
     star: true
     concepts: [uncovered-interest-parity, covered-interest-parity]
-    expected: { be: "3.37", loss: "-6.9" }
+    expected: { be: "3.37" }
     question:
       zh-cn: |-
         一位投资者借入日元（年利率 0.5%），换成美元投资于 1 年期美国国债（年利率 4%），不对冲，一年后换回日元还款。
         (a) 美元对日元最多可以贬值多少，这笔交易才不亏？
-        (b) 一年中发生危机，美元对日元贬值 10%。每借 100 日元，盈亏是多少日元？
-        (c) 如果非抛补利率平价成立，这种交易的预期收益是多少？为什么现实中它平均能赚钱，却被比作“在压路机前捡硬币”？
+        (b) 如果非抛补利率平价成立，这种交易的预期收益是多少？为什么现实中它平均能赚钱，却被比作“在压路机前捡硬币”？
       en: |-
-        An investor borrows yen at 0.5% a year, converts to dollars and invests in a 1-year US Treasury bill at 4%, unhedged, converting back to yen after a year to repay.
+        An investor borrows yen (at 0.5% a year), converts them to dollars and buys 1-year US Treasuries (at 4% a year), unhedged, converting back to yen after a year to repay the loan.
         (a) By how much at most can the dollar fall against the yen for the trade not to lose money?
-        (b) A crisis hits during the year and the dollar falls 10% against the yen. For every 100 yen borrowed, what is the gain or loss in yen?
-        (c) If uncovered interest parity held, what would the expected return of this trade be? Why does it earn money on average in reality, yet is likened to "picking up coins in front of a steamroller"?
+        (b) If uncovered interest parity holds, what is the expected return of this trade? Why does it make money on average in practice, yet is compared to "picking up coins in front of a steamroller"?
     answer:
       zh-cn: |-
         (a) 设美元对日元的变化为 $x$，不亏要求 $1.04(1 + x) \ge 1.005$，$x \ge \frac{1.005}{1.04} - 1 \approx -3.37\%$：美元最多可贬值约 3.37%。
-        (b) $100 \times 1.04 \times 0.9 - 100 \times 1.005 = 93.6 - 100.5 = -6.9$ 日元，亏损 6.9 日元，约为借款的 6.9%。
-        (c) 如果非抛补利率平价成立，市场预期美元贬值约等于利差，预期收益约为 0。现实中高利率货币平均没有贬值那么多，交易在大多数年份赚取利差；但在危机中，投资者同时平仓，高利率货币突然大幅贬值，一次亏损就可能抵消多年的收益，而且这种亏损恰好发生在其他资产也下跌的时候。
+        (b) 如果非抛补利率平价成立，市场预期美元贬值约等于利差，预期收益约为 0。现实中高利率货币平均没有贬值那么多，交易在大多数年份赚取利差；但在危机中，投资者同时平仓，高利率货币突然大幅贬值（例如贬值 10% 就亏掉借款的约 6.9%），一次亏损就可能抵消多年的收益，而且这种亏损恰好发生在其他资产也下跌的时候。
       en: |-
-        (a) Let $x$ be the dollar's change against the yen; not losing requires $1.04(1 + x) \ge 1.005$, so $x \ge \frac{1.005}{1.04} - 1 \approx -3.37\%$: the dollar can fall by at most about 3.37%.
-        (b) $100 \times 1.04 \times 0.9 - 100 \times 1.005 = 93.6 - 100.5 = -6.9$ yen: a loss of 6.9 yen, about 6.9% of the amount borrowed.
-        (c) If uncovered interest parity held, markets would expect the dollar to fall by about the interest differential, and the expected return would be about 0. In reality high-rate currencies on average do not fall that much, so the trade earns the interest differential in most years; but in a crisis, investors unwind at the same time, the high-rate currency suddenly falls sharply, one loss can wipe out years of gains, and the loss comes exactly when other assets are falling too.
+        (a) Let $x$ be the change of the dollar against the yen. Breaking even requires $1.04(1 + x) \ge 1.005$, so $x \ge \frac{1.005}{1.04} - 1 \approx -3.37\%$: the dollar can fall by at most about 3.37%.
+        (b) If uncovered interest parity holds, the market expects the dollar to fall by about the rate gap, so the expected return is about 0. In practice high-rate currencies have on average fallen less than that, so the trade earns the rate gap in most years; but in a crisis investors unwind together and the high-rate currency suddenly falls sharply (a 10% fall loses about 6.9% of the loan), so one loss can wipe out years of gains, and it comes exactly when other assets are falling too.
     rubric:
       zh-cn:
-        - "(a) 约 3.37%；(b) 约 −6.9 日元（写作 -6.9 或 −6.9 均可）。"
-        - "(c) 说明非抛补利率平价下预期收益约为 0，以及崩盘风险。"
+        - "(a) 约 3.37%。"
+        - "(b) 预期收益约 0；说明平时赚利差、危机中集中亏损。"
       en:
-        - "(a) About 3.37%; (b) about −6.9 yen (written -6.9 or −6.9)."
-        - "(c) Explains the zero expected return under UIP and the crash risk."
+        - "(a) About 3.37%."
+        - "(b) Expected return about 0; explains small gains in normal times and concentrated losses in crises."
 
   - id: Q4
     kind: exercise
@@ -299,28 +281,24 @@ questions:
     expected: { sd0: "17.89", sdneg: "15.59", sdb: "8.54" }
     question:
       zh-cn: |-
-        把以本币计的收益近似为 $R \approx R^* + x$，用 [[0.3]] 的 $\sigma^2 = \sigma_1^2 + \sigma_2^2 + 2\rho\sigma_1\sigma_2$。
-        (a) 欧洲股票以欧元计的收益标准差为 16%，欧元对美元变化的标准差为 8%，两者相关系数为 0。不对冲时，以美元计的收益的标准差约为多少？对冲后呢（假设对冲完全消除汇率变化）？
-        (b) 如果相关系数为 −0.3（欧洲股市下跌时欧元往往升值），不对冲时的标准差是多少？
-        (c) 欧洲债券以欧元计的收益标准差为 3%，与汇率的相关系数为 0。不对冲时的标准差是多少？为什么外国债券一般要对冲，而外国股票不一定？
+        把以本币计的收益近似为 $R \approx R^* + x$，用 [[0.3]] 的 $\sigma^2 = \sigma_1^2 + \sigma_2^2 + 2\rho\sigma_1\sigma_2$；假设对冲完全消除汇率变化。
+        (a) 欧洲股票以欧元计的收益标准差为 16%，欧元对美元变化的标准差为 8%。两者的相关系数为 0 和 −0.3 时，不对冲的标准差各是多少？与对冲相比如何？
+        (b) 欧洲债券以欧元计的收益标准差为 3%，与汇率的相关系数为 0。不对冲时的标准差是多少？为什么外国债券一般要对冲，而外国股票不一定？
       en: |-
-        Approximate the return in home currency as $R \approx R^* + x$ and use $\sigma^2 = \sigma_1^2 + \sigma_2^2 + 2\rho\sigma_1\sigma_2$ from [[0.3]].
-        (a) European stocks have a standard deviation of 16% in euros, the euro's change against the dollar has a standard deviation of 8%, and their correlation is 0. What is the standard deviation of the dollar return unhedged? And hedged (assuming the hedge removes currency changes completely)?
-        (b) If the correlation is −0.3 (the euro tends to rise when European stocks fall), what is the unhedged standard deviation?
-        (c) European bonds have a standard deviation of 3% in euros, with correlation 0 with the currency. What is the unhedged standard deviation? Why are foreign bonds usually hedged while foreign stocks need not be?
+        Approximate the return in home currency as $R \approx R^* + x$ and use $\sigma^2 = \sigma_1^2 + \sigma_2^2 + 2\rho\sigma_1\sigma_2$ from [[0.3]]; assume hedging removes exchange-rate changes completely.
+        (a) European stocks have a return standard deviation of 16% in euros, and the euro's change against the dollar has a standard deviation of 8%. With correlations of 0 and −0.3, what is the unhedged standard deviation? How does it compare with hedging?
+        (b) European bonds have a return standard deviation of 3% in euros, with a correlation of 0 with the exchange rate. What is the unhedged standard deviation? Why are foreign bonds usually hedged while foreign stocks are not necessarily?
     answer:
       zh-cn: |-
-        (a) $\sqrt{16^2 + 8^2} \approx 17.89\%$；对冲后约 16%。不对冲使风险增加不到 2 个百分点。
-        (b) $\sqrt{16^2 + 8^2 + 2 \times (-0.3) \times 16 \times 8} = \sqrt{243.2} \approx 15.59\%$，比对冲后的 16% 还低：负相关时，汇率起到了分散风险的作用。
-        (c) $\sqrt{3^2 + 8^2} \approx 8.54\%$，几乎是债券本身风险的 3 倍。对债券来说，汇率波动远大于资产本身的波动，不对冲就把一个低风险资产变成了高风险资产，所以一般要对冲；对股票来说，汇率只增加少量风险，甚至可能降低风险，是否对冲要看相关性和对冲成本。
+        (a) 相关系数为 0 时 $\sqrt{16^2 + 8^2} \approx 17.89\%$，只比对冲后的 16% 高不到 2 个百分点；为 −0.3 时 $\sqrt{16^2 + 8^2 + 2 \times (-0.3) \times 16 \times 8} = \sqrt{243.2} \approx 15.59\%$，比对冲后还低：负相关时，汇率起到了分散风险的作用。
+        (b) $\sqrt{3^2 + 8^2} \approx 8.54\%$，几乎是债券本身风险的 3 倍。对债券来说，汇率波动远大于资产本身的波动，不对冲就把一个低风险资产变成了高风险资产，所以一般要对冲；对股票来说，汇率只增加少量风险，甚至可能降低风险，是否对冲要看相关性和对冲成本。
       en: |-
-        (a) $\sqrt{16^2 + 8^2} \approx 17.89\%$; hedged, about 16%. Not hedging adds less than 2 percentage points of risk.
-        (b) $\sqrt{16^2 + 8^2 + 2 \times (-0.3) \times 16 \times 8} = \sqrt{243.2} \approx 15.59\%$, even lower than the hedged 16%: with negative correlation the currency diversifies risk.
-        (c) $\sqrt{3^2 + 8^2} \approx 8.54\%$, almost 3 times the bonds' own risk. For bonds, currency swings are much larger than the asset's own swings, so not hedging turns a low-risk asset into a high-risk one, and bonds are usually hedged; for stocks, the currency adds only a little risk or may even reduce it, so whether to hedge depends on the correlation and the cost of hedging.
+        (a) With correlation 0, $\sqrt{16^2 + 8^2} \approx 17.89\%$, less than 2 percentage points above the hedged 16%; with −0.3, $\sqrt{16^2 + 8^2 + 2 \times (-0.3) \times 16 \times 8} = \sqrt{243.2} \approx 15.59\%$, lower than hedged: with negative correlation the exchange rate diversifies risk.
+        (b) $\sqrt{3^2 + 8^2} \approx 8.54\%$, almost 3 times the bond's own risk. For bonds, exchange-rate swings are much larger than the asset's own swings, so not hedging turns a low-risk asset into a high-risk one, and bonds are usually hedged; for stocks, the exchange rate adds little risk or may even reduce it, so whether to hedge depends on the correlation and the cost of hedging.
     rubric:
       zh-cn:
-        - "(a) 约 17.89% 和 16%；(b) 约 15.59%。"
-        - "(c) 约 8.54%，并比较债券和股票。"
+        - "(a) 约 17.89% 和 15.59%，与 16% 比较。"
+        - "(b) 约 8.54%，说明债券和股票的不同。"
       en:
-        - "(a) About 17.89% and 16%; (b) about 15.59%."
-        - "(c) About 8.54%, comparing bonds with stocks."
+        - "(a) About 17.89% and 15.59%, compared with 16%."
+        - "(b) About 8.54%, explaining the difference between bonds and stocks."

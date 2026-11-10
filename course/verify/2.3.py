@@ -51,6 +51,9 @@ def results():
 
     # Q5: FDIC limit 250,000.
     r["Q5.share"] = 100 * (1_000_000 - 250_000) / 1_000_000
+    # Values that the questions now give or no longer ask for.
+    for k in ['C1.d2', 'C4.r1', 'Q4.a', 'Q5.share']:
+        del r[k]
     return r
 
 

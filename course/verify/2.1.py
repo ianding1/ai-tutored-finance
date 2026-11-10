@@ -43,6 +43,9 @@ def results():
     # Q5: quarterly growth 0.2%, 0.8%, 0.5%, -0.1%.
     r["Q5.ann"] = 100 * (0.999**4 - 1)
     r["Q5.yoy"] = 100 * (1.002 * 1.008 * 1.005 * 0.999 - 1)
+    # Values that the questions now give or no longer ask for.
+    for k in ['C1.y', 'C2.n1', 'C2.n2', 'C2.r2', 'C3.fixed', 'C4.u', 'C4.lfpr', 'Q3.fixed', 'Q3.util', 'Q3.gap']:
+        del r[k]
     return r
 
 

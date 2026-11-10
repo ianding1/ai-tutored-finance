@@ -66,28 +66,26 @@ questions:
     kind: check
     section: multiplier
     concepts: [fiscal-multiplier]
-    expected: { kg: "5", dg: "500", dt: "400" }
+    expected: { dt: "400" }
     question:
       zh-cn: |-
-        边际消费倾向 $b = 0.8$，利率不变，不考虑税收随收入的变化和进口。(a) 政府购买增加 100，产出增加多少？(b) 政府改为向家庭减税 100，产出增加多少？提示：减税的第一轮发生了什么？(c) 为什么两者不同？
+        边际消费倾向 $b = 0.8$，利率不变，不考虑税收随收入的变化和进口；这时政府购买增加 100 会使产出增加 500。如果政府改为向家庭减税 100，产出增加多少？为什么和增加政府购买不同？
       en: |-
-        The marginal propensity to consume is $b = 0.8$, the interest rate is constant, and ignore taxes that vary with income and imports. (a) If government purchases rise by 100, by how much does output rise? (b) If the government instead cuts household taxes by 100, by how much does output rise? Hint: what happens in the first round of a tax cut? (c) Why do the two differ?
+        The marginal propensity to consume is $b = 0.8$, the interest rate is constant, and taxes that vary with income and imports are ignored; then a 100 rise in government purchases raises output by 500. If the government instead cuts household taxes by 100, by how much does output rise? Why does this differ from higher purchases?
     answer:
       zh-cn: |-
-        (a) 乘数 $\frac{1}{1 - 0.8} = 5$，产出增加 500。
-        (b) 减税 100 使可支配收入增加 100，家庭只消费 80，这 80 才开始“收入—消费”的循环：产出增加 $80 \times 5 = 400$，即减税乘数为 $\frac{b}{1 - b} = 4$。
-        (c) 政府购买的 100 全部直接成为对产出的需求；减税的 100 中有 20 在第一轮就被储蓄了，没有成为需求。
+        减税 100 使可支配收入增加 100，家庭只消费 80，这 80 才开始“收入—消费”的循环：产出增加 $80 \times 5 = 400$，即减税乘数为 $\frac{b}{1 - b} = 4$。
+        政府购买的 100 全部直接成为对产出的需求；减税的 100 中有 20 在第一轮就被储蓄了，没有成为需求。
       en: |-
-        (a) The multiplier is $\frac{1}{1 - 0.8} = 5$, so output rises by 500.
-        (b) A tax cut of 100 raises disposable income by 100, but households consume only 80, and only these 80 start the income–spending chain: output rises by $80 \times 5 = 400$, so the tax multiplier is $\frac{b}{1 - b} = 4$.
-        (c) All 100 of government purchases is direct demand for output; of the 100 tax cut, 20 is saved in the first round and never becomes demand.
+        A tax cut of 100 raises disposable income by 100, but households consume only 80, and only these 80 start the income–spending chain: output rises by $80 \times 5 = 400$, a tax multiplier of $\frac{b}{1 - b} = 4$.
+        All 100 of government purchases is direct demand for output; of the 100 tax cut, 20 is saved in the first round and never becomes demand.
     rubric:
       zh-cn:
-        - "(a) 500；(b) 400。"
-        - "(c) 指出减税第一轮的储蓄。"
+        - "产出增加 400。"
+        - "指出减税第一轮的储蓄。"
       en:
-        - "(a) 500; (b) 400."
-        - "(c) Points to the saving in the first round of the tax cut."
+        - "Output rises by 400."
+        - "Points to the saving in the first round of the tax cut."
 
   - id: C2
     kind: check
@@ -123,32 +121,28 @@ questions:
     section: debt
     concepts: [primary-deficit, budget-deficit]
     widget: { id: debt-dynamics, set: { d: 3, r: 5, g: 4 } }
-    expected: { b30: "170.5", s1: "0.48", s2: "-0.96" }
+    expected: { s1: "0.48", s2: "-0.96" }
     question:
       zh-cn: |-
         (a) 由 $b_{t+1} = \frac{1 + r}{1 + g} b_t + d$，求使 $b_{t+1} = b_t = b$ 的基本赤字 $d$（用 $r$、$g$、$b$ 表示）。
-        (b) 在 [[fig:4-1]] 中，基本赤字 3%、利率 3.5%、增长率 4% 时，30 年后债务比例是多少？使比例保持在 100% 的基本赤字是多少？
-        (c) 把利率调到 5%，使比例保持在 100% 的基本赤字变为多少？这意味着什么？
+        (b) 在 [[fig:4-1]] 中，增长率为 4%。利率从 3.5% 升到 5% 时，使债务比例保持在 100% 的基本赤字从多少变为多少？这意味着什么？
       en: |-
         (a) From $b_{t+1} = \frac{1 + r}{1 + g} b_t + d$, find the primary deficit $d$ that makes $b_{t+1} = b_t = b$ (in terms of $r$, $g$ and $b$).
-        (b) In [[fig:4-1]], with a primary deficit of 3%, an interest rate of 3.5% and growth of 4%, what is the debt ratio after 30 years? What primary deficit keeps the ratio at 100%?
-        (c) Set the interest rate to 5%. What primary deficit keeps the ratio at 100% now? What does this mean?
+        (b) In [[fig:4-1]], growth is 4%. When the interest rate rises from 3.5% to 5%, how does the primary deficit that keeps the debt ratio at 100% change? What does this mean?
     answer:
       zh-cn: |-
         (a) $b = \frac{1 + r}{1 + g} b + d$，所以 $d = b\left(1 - \frac{1 + r}{1 + g}\right) = \frac{g - r}{1 + g}\,b$。
-        (b) 30 年后约 170.5%。保持 100% 需要 $d = \frac{0.04 - 0.035}{1.04} \times 100 \approx 0.48\%$：只允许约 0.48% 的基本赤字，3% 太多。
-        (c) $d = \frac{0.04 - 0.05}{1.04} \times 100 \approx -0.96\%$，即需要约 0.96% 的基本盈余。利率超过增长率后，仅仅不让债务比例上升，就要求税收超过非利息支出。
+        (b) 从 $\frac{0.04 - 0.035}{1.04} \times 100 \approx 0.48\%$ 变为 $\frac{0.04 - 0.05}{1.04} \times 100 \approx -0.96\%$，即需要约 0.96% 的基本盈余。利率超过增长率后，仅仅不让债务比例上升，就要求税收超过非利息支出。
       en: |-
         (a) $b = \frac{1 + r}{1 + g} b + d$, so $d = b\left(1 - \frac{1 + r}{1 + g}\right) = \frac{g - r}{1 + g}\,b$.
-        (b) After 30 years about 170.5%. Keeping 100% requires $d = \frac{0.04 - 0.035}{1.04} \times 100 \approx 0.48\%$: only about 0.48% of primary deficit is allowed, and 3% is far too much.
-        (c) $d = \frac{0.04 - 0.05}{1.04} \times 100 \approx -0.96\%$, that is, a primary surplus of about 0.96% is needed. Once the interest rate exceeds growth, just keeping the debt ratio from rising requires taxes to exceed non-interest spending.
+        (b) From $\frac{0.04 - 0.035}{1.04} \times 100 \approx 0.48\%$ to $\frac{0.04 - 0.05}{1.04} \times 100 \approx -0.96\%$, that is, a primary surplus of about 0.96% is needed. Once the interest rate exceeds growth, just keeping the debt ratio from rising requires taxes to exceed non-interest spending.
     rubric:
       zh-cn:
         - "(a) $d = \\frac{g - r}{1 + g} b$。"
-        - "(b) 约 170.5% 和 0.48%；(c) 约 −0.96%（写作 -0.96 或 −0.96 均可），说明需要基本盈余。"
+        - "(b) 约 0.48% 和 −0.96%（写作 - 或 − 均可），说明需要基本盈余。"
       en:
         - "(a) $d = \\frac{g - r}{1 + g} b$."
-        - "(b) About 170.5% and 0.48%; (c) about −0.96% (written -0.96 or −0.96), explaining that a primary surplus is needed."
+        - "(b) About 0.48% and −0.96% (written with - or −), explaining that a primary surplus is needed."
 
   - id: C4
     kind: check
@@ -157,27 +151,23 @@ questions:
     expected: { pv: "1000" }
     question:
       zh-cn: |-
-        政府今年给每个家庭减税 1000 美元，用发行 1 年期国债弥补，利率 5%；明年向每个家庭加税还本付息。(a) 明年每个家庭要多交多少税？按 5% 折现，它的现值是多少？(b) 按 Ricardo 等价，家庭今年的消费会怎样变化？(c) 举出两种使家庭会把一部分减税花掉的情况。
+        政府今年给每个家庭减税 1000 美元，用发行 1 年期国债弥补，利率 5%；明年向每个家庭加税还本付息。(a) 明年多交的税的现值是多少？按 Ricardo 等价，家庭今年的消费会怎样变化？(b) 举出两种使家庭会把一部分减税花掉的情况。
       en: |-
-        This year the government cuts each household's taxes by 1000 dollars, financed by a 1-year bond at 5%; next year it raises each household's taxes to repay the bond with interest. (a) How much more tax does each household pay next year? What is its present value at 5%? (b) Under Ricardian equivalence, how does household consumption change this year? (c) Give two situations in which households would spend part of the tax cut.
+        This year the government cuts each household's taxes by 1000 dollars, financed by a 1-year bond at 5%; next year it raises each household's taxes to repay the bond with interest. (a) What is the present value of next year's extra tax? Under Ricardian equivalence, how does household consumption change this year? (b) Give two situations in which households would spend part of the tax cut.
     answer:
       zh-cn: |-
-        (a) 明年多交 $1000 \times 1.05 = 1050$ 美元，现值 $\frac{1050}{1.05} = 1000$ 美元，正好等于今年的减税。
-        (b) 家庭的一生财富没有变化，消费不变，把 1000 美元存起来（例如买政府发行的国债），明年用本息交税。
-        (c) 例如：家庭受流动性约束，原本就想多花钱却借不到；家庭认为加税会落在别人身上（高收入者、下一代），或者不考虑那么远的将来。
+        (a) 明年多交 $1000 \times 1.05 = 1050$ 美元，现值 $\frac{1050}{1.05} = 1000$ 美元，正好等于今年的减税。家庭的一生财富没有变化，消费不变，把 1000 美元存起来（例如买政府发行的国债），明年用本息交税。
+        (b) 例如：家庭受流动性约束，原本就想多花钱却借不到；家庭认为加税会落在别人身上（高收入者、下一代），或者不考虑那么远的将来。
       en: |-
-        (a) Next year each household pays $1000 \times 1.05 = 1050$ dollars more, with present value $\frac{1050}{1.05} = 1000$ dollars, exactly equal to this year's tax cut.
-        (b) Households' lifetime wealth does not change, so consumption does not change; they save the 1000 dollars (for example, by buying the bonds the government issues) and use the principal and interest to pay next year's tax.
-        (c) For example: households are liquidity-constrained and already wanted to spend more but could not borrow; households expect the tax increase to fall on others (high earners, the next generation), or do not look that far ahead.
+        (a) Next year each household pays $1000 \times 1.05 = 1050$ dollars more, with present value $\frac{1050}{1.05} = 1000$ dollars, exactly the tax cut. Lifetime wealth is unchanged, so consumption does not change; households save the 1000 dollars (for example, by buying the bonds) and use principal and interest to pay next year's tax.
+        (b) For example: households are liquidity-constrained and already wanted to spend more but could not borrow; households expect the tax increase to fall on others (high earners, the next generation), or do not look that far ahead.
     rubric:
       zh-cn:
-        - "(a) 1050，现值 1000。"
-        - "(b) 消费不变，全部储蓄。"
-        - "(c) 给出两种合理的情况。"
+        - "(a) 现值 1000，消费不变。"
+        - "(b) 两种合理的情况。"
       en:
-        - "(a) 1050, present value 1000."
-        - "(b) Consumption unchanged, all saved."
-        - "(c) Two reasonable situations."
+        - "(a) Present value 1000; consumption unchanged."
+        - "(b) Two reasonable situations."
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1
@@ -189,32 +179,26 @@ questions:
     question:
       zh-cn: |-
         在简单模型 $Y = a + b(Y - T) + I + G$ 中（利率不变）：
-        (a) 求税收增加 $\Delta T$ 时产出的变化，即税收乘数。$b = 0.75$ 时是多少？
-        (b) 政府同时增加购买和税收各 100（预算平衡），产出变化多少？用 $b$ 表示的结果是什么？
-        (c) 为什么预算平衡的扩张也能增加产出？
+        (a) 求税收乘数（$b = 0.75$ 时是多少），并求政府同时增加购买和税收各 100（预算平衡）时产出的变化。
+        (b) 为什么预算平衡的扩张也能增加产出？
       en: |-
         In the simple model $Y = a + b(Y - T) + I + G$ (at a constant interest rate):
-        (a) Find the change in output when taxes rise by $\Delta T$, that is, the tax multiplier. What is it when $b = 0.75$?
-        (b) The government raises both purchases and taxes by 100 (a balanced budget). By how much does output change? What is the result in terms of $b$?
-        (c) Why can a balanced-budget expansion raise output?
+        (a) Find the tax multiplier (its value when $b = 0.75$), and the change in output when the government raises both purchases and taxes by 100 (a balanced budget).
+        (b) Why can a balanced-budget expansion raise output?
     answer:
       zh-cn: |-
-        (a) $(1 - b)\Delta Y = -b\,\Delta T$，税收乘数 $-\frac{b}{1 - b}$；$b = 0.75$ 时为 -3。
-        (b) $\Delta Y = \frac{1}{1 - b} \times 100 - \frac{b}{1 - b} \times 100 = 100$，乘数为 1，与 $b$ 无关。
-        (c) 政府购买的 100 全部成为需求；加税 100 只使消费减少 $100b$，其余部分原本会被储蓄。所以总需求净增加，第一轮净增 $100(1 - b)$，再乘以 $\frac{1}{1 - b}$，正好是 100。
+        (a) $(1 - b)\Delta Y = -b\,\Delta T$，税收乘数 $-\frac{b}{1 - b}$，$b = 0.75$ 时为 -3。预算平衡时 $\Delta Y = \frac{1}{1 - b} \times 100 - \frac{b}{1 - b} \times 100 = 100$，乘数为 1，与 $b$ 无关。
+        (b) 政府购买的 100 全部成为需求；加税 100 只使消费减少 $100b$，其余部分原本会被储蓄。总需求在第一轮净增 $100(1 - b)$，再乘以 $\frac{1}{1 - b}$，正好是 100。
       en: |-
-        (a) $(1 - b)\Delta Y = -b\,\Delta T$, so the tax multiplier is $-\frac{b}{1 - b}$; with $b = 0.75$ it is -3.
-        (b) $\Delta Y = \frac{1}{1 - b} \times 100 - \frac{b}{1 - b} \times 100 = 100$: the multiplier is 1, whatever $b$ is.
-        (c) All 100 of purchases becomes demand, while a tax increase of 100 cuts consumption by only $100b$, because the rest would have been saved. So total demand rises on net: the first-round net rise is $100(1 - b)$, and multiplied by $\frac{1}{1 - b}$ it is exactly 100.
+        (a) $(1 - b)\Delta Y = -b\,\Delta T$, so the tax multiplier is $-\frac{b}{1 - b}$, which is -3 with $b = 0.75$. With a balanced budget, $\Delta Y = \frac{1}{1 - b} \times 100 - \frac{b}{1 - b} \times 100 = 100$: a multiplier of 1, whatever $b$ is.
+        (b) All 100 of purchases becomes demand, while a 100 tax rise cuts consumption by only $100b$, because the rest would have been saved. The first-round net rise in demand is $100(1 - b)$, and multiplied by $\frac{1}{1 - b}$ it is exactly 100.
     rubric:
       zh-cn:
-        - "(a) $-\\frac{b}{1 - b}$，−3（写作 -3 或 −3 均可）。"
-        - "(b) 乘数 1。"
-        - "(c) 解释净需求增加。"
+        - "(a) $-\\frac{b}{1 - b}$，−3（写作 -3 或 −3 均可）；预算平衡乘数 1。"
+        - "(b) 解释净需求增加。"
       en:
-        - "(a) $-\\frac{b}{1 - b}$, −3 (written -3 or −3)."
-        - "(b) A multiplier of 1."
-        - "(c) Explains the net rise in demand."
+        - "(a) $-\\frac{b}{1 - b}$, −3 (written -3 or −3); a balanced-budget multiplier of 1."
+        - "(b) Explains the net rise in demand."
 
   - id: Q2
     kind: exercise
@@ -224,66 +208,56 @@ questions:
     question:
       zh-cn: |-
         边际消费倾向 $b = 0.8$。比较两种税制：(i) 固定税额，与收入无关；(ii) 税收为收入的 25%，$T = 0.25Y$。
-        (a) 求两种税制下的支出乘数。
-        (b) 企业投资突然减少 100，两种税制下产出各减少多少？
-        (c) 为什么比例税被称为自动稳定器？它的代价是什么？
+        (a) 两种税制下的支出乘数各是多少？企业投资突然减少 100，产出各减少多少？
+        (b) 为什么比例税被称为自动稳定器？它的代价是什么？
       en: |-
         The marginal propensity to consume is $b = 0.8$. Compare two tax systems: (i) a fixed tax that does not depend on income; (ii) a tax of 25% of income, $T = 0.25Y$.
-        (a) Find the spending multiplier under each system.
-        (b) If business investment suddenly falls by 100, by how much does output fall under each system?
-        (c) Why is a proportional tax called an automatic stabilizer? What is its cost?
+        (a) What is the spending multiplier under each? If business investment suddenly falls by 100, by how much does output fall under each?
+        (b) Why is a proportional tax called an automatic stabilizer? What is its cost?
     answer:
       zh-cn: |-
-        (a) (i) $\frac{1}{1 - 0.8} = 5$。(ii) $C = a + 0.8(1 - 0.25)Y = a + 0.6Y$，乘数 $\frac{1}{1 - 0.6} = 2.5$。
-        (b) (i) 产出变化 -500；(ii) 产出变化 -250。
-        (c) 收入下降时税收自动减少，可支配收入下降得少，消费减少得少，冲击被缓冲，不需要政府做任何决定。代价是：经济好转时它同样会抑制增长，而且衰退时税收减少会使赤字自动扩大。
+        (a) (i) $\frac{1}{1 - 0.8} = 5$，产出变化 -500。(ii) $C = a + 0.8(1 - 0.25)Y = a + 0.6Y$，乘数 $\frac{1}{1 - 0.6} = 2.5$，产出变化 -250。
+        (b) 收入下降时税收自动减少，可支配收入下降得少，消费减少得少，冲击被缓冲，不需要政府做任何决定。代价是：经济好转时它同样会抑制增长，而且衰退时税收减少会使赤字自动扩大。
       en: |-
-        (a) (i) $\frac{1}{1 - 0.8} = 5$. (ii) $C = a + 0.8(1 - 0.25)Y = a + 0.6Y$, so the multiplier is $\frac{1}{1 - 0.6} = 2.5$.
-        (b) (i) Output changes by -500; (ii) output changes by -250.
-        (c) When income falls, taxes fall automatically, so disposable income and consumption fall less and the shock is cushioned, with no decision by the government. The cost: it also restrains growth when the economy recovers, and in a recession lower tax revenue automatically widens the deficit.
+        (a) (i) $\frac{1}{1 - 0.8} = 5$, so output changes by -500. (ii) $C = a + 0.8(1 - 0.25)Y = a + 0.6Y$, a multiplier of $\frac{1}{1 - 0.6} = 2.5$, so output changes by -250.
+        (b) When income falls, taxes fall automatically, so disposable income and consumption fall less and the shock is cushioned, with no decision by the government. The cost: it also restrains growth when the economy recovers, and in a recession lower tax revenue automatically widens the deficit.
     rubric:
       zh-cn:
-        - "(a) 5 和 2.5。"
-        - "(b) −500 和 −250（写作 - 或 − 均可）。"
-        - "(c) 说明自动缓冲的机制和代价。"
+        - "(a) 5 和 2.5；−500 和 −250（写作 - 或 − 均可）。"
+        - "(b) 说明自动缓冲的机制和代价。"
       en:
-        - "(a) 5 and 2.5."
-        - "(b) −500 and −250 (written with - or −)."
-        - "(c) Explains the automatic cushioning and its cost."
+        - "(a) 5 and 2.5; −500 and −250 (written with - or −)."
+        - "(b) Explains the automatic cushioning and its cost."
 
   - id: Q3
     kind: exercise
     level: C
     star: true
     concepts: [primary-deficit, budget-deficit, inflation]
-    expected: { b1: "130", b2: "141.37", s: "0.96", d2: "1.89" }
+    expected: { b2: "141.37", s: "0.96", d2: "1.89" }
     question:
       zh-cn: |-
         一国政府债务为 GDP 的 100%，基本赤字每年为 GDP 的 3%。
-        (a) 利率和名义增长率都是 4% 时，10 年后债务比例是多少？
-        (b) 利率 5%、增长率 4% 时，10 年后是多少？要使比例稳定在 100%，需要多大的基本盈余？
-        (c) 假设现有债务都是长期固定利率债券，平均利率为 4%；通胀意外上升 2 个百分点，使名义增长率从 4% 升到 6%，而现有债务的利率暂时不变。这时使比例稳定所允许的基本赤字是多少？谁承担了代价？为什么这种办法不能反复使用？
+        (a) 利率 5%、名义增长率 4% 时，10 年后债务比例是多少？要使比例稳定在 100%，需要多大的基本盈余？
+        (b) 假设现有债务都是长期固定利率债券，平均利率为 4%；通胀意外上升 2 个百分点，使名义增长率从 4% 升到 6%，而现有债务的利率暂时不变。这时使比例稳定所允许的基本赤字是多少？谁承担了代价？为什么这种办法不能反复使用？
       en: |-
         A government's debt is 100% of GDP, and the primary deficit is 3% of GDP each year.
-        (a) If the interest rate and nominal growth are both 4%, what is the debt ratio after 10 years?
-        (b) With an interest rate of 5% and growth of 4%, what is it after 10 years? What primary surplus is needed to keep the ratio at 100%?
-        (c) Suppose existing debt is all long-term fixed-rate bonds with an average rate of 4%; inflation rises unexpectedly by 2 percentage points, raising nominal growth from 4% to 6%, while the rate on existing debt stays the same for now. What primary deficit now keeps the ratio stable? Who bears the cost? Why can this not be done again and again?
+        (a) With an interest rate of 5% and nominal growth of 4%, what is the debt ratio after 10 years? What primary surplus is needed to keep the ratio at 100%?
+        (b) Suppose existing debt is all long-term fixed-rate bonds with an average rate of 4%; inflation rises unexpectedly by 2 percentage points, raising nominal growth from 4% to 6%, while the rate on existing debt stays the same for now. What primary deficit now keeps the ratio stable? Who bears the cost? Why can this not be done again and again?
     answer:
       zh-cn: |-
-        (a) $r = g$ 时 $b_{t+1} = b_t + 3$，10 年后 130%。
-        (b) 逐年计算 $b_{t+1} = \frac{1.05}{1.04} b_t + 3$，10 年后约 141.37%。稳定需要 $d = \frac{0.04 - 0.05}{1.04} \times 100 \approx -0.96$，即约 0.96% 的基本盈余。
-        (c) $d = \frac{0.06 - 0.04}{1.06} \times 100 \approx 1.89\%$。意外的通胀使名义 GDP 增长加快，而债务的利息固定，债务的实际价值下降：代价由持有固定利率国债的债权人承担（[[2.3#inflation-costs]]）。投资者吸取教训后，会对新发的债务要求更高的利率（包含通胀风险补偿），通胀的好处就消失了，还带来通胀本身的成本。
+        (a) 逐年计算 $b_{t+1} = \frac{1.05}{1.04} b_t + 3$，10 年后约 141.37%（若 $r = g$，则只是每年加 3，为 130%）。稳定需要 $d = \frac{0.04 - 0.05}{1.04} \times 100 \approx -0.96$，即约 0.96% 的基本盈余。
+        (b) $d = \frac{0.06 - 0.04}{1.06} \times 100 \approx 1.89\%$。意外的通胀使名义 GDP 增长加快，而债务的利息固定，债务的实际价值下降：代价由持有固定利率国债的债权人承担（[[2.3#inflation-costs]]）。投资者吸取教训后，会对新发的债务要求更高的利率（包含通胀风险补偿），通胀的好处就消失了，还带来通胀本身的成本。
       en: |-
-        (a) With $r = g$, $b_{t+1} = b_t + 3$, so after 10 years it is 130%.
-        (b) Computing $b_{t+1} = \frac{1.05}{1.04} b_t + 3$ year by year gives about 141.37% after 10 years. Stability requires $d = \frac{0.04 - 0.05}{1.04} \times 100 \approx -0.96$, a primary surplus of about 0.96%.
-        (c) $d = \frac{0.06 - 0.04}{1.06} \times 100 \approx 1.89\%$. Unexpected inflation speeds up nominal GDP growth while interest on the debt is fixed, so the real value of the debt falls: the cost falls on creditors holding fixed-rate government bonds ([[2.3#inflation-costs]]). Once investors learn, they demand higher rates on new debt (including compensation for inflation risk), the gain disappears, and the costs of inflation itself remain.
+        (a) Computing $b_{t+1} = \frac{1.05}{1.04} b_t + 3$ year by year gives about 141.37% after 10 years (with $r = g$ it would just add 3 a year, to 130%). Stability requires $d = \frac{0.04 - 0.05}{1.04} \times 100 \approx -0.96$, a primary surplus of about 0.96%.
+        (b) $d = \frac{0.06 - 0.04}{1.06} \times 100 \approx 1.89\%$. Unexpected inflation speeds up nominal GDP growth while interest on the debt is fixed, so the real value of the debt falls: the cost falls on creditors holding fixed-rate government bonds ([[2.3#inflation-costs]]). Once investors learn, they demand higher rates on new debt (including compensation for inflation risk), the gain disappears, and the costs of inflation itself remain.
     rubric:
       zh-cn:
-        - "(a) 130%；(b) 约 141.37%，基本盈余约 0.96%。"
-        - "(c) 约 1.89%，说明债权人承担代价，以及预期调整使它不能反复使用。"
+        - "(a) 约 141.37%，基本盈余约 0.96%。"
+        - "(b) 约 1.89%，说明债权人承担代价，以及预期调整使它不能反复使用。"
       en:
-        - "(a) 130%; (b) about 141.37%, a primary surplus of about 0.96%."
-        - "(c) About 1.89%, explaining that creditors bear the cost and that adjusting expectations prevent repeated use."
+        - "(a) About 141.37%; a primary surplus of about 0.96%."
+        - "(b) About 1.89%, explaining that creditors bear the cost and that adjusting expectations prevent repeated use."
 
   - id: Q4
     kind: exercise
@@ -293,62 +267,52 @@ questions:
     question:
       zh-cn: |-
         国民储蓄 = 私人储蓄 + 政府储蓄（政府储蓄 = −赤字）。政府减税 200，使赤字增加 200，政府购买不变。
-        (a) 如果 Ricardo 等价成立，私人储蓄增加多少？国民储蓄变化多少？
-        (b) 如果家庭只把减税的 25% 存起来，国民储蓄变化多少？
-        (c) 两种情况下，减税对利率和私人投资的影响有什么不同？
+        (a) 如果 Ricardo 等价成立，国民储蓄变化多少？如果家庭只把减税的 25% 存起来呢？
+        (b) 两种情况下，减税对利率和私人投资的影响有什么不同？
       en: |-
         National saving = private saving + government saving (government saving = −deficit). The government cuts taxes by 200, raising the deficit by 200, with purchases unchanged.
-        (a) If Ricardian equivalence holds, by how much does private saving rise? By how much does national saving change?
-        (b) If households save only 25% of the tax cut, by how much does national saving change?
-        (c) How do the effects of the tax cut on interest rates and private investment differ between the two cases?
+        (a) If Ricardian equivalence holds, by how much does national saving change? What if households save only 25% of the tax cut?
+        (b) How do the effects of the tax cut on interest rates and private investment differ between the two cases?
     answer:
       zh-cn: |-
-        (a) 私人储蓄增加 200，政府储蓄减少 200，国民储蓄变化 0。
-        (b) 私人储蓄增加 50，国民储蓄变化 $50 - 200 = -150$。
-        (c) Ricardo 等价成立时，家庭多买的国债正好等于政府多发的国债，资金的供求不变，利率和投资都不变，减税也不刺激需求。不成立时，国民储蓄减少，可用于投资的资金减少，实际利率上升，私人投资被挤出；同时消费增加，短期需求上升。
+        (a) Ricardo 等价成立时，私人储蓄增加 200，政府储蓄减少 200，国民储蓄变化 0。只存 25% 时，私人储蓄增加 50，国民储蓄变化 $50 - 200 = -150$。
+        (b) Ricardo 等价成立时，家庭多买的国债正好等于政府多发的国债，资金的供求不变，利率和投资都不变，减税也不刺激需求。不成立时，国民储蓄减少，可用于投资的资金减少，实际利率上升，私人投资被挤出；同时消费增加，短期需求上升。
       en: |-
-        (a) Private saving rises by 200 and government saving falls by 200, so national saving changes by 0.
-        (b) Private saving rises by 50, so national saving changes by $50 - 200 = -150$.
-        (c) Under Ricardian equivalence, the extra bonds households buy exactly match the extra bonds the government issues, so the supply and demand for funds are unchanged, interest rates and investment do not change, and the tax cut does not stimulate demand. Otherwise, national saving falls, less is available for investment, the real rate rises and private investment is crowded out; consumption rises at the same time, so short-run demand goes up.
+        (a) Under Ricardian equivalence, private saving rises by 200 and government saving falls by 200, so national saving changes by 0. If only 25% is saved, private saving rises by 50, so national saving changes by $50 - 200 = -150$.
+        (b) Under Ricardian equivalence, the extra bonds households buy exactly match the extra bonds issued, so the supply and demand for funds are unchanged, interest rates and investment do not change, and the tax cut does not stimulate demand. Otherwise national saving falls, less is available for investment, the real rate rises and private investment is crowded out; consumption rises at the same time, so short-run demand goes up.
     rubric:
       zh-cn:
-        - "(a) 0；(b) −150（写作 -150 或 −150 均可）。"
-        - "(c) 说明利率和投资在两种情况下的不同。"
+        - "(a) 0 和 −150（写作 -150 或 −150 均可）。"
+        - "(b) 说明利率和投资在两种情况下的不同。"
       en:
-        - "(a) 0; (b) −150 (written -150 or −150)."
-        - "(c) Explains the difference for interest rates and investment."
+        - "(a) 0 and −150 (written -150 or −150)."
+        - "(b) Explains the difference for interest rates and investment."
 
   - id: Q5
     kind: exercise
     level: B
     concepts: [budget-deficit, primary-deficit]
-    expected: { out: "15.45", rev: "21.15", add: "0.31", prim: "0.85" }
+    expected: { out: "15.45", rev: "21.15", prim: "0.85" }
     question:
       zh-cn: |-
         用讲义中 2026 财年的数字：收入 5.403 万亿美元，支出 7.396 万亿美元，净利息 1.143 万亿美元。
         (a) 净利息占支出和占收入的百分比各是多少？基本赤字是多少？
-        (b) 假设公众持有的债务约为 31 万亿美元。如果债务的平均利率上升 1 个百分点（随着旧债到期、新债按更高的利率发行），每年的利息最终增加多少？
-        (c) 为什么利息负担上升会使财政政策在下一次衰退中更难发挥作用？
+        (b) 公众持有的债务约 31 万亿美元，债务的平均利率每上升 1 个百分点，每年利息最终约增加 0.31 万亿美元。为什么利息负担上升会使财政政策在下一次衰退中更难发挥作用？
       en: |-
         Use the lesson's fiscal year 2026 figures: revenue 5.403 trillion dollars, outlays 7.396 trillion, net interest 1.143 trillion.
         (a) What percentage of outlays and of revenue is net interest? What is the primary deficit?
-        (b) Suppose debt held by the public is about 31 trillion dollars. If the average interest rate on the debt rises by 1 percentage point (as old debt matures and new debt is issued at higher rates), by how much does yearly interest eventually rise?
-        (c) Why does a rising interest burden make fiscal policy less able to act in the next recession?
+        (b) Debt held by the public is about 31 trillion dollars, so each 1-point rise in the average rate on the debt eventually adds about 0.31 trillion dollars of interest a year. Why does a rising interest burden make fiscal policy less able to act in the next recession?
     answer:
       zh-cn: |-
         (a) 占支出 $\frac{1.143}{7.396} \approx 15.45\%$，占收入 $\frac{1.143}{5.403} \approx 21.15\%$。总赤字 $7.396 - 5.403 = 1.993$ 万亿美元，基本赤字 $1.993 - 1.143 = 0.85$ 万亿美元。
-        (b) $31 \times 1\% = 0.31$ 万亿美元。
-        (c) 利息是必须支付的支出，占用的部分越大，其他支出的空间越小；债务比例已经很高时，衰退中再扩大赤字会使债务更快上升，投资者可能要求更高的利率（$r$ 上升），使债务更难持续。所以政府在衰退中扩张的余地变小。
+        (b) 利息是必须支付的支出，占用的部分越大，其他支出的空间越小；债务比例已经很高时，衰退中再扩大赤字会使债务更快上升，投资者可能要求更高的利率（$r$ 上升），使债务更难持续。所以政府在衰退中扩张的余地变小。
       en: |-
         (a) Of outlays $\frac{1.143}{7.396} \approx 15.45\%$; of revenue $\frac{1.143}{5.403} \approx 21.15\%$. The total deficit is $7.396 - 5.403 = 1.993$ trillion dollars, and the primary deficit $1.993 - 1.143 = 0.85$ trillion dollars.
-        (b) $31 \times 1\% = 0.31$ trillion dollars.
-        (c) Interest must be paid; the larger its share, the less room for other spending. With the debt ratio already high, wider deficits in a recession make debt rise faster, and investors may demand higher rates ($r$ rises), which makes the debt harder to sustain. So the government has less room to expand in a recession.
+        (b) Interest must be paid; the larger its share, the less room for other spending. With the debt ratio already high, wider deficits in a recession make debt rise faster, and investors may demand higher rates ($r$ rises), which makes the debt harder to sustain. So the government has less room to expand in a recession.
     rubric:
       zh-cn:
         - "(a) 约 15.45% 和 21.15%，基本赤字约 0.85 万亿美元。"
-        - "(b) 约 0.31 万亿美元。"
-        - "(c) 说明财政空间变小。"
+        - "(b) 说明财政空间变小。"
       en:
-        - "(a) About 15.45% and 21.15%, primary deficit about 0.85 trillion dollars."
-        - "(b) About 0.31 trillion dollars."
-        - "(c) Explains the smaller fiscal room."
+        - "(a) About 15.45% and 21.15%; primary deficit about 0.85 trillion dollars."
+        - "(b) Explains the smaller fiscal room."

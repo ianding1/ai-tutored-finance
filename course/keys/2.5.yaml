@@ -63,25 +63,23 @@ questions:
     concepts: [federal-funds-rate]
     question:
       zh-cn: |-
-        准备金利率为 3.90%。(a) 一家准备金很多的银行，会以 3.5% 的隔夜利率把准备金借给另一家银行吗？为什么？(b) 一家货币市场基金不能在美联储开准备金账户，它会以低于 3.75% 的利率把钱借给银行吗？(c) 如果 FOMC 决定把目标区间提高到 4.00%–4.25%，美联储要怎样调整这些利率？
+        准备金利率为 3.90%，隔夜逆回购利率为 3.75%。(a) 一家准备金很多的银行，会以 3.5% 的隔夜利率把准备金借给另一家银行吗？为什么？(b) 如果 FOMC 决定把目标区间提高到 4.00%–4.25%，美联储要怎样调整这些利率？
       en: |-
-        The interest rate on reserves is 3.90%. (a) Would a bank with plenty of reserves lend them overnight to another bank at 3.5%? Why? (b) A money market fund cannot hold a reserve account at the Fed. Would it lend to a bank at less than 3.75%? (c) If the FOMC decides to raise the target range to 4.00%–4.25%, how does the Fed adjust these rates?
+        The interest rate on reserves is 3.90% and the ON RRP rate 3.75%. (a) Would a bank with plenty of reserves lend them overnight to another bank at 3.5%? Why? (b) If the FOMC decides to raise the target range to 4.00%–4.25%, how does the Fed adjust these rates?
     answer:
       zh-cn: |-
-        (a) 不会：把钱留在美联储就能无风险地得到 3.90%，借给别的银行只拿 3.5% 还要承担风险。所以市场利率不会远低于准备金利率。
-        (b) 不会：它可以通过隔夜逆回购把钱借给美联储，得到 3.75%。逆回购利率是货币市场利率的下限。
-        (c) 把准备金利率、隔夜逆回购利率和贴现率都提高 0.25 个百分点（例如 4.15%、4.00% 和 4.25%），市场利率随之上移到新的区间。
+        (a) 不会：把钱留在美联储就能无风险地得到 3.90%，借给别的银行只拿 3.5% 还要承担风险。所以市场利率不会远低于准备金利率；不能在美联储开户的货币市场基金也可以通过逆回购得到 3.75%，这是市场利率的下限。
+        (b) 把准备金利率、隔夜逆回购利率和贴现率都提高 0.25 个百分点（例如 4.15%、4.00% 和 4.25%），市场利率随之上移到新的区间。
       en: |-
-        (a) No: it can earn 3.90% risk-free by leaving the money at the Fed, while lending to another bank pays only 3.5% and carries risk. So market rates do not fall far below the rate on reserves.
-        (b) No: it can lend to the Fed through the overnight reverse repo facility at 3.75%. The ON RRP rate is a floor for money market rates.
-        (c) Raise the rate on reserves, the ON RRP rate and the discount rate by 0.25 percentage points each (for example to 4.15%, 4.00% and 4.25%), and market rates move up into the new range.
+        (a) No: it can earn 3.90% risk-free by leaving the money at the Fed, while lending to another bank pays only 3.5% and carries risk. So market rates do not fall far below the rate on reserves; money market funds, which cannot hold reserve accounts, can get 3.75% through reverse repos, which sets a floor.
+        (b) Raise the rate on reserves, the ON RRP rate and the discount rate by 0.25 percentage points each (for example to 4.15%, 4.00% and 4.25%), and market rates move up into the new range.
     rubric:
       zh-cn:
-        - "(a)(b) 用机会成本解释两个下限。"
-        - "(c) 指出一起提高管理利率。"
+        - "(a) 用机会成本解释下限。"
+        - "(b) 一起提高管理利率。"
       en:
-        - "(a)(b) Explains the two floors by opportunity cost."
-        - "(c) States that the administered rates are raised together."
+        - "(a) Explains the floor by opportunity cost."
+        - "(b) The administered rates are raised together."
 
   - id: C2
     kind: check
@@ -91,47 +89,47 @@ questions:
     expected: { i1: "4.5", i2: "6", r1: "1.5", r2: "2" }
     question:
       zh-cn: |-
-        在 [[fig:3-1]] 中，中性利率设为 1%，产出缺口设为 0。通胀为 3% 时，规则建议的名义利率和实际利率各是多少？通胀升到 4% 时呢？通胀上升 1 个百分点，名义利率和实际利率各变化多少？如果央行只把名义利率提高 1 个百分点，政策是变紧还是变松了？
+        在 [[fig:3-1]] 中，中性利率设为 1%，产出缺口设为 0。通胀从 3% 升到 4% 时，规则建议的名义利率和实际利率各从多少变为多少？如果央行只把名义利率提高 1 个百分点，政策是变紧还是变松了？
       en: |-
-        In [[fig:3-1]], set the neutral rate to 1% and the output gap to 0. When inflation is 3%, what nominal and real rates does the rule suggest? When inflation rises to 4%? When inflation rises by 1 point, by how much do the nominal and real rates change? If the central bank raised the nominal rate by only 1 point, would policy have tightened or eased?
+        In [[fig:3-1]], set the neutral rate to 1% and the output gap to 0. When inflation rises from 3% to 4%, how do the nominal and real rates suggested by the rule change? If the central bank raised the nominal rate by only 1 point, would policy have tightened or eased?
     answer:
       zh-cn: |-
         通胀 3%：$i = 1 + 3 + 0.5 \times 1 = 4.5\%$，实际利率 1.5%。通胀 4%：$i = 1 + 4 + 0.5 \times 2 = 6\%$，实际利率 2%。名义利率提高 1.5 个百分点，实际利率提高 0.5 个百分点。
-        如果名义利率只提高 1 个百分点（到 5.5%），实际利率仍为 1.5%，没有上升，对需求的抑制没有增强；相对于通胀上升，政策并没有变紧。要真正抑制需求，名义利率的提高必须超过通胀的上升。
+        如果名义利率只提高 1 个百分点，实际利率仍为 1.5%，没有上升，对需求的抑制没有增强；相对于通胀上升，政策并没有变紧。要真正抑制需求，名义利率的提高必须超过通胀的上升。
       en: |-
         Inflation 3%: $i = 1 + 3 + 0.5 \times 1 = 4.5\%$, real rate 1.5%. Inflation 4%: $i = 1 + 4 + 0.5 \times 2 = 6\%$, real rate 2%. The nominal rate rises 1.5 points and the real rate 0.5 points.
-        If the nominal rate rose only 1 point (to 5.5%), the real rate would stay at 1.5%: it would not rise, and the restraint on demand would not increase; relative to the rise in inflation, policy would not have tightened. To really restrain demand, the nominal rate must rise by more than inflation.
+        If the nominal rate rose only 1 point, the real rate would stay at 1.5%: no stronger restraint on demand, so relative to the rise in inflation policy would not have tightened. To really restrain demand, the nominal rate must rise by more than inflation.
     rubric:
       zh-cn:
         - "4.5% 和 1.5%；6% 和 2%。"
-        - "说明只提高 1 个百分点时实际利率不变，政策没有变紧。"
+        - "说明只提高 1 个百分点时政策没有变紧。"
       en:
         - "4.5% and 1.5%; 6% and 2%."
-        - "Explains that a 1-point rise leaves the real rate unchanged, so policy has not tightened."
+        - "Explains that a 1-point rise does not tighten policy."
 
   - id: C3
     kind: check
     section: transmission
     concepts: [growing-perpetuity, present-value]
-    expected: { p0: "100", p1: "80", ch: "-20" }
+    expected: { ch: "-20" }
     question:
       zh-cn: |-
-        一只股票明年的股息为 4 美元，此后每年永远增长 3%，投资者要求的收益率为 7%。用增长永续年金求股价。央行加息使投资者要求的收益率升到 8%（股息预期不变），股价变为多少，变化了百分之几？为什么股息增长越快、离现在越远的现金流占比越大的资产，对利率越敏感？
+        一只股票明年的股息为 4 美元，此后每年永远增长 3%。央行加息使投资者要求的收益率从 7% 升到 8%（股息预期不变）。股价变化了百分之几？为什么股息增长越快、价值越依赖远期现金流的资产，对利率越敏感？
       en: |-
-        A stock pays a dividend of 4 dollars next year, growing 3% a year forever, and investors require a return of 7%. Use the growing perpetuity to find the price. If a rate hike raises the required return to 8% (with expected dividends unchanged), what does the price become, and by what percentage does it change? Why are assets with faster-growing dividends, whose value comes more from cash flows far in the future, more sensitive to interest rates?
+        A stock pays a dividend of 4 dollars next year, growing 3% a year forever. A rate hike raises the required return from 7% to 8% (with expected dividends unchanged). By what percentage does the price change? Why are assets with faster-growing dividends, whose value depends more on distant cash flows, more sensitive to interest rates?
     answer:
       zh-cn: |-
-        $P = \frac{4}{0.07 - 0.03} = 100$；加息后 $P = \frac{4}{0.08 - 0.03} = 80$，下跌 20%（变化 -20%）。
-        价值越依赖远期的现金流，折现的期数越多，要求收益率的同样变化对现值的影响越大。增长快的资产，价值主要来自很远的将来，所以对利率更敏感（例如高增长的科技股比公用事业股更敏感）。
+        $\frac{4}{0.07 - 0.03} = 100$ 变为 $\frac{4}{0.08 - 0.03} = 80$，下跌 20%（变化 -20%）。
+        价值越依赖远期的现金流，折现的期数越多，要求收益率的同样变化对现值的影响越大。增长快的资产价值主要来自很远的将来，所以对利率更敏感（例如高增长的科技股比公用事业股更敏感）。
       en: |-
-        $P = \frac{4}{0.07 - 0.03} = 100$; after the hike $P = \frac{4}{0.08 - 0.03} = 80$, a fall of 20% (a change of -20%).
-        The more a value depends on distant cash flows, the more periods they are discounted over, and the more the same change in the required return affects present value. Fast-growing assets get most of their value from the distant future, so they are more sensitive to rates (for example, high-growth technology stocks more than utility stocks).
+        The price goes from $\frac{4}{0.07 - 0.03} = 100$ to $\frac{4}{0.08 - 0.03} = 80$, a fall of 20% (a change of -20%).
+        The more a value depends on distant cash flows, the more periods they are discounted over, and the more the same change in the required return affects present value. Fast-growing assets get most of their value from the distant future, so they are more sensitive to rates (for example, high-growth technology stocks more than utilities).
     rubric:
       zh-cn:
-        - "股价 100 和 80，下跌 20%。"
+        - "下跌 20%。"
         - "用远期现金流折现期数长解释敏感性。"
       en:
-        - "Prices 100 and 80, a 20% fall."
+        - "A 20% fall."
         - "Explains sensitivity by the long discounting of distant cash flows."
 
   - id: C4
@@ -162,36 +160,30 @@ questions:
     level: B
     star: true
     concepts: [taylor-rule, neutral-interest-rate, output-gap]
-    expected: { gap: "0.6", i: "4.95", i2: "4.45", i3: "5.7" }
+    expected: { i: "4.95", i3: "5.7" }
     question:
       zh-cn: |-
-        2026 年 9 月，美国核心 PCE 价格指数比一年前上涨 3.1%，PCE 价格指数上涨 3.6%（BEA，2026 年 10 月 29 日）。10 月失业率为 4.1%（[[2.1]]），CBO 估计的自然失业率约为 4.4%（[[2.4]]）。
-        (a) 用 Okun 法则（失业率每低于自然失业率 1 个百分点，产出缺口约为 +2%）估计产出缺口。
-        (b) 取 $r^* = 1\%$、用核心 PCE 通胀，Taylor 规则建议的利率是多少？取 $r^* = 0.5\%$ 呢？用 PCE 通胀（$r^* = 1\%$）呢？
-        (c) 与当时 3.75%–4.00% 的目标区间比较。这些数字能说明美联储的利率“错了”吗？说出规则不能考虑的至少两个因素。
+        2026 年 9 月，美国核心 PCE 价格指数比一年前上涨 3.1%，PCE 价格指数上涨 3.6%（BEA，2026 年 10 月 29 日）。10 月失业率 4.1%，CBO 估计的自然失业率约 4.4%，按 Okun 法则产出缺口约为 +0.6%。
+        (a) 取 $r^* = 1\%$、用核心 PCE 通胀，Taylor 规则建议的利率是多少？改用 PCE 通胀呢？
+        (b) 与当时 3.75%–4.00% 的目标区间比较。这些数字能说明美联储的利率“错了”吗？说出规则不能考虑的至少两个因素。
       en: |-
-        In September 2026, the US core PCE price index was up 3.1% from a year earlier and the PCE price index 3.6% (BEA, October 29, 2026). Unemployment in October was 4.1% ([[2.1]]), and the CBO estimates the natural rate at about 4.4% ([[2.4]]).
-        (a) Use Okun's law (for each point unemployment is below the natural rate, the output gap is about +2%) to estimate the output gap.
-        (b) With $r^* = 1\%$ and core PCE inflation, what rate does the Taylor rule suggest? With $r^* = 0.5\%$? With PCE inflation ($r^* = 1\%$)?
-        (c) Compare with the target range of 3.75%–4.00% at the time. Do these numbers show that the Fed's rate is "wrong"? Name at least two factors the rule cannot take into account.
+        In September 2026, the US core PCE price index was up 3.1% from a year earlier and the PCE price index 3.6% (BEA, October 29, 2026). October unemployment was 4.1% and the CBO's natural rate about 4.4%, so by Okun's law the output gap is about +0.6%.
+        (a) With $r^* = 1\%$ and core PCE inflation, what rate does the Taylor rule suggest? With PCE inflation instead?
+        (b) Compare with the target range of 3.75%–4.00% at the time. Do these numbers show that the Fed's rate is "wrong"? Name at least two factors the rule cannot take into account.
     answer:
       zh-cn: |-
-        (a) $2 \times (4.4 - 4.1) = 0.6\%$。
-        (b) $1 + 3.1 + 0.5 \times 1.1 + 0.5 \times 0.6 = 4.95\%$；$r^* = 0.5\%$ 时 4.45%；用 PCE 通胀时 $1 + 3.6 + 0.5 \times 1.6 + 0.3 = 5.7\%$。
-        (c) 三个结果都高于目标区间，但相差从约 0.5 到约 1.8 个百分点不等，取决于假设。不能简单地说利率“错了”：$r^*$ 和自然失业率都是估计；通胀的上升可能部分来自暂时的供给冲击（[[2.4]]），央行可能选择不对它完全反应；货币政策有滞后，央行看的是对未来的预测；金融稳定、量化紧缩等也会影响决策。规则的价值在于提醒：偏离规则时需要给出理由。
+        (a) $1 + 3.1 + 0.5 \times 1.1 + 0.5 \times 0.6 = 4.95\%$；用 PCE 通胀：$1 + 3.6 + 0.5 \times 1.6 + 0.3 = 5.7\%$。（若取 $r^* = 0.5\%$，核心 PCE 下为 4.45%。）
+        (b) 都高于目标区间，但相差多少取决于假设。不能简单地说利率“错了”：$r^*$ 和自然失业率都是估计；通胀的上升可能部分来自暂时的供给冲击（[[2.4]]），央行可能选择不完全反应；货币政策有滞后，央行看的是预测；金融稳定、量化紧缩等也会影响决策。规则的价值在于提醒：偏离规则时需要给出理由。
       en: |-
-        (a) $2 \times (4.4 - 4.1) = 0.6\%$.
-        (b) $1 + 3.1 + 0.5 \times 1.1 + 0.5 \times 0.6 = 4.95\%$; with $r^* = 0.5\%$, 4.45%; with PCE inflation, $1 + 3.6 + 0.5 \times 1.6 + 0.3 = 5.7\%$.
-        (c) All three are above the target range, but by anywhere from about 0.5 to about 1.8 points, depending on the assumptions. One cannot simply say the rate is "wrong": $r^*$ and the natural rate are estimates; part of the rise in inflation may come from a temporary supply shock ([[2.4]]) that the central bank may choose not to respond to fully; policy works with lags, so the central bank looks at forecasts; financial stability and quantitative tightening also affect decisions. The rule's value is as a reminder that departures from it need reasons.
+        (a) $1 + 3.1 + 0.5 \times 1.1 + 0.5 \times 0.6 = 4.95\%$; with PCE inflation, $1 + 3.6 + 0.5 \times 1.6 + 0.3 = 5.7\%$. (With $r^* = 0.5\%$ and core PCE it would be 4.45%.)
+        (b) Both are above the target range, but by how much depends on the assumptions. One cannot simply say the rate is "wrong": $r^*$ and the natural rate are estimates; part of the rise in inflation may come from a temporary supply shock ([[2.4]]) that the central bank may choose not to respond to fully; policy works with lags, so the Fed looks at forecasts; financial stability and quantitative tightening also matter. The rule's value is as a reminder that departures need reasons.
     rubric:
       zh-cn:
-        - "(a) 约 0.6%。"
-        - "(b) 约 4.95%、4.45%、5.7%。"
-        - "(c) 指出结果对假设敏感，并给出至少两个规则之外的因素。"
+        - "(a) 约 4.95% 和 5.7%。"
+        - "(b) 指出结果对假设敏感，并给出至少两个规则之外的因素。"
       en:
-        - "(a) About 0.6%."
-        - "(b) About 4.95%, 4.45%, 5.7%."
-        - "(c) Notes the sensitivity to assumptions and gives at least two factors outside the rule."
+        - "(a) About 4.95% and 5.7%."
+        - "(b) Notes the sensitivity to assumptions and gives at least two factors outside the rule."
 
   - id: Q2
     kind: exercise
@@ -256,36 +248,29 @@ questions:
     level: C
     star: true
     concepts: [federal-funds-rate, annuity]
-    expected: { p1: "2398.20", p2: "2661.21", ch: "10.97" }
     question:
       zh-cn: |-
-        一笔 40 万美元、30 年、按月等额还款的固定利率房贷。
-        (a) 年利率 6% 和 7%（按月复利，月利率为年利率除以 12）时，每月还款各是多少？还款增加了百分之几？
-        (b) 美国的房贷大多是 30 年固定利率。央行加息后，已经有房贷的家庭和新买房的家庭受到的影响有什么不同？这会怎样影响货币政策传导的速度？
-        (c) 已经锁定低利率的房主，换房时要按新的高利率重新贷款。这对二手房的供给有什么影响？
+        一笔 40 万美元、30 年的固定利率房贷，年利率从 6% 升到 7% 时，月供从约 2,398 美元增加到约 2,661 美元（约 11%）。
+        (a) 美国的房贷大多是 30 年固定利率。央行加息后，已经有房贷的家庭和新买房的家庭受到的影响有什么不同？这会怎样影响货币政策传导的速度？
+        (b) 已经锁定低利率的房主，换房时要按新的高利率重新贷款。这对二手房的供给有什么影响？
       en: |-
-        A 400,000-dollar, 30-year fixed-rate mortgage with equal monthly payments.
-        (a) At annual rates of 6% and 7% (compounded monthly, monthly rate = annual rate / 12), what is the monthly payment? By what percentage does the payment rise?
-        (b) Most US mortgages are 30-year fixed-rate loans. After a rate hike, how do households that already have a mortgage and households buying now differ in how they are affected? How does this affect the speed of monetary policy transmission?
-        (c) Homeowners who have locked in a low rate must borrow again at the new, higher rate if they move. What does this do to the supply of existing homes for sale?
+        For a 400,000-dollar, 30-year fixed-rate mortgage, a rise in the rate from 6% to 7% raises the monthly payment from about 2,398 to about 2,661 dollars (about 11%).
+        (a) Most US mortgages are 30-year fixed-rate loans. After a rate hike, how do households that already have a mortgage and households buying now differ in how they are affected? How does this affect the speed of monetary policy transmission?
+        (b) Homeowners who have locked in a low rate must borrow again at the new, higher rate if they move. What does this do to the supply of existing homes for sale?
     answer:
       zh-cn: |-
-        (a) 用年金公式（[[0.1]]）：$\text{PMT} = \frac{400000 \times m}{1 - (1 + m)^{-360}}$。6%：$m = 0.005$，约 2398.20 美元；7%：$m \approx 0.005833$，约 2661.21 美元。增加约 10.97%。
-        (b) 已有固定利率房贷的家庭还款不变，基本不受影响；新借款的家庭面对更高的还款，买房需求下降。所以加息主要通过新的借款起作用，对现有家庭的影响要随着房贷逐渐更新才显现，传导比浮动利率为主的国家慢。
-        (c) 很多房主不愿放弃低利率，推迟卖房换房（“锁定效应”），二手房的供给减少。这会在需求下降的同时限制房价下跌，进一步削弱加息对房地产的影响。
+        (a) 已有固定利率房贷的家庭还款不变，基本不受影响；新借款的家庭面对更高的还款，买房需求下降。所以加息主要通过新的借款起作用，对现有家庭的影响要随着房贷逐渐更新才显现，传导比浮动利率为主的国家慢。
+        (b) 很多房主不愿放弃低利率，推迟卖房换房（“锁定效应”），二手房的供给减少。这会在需求下降的同时限制房价下跌，进一步削弱加息对房地产的影响。
       en: |-
-        (a) With the annuity formula ([[0.1]]): $\text{PMT} = \frac{400000 \times m}{1 - (1 + m)^{-360}}$. At 6%, $m = 0.005$, about 2398.20 dollars; at 7%, $m \approx 0.005833$, about 2661.21 dollars. A rise of about 10.97%.
-        (b) Households with existing fixed-rate mortgages keep the same payments and are hardly affected; new borrowers face higher payments, and demand for homes falls. So a hike works mainly through new borrowing, and its effect on existing households appears only as mortgages are gradually refinanced or replaced; transmission is slower than in countries where floating rates are common.
-        (c) Many homeowners do not want to give up their low rates and put off selling and moving (the "lock-in effect"), so fewer existing homes come up for sale. This limits the fall in house prices even as demand falls, which further weakens the effect of the hike on housing.
+        (a) Households with existing fixed-rate mortgages keep the same payments and are hardly affected; new borrowers face higher payments, and demand for homes falls. So a hike works mainly through new borrowing, and its effect on existing households appears only as mortgages are gradually replaced; transmission is slower than in countries where floating rates are common.
+        (b) Many homeowners do not want to give up their low rates and put off selling and moving (the "lock-in effect"), so fewer existing homes come up for sale. This limits the fall in house prices even as demand falls, which further weakens the effect of the hike on housing.
     rubric:
       zh-cn:
-        - "(a) 约 2398.20 和 2661.21 美元，增加约 10.97%。"
-        - "(b) 区分存量和新增借款人，说明传导变慢。"
-        - "(c) 说明锁定效应减少供给。"
+        - "(a) 区分存量和新增借款人，说明传导变慢。"
+        - "(b) 说明锁定效应减少供给。"
       en:
-        - "(a) About 2398.20 and 2661.21 dollars, up about 10.97%."
-        - "(b) Distinguishes existing and new borrowers and explains slower transmission."
-        - "(c) Explains that lock-in reduces supply."
+        - "(a) Distinguishes existing and new borrowers and explains slower transmission."
+        - "(b) Explains that lock-in reduces supply."
 
   - id: Q5
     kind: exercise
@@ -295,27 +280,23 @@ questions:
     question:
       zh-cn: |-
         假设 2 年期利率约等于今年的 1 年期利率和预期中明年的 1 年期利率的平均值（不考虑风险补偿）。今年的 1 年期利率为 4%，市场原本预期明年仍为 4%。
-        (a) 2 年期利率是多少？
-        (b) 央行今天不改变利率，但宣布明年很可能把利率降到 3%，而且市场相信它。2 年期利率会变成多少？
-        (c) 这说明前瞻指引怎样在不改变今天利率的情况下影响经济？它起作用的前提是什么？
+        (a) 央行今天不改变利率，但宣布明年很可能把利率降到 3%，而且市场相信它。2 年期利率从多少变为多少？
+        (b) 这说明前瞻指引怎样在不改变今天利率的情况下影响经济？它起作用的前提是什么？
       en: |-
         Suppose the 2-year rate is about the average of this year's 1-year rate and the 1-year rate expected next year (ignoring risk compensation). This year's 1-year rate is 4%, and markets expected it to stay at 4% next year.
-        (a) What is the 2-year rate?
-        (b) The central bank leaves rates unchanged today but announces that it will probably cut to 3% next year, and markets believe it. What does the 2-year rate become?
-        (c) What does this show about how forward guidance affects the economy without changing today's rate? What does it require to work?
+        (a) The central bank leaves rates unchanged today but announces that it will probably cut to 3% next year, and markets believe it. How does the 2-year rate change?
+        (b) What does this show about how forward guidance affects the economy without changing today's rate? What does it require to work?
     answer:
       zh-cn: |-
-        (a) $\frac{4\% + 4\%}{2} = 4\%$。
-        (b) $\frac{4\% + 3\%}{2} = 3.5\%$。
-        (c) 企业和家庭借款、债券定价看的是较长期的利率，它们取决于对未来短期利率的预期。前瞻指引改变预期，就能立刻压低长期利率，刺激需求。前提是可信：如果市场不相信央行会按说的做，预期不变，指引就没有作用；央行也要考虑违背承诺对可信度的损害。
+        (a) 从 $\frac{4\% + 4\%}{2} = 4\%$ 变为 $\frac{4\% + 3\%}{2} = 3.5\%$。
+        (b) 企业和家庭借款、债券定价看的是较长期的利率，它们取决于对未来短期利率的预期。前瞻指引改变预期，就能立刻压低长期利率，刺激需求。前提是可信：如果市场不相信央行会按说的做，预期不变，指引就没有作用；央行也要考虑违背承诺对可信度的损害。
       en: |-
-        (a) $\frac{4\% + 4\%}{2} = 4\%$.
-        (b) $\frac{4\% + 3\%}{2} = 3.5\%$.
-        (c) Business and household borrowing and bond pricing depend on longer-term rates, which depend on expected future short rates. By changing expectations, forward guidance can lower long rates at once and stimulate demand. It requires credibility: if markets do not believe the central bank will do what it says, expectations do not change and the guidance has no effect; the central bank must also weigh the damage to its credibility if it breaks its word.
+        (a) From $\frac{4\% + 4\%}{2} = 4\%$ to $\frac{4\% + 3\%}{2} = 3.5\%$.
+        (b) Business and household borrowing and bond pricing depend on longer-term rates, which depend on expected future short rates. By changing expectations, forward guidance can lower long rates at once and stimulate demand. It requires credibility: if markets do not believe the central bank will do what it says, expectations do not change and the guidance has no effect; the central bank must also weigh the damage to its credibility if it breaks its word.
     rubric:
       zh-cn:
-        - "(a) 4%；(b) 3.5%。"
-        - "(c) 说明通过预期影响长期利率，以及可信度的作用。"
+        - "(a) 4% → 3.5%。"
+        - "(b) 说明通过预期影响长期利率，以及可信度的作用。"
       en:
-        - "(a) 4%; (b) 3.5%."
-        - "(c) Explains the effect through expectations on long rates and the role of credibility."
+        - "(a) 4% → 3.5%."
+        - "(b) Explains the effect through expectations on long rates and the role of credibility."

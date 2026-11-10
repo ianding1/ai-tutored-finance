@@ -60,81 +60,77 @@ questions:
     kind: check
     section: growth-accounting
     concepts: [growth-accounting, total-factor-productivity]
-    expected: { ga: "0.83", gy: "1.5", deep: "0.67" }
+    expected: { ga: "0.83", deep: "0.67" }
     question:
       zh-cn: |-
-        某国 $\alpha = \frac13$。一年中资本增长 3%，劳动增长 1%，实际 GDP 增长 2.5%。全要素生产率增长多少？人均产出（每个工人的产出）增长多少，其中多少来自全要素生产率、多少来自每个工人拥有更多资本？
+        某国 $\alpha = \frac13$。一年中资本增长 3%，劳动增长 1%，实际 GDP 增长 2.5%。全要素生产率增长多少？人均产出增长 1.5%，其中多少来自每个工人拥有更多资本？
       en: |-
-        A country has $\alpha = \frac13$. In one year capital grows 3%, labor 1% and real GDP 2.5%. How much does TFP grow? How much does output per worker grow, and how much of that comes from TFP and how much from each worker having more capital?
+        A country has $\alpha = \frac13$. In one year capital grows 3%, labor 1% and real GDP 2.5%. How much does TFP grow? Output per worker grows 1.5%; how much of that comes from each worker having more capital?
     answer:
       zh-cn: |-
         $g_A = 2.5\% - \frac13 \times 3\% - \frac23 \times 1\% \approx 0.83\%$。
-        人均产出增长 $2.5\% - 1\% = 1.5\%$。由 $g_y = g_A + \alpha(g_K - g_L)$：全要素生产率贡献约 0.83 个百分点，每个工人资本增加（资本深化）贡献 $\frac13 \times (3\% - 1\%) \approx 0.67$ 个百分点。
+        由 $g_y = g_A + \alpha(g_K - g_L)$：资本深化贡献 $\frac13 \times (3\% - 1\%) \approx 0.67$ 个百分点，其余约 0.83 个百分点来自全要素生产率。
       en: |-
         $g_A = 2.5\% - \frac13 \times 3\% - \frac23 \times 1\% \approx 0.83\%$.
-        Output per worker grows $2.5\% - 1\% = 1.5\%$. From $g_y = g_A + \alpha(g_K - g_L)$: TFP contributes about 0.83 percentage points, and more capital per worker (capital deepening) contributes $\frac13 \times (3\% - 1\%) \approx 0.67$ percentage points.
+        From $g_y = g_A + \alpha(g_K - g_L)$: capital deepening contributes $\frac13 \times (3\% - 1\%) \approx 0.67$ percentage points, and the remaining 0.83 comes from TFP.
     rubric:
       zh-cn:
-        - "全要素生产率增长约 0.83%。"
-        - "人均产出增长 1.5%，分解为约 0.83 和 0.67。"
+        - "全要素生产率约 0.83%。"
+        - "资本深化约 0.67。"
       en:
-        - "TFP growth about 0.83%."
-        - "Output per worker grows 1.5%, split into about 0.83 and 0.67."
+        - "TFP about 0.83%."
+        - "Capital deepening about 0.67."
 
   - id: C2
     kind: check
     section: solow
     concepts: [solow-model, steady-state]
     widget: { id: solow, set: { s: 0.3 } }
-    expected: { k1: "6.09", y1: "1.83", k2: "11.18", y2: "2.24" }
+    expected: { y1: "1.83", y2: "2.24" }
     question:
       zh-cn: |-
-        在 [[fig:4-1]] 中把储蓄率从 0.2 调到 0.3。稳态的人均资本和人均产出各从多少变为多少？储蓄率提高后，人均产出是立刻跳到新的稳态，还是逐渐增加？到达新的稳态之后，人均产出的增长率是多少？
+        在 [[fig:4-1]] 中把储蓄率从 0.2 调到 0.3。稳态的人均产出从多少变为多少？到达新的稳态之后，人均产出的增长率是多少？
       en: |-
-        In [[fig:4-1]], raise the saving rate from 0.2 to 0.3. From what to what do steady-state capital per worker and output per worker change? After the saving rate rises, does output per worker jump to the new steady state at once or rise gradually? Once the new steady state is reached, what is the growth rate of output per worker?
+        In [[fig:4-1]], raise the saving rate from 0.2 to 0.3. From what to what does steady-state output per worker change? Once the new steady state is reached, what is the growth rate of output per worker?
     answer:
       zh-cn: |-
-        人均资本从约 6.09 变为约 11.18，人均产出从约 1.83 变为约 2.24。
-        储蓄率提高时资本还没有变，人均产出不会立刻改变；之后每年的投资多于维持所需，资本逐渐积累，人均产出逐渐增加，越接近新稳态增长越慢。到达新稳态后，人均资本和人均产出都不再变化，增长率为 0（在这个模型中全要素生产率不变）。储蓄率的提高带来的是更高的水平，而不是永久更快的增长。
+        人均产出从约 1.83 变为约 2.24。储蓄率提高后，资本逐渐积累，人均产出逐渐增加，越接近新稳态增长越慢。
+        到达新稳态后，人均资本和人均产出都不再变化，增长率为 0（在这个模型中全要素生产率不变）。储蓄率的提高带来的是更高的水平，而不是永久更快的增长。
       en: |-
-        Capital per worker goes from about 6.09 to about 11.18, and output per worker from about 1.83 to about 2.24.
-        When the saving rate rises, capital has not yet changed, so output per worker does not change at once; afterwards investment exceeds what is needed each year, capital builds up, and output per worker rises gradually, more slowly as it nears the new steady state. At the new steady state, capital and output per worker stop changing, and the growth rate is 0 (TFP is constant in this model). A higher saving rate brings a higher level, not permanently faster growth.
+        Output per worker goes from about 1.83 to about 2.24. After the saving rate rises, capital builds up and output per worker rises gradually, more slowly as it nears the new steady state.
+        At the new steady state capital and output per worker stop changing, so the growth rate is 0 (TFP is constant in this model). A higher saving rate brings a higher level, not permanently faster growth.
     rubric:
       zh-cn:
-        - "读出约 6.09 → 11.18 和 1.83 → 2.24。"
-        - "说明逐渐过渡，到稳态后增长率为 0。"
+        - "约 1.83 → 2.24。"
+        - "到稳态后增长率为 0。"
       en:
-        - "Reads about 6.09 → 11.18 and 1.83 → 2.24."
-        - "Explains the gradual transition and zero growth at the steady state."
+        - "About 1.83 → 2.24."
+        - "Zero growth at the steady state."
 
   - id: C3
     kind: check
     section: growth-and-stocks
     concepts: [growing-perpetuity]
-    expected: { pa: "50", pb: "16.67", r: "8" }
+    expected: { pa: "50", pb: "16.67" }
     question:
       zh-cn: |-
-        两个股票市场的投资者都要求 8% 的年收益。明年两个市场的股息都是每股 1 美元。投资者预期 A 国的股息每年永远增长 6%，B 国增长 2%。用增长永续年金（[[0.1]]）求两个市场的股价。如果股息的增长正如预期，在这两个市场投资的年收益各是多少？为什么 A 国增长更快，投资者的收益却没有更高？
+        两个股票市场的投资者都要求 8% 的年收益。明年两个市场的股息都是每股 1 美元。投资者预期 A 国的股息每年永远增长 6%，B 国增长 2%。用增长永续年金（[[0.1]]）求两个市场的股价。如果股息正如预期增长，为什么 A 国增长更快，投资者的收益却没有更高？
       en: |-
-        Investors in two stock markets both require a return of 8% a year. Next year's dividend is 1 dollar per share in both. Investors expect dividends in country A to grow 6% a year forever and in country B 2%. Use the growing perpetuity ([[0.1]]) to find the share prices in the two markets. If dividends grow as expected, what is the yearly return from investing in each market? Why does faster growth in A not give investors a higher return?
+        Investors in two stock markets both require 8% a year. Next year's dividend is 1 dollar per share in both. Investors expect dividends in country A to grow 6% a year forever and in B 2%. Use the growing perpetuity ([[0.1]]) to find the share prices. If dividends grow as expected, why does faster growth in A not give investors a higher return?
     answer:
       zh-cn: |-
         A：$\frac{1}{0.08 - 0.06} = 50$；B：$\frac{1}{0.08 - 0.02} \approx 16.67$。
-        股息按预期增长时，股价也以同样的速度增长，年收益 = 股息率 + 增长率：A 为 $\frac{1}{50} + 6\% = 8\%$，B 为 $\frac{1}{16.67} + 2\% = 8\%$。两个市场都是 8%。
-        预期中更快的增长已经使 A 的股价更高（股息率更低）。只有增长超出预期，投资者才能得到更高的收益；反过来，如果 A 的增长低于预期，以高价买入的投资者会受损。
+        预期中更快的增长已经使 A 的股价更高、股息率更低。年收益 = 股息率 + 增长率：A 为 $2\% + 6\%$，B 为 $6\% + 2\%$，都是 8%。只有增长超出预期，投资者才能得到更高的收益。
       en: |-
         A: $\frac{1}{0.08 - 0.06} = 50$; B: $\frac{1}{0.08 - 0.02} \approx 16.67$.
-        If dividends grow as expected, prices grow at the same rate, and the yearly return = dividend yield + growth: for A $\frac{1}{50} + 6\% = 8\%$, for B $\frac{1}{16.67} + 2\% = 8\%$. Both markets give 8%.
-        The faster expected growth has already made A's price higher (and its dividend yield lower). Investors earn more only if growth exceeds expectations; conversely, if A grows less than expected, investors who bought at a high price lose.
+        The faster expected growth has already made A's price higher and its dividend yield lower. Yearly return = dividend yield + growth: $2\% + 6\%$ for A and $6\% + 2\%$ for B, 8% in both. Investors earn more only if growth beats expectations.
     rubric:
       zh-cn:
         - "股价 50 和约 16.67。"
-        - "两个市场的收益都是 8%（股息率 + 增长率）。"
-        - "说明预期的增长已经反映在价格中，只有超出预期的增长带来额外收益。"
+        - "说明预期的增长已经反映在价格中，两地收益都是 8%。"
       en:
         - "Prices 50 and about 16.67."
-        - "Both returns are 8% (dividend yield + growth)."
-        - "Explains that expected growth is already in the price; only growth above expectations brings extra return."
+        - "Explains that expected growth is in the price, so both return 8%."
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1
@@ -196,36 +192,29 @@ questions:
     level: C
     star: true
     concepts: [solow-model, steady-state, first-order-condition]
-    expected: { c1: "1.46", c2: "1.57", c3: "1.44" }
     question:
       zh-cn: |-
         在 [[fig:4-1]] 的模型中（$A = 1$，$\alpha = \frac13$，$\delta + n = 0.06$），稳态人均消费为 $c^* = (1 - s)\,y^*$。
         (a) 写出 $c^*$ 关于 $s$ 的函数，并证明它在 $s = \alpha = \frac13$ 时最大。
-        (b) 计算 $s = 0.2$、$\frac13$、$0.5$ 时的 $c^*$。
-        (c) 解释为什么储蓄率太低和太高都会使稳态消费变少。
+        (b) 解释为什么储蓄率太低和太高都会使稳态消费变少。
       en: |-
         In the model of [[fig:4-1]] ($A = 1$, $\alpha = \frac13$, $\delta + n = 0.06$), steady-state consumption per worker is $c^* = (1 - s)\,y^*$.
         (a) Write $c^*$ as a function of $s$ and show that it is largest at $s = \alpha = \frac13$.
-        (b) Compute $c^*$ for $s = 0.2$, $\frac13$ and $0.5$.
-        (c) Explain why a saving rate that is too low and one that is too high both lower steady-state consumption.
+        (b) Explain why a saving rate that is too low and one that is too high both lower steady-state consumption.
     answer:
       zh-cn: |-
-        (a) $y^* = (k^*)^{1/3} = \left(\frac{s}{0.06}\right)^{1/2}$，所以 $c^* = (1 - s)\sqrt{\frac{s}{0.06}}$。对 $f(s) = (1 - s)s^{1/2}$ 求导：$f'(s) = -s^{1/2} + \frac12(1 - s)s^{-1/2} = s^{-1/2}\left[\frac12(1 - s) - s\right]$，令其为 0 得 $s = \frac13$；$f'$ 在此前为正、此后为负，是最大值。
-        (b) $s = 0.2$：约 1.46；$s = \frac13$：约 1.57；$s = 0.5$：约 1.44。
-        (c) 储蓄率太低时资本太少，产出低，能消费的自然少；储蓄率太高时资本很多，但每年大部分产出要用于弥补折旧和装备新工人，能消费的比例太小。这个使稳态消费最大的储蓄率叫黄金律（golden rule）储蓄率。
+        (a) $y^* = \left(\frac{s}{0.06}\right)^{1/2}$，$c^* = (1 - s)\sqrt{\frac{s}{0.06}}$。对 $f(s) = (1 - s)s^{1/2}$ 求导：$f'(s) = s^{-1/2}\left[\frac12(1 - s) - s\right]$，令其为 0 得 $s = \frac13$；此前为正、此后为负，是最大值（约 1.57，而 $s = 0.2$ 时约 1.46，$s = 0.5$ 时约 1.44）。
+        (b) 储蓄率太低时资本太少，产出低，能消费的自然少；储蓄率太高时资本很多，但每年大部分产出要用于弥补折旧和装备新工人，能消费的比例太小。使稳态消费最大的储蓄率叫黄金律（golden rule）储蓄率。
       en: |-
-        (a) $y^* = (k^*)^{1/3} = \left(\frac{s}{0.06}\right)^{1/2}$, so $c^* = (1 - s)\sqrt{\frac{s}{0.06}}$. Differentiate $f(s) = (1 - s)s^{1/2}$: $f'(s) = -s^{1/2} + \frac12(1 - s)s^{-1/2} = s^{-1/2}\left[\frac12(1 - s) - s\right]$; setting it to 0 gives $s = \frac13$; $f'$ is positive before and negative after, so it is a maximum.
-        (b) $s = 0.2$: about 1.46; $s = \frac13$: about 1.57; $s = 0.5$: about 1.44.
-        (c) With too little saving there is too little capital, output is low, and so is consumption; with too much saving there is a lot of capital, but most output each year goes to covering depreciation and equipping new workers, leaving too small a share to consume. The saving rate that maximizes steady-state consumption is called the golden-rule saving rate.
+        (a) $y^* = \left(\frac{s}{0.06}\right)^{1/2}$, so $c^* = (1 - s)\sqrt{\frac{s}{0.06}}$. For $f(s) = (1 - s)s^{1/2}$, $f'(s) = s^{-1/2}\left[\frac12(1 - s) - s\right]$, which is 0 at $s = \frac13$, positive before and negative after: a maximum (about 1.57, against about 1.46 at $s = 0.2$ and 1.44 at $s = 0.5$).
+        (b) With too little saving there is too little capital, output is low, and so is consumption; with too much saving there is a lot of capital, but most output goes to covering depreciation and equipping new workers, leaving too small a share to consume. The saving rate that maximizes steady-state consumption is the golden-rule saving rate.
     rubric:
       zh-cn:
         - "(a) 写出 $c^*(s)$ 并由一阶条件得到 $s = \\frac13$。"
-        - "(b) 约 1.46、1.57、1.44。"
-        - "(c) 两端的原因都说明。"
+        - "(b) 两端的原因都说明。"
       en:
         - "(a) Writes $c^*(s)$ and gets $s = \\frac13$ from the first-order condition."
-        - "(b) About 1.46, 1.57, 1.44."
-        - "(c) Explains both ends."
+        - "(b) Explains both ends."
 
   - id: Q4
     kind: exercise
