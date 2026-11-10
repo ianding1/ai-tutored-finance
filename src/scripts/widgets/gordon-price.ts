@@ -34,7 +34,7 @@ export function initGordonPrice() {
 			const ok = g < r;
 			for (const { el, X, Y } of plots) {
 				const pts: string[] = [];
-				const top = Math.min(8, r - 0.005);
+				const top = r - 0.005;
 				for (let k = 0; k <= 200; k++) {
 					const x = (top * k) / 200;
 					pts.push(`${X(x).toFixed(1)},${Y(Math.min(400, price(x))).toFixed(1)}`);
