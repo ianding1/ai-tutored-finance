@@ -64,6 +64,9 @@ def results():
 
     res["Q5.shield"] = 200 * 0.21
     res["Q5.pv"] = res["Q5.shield"] * annuity(0.10, 5)
+    # Intermediate values that the questions now give or no longer ask for.
+    for k in ['C3.ia', 'Q1.rr', 'Q2.n15', 'Q2.n25', 'Q2.n5']:
+        del res[k]
     return res
 
 

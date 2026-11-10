@@ -70,6 +70,9 @@ def results():
     fv = 60 * (1.03**5 - 1) / 0.03
     r["Q5.fv"] = fv
     r["Q5.r"] = 100 * (((1000 + fv) / p0) ** 0.2 - 1)
+    # Intermediate values that the questions now give or no longer ask for.
+    for k in ['C2.p4', 'C2.p6', 'C3.p1', 'C3.p1b', 'C3.ret', 'C4.ytm', 'Q2.p30']:
+        del r[k]
     return r
 
 

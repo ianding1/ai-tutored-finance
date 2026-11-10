@@ -72,6 +72,12 @@ one learner, revision history and answers inline. To publish a finished lesson:
    lesson (example data, figure parameters) must be in a context item tagged for that question.
    Place `<Check id="..."/>` (question text only) in the right section, `<CheckAll />` after the
    summary and `<Exercises />` at the end.
+   Keep questions small:
+   - each check question asks about one core point, in one or two parts, to confirm understanding or
+     prompt thought; it does not try to cover everything in the section;
+   - exercises cover the lesson's points without many parts; when a question has many parts, drop the
+     ones that only plug numbers into a formula and keep the ones that need the formula to be
+     understood or used flexibly. A number that is only a stepping stone can be given in the question.
 5. Put every numeric answer in `expected` and recompute it in `course/verify/<id>.py`.
 6. Write the page and every text field in each of the other languages. Formulas, heading ids and
    components must be identical. English uses plain, standard English without idioms.

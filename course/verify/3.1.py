@@ -42,6 +42,9 @@ def results():
     r["Q4.e"] = 0.6 * 99.98 + 0.4 * 100.35
 
     r["Q5.nav"] = 1.00 * (1 - 0.03)
+    # Intermediate values that the questions now give or no longer ask for.
+    for k in ['C1.sd1', 'C2.cost', 'C2.pct', 'C3.avg', 'Q1.f1', 'Q1.f2', 'Q2.gain', 'Q2.maxlong', 'Q3.net', 'Q5.nav']:
+        del r[k]
     return r
 
 

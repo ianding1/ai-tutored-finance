@@ -55,190 +55,149 @@ questions:
     kind: check
     section: intermediation
     concepts: [financial-intermediary, diversification, standard-deviation]
-    expected: { sd1: "21.79", sd2: "0.69" }
+    expected: { sd2: "0.69" }
     question:
       zh-cn: |-
-        每笔贷款以 5% 的概率违约，违约时本金全部损失，否则全部收回。
-        (a) 只发放一笔贷款时，损失比例（0 或 1）的标准差是多少（用百分数表示）？
-        (b) 发放 1000 笔金额相同、违约相互独立的贷款时，损失比例的标准差是多少？
-        (c) 现实中，为什么银行的损失比例并不像 (b) 那样稳定？
+        每笔贷款以 5% 的概率违约，违约时本金全部损失。只发放一笔贷款时，损失比例的标准差约为 21.79%。银行发放 1000 笔金额相同、违约相互独立的贷款，损失比例的标准差是多少？现实中银行的损失比例为什么并没有这么稳定？
       en: |-
-        Each loan defaults with probability 5%, losing the whole principal; otherwise it is repaid in full.
-        (a) With a single loan, what is the standard deviation of the loss rate (0 or 1), in percent?
-        (b) With 1000 equal loans that default independently, what is the standard deviation of the loss rate?
-        (c) In reality, why is a bank's loss rate not as stable as in (b)?
+        Each loan defaults with probability 5%, losing the whole principal. With a single loan, the standard deviation of the loss rate is about 21.79%. If a bank makes 1000 equal loans that default independently, what is the standard deviation of its loss rate? Why is a real bank's loss rate not this stable?
     answer:
       zh-cn: |-
-        (a) $\sqrt{0.05 \times 0.95} \approx 21.79\%$。
-        (b) 独立时方差除以 1000：$\frac{21.79\%}{\sqrt{1000}} \approx 0.69\%$。
-        (c) 违约并不相互独立：衰退中很多借款者同时出问题，贷款的违约正相关，这部分风险不能靠增加贷款数量分散掉。
+        独立时方差除以 1000：$\frac{21.79\%}{\sqrt{1000}} \approx 0.69\%$。
+        现实中违约并不相互独立：衰退中很多借款者同时出问题，违约正相关，这部分风险不能靠增加贷款数量分散掉。
       en: |-
-        (a) $\sqrt{0.05 \times 0.95} \approx 21.79\%$.
-        (b) With independence the variance is divided by 1000: $\frac{21.79\%}{\sqrt{1000}} \approx 0.69\%$.
-        (c) Defaults are not independent: in a recession many borrowers get into trouble at once, defaults are positively correlated, and this risk cannot be diversified away by making more loans.
+        With independence the variance is divided by 1000: $\frac{21.79\%}{\sqrt{1000}} \approx 0.69\%$.
+        In reality defaults are not independent: in a recession many borrowers get into trouble at once, defaults are positively correlated, and this risk cannot be diversified away by making more loans.
     rubric:
       zh-cn:
-        - "(a) 约 21.79%；(b) 约 0.69%。"
-        - "(c) 指出违约的相关性。"
+        - "约 0.69%。"
+        - "指出违约的相关性。"
       en:
-        - "(a) About 21.79%; (b) about 0.69%."
-        - "(c) Points to the correlation of defaults."
+        - "About 0.69%."
+        - "Points to the correlation of defaults."
 
   - id: C2
     kind: check
     section: trading
     concepts: [bid-ask-spread, market-maker]
-    expected: { cost: "100", pct: "0.1", yr: "5" }
+    expected: { yr: "5" }
     question:
       zh-cn: |-
-        一只股票的买价为 99.95 美元，卖价为 100.05 美元。(a) 立即买入 1000 股再立即卖出，价格不变，损失多少？占投入金额的百分之几？(b) 一位投资者每年这样买卖 50 次，仅价差一项每年损失本金的百分之几？(c) 为什么交易不活跃的小公司股票，价差通常更大？
+        一只股票的买价为 99.95 美元、卖价为 100.05 美元。一位投资者每年把全部资金在这只股票上买入再卖出 50 次，价格不变，仅价差一项每年损失本金的百分之几？如果换成交易不活跃的小公司股票，这个数字通常会更大，为什么？
       en: |-
-        A stock has a bid of 99.95 dollars and an ask of 100.05 dollars. (a) If you buy 1000 shares at once and then sell them at once, with prices unchanged, how much do you lose? What percentage of the amount invested is this? (b) An investor does such a round trip 50 times a year. What percentage of capital does the spread alone cost each year? (c) Why are spreads usually wider for thinly traded small-company stocks?
+        A stock has a bid of 99.95 dollars and an ask of 100.05 dollars. An investor buys and then sells this stock with all of his capital 50 times a year, with prices unchanged. What percentage of capital does the spread alone cost each year? For a thinly traded small-company stock this number is usually larger. Why?
     answer:
       zh-cn: |-
-        (a) 买入付 $1000 \times 100.05$，卖出得 $1000 \times 99.95$，损失 $1000 \times 0.10 = 100$ 美元，约占 100,000 美元的 0.1%。
-        (b) $50 \times 0.1\% = 5\%$。
-        (c) 交易少，做市商持有存货的时间长、风险大；关于小公司的信息少，来交易的人更可能比做市商知道得多（逆向选择），做市商要用更大的价差补偿。
+        每次买入再卖出损失 0.10 美元，约为 0.1%；每年 $50 \times 0.1\% = 5\%$。
+        小公司股票交易少，做市商持有存货的时间长、风险大；关于小公司的公开信息少，来交易的人更可能比做市商知道得多（逆向选择），做市商要用更大的价差补偿。
       en: |-
-        (a) Buying costs $1000 \times 100.05$ and selling brings $1000 \times 99.95$, a loss of $1000 \times 0.10 = 100$ dollars, about 0.1% of 100,000 dollars.
-        (b) $50 \times 0.1\% = 5\%$.
-        (c) With little trading, market makers hold inventory longer and bear more risk; with less public information about small companies, traders are more likely to know more than the market maker (adverse selection), so the market maker needs a wider spread as compensation.
+        Each round trip loses 0.10 dollars, about 0.1%; a year costs $50 \times 0.1\% = 5\%$.
+        A small-company stock trades little, so market makers hold inventory longer and bear more risk; with less public information, traders are more likely to know more than the market maker (adverse selection), so the market maker needs a wider spread as compensation.
     rubric:
       zh-cn:
-        - "(a) 100 美元、0.1%；(b) 5%。"
-        - "(c) 提到存货风险和逆向选择。"
+        - "每年约 5%。"
+        - "提到存货风险和逆向选择。"
       en:
-        - "(a) 100 dollars, 0.1%; (b) 5%."
-        - "(c) Mentions inventory risk and adverse selection."
+        - "About 5% a year."
+        - "Mentions inventory risk and adverse selection."
 
   - id: C3
     kind: check
     section: orders
     concepts: [limit-order, bid-ask-spread]
     widget: { id: order-book, set: { q: 3000 } }
-    expected: { avg: "100.1167", cost: "175", cost2: "675" }
+    expected: { cost: "175", cost2: "675" }
     question:
       zh-cn: |-
-        在 [[fig:5-1]] 中提交 1500 股的市价买单。(a) 平均成交价是多少？比按中间价成交多付多少美元？(b) 改为 3000 股，多付多少？为什么不是 (a) 的两倍？(c) 如果不急于成交，可以怎样减少这部分成本？代价是什么？
+        在 [[fig:5-1]] 中，1500 股的市价买单比按中间价成交多付多少美元？3000 股呢？为什么不是两倍？
       en: |-
-        In [[fig:5-1]], submit a market buy order for 1500 shares. (a) What is the average price? How many dollars more is paid than at the midpoint? (b) With 3000 shares, how much more is paid? Why is it not twice (a)? (c) If there is no hurry, how can this cost be reduced, and at what price?
+        In [[fig:5-1]], how many dollars more than the midpoint does a market buy order for 1500 shares pay? And for 3000 shares? Why is it not twice as much?
     answer:
       zh-cn: |-
-        (a) 成交 500 股 100.05、500 股 100.10、500 股 100.20，平均约 100.1167 美元，多付 175 美元。
-        (b) 多付 675 美元，超过两倍：后面的股数要吃到更高的价位（100.20 和 100.40），每股多付的金额随订单增大而增加，价格冲击是递增的。
-        (c) 可以分批下单，或者用限价单等待卖方来成交。代价是成交没有保证：价格可能在等待时上涨，最终要以更高的价格买入，或者买不到。
+        1500 股：500 股 100.05、500 股 100.10、500 股 100.20，多付 175 美元。3000 股：多付 675 美元，超过两倍。
+        后面的股数要吃到更高的价位（100.20 和 100.40），每股多付的金额随订单增大而增加：价格冲击是递增的。
       en: |-
-        (a) Fills of 500 at 100.05, 500 at 100.10 and 500 at 100.20 give an average of about 100.1167 dollars, 175 dollars more than at the midpoint.
-        (b) 675 dollars more, more than twice: the extra shares reach higher price levels (100.20 and 100.40), so the extra cost per share rises with order size; price impact increases with size.
-        (c) Split the order over time, or use limit orders and wait for sellers. The cost is that execution is not guaranteed: the price may rise while waiting, so one ends up buying higher, or not at all.
+        1500 shares: 500 at 100.05, 500 at 100.10 and 500 at 100.20, paying 175 dollars more. 3000 shares: 675 dollars more, over twice as much.
+        The extra shares reach higher price levels (100.20 and 100.40), so the extra cost per share rises with order size: price impact increases with size.
     rubric:
       zh-cn:
-        - "(a) 约 100.1167 和 175 美元；(b) 675 美元，说明价格冲击递增。"
-        - "(c) 提出限价单或分批，并说明成交的不确定性。"
+        - "175 和 675 美元。"
+        - "说明价格冲击递增。"
       en:
-        - "(a) About 100.1167 and 175 dollars; (b) 675 dollars, explaining increasing price impact."
-        - "(c) Proposes limit orders or splitting and explains the execution risk."
+        - "175 and 675 dollars."
+        - "Explains increasing price impact."
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1
     kind: exercise
     level: B
     concepts: [financial-intermediary, adverse-selection]
-    expected: { f1: "20", f2: "0.1" }
     question:
       zh-cn: |-
-        发行公司债有一项约 100 万美元的固定成本（承销、法律、评级等），与发行金额无关。
-        (a) 一家小企业要借 500 万美元，一家大公司要借 10 亿美元。固定成本各占借款金额的百分之几？
-        (b) 除了固定成本，为什么小企业通常向银行借款，而不是直接向投资者发行债券？用信息问题说明。
+        发行公司债有一项约 100 万美元的固定成本（承销、法律、评级等），与发行金额无关。一家要借 500 万美元的小企业通常向银行借款，而一家要借 10 亿美元的大公司常常直接发行债券。除了固定成本，用信息问题说明为什么小企业更依赖银行。
       en: |-
-        Issuing corporate bonds involves a fixed cost of about 1 million dollars (underwriting, legal work, ratings and so on), whatever the amount issued.
-        (a) A small firm wants to borrow 5 million dollars and a large company 1 billion dollars. What percentage of the amount borrowed is the fixed cost in each case?
-        (b) Apart from the fixed cost, why do small firms usually borrow from banks rather than issue bonds to investors? Explain using information problems.
+        Issuing corporate bonds involves a fixed cost of about 1 million dollars (underwriting, legal work, ratings and so on), whatever the amount. A small firm borrowing 5 million dollars usually borrows from a bank, while a large company borrowing 1 billion dollars often issues bonds directly. Apart from the fixed cost, explain with information problems why small firms rely more on banks.
     answer:
       zh-cn: |-
-        (a) 小企业 $\frac{1}{5} = 20\%$；大公司 $\frac{1}{1000} = 0.1\%$。
-        (b) 投资者很难了解一家小企业的质量，愿意接受高利率的往往是风险更高的借款者（逆向选择），借到钱后企业也可能冒更大的风险（道德风险）。分散的债券投资者各自调查和监督不划算；银行可以集中做调查，通过长期的往来积累信息，在贷款合同中加入条款并持续监督，所以能以更低的成本解决信息问题。
+        固定成本占小企业借款的 20%，只占大公司的 0.1%。此外，投资者很难了解一家小企业的质量：愿意接受高利率的往往是风险更高的借款者（逆向选择），借到钱后企业也可能冒更大的风险（道德风险）。分散的债券投资者各自调查和监督不划算；银行可以集中调查，通过长期往来积累信息，在贷款合同中加入条款并持续监督，以更低的成本解决信息问题。大公司的信息公开、有评级，这些问题小得多。
       en: |-
-        (a) Small firm $\frac{1}{5} = 20\%$; large company $\frac{1}{1000} = 0.1\%$.
-        (b) Investors find it hard to judge a small firm's quality; those willing to pay high rates tend to be riskier borrowers (adverse selection), and after borrowing the firm may take more risk (moral hazard). It does not pay for many dispersed bondholders each to investigate and monitor; a bank can do the investigating in one place, build information through a long relationship, write covenants into the loan and keep monitoring, so it solves the information problems at lower cost.
+        The fixed cost is 20% of the small firm's borrowing and only 0.1% of the large company's. Beyond that, investors find it hard to judge a small firm's quality: those willing to pay high rates tend to be riskier borrowers (adverse selection), and after borrowing the firm may take more risk (moral hazard). It does not pay for many dispersed bondholders each to investigate and monitor; a bank can investigate in one place, build information through a long relationship, write covenants into the loan and keep monitoring, solving the information problems at lower cost. Large companies publish information and have ratings, so these problems are much smaller.
     rubric:
       zh-cn:
-        - "(a) 20% 和 0.1%。"
-        - "(b) 用逆向选择、道德风险和监督成本说明银行的优势。"
+        - "用逆向选择、道德风险和监督成本说明银行的优势。"
       en:
-        - "(a) 20% and 0.1%."
-        - "(b) Explains the bank's advantage with adverse selection, moral hazard and monitoring costs."
+        - "Explains the bank's advantage with adverse selection, moral hazard and monitoring costs."
 
   - id: Q2
     kind: exercise
     level: B
     star: true
     concepts: [short-selling]
-    expected: { loss: "1100", gain: "900", maxlong: "5000" }
+    expected: { loss: "1100" }
     question:
       zh-cn: |-
-        一位投资者以每股 50 美元卖空 100 股。持有期间公司发放每股 1 美元的股息。
-        (a) 之后以 60 美元买回，盈亏是多少？
-        (b) 如果以 40 美元买回呢？
-        (c) 同样以 50 美元买入 100 股的投资者，最大损失是多少？卖空者的最大损失是多少？为什么券商要求卖空者存入保证金，并在价格上涨时要求追加？
+        一位投资者以每股 50 美元卖空 100 股，持有期间公司发放每股 1 美元的股息，之后以 60 美元买回。(a) 盈亏是多少？(b) 卖空者的最大损失和买入者的最大损失有什么不同？券商为什么要求卖空者存入保证金，并在价格上涨时要求追加？
       en: |-
-        An investor sells short 100 shares at 50 dollars. While the position is open, the company pays a dividend of 1 dollar per share.
-        (a) If the shares are bought back at 60 dollars, what is the gain or loss?
-        (b) What if they are bought back at 40 dollars?
-        (c) For an investor who instead buys 100 shares at 50 dollars, what is the largest possible loss? And for the short seller? Why do brokers require short sellers to post margin and to add more when the price rises?
+        An investor sells short 100 shares at 50 dollars; while the position is open the company pays a dividend of 1 dollar per share; the shares are then bought back at 60 dollars. (a) What is the gain or loss? (b) How does the short seller's largest possible loss differ from a buyer's? Why do brokers require short sellers to post margin and add more when the price rises?
     answer:
       zh-cn: |-
         (a) 卖出得 5000，买回付 6000，还要付股息 100：亏损 $1000 + 100 = 1100$ 美元。
-        (b) 卖出得 5000，买回付 4000，付股息 100：盈利 $1000 - 100 = 900$ 美元。
-        (c) 买入者最多损失全部 5000 美元（股价跌到 0）。卖空者的损失没有上限，因为股价上涨没有上限。券商借出了股票，如果卖空者亏损太多无力买回，损失会落到券商身上；保证金和追加要求保证卖空者有能力承担损失。
+        (b) 买入者最多损失全部投入（股价跌到 0）；卖空者的损失没有上限，因为股价上涨没有上限。券商借出了股票，如果卖空者亏损太多无力买回，损失会落到券商身上；保证金和追加要求保证卖空者有能力承担损失。
       en: |-
         (a) The sale brings 5000, buying back costs 6000, and the dividend costs 100: a loss of $1000 + 100 = 1100$ dollars.
-        (b) The sale brings 5000, buying back costs 4000, and the dividend costs 100: a gain of $1000 - 100 = 900$ dollars.
-        (c) The buyer can lose at most all 5000 dollars (if the price falls to 0). The short seller's loss has no limit, because the price can rise without limit. The broker has lent the shares; if the short seller loses too much to buy them back, the loss falls on the broker, so margin and margin calls make sure the short seller can cover losses.
+        (b) A buyer can lose at most the amount invested (if the price falls to 0); a short seller's loss has no limit, because the price can rise without limit. The broker has lent the shares; if the short seller loses too much to buy them back, the loss falls on the broker, so margin and margin calls make sure the short seller can cover losses.
     rubric:
       zh-cn:
-        - "(a) 亏损 1100；(b) 盈利 900，计入股息。"
-        - "(c) 5000 与无上限，并说明保证金的作用。"
+        - "(a) 亏损 1100，计入股息。"
+        - "(b) 有限与无上限，并说明保证金的作用。"
       en:
-        - "(a) Loss 1100; (b) gain 900, including the dividend."
-        - "(c) 5000 versus unlimited, and explains the role of margin."
+        - "(a) A loss of 1100, including the dividend."
+        - "(b) Limited versus unlimited, and the role of margin."
 
   - id: Q3
     kind: exercise
     level: B
-    concepts: [primary-market, secondary-market, adverse-selection]
-    expected: { net: "186", left: "50" }
+    concepts: [primary-market, adverse-selection]
+    expected: { left: "50" }
     question:
       zh-cn: |-
-        一家公司 IPO 发行 1000 万股，发行价 20 美元，承销费为发行金额的 7%。上市第一天收盘价为 25 美元。
-        (a) 公司从发行中得到多少钱（百万美元）？
-        (b) 和按第一天的收盘价发行相比，公司少得了多少（不考虑承销费）？
-        (c) 第一天之后，股价在二级市场上的涨跌会给公司带来资金吗？
-        (d) 研究发现 IPO 平均有这种“首日上涨”。从发行者和投资者之间的信息不对称，给出一种解释。
+        一家公司 IPO 发行 1000 万股，发行价 20 美元；上市第一天收盘价为 25 美元。(a) 和按第一天的收盘价发行相比，公司少得了多少？(b) 研究发现 IPO 平均有这种“首日上涨”。从发行者和投资者之间的信息不对称，给出一种解释。
       en: |-
-        A company sells 10 million shares in an IPO at 20 dollars, with an underwriting fee of 7% of the amount raised. The first-day closing price is 25 dollars.
-        (a) How much does the company receive (millions of dollars)?
-        (b) Compared with selling at the first-day closing price, how much less does it get (ignoring the fee)?
-        (c) Do later price changes in the secondary market bring money to the company?
-        (d) Studies find such first-day gains on average in IPOs. Give one explanation based on asymmetric information between issuers and investors.
+        A company sells 10 million shares in an IPO at 20 dollars; the first-day closing price is 25 dollars. (a) Compared with selling at the first-day close, how much less did the company receive? (b) Studies find such first-day gains on average in IPOs. Give one explanation based on asymmetric information between issuers and investors.
     answer:
       zh-cn: |-
-        (a) $10 \times 20 \times (1 - 7\%) = 186$ 百万美元。
-        (b) $10 \times (25 - 20) = 50$ 百万美元。
-        (c) 不会：二级市场是投资者之间的交易。但股价影响公司以后再发行股票的条件，也影响持有股票的管理层和员工。
-        (d) 例如：消息灵通的投资者只会申购好的 IPO，消息不灵通的投资者在好的 IPO 中分到的少、在差的 IPO 中分到的多（“赢家的诅咒”，一种逆向选择）。为了让消息不灵通的投资者仍然愿意参与，发行价平均要定得低一些。
+        (a) $10 \times (25 - 20) = 50$ 百万美元。
+        (b) 例如：消息灵通的投资者只申购好的 IPO，消息不灵通的投资者在好的 IPO 中分到的少、在差的 IPO 中分到的多（“赢家的诅咒”，一种逆向选择）。为了让他们仍然愿意参与，发行价平均要定得低一些。
       en: |-
-        (a) $10 \times 20 \times (1 - 7\%) = 186$ million dollars.
-        (b) $10 \times (25 - 20) = 50$ million dollars.
-        (c) No: the secondary market is trading between investors. But the price affects the terms of any later share issue and matters to managers and employees who hold shares.
-        (d) For example: well-informed investors apply only for good IPOs, so less-informed investors get little of the good ones and a lot of the bad ones (the "winner's curse", a form of adverse selection). For less-informed investors to keep taking part, offer prices must be set lower on average.
+        (a) $10 \times (25 - 20) = 50$ million dollars.
+        (b) For example: well-informed investors apply only for good IPOs, so less-informed investors get little of the good ones and a lot of the bad ones (the "winner's curse", a form of adverse selection). For them to keep taking part, offer prices must be set lower on average.
     rubric:
       zh-cn:
-        - "(a) 186；(b) 50；(c) 不会。"
-        - "(d) 给出基于信息不对称的合理解释。"
+        - "(a) 50 百万美元。"
+        - "(b) 给出基于信息不对称的合理解释。"
       en:
-        - "(a) 186; (b) 50; (c) no."
-        - "(d) Gives a reasonable explanation based on asymmetric information."
+        - "(a) 50 million dollars."
+        - "(b) A reasonable explanation based on asymmetric information."
 
   - id: Q4
     kind: exercise
@@ -248,61 +207,48 @@ questions:
     expected: { e: "100.128" }
     question:
       zh-cn: |-
-        中间价 100.00，卖价 100.05。你要买入一股，有两种选择：
-        (i) 市价单，按 100.05 成交；
-        (ii) 限价单，出价 99.98。估计有 60% 的可能成交；如果没有成交，通常是因为价格上涨了，你要在卖价 100.35 时改用市价单买入。
+        中间价 100.00，卖价 100.05。你要买入一股，有两种选择：(i) 市价单，按 100.05 成交；(ii) 限价单，出价 99.98，估计有 60% 的可能成交；没有成交通常是因为价格上涨了，你要在卖价 100.35 时改用市价单买入。
         (a) 限价单的预期成交价是多少？哪种选择更好？
         (b) 限价单在什么情况下最容易成交？为什么这说明限价单也有一种“逆向选择”的成本？
       en: |-
-        The midpoint is 100.00 and the ask 100.05. You want to buy one share and have two choices:
-        (i) a market order, filled at 100.05;
-        (ii) a limit order at 99.98. You estimate a 60% chance it is filled; if not, it is usually because the price has risen, and you then buy with a market order at an ask of 100.35.
+        The midpoint is 100.00 and the ask 100.05. You want to buy one share: (i) a market order, filled at 100.05; or (ii) a limit order at 99.98, with an estimated 60% chance of a fill; if not filled, it is usually because the price has risen, and you then buy with a market order at an ask of 100.35.
         (a) What is the expected price with the limit order? Which choice is better?
         (b) When is a limit order most likely to be filled? Why does this mean limit orders also carry a kind of "adverse selection" cost?
     answer:
       zh-cn: |-
         (a) $0.6 \times 99.98 + 0.4 \times 100.35 = 100.128$，高于 100.05，这里市价单更好。
-        (b) 价格往下走时（有人急于卖出，或者出现了坏消息），限价买单最容易成交；价格往上走时，它恰好成交不了。所以限价单往往在“不该买”的时候买到、在“该买”的时候错过：成交本身就是价格可能继续下跌的信号。表面上限价单省了价差，但这种不利的成交和错过的机会都是成本。
+        (b) 价格往下走时（有人急于卖出，或者出现了坏消息），限价买单最容易成交；价格往上走时，它恰好成交不了。所以限价单往往在“不该买”的时候买到、在“该买”的时候错过：成交本身就是价格可能继续下跌的信号。
       en: |-
         (a) $0.6 \times 99.98 + 0.4 \times 100.35 = 100.128$, above 100.05, so here the market order is better.
-        (b) A limit buy is most likely to fill when the price is falling (someone is eager to sell, or bad news has arrived); when the price is rising, it does not fill. So limit orders tend to buy when it would have been better not to and miss when it would have been better to buy: being filled is itself a sign the price may keep falling. A limit order seems to save the spread, but these unfavorable fills and missed trades are costs.
+        (b) A limit buy is most likely to fill when the price is falling (someone is eager to sell, or bad news has arrived); when the price is rising, it does not fill. So limit orders tend to buy when it would have been better not to and miss when it would have been better to buy: being filled is itself a sign the price may keep falling.
     rubric:
       zh-cn:
         - "(a) 100.128，市价单更好。"
-        - "(b) 说明成交与价格下跌的关系，以及由此带来的成本。"
+        - "(b) 说明成交与价格下跌的关系。"
       en:
         - "(a) 100.128; the market order is better."
-        - "(b) Explains the link between fills and falling prices and the resulting cost."
+        - "(b) Explains the link between fills and falling prices."
 
   - id: Q5
     kind: exercise
     level: B
     concepts: [money-market, bank-run]
-    expected: { nav: "0.97" }
     question:
       zh-cn: |-
-        货币市场基金通常把每份净值维持在 1.00 美元。2008 年 9 月 16 日，美国一只大型货币市场基金因为持有的雷曼兄弟商业票据违约，净值跌破 1 美元。
-        (a) 一只基金有 3% 的资产是违约后价值为零的商业票据，其余资产价值不变。每份净值变为多少？
-        (b) 如果基金还按 1.00 美元为先赎回的人兑付，为什么投资者会争相赎回？这和 [[2.3]] 的银行挤兑有什么相同之处？
-        (c) 和银行存款相比，当时货币市场基金缺少什么保护？
+        货币市场基金通常把每份净值维持在 1.00 美元。2008 年 9 月 16 日，美国一只大型货币市场基金因为持有的雷曼兄弟商业票据违约，净值跌破 1 美元。假设一只基金 3% 的资产变得一文不值，但仍按 1.00 美元为先赎回的人兑付。为什么投资者会争相赎回？和银行存款相比，当时货币市场基金缺少什么保护？
       en: |-
-        Money market funds usually keep their share value at 1.00 dollar. On September 16, 2008, a large US money market fund's share value fell below 1 dollar because Lehman Brothers commercial paper it held defaulted.
-        (a) A fund has 3% of its assets in commercial paper that becomes worthless after a default, and the rest keeps its value. What does the value per share become?
-        (b) If the fund still pays 1.00 dollar to those who redeem first, why would investors rush to redeem? What does this have in common with the bank runs of [[2.3]]?
-        (c) Compared with bank deposits, what protection did money market funds lack at the time?
+        Money market funds usually keep their share value at 1.00 dollar. On September 16, 2008, a large US money market fund's share value fell below 1 dollar because Lehman Brothers commercial paper it held defaulted. Suppose a fund loses 3% of its assets but still pays 1.00 dollar to those who redeem first. Why would investors rush to redeem? Compared with bank deposits, what protection did money market funds lack at the time?
     answer:
       zh-cn: |-
-        (a) $1.00 \times (1 - 3\%) = 0.97$ 美元。
-        (b) 先赎回的人拿走 1.00，损失就留给了后面的人，后赎回的人每份得到的更少。每个人都想抢在别人前面，于是大家都赎回，基金要贱卖资产，损失更大。和银行挤兑一样，是自我实现的“先到先得”。
-        (c) 没有存款保险，也不能向央行借款。投资者以为它和存款一样安全，但它的价值取决于所持资产。
+        资产只值每份 0.97 美元。先赎回的人拿走 1.00，损失就留给后面的人，后赎回的人每份得到的更少；每个人都想抢在别人前面，于是大家都赎回，基金要贱卖资产，损失更大。和 [[2.3]] 的银行挤兑一样，是自我实现的“先到先得”。
+        当时货币市场基金没有存款保险，也不能向央行借款；投资者以为它和存款一样安全，但它的价值取决于所持资产。
       en: |-
-        (a) $1.00 \times (1 - 3\%) = 0.97$ dollars.
-        (b) Those who redeem first take 1.00 and leave the loss to those who remain, who then get less per share. Everyone wants to get out before the others, so everyone redeems, the fund must sell assets cheaply, and the losses grow. As with bank runs, it is a self-fulfilling "first come, first served".
-        (c) There was no deposit insurance and no access to central bank lending. Investors treated it as being as safe as a deposit, but its value depends on the assets it holds.
+        The assets are worth only 0.97 dollars per share. Those who redeem first take 1.00 and leave the loss to those who remain, who then get less; everyone wants to get out first, so everyone redeems, the fund must sell assets cheaply, and losses grow. As with the bank runs of [[2.3]], it is a self-fulfilling "first come, first served".
+        Money market funds then had no deposit insurance and no access to central bank lending; investors treated them as being as safe as deposits, but their value depends on the assets they hold.
     rubric:
       zh-cn:
-        - "(a) 0.97 美元。"
-        - "(b)(c) 说明先到先得的挤兑机制，以及缺少存款保险和央行支持。"
+        - "说明先到先得的挤兑机制。"
+        - "指出缺少存款保险和央行支持。"
       en:
-        - "(a) 0.97 dollars."
-        - "(b)(c) Explains the first-come-first-served run and the lack of deposit insurance and central bank support."
+        - "Explains the first-come-first-served run."
+        - "Notes the lack of deposit insurance and central bank support."
