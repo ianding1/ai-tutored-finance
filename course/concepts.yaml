@@ -1398,6 +1398,62 @@ ricardian-equivalence:
     zh-cn: "给定政府支出，用税收还是发债融资结果相同，因为理性的家庭会把减税存起来准备将来交税。"
     en: "Given government spending, financing by taxes or by debt has the same effect, because rational households save a tax cut to pay future taxes."
 
+current-account:
+  defined_in: "2.7"
+  zh-cn: 经常账户
+  en: current account
+  short:
+    zh-cn: "净出口加从外国得到的净投资收入和净转移；赤字对应等额的资本净流入。"
+    en: "Net exports plus net investment income and net transfers from abroad; a deficit matches an equal net capital inflow."
+
+nominal-exchange-rate:
+  defined_in: "2.7"
+  zh-cn: 名义汇率
+  en: nominal exchange rate
+  short:
+    zh-cn: "两种货币的兑换比率；本课程记为每单位外币的本币价格。"
+    en: "The rate at which two currencies exchange; in this course, the home-currency price of one unit of foreign currency."
+
+real-exchange-rate:
+  defined_in: "2.7"
+  zh-cn: 实际汇率
+  en: real exchange rate
+  short:
+    zh-cn: "按物价水平调整后的汇率 $\\varepsilon = \\frac{EP^*}{P}$，比较两国产品的相对价格。"
+    en: "The exchange rate adjusted for price levels, $\\varepsilon = \\frac{EP^*}{P}$, comparing the relative prices of two countries' goods."
+
+purchasing-power-parity:
+  defined_in: "2.7"
+  zh-cn: 购买力平价
+  en: purchasing power parity
+  short:
+    zh-cn: "汇率使两国货币的购买力相等；相对形式为 $\\frac{\\Delta E}{E} \\approx \\pi - \\pi^*$。"
+    en: "Exchange rates that equalize the purchasing power of two currencies; in relative form, $\\frac{\\Delta E}{E} \\approx \\pi - \\pi^*$."
+
+covered-interest-parity:
+  defined_in: "2.7"
+  zh-cn: 抛补利率平价
+  en: covered interest parity
+  short:
+    zh-cn: "$\\frac{F}{E} = \\frac{1 + i}{1 + i^*}$：用远期合约对冲后，外国投资的收益等于本国利率。"
+    en: "$\\frac{F}{E} = \\frac{1 + i}{1 + i^*}$: after hedging with a forward contract, a foreign investment earns the home interest rate."
+
+uncovered-interest-parity:
+  defined_in: "2.7"
+  zh-cn: 非抛补利率平价
+  en: uncovered interest parity
+  short:
+    zh-cn: "高利率货币的预期贬值约等于利差；短期中常常不成立。"
+    en: "The expected depreciation of a high-rate currency is about the interest differential; it often fails in the short run."
+
+currency-hedging:
+  defined_in: "2.7"
+  zh-cn: 汇率对冲
+  en: currency hedging
+  short:
+    zh-cn: "用远期合约等工具消除外国投资的汇率风险；成本约为两国利差。"
+    en: "Removing the currency risk of a foreign investment with forward contracts or similar tools; it costs about the interest differential."
+
 risk-measures:
   defined_in: "4.1"
   zh-cn: 风险度量

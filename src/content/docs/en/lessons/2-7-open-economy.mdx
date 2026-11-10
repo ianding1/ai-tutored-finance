@@ -1,0 +1,123 @@
+---
+title: 2.7 The Open Economy
+description: "The balance of payments and the current account, and how they relate to saving and investment; nominal and real exchange rates; purchasing power parity; covered and uncovered interest parity; currency risk and hedging in foreign investments."
+lesson: "2.7"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import CheckAll from '../../../../components/CheckAll.astro';
+import FxReturn from '../../../../components/widgets/FxReturn.astro';
+
+## The balance of payments [#bop]
+
+All of a country's transactions with the rest of the world are recorded in the balance of payments, which has two main parts:
+
+- The <Def id="current-account">current account</Def>: exports minus imports of goods and services (the net exports $NX$ of <Ref lesson="2.1" />), plus net investment income from abroad (interest, dividends) and net transfers.
+- **The financial account**: net purchases and sales of assets (stocks, bonds, factories, deposits) between residents and foreigners.
+
+The two are two sides of the same thing. When the United States imports more than it exports, the difference has to be paid with something: by selling dollar assets (Treasury bonds, stocks, real estate) to foreigners. So a current account deficit always comes with an equal net capital inflow from abroad (apart from statistical errors).
+
+The current account can also be seen through saving and investment. From $Y = C + I + G + NX$, national saving is $S = Y - C - G$ (ignoring net investment income and transfers), so
+
+$$
+S - I = NX
+$$
+
+When a country saves less than it invests, the difference must be borrowed from abroad, and the current account is in deficit. A current account deficit is not necessarily bad: for a country with many investment opportunities, borrowing from abroad to invest makes sense; but if the deficit comes from consumption and government deficits, it must be repaid with future output.
+
+In 2025 the US current account deficit was about 1.12 trillion dollars, 3.6% of GDP; at the end of 2025 the net foreign liabilities of the United States (its net international investment position) were about 27.54 trillion dollars (BEA, released March 25, 2026).
+
+<Check id="C1" />
+
+## Exchange rates [#exchange-rates]
+
+The <Def id="nominal-exchange-rate">nominal exchange rate</Def> is the rate at which two currencies exchange. In this lesson $E$ is **the number of dollars per unit of foreign currency**; for example, a euro exchange rate of $E = 1.10$ means 1 euro buys 1.10 dollars. A rise in $E$ means the foreign currency appreciates and the dollar depreciates.
+
+The nominal rate alone is not enough: if the euro rises 5% but US prices rise 5% at the same time while European prices stay the same, US goods have not become cheaper relative to European goods. To compare the relative prices of two countries' goods, use the <Def id="real-exchange-rate">real exchange rate</Def>:
+
+$$
+\varepsilon = \frac{E\,P^*}{P}
+$$
+
+where $P$ is the US price level and $P^*$ the foreign price level (in foreign currency). When $\varepsilon$ rises, foreign goods become relatively dearer, US goods become more competitive, exports rise and imports fall.
+
+Exchange rates are set by supply and demand in the foreign exchange market: when demand for dollar assets rises (for example, because US interest rates rise, <Ref lesson="2.5" />), the dollar appreciates.
+
+## Purchasing power parity [#ppp]
+
+If the same good has different prices in two countries (after conversion to the same currency), one can buy where it is cheap and sell where it is dear. This arbitrage pushes prices toward equality and is called the law of one price. Applied to the whole price level, it gives <Def id="purchasing-power-parity">purchasing power parity</Def> (PPP): the exchange rate makes the purchasing power of the two currencies equal, $E = \frac{P}{P^*}$, so the real exchange rate is $\varepsilon = 1$.
+
+More useful is its form in rates of change (relative PPP):
+
+$$
+\frac{\Delta E}{E} \approx \pi - \pi^*
+$$
+
+The currency of the country with higher inflation depreciates, roughly offsetting the difference in inflation.
+
+PPP is very inaccurate in the short run: many goods and services (rent, haircuts) cannot be traded across borders, transport is costly, and exchange rates are strongly affected by capital flows and expectations, so the real exchange rate can stay away from 1 for years. But in the long run, especially for countries with very different inflation rates, it is a useful reference for exchange rate trends.
+
+<Check id="C2" />
+
+## Interest parity [#interest-parity]
+
+A US investor with 1 dollar can buy a 1-year US Treasury bill at the interest rate $i$; or convert to euros, buy a 1-year euro government bond at the rate $i^*$, and convert back to dollars after a year.
+
+If today the investor fixes the rate for converting back in a year with a **forward contract** at the rate $F$, there is no currency risk. The two risk-free investments must give the same return, or there would be risk-free arbitrage. So
+
+$$
+\frac{F}{E} = \frac{1 + i}{1 + i^*}
+$$
+
+This is called <Def id="covered-interest-parity">covered interest parity</Def>. It usually holds approximately between major currencies. It means that a higher foreign interest rate does not mean earning more after hedging; the higher rate is offset by the forward discount.
+
+Without a forward contract, the return depends on the spot rate a year later and is risky. If investors did not care about this risk, the two investments would also have the same **expected** return:
+
+$$
+\frac{\Delta E^e}{E} \approx i - i^*
+$$
+
+where $\Delta E^e$ is the expected change in the exchange rate. That is, the currency with the higher interest rate is expected to depreciate by about the interest differential. This is called <Def id="uncovered-interest-parity">uncovered interest parity</Def>. Empirical studies find that it often fails in the short run: high-rate currencies on average depreciate less than this, or even appreciate. The "carry trade", borrowing in a low-rate currency and investing in a high-rate currency, therefore earns money on average, but in a crisis the high-rate currency can suddenly fall sharply and cause large losses (<Ref check="Q3" />).
+
+<Figure id="4-1" title="A US investor holding a 1-year foreign government bond: unhedged, the return in dollars depends on the change in the foreign currency; hedged (with a forward contract), the return equals the dollar interest rate." observe="Change the two interest rates and watch where the two lines cross. By how much must the foreign currency rise or fall for not hedging to be better?">
+	<FxReturn />
+</Figure>
+
+<Check id="C3" />
+
+## Currency risk [#fx-risk]
+
+When investing in foreign assets, the return in home currency has two parts:
+
+$$
+1 + R = (1 + R^*)\,(1 + x)
+$$
+
+where $R^*$ is the return in foreign currency and $x$ is the change in the foreign currency against the home currency. Even if the foreign stocks themselves do well, a fall in the foreign currency can eat up much of the return.
+
+Should currency risk be hedged?
+
+- <Def id="currency-hedging">Currency hedging</Def> (with forward contracts and the like) removes most currency fluctuations; by covered interest parity, the cost or gain of hedging is about the interest differential between the two countries.
+- **Not hedging** adds currency fluctuations to the portfolio's risk, but the <Ref concept="correlation" /> between the currency and the foreign asset's return matters: if the foreign currency tends to rise when the foreign stock market falls, not hedging can even lower risk.
+
+For stocks, currency effects partly cancel out in the long run, and many investors hedge part of their exposure; for bonds, currency swings are often much larger than the bonds' own swings, so foreign bonds are usually hedged (<Ref check="Q5" />).
+
+<Check id="C4" />
+
+## Summary [#summary]
+
+- Current account ≈ net exports plus net investment income; a current account deficit comes with an equal net capital inflow. $S - I = NX$. The US current account deficit in 2025 was about 1.12 trillion dollars, 3.6% of GDP.
+- The nominal exchange rate $E$ is the home-currency price of one unit of foreign currency; the real exchange rate $\varepsilon = \frac{EP^*}{P}$ compares the relative prices of two countries' goods.
+- Relative PPP: $\frac{\Delta E}{E} \approx \pi - \pi^*$; inaccurate in the short run, a useful reference in the long run.
+- Covered interest parity: $\frac{F}{E} = \frac{1 + i}{1 + i^*}$, so a hedged foreign investment earns the home interest rate. Uncovered interest parity often fails in the short run; carry trades earn money on average but can crash.
+- The home-currency return on a foreign asset is $(1 + R^*)(1 + x) - 1$; hedging costs about the interest differential, and whether to hedge depends on currency volatility and its correlation with the asset's return.
+
+<CheckAll />
+
+## Exercises [#exercises]
+
+<Exercises />

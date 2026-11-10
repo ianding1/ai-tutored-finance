@@ -222,7 +222,15 @@ stages:
         published: true
         introduces: [budget-deficit, primary-deficit, fiscal-multiplier, automatic-stabilizer, crowding-out, ricardian-equivalence]
         uses: [present-value, deadweight-loss, gdp, inflation, is-curve, aggregate-demand, potential-output, zero-lower-bound, solow-model, steady-state]
-      - { id: "2.7", slug: "2-7-open-economy", title: { zh-cn: "开放经济", en: "The Open Economy" } }
+      - id: "2.7"
+        slug: "2-7-open-economy"
+        title: { zh-cn: "开放经济", en: "The Open Economy" }
+        summary:
+          zh-cn: "国际收支与经常账户、储蓄和投资的关系；名义与实际汇率；购买力平价；抛补与非抛补利率平价；投资外国资产的汇率风险与对冲。"
+          en: "The balance of payments and the current account, and how they relate to saving and investment; nominal and real exchange rates; purchasing power parity; covered and uncovered interest parity; currency risk and hedging in foreign investments."
+        published: true
+        introduces: [current-account, nominal-exchange-rate, real-exchange-rate, purchasing-power-parity, covered-interest-parity, uncovered-interest-parity, currency-hedging]
+        uses: [variance, standard-deviation, correlation, fisher-equation, inflation, gdp, budget-deficit, federal-funds-rate]
       - { id: "2.8", slug: "2-8-business-cycle-asset-prices", title: { zh-cn: "经济周期与资产价格", en: "Business Cycles and Asset Prices" } }
       - { id: "E2", slug: "e2-quiz", exam: true, title: { zh-cn: "测验 E2：宏观经济学", en: "Quiz E2: Macroeconomics" } }
 
