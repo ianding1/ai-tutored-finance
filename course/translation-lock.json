@@ -219,6 +219,14 @@
   "en": "6745856be34cc1d1",
   "zh-cn": "36182ef30134a3f7"
  },
+ "course/concepts.yaml#convexity": {
+  "en": "3e934e5062e24256",
+  "zh-cn": "be805ed26d935b8c"
+ },
+ "course/concepts.yaml#convexity.short": {
+  "en": "64635a1a71add039",
+  "zh-cn": "8e32e1c82fd98b3b"
+ },
  "course/concepts.yaml#core-inflation": {
   "en": "7ac4fa74b586fd47",
   "zh-cn": "9b520616db06f748"
@@ -607,6 +615,14 @@
   "en": "e71d1a394c026956",
   "zh-cn": "995e4f4892cbfa18"
  },
+ "course/concepts.yaml#immunization": {
+  "en": "ab96a721e1c91309",
+  "zh-cn": "8c23c8274f413cb1"
+ },
+ "course/concepts.yaml#immunization.short": {
+  "en": "82cc8b61d27596db",
+  "zh-cn": "7ff08b4e621da5a7"
+ },
  "course/concepts.yaml#income-effect": {
   "en": "8772c484ff01c4e3",
   "zh-cn": "b9c3aa0981d2d11e"
@@ -731,6 +747,14 @@
   "en": "5fb9f2bd59253ecc",
   "zh-cn": "4a68d03fb3978121"
  },
+ "course/concepts.yaml#macaulay-duration": {
+  "en": "e880abfa0bf2e0f0",
+  "zh-cn": "5c8451047827dc0e"
+ },
+ "course/concepts.yaml#macaulay-duration.short": {
+  "en": "919ada4bd1a5e031",
+  "zh-cn": "3a5a118fa5d8e831"
+ },
  "course/concepts.yaml#marginal-cost": {
   "en": "cd41b70725073e7a",
   "zh-cn": "1648d71506f97fe0"
@@ -794,6 +818,14 @@
  "course/concepts.yaml#median.short": {
   "en": "c481187a06b5a083",
   "zh-cn": "3371ffcb3c91126c"
+ },
+ "course/concepts.yaml#modified-duration": {
+  "en": "833caef58ec2e45a",
+  "zh-cn": "71d5c0ed399da984"
+ },
+ "course/concepts.yaml#modified-duration.short": {
+  "en": "fed1347237d401d1",
+  "zh-cn": "62aa161a0e4b20c0"
  },
  "course/concepts.yaml#monetary-base": {
   "en": "38bdd084ca3e4721",
@@ -1870,6 +1902,10 @@
  "course/curriculum.yaml#stages[3].lessons[3.3].title": {
   "en": "45e930a6420e54f5",
   "zh-cn": "ce16347dfc6dbd1b"
+ },
+ "course/curriculum.yaml#stages[3].lessons[3.4].summary": {
+  "en": "672c150d448984e9",
+  "zh-cn": "50cec2895caf566f"
  },
  "course/curriculum.yaml#stages[3].lessons[3.4].title": {
   "en": "d7927b9617591a5d",
@@ -5983,6 +6019,142 @@
   "en": "a6d753291b82272d",
   "zh-cn": "d29d6a99469d6cad"
  },
+ "course/keys/3.4.yaml#common_errors[0]": {
+  "en": "b406d525dd22c914",
+  "zh-cn": "6283a7e2c80d7834"
+ },
+ "course/keys/3.4.yaml#common_errors[1]": {
+  "en": "6142fb0df65c5630",
+  "zh-cn": "f908e433a8ae9c1f"
+ },
+ "course/keys/3.4.yaml#common_errors[2]": {
+  "en": "4f36f9cdb0c9c3bb",
+  "zh-cn": "12e4fff3082cff59"
+ },
+ "course/keys/3.4.yaml#common_errors[3]": {
+  "en": "4e887c228857ac70",
+  "zh-cn": "aa07f8502ccab309"
+ },
+ "course/keys/3.4.yaml#context[0]": {
+  "en": "fe8f0dc9f32e7670",
+  "zh-cn": "462ab83c4d22f79b"
+ },
+ "course/keys/3.4.yaml#context[1]": {
+  "en": "9ebd7229173a01c4",
+  "zh-cn": "a7eb766761078c74"
+ },
+ "course/keys/3.4.yaml#context[2]": {
+  "en": "2e524932cbfea6ee",
+  "zh-cn": "974a70670926a4e7"
+ },
+ "course/keys/3.4.yaml#questions[C1].answer": {
+  "en": "55920ebe90ce654b",
+  "zh-cn": "ba96c573d3087dca"
+ },
+ "course/keys/3.4.yaml#questions[C1].question": {
+  "en": "13182583f780d033",
+  "zh-cn": "f55183799fe50242"
+ },
+ "course/keys/3.4.yaml#questions[C1].rubric": {
+  "en": "d48c057830ed6895",
+  "zh-cn": "81286ec0cf707c42"
+ },
+ "course/keys/3.4.yaml#questions[C2].answer": {
+  "en": "d2d9c096b69538d5",
+  "zh-cn": "d63419fb2cc725f5"
+ },
+ "course/keys/3.4.yaml#questions[C2].question": {
+  "en": "4ad72f4fb155082c",
+  "zh-cn": "7410e2ea259e6402"
+ },
+ "course/keys/3.4.yaml#questions[C2].rubric": {
+  "en": "706255c1e5d4c1a5",
+  "zh-cn": "41636e543879b3f4"
+ },
+ "course/keys/3.4.yaml#questions[C3].answer": {
+  "en": "8e3fecad34c58936",
+  "zh-cn": "3ffb7a9502900b3d"
+ },
+ "course/keys/3.4.yaml#questions[C3].question": {
+  "en": "21396bdecc752bbf",
+  "zh-cn": "5c964818dd9acbbd"
+ },
+ "course/keys/3.4.yaml#questions[C3].rubric": {
+  "en": "dcd4283df13c2cd3",
+  "zh-cn": "eab036db24b7b78d"
+ },
+ "course/keys/3.4.yaml#questions[C4].answer": {
+  "en": "d1b827eee7aacd1c",
+  "zh-cn": "bdb17bdc931477d6"
+ },
+ "course/keys/3.4.yaml#questions[C4].question": {
+  "en": "881f5a000b21f150",
+  "zh-cn": "6d84d3792dce39ab"
+ },
+ "course/keys/3.4.yaml#questions[C4].rubric": {
+  "en": "f9ae83d78e171a7f",
+  "zh-cn": "8369f53d58201d56"
+ },
+ "course/keys/3.4.yaml#questions[Q1].answer": {
+  "en": "b44f5aa4b300a69e",
+  "zh-cn": "a1ab86b5002130e3"
+ },
+ "course/keys/3.4.yaml#questions[Q1].question": {
+  "en": "f3c093c97f97f846",
+  "zh-cn": "3924f4d15050501a"
+ },
+ "course/keys/3.4.yaml#questions[Q1].rubric": {
+  "en": "c2c5ecb9aad0b3ef",
+  "zh-cn": "dc88738d7fc3aadc"
+ },
+ "course/keys/3.4.yaml#questions[Q2].answer": {
+  "en": "b3b423704871138c",
+  "zh-cn": "0c69656b32e73503"
+ },
+ "course/keys/3.4.yaml#questions[Q2].question": {
+  "en": "53accc766471f35c",
+  "zh-cn": "12edf5a927503f87"
+ },
+ "course/keys/3.4.yaml#questions[Q2].rubric": {
+  "en": "b21e23c472abbfe9",
+  "zh-cn": "697057ac6294fbfa"
+ },
+ "course/keys/3.4.yaml#questions[Q3].answer": {
+  "en": "38310a43b9bdd922",
+  "zh-cn": "38b63f05271f072a"
+ },
+ "course/keys/3.4.yaml#questions[Q3].question": {
+  "en": "1fe64f59620ad1a8",
+  "zh-cn": "88f44d1b98f156db"
+ },
+ "course/keys/3.4.yaml#questions[Q3].rubric": {
+  "en": "4e44a52ccf5978b1",
+  "zh-cn": "209a7a3dcf20af21"
+ },
+ "course/keys/3.4.yaml#questions[Q4].answer": {
+  "en": "b0c43e1f1c0b43e6",
+  "zh-cn": "2c1c1638e1ccc734"
+ },
+ "course/keys/3.4.yaml#questions[Q4].question": {
+  "en": "22bd71495cb4aed9",
+  "zh-cn": "7bbf71fd4ddde683"
+ },
+ "course/keys/3.4.yaml#questions[Q4].rubric": {
+  "en": "6b5602afc3962b0b",
+  "zh-cn": "743476588ed50dc4"
+ },
+ "course/keys/3.4.yaml#questions[Q5].answer": {
+  "en": "4be0cc169c15505f",
+  "zh-cn": "637a5545a1ae748c"
+ },
+ "course/keys/3.4.yaml#questions[Q5].question": {
+  "en": "a8ee2264330b1288",
+  "zh-cn": "f20d1b8d90ed821b"
+ },
+ "course/keys/3.4.yaml#questions[Q5].rubric": {
+  "en": "05d3c634df0012e0",
+  "zh-cn": "decd5f1a7114ef26"
+ },
  "course/keys/E0.yaml#common_errors[0]": {
   "en": "5892871353963f3f",
   "zh-cn": "4d0b656928c8c79b"
@@ -6394,6 +6566,10 @@
  "src/content/docs/<lang>/lessons/3-3-bond-pricing.mdx": {
   "en": "e723bb86c4591e73",
   "zh-cn": "cadebef1575d2a4f"
+ },
+ "src/content/docs/<lang>/lessons/3-4-interest-rate-risk.mdx": {
+  "en": "8e71a5eb14cb804d",
+  "zh-cn": "b9a3560c1885bce9"
  },
  "src/content/docs/<lang>/lessons/e0-quiz.mdx": {
   "en": "0909e73cdcf97cfc",

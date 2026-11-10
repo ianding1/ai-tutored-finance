@@ -1,0 +1,89 @@
+---
+title: 3.4 利率风险
+description: 债券的价格风险与再投资风险；Macaulay 久期与修正久期；凸性；用久期匹配实现免疫。
+lesson: "3.4"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import CheckAll from '../../../../components/CheckAll.astro';
+import DurationConvexity from '../../../../components/widgets/DurationConvexity.astro';
+
+## 两种利率风险 [#rate-risk]
+
+即使债券不违约，利率的变化也会改变投资者最终得到的钱。<Ref lesson="3.3" /> 已经看到两种影响：
+
+- **价格风险**：利率上升，已有债券的价格下跌。如果在到期前卖出，就会亏损。
+- **再投资风险**：利率下降，收到的票息和到期的本金只能按更低的利率再投资。
+
+两种风险的方向相反：利率上升时价格受损、再投资得益；利率下降时反过来。对一个有确定投资期限的投资者来说，期限很短的债券主要有再投资风险，期限很长的债券主要有价格风险。能不能选一个期限，使两者正好抵消？回答这个问题需要一个衡量利率敏感性的指标。
+
+<Check id="C1" />
+
+## 久期 [#duration]
+
+记债券第 $t$ 年的现金流为 $\text{CF}_t$，收益率为 $y$，价格为 $P$。每笔现金流的现值占价格的比例 $w_t = \frac{\text{CF}_t / (1 + y)^t}{P}$ 加起来等于 1。以这些比例为权重，对现金流的时间求平均，就是 <Def id="macaulay-duration">Macaulay 久期</Def>（Macaulay duration）：
+
+$$
+D = \sum_{t=1}^{T} t \, w_t
+$$
+
+它是收回现金的平均时间（以现值加权）。零息债只有一笔现金流，久期等于期限；附息债券有一部分现金较早收回，久期短于期限。票面利率越高、收益率越高，前面的现金流权重越大，久期越短；期限越长，久期一般越长。
+
+久期的重要性在于它衡量价格对收益率的敏感性。对价格求导可以得到（<Ref check="Q1" />）：
+
+$$
+\frac{\Delta P}{P} \approx -D^* \, \Delta y, \qquad D^* = \frac{D}{1 + y}
+$$
+
+$D^*$ 叫<Def id="modified-duration">修正久期</Def>（modified duration）：收益率变化 1 个百分点，价格大约变化 $D^*$ 个百分点（方向相反）。例如修正久期为 7 的债券基金，利率上升 1 个百分点，净值大约下跌 7%。
+
+<Check id="C2" />
+
+## 凸性 [#convexity]
+
+久期把价格与收益率的关系近似为一条直线，但 <Ref lesson="3.3" /> 说明这个关系是一条凸的曲线。收益率变化较大时，直线近似的误差就不能忽略。用二阶导数加以修正：
+
+$$
+\frac{\Delta P}{P} \approx -D^* \, \Delta y + \frac{1}{2} \, C \, (\Delta y)^2
+$$
+
+$C$ 叫<Def id="convexity">凸性</Def>（convexity），$C = \frac{1}{P} \frac{d^2 P}{d y^2}$。对普通债券 $C > 0$，第二项总是正的：收益率下降时价格比久期估计的涨得更多，上升时比久期估计的跌得更少。久期相同时，凸性越大，对投资者越有利；所以市场一般也会为更大的凸性要求更低的收益率（<Ref check="Q5" />）。
+
+<Figure id="3-1" title="票面利率 5%、按面值（收益率 5%）买入的债券：收益率变化时价格的实际变化，以及久期估计和加上凸性后的估计。" observe="先看收益率变化较小时三条线是否接近；再把变化调大、把期限拉长，看久期估计的误差往哪个方向、变得多大。">
+	<DurationConvexity />
+</Figure>
+
+<Check id="C3" />
+
+## 免疫 [#immunization]
+
+假设 5 年后有一笔确定的支出（例如一笔债务，或者孩子的学费），今天要用债券为它做准备。如果买入的债券组合的 Macaulay 久期等于 5 年，利率在买入后发生一次变化时：价格的变化和再投资收益的变化方向相反、大小近似相等，到第 5 年时组合的价值大致不受影响。这叫<Def id="immunization">免疫</Def>（immunization）。条件是：资产的现值等于负债的现值，资产的久期等于负债的久期。
+
+最简单的做法是买一张 5 年期零息债。没有合适的零息债时，可以用不同期限的债券组合，组合的久期是各债券久期按价值加权的平均。
+
+免疫有几点限制：
+
+- 时间流逝和利率变化都会改变久期，组合要定期重新调整，使久期继续与剩余期限相等；
+- 它只对整条收益率曲线平行移动的情况近似成立，长短期利率变化不同时可能失效；
+- 负债的凸性应低于资产的凸性，否则较大的利率变化会造成缺口。
+
+这个思路在 <Ref lesson="2.3" /> 的银行风险中也很重要：银行的资产（长期贷款、债券）久期长，负债（存款）久期短，利率上升时资产价值下降得比负债多，股东权益就会受损（<Ref check="Q4" />）。
+
+<Check id="C4" />
+
+## 小结 [#summary]
+
+- 利率变化带来价格风险和再投资风险，两者方向相反。
+- Macaulay 久期 $D = \sum_t t \, w_t$ 是以现值加权的平均回收时间；零息债的久期等于期限。修正久期 $D^* = \frac{D}{1 + y}$，$\frac{\Delta P}{P} \approx -D^* \Delta y$。
+- 凸性修正久期的误差：$\frac{\Delta P}{P} \approx -D^* \Delta y + \frac{1}{2} C (\Delta y)^2$；凸性越大，对持有者越有利。
+- 免疫：资产与负债的现值和久期相等，使一次利率变化的价格影响和再投资影响相互抵消；需要定期调整，只对平行移动近似成立。
+
+<CheckAll />
+
+## 练习题 [#exercises]
+
+<Exercises />

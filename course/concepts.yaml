@@ -1646,6 +1646,38 @@ forward-rate:
     zh-cn: "由即期利率隐含、今天可以锁定的未来一段时间的利率：$(1 + s_2)^2 = (1 + s_1)(1 + f_{1,2})$。"
     en: "The rate for a future period implied by spot rates and lockable today: $(1 + s_2)^2 = (1 + s_1)(1 + f_{1,2})$."
 
+macaulay-duration:
+  defined_in: "3.4"
+  zh-cn: Macaulay 久期
+  en: Macaulay duration
+  short:
+    zh-cn: "以现金流现值为权重的平均回收时间 $D = \\sum_t t\\,w_t$；零息债的久期等于期限。"
+    en: "The average time to receive cash, weighted by present value, $D = \\sum_t t\\,w_t$; a zero's duration equals its maturity."
+
+modified-duration:
+  defined_in: "3.4"
+  zh-cn: 修正久期
+  en: modified duration
+  short:
+    zh-cn: "$D^* = \\frac{D}{1 + y}$；收益率变化 1 个百分点，价格约反向变化 $D^*$ 个百分点。"
+    en: "$D^* = \\frac{D}{1 + y}$; a 1-point change in yield moves the price about $D^*$ percent in the opposite direction."
+
+convexity:
+  defined_in: "3.4"
+  zh-cn: 凸性
+  en: convexity
+  short:
+    zh-cn: "价格–收益率曲线的弯曲程度，用来修正久期估计：$\\frac{\\Delta P}{P} \\approx -D^* \\Delta y + \\frac{1}{2} C (\\Delta y)^2$。"
+    en: "The curvature of the price–yield curve, correcting the duration estimate: $\\frac{\\Delta P}{P} \\approx -D^* \\Delta y + \\frac{1}{2} C (\\Delta y)^2$."
+
+immunization:
+  defined_in: "3.4"
+  zh-cn: 免疫
+  en: immunization
+  short:
+    zh-cn: "使资产与负债的现值和久期相等，让一次利率变化的价格影响和再投资影响相互抵消。"
+    en: "Matching the present values and durations of assets and liabilities so that the price and reinvestment effects of a rate change offset."
+
 risk-measures:
   defined_in: "4.1"
   zh-cn: 风险度量

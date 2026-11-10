@@ -1,0 +1,97 @@
+---
+// Figure 3-1 of lesson 3.4: percentage price change of a bond with a 5% annual coupon, priced at par
+// (yield 5%), against the change in yield. Solid curve: exact change. Straight line: duration estimate
+// -D* Δy. Dashed curve: duration plus convexity, -D* Δy + C (Δy)² / 2. Sliders: years to maturity and Δy.
+// Parameters are registered in course/widgets.yaml (id: duration-convexity).
+import { toLang } from '../../i18n/ui';
+
+const lang = toLang(Astro.locals.starlightRoute.lang);
+const L = {
+	'zh-cn': {
+		n: '剩余年数',
+		dy: '收益率的变化 Δy（百分点）',
+		x: '收益率的变化（百分点）',
+		y: '价格变化（%）',
+		exact: '实际变化',
+		dur: '久期估计',
+		cvx: '久期加凸性估计',
+		readout: '修正久期 {dm}，凸性 {cx}。Δy = {dy}：实际变化 {a}%，久期估计 {b}%，加上凸性 {c}%。',
+	},
+	en: {
+		n: 'Years to maturity',
+		dy: 'Change in yield Δy (percentage points)',
+		x: 'Change in yield (percentage points)',
+		y: 'Price change (%)',
+		exact: 'Exact change',
+		dur: 'Duration estimate',
+		cvx: 'Duration plus convexity',
+		readout: 'Modified duration {dm}, convexity {cx}. Δy = {dy}: exact change {a}%, duration estimate {b}%, with convexity {c}%.',
+	},
+}[lang];
+
+const xr = [-3, 3];
+const yr = [-40, 50];
+const xticks = [-3, -2, -1, 0, 1, 2, 3];
+const yticks = [-40, -20, 0, 20, 40];
+const layouts = [
+	{ cls: 'viz-wide', W: 640, H: 320, pad: { l: 50, r: 20, t: 14, b: 44 } },
+	{ cls: 'viz-narrow', W: 360, H: 300, pad: { l: 50, r: 12, t: 14, b: 44 } },
+].map((g) => ({
+	...g,
+	X: (v: number) => g.pad.l + ((v - xr[0]) / (xr[1] - xr[0])) * (g.W - g.pad.l - g.pad.r),
+	Y: (v: number) => g.pad.t + ((yr[1] - v) / (yr[1] - yr[0])) * (g.H - g.pad.t - g.pad.b),
+}));
+---
+
+<div class="lfwai-widget" data-widget="duration-convexity" data-readout={L.readout}>
+	<div class="lfwai-sliders">
+		<label>
+			<span>{L.n} = <output data-out="n">10</output></span>
+			<input type="range" min="2" max="30" step="1" value="10" data-param="n" />
+		</label>
+		<label>
+			<span>{L.dy} = <output data-out="dy">1</output></span>
+			<input type="range" min="-3" max="3" step="0.25" value="1" data-param="dy" />
+		</label>
+	</div>
+	{layouts.map(({ cls, W, H, pad, X, Y }) => (
+		<svg class={`lfwai-viz ${cls}`} viewBox={`0 0 ${W} ${H}`} role="img" aria-label={L.exact} data-geom={JSON.stringify({ W, H, pad, xr, yr })}>
+			<defs>
+				<clipPath id={`dc-clip-${cls}`}>
+					<rect x={pad.l} y={pad.t} width={W - pad.l - pad.r} height={H - pad.t - pad.b} />
+				</clipPath>
+			</defs>
+			{yticks.map((v) => (
+				<g>
+					<line class={v === 0 ? 'viz-axis' : 'viz-grid'} x1={pad.l} x2={W - pad.r} y1={Y(v)} y2={Y(v)} />
+					<text class="viz-tick" x={pad.l - 8} y={Y(v) + 4} text-anchor="end">{v}</text>
+				</g>
+			))}
+			{xticks.map((v) => (
+				<text class="viz-tick" x={X(v)} y={H - pad.b + 18} text-anchor="middle">{v}</text>
+			))}
+			<line class="viz-axis" x1={X(0)} x2={X(0)} y1={pad.t} y2={H - pad.b} />
+			<line class="viz-grid" x1={pad.l} x2={W - pad.r} y1={H - pad.b} y2={H - pad.b} />
+			<text class="viz-tick" x={(pad.l + W - pad.r) / 2} y={H - 8} text-anchor="middle">{L.x}</text>
+			<text class="viz-tick" transform={`translate(12 ${(pad.t + H - pad.b) / 2}) rotate(-90)`} text-anchor="middle">{L.y}</text>
+			<g clip-path={`url(#dc-clip-${cls})`}>
+				<polyline class="viz-curve-fat" fill="none" data-el="dur" points="" />
+				<polyline class="viz-avg" fill="none" data-el="cvx" points="" />
+				<polyline class="viz-curve" fill="none" data-el="exact" points="" />
+				<line class="viz-mean" data-el="vx" x1="0" y1={pad.t} x2="0" y2={H - pad.b} />
+				<circle class="viz-min" data-el="pt" r="5" cx="0" cy="0" />
+			</g>
+		</svg>
+	))}
+	<ul class="lfwai-legend">
+		<li><span class="sw sw-curve"></span>{L.exact}</li>
+		<li><span class="sw sw-fat"></span>{L.dur}</li>
+		<li><span class="sw sw-avg"></span>{L.cvx}</li>
+	</ul>
+	<p class="lfwai-readout" data-el="readout" aria-live="polite"></p>
+</div>
+
+<script>
+	import { initDurationConvexity } from '../../scripts/widgets/duration-convexity';
+	initDurationConvexity();
+</script>

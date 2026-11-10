@@ -1,0 +1,89 @@
+---
+title: 3.4 Interest Rate Risk
+description: "Price risk and reinvestment risk in bonds; Macaulay and modified duration; convexity; immunization by matching durations."
+lesson: "3.4"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import CheckAll from '../../../../components/CheckAll.astro';
+import DurationConvexity from '../../../../components/widgets/DurationConvexity.astro';
+
+## Two kinds of interest rate risk [#rate-risk]
+
+Even if a bond does not default, changes in interest rates change how much money the investor ends up with. <Ref lesson="3.3" /> showed two effects:
+
+- **Price risk**: when rates rise, the prices of existing bonds fall. Selling before maturity then means a loss.
+- **Reinvestment risk**: when rates fall, coupons and principal received can only be reinvested at lower rates.
+
+The two risks work in opposite directions: when rates rise, prices suffer but reinvestment gains; when rates fall, the reverse. For an investor with a fixed horizon, very short bonds carry mainly reinvestment risk and very long bonds mainly price risk. Can one choose a maturity at which the two offset each other? To answer this we need a measure of sensitivity to interest rates.
+
+<Check id="C1" />
+
+## Duration [#duration]
+
+Write a bond's cash flow in year $t$ as $\text{CF}_t$, its yield as $y$ and its price as $P$. The shares of the price contributed by each cash flow's present value, $w_t = \frac{\text{CF}_t / (1 + y)^t}{P}$, add up to 1. Averaging the times of the cash flows with these shares as weights gives the <Def id="macaulay-duration">Macaulay duration</Def>:
+
+$$
+D = \sum_{t=1}^{T} t \, w_t
+$$
+
+It is the average time to receive cash, weighted by present value. A zero-coupon bond has a single cash flow, so its duration equals its maturity; a coupon bond receives part of its cash earlier, so its duration is shorter than its maturity. The higher the coupon rate or the yield, the more weight on early cash flows and the shorter the duration; the longer the maturity, the longer the duration, in general.
+
+Duration matters because it measures how sensitive the price is to the yield. Differentiating the price gives (<Ref check="Q1" />):
+
+$$
+\frac{\Delta P}{P} \approx -D^* \, \Delta y, \qquad D^* = \frac{D}{1 + y}
+$$
+
+$D^*$ is called the <Def id="modified-duration">modified duration</Def>: when the yield changes by 1 percentage point, the price changes by about $D^*$ percent in the opposite direction. For example, a bond fund with a modified duration of 7 loses about 7% of its value if rates rise by 1 percentage point.
+
+<Check id="C2" />
+
+## Convexity [#convexity]
+
+Duration approximates the relation between price and yield with a straight line, but <Ref lesson="3.3" /> showed that the relation is a convex curve. For larger yield changes, the error of the straight line cannot be ignored. A correction with the second derivative gives
+
+$$
+\frac{\Delta P}{P} \approx -D^* \, \Delta y + \frac{1}{2} \, C \, (\Delta y)^2
+$$
+
+$C$ is called <Def id="convexity">convexity</Def>, $C = \frac{1}{P} \frac{d^2 P}{d y^2}$. For ordinary bonds $C > 0$, so the second term is always positive: when the yield falls the price rises more than duration predicts, and when it rises the price falls less. For the same duration, more convexity is better for the investor; so the market generally also accepts a lower yield for more convexity (<Ref check="Q5" />).
+
+<Figure id="3-1" title="A 5% coupon bond bought at par (yield 5%): the exact price change when the yield changes, the duration estimate and the estimate with convexity." observe="First check whether the three lines are close for small yield changes; then make the change larger and the maturity longer, and see in which direction and by how much the duration estimate goes wrong.">
+	<DurationConvexity />
+</Figure>
+
+<Check id="C3" />
+
+## Immunization [#immunization]
+
+Suppose a fixed payment is due in 5 years (a debt, say, or a child's tuition) and bonds are bought today to prepare for it. If the bond portfolio has a Macaulay duration of 5 years, then after a one-time change in rates, the change in price and the change in reinvestment income move in opposite directions by about the same amount, and the portfolio's value in year 5 is roughly unaffected. This is called <Def id="immunization">immunization</Def>. The conditions: the present value of the assets equals that of the liability, and the duration of the assets equals that of the liability.
+
+The simplest way is to buy a 5-year zero. Without a suitable zero, one can combine bonds of different maturities; the duration of a portfolio is the value-weighted average of the bonds' durations.
+
+Immunization has limits:
+
+- both the passage of time and rate changes alter durations, so the portfolio must be rebalanced regularly to keep its duration equal to the time remaining;
+- it holds only approximately for parallel shifts of the whole yield curve and can fail when short and long rates change differently;
+- the liability's convexity should be lower than the assets', or large rate changes create a shortfall.
+
+This idea also matters for the bank risk of <Ref lesson="2.3" />: a bank's assets (long-term loans, bonds) have long durations and its liabilities (deposits) short ones, so when rates rise the value of its assets falls more than that of its liabilities, and shareholders' equity suffers (<Ref check="Q4" />).
+
+<Check id="C4" />
+
+## Summary [#summary]
+
+- Rate changes bring price risk and reinvestment risk, in opposite directions.
+- Macaulay duration $D = \sum_t t \, w_t$ is the present-value-weighted average time to receive cash; a zero's duration equals its maturity. Modified duration $D^* = \frac{D}{1 + y}$, and $\frac{\Delta P}{P} \approx -D^* \Delta y$.
+- Convexity corrects the error of duration: $\frac{\Delta P}{P} \approx -D^* \Delta y + \frac{1}{2} C (\Delta y)^2$; more convexity is better for the holder.
+- Immunization: equal present values and durations of assets and liabilities make the price and reinvestment effects of a one-time rate change offset; it needs regular rebalancing and holds only approximately for parallel shifts.
+
+<CheckAll />
+
+## Exercises [#exercises]
+
+<Exercises />

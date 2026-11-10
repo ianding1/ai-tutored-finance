@@ -272,7 +272,15 @@ stages:
         published: true
         introduces: [coupon-rate, yield-to-maturity, zero-coupon-bond, spot-rate, forward-rate]
         uses: [present-value, annuity, ear, future-value, internal-rate-of-return, net-present-value]
-      - { id: "3.4", slug: "3-4-interest-rate-risk", title: { zh-cn: "利率风险", en: "Interest Rate Risk" } }
+      - id: "3.4"
+        slug: "3-4-interest-rate-risk"
+        title: { zh-cn: "利率风险", en: "Interest Rate Risk" }
+        summary:
+          zh-cn: "债券的价格风险与再投资风险；Macaulay 久期与修正久期；凸性；用久期匹配实现免疫。"
+          en: "Price risk and reinvestment risk in bonds; Macaulay and modified duration; convexity; immunization by matching durations."
+        published: true
+        introduces: [macaulay-duration, modified-duration, convexity, immunization]
+        uses: [present-value, perpetuity, derivative, yield-to-maturity, zero-coupon-bond, coupon-rate, bank-run]
       - { id: "3.5", slug: "3-5-term-structure", title: { zh-cn: "利率期限结构", en: "The Term Structure of Interest Rates" } }
       - { id: "3.6", slug: "3-6-credit-risk", title: { zh-cn: "信用风险", en: "Credit Risk" } }
       - { id: "E3a", slug: "e3a-quiz", exam: true, title: { zh-cn: "测验 E3a：金融市场与固定收益", en: "Quiz E3a: Financial Markets and Fixed Income" } }
