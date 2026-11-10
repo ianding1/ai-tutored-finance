@@ -231,7 +231,15 @@ stages:
         published: true
         introduces: [current-account, nominal-exchange-rate, real-exchange-rate, purchasing-power-parity, covered-interest-parity, uncovered-interest-parity, currency-hedging]
         uses: [variance, standard-deviation, correlation, fisher-equation, inflation, gdp, budget-deficit, federal-funds-rate]
-      - { id: "2.8", slug: "2-8-business-cycle-asset-prices", title: { zh-cn: "经济周期与资产价格", en: "Business Cycles and Asset Prices" } }
+      - id: "2.8"
+        slug: "2-8-business-cycle-asset-prices"
+        title: { zh-cn: "经济周期与资产价格", en: "Business Cycles and Asset Prices" }
+        summary:
+          zh-cn: "经济周期与衰退的认定；领先、同步和滞后指标；收益率曲线倒挂；资产在周期中的表现；股债相关性为什么取决于通胀。"
+          en: "Business cycles and how recessions are dated; leading, coincident and lagging indicators; yield curve inversion; how assets behave over the cycle; why the stock–bond correlation depends on inflation."
+        published: true
+        introduces: [business-cycle, recession, leading-indicator, yield-curve, stock-bond-correlation]
+        uses: [present-value, correlation, portfolio-variance, diversification, unemployment-rate, potential-output, aggregate-demand, aggregate-supply, forward-guidance, taylor-rule, inflation]
       - { id: "E2", slug: "e2-quiz", exam: true, title: { zh-cn: "测验 E2：宏观经济学", en: "Quiz E2: Macroeconomics" } }
 
   - id: "3"

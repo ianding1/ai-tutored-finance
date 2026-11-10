@@ -1,0 +1,86 @@
+---
+// Figure 5-1 of lesson 2.8: standard deviation of a stock–bond portfolio as a function of the stock weight,
+// with σ(stocks) = 16% and σ(bonds) = 6%. The solid curve uses the chosen correlation, the dashed one ρ = 0;
+// the point marks the chosen stock weight.
+// Parameters are registered in course/widgets.yaml (id: stock-bond-mix).
+import { toLang } from '../../i18n/ui';
+
+const lang = toLang(Astro.locals.starlightRoute.lang);
+const L = {
+	'zh-cn': {
+		rho: '股票与债券的相关系数 ρ',
+		w: '股票的权重 w',
+		x: '股票的权重',
+		y: '组合收益的标准差（%）',
+		cur: '所选的相关系数',
+		zero: 'ρ = 0',
+		readout: '股票 {ws}%、债券 {wb}% 的组合，收益的标准差为 {s}%。',
+	},
+	en: {
+		rho: 'Stock–bond correlation ρ',
+		w: 'Stock weight w',
+		x: 'Stock weight',
+		y: 'Standard deviation of portfolio return (%)',
+		cur: 'Chosen correlation',
+		zero: 'ρ = 0',
+		readout: 'With {ws}% in stocks and {wb}% in bonds, the standard deviation of the return is {s}%.',
+	},
+}[lang];
+
+const xr = [0, 1];
+const yr = [0, 18];
+const xticks = [0, 0.2, 0.4, 0.6, 0.8, 1];
+const yticks = [0, 3, 6, 9, 12, 15, 18];
+const layouts = [
+	{ cls: 'viz-wide', W: 640, H: 300, pad: { l: 50, r: 20, t: 14, b: 44 } },
+	{ cls: 'viz-narrow', W: 360, H: 280, pad: { l: 50, r: 14, t: 14, b: 44 } },
+].map((g) => ({
+	...g,
+	X: (v: number) => g.pad.l + ((v - xr[0]) / (xr[1] - xr[0])) * (g.W - g.pad.l - g.pad.r),
+	Y: (v: number) => g.pad.t + ((yr[1] - v) / (yr[1] - yr[0])) * (g.H - g.pad.t - g.pad.b),
+}));
+const sd = (w: number, rho: number) => Math.sqrt((16 * w) ** 2 + (6 * (1 - w)) ** 2 + 2 * rho * 16 * 6 * w * (1 - w));
+const zeroPts = Array.from({ length: 101 }, (_, k) => k / 100);
+---
+
+<div class="lfwai-widget" data-widget="stock-bond-mix" data-readout={L.readout}>
+	<div class="lfwai-sliders">
+		<label>
+			<span>{L.rho} = <output data-out="rho">-0.3</output></span>
+			<input type="range" min="-0.6" max="0.6" step="0.1" value="-0.3" data-param="rho" />
+		</label>
+		<label>
+			<span>{L.w} = <output data-out="w">0.6</output></span>
+			<input type="range" min="0" max="1" step="0.1" value="0.6" data-param="w" />
+		</label>
+	</div>
+	{layouts.map(({ cls, W, H, pad, X, Y }) => (
+		<svg class={`lfwai-viz ${cls}`} viewBox={`0 0 ${W} ${H}`} role="img" aria-label={L.cur} data-geom={JSON.stringify({ W, H, pad, xr, yr })}>
+			{yticks.map((v) => (
+				<g>
+					<line class={v === 0 ? 'viz-axis' : 'viz-grid'} x1={pad.l} x2={W - pad.r} y1={Y(v)} y2={Y(v)} />
+					<text class="viz-tick" x={pad.l - 8} y={Y(v) + 4} text-anchor="end">{v}</text>
+				</g>
+			))}
+			{xticks.map((v) => (
+				<text class="viz-tick" x={X(v)} y={H - pad.b + 18} text-anchor="middle">{v}</text>
+			))}
+			<line class="viz-axis" x1={pad.l} x2={pad.l} y1={pad.t} y2={H - pad.b} />
+			<text class="viz-tick" x={(pad.l + W - pad.r) / 2} y={H - 8} text-anchor="middle">{L.x}</text>
+			<text class="viz-tick" transform={`translate(12 ${(pad.t + H - pad.b) / 2}) rotate(-90)`} text-anchor="middle">{L.y}</text>
+			<polyline class="viz-avg" points={zeroPts.map((w) => `${X(w).toFixed(1)},${Y(sd(w, 0)).toFixed(1)}`).join(' ')} />
+			<polyline class="viz-curve" data-el="cur" points="" />
+			<circle class="viz-min" data-el="pt" r="6" cx="0" cy="0" />
+		</svg>
+	))}
+	<ul class="lfwai-legend">
+		<li><span class="sw sw-curve"></span>{L.cur}</li>
+		<li><span class="sw sw-avg"></span>{L.zero}</li>
+	</ul>
+	<p class="lfwai-readout" data-el="readout" aria-live="polite"></p>
+</div>
+
+<script>
+	import { initStockBondMix } from '../../scripts/widgets/stock-bond-mix';
+	initStockBondMix();
+</script>

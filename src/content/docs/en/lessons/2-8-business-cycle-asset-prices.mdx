@@ -1,0 +1,85 @@
+---
+title: 2.8 Business Cycles and Asset Prices
+description: "Business cycles and how recessions are dated; leading, coincident and lagging indicators; yield curve inversion; how assets behave over the cycle; why the stock–bond correlation depends on inflation."
+lesson: "2.8"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import CheckAll from '../../../../components/CheckAll.astro';
+import StockBondMix from '../../../../components/widgets/StockBondMix.astro';
+
+## The business cycle [#cycle]
+
+The rise and fall of output around its potential (<Ref lesson="2.4" />) is called the <Def id="business-cycle">business cycle</Def>: an expansion reaches a peak and turns into a contraction, which reaches a trough and turns into a new expansion. Cycles have no fixed length and are not regular "waves"; they are a series of different shocks and the economy's responses to them.
+
+In the United States a <Def id="recession">recession</Def> is dated by a committee of the National Bureau of Economic Research (NBER): a significant decline in economic activity that is spread across the economy and lasts more than a few months. The committee looks at employment, real income, consumption, industrial production and more, not only GDP; the "two consecutive quarters of negative GDP growth" often mentioned in the news is only a rough rule of thumb. The dating is usually announced months, or even more than a year, after the recession starts.
+
+In 1945–2020, US expansions lasted about 64 months on average and recessions about 10 months (NBER). As of November 2026, the most recent recession dated by the NBER ran from February to April 2020.
+
+## Economic indicators [#indicators]
+
+By their timing relative to the cycle, economic indicators fall into three groups:
+
+- A <Def id="leading-indicator">leading indicator</Def> usually changes before turning points in the economy: for example, new housing permits, initial claims for unemployment benefits, new manufacturing orders, stock prices and the yield curve (next section).
+- **Coincident indicators** move with the economy: for example, nonfarm payrolls, industrial production and real personal income excluding transfers.
+- **Lagging indicators** change after turning points: for example, the average duration of unemployment, inflation in service prices and bank lending rates.
+
+An often-cited example is the Sahm rule: when the 3-month average unemployment rate is 0.5 percentage points or more above its lowest 3-month average of the previous 12 months, a recession may already have begun. Rising unemployment reduces income and spending, which leads to more job losses, so once unemployment has risen clearly it tends to keep rising. But any single indicator can give false signals: data released in August 2024 triggered the Sahm rule, and no recession dated by the NBER followed. One reason unemployment rose at the time was fast growth of the labor force (newcomers to the labor market need time to find jobs) rather than large layoffs.
+
+<Check id="C1" />
+
+## The yield curve [#yield-curve]
+
+The curve that connects the yields of government bonds of different maturities is called the <Def id="yield-curve">yield curve</Def>. Usually long rates are above short rates and the curve slopes up; when long rates are below short rates, the curve is said to be inverted. A common measure is the 10-year Treasury yield minus the 3-month Treasury yield.
+
+<Ref check="Q5" lesson="2.5" /> showed that long rates roughly reflect expected future short rates. An inverted curve means markets expect the central bank to cut rates in the future, and cuts usually happen when the economy weakens. In addition, inversions tend to come after large rate hikes, and tight monetary policy itself restrains demand; and since banks borrow short and lend long, an inversion also squeezes their lending margins.
+
+Since the late 1960s, the spread between 10-year and 3-month Treasury yields has inverted before every US recession (research by the Federal Reserve Bank of New York). But the time from inversion to recession has ranged from a few months to two years. From October 2022 to the end of 2024 this spread was negative most of the time, one of the longest inversions in decades, and as of November 2026 the NBER has not dated a recession. In September 2026 the spread was about 0.8 percentage points (Federal Reserve Bank of St. Louis, FRED, monthly average). The yield curve is a useful signal, but not a certain prediction.
+
+<Check id="C2" />
+
+## How assets behave over the cycle [#assets]
+
+Asset prices reflect expectations about the future, so they tend to lead the economy:
+
+- **Stocks**: prices usually fall before a recession begins and recover before the economy reaches its trough. In a recession, corporate profits fall and investors demand more compensation for risk. By the time the NBER announces a recession, stocks have often already fallen a lot, or even started to recover.
+- **Sectors**: industries whose demand swings strongly with income (cars, construction, materials, discretionary consumer goods) are cyclical; food, utilities and health care are defensive, with profits little affected by the cycle.
+- **Treasury bonds**: in a recession the central bank cuts rates and investors move to safe assets, so Treasury prices usually rise (yields fall).
+- **Corporate bonds**: default risk rises, the spread between corporate bond and Treasury yields widens, and bonds of weaker companies fall more.
+
+These patterns are average tendencies, and every cycle is different. Because markets react before economic data are published, "timing" trades on data already released is often too late.
+
+<Check id="C3" />
+
+## The stock–bond correlation and inflation [#stock-bond]
+
+The <Ref concept="correlation" /> between stock returns and bond returns is called the <Def id="stock-bond-correlation">stock-bond correlation</Def>. It determines how far bonds in a portfolio can offset losses on stocks (<Ref concept="portfolio-variance" />). The stock–bond correlation has not been stable over history; its sign depends on which kind of shock mainly hits the economy:
+
+- **Mainly demand shocks** (<Ref lesson="2.4" />): output and inflation move together. Bad news lowers profits and stock prices, while inflation falls and the central bank cuts rates, so bonds rise: stocks and bonds are **negatively correlated**, and bonds are a good hedge for stocks.
+- **Mainly supply or inflation shocks**: output falls while inflation rises. Profits fall, while inflation and interest rates rise, so stocks and bonds fall together: stocks and bonds are **positively correlated**.
+
+Most studies find that the US stock–bond correlation was roughly positive from the 1970s to the 1990s, when inflation was higher and less stable, roughly negative in the 2000s and 2010s, when inflation was low and stable, and turned positive again after inflation rose in 2022. In 2022 the total return of the S&P 500 was about −18.1% and that of US investment-grade bonds (the Bloomberg US Aggregate index) about −13.0%: stocks and bonds fell sharply together.
+
+<Figure id="5-1" title="Standard deviation of the return on a stock–bond portfolio, with stocks at 16% and bonds at 6%. The solid curve uses the chosen correlation; the dashed curve uses a correlation of 0." observe="Move the correlation from negative to positive and see how much the risk of the same portfolio rises; then see how much adding bonds still reduces risk when the correlation is positive.">
+	<StockBondMix />
+</Figure>
+
+<Check id="C4" />
+
+## Summary [#summary]
+
+- Business cycles consist of expansions and contractions of no fixed length. US recessions are dated by the NBER from many indicators, with a delay; the most recent was February–April 2020.
+- Leading indicators change before turning points (housing permits, jobless claims, new orders, stock prices, the yield curve), coincident indicators move with the economy, and lagging indicators change afterwards. Any single indicator can give false signals.
+- An inverted yield curve reflects expected rate cuts and tight policy; it has inverted before every recession since the late 1960s, but with variable lags, and the 2022–2024 inversion was not followed by a recession.
+- Asset prices lead the economy; in recessions stocks, especially cyclical sectors, fall, Treasuries usually rise and credit spreads widen.
+- The stock–bond correlation depends on the type of shock: negative when demand shocks dominate, positive when inflation shocks dominate; it determines how well bonds diversify stock risk.
+
+<CheckAll />
+
+## Exercises [#exercises]
+
+<Exercises />

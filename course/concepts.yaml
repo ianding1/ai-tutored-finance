@@ -1454,6 +1454,46 @@ currency-hedging:
     zh-cn: "用远期合约等工具消除外国投资的汇率风险；成本约为两国利差。"
     en: "Removing the currency risk of a foreign investment with forward contracts or similar tools; it costs about the interest differential."
 
+business-cycle:
+  defined_in: "2.8"
+  zh-cn: 经济周期
+  en: business cycle
+  short:
+    zh-cn: "产出围绕潜在水平的扩张与收缩，长度不固定。"
+    en: "The expansions and contractions of output around its potential, with no fixed length."
+
+recession:
+  defined_in: "2.8"
+  zh-cn: 衰退
+  en: recession
+  short:
+    zh-cn: "经济活动显著、广泛、持续数月以上的下降；美国由 NBER 认定。"
+    en: "A significant, widespread decline in economic activity lasting more than a few months; dated in the US by the NBER."
+
+leading-indicator:
+  defined_in: "2.8"
+  zh-cn: 领先指标
+  en: leading indicator
+  short:
+    zh-cn: "通常在经济转折之前变化的指标，例如住房许可、失业救济申请和股价。"
+    en: "An indicator that usually changes before turning points in the economy, such as housing permits, jobless claims and stock prices."
+
+yield-curve:
+  defined_in: "2.8"
+  zh-cn: 收益率曲线
+  en: yield curve
+  short:
+    zh-cn: "不同期限国债收益率连成的曲线；长期利率低于短期利率时叫倒挂。"
+    en: "The curve of government bond yields across maturities; when long rates are below short rates it is inverted."
+
+stock-bond-correlation:
+  defined_in: "2.8"
+  zh-cn: 股债相关性
+  en: stock-bond correlation
+  short:
+    zh-cn: "股票收益与债券收益的相关系数；需求冲击为主时为负，通胀冲击为主时为正。"
+    en: "The correlation between stock and bond returns; negative when demand shocks dominate, positive when inflation shocks dominate."
+
 risk-measures:
   defined_in: "4.1"
   zh-cn: 风险度量

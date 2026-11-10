@@ -192,3 +192,12 @@ fx-return:
   params:
     i: { min: 0, max: 8, step: 0.5, default: 4 }
     istar: { min: 0, max: 8, step: 0.5, default: 2 }
+
+stock-bond-mix:
+  component: src/components/widgets/StockBondMix.astro
+  params:
+    rho: { min: -0.6, max: 0.6, step: 0.1, default: -0.3 }
+    w: { min: 0, max: 1, step: 0.1, default: 0.6 }
+  fixed:
+    sd_stocks: 16
+    sd_bonds: 6
