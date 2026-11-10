@@ -1246,6 +1246,62 @@ quantity-theory-of-money:
     zh-cn: "由 $MV = PY$ 并假设流通速度稳定、产出与货币无关，得出长期中货币增长主要带来通胀。"
     en: "From $MV = PY$, assuming stable velocity and output independent of money, the theory that in the long run money growth mainly brings inflation."
 
+potential-output:
+  defined_in: "2.4"
+  zh-cn: 潜在产出
+  en: potential output
+  short:
+    zh-cn: "所有资源都被正常使用时的产出，由资本、劳动和全要素生产率决定。"
+    en: "The output produced when all resources are used at normal rates, determined by capital, labor and TFP."
+
+output-gap:
+  defined_in: "2.4"
+  zh-cn: 产出缺口
+  en: output gap
+  short:
+    zh-cn: "实际产出与潜在产出之差占潜在产出的比例，$\\frac{Y - Y^*}{Y^*}$。"
+    en: "Actual minus potential output as a share of potential output, $\\frac{Y - Y^*}{Y^*}$."
+
+is-curve:
+  defined_in: "2.4"
+  zh-cn: IS 曲线
+  en: IS curve
+  short:
+    zh-cn: "实际利率与使产出等于计划支出的产出之间的关系；利率越高，投资越少，产出越低。"
+    en: "The relation between the real interest rate and the output at which output equals planned spending; a higher rate means less investment and lower output."
+
+aggregate-demand:
+  defined_in: "2.4"
+  zh-cn: 总需求
+  en: aggregate demand
+  short:
+    zh-cn: "在每个价格水平上经济中对产出的总需求量；AD 曲线向下倾斜。"
+    en: "The total quantity of output demanded in the economy at each price level; the AD curve slopes down."
+
+aggregate-supply:
+  defined_in: "2.4"
+  zh-cn: 总供给
+  en: aggregate supply
+  short:
+    zh-cn: "在每个价格水平上企业愿意生产的产出；短期向上倾斜，长期是潜在产出处的竖线。"
+    en: "The output firms are willing to produce at each price level; upward-sloping in the short run, vertical at potential output in the long run."
+
+natural-rate-of-unemployment:
+  defined_in: "2.4"
+  zh-cn: 自然失业率
+  en: natural rate of unemployment
+  short:
+    zh-cn: "经济不衰退也不过热时的正常失业率。"
+    en: "The normal unemployment rate when the economy is neither in recession nor overheating."
+
+phillips-curve:
+  defined_in: "2.4"
+  zh-cn: Phillips 曲线
+  en: Phillips curve
+  short:
+    zh-cn: "通胀与失业的关系：$\\pi = \\pi^e - \\beta(u - u^*)$。"
+    en: "The relation between inflation and unemployment: $\\pi = \\pi^e - \\beta(u - u^*)$."
+
 risk-measures:
   defined_in: "4.1"
   zh-cn: 风险度量

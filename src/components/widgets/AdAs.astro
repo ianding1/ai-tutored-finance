@@ -1,0 +1,97 @@
+---
+// Figure 3-1 of lesson 2.4: aggregate demand and aggregate supply. AD: Y = 100 + D - 0.5 (P - 100);
+// short-run AS: P = 100 + S + (Y - 100); long-run AS: Y = 100 (potential output). The sliders shift AD by D
+// and SRAS by S. Equilibrium: gap Y - 100 = (D - 0.5 S) / 1.5, P = 100 + S + gap.
+// Parameters are registered in course/widgets.yaml (id: ad-as).
+import { toLang } from '../../i18n/ui';
+
+const lang = toLang(Astro.locals.starlightRoute.lang);
+const L = {
+	'zh-cn': {
+		d: '需求冲击 D',
+		s: '供给冲击 S',
+		x: '实际产出 Y',
+		y: '价格水平 P',
+		ad: '总需求 AD',
+		as: '短期总供给 SRAS',
+		lr: '长期总供给（潜在产出）',
+		old: '冲击前',
+		readout: '产出 Y = {y}（产出缺口 {g}%），价格水平 P = {p}。',
+	},
+	en: {
+		d: 'Demand shock D',
+		s: 'Supply shock S',
+		x: 'Real output Y',
+		y: 'Price level P',
+		ad: 'Aggregate demand AD',
+		as: 'Short-run aggregate supply SRAS',
+		lr: 'Long-run aggregate supply (potential output)',
+		old: 'Before the shocks',
+		readout: 'Output Y = {y} (output gap {g}%), price level P = {p}.',
+	},
+}[lang];
+
+const xr = [80, 120];
+const yr = [80, 120];
+const ticks = [80, 90, 100, 110, 120];
+const layouts = [
+	{ cls: 'viz-wide', W: 640, H: 340, pad: { l: 56, r: 20, t: 14, b: 44 } },
+	{ cls: 'viz-narrow', W: 360, H: 320, pad: { l: 56, r: 12, t: 14, b: 44 } },
+].map((g) => ({
+	...g,
+	X: (v: number) => g.pad.l + ((v - xr[0]) / (xr[1] - xr[0])) * (g.W - g.pad.l - g.pad.r),
+	Y: (v: number) => g.pad.t + ((yr[1] - v) / (yr[1] - yr[0])) * (g.H - g.pad.t - g.pad.b),
+}));
+---
+
+<div class="lfwai-widget" data-widget="ad-as" data-readout={L.readout}>
+	<div class="lfwai-sliders">
+		<label>
+			<span>{L.d} = <output data-out="d">0</output></span>
+			<input type="range" min="-10" max="10" step="1" value="0" data-param="d" />
+		</label>
+		<label>
+			<span>{L.s} = <output data-out="s">0</output></span>
+			<input type="range" min="-10" max="10" step="1" value="0" data-param="s" />
+		</label>
+	</div>
+	{layouts.map(({ cls, W, H, pad, X, Y }) => (
+		<svg class={`lfwai-viz ${cls}`} viewBox={`0 0 ${W} ${H}`} role="img" aria-label={L.ad} data-geom={JSON.stringify({ W, H, pad, xr, yr })}>
+			<defs>
+				<clipPath id={`adas-clip-${cls}`}>
+					<rect x={pad.l} y={pad.t} width={W - pad.l - pad.r} height={H - pad.t - pad.b} />
+				</clipPath>
+			</defs>
+			{ticks.map((v) => (
+				<g>
+					<line class={v === 80 ? 'viz-axis' : 'viz-grid'} x1={pad.l} x2={W - pad.r} y1={Y(v)} y2={Y(v)} />
+					<text class="viz-tick" x={pad.l - 8} y={Y(v) + 4} text-anchor="end">{v}</text>
+					<text class="viz-tick" x={X(v)} y={H - pad.b + 18} text-anchor="middle">{v}</text>
+				</g>
+			))}
+			<line class="viz-axis" x1={pad.l} x2={pad.l} y1={pad.t} y2={H - pad.b} />
+			<text class="viz-tick" x={(pad.l + W - pad.r) / 2} y={H - 8} text-anchor="middle">{L.x}</text>
+			<text class="viz-tick" transform={`translate(12 ${(pad.t + H - pad.b) / 2}) rotate(-90)`} text-anchor="middle">{L.y}</text>
+			<g clip-path={`url(#adas-clip-${cls})`}>
+				<line class="viz-avg" x1={X(100)} x2={X(100)} y1={Y(120)} y2={Y(80)} />
+				<line class="viz-contour" x1={X(90)} y1={Y(120)} x2={X(110)} y2={Y(80)} />
+				<line class="viz-contour" x1={X(80)} y1={Y(80)} x2={X(120)} y2={Y(120)} />
+				<line class="viz-curve" data-el="ad" x1="0" y1="0" x2="0" y2="0" />
+				<line class="viz-curve-fat" data-el="as" x1="0" y1="0" x2="0" y2="0" />
+				<circle class="viz-min" data-el="pt" r="6" cx="0" cy="0" />
+			</g>
+		</svg>
+	))}
+	<ul class="lfwai-legend">
+		<li><span class="sw sw-curve"></span>{L.ad}</li>
+		<li><span class="sw sw-fat"></span>{L.as}</li>
+		<li><span class="sw sw-avg"></span>{L.lr}</li>
+		<li><span class="sw sw-box"></span>{L.old}</li>
+	</ul>
+	<p class="lfwai-readout" data-el="readout" aria-live="polite"></p>
+</div>
+
+<script>
+	import { initAdAs } from '../../scripts/widgets/ad-as';
+	initAdAs();
+</script>

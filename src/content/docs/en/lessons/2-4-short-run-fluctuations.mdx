@@ -1,0 +1,96 @@
+---
+title: 2.4 Short-Run Fluctuations
+description: "Why output deviates from its potential in the short run: sticky prices and the output gap, the IS curve and interest rates, aggregate demand and aggregate supply, demand and supply shocks, the Phillips curve and inflation expectations."
+lesson: "2.4"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import CheckAll from '../../../../components/CheckAll.astro';
+import AdAs from '../../../../components/widgets/AdAs.astro';
+
+## The short run and the long run [#short-run]
+
+<Ref lesson="2.2" /> was about the long run: output is determined by capital, labor and total factor productivity, and all resources are used at normal rates. Output in this case is called <Def id="potential-output">potential output</Def>.
+
+But the actual economy has good and bad times: in a recession firms lay off workers and factories stand idle; in a boom workers are scarce and overtime is common. Actual output minus potential output, as a share of potential output, is called the <Def id="output-gap">output gap</Def>:
+
+$$
+\text{gap} = \frac{Y - Y^*}{Y^*}
+$$
+
+where $Y^*$ is potential output. When the output gap is negative, the economy has idle resources and unemployment is above its normal level; when it is positive, the economy is overheating and inflation tends to rise.
+
+Why does output deviate from its potential in the short run? The key is that **prices and wages do not adjust at once** (sticky prices): contracts are signed for a year, menus are not changed every day, and firms are reluctant to cut pay often. When demand falls suddenly, if prices could fall at once, people would not buy less; but because prices adjust slowly, what firms cut first is production and hiring.
+
+## The IS curve: interest rates and spending [#is-lm]
+
+First look at how total spending depends on the interest rate. The expenditure approach of <Ref lesson="2.1" /> splits GDP into $C + I + G + NX$. For simplicity, leave out net exports for now:
+
+- consumption rises with disposable income: $C = a + b\,(Y - T)$, where $T$ is taxes and $b$ is the marginal propensity to consume (the part of an extra dollar of income that is consumed), $0 < b < 1$;
+- investment rises as the real interest rate falls: $I = I_0 - d\,r$. The cheaper it is to borrow, the more investment projects are worth doing (<Ref concept="present-value" />: the lower the rate, the higher the present value of future returns);
+- government purchases $G$ and taxes $T$ are set by the government.
+
+When output equals planned spending, $Y = C + I + G$. The output this gives for each real interest rate forms a downward-sloping curve called the <Def id="is-curve">IS curve</Def>: the higher the rate, the less investment and the lower output.
+
+The IS curve shows only how the interest rate affects output; we also need to know what determines the interest rate. Traditional textbooks add the LM curve (equilibrium in the money market); central banks today set the short-term rate directly (<Ref lesson="2.3" />, <Ref lesson="2.5" />), so the rate can be taken as the central bank's choice: the central bank sets the real rate, and the IS curve gives the corresponding output.
+
+<Check id="C1" />
+
+## Aggregate demand and aggregate supply [#ad-as]
+
+The IS curve connects the interest rate with output; to look at output and prices together, we use aggregate demand and aggregate supply.
+
+The <Def id="aggregate-demand">aggregate demand</Def> (AD) curve shows the total quantity of output demanded in the economy at each price level. It slopes down: when the price level rises, the central bank usually raises interest rates to hold down inflation, the real value of the money and bonds households hold falls, and domestic goods become dearer relative to foreign ones; all of these reduce demand.
+
+The <Def id="aggregate-supply">aggregate supply</Def> (AS) curve shows the output firms are willing to produce at each price level. The short run and the long run differ:
+
+- **Short-run aggregate supply** (SRAS) slopes up: because prices are sticky, some prices and wages are set in advance according to expectations; when demand rises, firms partly raise prices and partly produce more.
+- **Long-run aggregate supply** (LRAS) is a vertical line at potential output: in the long run all prices and wages can adjust, and output returns to its potential, whatever the price level.
+
+The intersection of the two curves determines short-run output and the price level. The economy is hit by two kinds of shocks:
+
+- **Demand shocks**, such as a fall in consumer confidence, a change in government spending or a change in interest rates, move the AD curve. Output and prices move **in the same direction**: when demand falls, both output and prices fall.
+- **Supply shocks**, such as a sharp rise in oil prices, natural disasters or supply chain disruptions, move the SRAS curve. Output and prices move **in opposite directions**: when costs rise, prices go up but output goes down. Falling output together with rising inflation is called stagflation.
+
+<Figure id="3-1" title="Aggregate demand and aggregate supply. The demand shock D moves the AD curve horizontally by D; the supply shock S moves the SRAS curve up by S. The vertical line is potential output 100, and the light lines show the positions before the shocks." observe="First move only demand, then only supply, and compare the directions in which output and prices change.">
+	<AdAs />
+</Figure>
+
+In the long run, if output is below potential, unemployment and idle capacity make wages and prices fall gradually (and the prices people expect fall with them), the SRAS curve shifts down, and output slowly returns to potential. But this process can be slow, so policy often tries to speed it up (<Ref lesson="2.5" />, <Ref lesson="2.6" />).
+
+<Check id="C2" />
+
+## The Phillips curve [#phillips]
+
+The relation between prices and output can also be stated in terms of inflation and unemployment. When output is below potential, unemployment is above its normal level. This normal level of unemployment is called the <Def id="natural-rate-of-unemployment">natural rate of unemployment</Def>, written $u^*$: even when the economy is not in recession, some people are always changing jobs or lack the skills that jobs need. The US Congressional Budget Office (CBO) estimates the US natural rate of unemployment in 2026 at about 4.4% (CBO, February 2026).
+
+The <Def id="phillips-curve">Phillips curve</Def> describes the relation between inflation and unemployment:
+
+$$
+\pi = \pi^e - \beta\,(u - u^*)
+$$
+
+where $\pi^e$ is expected inflation and $\beta > 0$. When unemployment is below the natural rate, the labor market is tight and wages and prices rise faster than expected; when it is above the natural rate, inflation is lower than expected.
+
+The most important term in this equation is $\pi^e$. In the 1960s many people thought that slightly higher inflation could buy permanently lower unemployment. But if unemployment is held below the natural rate, actual inflation is always above expectations, people raise their expectations, and the same unemployment rate needs higher and higher inflation (<Ref check="C3" />). In the 1970s US inflation and unemployment rose together; in 1980 CPI inflation reached 13.5% with unemployment at about 7.1% (BLS). Only very high interest rates and a severe recession then brought inflation down.
+
+So in the long run there is no trade-off between inflation and unemployment: unemployment returns to the natural rate, and the long-run Phillips curve is vertical. Central banks work to keep expected inflation stable near their target (to keep expectations "anchored"): when expectations are anchored, short-term shocks are less likely to turn into lasting inflation.
+
+<Check id="C3" />
+
+## Summary [#summary]
+
+- In the short run prices and wages adjust slowly, and output can deviate from potential output; output gap $= \frac{Y - Y^*}{Y^*}$.
+- IS curve: the higher the real interest rate, the less investment and the lower output. Central banks today set the short-term rate directly.
+- Aggregate demand slopes down; short-run aggregate supply slopes up; long-run aggregate supply is vertical at potential output. Demand shocks move output and prices in the same direction, supply shocks in opposite directions (stagflation).
+- Phillips curve: $\pi = \pi^e - \beta(u - u^*)$. Keeping unemployment below the natural rate pushes up inflation expectations; in the long run there is no trade-off between inflation and unemployment.
+
+<CheckAll />
+
+## Exercises [#exercises]
+
+<Exercises />

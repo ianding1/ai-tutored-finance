@@ -1,0 +1,330 @@
+# Answer key for lesson 2.4. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[2.4#ad-as]] (section), [[concept:phillips-curve]], [[check:Q3]], [[fig:3-1]].
+# expected: values are recomputed by course/verify/2.4.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+
+lesson: "2.4"
+
+context:
+  - zh-cn: |-
+      学习者学过现值（[[0.1]]）、供求与均衡（[[1.1]]）、GDP 的支出法、失业率（[[2.1]]）、潜在产出背后的增长理论（[[2.2]]）和货币（[[2.3]]）。百分数的计算用百分点表示。讲义还没有讲货币政策和财政政策的细节（[[2.5]]、[[2.6]]）。
+    en: |-
+      The learner has studied present value ([[0.1]]), supply, demand and equilibrium ([[1.1]]), the expenditure approach to GDP and the unemployment rate ([[2.1]]), the growth theory behind potential output ([[2.2]]) and money ([[2.3]]). Percentage calculations are in percentage points. The lesson has not yet covered monetary and fiscal policy in detail ([[2.5]], [[2.6]]).
+  - concepts: [is-curve]
+    zh-cn: |-
+      讲义：$C = a + b(Y - T)$，$I = I_0 - d\,r$，$Y = C + I + G$，由此得到向下倾斜的 IS 曲线；讲义没有写出 IS 曲线的解，也没有讲支出乘数（[[2.6]] 会讲）。今天的央行直接设定短期利率，可以把利率看作央行的选择。
+    en: |-
+      The lesson: $C = a + b(Y - T)$, $I = I_0 - d\,r$, $Y = C + I + G$, giving a downward-sloping IS curve; the lesson does not solve the IS curve explicitly and does not discuss the spending multiplier ([[2.6]] will). Central banks today set the short-term rate directly, so the rate can be taken as the central bank's choice.
+  - concepts: [aggregate-demand, aggregate-supply, output-gap, potential-output]
+    zh-cn: |-
+      讲义：产出缺口 $= \frac{Y - Y^*}{Y^*}$；AD 向下倾斜，SRAS 向上倾斜，LRAS 是潜在产出处的竖线；需求冲击使产出和价格同向变化，供给冲击使它们反向变化（滞胀）；长期中价格调整使产出回到潜在水平。[[fig:3-1]] 的模型：AD 为 $Y = 100 + D - 0.5(P - 100)$，SRAS 为 $P = 100 + S + (Y - 100)$，潜在产出 100；滑块 D 和 S 都从 −10 到 10，步长 1，默认 0；读数显示产出、产出缺口和价格水平。
+    en: |-
+      The lesson: output gap $= \frac{Y - Y^*}{Y^*}$; AD slopes down, SRAS slopes up, LRAS is vertical at potential output; demand shocks move output and prices in the same direction, supply shocks in opposite directions (stagflation); in the long run price adjustment brings output back to potential. The model of [[fig:3-1]]: AD is $Y = 100 + D - 0.5(P - 100)$, SRAS is $P = 100 + S + (Y - 100)$, potential output 100; sliders D and S both from −10 to 10 in steps of 1, default 0; the readout shows output, the output gap and the price level.
+  - concepts: [phillips-curve, natural-rate-of-unemployment]
+    zh-cn: |-
+      讲义：$\pi = \pi^e - \beta(u - u^*)$；CBO 估计 2026 年美国自然失业率约 4.4%；失业率长期低于自然失业率会推高预期，长期 Phillips 曲线是竖线；1980 年美国 CPI 通胀 13.5%、失业率约 7.1%；预期锚定的意义。
+    en: |-
+      The lesson: $\pi = \pi^e - \beta(u - u^*)$; the CBO estimates the US natural rate of unemployment at about 4.4% in 2026; keeping unemployment below the natural rate pushes expectations up, and the long-run Phillips curve is vertical; in 1980 US CPI inflation was 13.5% and unemployment about 7.1%; why anchored expectations matter.
+
+common_errors:
+  - questions: [C1, Q1]
+    zh-cn: |-
+      把 IS 曲线的斜率方向弄反，或忘记利率是通过投资影响产出的。
+    en: |-
+      Getting the slope of the IS curve backwards, or forgetting that the interest rate affects output through investment.
+  - questions: [C2, Q2, Q5]
+    zh-cn: |-
+      把所有冲击都当成需求冲击，认为产出和价格总是同方向变化；供给冲击使它们反方向变化。
+    en: |-
+      Treating every shock as a demand shock and thinking that output and prices always move together; supply shocks move them in opposite directions.
+  - questions: [C3, Q4]
+    zh-cn: |-
+      以为可以永久地用更高的通胀换取更低的失业。预期会调整，长期中失业率回到自然失业率，只留下更高的通胀。
+    en: |-
+      Thinking that higher inflation can permanently buy lower unemployment. Expectations adjust; in the long run unemployment returns to the natural rate and only higher inflation remains.
+  - questions: [Q5]
+    zh-cn: |-
+      以为央行面对供给冲击时可以同时稳定产出和价格。用需求政策只能在两者之间取舍。
+    en: |-
+      Thinking that a central bank facing a supply shock can stabilize both output and prices. Demand policy can only trade one off against the other.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: is-lm
+    concepts: [is-curve]
+    expected: { y1: "2800", y2: "2720" }
+    question:
+      zh-cn: |-
+        某经济中 $C = 200 + 0.75(Y - T)$，$T = 400$，$G = 400$，$I = 500 - 20r$（$r$ 是以百分数表示的实际利率，例如 $r = 5$ 表示 5%）。不考虑净出口。
+        (a) 由 $Y = C + I + G$ 写出产出与利率的关系。
+        (b) 央行把实际利率定为 5% 时，产出是多少？提高到 6% 时呢？用一句话解释为什么利率升高使产出下降。
+      en: |-
+        In an economy $C = 200 + 0.75(Y - T)$, $T = 400$, $G = 400$ and $I = 500 - 20r$ ($r$ is the real interest rate in percent, so $r = 5$ means 5%). Ignore net exports.
+        (a) From $Y = C + I + G$, write output as a function of the interest rate.
+        (b) If the central bank sets the real rate at 5%, what is output? At 6%? Explain in one sentence why a higher rate lowers output.
+    answer:
+      zh-cn: |-
+        (a) $Y = 200 + 0.75(Y - 400) + 500 - 20r + 400$，即 $0.25Y = 800 - 20r$，$Y = 3200 - 80r$。
+        (b) $r = 5$：$Y = 2800$；$r = 6$：$Y = 2720$。利率升高使投资减少 20，投资者和企业的收入随之减少，消费也减少，产出的下降（80）大于投资最初的下降。
+      en: |-
+        (a) $Y = 200 + 0.75(Y - 400) + 500 - 20r + 400$, so $0.25Y = 800 - 20r$ and $Y = 3200 - 80r$.
+        (b) $r = 5$: $Y = 2800$; $r = 6$: $Y = 2720$. A higher rate cuts investment by 20; incomes fall with it, so consumption falls too, and output falls (by 80) more than investment did at first.
+    rubric:
+      zh-cn:
+        - "(a) $Y = 3200 - 80r$。"
+        - "(b) 2800 和 2720，并用投资减少解释。"
+      en:
+        - "(a) $Y = 3200 - 80r$."
+        - "(b) 2800 and 2720, explained by lower investment."
+
+  - id: C2
+    kind: check
+    section: ad-as
+    concepts: [aggregate-demand, aggregate-supply, output-gap]
+    widget: { id: ad-as, set: { d: 0, s: 6 } }
+    expected: { y1: "96", p1: "96", y2: "98", p2: "104" }
+    question:
+      zh-cn: |-
+        在 [[fig:3-1]] 中：
+        (a) 把需求冲击设为 −6、供给冲击设为 0。产出和价格水平各是多少？
+        (b) 把需求冲击设回 0、供给冲击设为 6（例如石油价格大涨）。产出和价格水平各是多少？
+        (c) 两种情况下产出和价格变化的方向有什么不同？哪一种情况下，央行用调整需求的办法更难处理？
+      en: |-
+        In [[fig:3-1]]:
+        (a) Set the demand shock to −6 and the supply shock to 0. What are output and the price level?
+        (b) Set the demand shock back to 0 and the supply shock to 6 (for example, a sharp rise in oil prices). What are output and the price level?
+        (c) How do the directions of the changes in output and prices differ between the two cases? In which case is it harder for the central bank to respond by adjusting demand?
+    answer:
+      zh-cn: |-
+        (a) 产出 96（产出缺口 −4%），价格水平 96。
+        (b) 产出 98（产出缺口 −2%），价格水平 104。
+        (c) 需求冲击使产出和价格同向下降；供给冲击使产出下降、价格上升（滞胀）。供给冲击更难处理：刺激需求能使产出回升，但价格涨得更多；压低需求能抑制价格，但产出降得更多。需求冲击则可以用刺激需求同时恢复产出和价格。
+      en: |-
+        (a) Output 96 (output gap −4%), price level 96.
+        (b) Output 98 (output gap −2%), price level 104.
+        (c) The demand shock lowers output and prices together; the supply shock lowers output but raises prices (stagflation). The supply shock is harder: stimulating demand brings output back but raises prices further; cutting demand holds prices down but lowers output further. A demand shock can be offset by stimulating demand, which restores output and prices at once.
+    rubric:
+      zh-cn:
+        - "(a) 96 和 96；(b) 98 和 104。"
+        - "(c) 说明方向的不同和供给冲击下的取舍。"
+      en:
+        - "(a) 96 and 96; (b) 98 and 104."
+        - "(c) Explains the different directions and the trade-off under a supply shock."
+
+  - id: C3
+    kind: check
+    section: phillips
+    concepts: [phillips-curve, natural-rate-of-unemployment]
+    expected: { pi1: "2.5", pi2: "3", pi3: "3.5" }
+    question:
+      zh-cn: |-
+        设 $\pi = \pi^e - 0.5(u - u^*)$，自然失业率 $u^* = 4.5\%$，开始时人们预期通胀为 2%。政府希望把失业率保持在 3.5%。
+        (a) 第一年的通胀是多少？
+        (b) 人们看到通胀高于预期，把下一年的预期调整为上一年的实际通胀。如果失业率仍保持在 3.5%，第二年和第三年的通胀各是多少？
+        (c) 这说明了什么？
+      en: |-
+        Let $\pi = \pi^e - 0.5(u - u^*)$ with natural rate $u^* = 4.5\%$, and suppose people start out expecting 2% inflation. The government wants to keep unemployment at 3.5%.
+        (a) What is inflation in the first year?
+        (b) Seeing inflation above expectations, people set next year's expectation equal to last year's actual inflation. If unemployment stays at 3.5%, what is inflation in the second and third years?
+        (c) What does this show?
+    answer:
+      zh-cn: |-
+        (a) $\pi = 2\% - 0.5 \times (3.5\% - 4.5\%) = 2.5\%$。
+        (b) 第二年预期 2.5%，$\pi = 2.5\% + 0.5\% = 3\%$；第三年预期 3%，$\pi = 3\% + 0.5\% = 3.5\%$。
+        (c) 把失业率保持在自然失业率之下，通胀不是停在一个更高的水平，而是每年继续上升，因为预期不断追赶实际通胀。长期中不能用稳定的更高通胀换取更低的失业；要让通胀停止上升，失业率必须回到自然失业率。
+      en: |-
+        (a) $\pi = 2\% - 0.5 \times (3.5\% - 4.5\%) = 2.5\%$.
+        (b) Second year: expectation 2.5%, so $\pi = 2.5\% + 0.5\% = 3\%$; third year: expectation 3%, so $\pi = 3\% + 0.5\% = 3.5\%$.
+        (c) Holding unemployment below the natural rate does not leave inflation at a higher but stable level; it keeps rising every year, because expectations keep catching up with actual inflation. In the long run, a stable higher inflation cannot buy lower unemployment; for inflation to stop rising, unemployment must return to the natural rate.
+    rubric:
+      zh-cn:
+        - "(a) 2.5%；(b) 3% 和 3.5%。"
+        - "(c) 说明预期调整使通胀不断上升，长期中没有替代关系。"
+      en:
+        - "(a) 2.5%; (b) 3% and 3.5%."
+        - "(c) Explains that adjusting expectations make inflation keep rising, so there is no long-run trade-off."
+
+  # ---------- Exercises (reviewed by the AI, not scored) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [is-curve]
+    expected: { dy: "400", k: "4" }
+    question:
+      zh-cn: |-
+        沿用 [[check:C1]] 的经济（$C = 200 + 0.75(Y - T)$，$T = 400$，$G = 400$，$I = 500 - 20r$），央行把实际利率固定在 5%。
+        (a) 政府购买增加 100，产出增加多少？产出的增加是政府购买增加的几倍？
+        (b) 解释为什么产出的增加大于 100。这个倍数和边际消费倾向有什么关系？
+        (c) 如果央行看到产出上升，把利率提高到 6%，产出最终增加多少？
+      en: |-
+        Use the economy of [[check:C1]] ($C = 200 + 0.75(Y - T)$, $T = 400$, $G = 400$, $I = 500 - 20r$), with the central bank holding the real rate at 5%.
+        (a) If government purchases rise by 100, by how much does output rise? How many times the rise in government purchases is this?
+        (b) Explain why output rises by more than 100. How is this multiple related to the marginal propensity to consume?
+        (c) If the central bank, seeing output rise, raises the rate to 6%, by how much does output rise in the end?
+    answer:
+      zh-cn: |-
+        (a) $0.25Y = 900 - 20r$，$r = 5$ 时 $Y = 3200$，比原来的 2800 增加 400，是政府购买增加的 4 倍。
+        (b) 政府多买 100，生产者的收入增加 100，他们把其中 0.75 用于消费，又成为别人的收入……总的增加为 $100 \times (1 + 0.75 + 0.75^2 + \dots) = \frac{100}{1 - 0.75} = 400$。边际消费倾向 $b$ 越大，倍数 $\frac{1}{1 - b}$ 越大。
+        (c) $Y = 4 \times (900 - 120) = 3120$，只比原来增加 320：利率上升减少了投资，抵消了一部分。（[[2.6]] 会把这叫作挤出效应。）
+      en: |-
+        (a) $0.25Y = 900 - 20r$; at $r = 5$, $Y = 3200$, up 400 from 2800, which is 4 times the rise in government purchases.
+        (b) The government buys 100 more, so producers' income rises by 100; they spend 0.75 of it, which becomes someone else's income, and so on. The total rise is $100 \times (1 + 0.75 + 0.75^2 + \dots) = \frac{100}{1 - 0.75} = 400$. The larger the marginal propensity to consume $b$, the larger the multiple $\frac{1}{1 - b}$.
+        (c) $Y = 4 \times (900 - 120) = 3120$, only 320 above the original: the higher rate cuts investment and offsets part of the rise. ([[2.6]] calls this crowding out.)
+    rubric:
+      zh-cn:
+        - "(a) 增加 400，4 倍。"
+        - "(b) 用收入—消费的循环解释，倍数为 $\\frac{1}{1 - b}$。"
+        - "(c) 3120，增加 320，说明利率上升的抵消作用。"
+      en:
+        - "(a) Up 400, 4 times."
+        - "(b) Explains by the income–spending chain, multiple $\\frac{1}{1 - b}$."
+        - "(c) 3120, up 320, explaining the offset from the higher rate."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    star: true
+    concepts: [aggregate-demand, aggregate-supply, potential-output]
+    expected: { y: "97.33", p: "97.33", s: "-8", p2: "92" }
+    question:
+      zh-cn: |-
+        在 [[fig:3-1]] 的模型中，需求冲击 $D = -4$，开始时 $S = 0$。
+        (a) 求短期的产出和价格水平。
+        (b) 如果政策不做任何反应，长期中工资和价格逐渐下降，SRAS 曲线向下移动（$S$ 变为负数），直到产出回到潜在水平 100。这时 $S$ 是多少，价格水平是多少？
+        (c) 这种“自动调整”有什么代价？为什么价格下降可能很慢？
+      en: |-
+        In the model of [[fig:3-1]], the demand shock is $D = -4$, and initially $S = 0$.
+        (a) Find short-run output and the price level.
+        (b) If policy does not respond, wages and prices fall gradually in the long run and the SRAS curve shifts down ($S$ becomes negative) until output is back at its potential of 100. What is $S$ then, and what is the price level?
+        (c) What is the cost of this "automatic adjustment"? Why might prices fall only slowly?
+    answer:
+      zh-cn: |-
+        (a) 由 $Y - 100 = \frac{D - 0.5S}{1.5}$：$Y = 100 - \frac{4}{1.5} \approx 97.33$，$P = 100 + 0 + (Y - 100) \approx 97.33$。
+        (b) 产出回到 100 要求 $D - 0.5S = 0$，$S = 2D = -8$；价格水平 $P = 100 - 8 + 0 = 92$。
+        (c) 调整期间产出低于潜在水平、失业率高于自然失业率，损失的产出和就业无法挽回。价格和工资下降慢，因为合同、菜单成本，以及工人和企业不愿接受名义工资下降；此外，价格普遍下降会加重债务人的实际负担（[[2.3#inflation-costs]]），可能使需求进一步减少。
+      en: |-
+        (a) From $Y - 100 = \frac{D - 0.5S}{1.5}$: $Y = 100 - \frac{4}{1.5} \approx 97.33$ and $P = 100 + 0 + (Y - 100) \approx 97.33$.
+        (b) Output back at 100 requires $D - 0.5S = 0$, so $S = 2D = -8$; the price level is $P = 100 - 8 + 0 = 92$.
+        (c) During the adjustment output is below potential and unemployment above the natural rate, and the lost output and jobs are never recovered. Prices and wages fall slowly because of contracts, menu costs, and workers' and firms' reluctance to accept cuts in nominal wages; moreover, a general fall in prices raises the real burden on debtors ([[2.3#inflation-costs]]), which can cut demand further.
+    rubric:
+      zh-cn:
+        - "(a) 约 97.33 和 97.33。"
+        - "(b) $S = -8$，价格 92（写作 -8 或 −8 均可）。"
+        - "(c) 说明产出和就业的损失，以及价格调整慢的原因。"
+      en:
+        - "(a) About 97.33 and 97.33."
+        - "(b) $S = -8$, price level 92 (written -8 or −8)."
+        - "(c) Explains the lost output and jobs and why prices adjust slowly."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [output-gap, natural-rate-of-unemployment, potential-output]
+    expected: { gap: "-3", loss: "0.9" }
+    question:
+      zh-cn: |-
+        一个常用的经验关系叫 Okun 法则（Okun's law）：失业率每比自然失业率高 1 个百分点，产出缺口约为 −2%。
+        (a) 自然失业率为 4.5%，实际失业率为 6%。产出缺口约是多少？
+        (b) 潜在产出为每年 30 万亿美元，这一年损失的产出约是多少？
+        (c) 为什么产出缺口的变化比失业率的变化大？
+      en: |-
+        A common rule of thumb is Okun's law: for each percentage point that unemployment is above the natural rate, the output gap is about −2%.
+        (a) The natural rate is 4.5% and actual unemployment is 6%. What is the output gap?
+        (b) Potential output is 30 trillion dollars a year. About how much output is lost in this year?
+        (c) Why does the output gap change more than the unemployment rate?
+    answer:
+      zh-cn: |-
+        (a) $-2 \times (6 - 4.5) = -3\%$。
+        (b) $30 \times 3\% = 0.9$ 万亿美元。
+        (c) 经济下行时，不只是失业的人不再生产：留下的工人工作时间减少、工作强度降低，一些人退出劳动力（不计入失业），设备也闲置，所以产出下降的比例大于失业率上升的百分点。
+      en: |-
+        (a) $-2 \times (6 - 4.5) = -3\%$.
+        (b) $30 \times 3\% = 0.9$ trillion dollars.
+        (c) In a downturn, it is not only that the unemployed stop producing: those still employed work fewer hours and less intensively, some people leave the labor force (and are not counted as unemployed), and equipment stands idle, so output falls by a larger percentage than the rise in unemployment in percentage points.
+    rubric:
+      zh-cn:
+        - "(a) 约 −3%（写作 -3 或 −3 均可）；(b) 约 0.9 万亿美元。"
+        - "(c) 指出工时、劳动参与和设备利用的变化。"
+      en:
+        - "(a) About −3% (written -3 or −3); (b) about 0.9 trillion dollars."
+        - "(c) Mentions changes in hours, participation and use of equipment."
+
+  - id: Q4
+    kind: exercise
+    level: C
+    star: true
+    concepts: [phillips-curve, natural-rate-of-unemployment, output-gap]
+    expected: { u: "8.5", pts: "8", gdp: "16" }
+    question:
+      zh-cn: |-
+        通胀为 6%，自然失业率为 4.5%，$\pi = \pi^e - 0.5(u - u^*)$，人们的预期等于上一年的实际通胀。央行希望用两年时间把通胀降到 2%，每年降 2 个百分点。
+        (a) 这两年的失业率各需要是多少？
+        (b) 两年中失业率共比自然失业率高多少个百分点（把两年的差加起来）？按 [[check:Q3]] 的 Okun 法则，共损失约百分之几的一年潜在产出？
+        (c) 如果央行宣布的目标让人们完全相信，人们的预期直接降到 2%，代价会怎样变化？这说明央行的可信度有什么价值？
+      en: |-
+        Inflation is 6%, the natural rate of unemployment is 4.5%, $\pi = \pi^e - 0.5(u - u^*)$, and people expect inflation to equal last year's actual inflation. The central bank wants to bring inflation down to 2% over two years, 2 percentage points a year.
+        (a) What must unemployment be in each of the two years?
+        (b) Adding up the two years, by how many percentage points in total is unemployment above the natural rate? By Okun's law as in [[check:Q3]], about what percentage of one year's potential output is lost in total?
+        (c) If the central bank's announced target were fully believed, so that expectations fell directly to 2%, how would the cost change? What does this say about the value of a central bank's credibility?
+    answer:
+      zh-cn: |-
+        (a) 每年要使 $\pi$ 比 $\pi^e$ 低 2 个百分点：$0.5(u - 4.5) = 2$，$u = 8.5\%$，两年都是 8.5%。
+        (b) 每年高 4 个百分点，两年共 8 个百分点；按 Okun 法则，共损失约 $2 \times 8 = 16\%$ 的一年潜在产出。
+        (c) 如果预期直接降到 2%，失业率不必高于自然失业率，通胀就能降下来，损失大大减少。现实中预期不会完全立刻调整，但央行越可信，预期调整越快，降低通胀的代价越小。这也是央行重视预期锚定的原因。
+      en: |-
+        (a) Each year $\pi$ must be 2 points below $\pi^e$: $0.5(u - 4.5) = 2$, so $u = 8.5\%$ in both years.
+        (b) 4 points above in each year, 8 percentage points in total; by Okun's law, about $2 \times 8 = 16\%$ of one year's potential output is lost in total.
+        (c) If expectations fell directly to 2%, inflation could come down without unemployment rising above the natural rate, and the loss would be much smaller. In reality expectations do not adjust fully and at once, but the more credible the central bank, the faster expectations adjust and the lower the cost of disinflation. This is why central banks care about anchored expectations.
+    rubric:
+      zh-cn:
+        - "(a) 两年都是 8.5%。"
+        - "(b) 8 个百分点，约 16%。"
+        - "(c) 说明可信度降低反通胀的代价。"
+      en:
+        - "(a) 8.5% in both years."
+        - "(b) 8 percentage points, about 16%."
+        - "(c) Explains that credibility lowers the cost of disinflation."
+
+  - id: Q5
+    kind: exercise
+    level: B
+    concepts: [aggregate-demand, aggregate-supply, output-gap]
+    widget: { id: ad-as, set: { d: 3, s: 6 } }
+    expected: { d: "3", p: "106", d2: "-6", y: "94" }
+    question:
+      zh-cn: |-
+        在 [[fig:3-1]] 中把供给冲击设为 6。
+        (a) 如果央行想通过调整需求使产出回到 100，需求冲击 $D$ 要设为多少？这时价格水平是多少？
+        (b) 如果央行想使价格水平回到 100，$D$ 要设为多少？这时产出是多少？
+        (c) 面对供给冲击，央行为什么不能同时稳定产出和价格？预期是否锚定会怎样影响它的选择？
+      en: |-
+        In [[fig:3-1]], set the supply shock to 6.
+        (a) If the central bank wants to bring output back to 100 by adjusting demand, what demand shock $D$ is needed? What is the price level then?
+        (b) If the central bank wants to bring the price level back to 100, what $D$ is needed? What is output then?
+        (c) Facing a supply shock, why can the central bank not stabilize output and prices at the same time? How does whether expectations are anchored affect its choice?
+    answer:
+      zh-cn: |-
+        (a) 产出为 100 要求 $D - 0.5 \times 6 = 0$，$D = 3$；价格水平 $100 + 6 + 0 = 106$。
+        (b) $P = 100$ 要求 $6 + (Y - 100) = 0$，$Y = 94$；由 $Y - 100 = \frac{D - 3}{1.5} = -6$ 得 $D = -6$。
+        (c) 需求政策只移动 AD 曲线，沿着向上倾斜的 SRAS 曲线移动交点：产出更高就意味着价格更高。如果预期已经锚定，央行可以让价格暂时上升而不必担心通胀持续，更可能选择稳定产出；如果预期不稳，高通胀可能推高预期，使 SRAS 继续上移，央行更可能选择压低需求，即使代价是更深的衰退。
+      en: |-
+        (a) Output at 100 requires $D - 0.5 \times 6 = 0$, so $D = 3$; the price level is $100 + 6 + 0 = 106$.
+        (b) $P = 100$ requires $6 + (Y - 100) = 0$, so $Y = 94$; from $Y - 100 = \frac{D - 3}{1.5} = -6$, $D = -6$.
+        (c) Demand policy only moves the AD curve, so the intersection moves along the upward-sloping SRAS curve: higher output means higher prices. If expectations are anchored, the central bank can let prices rise for a while without fear of lasting inflation and is more likely to stabilize output; if expectations are not stable, high inflation may push them up and shift SRAS up further, so the central bank is more likely to cut demand even at the cost of a deeper recession.
+    rubric:
+      zh-cn:
+        - "(a) $D = 3$，价格 106。"
+        - "(b) $D = -6$，产出 94（写作 -6 或 −6 均可）。"
+        - "(c) 说明沿 SRAS 的取舍，以及预期的作用。"
+      en:
+        - "(a) $D = 3$, price level 106."
+        - "(b) $D = -6$, output 94 (written -6 or −6)."
+        - "(c) Explains the trade-off along SRAS and the role of expectations."
