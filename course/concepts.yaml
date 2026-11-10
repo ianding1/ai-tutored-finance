@@ -1934,6 +1934,54 @@ pvgo:
     zh-cn: "股价中超过“不增长时价值” E1 / r 的部分；PVGO。"
     en: "The part of the price above the no-growth value E1 / r; PVGO."
 
+fcff:
+  defined_in: "3.10"
+  zh-cn: 公司自由现金流
+  en: free cash flow to the firm
+  short:
+    zh-cn: "公司在必要的投资之后，可以分给所有投资者（股东和债权人）的现金：EBIT(1 − t) + 折旧 − 资本支出 − 营运资本的增加；FCFF。"
+    en: "Cash available to all investors (shareholders and creditors) after necessary investment: EBIT(1 − t) + depreciation − capital spending − increase in working capital; FCFF."
+
+fcfe:
+  defined_in: "3.10"
+  zh-cn: 股权自由现金流
+  en: free cash flow to equity
+  short:
+    zh-cn: "支付税后利息并考虑净借款之后，可以分给股东的现金；FCFE。"
+    en: "Cash available to shareholders after after-tax interest and net borrowing; FCFE."
+
+wacc:
+  defined_in: "3.10"
+  zh-cn: 加权平均资本成本
+  en: weighted average cost of capital
+  short:
+    zh-cn: "按市场价值加权的股权成本和税后债务成本，用来折现 FCFF；WACC。"
+    en: "The cost of equity and the after-tax cost of debt weighted by market values, used to discount FCFF; WACC."
+
+interest-tax-shield:
+  defined_in: "3.10"
+  zh-cn: 利息税盾
+  en: interest tax shield
+  short:
+    zh-cn: "利息可以在税前扣除，使公司少交的税；每年约为利息乘以税率。"
+    en: "The tax saved because interest is deductible; roughly interest times the tax rate each year."
+
+terminal-value:
+  defined_in: "3.10"
+  zh-cn: 终值
+  en: terminal value
+  short:
+    zh-cn: "预测期末以后全部现金流在预测期末的价值，常用增长永续年金计算。"
+    en: "The value at the end of the forecast period of all later cash flows, often computed as a growing perpetuity."
+
+enterprise-value:
+  defined_in: "3.10"
+  zh-cn: 企业价值
+  en: enterprise value
+  short:
+    zh-cn: "公司经营业务对所有投资者的价值；股权价值 = 企业价值 − 净债务。"
+    en: "The value of the operating business to all investors; equity value = enterprise value − net debt."
+
 risk-measures:
   defined_in: "4.1"
   zh-cn: 风险度量

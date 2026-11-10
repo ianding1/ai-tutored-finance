@@ -1,0 +1,106 @@
+---
+title: 3.10 股票估值 II：自由现金流贴现
+description: 公司自由现金流与股权自由现金流；加权平均资本成本（WACC）与利息的税盾；DCF 估值的步骤：预测期、终值、企业价值与股权价值；增长、ROIC 与价值的关系；常见错误。
+lesson: "3.10"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import CheckAll from '../../../../components/CheckAll.astro';
+import ValueDriver from '../../../../components/widgets/ValueDriver.astro';
+
+## 自由现金流 [#fcf]
+
+<Ref lesson="3.9" /> 用股息给股票估值，但很多公司的股息与它创造的现金关系不大。另一种思路是先估计公司经营业务创造的现金，再分给股东和债权人。
+
+公司经营产生的现金，扣除维持和扩大业务必须的投资之后，可以分给所有投资者（股东和债权人）的部分，叫<Def id="fcff">公司自由现金流</Def>（free cash flow to the firm，FCFF）：
+
+$$
+\text{FCFF} = \text{EBIT}(1 - t) + \text{Dep} - \text{CapEx} - \Delta \text{WC}
+$$
+
+$\text{EBIT}(1 - t)$ 是假设公司没有负债时的税后营业利润（NOPAT），Dep 是折旧，CapEx 是资本支出，$\Delta \text{WC}$ 是营运资本的增加（<Ref lesson="3.7" sec="linkages" />）。FCFF 不扣除利息：它衡量的是业务本身的现金，与公司怎样融资无关。
+
+只属于股东的现金叫<Def id="fcfe">股权自由现金流</Def>（free cash flow to equity，FCFE）。从 FCFF 中减去付给债权人的税后利息，再加上净借款 $\Delta D$（新借的减去偿还的）：
+
+$$
+\text{FCFE} = \text{FCFF} - \text{Int}(1 - t) + \Delta D
+$$
+
+<Check id="C1" />
+
+## 加权平均资本成本 [#wacc]
+
+FCFF 属于股东和债权人，所以要用两者要求的回报的加权平均来折现。设股权和债务的市场价值为 $E$ 和 $D$，$V = D + E$，股权成本为 $r_E$（<Ref concept="cost-of-equity" />），债务的利率为 $r_D$，税率为 $t$：
+
+$$
+\text{WACC} = \frac{E}{V} r_E + \frac{D}{V} r_D (1 - t)
+$$
+
+这叫<Def id="wacc">加权平均资本成本</Def>（weighted average cost of capital，WACC）。债务成本乘以 $1 - t$，是因为利息可以在税前扣除：每付 1 元利息，公司少交 $t$ 元税。这部分少交的税叫<Def id="interest-tax-shield">利息税盾</Def>（interest tax shield）。FCFF 是按没有负债计算的税，税盾的好处就放在折现率里。
+
+权重要用市场价值，而不是账面价值：投资者要求的回报针对的是他们今天投入（或可以收回）的金额。
+
+<Check id="C2" />
+
+## DCF 估值的步骤 [#dcf]
+
+用 FCFF 估值通常分为几步：
+
+1. 预测今后 $T$ 年（常为 5 到 10 年）的 FCFF：收入增长、利润率、资本支出和营运资本，最好与 <Ref lesson="3.8" /> 的比率和行业情况相互对照。
+2. 估计预测期以后的价值，即<Def id="terminal-value">终值</Def>（terminal value）。常用的方法是假设以后按一个可以永远维持的增长率 $g$ 增长：$\text{TV}_T = \frac{\text{FCFF}_{T+1}}{\text{WACC} - g}$。
+3. 用 WACC 把各年的 FCFF 和终值折现到今天，得到<Def id="enterprise-value">企业价值</Def>（enterprise value）：
+
+$$
+\text{EV} = \sum_{t=1}^{T} \frac{\text{FCFF}_t}{(1 + \text{WACC})^t} + \frac{\text{TV}_T}{(1 + \text{WACC})^T}
+$$
+
+4. 企业价值属于所有投资者。减去净债务（有息负债减现金），得到股权价值，再除以股数，得到每股价值。
+
+也可以用 FCFE 按股权成本 $r_E$ 折现，直接得到股权价值。两种方法的假设一致时，结果应该相同。
+
+## 增长与价值 [#value-drivers]
+
+公司的增长需要投资。设下一年的 NOPAT 为 $\text{NOPAT}_1$，新投资的回报率为 ROIC（<Ref concept="return-on-invested-capital" />），增长率为 $g$。可以证明（<Ref check="Q4" />），如果这些都保持不变：
+
+$$
+\text{EV} = \frac{\text{NOPAT}_1 \left(1 - \frac{g}{\text{ROIC}}\right)}{\text{WACC} - g}
+$$
+
+$\frac{g}{\text{ROIC}}$ 是为了达到增长率 $g$ 必须再投资的利润比例。增长使分母变小，但也使分子变小：增长越快，要投入的钱越多，分给投资者的现金越少。
+
+<Figure id="4-1" title="公司价值相当于明年税后营业利润（NOPAT）的倍数，与增长率的关系。虚线是不增长时的倍数 1 / WACC。" observe="先让新投资的 ROIC 远高于 WACC，提高增长率；再把 ROIC 调到等于 WACC，然后低于 WACC，做同样的事。">
+	<ValueDriver />
+</Figure>
+
+<Check id="C3" />
+
+## 常见错误 [#pitfalls]
+
+DCF 的结构很清楚，但结果完全取决于输入，常见的错误有：
+
+- 终值占价值的大部分（常在一半以上），而长期增长率和 WACC 的一点变化就使终值大幅变化。长期增长率不应高于经济的长期名义增长率，也必须低于 WACC。
+- 增长率和再投资不一致：预测高增长，却没有预测相应的资本支出和营运资本。
+- 现金流和折现率不一致：FCFF 要用 WACC 折现，FCFE 要用股权成本折现；名义现金流用名义折现率，实际现金流用实际折现率（<Ref concept="real-interest-rate" />）。
+- 重复计算或遗漏：从企业价值求股权价值时忘记减去债务，或者把已经计入现金流的项目再加一次。
+
+因此 DCF 通常要做敏感性分析：列出 WACC 和长期增长率取不同值时的价值，看结论是否依赖于某个特定的假设。
+
+<Check id="C4" />
+
+## 小结 [#summary]
+
+- $\text{FCFF} = \text{EBIT}(1 - t) + \text{Dep} - \text{CapEx} - \Delta \text{WC}$，属于所有投资者；$\text{FCFE} = \text{FCFF} - \text{Int}(1 - t) + \Delta D$，属于股东。
+- $\text{WACC} = \frac{E}{V} r_E + \frac{D}{V} r_D (1 - t)$，用市场价值加权；利息税盾体现在税后债务成本中。
+- DCF：预测期的 FCFF 加终值，用 WACC 折现得到企业价值，减去净债务得到股权价值。
+- $\text{EV} = \frac{\text{NOPAT}_1 \left(1 - \frac{g}{\text{ROIC}}\right)}{\text{WACC} - g}$：增长需要再投资。
+- 终值占比大，结果对长期增长率和 WACC 很敏感；现金流与折现率要一致。
+
+<CheckAll />
+
+## 练习题 [#exercises]
+
+<Exercises />

@@ -279,3 +279,10 @@ gordon-price:
     g: { min: 0, max: 8, step: 0.25, default: 4 }
   fixed:
     d1: 2
+
+value-driver:
+  component: src/components/widgets/ValueDriver.astro
+  params:
+    roic: { min: 4, max: 30, step: 1, default: 15 }
+    wacc: { min: 6, max: 12, step: 0.5, default: 8 }
+    g: { min: 0, max: 5, step: 0.5, default: 3 }

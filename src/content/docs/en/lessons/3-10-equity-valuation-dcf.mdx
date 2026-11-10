@@ -1,0 +1,106 @@
+---
+title: "3.10 Equity Valuation II: Discounted Free Cash Flow"
+description: "Free cash flow to the firm and free cash flow to equity; the weighted average cost of capital (WACC) and the interest tax shield; the steps of a DCF valuation: forecast period, terminal value, enterprise value and equity value; how growth, ROIC and value are related; common mistakes."
+lesson: "3.10"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import CheckAll from '../../../../components/CheckAll.astro';
+import ValueDriver from '../../../../components/widgets/ValueDriver.astro';
+
+## Free cash flow [#fcf]
+
+<Ref lesson="3.9" /> valued stocks with dividends, but for many companies dividends have little to do with the cash the company generates. Another approach is to estimate first the cash the operating business generates, and then divide it between shareholders and creditors.
+
+The cash from operations left after the investment needed to maintain and expand the business, available to all investors (shareholders and creditors), is <Def id="fcff">free cash flow to the firm</Def> (FCFF):
+
+$$
+\text{FCFF} = \text{EBIT}(1 - t) + \text{Dep} - \text{CapEx} - \Delta \text{WC}
+$$
+
+$\text{EBIT}(1 - t)$ is after-tax operating profit as if the company had no debt (NOPAT), Dep is depreciation, CapEx is capital spending, and $\Delta \text{WC}$ is the increase in working capital (<Ref lesson="3.7" sec="linkages" />). FCFF does not deduct interest: it measures the cash of the business itself, whatever the financing.
+
+The cash that belongs to shareholders alone is <Def id="fcfe">free cash flow to equity</Def> (FCFE). From FCFF, subtract after-tax interest paid to creditors and add net borrowing $\Delta D$ (new borrowing minus repayments):
+
+$$
+\text{FCFE} = \text{FCFF} - \text{Int}(1 - t) + \Delta D
+$$
+
+<Check id="C1" />
+
+## The weighted average cost of capital [#wacc]
+
+FCFF belongs to shareholders and creditors, so it is discounted at a weighted average of the returns both require. Let $E$ and $D$ be the market values of equity and debt, $V = D + E$, $r_E$ the cost of equity (<Ref concept="cost-of-equity" />), $r_D$ the interest rate on debt, and $t$ the tax rate:
+
+$$
+\text{WACC} = \frac{E}{V} r_E + \frac{D}{V} r_D (1 - t)
+$$
+
+This is the <Def id="wacc">weighted average cost of capital</Def> (WACC). The cost of debt is multiplied by $1 - t$ because interest is deducted before tax: for each dollar of interest, the company pays $t$ dollars less tax. This tax saving is the <Def id="interest-tax-shield">interest tax shield</Def>. FCFF computes taxes as if there were no debt, so the benefit of the tax shield goes into the discount rate.
+
+The weights use market values, not book values: the returns investors require apply to the amounts they put in (or could take out) today.
+
+<Check id="C2" />
+
+## Steps of a DCF valuation [#dcf]
+
+A valuation with FCFF usually takes several steps:
+
+1. Forecast FCFF for the next $T$ years (often 5 to 10): revenue growth, margins, capital spending and working capital, ideally checked against the ratios of <Ref lesson="3.8" /> and the industry.
+2. Estimate the value after the forecast period, the <Def id="terminal-value">terminal value</Def>. A common method assumes growth at a rate $g$ that can last forever: $\text{TV}_T = \frac{\text{FCFF}_{T+1}}{\text{WACC} - g}$.
+3. Discount each year's FCFF and the terminal value to today at the WACC, to get the <Def id="enterprise-value">enterprise value</Def>:
+
+$$
+\text{EV} = \sum_{t=1}^{T} \frac{\text{FCFF}_t}{(1 + \text{WACC})^t} + \frac{\text{TV}_T}{(1 + \text{WACC})^T}
+$$
+
+4. Enterprise value belongs to all investors. Subtract net debt (interest-bearing debt minus cash) to get equity value, and divide by the number of shares to get value per share.
+
+One can also discount FCFE at the cost of equity $r_E$ to get equity value directly. With consistent assumptions, the two methods should give the same result.
+
+## Growth and value [#value-drivers]
+
+Growth needs investment. Let $\text{NOPAT}_1$ be next year's NOPAT, ROIC (<Ref concept="return-on-invested-capital" />) the return on new investment, and $g$ the growth rate. One can show (<Ref check="Q4" />) that, if all of these stay constant,
+
+$$
+\text{EV} = \frac{\text{NOPAT}_1 \left(1 - \frac{g}{\text{ROIC}}\right)}{\text{WACC} - g}
+$$
+
+$\frac{g}{\text{ROIC}}$ is the share of profit that must be reinvested to grow at $g$. Growth makes the denominator smaller, but also the numerator: the faster the growth, the more money must be invested, and the less cash goes to investors.
+
+<Figure id="4-1" title="Firm value as a multiple of next year's after-tax operating profit (NOPAT), against the growth rate. The dashed line is the no-growth multiple 1 / WACC." observe="First set the ROIC on new investment well above the WACC and raise the growth rate; then set ROIC equal to the WACC, and then below it, and do the same.">
+	<ValueDriver />
+</Figure>
+
+<Check id="C3" />
+
+## Common mistakes [#pitfalls]
+
+A DCF has a clear structure, but the result depends entirely on the inputs. Common mistakes include:
+
+- The terminal value is most of the value (often more than half), and small changes in long-run growth and the WACC change it a lot. Long-run growth should not exceed the economy's long-run nominal growth and must be below the WACC.
+- Growth and reinvestment are inconsistent: forecasting high growth without the capital spending and working capital it requires.
+- Cash flows and discount rates are inconsistent: FCFF must be discounted at the WACC and FCFE at the cost of equity; nominal cash flows at nominal rates and real cash flows at real rates (<Ref concept="real-interest-rate" />).
+- Double counting or omissions: forgetting to subtract debt when going from enterprise value to equity value, or adding an item that is already in the cash flows.
+
+So a DCF usually comes with a sensitivity analysis: a table of values for different WACCs and long-run growth rates, to see whether the conclusion depends on one particular assumption.
+
+<Check id="C4" />
+
+## Summary [#summary]
+
+- $\text{FCFF} = \text{EBIT}(1 - t) + \text{Dep} - \text{CapEx} - \Delta \text{WC}$ belongs to all investors; $\text{FCFE} = \text{FCFF} - \text{Int}(1 - t) + \Delta D$ belongs to shareholders.
+- $\text{WACC} = \frac{E}{V} r_E + \frac{D}{V} r_D (1 - t)$, weighted by market values; the interest tax shield enters through the after-tax cost of debt.
+- DCF: FCFF over the forecast period plus the terminal value, discounted at the WACC, gives enterprise value; subtracting net debt gives equity value.
+- $\text{EV} = \frac{\text{NOPAT}_1 \left(1 - \frac{g}{\text{ROIC}}\right)}{\text{WACC} - g}$: growth needs reinvestment.
+- The terminal value is a large share, so results are very sensitive to long-run growth and the WACC; cash flows and discount rates must be consistent.
+
+<CheckAll />
+
+## Exercises [#exercises]
+
+<Exercises />

@@ -327,7 +327,15 @@ stages:
         published: true
         introduces: [dividend-discount-model, cost-of-equity, gordon-growth-model, payout-ratio, sustainable-growth-rate, pvgo]
         uses: [present-value, growing-perpetuity, geometric-series, return-on-equity, cost-of-capital, net-present-value, return-on-invested-capital, balance-sheet]
-      - { id: "3.10", slug: "3-10-equity-valuation-dcf", title: { zh-cn: "股票估值 II：自由现金流贴现", en: "Equity Valuation II: Discounted Free Cash Flow" } }
+      - id: "3.10"
+        slug: "3-10-equity-valuation-dcf"
+        title: { zh-cn: "股票估值 II：自由现金流贴现", en: "Equity Valuation II: Discounted Free Cash Flow" }
+        summary:
+          zh-cn: "公司自由现金流与股权自由现金流；加权平均资本成本（WACC）与利息的税盾；DCF 估值的步骤：预测期、终值、企业价值与股权价值；增长、ROIC 与价值的关系；常见错误。"
+          en: "Free cash flow to the firm and free cash flow to equity; the weighted average cost of capital (WACC) and the interest tax shield; the steps of a DCF valuation: forecast period, terminal value, enterprise value and equity value; how growth, ROIC and value are related; common mistakes."
+        published: true
+        introduces: [fcff, fcfe, wacc, interest-tax-shield, terminal-value, enterprise-value]
+        uses: [present-value, growing-perpetuity, net-present-value, cost-of-capital, cost-of-equity, income-statement, cash-flow-statement, depreciation, working-capital, return-on-invested-capital, financial-leverage, gordon-growth-model, dividend-discount-model, pvgo, real-interest-rate]
       - { id: "3.11", slug: "3-11-relative-valuation", title: { zh-cn: "股票估值 III：相对估值", en: "Equity Valuation III: Relative Valuation" } }
       - { id: "E3b", slug: "e3b-quiz", exam: true, title: { zh-cn: "测验 E3b：财务分析与股票估值", en: "Quiz E3b: Financial Analysis and Equity Valuation" } }
 

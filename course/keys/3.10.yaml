@@ -1,0 +1,281 @@
+# Answer key for lesson 3.10. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[3.10#wacc]] (section), [[concept:wacc]], [[check:Q3]], [[fig:4-1]].
+# expected: values are recomputed by course/verify/3.10.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+
+lesson: "3.10"
+
+context:
+  - zh-cn: |-
+      学习者学过现值和增长永续年金（[[0.1]]）、实际利率（第 2 阶段）、NPV 和资本成本（[[3.2]]）、财务报表和营运资本（[[3.7]]）、ROIC 和财务杠杆（[[3.8]]）、DDM、股权成本和 PVGO（[[3.9]]）。讲义还没有讲怎样由风险确定股权成本（[[4.4]]）。金额保留两位小数。
+    en: |-
+      The learner has studied present value and growing perpetuities ([[0.1]]), real interest rates (Stage 2), NPV and the cost of capital ([[3.2]]), financial statements and working capital ([[3.7]]), ROIC and financial leverage ([[3.8]]), and the DDM, the cost of equity and PVGO ([[3.9]]). The lesson has not yet covered how to set the cost of equity from risk ([[4.4]]). Amounts to two decimals.
+  - concepts: [fcff, fcfe]
+    zh-cn: |-
+      讲义：$\text{FCFF} = \text{EBIT}(1 - t) + \text{Dep} - \text{CapEx} - \Delta \text{WC}$，不扣除利息，属于所有投资者；$\text{EBIT}(1 - t)$ 为 NOPAT。$\text{FCFE} = \text{FCFF} - \text{Int}(1 - t) + \Delta D$，$\Delta D$ 为净借款。
+    en: |-
+      The lesson: $\text{FCFF} = \text{EBIT}(1 - t) + \text{Dep} - \text{CapEx} - \Delta \text{WC}$, with no deduction for interest, belonging to all investors; $\text{EBIT}(1 - t)$ is NOPAT. $\text{FCFE} = \text{FCFF} - \text{Int}(1 - t) + \Delta D$, where $\Delta D$ is net borrowing.
+  - concepts: [wacc, interest-tax-shield]
+    zh-cn: |-
+      讲义：$\text{WACC} = \frac{E}{V} r_E + \frac{D}{V} r_D (1 - t)$，$V = D + E$，用市场价值加权；利息税前扣除，每付 1 元利息少交 $t$ 元税（利息税盾），FCFF 按没有负债计算税，税盾体现在折现率中。
+    en: |-
+      The lesson: $\text{WACC} = \frac{E}{V} r_E + \frac{D}{V} r_D (1 - t)$, $V = D + E$, with market-value weights; interest is deducted before tax, saving $t$ per dollar of interest (the interest tax shield); FCFF computes taxes as if there were no debt, so the shield enters through the discount rate.
+  - concepts: [terminal-value, enterprise-value]
+    zh-cn: |-
+      讲义：预测 $T$ 年（常为 5 到 10 年）的 FCFF；终值 $\text{TV}_T = \frac{\text{FCFF}_{T+1}}{\text{WACC} - g}$；$\text{EV} = \sum_{t=1}^{T} \frac{\text{FCFF}_t}{(1 + \text{WACC})^t} + \frac{\text{TV}_T}{(1 + \text{WACC})^T}$；股权价值 = EV − 净债务（有息负债减现金），再除以股数。也可以用 FCFE 按 $r_E$ 折现。常见错误：终值占比大且敏感，长期增长率不应高于经济的长期名义增长率且必须低于 WACC；增长与再投资不一致；现金流与折现率不一致（FCFF 配 WACC，FCFE 配 $r_E$，名义配名义）；重复计算或漏减债务。要做敏感性分析。
+    en: |-
+      The lesson: forecast FCFF for $T$ years (often 5 to 10); terminal value $\text{TV}_T = \frac{\text{FCFF}_{T+1}}{\text{WACC} - g}$; $\text{EV} = \sum_{t=1}^{T} \frac{\text{FCFF}_t}{(1 + \text{WACC})^t} + \frac{\text{TV}_T}{(1 + \text{WACC})^T}$; equity value = EV − net debt (interest-bearing debt minus cash), divided by shares. FCFE can also be discounted at $r_E$. Common mistakes: the terminal value is large and sensitive, and long-run growth should not exceed the economy's long-run nominal growth and must be below the WACC; growth inconsistent with reinvestment; cash flows inconsistent with discount rates (FCFF with WACC, FCFE with $r_E$, nominal with nominal); double counting or forgetting to subtract debt. A sensitivity analysis is needed.
+  - concepts: [enterprise-value, return-on-invested-capital]
+    zh-cn: |-
+      讲义：$\text{EV} = \frac{\text{NOPAT}_1 \left(1 - \frac{g}{\text{ROIC}}\right)}{\text{WACC} - g}$（推导留给练习题），$\frac{g}{\text{ROIC}}$ 为再投资比例；讲义没有说明增长何时增加价值，留给随堂题。[[fig:4-1]]：纵轴为价值 ÷ 明年 NOPAT，虚线为 1 / WACC；滑块：新投资的 ROIC 4% 到 30%（步长 1，默认 15），WACC 6% 到 12%（步长 0.5，默认 8），增长率 0 到 5%（步长 0.5，默认 3）；读数显示所选增长率和不增长时的倍数。
+    en: |-
+      The lesson: $\text{EV} = \frac{\text{NOPAT}_1 \left(1 - \frac{g}{\text{ROIC}}\right)}{\text{WACC} - g}$ (the derivation is left to an exercise), where $\frac{g}{\text{ROIC}}$ is the reinvestment share; the lesson does not say when growth adds value, which is left to a check question. [[fig:4-1]]: vertical axis value ÷ next year's NOPAT, dashed line 1 / WACC; sliders: ROIC on new investment 4% to 30% (in steps of 1, default 15), WACC 6% to 12% (in steps of 0.5, default 8), growth 0 to 5% (in steps of 0.5, default 3); the readout shows the multiple at the chosen growth rate and with no growth.
+
+common_errors:
+  - questions: [C1, Q2]
+    zh-cn: |-
+      在 FCFF 中扣除利息，或者把折旧当作现金支出；弄错营运资本增加的符号。
+    en: |-
+      Deducting interest in FCFF, or treating depreciation as a cash payment; getting the sign of the increase in working capital wrong.
+  - questions: [C2, Q3]
+    zh-cn: |-
+      用账面价值加权，或者用税前债务成本；以为债务成本较低，多借款就一定降低 WACC，忽略股权成本随杠杆上升。
+    en: |-
+      Using book-value weights or the pre-tax cost of debt; thinking that because debt is cheaper, more borrowing always lowers the WACC, ignoring that the cost of equity rises with leverage.
+  - questions: [C3, Q4]
+    zh-cn: |-
+      以为增长总能增加价值，忽略增长需要的再投资；只有 ROIC 高于 WACC 时增长才增加价值。
+    en: |-
+      Thinking growth always adds value, ignoring the reinvestment it needs; growth adds value only when ROIC exceeds the WACC.
+  - questions: [C4, Q1]
+    zh-cn: |-
+      现金流与折现率不匹配，忘记从企业价值中减去净债务，或者忽视终值的比重和敏感性。
+    en: |-
+      Mismatching cash flows and discount rates, forgetting to subtract net debt from enterprise value, or ignoring the weight and sensitivity of the terminal value.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: fcf
+    concepts: [fcff]
+    expected: { f: "100" }
+    question:
+      zh-cn: |-
+        一家公司的 EBIT 为 200，税率 25%，折旧 40，资本支出 70，营运资本增加 20，利息费用 30。(a) FCFF 是多少？(b) 为什么计算 FCFF 时不扣除这 30 的利息？
+      en: |-
+        A company has EBIT of 200, a tax rate of 25%, depreciation of 40, capital spending of 70, an increase in working capital of 20, and interest expense of 30. (a) What is FCFF? (b) Why is the interest of 30 not deducted when computing FCFF?
+    answer:
+      zh-cn: |-
+        (a) $200 \times (1 - 0.25) + 40 - 70 - 20 = 100$。
+        (b) FCFF 是业务对所有投资者（股东和债权人）产生的现金，利息是付给其中一类投资者的回报，不是业务的成本。债权人要求的回报体现在折现率 WACC 中；如果在现金流中再扣除利息，就重复计算了。这样，FCFF 也不随融资方式改变。
+      en: |-
+        (a) $200 \times (1 - 0.25) + 40 - 70 - 20 = 100$.
+        (b) FCFF is the cash the business produces for all investors (shareholders and creditors); interest is the return paid to one group of them, not a cost of the business. The return creditors require is in the discount rate, the WACC; deducting interest from the cash flow as well would count it twice. This also keeps FCFF independent of financing.
+    rubric:
+      zh-cn:
+        - "(a) 100。"
+        - "(b) 说明利息是投资者的回报，体现在 WACC 中。"
+      en:
+        - "(a) 100."
+        - "(b) Explains that interest is a return to investors, captured in the WACC."
+
+  - id: C2
+    kind: check
+    section: wacc
+    concepts: [wacc, interest-tax-shield, cost-of-equity]
+    expected: { w: "7.5" }
+    question:
+      zh-cn: |-
+        一家公司股权的市场价值为 600，债务为 400，股权成本 10%，债务利率 5%，税率 25%。(a) WACC 是多少？(b) 有人说：“债务成本只有 3.75%，远低于 10%，多借债就能降低 WACC。”这个推理漏掉了什么？
+      en: |-
+        A company's equity has a market value of 600 and its debt 400; the cost of equity is 10%, the interest rate on debt 5%, and the tax rate 25%. (a) What is the WACC? (b) Someone says: "Debt costs only 3.75%, far below 10%, so borrowing more lowers the WACC." What does this reasoning miss?
+    answer:
+      zh-cn: |-
+        (a) $0.6 \times 10\% + 0.4 \times 5\% \times (1 - 0.25) = 6\% + 1.5\% = 7.5\%$。
+        (b) 借债越多，股东承担的风险越大（[[3.8#leverage]]），股权成本会上升；负债很高时，债权人也会要求更高的利率，破产的可能和相关成本也增加。所以用便宜的债务替换股权，并不会使 WACC 按比例下降；主要的好处来自利息税盾，而它要与财务困境的成本相权衡。
+      en: |-
+        (a) $0.6 \times 10\% + 0.4 \times 5\% \times (1 - 0.25) = 6\% + 1.5\% = 7.5\%$.
+        (b) More debt means more risk for shareholders ([[3.8#leverage]]), so the cost of equity rises; at high debt levels creditors also demand higher rates, and the chance and costs of bankruptcy grow. So replacing equity with cheap debt does not lower the WACC proportionally; the main gain comes from the interest tax shield, which must be weighed against the costs of financial distress.
+    rubric:
+      zh-cn:
+        - "(a) 7.5%。"
+        - "(b) 指出股权成本（以及债务成本）随杠杆上升，好处主要来自税盾。"
+      en:
+        - "(a) 7.5%."
+        - "(b) Points out that the cost of equity (and of debt) rises with leverage and that the gain comes mainly from the tax shield."
+
+  - id: C3
+    kind: check
+    section: value-drivers
+    concepts: [enterprise-value, return-on-invested-capital, wacc]
+    widget: { id: value-driver, set: { roic: 15, wacc: 8, g: 3 } }
+    expected: { m: "16", m0: "12.5", mlow: "10" }
+    question:
+      zh-cn: |-
+        在 [[fig:4-1]] 中，设 WACC 为 8%，增长率为 3%。(a) 新投资的 ROIC 为 15% 时，公司价值是明年 NOPAT 的多少倍？不增长时呢？把 ROIC 改为 6%，增长率仍为 3%，倍数是多少？(b) 增长在什么条件下增加价值，在什么条件下减少价值？
+      en: |-
+        In [[fig:4-1]], set the WACC to 8% and growth to 3%. (a) With an ROIC on new investment of 15%, how many times next year's NOPAT is firm value? With no growth? With ROIC changed to 6% and growth still 3%, what is the multiple? (b) When does growth add value, and when does it destroy value?
+    answer:
+      zh-cn: |-
+        (a) ROIC 为 15% 时 $\frac{1 - 3/15}{0.08 - 0.03} = 16$ 倍；不增长时 $\frac{1}{0.08} = 12.5$ 倍；ROIC 为 6% 时 $\frac{1 - 3/6}{0.05} = 10$ 倍，比不增长还低。
+        (b) ROIC 高于 WACC 时，新投资的 NPV 为正，增长越快价值越高；ROIC 等于 WACC 时，增长不改变价值；ROIC 低于 WACC 时，增长要投入的钱创造的价值低于投资者的要求，增长越快价值越低。
+      en: |-
+        (a) With ROIC 15%, $\frac{1 - 3/15}{0.08 - 0.03} = 16$ times; with no growth, $\frac{1}{0.08} = 12.5$ times; with ROIC 6%, $\frac{1 - 3/6}{0.05} = 10$ times, lower than with no growth.
+        (b) When ROIC exceeds the WACC, new investment has a positive NPV and faster growth means higher value; when ROIC equals the WACC, growth does not change value; when ROIC is below the WACC, the money growth requires earns less than investors require, and faster growth means lower value.
+    rubric:
+      zh-cn:
+        - "(a) 16、12.5 和 10 倍。"
+        - "(b) 用 ROIC 与 WACC 的比较说明三种情况。"
+      en:
+        - "(a) 16, 12.5 and 10 times."
+        - "(b) Explains the three cases by comparing ROIC with the WACC."
+
+  - id: C4
+    kind: check
+    section: pitfalls
+    concepts: [fcff, fcfe, wacc, cost-of-equity]
+    question:
+      zh-cn: |-
+        一位分析师预测了一家公司的 FCFF，然后用 12% 的股权成本（而不是 8% 的 WACC）折现，再把结果当作股权价值，没有减去债务。(a) 这里有哪两处不一致？(b) 两处错误对估值的影响方向分别是什么？
+      en: |-
+        An analyst forecasts a company's FCFF, discounts it at the 12% cost of equity (instead of the 8% WACC), and takes the result as equity value without subtracting debt. (a) What are the two inconsistencies? (b) In which direction does each error push the valuation?
+    answer:
+      zh-cn: |-
+        (a) 第一，FCFF 属于所有投资者，应该用 WACC 折现，股权成本是 FCFE 的折现率。第二，FCFF 折现得到的是企业价值，属于股东和债权人，要减去净债务才是股权价值。
+        (b) 用较高的股权成本折现，使价值偏低；不减去债务，使股权价值偏高。两个错误方向相反，可能部分抵消，使结果看起来“合理”，但这只是巧合。
+      en: |-
+        (a) First, FCFF belongs to all investors and should be discounted at the WACC; the cost of equity is the discount rate for FCFE. Second, discounting FCFF gives enterprise value, which belongs to shareholders and creditors; net debt must be subtracted to get equity value.
+        (b) Discounting at the higher cost of equity makes the value too low; not subtracting debt makes equity value too high. The errors push in opposite directions and may partly offset, making the result look "reasonable", but only by coincidence.
+    rubric:
+      zh-cn:
+        - "(a) 指出折现率不匹配和未减净债务。"
+        - "(b) 前者使价值偏低，后者偏高。"
+      en:
+        - "(a) Names the discount-rate mismatch and the missing net debt."
+        - "(b) The first lowers the value, the second raises it."
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    star: true
+    concepts: [terminal-value, enterprise-value, fcff, wacc]
+    expected: { ev: "2244.51", ps: "17.45", share: "87.43" }
+    question:
+      zh-cn: |-
+        一家公司今后 3 年的 FCFF 预计为 100、110、120，之后每年永远增长 3%。WACC 为 8%，净债务为 500，股数为 100。
+        (a) 求企业价值和每股价值。终值的现值占企业价值的百分之几？
+        (b) 如果长期增长率改为 4%，每股价值会怎样变化（定性说明）？这对使用 DCF 结果有什么启示？
+      en: |-
+        A company's FCFF over the next 3 years is expected to be 100, 110 and 120, growing 3% a year forever after. The WACC is 8%, net debt 500, and there are 100 shares.
+        (a) Find enterprise value and value per share. What percentage of enterprise value is the present value of the terminal value?
+        (b) If long-run growth were 4%, how would value per share change (qualitatively)? What does this suggest about using DCF results?
+    answer:
+      zh-cn: |-
+        (a) 前 3 年的现值：$\frac{100}{1.08} + \frac{110}{1.08^2} + \frac{120}{1.08^3} \approx 92.59 + 94.31 + 95.26 = 282.16$。终值 $\text{TV}_3 = \frac{120 \times 1.03}{0.08 - 0.03} = 2472$，现值 $\frac{2472}{1.08^3} \approx 1962.35$。企业价值约 2244.51，股权价值约 1744.51，每股约 17.45。终值占约 87.43%。
+        (b) 终值的分母从 5 个百分点降到 4 个百分点，终值增加约 25% 以上，企业价值增加约五分之一；由于要减去固定的净债务 500，每股价值的变化比例更大（约增加三成）。DCF 的结果对长期假设非常敏感，应该给出一个区间，并检查长期增长率是否合理。
+      en: |-
+        (a) Present value of the first 3 years: $\frac{100}{1.08} + \frac{110}{1.08^2} + \frac{120}{1.08^3} \approx 92.59 + 94.31 + 95.26 = 282.16$. Terminal value $\text{TV}_3 = \frac{120 \times 1.03}{0.08 - 0.03} = 2472$, with present value $\frac{2472}{1.08^3} \approx 1962.35$. Enterprise value is about 2244.51, equity value about 1744.51, and value per share about 17.45. The terminal value is about 87.43% of it.
+        (b) The terminal value's denominator falls from 5 to 4 percentage points, raising the terminal value by more than 25% and enterprise value by about a fifth; since a fixed net debt of 500 is subtracted, value per share changes by a larger percentage (up about 30%). DCF results are very sensitive to long-run assumptions, so a range should be given and the long-run growth rate checked for plausibility.
+    rubric:
+      zh-cn:
+        - "(a) 企业价值约 2244.51，每股约 17.45，终值约占 87.43%。"
+        - "(b) 价值明显上升（每股变化比例更大），并说明敏感性。"
+      en:
+        - "(a) Enterprise value about 2244.51; about 17.45 per share; terminal value about 87.43%."
+        - "(b) Value rises noticeably (more per share), with the point about sensitivity."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [fcfe, fcff, cost-of-equity]
+    expected: { fcfe: "95" }
+    question:
+      zh-cn: |-
+        一家公司今年的 FCFF 为 100，利息费用 20，税率 25%，今年新借款 30、偿还 20。
+        (a) FCFE 是多少？
+        (b) 一家公司靠每年不断增加借款，使 FCFE 一直高于 FCFF。用 FCFE 估值时，这种做法能否永远持续？估值时应该怎样处理借款？
+      en: |-
+        A company's FCFF this year is 100, interest expense 20, tax rate 25%; this year it borrowed 30 and repaid 20.
+        (a) What is FCFE?
+        (b) A company keeps FCFE above FCFF every year by borrowing more and more. When valuing it with FCFE, can this go on forever? How should borrowing be treated in the valuation?
+    answer:
+      zh-cn: |-
+        (a) $100 - 20 \times (1 - 0.25) + (30 - 20) = 100 - 15 + 10 = 95$。
+        (b) 不能。不断增加借款使负债比例上升，股东的风险和股权成本随之上升，最终债权人也不愿再借。估值时，借款应与公司的目标资本结构一致：例如假设负债按与业务相同的速度增长，使负债比例保持稳定；同时股权成本要与这个负债比例对应。否则 FCFE 被高估，而股权成本却没有反映增加的风险。
+      en: |-
+        (a) $100 - 20 \times (1 - 0.25) + (30 - 20) = 100 - 15 + 10 = 95$.
+        (b) No. Ever more borrowing raises the debt ratio, so shareholders' risk and the cost of equity rise, and eventually creditors will lend no more. In a valuation, borrowing should match the company's target capital structure: for example, assume debt grows at the same rate as the business, keeping the debt ratio stable, and use a cost of equity that matches that debt ratio. Otherwise FCFE is overstated while the cost of equity does not reflect the added risk.
+    rubric:
+      zh-cn:
+        - "(a) 95。"
+        - "(b) 不能，说明借款要与目标资本结构和股权成本一致。"
+      en:
+        - "(a) 95."
+        - "(b) No; explains that borrowing must match the target capital structure and the cost of equity."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [wacc, interest-tax-shield, financial-leverage]
+    expected: { w0: "7.8", w1: "7.95" }
+    question:
+      zh-cn: |-
+        一家公司考虑提高负债。目前负债占资本（按市场价值）20%，股权成本 9%，债务利率 4%。如果负债提高到 50%，股权成本将升到 12%，债务利率升到 5.2%。税率 25%。
+        (a) 两种资本结构下的 WACC 各是多少？
+        (b) 负债比例大幅提高，WACC 为什么变化不大，甚至上升？
+      en: |-
+        A company is considering more debt. Debt is now 20% of capital (at market value), the cost of equity 9% and the interest rate 4%. If debt rises to 50%, the cost of equity will rise to 12% and the interest rate to 5.2%. The tax rate is 25%.
+        (a) What is the WACC under each capital structure?
+        (b) Why does the WACC change little, or even rise, when the debt ratio rises so much?
+    answer:
+      zh-cn: |-
+        (a) 现在：$0.8 \times 9\% + 0.2 \times 4\% \times 0.75 = 7.2\% + 0.6\% = 7.8\%$。提高后：$0.5 \times 12\% + 0.5 \times 5.2\% \times 0.75 = 6\% + 1.95\% = 7.95\%$。
+        (b) 便宜的债务替换了较贵的股权，但负债增加使股东和债权人承担的风险都上升，股权成本和债务利率都提高，抵消了权重变化的好处。如果没有税，在一些理想条件下（Modigliani–Miller），WACC 完全不随资本结构变化；有税时，利息税盾使负债有一定好处，但负债很高时，财务困境的成本（以及更高的利率）会超过税盾，WACC 反而上升。
+      en: |-
+        (a) Now: $0.8 \times 9\% + 0.2 \times 4\% \times 0.75 = 7.2\% + 0.6\% = 7.8\%$. With more debt: $0.5 \times 12\% + 0.5 \times 5.2\% \times 0.75 = 6\% + 1.95\% = 7.95\%$.
+        (b) Cheap debt replaces costlier equity, but more debt raises the risk borne by both shareholders and creditors, so the cost of equity and the interest rate both rise and offset the gain from the change in weights. Without taxes, under some ideal conditions (Modigliani–Miller), the WACC does not change with capital structure at all; with taxes the interest tax shield gives debt some advantage, but at high debt levels the costs of financial distress (and higher rates) outweigh the shield, and the WACC rises.
+    rubric:
+      zh-cn:
+        - "(a) 7.8% 和 7.95%。"
+        - "(b) 说明股权成本和债务成本上升抵消了权重变化，并提到税盾与困境成本。"
+      en:
+        - "(a) 7.8% and 7.95%."
+        - "(b) Explains that rising costs of equity and debt offset the weight change, mentioning the tax shield and distress costs."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    star: true
+    concepts: [enterprise-value, return-on-invested-capital, fcff]
+    expected: { v8: "1250", v16: "1875" }
+    question:
+      zh-cn: |-
+        设公司每年的 NOPAT 以 $g$ 增长，新投资的回报率为 ROIC，WACC 不变。
+        (a) 要使明年的 NOPAT 比今年多 $g \times \text{NOPAT}_1$，今年需要净投资多少？由此推出 $\text{FCFF}_1 = \text{NOPAT}_1\left(1 - \frac{g}{\text{ROIC}}\right)$ 和讲义中的企业价值公式。
+        (b) $\text{NOPAT}_1 = 100$，WACC 8%，$g = 4\%$。ROIC 分别为 8% 和 16% 时，企业价值是多少？为什么 ROIC 为 8% 时增长没有增加价值？
+      en: |-
+        Suppose a company's NOPAT grows at $g$ each year, new investment earns ROIC, and the WACC is constant.
+        (a) For next year's NOPAT to exceed this year's by $g \times \text{NOPAT}_1$, how much net investment is needed this year? Derive $\text{FCFF}_1 = \text{NOPAT}_1\left(1 - \frac{g}{\text{ROIC}}\right)$ and the lesson's formula for enterprise value.
+        (b) $\text{NOPAT}_1 = 100$, WACC 8%, $g = 4\%$. What is enterprise value with ROIC of 8% and of 16%? Why does growth add no value when ROIC is 8%?
+    answer:
+      zh-cn: |-
+        (a) 每投入 1 元，以后每年多赚 ROIC 元。要使 NOPAT 增加 $g \times \text{NOPAT}_1$，需要净投资 $\frac{g \times \text{NOPAT}_1}{\text{ROIC}}$。FCFF 是 NOPAT 减去净投资（净投资 = 资本支出 − 折旧 + 营运资本的增加），所以 $\text{FCFF}_1 = \text{NOPAT}_1\left(1 - \frac{g}{\text{ROIC}}\right)$。各项都以 $g$ 增长，FCFF 是增长永续年金，$\text{EV} = \frac{\text{FCFF}_1}{\text{WACC} - g}$，代入即得讲义的公式。
+        (b) ROIC 8%：$\frac{100 \times (1 - 0.5)}{0.04} = 1250$，正好等于 $\frac{100}{0.08}$，与不增长时相同。ROIC 16%：$\frac{100 \times (1 - 0.25)}{0.04} = 1875$。ROIC 等于 WACC 时，新投资的回报正好等于投资者的要求，NPV 为 0：投入的钱换来的未来现金的现值正好等于投入的钱。
+      en: |-
+        (a) Each dollar invested earns ROIC more every year after. To raise NOPAT by $g \times \text{NOPAT}_1$ requires net investment of $\frac{g \times \text{NOPAT}_1}{\text{ROIC}}$. FCFF is NOPAT minus net investment (net investment = capital spending − depreciation + increase in working capital), so $\text{FCFF}_1 = \text{NOPAT}_1\left(1 - \frac{g}{\text{ROIC}}\right)$. With everything growing at $g$, FCFF is a growing perpetuity, $\text{EV} = \frac{\text{FCFF}_1}{\text{WACC} - g}$, which gives the lesson's formula.
+        (b) ROIC 8%: $\frac{100 \times (1 - 0.5)}{0.04} = 1250$, exactly $\frac{100}{0.08}$, the same as with no growth. ROIC 16%: $\frac{100 \times (1 - 0.25)}{0.04} = 1875$. When ROIC equals the WACC, new investment earns exactly what investors require and has zero NPV: the present value of the future cash it brings equals the money put in.
+    rubric:
+      zh-cn:
+        - "(a) 净投资 $\\frac{g \\times \\text{NOPAT}_1}{\\text{ROIC}}$，推出 FCFF 和企业价值公式。"
+        - "(b) 1250 和 1875，并用 NPV 为 0 说明。"
+      en:
+        - "(a) Net investment $\\frac{g \\times \\text{NOPAT}_1}{\\text{ROIC}}$, leading to FCFF and the value formula."
+        - "(b) 1250 and 1875, explained by zero NPV."
