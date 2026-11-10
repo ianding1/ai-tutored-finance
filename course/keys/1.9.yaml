@@ -157,32 +157,26 @@ questions:
     question:
       zh-cn: |-
         一位租客可以花 50 美元买防火用品并更加小心。这样做时，一年内发生 1,000 美元损失的概率是 10%；不这样做时是 20%。
-        (a) 没有保险时，租客会小心吗？
-        (b) 有全额保险时呢？
-        (c) 保险公司设置免赔额 $D$（每次损失中前 $D$ 美元由租客自己承担）。$D$ 至少要多大，租客才会小心？（不考虑风险厌恶。）
+        (a) 没有保险时和有全额保险时，租客各会小心吗？
+        (b) 保险公司设置免赔额 $D$（每次损失中前 $D$ 美元由租客自己承担）。$D$ 至少要多大，租客才会小心？（不考虑风险厌恶。）
       en: |-
-        A renter can spend 50 dollars on fire-safety equipment and be more careful. If the renter does, the probability of a 1,000-dollar loss within a year is 10%; if not, it is 20%.
-        (a) Without insurance, will the renter take care?
-        (b) What about with full insurance?
-        (c) The insurer sets a deductible $D$ (the renter bears the first $D$ dollars of each loss). How large must $D$ be at least for the renter to take care? (Ignore risk aversion.)
+        A renter can spend 50 dollars on fire safety equipment and be more careful. If she does, the probability of a 1,000-dollar loss within a year is 10%; if not, 20%.
+        (a) Will she be careful without insurance, and with full insurance?
+        (b) The insurer sets a deductible $D$ (she bears the first $D$ dollars of each loss). How large must $D$ be for her to be careful? (Ignore risk aversion.)
     answer:
       zh-cn: |-
-        (a) 小心使预期损失减少 $(0.2 - 0.1) \times 1{,}000 = 100$，大于成本 50，会小心。
-        (b) 全额保险时损失由保险公司承担，小心对租客没有好处，只有 50 的成本，所以不会小心。这就是道德风险。
-        (c) 租客自己承担的预期损失减少 $(0.2 - 0.1) \times D = 0.1D$，需要 $0.1D \ge 50$，即 $D \ge 500$。
+        (a) 没有保险：小心使预期损失减少 $(0.2 - 0.1) \times 1{,}000 = 100$，大于成本 50，会小心。全额保险：损失由保险公司承担，小心对她没有好处，只有 50 的成本，不会小心。这就是道德风险。
+        (b) 她自己承担的预期损失减少 $0.1D$，需要 $0.1D \ge 50$，即 $D \ge 500$。
       en: |-
-        (a) Taking care lowers the expected loss by $(0.2 - 0.1) \times 1{,}000 = 100$, more than the cost of 50, so the renter takes care.
-        (b) With full insurance the insurer bears the loss, so taking care brings the renter no benefit and costs 50; the renter does not take care. This is moral hazard.
-        (c) The renter's own expected loss falls by $(0.2 - 0.1) \times D = 0.1D$, so we need $0.1D \ge 50$, that is, $D \ge 500$.
+        (a) Without insurance: care lowers the expected loss by $(0.2 - 0.1) \times 1{,}000 = 100$, more than the cost of 50, so she is careful. With full insurance: the insurer bears the loss, so care brings her no benefit, only the cost of 50, and she is not careful. This is moral hazard.
+        (b) Care lowers her own expected loss by $0.1D$, so she needs $0.1D \ge 50$, that is, $D \ge 500$.
     rubric:
       zh-cn:
-        - "(a) 预期损失减少 100 > 50，会小心。"
-        - "(b) 全额保险时不会小心。"
-        - "(c) $D \\ge 500$。"
+        - "(a) 无保险时小心，全额保险时不小心。"
+        - "(b) $D \\ge 500$。"
       en:
-        - "(a) Expected loss falls by 100 > 50, so the renter takes care."
-        - "(b) With full insurance, no care."
-        - "(c) $D \\ge 500$."
+        - "(a) Careful without insurance, not careful with full insurance."
+        - "(b) $D \\ge 500$."
 
   - id: C5
     kind: check
@@ -190,33 +184,23 @@ questions:
     concepts: [principal-agent-problem, moral-hazard]
     question:
       zh-cn: |-
-        一位理财顾问不向客户收费，收入全部来自他推荐的基金支付的销售佣金。
-        (a) 谁是委托人，谁是代理人？两者的利益在哪里不一致？
-        (b) 委托人为什么很难发现问题？
-        (c) 给出两种可以减轻这个问题的办法。
+        一位理财顾问不向客户收费，收入全部来自他推荐的基金支付的销售佣金。(a) 谁是委托人，谁是代理人？两者的利益在哪里不一致？(b) 给出两种可以减轻这个问题的办法。
       en: |-
-        A financial adviser charges clients nothing; all of the adviser's income comes from sales commissions paid by the funds the adviser recommends.
-        (a) Who is the principal and who is the agent? Where do their interests differ?
-        (b) Why is it hard for the principal to detect the problem?
-        (c) Give two ways to reduce the problem.
+        A financial adviser charges clients nothing; all his income comes from sales commissions paid by the funds he recommends. (a) Who is the principal and who is the agent? Where do their interests differ? (b) Give two ways to reduce the problem.
     answer:
       zh-cn: |-
-        (a) 客户是委托人，顾问是代理人。客户要的是适合自己、费用低的投资；顾问的收入取决于佣金，有动机推荐佣金高的基金，而佣金高的基金往往费用也高。
-        (b) 客户通常不了解各种基金的费用和佣金，也很难判断别的选择会不会更好；业绩差可以归咎于市场，客户分不清是运气还是建议不好。
-        (c) 例如：改为客户直接付费（按固定费用或按资产的一定比例收费）、不收产品佣金；选择对客户负有受托责任的顾问；要求顾问书面披露所有佣金和利益冲突；客户自己比较产品费用。
+        (a) 客户是委托人，顾问是代理人。客户要的是适合自己、费用低的投资；顾问的收入取决于佣金，有动机推荐佣金高的基金，而佣金高的基金往往费用也高。客户通常不了解费用和佣金，也难以判断业绩差是运气还是建议不好。
+        (b) 例如：改为客户直接付费（固定费用或按资产比例）、不收产品佣金；选择对客户负有受托责任的顾问；要求书面披露所有佣金和利益冲突；客户自己比较产品费用。
       en: |-
-        (a) The client is the principal and the adviser is the agent. The client wants suitable, low-cost investments; the adviser's income depends on commissions, so the adviser has a reason to recommend funds with high commissions, and such funds often also have high fees.
-        (b) Clients usually do not know the fees and commissions of the various funds and find it hard to judge whether other choices would have been better; poor results can be blamed on the market, and clients cannot tell bad luck from bad advice.
-        (c) For example: have the client pay the adviser directly (a fixed fee or a percentage of assets) instead of product commissions; choose an adviser with a fiduciary duty to clients; require the adviser to disclose all commissions and conflicts of interest in writing; have the client compare product fees.
+        (a) The client is the principal and the adviser the agent. The client wants suitable, low-cost investments; the adviser's income depends on commissions, so he has reason to recommend high-commission funds, which tend to have high costs. Clients often do not know the fees and commissions and cannot tell whether poor results are bad luck or bad advice.
+        (b) For example: have the client pay directly (a flat fee or a share of assets) with no product commissions; choose an adviser with a fiduciary duty to the client; require written disclosure of all commissions and conflicts of interest; have the client compare product costs.
     rubric:
       zh-cn:
-        - "(a) 客户是委托人、顾问是代理人；指出佣金使顾问偏好高佣金产品。"
-        - "(b) 指出客户难以观察和判断（信息不对称、运气与能力难分）。"
-        - "(c) 两种合理的办法（改变收费方式、受托责任、披露、监督等）。"
+        - "(a) 正确识别委托人、代理人和利益冲突。"
+        - "(b) 两种合理的办法。"
       en:
-        - "(a) Client is the principal and adviser the agent; points out that commissions make the adviser favor high-commission products."
-        - "(b) Points out that the client can hardly observe or judge (asymmetric information, luck hard to tell from skill)."
-        - "(c) Two sound remedies (change how the adviser is paid, fiduciary duty, disclosure, monitoring and so on)."
+        - "(a) Correctly identifies principal, agent and the conflict."
+        - "(b) Two reasonable remedies."
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1
@@ -254,33 +238,27 @@ questions:
     expected: { safe: "1", risky: "4" }
     question:
       zh-cn: |-
-        一位基金经理的报酬是基金当年收益的 20%，但收益为负时报酬为 0（不承担损失）。他可以选择两种策略：稳健策略每年收益确定为 5%；激进策略每年等概率收益 +40% 或 −30%。
-        (a) 两种策略的期望收益各是多少？投资者如果是风险厌恶的，更喜欢哪一种？
-        (b) 两种策略下经理的期望报酬各是多少（占基金资产的百分比）？经理会选哪一种？
-        (c) 这个报酬结构的问题在哪里？提出一种改进的办法。
+        一位基金经理的报酬是基金当年收益的 20%，但收益为负时报酬为 0（不承担损失）。稳健策略每年收益确定为 5%；激进策略每年等概率收益 +40% 或 −30%，期望收益也是 5%。
+        (a) 两种策略下经理的期望报酬各是多少（占基金资产的百分比）？经理会选哪一种？风险厌恶的投资者更喜欢哪一种？
+        (b) 这个报酬结构的问题在哪里？提出一种改进的办法。
       en: |-
-        A fund manager is paid 20% of the fund's return for the year, but nothing if the return is negative (the manager bears no losses). There are two strategies: a safe one with a certain return of 5% a year, and an aggressive one with a return of +40% or −30% each year with equal probability.
-        (a) What is the expected return of each strategy? If investors are risk averse, which do they prefer?
-        (b) What is the manager's expected pay under each strategy (as a percentage of fund assets)? Which strategy will the manager choose?
-        (c) What is the problem with this pay structure? Suggest one improvement.
+        A fund manager is paid 20% of the fund's yearly return, but nothing when the return is negative (he bears no losses). A safe strategy returns 5% for certain each year; an aggressive strategy returns +40% or −30% with equal probability, also an expected 5%.
+        (a) What is the manager's expected pay under each strategy (as a percentage of fund assets)? Which will he choose? Which would a risk-averse investor prefer?
+        (b) What is wrong with this pay structure? Suggest one improvement.
     answer:
       zh-cn: |-
-        (a) 稳健 5%；激进 $0.5 \times 40\% + 0.5 \times (-30\%) = 5\%$。期望收益相同，激进策略风险大得多，风险厌恶的投资者更喜欢稳健策略。
-        (b) 稳健：$20\% \times 5\% = 1\%$。激进：$0.5 \times 20\% \times 40\% + 0.5 \times 0 = 4\%$。经理会选激进策略。
-        (c) 经理分享收益却不承担损失，他的报酬像一份看涨期权：波动越大，期望报酬越高。投资者承担全部下跌风险，经理却有动机加大风险。改进：要求经理用自己的钱投资于基金（共担损失）；设置历史最高净值线（high-water mark），亏损补回之前不收业绩报酬；用多年业绩计算报酬；或者只收固定的管理费。
+        (a) 稳健：$20\% \times 5\% = 1\%$。激进：$0.5 \times 20\% \times 40\% + 0.5 \times 0 = 4\%$。经理会选激进策略；而两种策略期望收益相同，激进的风险大得多，风险厌恶的投资者更喜欢稳健策略。
+        (b) 经理分享收益却不承担损失，他的报酬像一份看涨期权：波动越大，期望报酬越高；投资者承担全部下跌风险，经理却有动机加大风险。改进：要求经理用自己的钱投资于基金；设置历史最高净值线（high-water mark）；用多年业绩计算报酬；或者只收固定的管理费。
       en: |-
-        (a) Safe: 5%; aggressive: $0.5 \times 40\% + 0.5 \times (-30\%) = 5\%$. The expected returns are the same, but the aggressive strategy is much riskier, so risk-averse investors prefer the safe one.
-        (b) Safe: $20\% \times 5\% = 1\%$. Aggressive: $0.5 \times 20\% \times 40\% + 0.5 \times 0 = 4\%$. The manager chooses the aggressive strategy.
-        (c) The manager shares the gains but not the losses, so the pay works like a call option: the more volatile the result, the higher the expected pay. Investors bear all of the downside, yet the manager has a reason to take more risk. Improvements: require the manager to invest personal money in the fund (sharing losses); use a high-water mark, with no performance fee until losses are made up; base pay on several years of results; or charge only a fixed management fee.
+        (a) Safe: $20\% \times 5\% = 1\%$. Aggressive: $0.5 \times 20\% \times 40\% + 0.5 \times 0 = 4\%$. The manager chooses the aggressive strategy; with equal expected returns and much more risk, a risk-averse investor prefers the safe one.
+        (b) The manager shares gains but not losses, so his pay is like a call option: the more volatility, the higher his expected pay; investors bear all the downside while the manager has reason to add risk. Improvements: require the manager to invest his own money in the fund; use a high-water mark; base pay on several years' results; or charge only a fixed management fee.
     rubric:
       zh-cn:
-        - "(a) 期望都是 5%，风险厌恶的投资者偏好稳健策略。"
-        - "(b) 1% 与 4%，经理选激进策略。"
-        - "(c) 指出报酬只分享收益、不承担损失，鼓励冒险；给出合理的改进办法。"
+        - "(a) 1% 和 4%，经理选激进，投资者偏好稳健。"
+        - "(b) 指出不对称的报酬，并给出合理的改进。"
       en:
-        - "(a) Both have an expected return of 5%; risk-averse investors prefer the safe strategy."
-        - "(b) 1% and 4%; the manager chooses the aggressive strategy."
-        - "(c) Points out that pay shares gains without losses and encourages risk taking; gives a sound improvement."
+        - "(a) 1% and 4%; the manager picks aggressive, investors prefer safe."
+        - "(b) Identifies the asymmetric pay and a reasonable improvement."
 
   - id: Q3
     kind: exercise
@@ -290,32 +268,26 @@ questions:
     question:
       zh-cn: |-
         有两种类型的卖方：好的和差的。被买方认作好类型时，卖方多得到 $\Delta > 0$。发出一个信号的成本：好类型为 $c_H$，差类型为 $c_L$。
-        (a) 证明：存在“好类型发信号、差类型不发”的结果，当且仅当 $c_H \le \Delta \le c_L$。（不考虑相等时的取舍。）
-        (b) 由此说明：为什么信号对差类型的成本必须高于对好类型的成本？如果信号对两类人的成本一样，会怎样？
-        (c) 公司宣布提高股息常常被看作好消息。用这个条件解释：为什么股息可以是信号？什么样的公司难以模仿？
+        (a) 证明：存在“好类型发信号、差类型不发”的结果，当且仅当 $c_H \le \Delta \le c_L$。由此说明，如果信号对两类人的成本一样，会怎样？
+        (b) 公司宣布提高股息常常被看作好消息。用这个条件解释：为什么股息可以是信号？什么样的公司难以模仿？
       en: |-
-        There are two types of seller: good and bad. Being taken for the good type earns a seller an extra $\Delta > 0$. Sending a signal costs $c_H$ for the good type and $c_L$ for the bad type.
-        (a) Show that an outcome in which the good type signals and the bad type does not exists if and only if $c_H \le \Delta \le c_L$. (Ignore how ties are broken.)
-        (b) Use this to explain why the signal must cost the bad type more than the good type. What happens if the signal costs both types the same?
-        (c) An announced increase in dividends is often taken as good news. Use this condition to explain why a dividend can be a signal. What kind of company finds it hard to copy?
+        There are two types of seller, good and bad. Being seen as good earns a seller $\Delta > 0$ more. Sending a signal costs a good type $c_H$ and a bad type $c_L$.
+        (a) Show that an outcome where good types signal and bad types do not exists if and only if $c_H \le \Delta \le c_L$. What happens if the signal costs both types the same?
+        (b) A company announcing a higher dividend is often seen as good news. Use this condition to explain why a dividend can be a signal. What kind of company finds it hard to imitate?
     answer:
       zh-cn: |-
-        (a) 好类型愿意发信号：发信号多得 $\Delta$、付出 $c_H$，需要 $\Delta \ge c_H$。差类型不模仿：模仿会多得 $\Delta$、付出 $c_L$，需要 $\Delta \le c_L$。两者同时成立，即 $c_H \le \Delta \le c_L$；反过来，只要有一个不成立，就会有一类人改变做法。
-        (b) 条件要求 $c_H \le c_L$，并且 $\Delta$ 落在两者之间。如果成本相同（$c_H = c_L = c$），只有 $\Delta = c$ 这一个巧合的值能成立；一般情况下要么两类人都发信号，要么都不发，买方从信号中得不到信息。
-        (c) 提高股息就是承诺以后每年都要付出更多现金。现金流稳定、前景好的公司做得到，成本低；现金流不稳定或前景差的公司以后可能不得不削减股息，而削减股息会被市场严厉惩罚，或者要靠借钱来维持股息，成本高，所以难以模仿。
+        (a) 好类型愿意发信号需要 $\Delta \ge c_H$；差类型不模仿需要 $\Delta \le c_L$。两者同时成立即 $c_H \le \Delta \le c_L$。如果成本相同（$c_H = c_L = c$），只有 $\Delta = c$ 这个巧合能成立；一般要么两类人都发，要么都不发，买方从信号中得不到信息。所以信号对差类型必须更昂贵。
+        (b) 提高股息就是承诺以后每年付出更多现金。现金流稳定、前景好的公司做得到，成本低；现金流不稳定或前景差的公司以后可能要削减股息（会被市场严厉惩罚）或借钱维持，成本高，所以难以模仿。
       en: |-
-        (a) The good type is willing to signal: signaling earns $\Delta$ more and costs $c_H$, so we need $\Delta \ge c_H$. The bad type does not copy: copying would earn $\Delta$ more and cost $c_L$, so we need $\Delta \le c_L$. Both together give $c_H \le \Delta \le c_L$; conversely, if either fails, one type changes what it does.
-        (b) The condition requires $c_H \le c_L$, with $\Delta$ between the two. If the costs are equal ($c_H = c_L = c$), only the coincidental value $\Delta = c$ works; in general either both types signal or neither does, and buyers learn nothing from the signal.
-        (c) Raising the dividend is a commitment to pay out more cash every year from now on. A company with steady cash flow and good prospects can do this cheaply; a company with unsteady cash flow or poor prospects may later have to cut the dividend, which the market punishes severely, or borrow to keep paying it, so the cost is high and copying is hard.
+        (a) Good types signal if $\Delta \ge c_H$; bad types do not imitate if $\Delta \le c_L$. Both hold exactly when $c_H \le \Delta \le c_L$. With equal costs ($c_H = c_L = c$), this holds only in the coincidence $\Delta = c$; generally either both types signal or neither does, and buyers learn nothing. So the signal must cost bad types more.
+        (b) Raising the dividend commits the company to paying more cash every year. A company with stable cash flows and good prospects can do this cheaply; one with unstable cash flows or poor prospects may later have to cut the dividend (which markets punish severely) or borrow to keep it, which is costly, so it finds it hard to imitate.
     rubric:
       zh-cn:
-        - "(a) 分别写出好类型愿意发、差类型不模仿的条件，合起来得到 $c_H \\le \\Delta \\le c_L$。"
-        - "(b) 说明需要 $c_H < c_L$；成本相同时信号不能区分类型。"
-        - "(c) 股息是对未来现金的承诺，对现金流差的公司成本高。"
+        - "(a) 推出条件，并说明成本相同时信号失效。"
+        - "(b) 用成本差异解释股息的信号作用。"
       en:
-        - "(a) Writes the good type's condition to signal and the bad type's condition not to copy, and combines them into $c_H \\le \\Delta \\le c_L$."
-        - "(b) Explains that $c_H < c_L$ is needed; with equal costs the signal cannot separate the types."
-        - "(c) A dividend is a commitment of future cash, costly for firms with weak cash flow."
+        - "(a) Derives the condition and explains that equal costs make the signal useless."
+        - "(b) Explains the dividend signal by the difference in costs."
 
   - id: Q4
     kind: exercise
@@ -325,35 +297,27 @@ questions:
     expected: { e: "5", owner: "25", agency: "12.5" }
     question:
       zh-cn: |-
-        公司所有者（委托人）请一位经理（代理人）经营公司。经理的努力 $e$ 使利润为 $10e$，努力给经理带来的成本为 $\frac{e^2}{2}$（以美元计）。所有者看不到努力，只能看到利润，于是把利润的比例 $s$（$0 \le s \le 1$）付给经理。经理是风险中性的，没有其他收入来源。
-        (a) 给定 $s$，经理选择多大的努力？
-        (b) 所有者选择多大的 $s$？这时经理的努力和所有者的收益各是多少？
-        (c) 如果所有者能直接看到并规定努力，使总剩余（利润减去努力成本）最大的努力是多少？与 (b) 相比，总剩余少了多少？这部分损失来自哪里？
+        公司所有者（委托人）请一位经理（代理人）经营公司。经理的努力 $e$ 使利润为 $10e$，努力给经理带来的成本为 $\frac{e^2}{2}$（以美元计）。所有者看不到努力，只能看到利润，于是把利润的比例 $s$ 付给经理。经理是风险中性的。
+        (a) 给定 $s$，经理选择多大的努力？所有者选择多大的 $s$？这时经理的努力和所有者的收益各是多少？
+        (b) 如果所有者能直接看到并规定努力，使总剩余（利润减去努力成本）最大的努力是多少？与 (a) 相比，总剩余少了多少？这部分损失来自哪里？
       en: |-
-        A company owner (the principal) hires a manager (the agent). The manager's effort $e$ produces a profit of $10e$, and effort costs the manager $\frac{e^2}{2}$ (in dollars). The owner cannot see effort, only profit, so the owner pays the manager a share $s$ of profit ($0 \le s \le 1$). The manager is risk neutral and has no other income.
-        (a) Given $s$, how much effort does the manager choose?
-        (b) What $s$ does the owner choose? What are the manager's effort and the owner's payoff then?
-        (c) If the owner could see and dictate effort directly, what effort would maximize total surplus (profit minus the cost of effort)? Compared with (b), how much total surplus is lost? Where does the loss come from?
+        A company owner (principal) hires a manager (agent). Effort $e$ produces profit $10e$ and costs the manager $\frac{e^2}{2}$ (in dollars). The owner cannot see effort, only profit, and pays the manager a share $s$ of profit. The manager is risk neutral.
+        (a) Given $s$, what effort does the manager choose? What $s$ does the owner choose? What are the manager's effort and the owner's payoff then?
+        (b) If the owner could see and set effort directly, what effort would maximize total surplus (profit minus the cost of effort)? Compared with (a), how much total surplus is lost? Where does the loss come from?
     answer:
       zh-cn: |-
-        (a) 经理最大化 $s \cdot 10e - \frac{e^2}{2}$，一阶条件 $10s - e = 0$，$e = 10s$。
-        (b) 所有者得到 $(1 - s) \cdot 10e = (1 - s) \cdot 100s$，对 $s$ 求导：$100 - 200s = 0$，$s = 0.5$。经理努力 $e = 5$，利润 50，所有者得 25，经理得 $25 - 12.5 = 12.5$。
-        (c) 总剩余 $10e - \frac{e^2}{2}$ 在 $e = 10$ 时最大，为 50。(b) 中总剩余 $50 - 12.5 = 37.5$，少了 12.5。损失来自所有者看不到努力：经理只得到边际利润的一半，所以只做到一半的努力；所有者如果给经理更大的比例，努力会增加，但自己的那一份会减少。这 12.5 就是代理成本（agency cost）。
-        （如果经理是风险厌恶的而利润有随机性，提高 $s$ 还会让经理承担更多风险，所有者会选择更小的 $s$。）
+        (a) 经理最大化 $s \cdot 10e - \frac{e^2}{2}$，得 $e = 10s$。所有者得到 $(1 - s) \cdot 100s$，最大时 $s = 0.5$。经理努力 $e = 5$，利润 50，所有者得 25。
+        (b) 总剩余 $10e - \frac{e^2}{2}$ 在 $e = 10$ 时最大，为 50。(a) 中总剩余 $50 - 12.5 = 37.5$，少了 12.5。损失来自所有者看不到努力：经理只得到边际利润的一半，所以只做到一半的努力；所有者给经理更大的比例，努力会增加，但自己的那一份会减少。这 12.5 就是代理成本。
       en: |-
-        (a) The manager maximizes $s \cdot 10e - \frac{e^2}{2}$; the first-order condition $10s - e = 0$ gives $e = 10s$.
-        (b) The owner gets $(1 - s) \cdot 10e = (1 - s) \cdot 100s$; setting the derivative with respect to $s$ to zero, $100 - 200s = 0$, gives $s = 0.5$. The manager's effort is $e = 5$, profit is 50, the owner gets 25, and the manager gets $25 - 12.5 = 12.5$.
-        (c) Total surplus $10e - \frac{e^2}{2}$ is largest at $e = 10$, where it is 50. In (b) total surplus is $50 - 12.5 = 37.5$, so 12.5 is lost. The loss comes from the owner's inability to see effort: the manager receives only half of the marginal profit and so puts in only half the effort; giving the manager a larger share would raise effort but reduce the owner's own part. This 12.5 is the agency cost.
-        (If the manager were risk averse and profit were random, a higher $s$ would also load more risk onto the manager, and the owner would choose a smaller $s$.)
+        (a) The manager maximizes $s \cdot 10e - \frac{e^2}{2}$, giving $e = 10s$. The owner gets $(1 - s) \cdot 100s$, maximized at $s = 0.5$. Effort is $e = 5$, profit 50, and the owner gets 25.
+        (b) Total surplus $10e - \frac{e^2}{2}$ is largest at $e = 10$, where it is 50. In (a) it is $50 - 12.5 = 37.5$, a loss of 12.5. The loss comes from the owner not seeing effort: the manager gets only half of the marginal profit and so puts in only half the effort; a larger share would raise effort but shrink the owner's own share. This 12.5 is the agency cost.
     rubric:
       zh-cn:
-        - "(a) $e = 10s$。"
-        - "(b) $s = 0.5$，努力 5，所有者得 25。"
-        - "(c) 最优努力 10，总剩余 50；(b) 中 37.5，代理成本 12.5；解释来自努力不可观察。"
+        - "(a) $e = 10s$、$s = 0.5$、努力 5、所有者得 25。"
+        - "(b) 最优努力 10，损失 12.5，说明代理成本的来源。"
       en:
-        - "(a) $e = 10s$."
-        - "(b) $s = 0.5$, effort 5, owner gets 25."
-        - "(c) Best effort 10 with total surplus 50; 37.5 in (b), an agency cost of 12.5; explains that it comes from effort being unobservable."
+        - "(a) $e = 10s$, $s = 0.5$, effort 5, owner gets 25."
+        - "(b) Optimal effort 10, a loss of 12.5, and the source of the agency cost."
 
   - id: Q5
     kind: exercise

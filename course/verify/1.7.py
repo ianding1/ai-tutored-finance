@@ -34,6 +34,9 @@ def results():
     d5 = threshold(900, 800, 6400 / 9)
     r["Q5.d"] = d5
     r["Q5.p"] = 100 * d5 * 1.05
+    # Values that the questions now give or no longer ask for.
+    for k in ['Q2.d']:
+        del r[k]
     return r
 
 

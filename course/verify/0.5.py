@@ -40,6 +40,9 @@ def results():
     r["Q4.biased"] = 2 + 3 * 2 / 4
     r["Q4.unbiased"] = 2 + 3 * 0 / 4
     r["Q4.negative"] = 2 - 3 * 2 / 4
+    # Values that the questions now give or no longer ask for.
+    for k in ['C3.price', 'Q4.unbiased']:
+        del r[k]
     return r
 
 

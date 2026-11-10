@@ -45,6 +45,9 @@ def results():
 
     r["Q6.ie"] = -60 * (-0.15) * 0.5
     r["Q6.total"] = -2 + r["Q6.ie"]
+    # Values that the questions now give or no longer ask for.
+    for k in ['C1.u1', 'C1.u2', 'C1.u3', 'C1.w2', 'C4.xb', 'C4.xc', 'Q5.x', 'Q5.mc', 'Q5.xs']:
+        del r[k]
     return r
 
 

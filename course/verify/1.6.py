@@ -62,6 +62,9 @@ def results():
     r["Q6.loss"] = (10 - 10) * 90 - 900
     qa6 = (90 + sqrt(90**2 - 4 * 900)) / 2
     r["Q6.qa"], r["Q6.pa"] = qa6, 100 - qa6
+    # Values that the questions now give or no longer ask for.
+    for k in ['C1.q', 'C1.profit', 'C2.qa', 'C2.qb', 'C3.p2', 'C3.q10', 'Q2.p4', 'Q3.qc', 'Q3.pic', 'Q3.pim', 'Q6.qm', 'Q6.pm', 'Q6.pim']:
+        del r[k]
     return r
 
 

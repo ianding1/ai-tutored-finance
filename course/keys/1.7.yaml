@@ -77,33 +77,23 @@ questions:
     concepts: [dominant-strategy, prisoners-dilemma]
     question:
       zh-cn: |-
-        大型连锁店 A 和小店 B 各自决定是否投放广告。收益（A，B）如下：两家都不投放 (50, 20)；A 不投放、B 投放 (40, 25)；A 投放、B 不投放 (55, 18)；两家都投放 (45, 15)。
-        (a) 谁有占优策略？是什么？
-        (b) 预测两家会怎样选择，并说明理由。
-        (c) 这个博弈是囚徒困境吗？
+        大型连锁店 A 和小店 B 各自决定是否投放广告。收益（A，B）如下：两家都不投放 (50, 20)；A 不投放、B 投放 (40, 25)；A 投放、B 不投放 (55, 18)；两家都投放 (45, 15)。预测两家会怎样选择，并说明理由。这个博弈是囚徒困境吗？
       en: |-
-        A large chain A and a small shop B each decide whether to advertise. The payoffs (A, B) are: neither advertises (50, 20); A does not, B does (40, 25); A does, B does not (55, 18); both advertise (45, 15).
-        (a) Who has a dominant strategy, and what is it?
-        (b) Predict what the two firms will choose, and explain.
-        (c) Is this game a prisoner's dilemma?
+        A large chain A and a small shop B each decide whether to advertise. Payoffs (A, B): neither advertises (50, 20); A does not, B does (40, 25); A does, B does not (55, 18); both advertise (45, 15). Predict what the two will choose, and explain. Is this a prisoners' dilemma?
     answer:
       zh-cn: |-
-        (a) A 有占优策略：投放。B 不投放时，A 投放得 55 > 50；B 投放时，A 投放得 45 > 40。B 没有占优策略：A 不投放时 B 投放更好（25 > 20），A 投放时 B 不投放更好（18 > 15）。
-        (b) A 一定投放。B 预见到这一点，选择对“A 投放”的最优反应：不投放。结果是 A 投放、B 不投放，收益 (55, 18)。
-        (c) 不是。没有另一个结果对两家都更好：(50, 20) 对 B 更好，但对 A 更差。只有一方有占优策略，也不满足“各自的占优策略导致对所有人都更差的结果”。
+        A 有占优策略：投放（B 不投放时 55 > 50，B 投放时 45 > 40）。B 没有占优策略，但能预见 A 一定投放，于是选择对“A 投放”的最优反应：不投放（18 > 15）。结果是 A 投放、B 不投放，收益 (55, 18)。
+        不是囚徒困境：没有另一个结果对两家都更好（(50, 20) 对 B 更好，但对 A 更差），而且只有一方有占优策略。
       en: |-
-        (a) A has a dominant strategy: advertise. If B does not advertise, A gets 55 > 50 by advertising; if B advertises, A gets 45 > 40 by advertising. B has no dominant strategy: if A does not advertise, B is better off advertising (25 > 20); if A advertises, B is better off not advertising (18 > 15).
-        (b) A will certainly advertise. B foresees this and chooses its best response to "A advertises": not advertising. The outcome is A advertises and B does not, with payoffs (55, 18).
-        (c) No. No other outcome is better for both firms: (50, 20) is better for B but worse for A. Also, only one side has a dominant strategy, so it is not a case of "each side's dominant strategy leading to an outcome worse for everyone".
+        A has a dominant strategy: advertise (55 > 50 if B does not, 45 > 40 if B does). B has no dominant strategy but can foresee that A will advertise, so it picks its best response to that: not advertising (18 > 15). The outcome is A advertises and B does not, with payoffs (55, 18).
+        It is not a prisoners' dilemma: no other outcome is better for both ((50, 20) is better for B but worse for A), and only one player has a dominant strategy.
     rubric:
       zh-cn:
-        - "(a) A 的占优策略是投放，B 没有占优策略，比较正确。"
-        - "(b) A 投放、B 不投放，(55, 18)，并用 B 的最优反应说明。"
-        - "(c) 不是囚徒困境，没有对双方都更好的结果。"
+        - "预测 A 投放、B 不投放，并用占优策略和最优反应说明。"
+        - "不是囚徒困境，理由正确。"
       en:
-        - "(a) A's dominant strategy is to advertise; B has none; correct comparisons."
-        - "(b) A advertises, B does not, (55, 18), explained with B's best response."
-        - "(c) Not a prisoner's dilemma: no outcome is better for both."
+        - "Predicts A advertises and B does not, using the dominant strategy and best response."
+        - "Not a prisoners' dilemma, with a correct reason."
 
   - id: C2
     kind: check
@@ -111,33 +101,23 @@ questions:
     concepts: [nash-equilibrium, dominant-strategy]
     question:
       zh-cn: |-
-        两家公司各自为新产品选择技术标准 X 或 Y。选相同的标准时产品可以互相兼容：都选 X 时收益（甲，乙）为 (30, 20)，都选 Y 时为 (20, 30)；选不同的标准时各得 5。
-        (a) 有人有占优策略吗？
-        (b) 找出所有纳什均衡，并逐一说明为什么谁也不想单方面改变。
-        (c) 能预测会出现哪一个均衡吗？
+        两家公司各自为新产品选择技术标准 X 或 Y。都选 X 时收益（甲，乙）为 (30, 20)，都选 Y 时为 (20, 30)；选不同的标准时各得 5。找出所有纳什均衡。能预测会出现哪一个吗？
       en: |-
-        Two firms each choose technology standard X or Y for a new product. With the same standard their products are compatible: if both choose X the payoffs (A, B) are (30, 20), and if both choose Y they are (20, 30); with different standards each gets 5.
-        (a) Does anyone have a dominant strategy?
-        (b) Find all the Nash equilibria, and explain for each why no one wants to change alone.
-        (c) Can you predict which equilibrium will occur?
+        Two companies each choose technical standard X or Y for a new product. Both choosing X gives payoffs (first, second) of (30, 20); both choosing Y gives (20, 30); choosing different standards gives 5 each. Find all the Nash equilibria. Can one predict which will occur?
     answer:
       zh-cn: |-
-        (a) 没有。乙选 X 时甲选 X 更好（30 > 5），乙选 Y 时甲选 Y 更好（20 > 5）；乙也一样。
-        (b) 两个纳什均衡：(X, X) 和 (Y, Y)。在 (X, X)，甲改为 Y 从 30 降到 5，乙改为 Y 从 20 降到 5；在 (Y, Y)，甲改为 X 从 20 降到 5，乙改为 X 从 30 降到 5。(X, Y) 和 (Y, X) 都不是均衡：任何一方改成和对方相同的标准都能从 5 提高。
-        (c) 只靠这张表不能。甲更喜欢 X、乙更喜欢 Y，两个均衡都可能出现，要看谁先行动、谁先建立了用户基础、行业惯例或谈判等表外的因素。
+        两个纳什均衡：(X, X) 和 (Y, Y)。在任何一个中，单方面改用另一个标准都会从 20 或 30 降到 5。(X, Y) 和 (Y, X) 不是均衡：任何一方改成和对方相同的标准都能从 5 提高。
+        只靠这张表不能预测：甲更喜欢 X、乙更喜欢 Y，两个均衡都可能出现，要看谁先行动、谁先建立了用户基础、行业惯例或谈判等表外的因素。
       en: |-
-        (a) No. If B chooses X, A is better off with X (30 > 5); if B chooses Y, A is better off with Y (20 > 5); the same holds for B.
-        (b) Two Nash equilibria: (X, X) and (Y, Y). At (X, X), A switching to Y drops from 30 to 5, and B switching to Y drops from 20 to 5; at (Y, Y), A switching to X drops from 20 to 5, and B switching to X drops from 30 to 5. (X, Y) and (Y, X) are not equilibria: either side gains by switching to the other's standard, from 5 upward.
-        (c) Not from the table alone. A prefers X and B prefers Y, and either equilibrium can occur; it depends on factors outside the table, such as who moves first, who already has users, industry custom or negotiation.
+        Two Nash equilibria: (X, X) and (Y, Y). In either, switching alone to the other standard drops a player from 20 or 30 to 5. (X, Y) and (Y, X) are not equilibria: either player gains by switching to match the other.
+        The table alone cannot predict which: the first company prefers X and the second Y, both equilibria are possible, and the outcome depends on factors outside the table, such as who moves first, who has built a user base, industry custom or bargaining.
     rubric:
       zh-cn:
-        - "(a) 没有占优策略，理由正确。"
-        - "(b) 两个均衡 (X, X)、(Y, Y)，并逐一检查单方面改变；排除不同标准的组合。"
-        - "(c) 不能仅凭收益矩阵预测，说明取决于表外因素或预期。"
+        - "两个均衡 (X, X) 和 (Y, Y)，并说明理由。"
+        - "说明不能只靠收益表预测。"
       en:
-        - "(a) No dominant strategy, with correct reasons."
-        - "(b) Two equilibria (X, X) and (Y, Y), each checked for a one-sided change; the mixed-standard pairs are ruled out."
-        - "(c) Cannot be predicted from the payoff matrix alone; depends on factors outside it or on expectations."
+        - "Two equilibria, (X, X) and (Y, Y), with reasons."
+        - "Explains that the table alone cannot predict which."
 
   - id: C3
     kind: check
@@ -176,25 +156,23 @@ questions:
     expected: { delta: "0.5", rate: "100" }
     question:
       zh-cn: |-
-        在 [[fig:5-1]] 中逐渐调大 $\delta$，找出保持高价至少和现在降价一样好的最小 $\delta$，再用讲义中两个现值的表达式算出精确值。如果 $\delta$ 只反映利率（$\delta = \frac{1}{1+r}$），这相当于年利率最高是多少？
+        在 [[fig:5-1]] 中，保持高价至少和现在降价一样好的最小 $\delta$ 是多少？用讲义中两个现值的表达式求出精确值。如果 $\delta$ 只反映利率（$\delta = \frac{1}{1+r}$），这相当于年利率最高是多少？
       en: |-
-        In [[fig:5-1]], raise $\delta$ step by step and find the smallest $\delta$ at which keeping the high price is at least as good as cutting the price now. Then compute the exact value from the lesson's two present-value expressions. If $\delta$ reflects only the interest rate ($\delta = \frac{1}{1+r}$), what is the highest annual interest rate this allows?
+        In [[fig:5-1]], what is the smallest $\delta$ at which keeping the high price is at least as good as cutting the price now? Find the exact value from the lesson's two present-value expressions. If $\delta$ reflects only the interest rate ($\delta = \frac{1}{1+r}$), what is the highest yearly interest rate this allows?
     answer:
       zh-cn: |-
-        图中 $\delta = 0.5$ 时两者相等（都是 20），更大时保持高价更好。
-        精确值：$\frac{10}{1-\delta} \ge 15 + \frac{5\delta}{1-\delta}$，两边乘以 $1 - \delta$ 得 $10 \ge 15(1-\delta) + 5\delta = 15 - 10\delta$，即 $\delta \ge 0.5$。
-        $\frac{1}{1+r} \ge 0.5$ 即 $r \le 1$：年利率不超过 100% 时，合作都能维持。在这个例子里，只要两家公司相信博弈会继续下去，合作很容易维持；如果博弈每年有较大的概率结束，$\delta$ 会小得多。
+        $\frac{10}{1-\delta} \ge 15 + \frac{5\delta}{1-\delta}$，两边乘以 $1 - \delta$ 得 $10 \ge 15 - 10\delta$，即 $\delta \ge 0.5$（图中 $\delta = 0.5$ 时两者都是 20）。
+        $\frac{1}{1+r} \ge 0.5$ 即 $r \le 1$：年利率不超过 100% 时合作都能维持。只要两家公司相信博弈会继续，合作很容易维持；如果博弈每年有较大的概率结束，有效的 $\delta$ 会小得多。
       en: |-
-        In the figure the two are equal at $\delta = 0.5$ (both 20), and above that keeping the high price is better.
-        Exact value: $\frac{10}{1-\delta} \ge 15 + \frac{5\delta}{1-\delta}$; multiplying both sides by $1 - \delta$ gives $10 \ge 15(1-\delta) + 5\delta = 15 - 10\delta$, that is, $\delta \ge 0.5$.
-        $\frac{1}{1+r} \ge 0.5$ means $r \le 1$: cooperation can be sustained at any annual interest rate up to 100%. In this example cooperation is easy to sustain as long as both firms believe the game will continue; if the game has a large chance of ending each year, $\delta$ is much smaller.
+        $\frac{10}{1-\delta} \ge 15 + \frac{5\delta}{1-\delta}$; multiplying by $1 - \delta$ gives $10 \ge 15 - 10\delta$, so $\delta \ge 0.5$ (in the figure both are 20 at $\delta = 0.5$).
+        $\frac{1}{1+r} \ge 0.5$ means $r \le 1$: cooperation can last at any yearly rate up to 100%. As long as both firms believe the game will continue, cooperation is easy to sustain; if the game has a sizeable chance of ending each year, the effective $\delta$ is much smaller.
     rubric:
       zh-cn:
-        - "图中读出 0.5，并由不等式解出 $\\delta \\ge 0.5$。"
-        - "对应年利率最高 100%。"
+        - "$\\delta \\ge 0.5$，推导正确。"
+        - "年利率最高 100%。"
       en:
-        - "Reads 0.5 from the figure and solves the inequality for $\\delta \\ge 0.5$."
-        - "The corresponding highest annual rate is 100%."
+        - "$\\delta \\ge 0.5$ with a correct derivation."
+        - "A yearly rate of at most 100%."
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1
@@ -232,36 +210,29 @@ questions:
     level: B
     star: true
     concepts: [repeated-game, prisoners-dilemma, discount-factor]
-    expected: { d: "0.5" }
     question:
       zh-cn: |-
         一般的囚徒困境：双方都合作时各得 $R$；自己背叛、对方合作时自己得 $T$；双方都背叛时各得 $P$；自己合作、对方背叛时自己得 $S$，且 $T > R > P > S$。博弈无限重复，双方采用触发策略，折现因子为 $\delta$。
         (a) 证明：保持合作至少和现在背叛一样好，当且仅当 $\delta \ge \frac{T - R}{T - P}$。
-        (b) 用这个条件解释：背叛的诱惑（$T - R$）、惩罚的严厉程度（$R - P$）分别怎样影响合作能否维持？
-        (c) 代入讲义中航空公司的数字，与 [[check:C4]] 的结果核对。
+        (b) 用这个条件解释：背叛的诱惑（$T - R$）、惩罚的严厉程度（$R - P$）分别怎样影响合作能否维持？为什么 $S$ 不出现在条件中？
       en: |-
-        A general prisoner's dilemma: if both cooperate, each gets $R$; if you defect while the other cooperates, you get $T$; if both defect, each gets $P$; if you cooperate while the other defects, you get $S$, with $T > R > P > S$. The game is repeated forever, both use trigger strategies, and the discount factor is $\delta$.
-        (a) Show that continuing to cooperate is at least as good as defecting now if and only if $\delta \ge \frac{T - R}{T - P}$.
-        (b) Use this condition to explain how the temptation to defect ($T - R$) and the severity of the punishment ($R - P$) affect whether cooperation can be sustained.
-        (c) Substitute the airline numbers from the lesson and check against the result of [[check:C4]].
+        A general prisoners' dilemma: both cooperating gives each $R$; defecting while the other cooperates gives $T$; both defecting gives each $P$; cooperating while the other defects gives $S$, with $T > R > P > S$. The game repeats forever, both use trigger strategies, and the discount factor is $\delta$.
+        (a) Show that cooperating is at least as good as defecting now if and only if $\delta \ge \frac{T - R}{T - P}$.
+        (b) Use this condition to explain how the temptation to defect ($T - R$) and the severity of punishment ($R - P$) affect whether cooperation can last. Why does $S$ not appear in the condition?
     answer:
       zh-cn: |-
-        (a) 合作的现值 $\frac{R}{1-\delta}$；现在背叛得 $T$，以后每期 $P$，现值 $T + \frac{\delta P}{1-\delta}$。$\frac{R}{1-\delta} \ge T + \frac{\delta P}{1-\delta}$ 两边乘以 $1 - \delta > 0$：$R \ge T(1-\delta) + \delta P$，即 $\delta(T - P) \ge T - R$，因为 $T > P$，得 $\delta \ge \frac{T - R}{T - P}$。
-        (b) 临界值 $\frac{T - R}{T - P} = \frac{T - R}{(T - R) + (R - P)}$。诱惑 $T - R$ 越大，临界值越高，合作越难维持；惩罚 $R - P$ 越大（背叛后的日子越差），临界值越低，合作越容易维持。$S$ 不出现在条件中，因为在触发策略下，没有人会在对方背叛后继续合作。
-        (c) $T = 15$，$R = 10$，$P = 5$：$\frac{15 - 10}{15 - 5} = 0.5$，与 [[check:C4]] 相同。
+        (a) 合作的现值 $\frac{R}{1-\delta}$；现在背叛得 $T$，以后每期 $P$，现值 $T + \frac{\delta P}{1-\delta}$。两边乘以 $1 - \delta > 0$：$R \ge T(1-\delta) + \delta P$，即 $\delta(T - P) \ge T - R$，得 $\delta \ge \frac{T - R}{T - P}$。
+        (b) 临界值 $\frac{T - R}{(T - R) + (R - P)}$：诱惑越大，临界值越高，合作越难维持；惩罚越严厉（背叛后的日子越差），临界值越低，合作越容易维持。在触发策略下，没有人会在对方背叛后继续合作，所以 $S$ 不会出现在均衡路径或偏离路径上。
       en: |-
-        (a) The present value of cooperating is $\frac{R}{1-\delta}$; defecting now gives $T$ and then $P$ each period, a present value of $T + \frac{\delta P}{1-\delta}$. Multiplying $\frac{R}{1-\delta} \ge T + \frac{\delta P}{1-\delta}$ by $1 - \delta > 0$ gives $R \ge T(1-\delta) + \delta P$, that is, $\delta(T - P) \ge T - R$, and since $T > P$, $\delta \ge \frac{T - R}{T - P}$.
-        (b) The critical value is $\frac{T - R}{T - P} = \frac{T - R}{(T - R) + (R - P)}$. The larger the temptation $T - R$, the higher the critical value and the harder cooperation is to sustain; the larger the punishment $R - P$ (the worse life is after defecting), the lower the critical value and the easier cooperation is to sustain. $S$ does not appear, because under trigger strategies no one keeps cooperating after the other defects.
-        (c) $T = 15$, $R = 10$, $P = 5$: $\frac{15 - 10}{15 - 5} = 0.5$, the same as in [[check:C4]].
+        (a) Cooperating is worth $\frac{R}{1-\delta}$; defecting now gives $T$ and then $P$ each period, worth $T + \frac{\delta P}{1-\delta}$. Multiplying by $1 - \delta > 0$: $R \ge T(1-\delta) + \delta P$, so $\delta(T - P) \ge T - R$ and $\delta \ge \frac{T - R}{T - P}$.
+        (b) The threshold is $\frac{T - R}{(T - R) + (R - P)}$: a larger temptation raises it, making cooperation harder to sustain; a harsher punishment (a worse life after defection) lowers it, making cooperation easier. Under trigger strategies nobody keeps cooperating after the other defects, so $S$ never occurs, either on the equilibrium path or after a deviation.
     rubric:
       zh-cn:
-        - "(a) 两个现值写对，正确地乘以 $1 - \\delta$ 并利用 $T > P$ 解出条件。"
-        - "(b) 诱惑越大越难合作，惩罚越重越容易合作。"
-        - "(c) 得到 0.5。"
+        - "(a) 推导正确。"
+        - "(b) 两个因素的方向正确，并说明 $S$ 不出现的原因。"
       en:
-        - "(a) Both present values correct; multiplies by $1 - \\delta$ correctly and uses $T > P$ to solve."
-        - "(b) A larger temptation makes cooperation harder; a heavier punishment makes it easier."
-        - "(c) Gets 0.5."
+        - "(a) Correct derivation."
+        - "(b) Correct directions for both factors, and why $S$ does not appear."
 
   - id: Q3
     kind: exercise

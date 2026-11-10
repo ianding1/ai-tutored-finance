@@ -56,6 +56,9 @@ def results():
     r["Q5.lp"], r["Q5.ls"], r["Q5.tax"] = 10, 8, 4
     social = lambda L: 20 * L - L**2 - 4 * L
     r["Q5.dwl"] = social(8) - social(10)
+    # Values that the questions now give or no longer ask for.
+    for k in ['C2.csc', 'C3.q', 'C3.rev', 'C3.dwl']:
+        del r[k]
     return r
 
 

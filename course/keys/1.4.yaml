@@ -61,26 +61,26 @@ questions:
     kind: check
     section: expected-utility
     concepts: [expected-utility, certainty-equivalent]
-    expected: { eu: "6", ce: "36", rp: "4" }
+    expected: { ce: "36", rp: "4" }
     question:
       zh-cn: |-
-        某人的效用函数为 $u(W) = \sqrt{W}$（$W$ 以千美元计）。赌局 L 使他的财富等概率为 64 或 16。他更喜欢 L，还是确定地得到 38？赌局 L 的确定性等价和风险溢价各是多少？
+        某人的效用函数为 $u(W) = \sqrt{W}$（$W$ 以千美元计）。赌局 L 使他的财富等概率为 64 或 16。L 的确定性等价和风险溢价各是多少？据此判断，他更喜欢 L，还是确定地得到 38？
       en: |-
-        Someone's utility function is $u(W) = \sqrt{W}$ ($W$ in thousand dollars). Gamble L leaves him with 64 or 16 with equal probability. Does he prefer L or 38 for sure? What are the certainty equivalent and the risk premium of L?
+        Someone has utility $u(W) = \sqrt{W}$ ($W$ in thousands of dollars). Gamble L leaves his wealth at 64 or 16 with equal probability. What are the certainty equivalent and the risk premium of L? On that basis, does he prefer L or 38 for certain?
     answer:
       zh-cn: |-
-        $E[u] = \frac{1}{2}\sqrt{64} + \frac{1}{2}\sqrt{16} = 6$，而 $\sqrt{38} \approx 6.16 > 6$，他更喜欢确定的 38。
-        确定性等价：$\sqrt{\text{CE}} = 6$，$\text{CE} = 36$。$E[W] = 40$，风险溢价 $40 - 36 = 4$。
+        $E[u] = \frac{1}{2}\sqrt{64} + \frac{1}{2}\sqrt{16} = 6$，$\sqrt{\text{CE}} = 6$，$\text{CE} = 36$。$E[W] = 40$，风险溢价 $40 - 36 = 4$。
+        L 对他只相当于确定的 36，少于 38，所以他更喜欢确定的 38，尽管 L 的期望财富 40 更高。
       en: |-
-        $E[u] = \frac{1}{2}\sqrt{64} + \frac{1}{2}\sqrt{16} = 6$, while $\sqrt{38} \approx 6.16 > 6$, so he prefers 38 for sure.
-        Certainty equivalent: $\sqrt{\text{CE}} = 6$, so $\text{CE} = 36$. $E[W] = 40$, so the risk premium is $40 - 36 = 4$.
+        $E[u] = \frac{1}{2}\sqrt{64} + \frac{1}{2}\sqrt{16} = 6$, so $\sqrt{\text{CE}} = 6$ and $\text{CE} = 36$. $E[W] = 40$, so the risk premium is $40 - 36 = 4$.
+        L is worth only 36 for certain to him, less than 38, so he prefers 38 for certain, even though L's expected wealth of 40 is higher.
     rubric:
       zh-cn:
-        - "期望效用 6，更喜欢确定的 38。"
-        - "CE 为 36，风险溢价 4。"
+        - "CE 36、风险溢价 4。"
+        - "更喜欢确定的 38，用 CE 比较说明。"
       en:
-        - "Expected utility 6; he prefers 38 for sure."
         - "CE 36, risk premium 4."
+        - "Prefers 38 for certain, by comparing with the CE."
 
   - id: C2
     kind: check
@@ -89,49 +89,49 @@ questions:
     expected: { r: "1" }
     question:
       zh-cn: |-
-        判断下列效用函数（$W > 0$）分别代表风险厌恶、风险中性还是风险偏好：(a) $u = W^2$；(b) $u = 2W + 3$；(c) $u = \ln W$。对 (c) 求绝对风险厌恶系数和相对风险厌恶系数。
+        对效用函数 $u = \ln W$，求绝对风险厌恶系数 $A$ 和相对风险厌恶系数 $R$。财富增加时，这个人对一个“输赢各 1,000 美元”的赌局，以及对一个“输赢各为财富 10%”的赌局，态度分别怎样变化？
       en: |-
-        For each utility function ($W > 0$), state whether it represents risk aversion, risk neutrality or risk loving: (a) $u = W^2$; (b) $u = 2W + 3$; (c) $u = \ln W$. For (c), find the coefficients of absolute and relative risk aversion.
+        For the utility function $u = \ln W$, find the coefficient of absolute risk aversion $A$ and of relative risk aversion $R$. As wealth grows, how does this person's attitude change toward a gamble of "win or lose 1,000 dollars" and toward a gamble of "win or lose 10% of wealth"?
     answer:
       zh-cn: |-
-        (a) $u'' = 2 > 0$，凸函数，风险偏好。(b) $u'' = 0$，风险中性。(c) $u' = \frac{1}{W}$，$u'' = -\frac{1}{W^2} < 0$，风险厌恶。
-        (c) 的 $A = -\frac{u''}{u'} = \frac{1}{W}$，随财富增加而下降；$R = W \cdot A = 1$，是常数。
+        $u' = \frac{1}{W}$，$u'' = -\frac{1}{W^2}$，$A = -\frac{u''}{u'} = \frac{1}{W}$，$R = W \cdot A = 1$。
+        $A$ 随财富下降：越富有，对固定金额的赌局越不在乎（风险溢价变小）。$R$ 是常数：对按财富比例计算的赌局，态度不随财富变化。
       en: |-
-        (a) $u'' = 2 > 0$: convex, risk loving. (b) $u'' = 0$: risk neutral. (c) $u' = \frac{1}{W}$ and $u'' = -\frac{1}{W^2} < 0$: risk averse.
-        For (c), $A = -\frac{u''}{u'} = \frac{1}{W}$, which falls as wealth rises, and $R = W \cdot A = 1$, a constant.
+        $u' = \frac{1}{W}$, $u'' = -\frac{1}{W^2}$, so $A = -\frac{u''}{u'} = \frac{1}{W}$ and $R = W \cdot A = 1$.
+        $A$ falls with wealth: the richer he is, the less he minds a gamble of a fixed amount (its risk premium shrinks). $R$ is constant: his attitude toward gambles stated as a share of wealth does not change with wealth.
     rubric:
       zh-cn:
-        - "三个判断正确（用二阶导数说明）。"
         - "$A = \\frac{1}{W}$，$R = 1$。"
+        - "区分固定金额和按比例的赌局。"
       en:
-        - "All three are classified correctly (with the second derivative)."
         - "$A = \\frac{1}{W}$, $R = 1$."
+        - "Distinguishes fixed-amount and proportional gambles."
 
   - id: C3
     kind: check
     section: certainty-equivalent
     concepts: [certainty-equivalent, risk-premium, crra-utility]
     widget: { id: risk-premium, set: { g: 3 } }
-    expected: { ce: "67.08", rp: "32.92", approx: "37.5" }
+    expected: { rp: "32.92", approx: "37.5" }
     question:
       zh-cn: |-
-        在 [[fig:4-1]] 中保持 $h = 50$，把 $\gamma$ 调到 3。确定性等价和风险溢价各是多少？和 $\gamma = 1$（风险溢价 13.40）相比如何？用近似公式 $\frac{\pi}{W} \approx \frac{1}{2}\gamma\sigma^2$ 估算的风险溢价是多少，为什么和精确值差得较多？
+        在 [[fig:4-1]] 中保持 $h = 50$，把 $\gamma$ 调到 3。风险溢价是多少？用近似公式 $\frac{\pi}{W} \approx \frac{1}{2}\gamma\sigma^2$ 估算的风险溢价是多少，为什么和精确值差得较多？
       en: |-
-        In [[fig:4-1]], keep $h = 50$ and set $\gamma$ to 3. What are the certainty equivalent and the risk premium? How do they compare with $\gamma = 1$ (risk premium 13.40)? What risk premium does the approximation $\frac{\pi}{W} \approx \frac{1}{2}\gamma\sigma^2$ give, and why is it quite far from the exact value?
+        In [[fig:4-1]], keep $h = 50$ and set $\gamma$ to 3. What is the risk premium? What does the approximation $\frac{\pi}{W} \approx \frac{1}{2}\gamma\sigma^2$ give, and why is it far from the exact value?
     answer:
       zh-cn: |-
-        $\text{CE} = \left(\frac{1}{2} \times 150^{-2} + \frac{1}{2} \times 50^{-2}\right)^{-1/2} \approx 67.08$，风险溢价约 32.92，比 $\gamma = 1$ 时的 13.40 大得多：越厌恶风险，愿意为消除风险放弃的越多。
-        近似：$\sigma = 50\%$，$\frac{1}{2} \times 3 \times 0.25 = 0.375$，即约 37.5。这个公式来自小赌局的泰勒展开，赌局是财富的 ±50%，远不算小，所以近似误差较大。
+        $\text{CE} = \left(\frac{1}{2} \times 150^{-2} + \frac{1}{2} \times 50^{-2}\right)^{-1/2} \approx 67.08$，风险溢价约 32.92（$\gamma = 1$ 时只有 13.40）。
+        近似：$\sigma = 50\%$，$\frac{1}{2} \times 3 \times 0.25 = 0.375$，即约 37.5。这个公式来自小赌局的泰勒展开，而赌局是财富的 ±50%，远不算小，所以近似误差较大。
       en: |-
-        $\text{CE} = \left(\frac{1}{2} \times 150^{-2} + \frac{1}{2} \times 50^{-2}\right)^{-1/2} \approx 67.08$, so the risk premium is about 32.92, much larger than 13.40 at $\gamma = 1$: the more risk averse, the more one gives up to remove the risk.
-        Approximation: $\sigma = 50\%$, so $\frac{1}{2} \times 3 \times 0.25 = 0.375$, about 37.5. The formula comes from a Taylor expansion for small gambles; a gamble of ±50% of wealth is far from small, so the approximation error is large.
+        $\text{CE} = \left(\frac{1}{2} \times 150^{-2} + \frac{1}{2} \times 50^{-2}\right)^{-1/2} \approx 67.08$, so the risk premium is about 32.92 (only 13.40 with $\gamma = 1$).
+        Approximation: $\sigma = 50\%$, $\frac{1}{2} \times 3 \times 0.25 = 0.375$, about 37.5. The formula comes from a Taylor expansion for small gambles, and a gamble of ±50% of wealth is far from small, so the error is large.
     rubric:
       zh-cn:
-        - "CE 约 67.08，风险溢价约 32.92，比 $\\gamma = 1$ 大。"
-        - "近似值约 37.5，并说明赌局太大使近似不准。"
+        - "风险溢价约 32.92，近似值约 37.5。"
+        - "说明近似只适用于小赌局。"
       en:
-        - "CE about 67.08, risk premium about 32.92, larger than at $\\gamma = 1$."
-        - "Approximation about 37.5, with the gamble being too large for the approximation."
+        - "Risk premium about 32.92; approximation about 37.5."
+        - "Explains that the approximation is for small gambles."
 
   - id: C4
     kind: check
@@ -192,32 +192,26 @@ questions:
     question:
       zh-cn: |-
         推导小赌局的风险溢价近似公式。财富 $W = \mu + \varepsilon$，$E[\varepsilon] = 0$，$\text{Var}(\varepsilon) = \sigma^2$ 很小。
-        (a) 把 $E[u(W)]$ 在 $\mu$ 处做二阶泰勒展开。
-        (b) 把 $u(\mu - \pi)$ 在 $\mu$ 处做一阶泰勒展开。
-        (c) 由 $u(\mu - \pi) = E[u(W)]$ 推出 $\pi \approx \frac{1}{2}A(\mu)\sigma^2$。为什么 (b) 只需展开到一阶？
+        (a) 把 $E[u(W)]$ 在 $\mu$ 处做二阶泰勒展开，把 $u(\mu - \pi)$ 做一阶泰勒展开，由两者相等推出 $\pi \approx \frac{1}{2}A(\mu)\sigma^2$。
+        (b) 为什么 $E[u(W)]$ 要展开到二阶，而 $u(\mu - \pi)$ 只需展开到一阶？
       en: |-
-        Derive the approximation for the risk premium of a small gamble. Wealth is $W = \mu + \varepsilon$ with $E[\varepsilon] = 0$ and a small $\text{Var}(\varepsilon) = \sigma^2$.
-        (a) Expand $E[u(W)]$ around $\mu$ to second order.
-        (b) Expand $u(\mu - \pi)$ around $\mu$ to first order.
-        (c) From $u(\mu - \pi) = E[u(W)]$, derive $\pi \approx \frac{1}{2}A(\mu)\sigma^2$. Why is a first-order expansion enough in (b)?
+        Derive the risk premium approximation for small gambles. Wealth is $W = \mu + \varepsilon$ with $E[\varepsilon] = 0$ and small $\text{Var}(\varepsilon) = \sigma^2$.
+        (a) Expand $E[u(W)]$ to second order and $u(\mu - \pi)$ to first order around $\mu$, and set them equal to obtain $\pi \approx \frac{1}{2}A(\mu)\sigma^2$.
+        (b) Why must $E[u(W)]$ be expanded to second order while $u(\mu - \pi)$ needs only first order?
     answer:
       zh-cn: |-
-        (a) $u(\mu + \varepsilon) \approx u(\mu) + u'(\mu)\,\varepsilon + \frac{1}{2}u''(\mu)\,\varepsilon^2$，取期望得 $E[u(W)] \approx u(\mu) + \frac{1}{2}u''(\mu)\,\sigma^2$。
-        (b) $u(\mu - \pi) \approx u(\mu) - u'(\mu)\,\pi$。
-        (c) 两式相等：$-u'(\mu)\,\pi = \frac{1}{2}u''(\mu)\,\sigma^2$，$\pi = -\frac{1}{2}\frac{u''(\mu)}{u'(\mu)}\sigma^2 = \frac{1}{2}A(\mu)\sigma^2$。
-        $\pi$ 本身与 $\sigma^2$ 同阶，是小量；$\pi^2$ 的项与 $\sigma^4$ 同阶，相对于保留的项可以忽略，而 $\varepsilon$ 的一阶项期望为 0，所以 (a) 要展开到二阶才能保留方差。
+        (a) $u(\mu + \varepsilon) \approx u(\mu) + u'(\mu)\,\varepsilon + \frac{1}{2}u''(\mu)\,\varepsilon^2$，取期望得 $E[u(W)] \approx u(\mu) + \frac{1}{2}u''(\mu)\,\sigma^2$；$u(\mu - \pi) \approx u(\mu) - u'(\mu)\,\pi$。两式相等：$\pi = -\frac{1}{2}\frac{u''(\mu)}{u'(\mu)}\sigma^2 = \frac{1}{2}A(\mu)\sigma^2$。
+        (b) $\varepsilon$ 的一阶项期望为 0，要展开到二阶才能保留方差。$\pi$ 本身与 $\sigma^2$ 同阶，是小量；$\pi^2$ 的项与 $\sigma^4$ 同阶，相对于保留的项可以忽略。
       en: |-
-        (a) $u(\mu + \varepsilon) \approx u(\mu) + u'(\mu)\,\varepsilon + \frac{1}{2}u''(\mu)\,\varepsilon^2$; taking expectations, $E[u(W)] \approx u(\mu) + \frac{1}{2}u''(\mu)\,\sigma^2$.
-        (b) $u(\mu - \pi) \approx u(\mu) - u'(\mu)\,\pi$.
-        (c) Setting them equal: $-u'(\mu)\,\pi = \frac{1}{2}u''(\mu)\,\sigma^2$, so $\pi = -\frac{1}{2}\frac{u''(\mu)}{u'(\mu)}\sigma^2 = \frac{1}{2}A(\mu)\sigma^2$.
-        $\pi$ itself is of the same order as $\sigma^2$, a small quantity; terms in $\pi^2$ are of order $\sigma^4$ and negligible next to the terms kept. The first-order term in $\varepsilon$ has expectation 0, so (a) must go to second order to keep the variance.
+        (a) $u(\mu + \varepsilon) \approx u(\mu) + u'(\mu)\,\varepsilon + \frac{1}{2}u''(\mu)\,\varepsilon^2$, so $E[u(W)] \approx u(\mu) + \frac{1}{2}u''(\mu)\,\sigma^2$; and $u(\mu - \pi) \approx u(\mu) - u'(\mu)\,\pi$. Setting them equal: $\pi = -\frac{1}{2}\frac{u''(\mu)}{u'(\mu)}\sigma^2 = \frac{1}{2}A(\mu)\sigma^2$.
+        (b) The first-order term in $\varepsilon$ has zero expectation, so the expansion must go to second order to keep the variance. $\pi$ itself is of the same order as $\sigma^2$, a small quantity; terms in $\pi^2$ are of order $\sigma^4$ and negligible next to the terms kept.
     rubric:
       zh-cn:
-        - "(a)(b) 展开正确，(a) 中一阶项期望为 0。"
-        - "(c) 推出 $\\pi \\approx \\frac{1}{2}A\\sigma^2$，并说明 $\\pi$ 与 $\\sigma^2$ 同阶。"
+        - "(a) 两个展开和推导正确。"
+        - "(b) 说明阶数的理由。"
       en:
-        - "(a) and (b) are correct, with the first-order term in (a) having expectation 0."
-        - "(c) Derives $\\pi \\approx \\frac{1}{2}A\\sigma^2$ and explains that $\\pi$ is of the order of $\\sigma^2$."
+        - "(a) Both expansions and the derivation correct."
+        - "(b) Explains the orders."
 
   - id: Q3
     kind: exercise
@@ -225,108 +219,86 @@ questions:
     concepts: [crra-utility, relative-risk-aversion, certainty-equivalent]
     question:
       zh-cn: |-
-        $u(W) = \frac{W^{1-\gamma}}{1-\gamma}$。
-        (a) 验证相对风险厌恶系数 $R(W) = \gamma$。
-        (b) 赌局使财富等概率变为 $W(1 + h)$ 或 $W(1 - h)$。证明它的确定性等价是 $W$ 乘以一个与 $W$ 无关的数，所以按比例计算的风险溢价 $\frac{\pi}{W}$ 与财富无关。
-        (c) 这对投资有什么含义？一个财富 10 万美元和一个财富 1,000 万美元、$\gamma$ 相同的 CRRA 投资者，会把财富的多大比例投入同一种风险资产？
+        $u(W) = \frac{W^{1-\gamma}}{1-\gamma}$，相对风险厌恶系数为 $\gamma$。
+        (a) 赌局使财富等概率变为 $W(1 + h)$ 或 $W(1 - h)$。证明它的确定性等价是 $W$ 乘以一个与 $W$ 无关的数，所以按比例计算的风险溢价 $\frac{\pi}{W}$ 与财富无关。
+        (b) 一个财富 10 万美元和一个财富 1,000 万美元、$\gamma$ 相同的 CRRA 投资者，会把财富的多大比例投入同一种风险资产？
       en: |-
-        $u(W) = \frac{W^{1-\gamma}}{1-\gamma}$.
-        (a) Verify that the coefficient of relative risk aversion is $R(W) = \gamma$.
-        (b) A gamble leaves wealth at $W(1 + h)$ or $W(1 - h)$ with equal probability. Show that its certainty equivalent is $W$ times a number that does not depend on $W$, so that the proportional risk premium $\frac{\pi}{W}$ does not depend on wealth.
-        (c) What does this imply for investing? CRRA investors with the same $\gamma$, one with 100,000 dollars and one with 10 million dollars: what share of wealth would each put into the same risky asset?
+        $u(W) = \frac{W^{1-\gamma}}{1-\gamma}$, with relative risk aversion $\gamma$.
+        (a) A gamble leaves wealth at $W(1 + h)$ or $W(1 - h)$ with equal probability. Show that its certainty equivalent is $W$ times a number that does not depend on $W$, so the proportional risk premium $\frac{\pi}{W}$ does not depend on wealth.
+        (b) Two CRRA investors with the same $\gamma$, one with 100,000 dollars and one with 10 million dollars: what share of wealth does each put into the same risky asset?
     answer:
       zh-cn: |-
-        (a) $u' = W^{-\gamma}$，$u'' = -\gamma W^{-\gamma - 1}$，$R = -\frac{W u''}{u'} = \gamma$。
-        (b) $E[u] = \frac{W^{1-\gamma}}{1-\gamma} \cdot \frac{(1+h)^{1-\gamma} + (1-h)^{1-\gamma}}{2}$。由 $u(\text{CE}) = E[u]$，$\text{CE} = W \cdot \left[\frac{(1+h)^{1-\gamma} + (1-h)^{1-\gamma}}{2}\right]^{\frac{1}{1-\gamma}}$，方括号部分与 $W$ 无关，所以 $\frac{\pi}{W} = 1 - \frac{\text{CE}}{W}$ 与 $W$ 无关。（$\gamma = 1$ 时 $\text{CE} = W\sqrt{(1+h)(1-h)}$，结论相同。）
-        (c) 投资的收益是按比例的，CRRA 投资者对按比例风险的态度与财富无关，所以两人会把相同的比例投入风险资产（金额相差 100 倍）。
+        (a) $E[u] = \frac{W^{1-\gamma}}{1-\gamma} \cdot \frac{(1+h)^{1-\gamma} + (1-h)^{1-\gamma}}{2}$。由 $u(\text{CE}) = E[u]$，$\text{CE} = W \cdot \left[\frac{(1+h)^{1-\gamma} + (1-h)^{1-\gamma}}{2}\right]^{\frac{1}{1-\gamma}}$，方括号部分与 $W$ 无关，所以 $\frac{\pi}{W} = 1 - \frac{\text{CE}}{W}$ 与 $W$ 无关。（$\gamma = 1$ 时 $\text{CE} = W\sqrt{(1+h)(1-h)}$，结论相同。）
+        (b) 投资的收益是按比例的，CRRA 投资者对按比例风险的态度与财富无关，所以两人会把相同的比例投入风险资产（金额相差 100 倍）。
       en: |-
-        (a) $u' = W^{-\gamma}$ and $u'' = -\gamma W^{-\gamma - 1}$, so $R = -\frac{W u''}{u'} = \gamma$.
-        (b) $E[u] = \frac{W^{1-\gamma}}{1-\gamma} \cdot \frac{(1+h)^{1-\gamma} + (1-h)^{1-\gamma}}{2}$. From $u(\text{CE}) = E[u]$, $\text{CE} = W \cdot \left[\frac{(1+h)^{1-\gamma} + (1-h)^{1-\gamma}}{2}\right]^{\frac{1}{1-\gamma}}$; the bracket does not depend on $W$, so $\frac{\pi}{W} = 1 - \frac{\text{CE}}{W}$ does not depend on $W$. (For $\gamma = 1$, $\text{CE} = W\sqrt{(1+h)(1-h)}$ and the conclusion is the same.)
-        (c) Investment returns are proportional, and a CRRA investor's attitude to proportional risk does not depend on wealth, so both put the same share of wealth into the risky asset (the amounts differ by a factor of 100).
+        (a) $E[u] = \frac{W^{1-\gamma}}{1-\gamma} \cdot \frac{(1+h)^{1-\gamma} + (1-h)^{1-\gamma}}{2}$. From $u(\text{CE}) = E[u]$, $\text{CE} = W \cdot \left[\frac{(1+h)^{1-\gamma} + (1-h)^{1-\gamma}}{2}\right]^{\frac{1}{1-\gamma}}$; the bracket does not depend on $W$, so $\frac{\pi}{W} = 1 - \frac{\text{CE}}{W}$ does not either. (With $\gamma = 1$, $\text{CE} = W\sqrt{(1+h)(1-h)}$, with the same conclusion.)
+        (b) Investment returns are proportional, and a CRRA investor's attitude toward proportional risk does not depend on wealth, so both put the same share into the risky asset (the amounts differ by a factor of 100).
     rubric:
       zh-cn:
-        - "(a) $R = \\gamma$。"
-        - "(b) 把 $W$ 提出来，说明 CE 与 $W$ 成比例。"
-        - "(c) 比例相同。"
+        - "(a) 推出 CE 与 $W$ 成比例。"
+        - "(b) 相同的比例。"
       en:
-        - "(a) $R = \\gamma$."
-        - "(b) Factors out $W$ and shows that the CE is proportional to $W$."
-        - "(c) The same share."
+        - "(a) Shows that the CE is proportional to $W$."
+        - "(b) The same share."
 
   - id: Q4
     kind: exercise
     level: C
     star: true
     concepts: [expected-utility, crra-utility, median]
-    expected: { elog: "-0.0527", f: "0.25", g: "0.62" }
+    expected: { f: "0.25", g: "0.62" }
     question:
       zh-cn: |-
-        回到 [[0.4]] 的抛硬币投资：每年财富等概率乘以 1.5 或 0.6，期望每年增长 5%。一个对数效用（$u = \ln W$）的投资者考虑这项投资。
-        (a) 把全部财富投入，一年后 $E[\ln W]$ 比不投资时高还是低？他会全部投入吗？
-        (b) 如果他把比例 $f$ 投入（其余持有现金、收益为 0），财富变为 $1 + 0.5f$ 或 $1 - 0.4f$ 倍。求使 $E[\ln W]$ 最大的 $f$。
-        (c) 按 (b) 的 $f$ 投资，$E[\ln W]$ 每年增加多少？这与 [[0.4]] 中“中位数财富的增长”有什么关系？
+        回到 [[0.4]] 的抛硬币投资：每年财富等概率乘以 1.5 或 0.6，期望每年增长 5%。一个对数效用（$u = \ln W$）的投资者把全部财富投入时，$E[\ln W]$ 反而下降（$\frac{1}{2}\ln 0.9 < 0$）。
+        (a) 如果他把比例 $f$ 投入（其余持有现金、收益为 0），财富变为 $1 + 0.5f$ 或 $1 - 0.4f$ 倍。求使 $E[\ln W]$ 最大的 $f$。
+        (b) 按这个 $f$ 投资，$E[\ln W]$ 每年增加多少？这与 [[0.4]] 中“中位数财富的增长”有什么关系？
       en: |-
-        Return to the coin-flip investment of [[0.4]]: each year, wealth is multiplied by 1.5 or 0.6 with equal probability, an expected growth of 5% a year. An investor with log utility ($u = \ln W$) considers it.
-        (a) If he invests all his wealth, is $E[\ln W]$ after one year higher or lower than without investing? Would he invest everything?
-        (b) If he invests a share $f$ (holding the rest in cash with zero return), wealth is multiplied by $1 + 0.5f$ or $1 - 0.4f$. Find the $f$ that maximizes $E[\ln W]$.
-        (c) Investing the $f$ from (b), by how much does $E[\ln W]$ rise each year? How does this relate to the "growth of median wealth" in [[0.4]]?
+        Return to the coin-flip investment of [[0.4]]: each year wealth is multiplied by 1.5 or 0.6 with equal probability, an expected growth of 5% a year. For an investor with log utility ($u = \ln W$), putting all wealth in actually lowers $E[\ln W]$ ($\frac{1}{2}\ln 0.9 < 0$).
+        (a) If he invests a share $f$ (holding the rest in cash at 0 return), wealth is multiplied by $1 + 0.5f$ or $1 - 0.4f$. Find the $f$ that maximizes $E[\ln W]$.
+        (b) Investing this share, by how much does $E[\ln W]$ rise each year? How does this relate to "the growth of median wealth" in [[0.4]]?
     answer:
       zh-cn: |-
-        (a) $E[\ln] = \frac{1}{2}\ln 1.5 + \frac{1}{2}\ln 0.6 = \frac{1}{2}\ln 0.9 \approx -0.0527 < 0 = \ln 1$。全部投入使期望效用下降，他不会全部投入，尽管期望收益为正。
-        (b) 最大化 $\frac{1}{2}\ln(1 + 0.5f) + \frac{1}{2}\ln(1 - 0.4f)$：一阶条件 $\frac{0.5}{1 + 0.5f} = \frac{0.4}{1 - 0.4f}$，$0.5 - 0.2f = 0.4 + 0.2f$，$f = 0.25$。
-        (c) $\frac{1}{2}\ln 1.125 + \frac{1}{2}\ln 0.9 \approx 0.0062$，即每年约 0.62%。$E[\ln W]$ 是对数收益率的期望，$n$ 年后中位数财富约为 $e^{n\,E[\ln]}$ 倍（一半年份涨、一半年份跌）。对数效用投资者最大化的正是中位数财富的增长率：全部投入时中位数每年缩小（一涨一跌净 0.9），投入 25% 时中位数每年增长约 0.62%。
+        (a) 最大化 $\frac{1}{2}\ln(1 + 0.5f) + \frac{1}{2}\ln(1 - 0.4f)$：一阶条件 $\frac{0.5}{1 + 0.5f} = \frac{0.4}{1 - 0.4f}$，$0.5 - 0.2f = 0.4 + 0.2f$，$f = 0.25$。
+        (b) $\frac{1}{2}\ln 1.125 + \frac{1}{2}\ln 0.9 \approx 0.0062$，即每年约 0.62%。$E[\ln W]$ 是对数收益率的期望，$n$ 年后中位数财富约为 $e^{n\,E[\ln]}$ 倍。对数效用投资者最大化的正是中位数财富的增长率：全部投入时中位数每年缩小（一涨一跌净 0.9），投入 25% 时中位数每年增长约 0.62%。
       en: |-
-        (a) $E[\ln] = \frac{1}{2}\ln 1.5 + \frac{1}{2}\ln 0.6 = \frac{1}{2}\ln 0.9 \approx -0.0527 < 0 = \ln 1$. Investing everything lowers expected utility, so he would not, even though the expected return is positive.
-        (b) Maximize $\frac{1}{2}\ln(1 + 0.5f) + \frac{1}{2}\ln(1 - 0.4f)$: the first-order condition $\frac{0.5}{1 + 0.5f} = \frac{0.4}{1 - 0.4f}$ gives $0.5 - 0.2f = 0.4 + 0.2f$, so $f = 0.25$.
-        (c) $\frac{1}{2}\ln 1.125 + \frac{1}{2}\ln 0.9 \approx 0.0062$, about 0.62% a year. $E[\ln W]$ is the expected log return, and after $n$ years median wealth is about $e^{n\,E[\ln]}$ times the start (half the years up, half down). A log-utility investor maximizes exactly the growth rate of median wealth: investing everything makes the median shrink each year (one rise and one fall net 0.9), while investing 25% makes it grow about 0.62% a year.
+        (a) Maximize $\frac{1}{2}\ln(1 + 0.5f) + \frac{1}{2}\ln(1 - 0.4f)$: the first-order condition $\frac{0.5}{1 + 0.5f} = \frac{0.4}{1 - 0.4f}$ gives $0.5 - 0.2f = 0.4 + 0.2f$, so $f = 0.25$.
+        (b) $\frac{1}{2}\ln 1.125 + \frac{1}{2}\ln 0.9 \approx 0.0062$, about 0.62% a year. $E[\ln W]$ is the expected log return, and after $n$ years median wealth is about $e^{n\,E[\ln]}$ times the start. A log-utility investor maximizes exactly the growth rate of median wealth: investing everything makes the median shrink each year (one rise and one fall net 0.9), while investing 25% makes it grow about 0.62% a year.
     rubric:
       zh-cn:
-        - "(a) $E[\\ln] \\approx -0.0527$，不会全部投入。"
-        - "(b) $f = 0.25$。"
-        - "(c) 约 0.62%，并联系中位数的增长率。"
+        - "(a) $f = 0.25$。"
+        - "(b) 约 0.62%，并联系中位数的增长。"
       en:
-        - "(a) $E[\\ln] \\approx -0.0527$; he would not invest everything."
-        - "(b) $f = 0.25$."
-        - "(c) About 0.62%, linked to the growth rate of the median."
+        - "(a) $f = 0.25$."
+        - "(b) About 0.62%, linked to median growth."
 
   - id: Q5
     kind: exercise
     level: B
     concepts: [risk-premium, risk-aversion, standard-error]
-    expected: { sd: "4.36", sdavg: "0.044", z: "2.29" }
+    expected: { sdavg: "0.044", z: "2.29" }
     question:
       zh-cn: |-
-        保险公司承保 [[check:C4]] 那样的汽车保单：每份保单有 5% 的概率赔付 20（千美元），否则赔付 0。
-        (a) 每份保单的赔付期望和标准差各是多少？
-        (b) 公司承保 10,000 份相互独立的保单。平均每份保单赔付的标准差是多少？
-        (c) 公司对每份保单收保费 1.1。平均赔付超过 1.1 大约是均值之上几个标准差的事件？这说明保险公司为什么可以近似看作风险中性？
-        (d) 如果这些汽车都在同一个城市，主要风险是一场冰雹，(b) 和 (c) 的结论还成立吗？
+        保险公司承保 [[check:C4]] 那样的汽车保单：每份保单有 5% 的概率赔付 20（千美元），否则赔付 0；每份的期望赔付为 1，标准差约 4.36。
+        (a) 公司承保 10,000 份相互独立的保单，每份收保费 1.1。平均每份保单赔付的标准差是多少？平均赔付超过保费是均值之上几个标准差的事件？这说明保险公司为什么可以近似看作风险中性？
+        (b) 如果这些汽车都在同一个城市，主要风险是一场冰雹，(a) 的结论还成立吗？
       en: |-
-        An insurer writes car policies like the one in [[check:C4]]: each policy pays 20 (thousand dollars) with probability 5% and 0 otherwise.
-        (a) What are the expected payout and the standard deviation of one policy?
-        (b) The insurer writes 10,000 independent policies. What is the standard deviation of the average payout per policy?
-        (c) The insurer charges a premium of 1.1 per policy. An average payout above 1.1 is about how many standard deviations above the mean? Why can the insurer be treated as roughly risk neutral?
-        (d) If all the cars are in the same city and the main risk is a single hailstorm, do the conclusions of (b) and (c) still hold?
+        An insurer writes car policies like the one in [[check:C4]]: each policy pays 20 (thousand dollars) with probability 5% and nothing otherwise; the expected payout per policy is 1 and the standard deviation about 4.36.
+        (a) The insurer writes 10,000 independent policies and charges a premium of 1.1 each. What is the standard deviation of the average payout per policy? How many standard deviations above the mean is an average payout above the premium? Why can the insurer be treated as roughly risk neutral?
+        (b) If all the cars are in one city and the main risk is a hailstorm, does (a) still hold?
     answer:
       zh-cn: |-
-        (a) 期望 $0.05 \times 20 = 1$，标准差 $20\sqrt{0.05 \times 0.95} \approx 4.36$。
-        (b) 独立时平均值的标准差为 $\frac{4.36}{\sqrt{10{,}000}} \approx 0.044$。
-        (c) $\frac{1.1 - 1}{0.0436} \approx 2.29$ 个标准差，概率约 1%。平均赔付几乎确定，公司面对的风险很小，可以按期望值决策，近似风险中性。
-        (d) 不成立。一场冰雹会使很多保单同时赔付，保单之间高度相关，平均值的方差不会按 $\frac{1}{n}$ 下降（[[0.4]]）。这种相关的风险很难分散，保险公司要么收更高的保费，要么通过再保险把风险转移出去。
+        (a) 独立时平均值的标准差为 $\frac{4.36}{\sqrt{10{,}000}} \approx 0.044$；$\frac{1.1 - 1}{0.0436} \approx 2.29$ 个标准差，概率约 1%。平均赔付几乎确定，公司面对的风险很小，可以按期望值决策，近似风险中性。
+        (b) 不成立。一场冰雹会使很多保单同时赔付，保单之间高度相关，平均值的方差不会按 $\frac{1}{n}$ 下降（[[0.4]]）。这种相关的风险很难分散，保险公司要么收更高的保费，要么通过再保险把风险转移出去。
       en: |-
-        (a) Expected payout $0.05 \times 20 = 1$, standard deviation $20\sqrt{0.05 \times 0.95} \approx 4.36$.
-        (b) With independence, the standard deviation of the average is $\frac{4.36}{\sqrt{10{,}000}} \approx 0.044$.
-        (c) $\frac{1.1 - 1}{0.0436} \approx 2.29$ standard deviations, a probability of about 1%. The average payout is nearly certain, the insurer faces little risk, and it can decide on expected values: it is roughly risk neutral.
-        (d) No. A single hailstorm makes many policies pay at once; the policies are highly correlated, and the variance of the average does not fall like $\frac{1}{n}$ ([[0.4]]). Such correlated risk is hard to diversify; the insurer must charge a higher premium or pass the risk on through reinsurance.
+        (a) With independence the standard deviation of the average is $\frac{4.36}{\sqrt{10{,}000}} \approx 0.044$; $\frac{1.1 - 1}{0.0436} \approx 2.29$ standard deviations, a probability of about 1%. The average payout is nearly certain, so the insurer bears little risk and can decide by expected values: roughly risk neutral.
+        (b) No. A hailstorm makes many policies pay out at once, the policies are highly correlated, and the variance of the average does not fall like $\frac{1}{n}$ ([[0.4]]). Such correlated risk is hard to diversify, so the insurer must charge more or pass the risk on through reinsurance.
     rubric:
       zh-cn:
-        - "(a) 期望 1，标准差约 4.36。"
-        - "(b) 约 0.044；(c) 约 2.29 个标准差，并解释近似风险中性。"
-        - "(d) 指出相关风险无法靠数量分散。"
+        - "(a) 约 0.044、约 2.29 个标准差，说明近似风险中性。"
+        - "(b) 不成立，指出相关性。"
       en:
-        - "(a) Expected 1, standard deviation about 4.36."
-        - "(b) About 0.044; (c) about 2.29 standard deviations, with an explanation of near risk neutrality."
-        - "(d) Points out that correlated risk cannot be diversified by numbers."
+        - "(a) About 0.044 and about 2.29 standard deviations; explains near risk neutrality."
+        - "(b) No, pointing to correlation."
 
   - id: Q6
     kind: exercise

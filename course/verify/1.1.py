@@ -50,6 +50,9 @@ def results():
     r["Q6.rev"] = (1.1 * 0.95 - 1) * 100
     r["Q6.dq"] = -0.5 * 10 + 0.3 * 10
     r["Q6.rev2"] = (1.1 * 0.98 - 1) * 100
+    # Values that the questions now give or no longer ask for.
+    for k in ['C3.q', 'C4.ex', 'Q2.p', 'Q2.q', 'Q2.r', 'Q2.e', 'Q3.p', 'Q3.q', 'Q5.up', 'Q5.down', 'Q6.e']:
+        del r[k]
     return r
 
 

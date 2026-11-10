@@ -46,6 +46,9 @@ def results():
     r["Q5.t"] = 3 / se5
     r["Q6.false20"] = 20 * 0.05
     r["Q6.false100"] = 100 * 0.05
+    # Values that the questions now give or no longer ask for.
+    for k in ['Q4.r']:
+        del r[k]
     return r
 
 

@@ -103,23 +103,21 @@ questions:
     expected: { z: "20" }
     question:
       zh-cn: |-
-        1987 年 10 月 19 日，美国股市一天下跌约 20%。假设当时日收益的标准差约为 1%、日期望收益约为 0。按正态分布，这是离期望几个标准差的事件？正态模型认为这种事件发生的可能性是大还是小？它真的发生了，说明了什么？如果一个风险模型假设收益服从正态分布，它算出的大跌概率会偏高还是偏低？
+        1987 年 10 月 19 日，美国股市一天下跌约 20%。假设当时日收益的标准差约为 1%、日期望收益约为 0。按正态分布，这是离期望几个标准差的事件？它真的发生了，说明假设正态分布的风险模型会怎样估计大跌的概率？
       en: |-
-        On October 19, 1987, the US stock market fell about 20% in one day. Assume that the standard deviation of daily returns was then about 1% and the mean daily return about 0. Under a normal distribution, how many standard deviations from the mean is this event? Does the normal model consider such an event likely or unlikely? It did happen; what does that show? If a risk model assumes normally distributed returns, will its probability of a large fall be too high or too low?
+        On October 19, 1987, the US stock market fell about 20% in one day. Assume that the standard deviation of daily returns was then about 1% and the mean daily return about 0. Under a normal distribution, how many standard deviations from the mean is this event? Given that it did happen, how does a risk model that assumes normal returns estimate the probability of large falls?
     answer:
       zh-cn: |-
-        $z = \frac{-20 - 0}{1} = -20$，离期望 20 个标准差。按正态分布，3 个标准差以外的概率就只有约 0.3%，20 个标准差的事件在宇宙的寿命里几乎不可能发生。它真的发生了，说明真实收益的尾部比正态分布厚（肥尾）。所以假设正态分布的风险模型会低估大跌的概率。
+        $z = \frac{-20 - 0}{1} = -20$，离期望 20 个标准差。按正态分布，3 个标准差以外的概率就只有约 0.3%，20 个标准差的事件在宇宙的寿命里几乎不可能发生。它真的发生了，说明真实收益的尾部比正态分布厚（肥尾），假设正态分布的风险模型会低估大跌的概率。
       en: |-
-        $z = \frac{-20 - 0}{1} = -20$, 20 standard deviations from the mean. Under a normal distribution, even moves beyond 3 standard deviations have a probability of only about 0.3%; a 20-standard-deviation event should practically never happen in the age of the universe. It did happen, which shows that real returns have thicker tails than a normal distribution (fat tails). So a risk model that assumes a normal distribution understates the probability of a large fall.
+        $z = \frac{-20 - 0}{1} = -20$, 20 standard deviations from the mean. Under a normal distribution, even moves beyond 3 standard deviations have a probability of only about 0.3%; a 20-standard-deviation event should practically never happen in the age of the universe. It did happen, which shows that real returns have thicker tails than a normal distribution (fat tails), so a risk model that assumes a normal distribution understates the probability of a large fall.
     rubric:
       zh-cn:
-        - "算出约 20 个标准差。"
-        - "指出正态模型认为这几乎不可能，说明真实收益有肥尾。"
-        - "结论：正态模型低估大跌的概率。"
+        - "约 20 个标准差。"
+        - "指出肥尾，正态模型低估大跌的概率。"
       en:
-        - "Finds about 20 standard deviations."
-        - "Points out that the normal model considers this practically impossible, which shows fat tails."
-        - "Concludes that the normal model understates the probability of a large fall."
+        - "About 20 standard deviations."
+        - "Points to fat tails; the normal model understates the probability of a large fall."
 
   - id: C3
     kind: check
@@ -128,23 +126,23 @@ questions:
     expected: { mean: "110.25", median: "90" }
     question:
       zh-cn: |-
-        同一个抛硬币投资（每年等概率乘以 1.5 或 0.6），投入 100 美元，玩 2 年。有哪几种结果？各自的概率是多少？期望财富和中位数各是多少？
+        同一个抛硬币投资（每年等概率乘以 1.5 或 0.6），投入 100 美元，玩 2 年。期望财富和中位数各是多少？为什么期望高于中位数？
       en: |-
-        The same coin-flip investment (each year the wealth is multiplied by 1.5 or 0.6 with equal probability), starting with 100 dollars, for 2 years. What are the possible outcomes and their probabilities? What are the mean wealth and the median?
+        The same coin-flip investment (each year the wealth is multiplied by 1.5 or 0.6 with equal probability), starting with 100 dollars, for 2 years. What are the mean wealth and the median? Why is the mean above the median?
     answer:
       zh-cn: |-
-        两次正面：225 美元，概率 0.25；一正一反：90 美元，概率 0.5；两次反面：36 美元，概率 0.25。
-        期望 $0.25 \times 225 + 0.5 \times 90 + 0.25 \times 36 = 110.25$ 美元（等于 $100 \times 1.05^2$）。中位数 90 美元。
+        两次正面 225 美元（概率 0.25），一正一反 90 美元（概率 0.5），两次反面 36 美元（概率 0.25）。期望 $0.25 \times 225 + 0.5 \times 90 + 0.25 \times 36 = 110.25$ 美元，中位数 90 美元。
+        期望被概率较小但财富很高的结果（225）拉高；最常见的结果是一涨一跌，$1.5 \times 0.6 = 0.9 < 1$，财富缩水。
       en: |-
-        Two heads: 225 dollars, probability 0.25; one head and one tail: 90 dollars, probability 0.5; two tails: 36 dollars, probability 0.25.
-        Mean $0.25 \times 225 + 0.5 \times 90 + 0.25 \times 36 = 110.25$ dollars (equal to $100 \times 1.05^2$). Median 90 dollars.
+        Two heads give 225 dollars (probability 0.25), one of each 90 dollars (probability 0.5), two tails 36 dollars (probability 0.25). The mean is $0.25 \times 225 + 0.5 \times 90 + 0.25 \times 36 = 110.25$ dollars and the median 90 dollars.
+        The mean is pulled up by the less likely but very high outcome (225); the most common outcome is one rise and one fall, and $1.5 \times 0.6 = 0.9 < 1$, so wealth shrinks.
     rubric:
       zh-cn:
-        - "三种结果和概率正确（一正一反的两种顺序合并，概率 0.5）。"
-        - "期望 110.25、中位数 90 正确。"
+        - "期望 110.25、中位数 90。"
+        - "用高端结果拉高期望、一涨一跌净效果小于 1 解释。"
       en:
-        - "The three outcomes and their probabilities are correct (the two orders of one head and one tail are combined, probability 0.5)."
-        - "The mean 110.25 and the median 90 are correct."
+        - "Mean 110.25, median 90."
+        - "Explains by the high outcome pulling up the mean and one rise and one fall netting below 1."
 
   - id: C4
     kind: check
@@ -336,30 +334,26 @@ questions:
     kind: exercise
     level: B
     concepts: [median, right-skew, expected-value]
-    expected: { r: "10", mean: "672.7", median: "66.5" }
+    expected: { mean: "672.7", median: "66.5" }
     question:
       zh-cn: |-
-        一项投资每年等概率 +60% 或 −40%。(a) 每年的期望收益是多少？(b) 投入 100 美元，20 年后的期望财富和中位数各是多少？(c) 解释两者为什么差这么多。
+        一项投资每年等概率 +60% 或 −40%，每年的期望收益为 10%。投入 100 美元，20 年后的期望财富和中位数各是多少？为什么两者差这么多？
       en: |-
-        An investment returns +60% or −40% each year with equal probability. (a) What is the expected return per year? (b) Starting with 100 dollars, what are the mean and the median wealth after 20 years? (c) Explain why they differ so much.
+        An investment returns +60% or −40% each year with equal probability, an expected return of 10% a year. Starting with 100 dollars, what are the mean and the median wealth after 20 years? Why do they differ so much?
     answer:
       zh-cn: |-
-        (a) $\frac{60 - 40}{2} = 10$%。
-        (b) 期望 $100 \times 1.1^{20} \approx 672.7$ 美元；中位数（10 正 10 反）$100 \times (1.6 \times 0.6)^{10} = 100 \times 0.96^{10} \approx 66.5$ 美元。
-        (c) 一涨一跌的净效果是 $1.6 \times 0.6 = 0.96 < 1$，典型的路径在缩水；期望被少数多次上涨、财富极大的路径拉高。财富按比例增减、亏损有下限，分布右偏。
+        期望 $100 \times 1.1^{20} \approx 672.7$ 美元；中位数（10 正 10 反）$100 \times (1.6 \times 0.6)^{10} = 100 \times 0.96^{10} \approx 66.5$ 美元。
+        一涨一跌的净效果是 $1.6 \times 0.6 = 0.96 < 1$，典型的路径在缩水；期望被少数多次上涨、财富极大的路径拉高。财富按比例增减、亏损有下限，分布右偏。
       en: |-
-        (a) $\frac{60 - 40}{2} = 10$%.
-        (b) Mean $100 \times 1.1^{20} \approx 672.7$ dollars; median (10 up and 10 down) $100 \times (1.6 \times 0.6)^{10} = 100 \times 0.96^{10} \approx 66.5$ dollars.
-        (c) One rise and one fall together give $1.6 \times 0.6 = 0.96 < 1$, so the typical path shrinks; the mean is pulled up by a few paths with many rises and very large wealth. Wealth changes in proportion and losses have a floor, so the distribution is right-skewed.
+        Mean $100 \times 1.1^{20} \approx 672.7$ dollars; median (10 up and 10 down) $100 \times (1.6 \times 0.6)^{10} = 100 \times 0.96^{10} \approx 66.5$ dollars.
+        One rise and one fall together give $1.6 \times 0.6 = 0.96 < 1$, so the typical path shrinks; the mean is pulled up by a few paths with many rises and very large wealth. Wealth changes in proportion and losses have a floor, so the distribution is right-skewed.
     rubric:
       zh-cn:
-        - "(a) 10%。"
-        - "(b) 期望约 672.7、中位数约 66.5。"
-        - "(c) 用一涨一跌的净效果小于 1、右偏来解释。"
+        - "期望约 672.7、中位数约 66.5。"
+        - "用一涨一跌的净效果小于 1、右偏来解释。"
       en:
-        - "(a) 10%."
-        - "(b) Mean about 672.7 and median about 66.5."
-        - "(c) Explains with the net effect of one rise and one fall being below 1, and with right skew."
+        - "Mean about 672.7 and median about 66.5."
+        - "Explains with the net effect of one rise and one fall being below 1, and with right skew."
 
   - id: Q5
     kind: exercise

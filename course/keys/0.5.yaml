@@ -108,30 +108,26 @@ questions:
     kind: check
     section: coefficients
     concepts: [regression-coefficient]
-    expected: { per_sqft: "200", price: "450", per_m2: "2.15" }
+    expected: { per_sqft: "200", per_m2: "2.15" }
     question:
       zh-cn: |-
-        某地区房价的回归结果为：房价（千美元）$= 50 + 0.2 \times$ 面积（平方英尺）。(a) 0.2 是什么意思？写出单位。(b) 预测一套 2,000 平方英尺的房子的价格。(c) 如果面积改用平方米（1 平方米约 10.76 平方英尺），其他不变，斜率会变成多少？
+        某地区房价的回归结果为：房价（千美元）$= 50 + 0.2 \times$ 面积（平方英尺）。(a) 0.2 是什么意思？写出单位。(b) 如果面积改用平方米（1 平方米约 10.76 平方英尺），其他不变，斜率会变成多少？
       en: |-
-        A regression of house prices in an area gives: price (thousand dollars) $= 50 + 0.2 \times$ area (square feet). (a) What does 0.2 mean? Give its units. (b) Predict the price of a 2,000-square-foot house. (c) If area were measured in square meters instead (1 square meter is about 10.76 square feet), with nothing else changed, what would the slope be?
+        A regression of house prices in an area gives: price (thousand dollars) $= 50 + 0.2 \times$ area (square feet). (a) What does 0.2 mean? Give its units. (b) If area were measured in square meters instead (1 square meter is about 10.76 square feet), with nothing else changed, what would the slope be?
     answer:
       zh-cn: |-
         (a) 面积每多 1 平方英尺，房价平均高 0.2 千美元，即 200 美元。单位是千美元 / 平方英尺。
-        (b) $50 + 0.2 \times 2000 = 450$ 千美元，即约 45 万美元。
-        (c) 1 平方米约等于 10.76 平方英尺，所以每平方米房价平均高 $0.2 \times 10.76 \approx 2.15$ 千美元。斜率的数值随单位变化，但描述的关系不变。
+        (b) 1 平方米约等于 10.76 平方英尺，所以每平方米房价平均高 $0.2 \times 10.76 \approx 2.15$ 千美元。斜率的数值随单位变化，但描述的关系不变。
       en: |-
         (a) Each additional square foot raises the price by 0.2 thousand dollars on average, that is, 200 dollars. The unit is thousand dollars per square foot.
-        (b) $50 + 0.2 \times 2000 = 450$ thousand dollars, about 450,000 dollars.
-        (c) 1 square meter is about 10.76 square feet, so each square meter raises the price by about $0.2 \times 10.76 \approx 2.15$ thousand dollars on average. The number changes with the units, but the relation it describes does not.
+        (b) 1 square meter is about 10.76 square feet, so each square meter raises the price by about $0.2 \times 10.76 \approx 2.15$ thousand dollars on average. The number changes with the units, but the relation it describes does not.
     rubric:
       zh-cn:
-        - "斜率的含义和单位正确（平均每平方英尺 200 美元）。"
-        - "预测 450 千美元。"
-        - "换单位后斜率约 2.15 千美元 / 平方米。"
+        - "(a) 含义和单位正确（平均每平方英尺 200 美元）。"
+        - "(b) 约 2.15 千美元 / 平方米。"
       en:
-        - "The meaning and unit of the slope are correct (200 dollars per square foot on average)."
-        - "Predicts 450 thousand dollars."
-        - "The slope in the new unit is about 2.15 thousand dollars per square meter."
+        - "(a) Correct meaning and unit (200 dollars per square foot on average)."
+        - "(b) About 2.15 thousand dollars per square meter."
 
   - id: C4
     kind: check
@@ -303,28 +299,26 @@ questions:
     kind: exercise
     level: B
     concepts: [omitted-variable-bias]
-    expected: { biased: "3.5", unbiased: "2", negative: "0.5" }
+    expected: { biased: "3.5", negative: "0.5" }
     question:
       zh-cn: |-
-        真实关系为 $y = 1 + 2x_1 + 3x_2 + \varepsilon$，$\text{Var}(x_1) = 4$，$\text{Cov}(x_1, x_2) = 2$。(a) 数据很多时，只用 $x_1$ 做回归，斜率接近多少？(b) 如果 $\text{Cov}(x_1, x_2) = 0$ 呢？(c) 如果 $x_2$ 的系数是 −3（其他同 (a)）呢？
+        真实关系为 $y = 1 + 2x_1 + 3x_2 + \varepsilon$，$\text{Var}(x_1) = 4$，$\text{Cov}(x_1, x_2) = 2$。(a) 数据很多时，只用 $x_1$ 做回归，斜率接近多少？(b) 如果 $x_2$ 的系数是 −3（其他不变）呢？偏差的方向由什么决定？
       en: |-
-        The true relation is $y = 1 + 2x_1 + 3x_2 + \varepsilon$, with $\text{Var}(x_1) = 4$ and $\text{Cov}(x_1, x_2) = 2$. (a) With a lot of data, what is the slope from regressing $y$ on $x_1$ only? (b) What if $\text{Cov}(x_1, x_2) = 0$? (c) What if the coefficient of $x_2$ is −3 (otherwise as in (a))?
+        The true relation is $y = 1 + 2x_1 + 3x_2 + \varepsilon$, with $\text{Var}(x_1) = 4$ and $\text{Cov}(x_1, x_2) = 2$. (a) With a lot of data, what is the slope from regressing $y$ on $x_1$ only? (b) What if the coefficient of $x_2$ is −3 (otherwise unchanged)? What determines the direction of the bias?
     answer:
       zh-cn: |-
         (a) $2 + 3 \times \frac{2}{4} = 3.5$，高估了 $x_1$ 的作用。
-        (b) 偏差项为 0，斜率接近 2：被遗漏的变量与 $x_1$ 不相关时没有偏差。
-        (c) $2 - 3 \times \frac{2}{4} = 0.5$，低估了 $x_1$ 的作用。
+        (b) $2 - 3 \times \frac{2}{4} = 0.5$，低估了 $x_1$ 的作用。偏差的方向由遗漏变量的系数与 $\text{Cov}(x_1, x_2)$ 的符号共同决定：两者同号时高估，异号时低估；协方差为 0 时没有偏差。
       en: |-
         (a) $2 + 3 \times \frac{2}{4} = 3.5$, which overstates the effect of $x_1$.
-        (b) The bias term is 0 and the slope is close to 2: there is no bias when the omitted variable is uncorrelated with $x_1$.
-        (c) $2 - 3 \times \frac{2}{4} = 0.5$, which understates the effect of $x_1$.
+        (b) $2 - 3 \times \frac{2}{4} = 0.5$, which understates the effect of $x_1$. The direction of the bias depends on the signs of the omitted variable's coefficient and $\text{Cov}(x_1, x_2)$ together: the same sign means overstatement, opposite signs understatement; with zero covariance there is no bias.
     rubric:
       zh-cn:
-        - "三问数值正确：3.5、2、0.5。"
-        - "说明偏差的方向（高估 / 无偏 / 低估）。"
+        - "3.5 和 0.5。"
+        - "说明偏差方向由系数和协方差的符号决定。"
       en:
-        - "The three values are correct: 3.5, 2 and 0.5."
-        - "States the direction of the bias (overstated / none / understated)."
+        - "3.5 and 0.5."
+        - "Explains that the direction depends on the signs of the coefficient and the covariance."
 
   - id: Q5
     kind: exercise

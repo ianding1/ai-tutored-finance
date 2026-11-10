@@ -57,6 +57,9 @@ def results():
     r["Q6.L"], r["Q6.K"] = L, 4 * L
     r["Q6.cost"] = 16 * L + 4 * 4 * L
     r["Q6.ac"] = r["Q6.cost"] / 40
+    # Values that the questions now give or no longer ask for.
+    for k in ['C3.atc', 'Q4.q_sr', 'Q4.p_sr', 'Q6.cost']:
+        del r[k]
     return r
 
 

@@ -52,6 +52,9 @@ def results():
     r["Q5.z"] = (1.1 - 1) / round(sd / 100, 4)
 
     r["Q6.gamma"] = bisect(lambda g: ce(g, [5, 15], [0.5, 0.5]) - 8, 1.0001, 20)
+    # Values that the questions now give or no longer ask for.
+    for k in ['C1.eu', 'C3.ce', 'Q4.elog', 'Q5.sd']:
+        del r[k]
     return r
 
 

@@ -46,6 +46,9 @@ def results():
     r["Q6.real3"] = ((1 + after) / 1.03 - 1) * 100
     r["Q6.real5"] = ((1 + after) / 1.05 - 1) * 100
     r["Q6.pre5"] = (1.04 / 1.05 - 1) * 100
+    # Values that the questions now give or no longer ask for.
+    for k in ['C1.c2max', 'C1.c2a', 'C2.c1', 'C2.c2', 'C3.c1', 'C4.ex_ante', 'Q6.pre5']:
+        del r[k]
     return r
 
 
