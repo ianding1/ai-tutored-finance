@@ -43,7 +43,7 @@ const yr = [0, 2000];
 const yticks = [0, 500, 1000, 1500, 2000];
 const layouts = [
 	{ cls: 'viz-wide', W: 640, H: 300, pad: { l: 56, r: 20, t: 14, b: 50 }, font: 12 },
-	{ cls: 'viz-narrow', W: 360, H: 280, pad: { l: 50, r: 10, t: 14, b: 50 }, font: 12 },
+	{ cls: 'viz-narrow', W: 360, H: 300, pad: { l: 58, r: 10, t: 14, b: 70 }, font: 12 },
 ].map((g) => {
 	const slot = (g.W - g.pad.l - g.pad.r) / levels.length;
 	return {
@@ -73,7 +73,11 @@ const layouts = [
 			{levels.map((lv, k) => (
 				<g>
 					<rect class={lv.side === 'bid' ? 'viz-bar-bid' : 'viz-bar'} x={X(k)} y={Y(lv.n)} width={slot * 0.7} height={Y(0) - Y(lv.n)} />
-					<text class="viz-tick" x={X(k) + slot * 0.35} y={H - pad.b + 16} text-anchor="middle">{lv.p.toFixed(2)}</text>
+					{cls === 'viz-narrow' ? (
+						<text class="viz-tick" transform={`translate(${X(k) + slot * 0.35 + 4} ${H - pad.b + 12}) rotate(-45)`} text-anchor="end">{lv.p.toFixed(2)}</text>
+					) : (
+						<text class="viz-tick" x={X(k) + slot * 0.35} y={H - pad.b + 16} text-anchor="middle">{lv.p.toFixed(2)}</text>
+					)}
 				</g>
 			))}
 			{ASKS.map((_, j) => (
