@@ -184,9 +184,9 @@ questions:
     concepts: [automatic-stabilizer, risk-aversion, expected-utility, variance]
     question:
       zh-cn: |-
-        一个家庭的收入每年随经济好坏而波动，它每年把税后收入全部花掉，不能借款或储蓄。政府把这个家庭原来每年固定交的税，改为按收入的固定比例征税，比例定得使它平均每年交的税和原来一样多。只要这个家庭厌恶风险，这项改变就提高了它的福利。
+        一个家庭的收入每年随经济好坏而波动，只取决于经济的状况，不受税制影响；它每年把税后收入全部花掉，不能借款或储蓄。政府把这个家庭原来每年固定交的税，改为按收入的固定比例征税，比例定得使它平均每年交的税和原来一样多。只要这个家庭厌恶风险，这项改变就提高了它的福利。
       en: |-
-        A household's income moves up and down with the economy each year; it spends all its after-tax income every year and cannot borrow or save. The government replaces the fixed amount of tax the household paid each year with a tax at a fixed percentage of income, with the percentage set so that the household pays the same tax as before on average. As long as the household is risk averse, this change makes it better off.
+        A household's income moves up and down with the economy each year; it depends only on the state of the economy, not on the tax system. The household spends all its after-tax income every year and cannot borrow or save. The government replaces the fixed amount of tax the household paid each year with a tax at a fixed percentage of income, with the percentage set so that the household pays the same tax as before on average. As long as the household is risk averse, this change makes it better off.
     answer:
       zh-cn: |-
         真。原来税额固定，税后收入的波动和税前收入一样大。改为比例税后，收入高的年份多交税，收入低的年份少交税，税后收入等于税前收入乘以 $(1 - \tau)$，标准差也按同一比例缩小；而平均税额不变，所以税后收入的期望不变。期望相同、波动更小，对 $u$ 是凹函数的风险厌恶家庭，期望效用更高。比例税就像一份免费的收入保险：好年份多交的税补偿了坏年份少交的税。这也是比例税作为自动稳定器在家庭层面的含义。（如果家庭可以借款和储蓄来平滑消费，这个好处会小一些，但不会消失。）
