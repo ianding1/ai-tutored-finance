@@ -20,20 +20,27 @@ import Quiz from '../../../../components/Quiz.astro';
 
 - $PV = \frac{FV}{(1 + r)^n}$; annuity (payment $C$ at the end of each of $n$ periods): $PV = \frac{C}{r}\left[1 - (1 + r)^{-n}\right]$
 - Growing perpetuity: $PV = \frac{C}{r - g}$ ($C$ is the payment at the end of the first period)
+- Effective annual rate: $\text{EAR} = \left(1 + \frac{r}{m}\right)^m - 1$
 
 **Probability and statistics**
 
 - $\text{Var}(aX + bY) = a^2\text{Var}(X) + b^2\text{Var}(Y) + 2ab\,\text{Cov}(X, Y)$
-- Standard error of the sample mean: $\text{SE} = \frac{\sigma}{\sqrt{n}}$; regression slope: $b = \frac{\text{Cov}(x, y)}{\text{Var}(x)}$
+- Standard error of the sample mean: $\text{SE} = \frac{\sigma}{\sqrt{n}}$; z-score: $z = \frac{R - \mu}{\sigma}$
+- Regression slope: $b = \frac{\text{Cov}(x, y)}{\text{Var}(x)}$; $R^2 = 1 - \frac{\text{SSR}}{\text{SST}}$
 
 **Microeconomics**
 
+- Price elasticity of demand: $\varepsilon = \frac{dQ}{dP} \cdot \frac{P}{Q}$; Lerner index: $\frac{P - MC}{P} = \frac{1}{|\varepsilon|}$
 - Fisher equation: $1 + r = \frac{1 + i}{1 + \pi}$
 - Certainty equivalent: $u(\text{CE}) = E[u(W)]$; with CRRA utility (relative risk aversion $\gamma$), proportional risk premium $\approx \frac12\gamma\sigma^2$
 - A tax $t$ per unit: the buyers' price $P_b$ and the sellers' price $P_s$ satisfy $P_s = P_b - t$
 
 **Macroeconomics**
 
+- Growth accounting: $g_Y = g_A + \alpha g_K + (1 - \alpha) g_L$; quantity theory of money: $g_M + g_V \approx \pi + g_Y$
+- Government purchases multiplier (interest rate fixed): $\frac{1}{1 - b}$, where $b$ is the marginal propensity to consume
+- Taylor rule: $i = r^* + \pi + 0.5(\pi - 2) + 0.5x$, where $x$ is the output gap (%)
+- Covered interest parity: $F = S \cdot \frac{1 + i}{1 + i^*}$
 - Debt-to-GDP ratio: $b_{t+1} = \frac{1 + r}{1 + g}\,b_t + d$ ($r$ the interest rate, $g$ nominal growth, $d$ the primary deficit as a share of GDP)
 - Phillips curve: $\pi = \pi^e - \beta(u - u^*)$, $\beta > 0$
 

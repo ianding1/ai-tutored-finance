@@ -20,20 +20,27 @@ import Quiz from '../../../../components/Quiz.astro';
 
 - $PV = \frac{FV}{(1 + r)^n}$；年金（每期期末付款 $C$，共 $n$ 期）：$PV = \frac{C}{r}\left[1 - (1 + r)^{-n}\right]$
 - 增长永续年金：$PV = \frac{C}{r - g}$（$C$ 为第 1 期期末的付款）
+- 有效年利率：$\text{EAR} = \left(1 + \frac{r}{m}\right)^m - 1$
 
 **概率与统计**
 
 - $\text{Var}(aX + bY) = a^2\text{Var}(X) + b^2\text{Var}(Y) + 2ab\,\text{Cov}(X, Y)$
-- 样本均值的标准误：$\text{SE} = \frac{\sigma}{\sqrt{n}}$；回归斜率：$b = \frac{\text{Cov}(x, y)}{\text{Var}(x)}$
+- 样本均值的标准误：$\text{SE} = \frac{\sigma}{\sqrt{n}}$；标准分数：$z = \frac{R - \mu}{\sigma}$
+- 回归斜率：$b = \frac{\text{Cov}(x, y)}{\text{Var}(x)}$；$R^2 = 1 - \frac{\text{SSR}}{\text{SST}}$
 
 **微观经济学**
 
+- 需求的价格弹性：$\varepsilon = \frac{dQ}{dP} \cdot \frac{P}{Q}$；勒纳指数：$\frac{P - MC}{P} = \frac{1}{|\varepsilon|}$
 - Fisher 方程：$1 + r = \frac{1 + i}{1 + \pi}$
 - 确定性等价：$u(\text{CE}) = E[u(W)]$；CRRA 效用（相对风险厌恶系数 $\gamma$）的按比例风险溢价 $\approx \frac12\gamma\sigma^2$
 - 对每单位征税 $t$：买方付的价格 $P_b$ 与卖方得到的价格 $P_s$ 满足 $P_s = P_b - t$
 
 **宏观经济学**
 
+- 增长核算：$g_Y = g_A + \alpha g_K + (1 - \alpha) g_L$；货币数量论：$g_M + g_V \approx \pi + g_Y$
+- 政府购买乘数（利率不变）：$\frac{1}{1 - b}$，$b$ 为边际消费倾向
+- Taylor 规则：$i = r^* + \pi + 0.5(\pi - 2) + 0.5x$，$x$ 为产出缺口（%）
+- 抛补利率平价：$F = S \cdot \frac{1 + i}{1 + i^*}$
 - 债务占 GDP 的比例：$b_{t+1} = \frac{1 + r}{1 + g}\,b_t + d$（$r$ 为利率，$g$ 为名义增长率，$d$ 为基本赤字占 GDP 的比例）
 - Phillips 曲线：$\pi = \pi^e - \beta(u - u^*)$，$\beta > 0$
 

@@ -221,7 +221,10 @@ Quizzes also follow the exam rules in the author's curriculum ("阶段考试"):
   follows from that computation, but it never combines unrelated computations or several separate
   questions. Difficulty comes from the depth of that one question, not from the number of questions.
 - Only lessons of the block and earlier stages; the questions carry no lesson or difficulty labels and no
-  hints. The page starts with instructions and a formula sheet.
+  hints. The page starts with instructions and a formula sheet. The formula sheet does not list only
+  the formulas the questions need: it adds some formulas from the block that no question uses, so
+  that the sheet does not reveal how to approach a question, but it is not a list of every formula.
+  It never states a result that a question asks the learner to derive or explain.
 - Part 1 is true / false with reasons (both verdicts occur; no "uncertain") (`part: judge`); a verdict without a reason needs
   revision. Part 2 holds problems (`part: problem`).
 - Calculation questions require working. Rubrics say, for each part, what an "ok" answer contains
