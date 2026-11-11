@@ -35,7 +35,6 @@ export function initLeverageGrowth() {
 			const lev = Number(lIn.value);
 			const mean = (x: number) => RF + x * (mu - RF);
 			const growth = (x: number) => mean(x) - (x * sigma) ** 2 / 200;
-			const ls = (mu - RF) / ((sigma * sigma) / 100);
 			const clamp = (v: number) => Math.max(-200, Math.min(200, v));
 			for (const { el, X, Y } of plots) {
 				const line = (f: (x: number) => number) => {
@@ -60,9 +59,7 @@ export function initLeverageGrowth() {
 				.replace('{L}', String(lev))
 				.replace('{m}', fmt(mean(lev)))
 				.replace('{s}', fmt(lev * sigma))
-				.replace('{g}', fmt(growth(lev)))
-				.replace('{gmax}', fmt(growth(ls)))
-				.replace('{ls}', fmt(ls));
+				.replace('{g}', fmt(growth(lev)));
 		}
 
 		for (const el of [muIn, sIn, lIn]) el.addEventListener('input', draw);
