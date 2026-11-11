@@ -1,6 +1,6 @@
 ---
 // Starlight's sidebar plus a status mark after every lesson that has questions: not started,
-// in progress or done (a finished quiz shows its score). The marks are filled in from the
+// in progress or done. The marks are filled in from the
 // progress stored in the browser by src/scripts/sidebar-status.ts.
 import Default from '@astrojs/starlight/components/Sidebar.astro';
 import { toLang, t } from '../../i18n/ui';
@@ -12,7 +12,6 @@ const data = {
 		none: t(lang, 'lessonNotStarted'),
 		progress: t(lang, 'lessonInProgress'),
 		done: t(lang, 'lessonDone'),
-		score: t(lang, 'scoreOf', { s: '{s}', m: '{m}' }),
 	},
 	lessons: lessons()
 		.filter((l) => l.published && (lessonKey(l.id)?.questions.length ?? 0) > 0)

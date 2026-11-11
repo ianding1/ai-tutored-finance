@@ -30,6 +30,8 @@ REF = DEFAULT if DEFAULT in LANGS else LANGS[0]
 CHINESE = [l for l in LANGS if l.startswith("zh")]
 
 FORBIDDEN_WORDS = ["学员", "教案", "修订记录", "briefing"]
+# Scores in question text, rubrics or quiz pages: no question is scored.
+POINTS_RE = r"\d+\s*分(?![钟之位布析别散母子解成])|\d+\s*points?\b|partial credit|部分分|总分|不得分|满分"
 
 errors: list[str] = []
 
@@ -319,19 +321,17 @@ def check_keys():
             elif kind not in ("check", "exercise"):
                 err(where, "kind must be check or exercise (quiz questions belong to a quiz)")
             if kind == "quiz":
-                if not isinstance(q.get("points"), (int, float)) or q["points"] <= 0:
-                    err(where, "quiz questions need positive 'points'")
                 if q.get("part") not in ("judge", "problem"):
                     err(where, "quiz questions need part: judge or problem")
-            # Lesson questions (check questions and exercises) are reviewed without scores; only the
-            # quizzes after a group of lessons are scored, and they are not in lesson key files.
-            if kind in ("check", "exercise"):
-                if "points" in q:
-                    err(where, f"{kind} questions are not scored: remove 'points'")
-                for lang in LANGS:
-                    for r in (q.get("rubric") or {}).get(lang, []):
-                        if re.search(r"\d+\s*分|\d+\s*points?\b|partial credit|部分分", r):
-                            err(where, f"{kind} rubric ({lang}) mentions points: '{r[:40]}'")
+            # No question is scored: every answer is marked "ok" or "revise".
+            if "points" in q:
+                err(where, f"{kind} questions are not scored: remove 'points'")
+            for lang in LANGS:
+                for r in (q.get("rubric") or {}).get(lang, []):
+                    if re.search(POINTS_RE, r):
+                        err(where, f"{kind} rubric ({lang}) mentions points: '{r[:40]}'")
+                if kind == "quiz" and re.search(POINTS_RE, (q.get("question") or {}).get(lang, "")):
+                    err(where, f"{kind} question ({lang}) mentions points")
             interactive = kind == "check" and "correct" in q
             for f in ("question", "answer") if interactive else ("question", "answer", "rubric"):
                 if f not in q:
@@ -377,10 +377,6 @@ def check_keys():
             if q.get("kind") == "check" and not q.get("section"):
                 err(where, "check questions need 'section' (the h2 id where the question appears)")
 
-        if l.get("exam"):
-            total = sum(q.get("points") or 0 for q in key.get("questions", []))
-            if total != 100:
-                err(file, f"quiz points add up to {total}, not 100")
         if not l.get("published"):
             continue
         for lang in LANGS:
@@ -393,6 +389,8 @@ def check_keys():
                     err(rel(p), "a quiz page must contain <Quiz /> exactly once")
                 if any(name in ("Check", "CheckAll", "Exercises") for name, _ in tags(body)):
                     err(rel(p), "a quiz page shows its questions with <Quiz /> only")
+                if re.search(POINTS_RE, p.read_text(encoding="utf-8")):
+                    err(rel(p), "a quiz page mentions points; quizzes are not scored")
                 continue
             used = [a.get("id") for name, a in tags(body) if name == "Check"]
             for qid in used:
@@ -799,9 +797,9 @@ def check_locales():
                     err(rel(f), f"Chinese UI string '{m.group(1)}' uses 'prompt'; write 提示词 / 提示詞")
         if not re.search(r"const DISCLAIMER\s*=", src):
             err(rel(f), "defines no DISCLAIMER (the statement that the course content is AI-generated)")
-        bodies = re.split(r"^\t\t(feedback|quiz|explain)\(", src, flags=re.M)
+        bodies = re.split(r"^\t\t(feedback|explain)\(", src, flags=re.M)
         found = dict(zip(bodies[1::2], bodies[2::2]))
-        for name in ("feedback", "quiz", "explain"):
+        for name in ("feedback", "explain"):
             if name not in found:
                 err(rel(f), f"missing prompt template {name}()")
             elif "${DISCLAIMER}" not in found[name]:

@@ -1,18 +1,15 @@
 // Learning progress stored in the browser (localStorage): the latest result of each question the
-// learner has submitted: "ok" / "revise" for lesson questions, a score for quiz questions. Nothing
-// else about the learner is stored, and nothing leaves the device.
+// learner has submitted: "ok" or "revise". Nothing else about the learner is stored, and nothing leaves the device.
 
 const KEY = 'lfwai.profile.v1';
 
 export type QuestionStatus = 'ok' | 'revise';
 
-/** Latest result of one question: `status` for lesson questions, `score` and `max` for quiz questions. */
+/** Latest result of one question. */
 export interface ResultItem {
 	lesson: string;
 	id: string;
-	status?: QuestionStatus;
-	score?: number;
-	max?: number;
+	status: QuestionStatus;
 	ts: string;
 }
 
@@ -29,14 +26,13 @@ export function emptyProgress(): Progress {
 }
 
 /**
- * Read stored data, including data saved by earlier versions of the site (v1): their scored lesson
- * results become "ok" (full marks) or "revise", and their other fields (background, preferences,
- * concept status, notes) are dropped.
+ * Read stored data, including data saved by earlier versions of the site: scored results (lesson
+ * questions in v1, quiz questions until quizzes stopped being scored) become "ok" (full marks) or
+ * "revise", and other v1 fields (background, preferences, concept status, notes) are dropped.
  */
 function normalize(raw: any): Progress {
 	const p = emptyProgress();
 	if (!raw || typeof raw !== 'object' || !Array.isArray(raw.results)) return p;
-	const v1 = raw.v !== 2;
 	for (const r of raw.results) {
 		if (!r || typeof r.id !== 'string' || typeof r.lesson !== 'string') continue;
 		const ts = String(r.ts || '');
@@ -44,10 +40,7 @@ function normalize(raw: any): Progress {
 		const score = num(r.score);
 		const max = num(r.max);
 		if (status) p.results.push({ lesson: r.lesson, id: r.id, status, ts });
-		else if (score != null && max != null) {
-			if (v1) p.results.push({ lesson: r.lesson, id: r.id, status: score >= max ? 'ok' : 'revise', ts });
-			else p.results.push({ lesson: r.lesson, id: r.id, score, max, ts });
-		}
+		else if (score != null && max != null) p.results.push({ lesson: r.lesson, id: r.id, status: score >= max ? 'ok' : 'revise', ts });
 	}
 	return p;
 }
@@ -89,7 +82,7 @@ export function resetProgress() {
 
 export interface GradeResult {
 	lesson: string;
-	items: { id: string; status?: QuestionStatus; score?: number; max?: number }[];
+	items: { id: string; status: QuestionStatus }[];
 }
 
 /**
@@ -119,10 +112,7 @@ export function parseResult(text: string): GradeResult | null {
 	for (const i of raw.items) {
 		if (!i || typeof i.id !== 'string') continue;
 		const status = statusOf(i.status);
-		const score = num(i.score);
-		const max = num(i.max);
 		if (status) items.push({ id: i.id, status });
-		else if (score != null && max != null) items.push({ id: i.id, score, max });
 	}
 	return { lesson: raw.lesson, items };
 }

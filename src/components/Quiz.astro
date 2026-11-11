@@ -1,6 +1,6 @@
 ---
 // <Quiz /> — all questions of a quiz, grouped into the true / false part and the
-// problems, with points, and one scoring prompt for the whole quiz.
+// problems, and one grading prompt for the whole quiz. Like other questions, each is marked ok or revise.
 import { toLang, t } from '../i18n/ui';
 import { lessonKey } from '../lib/course';
 import { gradingPayload, questionLabel } from '../lib/grading';
@@ -28,5 +28,5 @@ const parts = [
 
 <section class="lfwai-group not-content" data-lfwai-group id="quiz-submit">
 	<div class="lfwai-q-head"><span class="lfwai-q-label">{t(lang, 'quizSubmit')}</span></div>
-	<GradeControls lang={lang} payload={gradingPayload(lessonId, qs, lang)} scored />
+	<GradeControls lang={lang} payload={gradingPayload(lessonId, qs, lang)} />
 </section>

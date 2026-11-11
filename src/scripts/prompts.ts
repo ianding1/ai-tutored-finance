@@ -16,18 +16,14 @@ function parts(resultJson?: object): PromptParts {
 }
 
 /**
- * Feedback prompt for check questions and exercises, or the scoring prompt for a quiz. It contains
+ * Feedback prompt for check questions, exercises and quizzes. It contains
  * nothing about the learner, so that each answer is judged on its own. The prompt ends where the
  * learner's answers begin; the learner may answer only some of the questions.
  */
 export function gradingPrompt(i: GradingInput): string {
 	const first = i.questions[0];
-	const t = LOCALES[i.lang].prompts;
-	if (i.questions.length && i.questions.every((q) => q.points != null)) {
-		return t.quiz(i, parts({ v: 2, lesson: i.lessonId, items: [{ id: first.id, score: 0, max: first.points }] }));
-	}
 	// One example item only: listing every question would invite the AI to include all of them.
-	return t.feedback(i, parts({ v: 2, lesson: i.lessonId, items: [{ id: first?.id ?? '', status: 'ok' }] }));
+	return LOCALES[i.lang].prompts.feedback(i, parts({ v: 2, lesson: i.lessonId, items: [{ id: first?.id ?? '', status: 'ok' }] }));
 }
 
 export function explainPrompt(i: ExplainInput): string {

@@ -95,6 +95,20 @@ one learner, revision history and answers inline. To publish a finished lesson:
      may appear only as a step in something larger: combining points from different sections, a new
      situation or decision, a derivation the text leaves out, or the limits of a result. Test: would
      a learner who answered every check question correctly learn something new from the exercise?
+   - each exercise targets a named misconception, recorded in a `common_errors` entry tagged with
+     its question. A learner who only repeats the steps of the text does not get "ok";
+   - ask of every part: "can it be answered by recalling an example from the lesson or redoing the
+     text's procedure?" If so, rework it (change the situation, the known facts or the goal of the
+     decision) or keep it as a short step inside a larger part;
+   - each lesson has at least one exercise that evaluates a plausible but wrong claim (a colleague,
+     an analyst or an advertisement says ...): the learner judges it, finds where it fails and, where
+     useful, under which conditions it would hold;
+   - where it fits, a part asks whether a result makes sense: compare it with economic common sense,
+     a limiting case or an order of magnitude;
+   - no part only asks the learner to repeat an argument the text already makes;
+   - exercises may give a formula as a hint; they have no points;
+   - exercises stay within the lesson and the lessons just before it. Mixing stages is left to the
+     quizzes.
 5. Put every numeric answer in `expected` and recompute it in `course/verify/<id>.py`.
 6. Write the page and every text field in each of the other languages. Formulas, heading ids and
    components must be identical. English uses plain, standard English without idioms.
@@ -125,8 +139,8 @@ one learner, revision history and answers inline. To publish a finished lesson:
 - A check question answered on the page has `correct` (true / false, or a letter of `choices`), has
   2 to 8 options if it has `choices`, a `why` on every wrong option (none on the right one) or a
   `hint` if it is true / false, and no `expected` and no `rubric`.
-- Check questions and exercises have no `points`, and their rubrics do not mention points.
-- Quiz questions have `points`, and the points of a quiz total 100.
+- No question has `points`, no rubric mentions points or partial credit, and no quiz question or
+  quiz page mentions points.
 - Chinese text (every `zh-*` language) uses Chinese quotation marks and the word 提示词 (提示詞 in
   Traditional Chinese), has no space after full-width
   punctuation, and never ends a bold run with full-width punctuation directly before a character
@@ -135,11 +149,13 @@ one learner, revision history and answers inline. To publish a finished lesson:
 
 ## Terms
 
-| zh-cn | en | `kind` / component | Scored |
-| --- | --- | --- | --- |
-| 随堂题 | check question | `check`, `<Check>`, answered on the page (older lessons: `<CheckAll>`) | no ("ok" / "revise") |
-| 练习题 | exercise | `exercise`, `<Exercises>` | no ("ok" / "revise") |
-| 测验 | quiz | `quiz`, `<Quiz>` on the page `lessons/e<n>-quiz.mdx` (`E0`, `E1`, ...) | yes (points, total 100) |
+| zh-cn | en | `kind` / component |
+| --- | --- | --- |
+| 随堂题 | check question | `check`, `<Check>`, answered on the page (older lessons: `<CheckAll>`) |
+| 练习题 | exercise | `exercise`, `<Exercises>` |
+| 测验 | quiz | `quiz`, `<Quiz>` on the page `lessons/e<n>-quiz.mdx` (`E0`, `E1`, ...) |
+
+No question is scored: every result is "ok" or "revise".
 
 ## Prompts
 
@@ -157,10 +173,10 @@ one learner, revision history and answers inline. To publish a finished lesson:
 - Other answers are not entered on the site. Exercises are submitted together by `<Exercises />`.
   The prompt ends with an empty "learner's answers" heading; the learner attaches a photo or types the
   answers after it.
-- Check questions (随堂题) and exercises (练习题) are reviewed without scores: the result marks each
-  one "ok" or "revise". Only the quizzes after a group of lessons (测验, `E0`, `E1`, ... in the
-  curriculum) are scored: their questions have `points` (total 100), and the scoring prompt asks
-  for a score per question with partial credit. A finished quiz shows its total in the sidebar.
+- Check questions (随堂题), exercises (练习题) and quizzes (测验, `E0`, `E1`, ... in the curriculum)
+  are reviewed without scores: the result marks each question "ok" or "revise". All of them use the
+  same feedback prompt. Results saved with scores by earlier versions of the site become "ok" (full
+  marks) or "revise".
 - Each question shows its latest result next to its label ("not answered", "OK", "needs revision").
   There is no progress summary under the submit buttons.
 - Learners may submit only some questions. The grader grades only the answered ones and lists only
@@ -179,17 +195,25 @@ Quizzes follow the exam rules in the author's curriculum ("阶段考试"):
   its use in an unfamiliar but relevant situation, and whether a result makes sense. Difficulty comes
   from the depth of understanding needed, not from extra calculations, several tasks or artificially
   complicated conditions. Each question names the misconception it can reveal (in `common_errors`);
-  a learner who only applies the steps does not get full marks. Routine calculation totals at most
-  about 15 points.
+  a learner who only applies the steps does not get "ok". Routine calculation is a small part of the
+  quiz (at most about one part in seven).
 - Each question has its own core point; basic concepts used along the way may repeat.
 - Each part asks one core question. It may ask to compute and then explain when the explanation
   follows from that computation, but it never combines unrelated computations or several separate
   questions. Difficulty comes from the depth of that one question, not from the number of questions.
 - Only lessons of the block and earlier; the questions carry no lesson or difficulty labels and no
   hints. The page starts with instructions and a formula sheet.
-- Part 1 is true / false with reasons (both verdicts occur; no "uncertain") (`part: judge`); a verdict without a reason gets
-  no points. Part 2 holds problems (`part: problem`).
-- Calculation questions require working; rubrics give partial credit and state the points per part.
+- Part 1 is true / false with reasons (both verdicts occur; no "uncertain") (`part: judge`); a verdict without a reason needs
+  revision. Part 2 holds problems (`part: problem`).
+- Calculation questions require working. Rubrics say, for each part, what an "ok" answer contains
+  and which errors need revision; a small slip that does not change the reasoning is pointed out but
+  does not need revision.
+- Exercises and quizzes divide the work: exercises practise one lesson; quizzes mix lessons and
+  stages without saying where a question comes from, use less calculation, and ask more often which
+  concept applies and under which conditions. Before adding a quiz question, check the exercises of
+  the lessons it uses for the same insight (for example, E0 Q8 and exercise Q2 of lesson 3.4 both ask why a
+  perpetuity is not infinitely sensitive to rates and how it compares with a finite stream); if one exists, change the question so
+  that it needs something the exercise does not.
 - For each question, ask "can it be answered by recalling an example from a lesson?" and rework it
   if so, for example by changing the situation, the known facts or the goal of the decision. Adapting
   an exercise with a new extension is fine.

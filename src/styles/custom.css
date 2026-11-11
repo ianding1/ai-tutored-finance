@@ -532,23 +532,8 @@
 	gap: 0.75rem;
 	white-space: nowrap;
 }
-.lfwai-q-points {
-	color: var(--sl-color-gray-3);
-}
 .lfwai-q-status {
 	white-space: nowrap;
-}
-.lfwai-q-status[data-state='full'] {
-	color: var(--sl-color-green-high);
-	font-weight: 600;
-}
-.lfwai-q-status[data-state='partial'] {
-	color: var(--sl-color-orange-high);
-	font-weight: 600;
-}
-.lfwai-q-status[data-state='wrong'] {
-	color: var(--sl-color-red-high);
-	font-weight: 600;
 }
 .lfwai-q-status[data-state='none'] {
 	color: var(--sl-color-gray-3);
@@ -894,8 +879,7 @@ body {
 }
 
 /* ---------- Lesson status in the sidebar ---------- */
-/* A ring after each lesson with questions: empty = not started, half = in progress, full = done.
-   A finished quiz shows its score instead. */
+/* A ring after each lesson with questions: empty = not started, half = in progress, full = done. */
 .sidebar-content a:has(.lfwai-mark) {
 	display: flex;
 	align-items: center;
@@ -918,16 +902,6 @@ body {
 	border-color: var(--viz-pos);
 	background: var(--viz-pos);
 }
-.lfwai-mark[data-state='score'] {
-	width: auto;
-	height: auto;
-	border: 0;
-	border-radius: 0;
-	font-size: var(--sl-text-xs);
-	font-weight: 600;
-	font-variant-numeric: tabular-nums;
-	color: var(--viz-pos);
-}
 /* On the current page's highlighted link, use the link's own text color. */
 .sidebar-content a[aria-current='page'] .lfwai-mark {
 	border-color: currentColor;
@@ -937,9 +911,6 @@ body {
 }
 .sidebar-content a[aria-current='page'] .lfwai-mark[data-state='done'] {
 	background: currentColor;
-}
-.sidebar-content a[aria-current='page'] .lfwai-mark[data-state='score'] {
-	color: currentColor;
 }
 
 /* ---------- Previous / next ---------- */

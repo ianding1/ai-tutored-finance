@@ -1,5 +1,5 @@
 ---
-// One question: label, result, points (quiz questions only) and text. Most answers are not entered on the site; the
+// One question: label, result and text. Most answers are not entered on the site; the
 // learner writes them on paper (or types them after the copied prompt) and submits them at the end of the lesson.
 // Check questions with `correct` in the key are answered here instead: the learner picks an option and submits it,
 // and the result is shown at once. A wrong answer shows what is wrong with the picked option (`why`), or for a
@@ -40,9 +40,6 @@ const name = `choice-${lessonId}-${q.id}`;
 		<span class="lfwai-q-label">{label}{q.star ? ' ★' : ''}</span>
 		<span class="lfwai-q-meta">
 			<span class="lfwai-q-status" data-q-status={q.id} hidden></span>
-			{q.points != null && (
-				<span class="lfwai-q-points">{t(lang, 'points', { n: q.points })}</span>
-			)}
 		</span>
 	</div>
 	<div class="lfwai-q-text" set:html={renderRich(q.question[lang], lang, lessonId)} />

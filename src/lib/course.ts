@@ -39,8 +39,6 @@ export interface Question {
 	/** quiz questions only: 'judge' (true / false with reasons) or 'problem' */
 	part?: 'judge' | 'problem';
 	star?: boolean;
-	/** quiz questions only; check questions and exercises are not scored */
-	points?: number;
 	concepts: string[];
 	question: Bi;
 	/**

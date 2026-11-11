@@ -30,11 +30,8 @@ const locale: Locale = {
 		answerWrong: 'Not correct.',
 		chooseFirst: 'Choose an answer first.',
 		quizItem: 'Question {n}',
-		points: '{n} points',
-		scoreOf: '{s}/{m} points',
-		copyGrading: 'Copy scoring prompt',
 		quizPartJudge: 'Part 1. True or false',
-		quizPartJudgeHelp: 'Answer true or false, and give your reason. An answer without a reason gets no points.',
+		quizPartJudgeHelp: 'Answer true or false, and give your reason. An answer without a reason needs revision.',
 		quizPartProblems: 'Part 2. Problems',
 		quizSubmit: 'Submit the quiz',
 		lessonNotStarted: 'Not started',
@@ -84,7 +81,7 @@ What to check:
 ${p.bullets(q.rubric)}`,
 				)
 				.join('\n\n');
-			return `You are a teacher for the course ${COURSE}. Review the learner's answers for Lesson ${i.lessonId}, "${i.lessonTitle}". The learner's answers follow this prompt (a photo or text) and may cover only some of the questions.
+			return `You are a teacher for the course ${COURSE}. Review the learner's answers for "${i.lessonTitle}". The learner's answers follow this prompt (a photo or text) and may cover only some of the questions.
 
 ## Important
 ${DISCLAIMER} If you believe a reference answer or a checking point is itself wrong, say clearly what is wrong and judge against the correct answer. Do not mark the learner wrong because they did not copy a wrong reference answer.
@@ -104,61 +101,13 @@ ${i.commonErrors.length ? `\n## Common errors (for diagnosis)\n${p.bullets(i.com
 2. For each question, say what is correct and what is wrong. Check the reasoning, not only the final numbers.
 3. For each error, explain it in a way the learner can understand, with a small example if useful. Do not only repeat the reference answer.
 4. If an answer shows a misunderstanding of a concept, name the concept.
-5. Reply in English. Use LaTeX for formulas.
-6. At the end of your reply, output a result block in exactly this format. The JSON must be valid:
+5. When a question asks for a reason, an answer with a conclusion but no reason needs revision. When a question asks for a given number of reasons or answers, review only that number, in the order written, and ignore extra ones.
+6. Reply in English. Use LaTeX for formulas.
+7. At the end of your reply, output a result block in exactly this format. The JSON must be valid:
 
 ${p.resultBlock}
 
 List only the questions you reviewed in "items", one entry per question. Set "status" to "ok" (essentially correct, only minor issues) or "revise" (a substantive error that needs to be corrected). Question ids: ${i.questions.map((q) => q.id).join(', ')}.
-
-## The learner's answers
-`;
-		},
-
-		quiz(i, p) {
-			const qs = i.questions
-				.map(
-					(q) => `### ${q.label} (id: ${q.id}, ${q.points} points)
-Question:
-${q.question}
-
-Reference answer:
-${q.answer}
-
-Scoring points:
-${p.bullets(q.rubric)}`,
-				)
-				.join('\n\n');
-			return `You are a teacher for the course ${COURSE}. Score the learner's answers for "${i.lessonTitle}". The learner's answers follow this prompt (a photo or text) and may cover only some of the questions.
-
-## Important
-${DISCLAIMER} If you believe a reference answer or a scoring point is itself wrong, say clearly what is wrong and score against the correct answer. Do not take points off because the learner did not copy a wrong reference answer.
-
-## Quiz page
-${i.lessonUrl}
-(You may consult it if you can open web pages. If you cannot, that is fine: everything you need is written below.)
-
-## Lesson facts relevant to these questions
-${p.bullets(i.context)}
-
-## Questions, reference answers and scoring points
-${qs}
-${i.commonErrors.length ? `\n## Common errors (for diagnosis)\n${p.bullets(i.commonErrors)}\n` : ''}
-## Scoring rules
-- Score only the questions the learner answered this time. Do not score unanswered questions and do not give them 0; they will be submitted later.
-- Score by the scoring points; partial credit is allowed. In calculation questions, parts without working get no points; if the working is partly correct, give the points that the scoring points assign to it.
-- In true / false questions, an answer without a reason gets no points.
-- When a question asks for a given number of reasons or answers, score only that number, in the order written; extra ones are not scored.
-
-## How to reply
-1. Give the score for each question and say what is correct and what is wrong. Check the reasoning, not only the final numbers.
-2. For each lost point, explain the problem in a way the learner can understand, with a small example if useful. Do not only repeat the reference answer.
-3. Reply in English. Use LaTeX for formulas.
-4. At the end of your reply, output a result block in exactly this format. The JSON must be valid:
-
-${p.resultBlock}
-
-List only the questions you scored in "items", one entry per question, with the actual score in "score" and the full points in "max". Question ids and full points: ${i.questions.map((q) => `${q.id} (${q.points})`).join(', ')}.
 
 ## The learner's answers
 `;

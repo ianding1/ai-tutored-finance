@@ -1,5 +1,5 @@
 # Answer key for quiz E0 (math and statistics tools, lessons 0.1–0.5). Shown to learners only inside the
-# generated scoring prompt. The quiz page shows only the questions and their points.
+# generated grading prompt. The quiz page shows only the questions. Each question is marked ok or revise.
 # expected: values are recomputed by course/verify/E0.py in CI and must appear verbatim in every answer text.
 # Each question tests a different idea and names the misconception it can reveal (common_errors);
 # the parts of a problem build on each other.
@@ -8,9 +8,9 @@ lesson: "E0"
 
 context:
   - zh-cn: |-
-      测验 E0 考 [[0.1]] 到 [[0.5]]：货币时间价值、优化、概率与组合方差、分布与统计推断、回归。学习者可以用计算器或代码，卷首有公式表（现值与终值、EAR、年金、永续年金、对数收益率、一阶与二阶条件、拉格朗日函数、期望与方差、线性组合的方差、两资产组合的方差、标准误、置信区间、t 值、标准化、OLS 斜率与截距、$R^2$）。计算用 1.96 作为 95% 的临界值，除非题目另有说明。题目考的是理解：评分时，推理和理由比算术更重要。
+      测验 E0 考 [[0.1]] 到 [[0.5]]：货币时间价值、优化、概率与组合方差、分布与统计推断、回归。学习者可以用计算器或代码，卷首有公式表（现值与终值、EAR、年金、永续年金、对数收益率、一阶与二阶条件、拉格朗日函数、期望与方差、线性组合的方差、两资产组合的方差、标准误、置信区间、t 值、标准化、OLS 斜率与截距、$R^2$）。计算用 1.96 作为 95% 的临界值，除非题目另有说明。题目考的是理解：批改时，推理和理由比算术更重要。
     en: |-
-      Quiz E0 covers [[0.1]] to [[0.5]]: time value of money, optimization, probability and portfolio variance, distributions and inference, and regression. The learner may use a calculator or code, and the quiz starts with a formula sheet (present and future value, EAR, annuities, perpetuities, log returns, first- and second-order conditions, the Lagrangian, expected value and variance, the variance of a linear combination, two-asset portfolio variance, standard error, confidence interval, t-statistic, standardization, the OLS slope and intercept, $R^2$). Calculations use 1.96 as the 95% critical value unless a question says otherwise. The questions test understanding: when scoring, reasoning and reasons count more than arithmetic.
+      Quiz E0 covers [[0.1]] to [[0.5]]: time value of money, optimization, probability and portfolio variance, distributions and inference, and regression. The learner may use a calculator or code, and the quiz starts with a formula sheet (present and future value, EAR, annuities, perpetuities, log returns, first- and second-order conditions, the Lagrangian, expected value and variance, the variance of a linear combination, two-asset portfolio variance, standard error, confidence interval, t-statistic, standardization, the OLS slope and intercept, $R^2$). Calculations use 1.96 as the 95% critical value unless a question says otherwise. The questions test understanding: when grading, reasoning and reasons count more than arithmetic.
 
 common_errors:
   - questions: [Q1]
@@ -63,7 +63,6 @@ questions:
   - id: Q1
     kind: quiz
     part: judge
-    points: 6
     concepts: [portfolio-variance, correlation, diversification]
     expected: { var: "96.25", sd: "9.81" }
     question:
@@ -84,16 +83,15 @@ questions:
         Counterexample: $\rho = 0.2$, $w = 10\%$: $\sigma_P^2 = 0.01 \times 625 + 0.81 \times 100 + 2 \times 0.1 \times 0.9 \times 0.2 \times 25 \times 10 = 96.25$, $\sigma_P \approx 9.81\%$, below 10%. Only when $\rho \ge 0.4$ does adding A always raise the risk.
     rubric:
       zh-cn:
-        - "判断为假，并给出数值反例，或推出条件 $\\rho < \\frac{\\sigma_B}{\\sigma_A}$ 并说明协方差项的作用（6 分）。"
-        - "判断为假但理由不完整（例如只说“分散化总能降低风险”，没有计算或条件）：3 分。只写判断：0 分。"
+        - "判断为假，并给出数值反例，或推出条件 $\\rho < \\frac{\\sigma_B}{\\sigma_A}$ 并说明协方差项的作用。"
+        - "判断为假但理由不完整（例如只说“分散化总能降低风险”，没有计算或条件）：需要订正。只写判断：需要订正。"
       en:
-        - "States false and gives a numerical counterexample, or derives the condition $\\rho < \\frac{\\sigma_B}{\\sigma_A}$ and explains the role of the covariance term (6 points)."
-        - "False with an incomplete reason (for example only \"diversification always lowers risk\", with no calculation or condition): 3 points. Only the verdict: 0 points."
+        - "States false and gives a numerical counterexample, or derives the condition $\\rho < \\frac{\\sigma_B}{\\sigma_A}$ and explains the role of the covariance term."
+        - "False with an incomplete reason (for example only \"diversification always lowers risk\", with no calculation or condition): needs revision. Only the verdict: needs revision."
 
   - id: Q2
     kind: quiz
     part: judge
-    points: 5
     concepts: [lagrange-multiplier, shadow-price, budget-constraint]
     question:
       zh-cn: |-
@@ -109,16 +107,15 @@ questions:
         Meaning: $\lambda$ is the increase in maximum utility from one more dollar of budget, in units of "utility per dollar". With doubled prices a dollar buys only half as much, so one more dollar adds only half as much utility. The consumer's real choice is the same, but the unit in which the budget is measured has changed.
     rubric:
       zh-cn:
-        - "判断为真；说明预算集不变所以最优点不变（2 分）；由 $\\frac{MU_x}{p_x} = \\lambda$ 或影子价格的含义说明 $\\lambda$ 减半（3 分）。"
-        - "判断为真但只说明了最优点不变，或只写 $\\lambda$ 减半而没有理由：2 分。只写判断：0 分。"
+        - "判断为真；说明预算集不变所以最优点不变；由 $\\frac{MU_x}{p_x} = \\lambda$ 或影子价格的含义说明 $\\lambda$ 减半。"
+        - "判断为真但只说明了最优点不变，或只写 $\\lambda$ 减半而没有理由：需要订正。只写判断：需要订正。"
       en:
-        - "States true; explains that the budget set is unchanged, so the optimum is unchanged (2 points); explains with $\\frac{MU_x}{p_x} = \\lambda$ or the meaning of the shadow price why $\\lambda$ halves (3 points)."
-        - "True but only explains that the optimum is unchanged, or only states that $\\lambda$ halves without a reason: 2 points. Only the verdict: 0 points."
+        - "States true; explains that the budget set is unchanged, so the optimum is unchanged; explains with $\\frac{MU_x}{p_x} = \\lambda$ or the meaning of the shadow price why $\\lambda$ halves."
+        - "True but only explains that the optimum is unchanged, or only states that $\\lambda$ halves without a reason: needs revision. Only the verdict: needs revision."
 
   - id: Q3
     kind: quiz
     part: judge
-    points: 8
     concepts: [simple-return, log-return, expected-value, median, normal-distribution]
     expected: { mlog: "-0.0204" }
     question:
@@ -137,16 +134,15 @@ questions:
         In general (each year's return above −100%, years independent with the same distribution, a finite expected log return), whenever returns vary, the expected log return is below $\ln(1 + 0) = 0$ because the logarithm is concave (compared with an expected simple return of 0, falls weigh more), the median of wealth keeps falling, and in the long run the probability of a loss tends to 1, not 50%. Expected wealth is still the initial investment, because a few lucky outcomes are very large.
     rubric:
       zh-cn:
-        - "判断为假；用例子或一般论证说明一涨一跌后财富减少、对数收益率的期望为负（4 分）；说明对数收益率之和的期望按 $n$ 下降、标准差只按 $\\sqrt{n}$ 增长，因此长期亏损的概率趋于 1（4 分）。"
-        - "判断为假但只说明了其中一点（例如只说中位数下降）：4 分。只写判断，或理由是“分布不是正态的”而没有说明方向：0–1 分。"
+        - "判断为假；用例子或一般论证说明一涨一跌后财富减少、对数收益率的期望为负；说明对数收益率之和的期望按 $n$ 下降、标准差只按 $\\sqrt{n}$ 增长，因此长期亏损的概率趋于 1。"
+        - "判断为假但只说明了其中一点（例如只说中位数下降）：需要订正。只写判断，或理由是“分布不是正态的”而没有说明方向：需要订正。"
       en:
-        - "States false; shows with an example or a general argument that one rise and one fall reduce wealth and the expected log return is negative (4 points); explains that the expected sum of log returns falls with $n$ while its standard deviation grows only with $\\sqrt{n}$, so the probability of a loss tends to 1 in the long run (4 points)."
-        - "False but explains only one of the two points (for example only that the median falls): 4 points. Only the verdict, or a reason such as \"the distribution is not normal\" without the direction: 0–1 points."
+        - "States false; shows with an example or a general argument that one rise and one fall reduce wealth and the expected log return is negative; explains that the expected sum of log returns falls with $n$ while its standard deviation grows only with $\\sqrt{n}$, so the probability of a loss tends to 1 in the long run."
+        - "False but explains only one of the two points (for example only that the median falls): needs revision. Only the verdict, or a reason such as \"the distribution is not normal\" without the direction: needs revision."
 
   - id: Q4
     kind: quiz
     part: judge
-    points: 6
     concepts: [log-return, sample-mean, standard-error, variance]
     question:
       zh-cn: |-
@@ -164,16 +160,15 @@ questions:
         The precision of an estimated mean return depends on how many years the data cover, not on how often it is observed: cutting a year into 12 parts also makes each part less volatile, and no information is added.
     rubric:
       zh-cn:
-        - "判断为真，并说明两种估计是同一个数，或算出两者的标准误都是 $\\frac{\\sigma}{\\sqrt{20}}$（6 分）。"
-        - "判断为真但没有考虑月度方差是年度的 $\\frac{1}{12}$，或只说“时间长度才重要”而没有论证：3 分。只写判断：0 分。"
+        - "判断为真，并说明两种估计是同一个数，或算出两者的标准误都是 $\\frac{\\sigma}{\\sqrt{20}}$。"
+        - "判断为真但没有考虑月度方差是年度的 $\\frac{1}{12}$，或只说“时间长度才重要”而没有论证：需要订正。只写判断：需要订正。"
       en:
-        - "States true and shows that the two estimates are the same number, or computes that both standard errors are $\\frac{\\sigma}{\\sqrt{20}}$ (6 points)."
-        - "True but without using that the monthly variance is $\\frac{1}{12}$ of the yearly one, or only saying \"the length of time is what matters\" without an argument: 3 points. Only the verdict: 0 points."
+        - "States true and shows that the two estimates are the same number, or computes that both standard errors are $\\frac{\\sigma}{\\sqrt{20}}$."
+        - "True but without using that the monthly variance is $\\frac{1}{12}$ of the yearly one, or only saying \"the length of time is what matters\" without an argument: needs revision. Only the verdict: needs revision."
 
   - id: Q5
     kind: quiz
     part: problem
-    points: 14
     concepts: [present-value, annuity, apr, ear]
     expected: { pv: "11693.74", pv8: "11398.61", ear: "10.03", naive: "5.26" }
     question:
@@ -182,17 +177,17 @@ questions:
 
         你已经有足够的钱，存在名义年利率 4.8%、按月复利的储蓄账户里。选分期的话，还没付的钱可以留在账户里继续生息。
 
-        (a) 哪种方式对你更划算？说明为什么不能直接比较 11,400 美元和 12,000 美元。（5 分）
+        (a) 哪种方式对你更划算？说明为什么不能直接比较 11,400 美元和 12,000 美元。
 
-        (b) 店员说：“分期的代价只是放弃了 600 美元的折扣，相当于借 11,400 美元、一年付 600 美元利息，年利率只有 $\frac{600}{11{,}400} \approx 5.26\%$。”按月利率 0.8% 把分期付款折现到今天，由结果估计分期实际隐含的有效年利率，并说明店员的算法错在哪里。（9 分）
+        (b) 店员说：“分期的代价只是放弃了 600 美元的折扣，相当于借 11,400 美元、一年付 600 美元利息，年利率只有 $\frac{600}{11{,}400} \approx 5.26\%$。”按月利率 0.8% 把分期付款折现到今天，由结果估计分期实际隐含的有效年利率，并说明店员的算法错在哪里。
       en: |-
         A furniture store sells a sofa at a list price of 12,000 dollars. There are two ways to pay. The first is to pay cash today with a 5% discount, that is, 11,400 dollars. The second is a "zero-interest installment plan": no discount, 12 monthly payments of 1,000 dollars at the end of each month, the first one month from now.
 
         You already have enough money in a savings account with a nominal annual rate of 4.8%, compounded monthly. With the installment plan, the money not yet paid stays in the account and keeps earning interest.
 
-        (a) Which way of paying is better for you? Explain why you cannot compare 11,400 dollars with 12,000 dollars directly. (5 points)
+        (a) Which way of paying is better for you? Explain why you cannot compare 11,400 dollars with 12,000 dollars directly.
 
-        (b) The salesperson says: "The only cost of the installment plan is the 600-dollar discount you give up. That is like borrowing 11,400 dollars and paying 600 dollars of interest in a year, a rate of only $\frac{600}{11{,}400} \approx 5.26\%$." Discount the installments to today at a monthly rate of 0.8%, use the result to estimate the effective annual rate actually implied by the installment plan, and explain what is wrong with the salesperson's calculation. (9 points)
+        (b) The salesperson says: "The only cost of the installment plan is the 600-dollar discount you give up. That is like borrowing 11,400 dollars and paying 600 dollars of interest in a year, a rate of only $\frac{600}{11{,}400} \approx 5.26\%$." Discount the installments to today at a monthly rate of 0.8%, use the result to estimate the effective annual rate actually implied by the installment plan, and explain what is wrong with the salesperson's calculation.
     answer:
       zh-cn: |-
         (a) 两种方式的付款时间不同，要折算到同一时点。“零利率”只是没有写明利息：分期放弃了折扣。对你来说，钱的机会成本是储蓄账户的月利率 $i = 4.8\% / 12 = 0.4\%$。分期付款今天的现值是
@@ -208,31 +203,30 @@ questions:
         The salesperson's calculation assumes that you borrow 11,400 dollars for a whole year and repay it all at the end. In fact you repay 1,000 dollars every month from the first month, so the debt falls month by month, and on average you borrow only about half of the money for the year. The same 600 dollars of interest on half as much borrowed money is about twice the rate. (The 5.26% also ignores monthly compounding.)
     rubric:
       zh-cn:
-        - "(a) 指出要按自己的机会成本（储蓄的月利率 0.4%）把分期付款折现到今天（2 分）；现值 11,693.74（1 分）；结论为付现金，并说明不能直接比较的原因（2 分）。只比较 11,400 与 12,000，或因“零利率”选分期：最多 1 分。"
-        - "(b) 按 0.8% 折现得 11,398.61（3 分）；指出它约等于现金价，所以隐含月利率约 0.8%，有效年利率约 10.03%（2 分）；说明欠款逐月减少、平均只借了约一半的钱，所以 5.26% 低估了利率（4 分）。算出现值但没有和 11,400 比较、得不出隐含利率：最多 4 分。"
+        - "(a) 指出要按自己的机会成本（储蓄的月利率 0.4%）把分期付款折现到今天；现值 11,693.74；结论为付现金，并说明不能直接比较的原因。只比较 11,400 与 12,000，或因“零利率”选分期：需要订正。"
+        - "(b) 按 0.8% 折现得 11,398.61；指出它约等于现金价，所以隐含月利率约 0.8%，有效年利率约 10.03%；说明欠款逐月减少、平均只借了约一半的钱，所以 5.26% 低估了利率。算出现值但没有和 11,400 比较、得不出隐含利率：需要订正。"
       en:
-        - "(a) States that the installments must be discounted to today at one's own opportunity cost (the savings rate of 0.4% a month) (2 points); present value 11,693.74 (1 point); concludes that paying cash is better and explains why the direct comparison is wrong (2 points). Only comparing 11,400 with 12,000, or choosing installments because of \"zero interest\": at most 1 point."
-        - "(b) Discounting at 0.8% gives 11,398.61 (3 points); states that this is about the cash price, so the implied monthly rate is about 0.8% and the effective annual rate about 10.03% (2 points); explains that the debt falls month by month and on average only about half of the money is borrowed, so 5.26% understates the rate (4 points). Computing the present value without comparing it with 11,400 and so without an implied rate: at most 4 points."
+        - "(a) States that the installments must be discounted to today at one's own opportunity cost (the savings rate of 0.4% a month); present value 11,693.74; concludes that paying cash is better and explains why the direct comparison is wrong. Only comparing 11,400 with 12,000, or choosing installments because of \"zero interest\": needs revision."
+        - "(b) Discounting at 0.8% gives 11,398.61; states that this is about the cash price, so the implied monthly rate is about 0.8% and the effective annual rate about 10.03%; explains that the debt falls month by month and on average only about half of the money is borrowed, so 5.26% understates the rate. Computing the present value without comparing it with 11,400 and so without an implied rate: needs revision."
 
   - id: Q6
     kind: quiz
     part: problem
-    points: 16
     concepts: [regression-coefficient, r-squared, residual, portfolio-variance, first-order-condition]
     expected: { cov: "30", sd: "4.5", r2: "0.64", naive: "1.5" }
     question:
       zh-cn: |-
         某基金的月收益 $y$ 对市场的月收益 $x$ 做回归，斜率 $b = 1.2$。市场月收益的标准差为 5%，基金为 7.5%。数据很多，估计误差可以忽略。基金经理打算持有基金的同时卖空市场指数：每 1 美元基金卖空 $h$ 美元的指数，组合的月收益为 $y - hx$（忽略交易成本和借券费用）。
 
-        (a) 证明：使组合方差最小的 $h$ 等于回归斜率 $b$。（4 分）
+        (a) 证明：使组合方差最小的 $h$ 等于回归斜率 $b$。
 
-        (b) 经理按 $h = 1.2$ 对冲后说：“组合已经和市场无关，风险几乎为 0。”求对冲后组合月收益的标准差，并用 $R^2$ 说明为什么风险没有降到 0。（12 分）
+        (b) 经理按 $h = 1.2$ 对冲后说：“组合已经和市场无关，风险几乎为 0。”求对冲后组合月收益的标准差，并用 $R^2$ 说明为什么风险没有降到 0。
       en: |-
         The monthly return $y$ of a fund is regressed on the monthly market return $x$, with slope $b = 1.2$. The standard deviation of the monthly market return is 5%, and that of the fund 7.5%. There is a lot of data, so estimation error can be ignored. The fund manager plans to hold the fund and sell the market index short: for each dollar in the fund, sell $h$ dollars of the index short, so the portfolio's monthly return is $y - hx$ (ignore trading costs and borrowing fees).
 
-        (a) Show that the $h$ that minimizes the portfolio variance equals the regression slope $b$. (4 points)
+        (a) Show that the $h$ that minimizes the portfolio variance equals the regression slope $b$.
 
-        (b) After hedging with $h = 1.2$, the manager says: "The portfolio no longer depends on the market, so its risk is almost 0." Find the standard deviation of the hedged portfolio's monthly return, and use $R^2$ to explain why the risk is not 0. (12 points)
+        (b) After hedging with $h = 1.2$, the manager says: "The portfolio no longer depends on the market, so its risk is almost 0." Find the standard deviation of the hedged portfolio's monthly return, and use $R^2$ to explain why the risk is not 0.
     answer:
       zh-cn: |-
         (a) 由线性组合的方差，
@@ -252,27 +246,26 @@ questions:
         The manager is half right: $\text{Cov}(y - bx, x) = \text{Cov}(x, y) - b\,\sigma_x^2 = 0$, so the hedged portfolio is indeed uncorrelated with the market (uncorrelated means only that the covariance is 0, not necessarily independent). But $y - bx$ is the intercept plus the residual, and the hedge removes only the part of the variance the market explains. $R^2 = \frac{\text{Cov}(x, y)^2}{\sigma_x^2\sigma_y^2} = \frac{900}{25 \times 56.25} = 0.64$, which can also be written $1 - \frac{20.25}{56.25}$: the market explains 64% of the fund's variance, and the remaining $(1 - R^2)\sigma_y^2 = 0.36 \times 56.25 = 20.25$ is the fund's own risk (the residual), unrelated to the market, so the market cannot hedge it. Computing $\sigma_y - b\,\sigma_x = 1.5\%$ is wrong: that holds only when $R^2 = 1$ (perfect correlation).
     rubric:
       zh-cn:
-        - "(a) 写出 $\\text{Var}(y - hx)$ 的展开式（1 分）；由一阶条件得 $h^* = \\frac{\\text{Cov}}{\\sigma_x^2}$ 并检查二阶条件（2 分）；指出这就是 OLS 斜率（1 分）。"
-        - "(b) 由斜率得到协方差 30（2 分）；对冲后标准差 4.5%（3 分）；指出“与市场无关”这一半是对的（协方差为 0），但不相关不等于没有风险（2 分）；用 $R^2 = 0.64$ 说明对冲只去掉市场解释的 64% 的方差，剩下的是与市场无关的残差（5 分）。答 $\\sigma_y - b\\sigma_x = 1.5\\%$ 或认为风险接近 0：最多 2 分。前面的协方差算错、后面方法对：不重复扣分。"
+        - "(a) 写出 $\\text{Var}(y - hx)$ 的展开式；由一阶条件得 $h^* = \\frac{\\text{Cov}}{\\sigma_x^2}$ 并检查二阶条件；指出这就是 OLS 斜率。"
+        - "(b) 由斜率得到协方差 30；对冲后标准差 4.5%；指出“与市场无关”这一半是对的（协方差为 0），但不相关不等于没有风险；用 $R^2 = 0.64$ 说明对冲只去掉市场解释的 64% 的方差，剩下的是与市场无关的残差。答 $\\sigma_y - b\\sigma_x = 1.5\\%$ 或认为风险接近 0：需要订正。前面的协方差算错、后面方法对：只需订正算错的那一处，方法不算错。"
       en:
-        - "(a) Writes out $\\text{Var}(y - hx)$ (1 point); obtains $h^* = \\frac{\\text{Cov}}{\\sigma_x^2}$ from the first-order condition and checks the second-order condition (2 points); states that this is the OLS slope (1 point)."
-        - "(b) Obtains the covariance of 30 from the slope (2 points); hedged standard deviation 4.5% (3 points); states that the half about \"no longer depends on the market\" is right (the covariance is 0) but uncorrelated does not mean riskless (2 points); uses $R^2 = 0.64$ to explain that the hedge removes only the 64% of the variance the market explains, and what remains is the residual, unrelated to the market (5 points). Answering $\\sigma_y - b\\sigma_x = 1.5\\%$, or that the risk is close to 0: at most 2 points. A wrong covariance earlier with a correct method later: do not deduct twice."
+        - "(a) Writes out $\\text{Var}(y - hx)$; obtains $h^* = \\frac{\\text{Cov}}{\\sigma_x^2}$ from the first-order condition and checks the second-order condition; states that this is the OLS slope."
+        - "(b) Obtains the covariance of 30 from the slope; hedged standard deviation 4.5%; states that the half about \"no longer depends on the market\" is right (the covariance is 0) but uncorrelated does not mean riskless; uses $R^2 = 0.64$ to explain that the hedge removes only the 64% of the variance the market explains, and what remains is the residual, unrelated to the market. Answering $\\sigma_y - b\\sigma_x = 1.5\\%$, or that the risk is close to 0: needs revision. A wrong covariance earlier with a correct method later: only the wrong covariance needs correcting; the method is not wrong."
 
   - id: Q7
     kind: quiz
     part: problem
-    points: 13
     concepts: [profit-maximization, marginal-cost, fixed-cost, variable-cost, sunk-cost]
     expected: { p: "3.16", q: "31.6", wrong: "3.74" }
     question:
       zh-cn: |-
         一辆餐车在竞争激烈的集市上卖饭，每份的价格 $p$ 由市场决定，不受餐车卖多少的影响。每天卖 $q$ 份时，食材和小时工的成本为 $\frac{q^2}{20}$ 美元。餐车每月初付 600 美元的停车许可费，已经付清，不能退。每天出摊还要交 50 美元的摊位费，不管卖多少份都一样；不出摊就不用交。份数可以看作连续的。
 
-        一位朋友说：“许可费和摊位费都与卖多少份无关，不影响产量。所以只要价格高于 0 就该出摊，按 $p = MC$ 决定卖多少。”这个说法对吗？求餐车愿意出摊的最低价格，以及在这个价格下每天卖多少份。（13 分）
+        一位朋友说：“许可费和摊位费都与卖多少份无关，不影响产量。所以只要价格高于 0 就该出摊，按 $p = MC$ 决定卖多少。”这个说法对吗？求餐车愿意出摊的最低价格，以及在这个价格下每天卖多少份。
       en: |-
         A food truck sells meals at a busy market. The price per meal $p$ is set by the market and does not depend on how much the truck sells. Selling $q$ meals a day costs $\frac{q^2}{20}$ dollars for ingredients and hourly staff. At the start of each month the truck pays a parking permit of 600 dollars, which has been paid and cannot be refunded. On each day it opens, it also pays a stall fee of 50 dollars, however many meals it sells; on days it does not open, it pays nothing. Treat the number of meals as continuous.
 
-        A friend says: "The permit and the stall fee do not depend on how many meals are sold, so they do not affect output. So the truck should open whenever the price is above 0 and choose how much to sell by $p = MC$." Is this right? Find the lowest price at which the truck is willing to open, and how many meals a day it sells at that price. (13 points)
+        A friend says: "The permit and the stall fee do not depend on how many meals are sold, so they do not affect output. So the truck should open whenever the price is above 0 and choose how much to sell by $p = MC$." Is this right? Find the lowest price at which the truck is willing to open, and how many meals a day it sells at that price.
     answer:
       zh-cn: |-
         朋友说对了一半。产量：边际成本 $MC = \frac{q}{10}$，由 $p = MC$ 得 $q^* = 10p$（二阶导数 $-\frac{1}{10} < 0$）。两项费用都与 $q$ 无关，确实不影响出摊时卖多少。
@@ -288,31 +281,30 @@ questions:
         So: costs that do not depend on output do not affect output; among them, a cost paid only when the truck opens (the stall fee) decides whether to open, and a sunk cost (the permit) affects neither. Spreading the permit over the days (20 dollars a day) and including it gives $5p^2 \ge 70$, $p \ge 3.74$, which is wrong.
     rubric:
       zh-cn:
-        - "由 $p = MC$ 得 $q^* = 10p$（2 分）；区分摊位费（出摊才付，影响是否出摊）与许可费（沉没成本，不影响）（4 分）；列出 $5p^2 \\ge 50$，得最低价格 3.16、产量 31.6（4 分）；评价朋友的说法：产量部分对，“价格为正就出摊”错（3 分）。"
-        - "把摊位费称为可变成本或“不出摊时不付的成本”而不是固定成本，只要正确用于出摊决策，同样给分。同意朋友、认为价格为正就出摊：最多 3 分。把许可费分摊进出摊的决策（得 3.74）：最多 8 分。"
+        - "由 $p = MC$ 得 $q^* = 10p$；区分摊位费（出摊才付，影响是否出摊）与许可费（沉没成本，不影响）；列出 $5p^2 \\ge 50$，得最低价格 3.16、产量 31.6；评价朋友的说法：产量部分对，“价格为正就出摊”错。"
+        - "把摊位费称为可变成本或“不出摊时不付的成本”而不是固定成本，只要正确用于出摊决策，同样算对。同意朋友、认为价格为正就出摊：需要订正。把许可费分摊进出摊的决策（得 3.74）：需要订正。"
       en:
-        - "Obtains $q^* = 10p$ from $p = MC$ (2 points); distinguishes the stall fee (paid only when opening, affects whether to open) from the permit (sunk, affects nothing) (4 points); sets up $5p^2 \\ge 50$ and finds the lowest price 3.16 and output 31.6 (4 points); evaluates the friend's statement: right about output, wrong about \"open at any positive price\" (3 points)."
-        - "Calling the stall fee a cost of opening rather than a fixed cost is also correct, as long as it is used correctly in the decision to open. Agrees with the friend that the truck opens at any positive price: at most 3 points. Includes the permit, spread over the days, in the decision to open (giving 3.74): at most 8 points."
+        - "Obtains $q^* = 10p$ from $p = MC$; distinguishes the stall fee (paid only when opening, affects whether to open) from the permit (sunk, affects nothing); sets up $5p^2 \\ge 50$ and finds the lowest price 3.16 and output 31.6; evaluates the friend's statement: right about output, wrong about \"open at any positive price\"."
+        - "Calling the stall fee a cost of opening rather than a fixed cost is also correct, as long as it is used correctly in the decision to open. Agrees with the friend that the truck opens at any positive price: needs revision. Includes the permit, spread over the days, in the decision to open (giving 3.74): needs revision."
 
   - id: Q8
     kind: quiz
     part: problem
-    points: 14
     concepts: [present-value, perpetuity, discount-factor]
     expected: { a4: "-24.96", b4: "-20", near4: "69.17", a2: "-25.37", b2: "-33.33", far4: "30.83", far2: "55.21" }
     question:
       zh-cn: |-
         资产 A 在 30 年后一次性支付 1,000,000 美元，中间没有付款。资产 B 从明年起每年末支付 40,000 美元，永远持续。
 
-        (a) 一位同事说：“B 的付款永远持续，比 A 的 30 年长得多，所以利率上升时 B 的价值跌得比 A 多。”设折现率从 4% 升到 5%，计算两者价值下降的百分比，判断这个说法，并解释原因。（8 分）
+        (a) 一位同事说：“B 的付款永远持续，比 A 的 30 年长得多，所以利率上升时 B 的价值跌得比 A 多。”设折现率从 4% 升到 5%，计算两者价值下降的百分比，判断这个说法，并解释原因。
 
-        (b) 如果折现率是从 2% 升到 3%，结论会变吗？解释为什么。（6 分）
+        (b) 如果折现率是从 2% 升到 3%，结论会变吗？解释为什么。
       en: |-
         Asset A pays 1,000,000 dollars once, in 30 years, with no payments before. Asset B pays 40,000 dollars at the end of every year, starting next year, forever.
 
-        (a) A colleague says: "B's payments last forever, much longer than A's 30 years, so when interest rates rise, B loses more value than A." Let the discount rate rise from 4% to 5%. Compute the percentage fall in the value of each asset, judge the statement, and explain why. (8 points)
+        (a) A colleague says: "B's payments last forever, much longer than A's 30 years, so when interest rates rise, B loses more value than A." Let the discount rate rise from 4% to 5%. Compute the percentage fall in the value of each asset, judge the statement, and explain why.
 
-        (b) If the discount rate rises from 2% to 3% instead, does the conclusion change? Explain why. (6 points)
+        (b) If the discount rate rises from 2% to 3% instead, does the conclusion change? Explain why.
     answer:
       zh-cn: |-
         (a) A：$\frac{1{,}000{,}000}{1.04^{30}} \approx 308{,}319$ 美元，升到 5% 后乘以 $\left(\frac{1.04}{1.05}\right)^{30} \approx 0.750$，变化约 −24.96%。B：$\frac{40{,}000}{0.04} = 1{,}000{,}000$ 美元变为 $\frac{40{,}000}{0.05} = 800{,}000$ 美元，变化 −20%。A 跌得更多，同事的说法不对。
@@ -326,31 +318,30 @@ questions:
         The share of B's value that comes from payments after year 30 is $(1+r)^{-30}$: 30.83% at 4% and 55.21% at 2%. The lower the rate, the less distant payments are discounted and the larger their share of the value, so more of the perpetuity's value comes from the distant future and it becomes more sensitive to the rate. So which asset is more sensitive does not depend on how long the payments last but on when most of the value is received, and that depends on the level of the rate.
     rubric:
       zh-cn:
-        - "(a) 两个变化百分比 −24.96%、−20%（3 分）；判断说法不对，并用“价值主要来自多远的未来”或前 30 年付款占 B 价值的比例说明原因（5 分）。算对但解释为“A 的期限更长”之类、没有说明价值分布：最多 5 分。"
-        - "(b) 两个变化百分比 −25.37%、−33.33%，结论改变（2 分）；说明利率越低远期付款在 B 的价值中比重越大（4 分）。"
+        - "(a) 两个变化百分比 −24.96%、−20%；判断说法不对，并用“价值主要来自多远的未来”或前 30 年付款占 B 价值的比例说明原因。算对但解释为“A 的期限更长”之类、没有说明价值分布：需要订正。"
+        - "(b) 两个变化百分比 −25.37%、−33.33%，结论改变；说明利率越低远期付款在 B 的价值中比重越大。"
       en:
-        - "(a) The two percentage changes −24.96% and −20% (3 points); judges the statement wrong and explains with \"how far in the future most of the value lies\" or the share of B's value from the first 30 years (5 points). Correct numbers but an explanation such as \"A has a longer maturity\" that does not discuss where the value lies: at most 5 points."
-        - "(b) The two percentage changes −25.37% and −33.33%, and the conclusion changes (2 points); explains that the lower the rate, the larger the share of distant payments in B's value (4 points)."
+        - "(a) The two percentage changes −24.96% and −20%; judges the statement wrong and explains with \"how far in the future most of the value lies\" or the share of B's value from the first 30 years. Correct numbers but an explanation such as \"A has a longer maturity\" that does not discuss where the value lies: needs revision."
+        - "(b) The two percentage changes −25.37% and −33.33%, and the conclusion changes; explains that the lower the rate, the larger the share of distant payments in B's value."
 
   - id: Q9
     kind: quiz
     part: problem
-    points: 18
     concepts: [standard-error, hypothesis-test, t-statistic, statistical-significance, normal-distribution, z-score]
     expected: { se: "2.53", cut: "4.96", z: "1.17", z2: "2.75", prob: "12.4", years: "61.5" }
     question:
       zh-cn: |-
         一位基金经理每年相对指数的超额收益服从正态分布，各年独立，标准差为 8 个百分点。假设他真有能力：超额收益的真实期望是每年 2 个百分点。投资者用他的记录在 5% 水平上做双侧检验，原假设是“真实期望为 0”：$|t| > 1.96$ 时结果显著。为了简单，计算标准误时用真实的标准差 8 个百分点。可以用代码计算正态分布的概率，也可以用：$P(Z > 0.79) \approx 0.215$，$P(Z > 1.17) \approx 0.121$，$P(Z > 1.65) \approx 0.049$，$P(Z > 1.96) \approx 0.025$，$P(Z > 2.75) \approx 0.003$。
 
-        (a) 一位投资者说：“如果他真有能力，10 年的数据足以检验出来；如果 10 年后结果不显著，就说明他没有能力。”求他 10 年的记录显著的概率，并评价这个说法。（11 分）
+        (a) 一位投资者说：“如果他真有能力，10 年的数据足以检验出来；如果 10 年后结果不显著，就说明他没有能力。”求他 10 年的记录显著的概率，并评价这个说法。
 
-        (b) 至少要有多少年的记录，他的结果显著的概率才能达到 50%？（7 分）
+        (b) 至少要有多少年的记录，他的结果显著的概率才能达到 50%？
       en: |-
         A fund manager's excess return over an index is normally distributed, independent from year to year, with a standard deviation of 8 percentage points. Suppose he really has skill: the true expected excess return is 2 percentage points a year. Investors use his record for a two-sided test at the 5% level of the null hypothesis "the true expected value is 0": the result is significant when $|t| > 1.96$. For simplicity, use the true standard deviation of 8 percentage points to compute the standard error. You may compute normal probabilities with code or use: $P(Z > 0.79) \approx 0.215$, $P(Z > 1.17) \approx 0.121$, $P(Z > 1.65) \approx 0.049$, $P(Z > 1.96) \approx 0.025$, $P(Z > 2.75) \approx 0.003$.
 
-        (a) An investor says: "If he really has skill, 10 years of data are enough to detect it; if the result is not significant after 10 years, that shows he has no skill." Find the probability that his 10-year record is significant, and evaluate the statement. (11 points)
+        (a) An investor says: "If he really has skill, 10 years of data are enough to detect it; if the result is not significant after 10 years, that shows he has no skill." Find the probability that his 10-year record is significant, and evaluate the statement.
 
-        (b) At least how many years of record are needed for the probability that his result is significant to reach 50%? (7 points)
+        (b) At least how many years of record are needed for the probability that his result is significant to reach 50%?
     answer:
       zh-cn: |-
         (a) 10 年平均超额收益的标准误是 $\frac{8}{\sqrt{10}} \approx 2.53$ 个百分点。$|t| > 1.96$，等价于样本均值大于 $1.96 \times 2.53 \approx 4.96$ 个百分点，或小于 −4.96 个百分点。
@@ -370,8 +361,8 @@ questions:
         (b) The sample mean is distributed symmetrically around the true expected value of 2, so the probability of a significantly positive result is 50% when the upper critical value equals 2 exactly; the lower critical value is then more than 7 standard errors below 2, so a significantly negative result has negligible probability: $1.96 \times \frac{8}{\sqrt{n}} = 2$, $\sqrt{n} = 7.84$, $n \approx 61.5$, that is, at least 62 years. A whole working life is not enough to give a manager who truly earns 2 percentage points a year more a 50% chance of being detected.
     rubric:
       zh-cn:
-        - "(a) 标准误 2.53，并把 $|t| > 1.96$ 转换为样本均值大于 4.96 或小于 −4.96（3 分）；在真实期望为 2 下标准化，$z \\approx 1.17$，概率合计约 12.4%（4 分；只算正向一侧得 12.1%：扣 1 分）；评价：说法不对，不显著不等于没有能力，并用信号与噪声或数据太少说明（4 分）。按原假设得 5%，或因期望的 t 值小于 1.96 就说不可能显著：最多 3 分。只凭“不显著不等于没有能力”评价、没有计算：最多 3 分。"
-        - "(b) 说明显著概率为 50% 时临界值等于真实期望 2（4 分）；解出 $n \\approx 61.5$，至少 62 年（3 分）。条件写对但答 61 年：扣 1 分。"
+        - "(a) 标准误 2.53，并把 $|t| > 1.96$ 转换为样本均值大于 4.96 或小于 −4.96；在真实期望为 2 下标准化，$z \\approx 1.17$，概率合计约 12.4%（只算正向一侧得 12.1%：指出这个小错误，不影响通过）；评价：说法不对，不显著不等于没有能力，并用信号与噪声或数据太少说明。按原假设得 5%，或因期望的 t 值小于 1.96 就说不可能显著：需要订正。只凭“不显著不等于没有能力”评价、没有计算：需要订正。"
+        - "(b) 说明显著概率为 50% 时临界值等于真实期望 2；解出 $n \\approx 61.5$，至少 62 年。条件写对但答 61 年：指出这个小错误，不影响通过。"
       en:
-        - "(a) Standard error 2.53, and turns $|t| > 1.96$ into a sample mean above 4.96 or below −4.96 (3 points); standardizes with a true expected value of 2, $z \\approx 1.17$, total probability about 12.4% (4 points; only the positive side, giving 12.1%: deduct 1 point); evaluation: the statement is wrong, not significant does not mean no skill, explained with signal and noise or too little data (4 points). Getting 5% under the null hypothesis, or saying significance is impossible because the expected t-statistic is below 1.96: at most 3 points. Evaluating only with \"not significant does not mean no skill\" and no calculation: at most 3 points."
-        - "(b) Explains that the probability is 50% when the critical value equals the true expected value of 2 (4 points); solves $n \\approx 61.5$, at least 62 years (3 points). Correct condition but an answer of 61 years: deduct 1 point."
+        - "(a) Standard error 2.53, and turns $|t| > 1.96$ into a sample mean above 4.96 or below −4.96; standardizes with a true expected value of 2, $z \\approx 1.17$, total probability about 12.4% (only the positive side, giving 12.1%: point out the slip, which alone does not need revision); evaluation: the statement is wrong, not significant does not mean no skill, explained with signal and noise or too little data. Getting 5% under the null hypothesis, or saying significance is impossible because the expected t-statistic is below 1.96: needs revision. Evaluating only with \"not significant does not mean no skill\" and no calculation: needs revision."
+        - "(b) Explains that the probability is 50% when the critical value equals the true expected value of 2; solves $n \\approx 61.5$, at least 62 years. Correct condition but an answer of 61 years: point out the slip, which alone does not need revision."

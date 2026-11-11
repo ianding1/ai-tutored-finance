@@ -31,9 +31,6 @@ export type UiKey =
 	| 'answerWrong'
 	| 'chooseFirst'
 	| 'quizItem'
-	| 'points'
-	| 'scoreOf'
-	| 'copyGrading'
 	| 'quizPartJudge'
 	| 'quizPartJudgeHelp'
 	| 'quizPartProblems'
@@ -74,8 +71,6 @@ export type UiStrings = Record<UiKey, string>;
 export interface PromptQuestion {
 	id: string;
 	label: string;
-	/** quiz questions only; lesson questions are not scored */
-	points?: number;
 	question: string;
 	answer: string;
 	rubric: string[];
@@ -118,10 +113,8 @@ export interface PromptParts {
  * course content is AI-generated (scripts/check.py checks that each template uses DISCLAIMER).
  */
 export interface PromptTemplates {
-	/** feedback prompt for check questions and exercises (not scored: "ok" / "revise") */
+	/** feedback prompt for check questions, exercises and quizzes (not scored: "ok" / "revise") */
 	feedback(i: GradingInput, p: PromptParts): string;
-	/** scoring prompt for a quiz */
-	quiz(i: GradingInput, p: PromptParts): string;
 	/** explanation prompt for selected text */
 	explain(i: ExplainInput, p: PromptParts): string;
 }
