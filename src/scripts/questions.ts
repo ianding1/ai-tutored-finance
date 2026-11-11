@@ -22,7 +22,7 @@ export function resultText(r: ResultItem): string {
 }
 
 /** Show the latest result of each question on the page: not answered, OK / needs revision, or a score. */
-function renderStatuses() {
+export function renderStatuses() {
 	const lessonId = pageData().lesson?.id;
 	const results = loadProgress().results.filter((r) => r.lesson === lessonId);
 	document.querySelectorAll<HTMLElement>('[data-q-status]').forEach((el) => {

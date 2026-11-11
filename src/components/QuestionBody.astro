@@ -1,10 +1,12 @@
 ---
-// One question: label, result, points (quiz questions only) and text. Answers are not entered on the site; the learner writes
-// them on paper (or types them after the copied prompt) and submits them at the end of the lesson.
+// One question: label, result, points (quiz questions only) and text. Most answers are not entered on the site; the
+// learner writes them on paper (or types them after the copied prompt) and submits them at the end of the lesson.
+// Check questions with `correct` in the key are answered here instead: the learner picks an option and submits it,
+// the result is shown at once, and a wrong answer shows the explanation (the reference answer).
 // The result (not answered / OK / needs revision) is filled in from the stored progress by
 // src/scripts/questions.ts.
 import { t, type Lang } from '../i18n/ui';
-import { renderRich, type Question } from '../lib/course';
+import { renderRich, isInteractive, type Question } from '../lib/course';
 
 interface Props {
 	q: Question;
@@ -13,6 +15,18 @@ interface Props {
 	label: string;
 }
 const { q, lang, lessonId, label } = Astro.props;
+const interactive = isInteractive(q);
+const letters = 'ABCDEFGH';
+const options = !interactive
+	? []
+	: q.choices?.length
+		? q.choices.map((c, i) => ({ value: letters[i], html: `(${letters[i]}) ${renderRich(c[lang], lang, lessonId)}` }))
+		: [
+				{ value: 'true', html: t(lang, 'choiceTrue') },
+				{ value: 'false', html: t(lang, 'choiceFalse') },
+			];
+const correct = interactive ? String(q.correct) : '';
+const name = `choice-${lessonId}-${q.id}`;
 ---
 
 <div class="lfwai-q" id={`q-${q.id}`}>
@@ -26,4 +40,28 @@ const { q, lang, lessonId, label } = Astro.props;
 		</span>
 	</div>
 	<div class="lfwai-q-text" set:html={renderRich(q.question[lang], lang, lessonId)} />
+	{interactive && (
+		<form class="lfwai-choice" data-choice={q.id} data-lesson={lessonId} data-correct={correct} data-judge={q.choices?.length ? undefined : ''}>
+			<div class="lfwai-choice-options">
+				{options.map((o) => (
+					<label class="lfwai-choice-option">
+						<input type="radio" name={name} value={o.value} />
+						<span set:html={o.html} />
+					</label>
+				))}
+			</div>
+			<div class="lfwai-choice-actions">
+				<button type="submit" class="lfwai-btn">{t(lang, 'submitAnswer')}</button>
+				<span class="lfwai-choice-result" data-choice-result aria-live="polite"></span>
+			</div>
+			<div class="lfwai-choice-explain" data-choice-explain hidden set:html={renderRich(q.answer[lang], lang, lessonId)} />
+		</form>
+	)}
 </div>
+
+{interactive && (
+	<script>
+		import { initChoices } from '../scripts/choices';
+		initChoices();
+	</script>
+)}

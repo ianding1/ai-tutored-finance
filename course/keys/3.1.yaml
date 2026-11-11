@@ -55,77 +55,68 @@ questions:
     kind: check
     section: intermediation
     concepts: [financial-intermediary, diversification, standard-deviation]
-    expected: { sd2: "0.69" }
     question:
       zh-cn: |-
-        每笔贷款以 5% 的概率违约，违约时本金全部损失。只发放一笔贷款时，损失比例的标准差约为 21.79%。银行发放 1000 笔金额相同、违约相互独立的贷款，损失比例的标准差是多少？现实中银行的损失比例为什么并没有这么稳定？
+        只要银行发放的贷款笔数足够多，违约损失占贷款总额的比例就会非常稳定，无论经济是否陷入衰退。
       en: |-
-        Each loan defaults with probability 5%, losing the whole principal. With a single loan, the standard deviation of the loss rate is about 21.79%. If a bank makes 1000 equal loans that default independently, what is the standard deviation of its loss rate? Why is a real bank's loss rate not this stable?
+        As long as a bank makes enough loans, its default losses as a share of total lending will be very stable, whether or not the economy falls into recession.
+    correct: false
     answer:
       zh-cn: |-
-        独立时方差除以 1000：$\frac{21.79\%}{\sqrt{1000}} \approx 0.69\%$。
-        现实中违约并不相互独立：衰退中很多借款者同时出问题，违约正相关，这部分风险不能靠增加贷款数量分散掉。
+        错。增加贷款笔数只能分散相互独立的违约风险。衰退中很多借款者同时出问题，违约正相关，这部分风险不能靠增加贷款数量分散掉，所以损失比例在衰退时会明显上升。
       en: |-
-        With independence the variance is divided by 1000: $\frac{21.79\%}{\sqrt{1000}} \approx 0.69\%$.
-        In reality defaults are not independent: in a recession many borrowers get into trouble at once, defaults are positively correlated, and this risk cannot be diversified away by making more loans.
-    rubric:
-      zh-cn:
-        - "约 0.69%。"
-        - "指出违约的相关性。"
-      en:
-        - "About 0.69%."
-        - "Points to the correlation of defaults."
+        False. More loans diversify away only defaults that are independent of each other. In a recession many borrowers get into trouble at the same time, so defaults are positively correlated; this part of the risk cannot be diversified away by making more loans, and the loss share rises noticeably in recessions.
 
   - id: C2
     kind: check
     section: trading
     concepts: [bid-ask-spread, market-maker]
-    expected: { yr: "5" }
     question:
       zh-cn: |-
-        一只股票的买价为 99.95 美元、卖价为 100.05 美元。一位投资者每年把全部资金在这只股票上买入再卖出 50 次，价格不变，仅价差一项每年损失本金的百分之几？如果换成交易不活跃的小公司股票，这个数字通常会更大，为什么？
+        一只股票突然出现了大量可能掌握内部消息的交易者。做市商最可能怎样做？
       en: |-
-        A stock has a bid of 99.95 dollars and an ask of 100.05 dollars. An investor buys and then sells this stock with all of his capital 50 times a year, with prices unchanged. What percentage of capital does the spread alone cost each year? For a thinly traded small-company stock this number is usually larger. Why?
+        A stock suddenly attracts many traders who may have inside information. What is the market maker most likely to do?
+    choices:
+      - zh-cn: 缩小买卖价差，以吸引更多交易
+        en: Narrow the bid-ask spread to attract more trading
+      - zh-cn: 扩大买卖价差
+        en: Widen the bid-ask spread
+      - zh-cn: 价差不变，因为价差只取决于交易量
+        en: Keep the spread unchanged, because the spread depends only on trading volume
+      - zh-cn: 只报买价，不报卖价
+        en: Quote only a bid and no ask
+    correct: B
     answer:
       zh-cn: |-
-        每次买入再卖出损失 0.10 美元，约为 0.1%；每年 $50 \times 0.1\% = 5\%$。
-        小公司股票交易少，做市商持有存货的时间长、风险大；关于小公司的公开信息少，来交易的人更可能比做市商知道得多（逆向选择），做市商要用更大的价差补偿。
+        (B)。与知情交易者交易时，做市商往往在价格将要上涨时卖出、将要下跌时买入，会亏损（逆向选择）。知情交易者越多，做市商要用越大的价差从其他交易者那里补偿这些损失。
       en: |-
-        Each round trip loses 0.10 dollars, about 0.1%; a year costs $50 \times 0.1\% = 5\%$.
-        A small-company stock trades little, so market makers hold inventory longer and bear more risk; with less public information, traders are more likely to know more than the market maker (adverse selection), so the market maker needs a wider spread as compensation.
-    rubric:
-      zh-cn:
-        - "每年约 5%。"
-        - "提到存货风险和逆向选择。"
-      en:
-        - "About 5% a year."
-        - "Mentions inventory risk and adverse selection."
+        (B). Trading with informed traders, the market maker tends to sell just before prices rise and buy just before they fall, and loses money (adverse selection). The more informed traders there are, the wider the spread the market maker needs to recover these losses from other traders.
 
   - id: C3
     kind: check
     section: orders
     concepts: [limit-order, bid-ask-spread]
     widget: { id: order-book, set: { q: 3000 } }
-    expected: { cost: "175", cost2: "675" }
     question:
       zh-cn: |-
-        在 [[fig:5-1]] 中，1500 股的市价买单比按中间价成交多付多少美元？3000 股呢？为什么不是两倍？
+        在 [[fig:5-1]] 中，把市价买单从 1500 股增加到 3000 股。与按中间价成交相比，多付的总金额会怎样变化？
       en: |-
-        In [[fig:5-1]], how many dollars more than the midpoint does a market buy order for 1500 shares pay? And for 3000 shares? Why is it not twice as much?
+        In [[fig:5-1]], raise the market buy order from 1500 shares to 3000 shares. Compared with trading at the midpoint, how does the total extra amount paid change?
+    choices:
+      - zh-cn: 正好变为两倍
+        en: It exactly doubles
+      - zh-cn: 增加，但不到两倍
+        en: It rises, but less than double
+      - zh-cn: 超过两倍
+        en: It more than doubles
+      - zh-cn: 不变
+        en: It does not change
+    correct: C
     answer:
       zh-cn: |-
-        1500 股：500 股 100.05、500 股 100.10、500 股 100.20，多付 175 美元。3000 股：多付 675 美元，超过两倍。
-        后面的股数要吃到更高的价位（100.20 和 100.40），每股多付的金额随订单增大而增加：价格冲击是递增的。
+        (C)。1500 股多付约 175 美元，3000 股多付约 675 美元。后面的股数要吃到更高的价位，每股多付的金额随订单增大而增加：价格冲击是递增的。
       en: |-
-        1500 shares: 500 at 100.05, 500 at 100.10 and 500 at 100.20, paying 175 dollars more. 3000 shares: 675 dollars more, over twice as much.
-        The extra shares reach higher price levels (100.20 and 100.40), so the extra cost per share rises with order size: price impact increases with size.
-    rubric:
-      zh-cn:
-        - "175 和 675 美元。"
-        - "说明价格冲击递增。"
-      en:
-        - "175 and 675 dollars."
-        - "Explains increasing price impact."
+        (C). 1500 shares cost about 175 dollars extra and 3000 shares about 675 dollars. The later shares must take higher price levels, so the extra paid per share rises with order size: price impact grows faster than the order.
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1

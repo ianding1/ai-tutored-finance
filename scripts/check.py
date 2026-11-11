@@ -332,9 +332,32 @@ def check_keys():
                     for r in (q.get("rubric") or {}).get(lang, []):
                         if re.search(r"\d+\s*分|\d+\s*points?\b|partial credit|部分分", r):
                             err(where, f"{kind} rubric ({lang}) mentions points: '{r[:40]}'")
-            for f in ("question", "answer", "rubric"):
+            interactive = kind == "check" and "correct" in q
+            for f in ("question", "answer") if interactive else ("question", "answer", "rubric"):
                 if f not in q:
                     err(where, f"missing '{f}'")
+            if "correct" in q and kind != "check":
+                err(where, "only check questions can be answered on the page ('correct')")
+            if interactive:
+                # A check question answered on the page: true / false (correct: true or false) or
+                # multiple choice (choices + correct: a letter). The answer is the explanation.
+                choices = q.get("choices")
+                if choices is None:
+                    if not isinstance(q["correct"], bool):
+                        err(where, "a true / false check question needs correct: true or false")
+                else:
+                    letters = "ABCDEFGH"[: len(choices)] if isinstance(choices, list) else ""
+                    if not isinstance(choices, list) or not 2 <= len(choices) <= 8:
+                        err(where, "'choices' must be a list of 2 to 8 options")
+                    elif q["correct"] not in list(letters):
+                        err(where, f"'correct' must be one of {', '.join(letters)}")
+                    for n, c in enumerate(choices if isinstance(choices, list) else []):
+                        for lang in LANGS:
+                            if not isinstance(c, dict) or not str(c.get(lang) or "").strip():
+                                err(where, f"choice {n + 1} has no text in {lang}")
+                for f in ("expected", "rubric"):
+                    if f in q:
+                        err(where, f"a check question answered on the page has no '{f}'")
             if not q.get("concepts"):
                 err(where, "concepts must not be empty")
             for cid in q.get("concepts", []):
@@ -374,10 +397,13 @@ def check_keys():
             for q in key["questions"]:
                 if q["kind"] == "check" and q["id"] not in used:
                     err(rel(p), f"question {q['id']} in {file} is never shown (add <Check id=\"{q['id']}\" />)")
-            has_checks = any(q["kind"] == "check" for q in key["questions"])
+            # <CheckAll /> submits the check questions that are not answered on the page.
+            has_checks = any(q["kind"] == "check" and "correct" not in q for q in key["questions"])
             n_all = sum(1 for name, _ in tags(body) if name == "CheckAll")
             if has_checks and n_all != 1:
-                err(rel(p), "the lesson has check questions, so the page must contain <CheckAll /> exactly once")
+                err(rel(p), "the lesson has check questions graded by prompt, so the page must contain <CheckAll /> exactly once")
+            if not has_checks and n_all:
+                err(rel(p), "all check questions are answered on the page, so remove <CheckAll />")
             has_ex = any(q["kind"] == "exercise" for q in key["questions"])
             n_ex = sum(1 for name, _ in tags(body) if name == "Exercises")
             if has_ex and n_ex != 1:

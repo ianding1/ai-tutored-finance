@@ -564,6 +564,50 @@
 .lfwai-q-text {
 	line-height: 1.75;
 }
+/* Check questions answered on the page */
+.lfwai-choice {
+	margin-top: 0.75rem;
+}
+.lfwai-choice-options {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+}
+.lfwai-choice-option {
+	display: flex;
+	align-items: baseline;
+	gap: 0.5rem;
+	line-height: 1.6;
+	cursor: pointer;
+}
+.lfwai-choice-option input {
+	flex: none;
+	margin: 0;
+	transform: translateY(0.1em);
+}
+.lfwai-choice-actions {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	margin-top: 0.75rem;
+}
+.lfwai-choice-result[data-state='ok'] {
+	color: var(--sl-color-green-high);
+	font-weight: 600;
+}
+.lfwai-choice-result[data-state='revise'] {
+	color: var(--sl-color-red-high);
+	font-weight: 600;
+}
+.lfwai-choice-result[data-state='none'] {
+	color: var(--sl-color-gray-3);
+}
+.lfwai-choice-explain {
+	margin-top: 0.75rem;
+	padding-left: 0.75rem;
+	border-left: 3px solid var(--sl-color-gray-5);
+	line-height: 1.75;
+}
 .lfwai-answer {
 	display: flex;
 	flex-direction: column;

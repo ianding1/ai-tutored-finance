@@ -72,12 +72,25 @@ one learner, revision history and answers inline. To publish a finished lesson:
    lesson (example data, figure parameters) must be in a context item tagged for that question.
    Place `<Check id="..."/>` (question text only) in the right section, `<CheckAll />` after the
    summary and `<Exercises />` at the end.
-   Keep questions small:
-   - each check question asks about one core point, in one or two parts, to confirm understanding or
-     prompt thought; it does not try to cover everything in the section;
-   - exercises cover the lesson's points without many parts; when a question has many parts, drop the
-     ones that only plug numbers into a formula and keep the ones that need the formula to be
-     understood or used flexibly. A number that is only a stepping stone can be given in the question.
+   Check questions:
+   - each is one true / false statement ("判断：……") or one multiple-choice question with options
+     (A)–(D), about one core point of the section it follows;
+   - they test qualitative conclusions: direction, conditions, mechanism, whether a claim holds. A
+     number may appear, but the answer must follow from understanding, not from working through a
+     calculation. A figure-based check question asks about a direction or pattern in the figure, not
+     a precise reading;
+   - the learner writes only the answer (no reason). The reference answer states the correct choice
+     and a short explanation; the rubric is the correct choice;
+   - they have no `expected`.
+   Exercises:
+   - they hold the calculations, derivations and applications, without many parts; when a question
+     has many parts, drop the ones that only plug numbers into a formula and keep the ones that need
+     the formula to be understood or used flexibly. A number that is only a stepping stone can be
+     given in the question;
+   - a point tested by a check question is never tested again in the same or nearly the same way. It
+     may appear only as a step in something larger: combining points from different sections, a new
+     situation or decision, a derivation the text leaves out, or the limits of a result. Test: would
+     a learner who answered every check question correctly learn something new from the exercise?
 5. Put every numeric answer in `expected` and recompute it in `course/verify/<id>.py`.
 6. Write the page and every text field in each of the other languages. Formulas, heading ids and
    components must be identical. English uses plain, standard English without idioms.

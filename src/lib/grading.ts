@@ -39,7 +39,7 @@ export function gradingPayload(lessonId: string, qs: Question[], lang: Lang) {
 			points: q.kind === 'quiz' ? q.points : undefined,
 			question: plainRich(q.question[lang], lang, lessonId),
 			answer: plainRich(q.answer[lang], lang, lessonId),
-			rubric: q.rubric[lang].map((r) => plainRich(r, lang, lessonId)),
+			rubric: (q.rubric?.[lang] ?? []).map((r) => plainRich(r, lang, lessonId)),
 		})),
 	};
 }

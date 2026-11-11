@@ -1,7 +1,7 @@
 ---
-// <CheckAll /> — one grading prompt for all check questions of the lesson.
+// <CheckAll /> — one grading prompt for the check questions of the lesson that are not answered on the page.
 import { toLang, t } from '../i18n/ui';
-import { lessonKey } from '../lib/course';
+import { lessonKey, isInteractive } from '../lib/course';
 import { gradingPayload } from '../lib/grading';
 import GradeControls from './GradeControls.astro';
 
@@ -9,7 +9,7 @@ const route = Astro.locals.starlightRoute;
 const lang = toLang(route.lang);
 const lessonId = route.entry.data.lesson;
 if (!lessonId) throw new Error('<CheckAll> can only be used on a lesson page (frontmatter "lesson")');
-const qs = (lessonKey(lessonId)?.questions ?? []).filter((q) => q.kind !== 'exercise');
+const qs = (lessonKey(lessonId)?.questions ?? []).filter((q) => q.kind !== 'exercise' && !isInteractive(q));
 ---
 
 <section class="lfwai-group not-content" data-lfwai-group id="check-all">

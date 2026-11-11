@@ -43,8 +43,14 @@ export interface Question {
 	points?: number;
 	concepts: string[];
 	question: Bi;
+	/** check questions answered on the page: options (A), (B), ... of a multiple-choice question */
+	choices?: Bi[];
+	/** check questions answered on the page: the correct letter, or true / false for a true-or-false question */
+	correct?: string | boolean;
+	/** reference answer; for a check question answered on the page, the explanation shown after a wrong answer */
 	answer: Bi;
-	rubric: Localized<string[]>;
+	/** not used by check questions answered on the page */
+	rubric?: Localized<string[]>;
 	widget?: { id: string; set: Record<string, number> };
 }
 
@@ -305,4 +311,9 @@ export function plainRich(text: string, lang: Lang, current?: string): string {
 		.replace(/\[\[([^\]]+)\]\]/g, (_, tok) => refPlain(parseRefToken(tok), lang, current))
 		.replace(/\*\*([^*]+)\*\*/g, '$1')
 		.replace(/\\\$/g, '$');
+}
+
+/** A check question that is answered on the page (true / false or multiple choice) instead of in a grading prompt. */
+export function isInteractive(q: Question): boolean {
+	return q.kind === 'check' && q.correct !== undefined;
 }
