@@ -1,0 +1,127 @@
+---
+title: 4.1 收益与风险的度量
+description: 算术平均收益与几何平均收益；波动拖累与杠杆；年化波动率；最大回撤；夏普比率；美国股票、债券和国库券的历史收益，以及估计的不确定性。
+lesson: "4.1"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import LeverageGrowth from '../../../../components/widgets/LeverageGrowth.astro';
+
+## 两种平均收益 [#averages]
+
+一个投资过去 $n$ 年的收益为 $R_1, \ldots, R_n$（<Ref concept="simple-return" />）。“平均收益”有两种算法。
+
+<Def id="arithmetic-mean-return">算术平均收益</Def>（arithmetic mean return）是各年收益的简单平均：
+
+$$
+\bar R = \frac{1}{n} \sum_{t=1}^{n} R_t
+$$
+
+<Def id="geometric-mean-return">几何平均收益</Def>（geometric mean return）是使财富以同样速度复利增长、得到同样终值的年收益率，也叫复合年增长率：
+
+$$
+G = \left[(1 + R_1)(1 + R_2) \cdots (1 + R_n)\right]^{1/n} - 1
+$$
+
+例如一只基金第一年涨 25%，第二年跌 20%。算术平均为 2.5%，但 $1.25 \times 0.8 = 1$，两年后财富没有变化，几何平均为 0。
+
+两者回答不同的问题：
+
+- 算术平均估计的是下一年收益的期望（<Ref concept="expected-value" />）。如果各年的收益来自同一个分布，它是期望收益的无偏估计。
+- 几何平均描述的是持有者在这段时间里实际得到的增长。用 <Ref concept="log-return" /> 表示，$\ln(1 + G)$ 正是各年对数收益率的平均。
+
+只要各年收益不完全相同，几何平均就低于算术平均。<Ref lesson="0.4" sec="mean-median" /> 中财富的中位数低于均值，是同一件事的另一面：长期财富的中位数大致按几何平均增长，而均值按算术平均增长。
+
+<Check id="C1" />
+
+## 波动拖累 [#volatility-drag]
+
+几何平均比算术平均低多少？设每年收益的期望为 $\mu$、标准差为 $\sigma$，可以证明（<Ref check="Q1" />）：
+
+$$
+G \approx \mu - \frac{\sigma^2}{2}
+$$
+
+波动使复合增长率低于算术平均，这叫<Def id="volatility-drag">波动拖累</Def>（volatility drag）。例如 $\mu = 10\%$、$\sigma = 20\%$ 时，$G \approx 10\% - \frac{(20\%)^2}{2} = 8\%$。
+
+<Check id="C2" />
+
+杠杆让这个问题更突出。设无风险利率为 $r$，投资者把财富的 $L$ 倍投入期望收益为 $\mu$、波动率为 $\sigma$ 的风险资产，不足的部分按 $r$ 借入（$L < 1$ 时，其余部分按 $r$ 借出）。这时组合的期望收益和波动率为
+
+$$
+\mu_L = r + L(\mu - r), \qquad \sigma_L = L\sigma
+$$
+
+期望收益随 $L$ 直线上升，但波动拖累 $\frac{\sigma_L^2}{2}$ 随 $L$ 的平方增加。加杠杆总能提高长期的增长吗？<Ref fig="2-1" /> 画出了两条线。
+
+<Figure id="2-1" title="把财富的 L 倍投入风险资产，其余按 3% 借入或借出。虚线是组合的预期收益（算术平均），实线是近似的复合增长率 μ_L − σ_L²/2。" observe="先在默认的参数下移动杠杆，比较两条线；再提高风险资产的波动率，看实线的形状怎样变化。">
+	<LeverageGrowth />
+</Figure>
+
+<Check id="C3" />
+
+## 波动率与年化 [#volatility]
+
+收益的标准差（<Ref concept="standard-deviation" />）也叫波动率。用月收益或日收益算出的标准差，要换算成年度的才能比较。如果各期收益相互独立，$T$ 期收益之和的方差是一期方差的 $T$ 倍（<Ref lesson="0.3" />），所以
+
+$$
+\sigma_a = \sigma_m \sqrt{12}
+$$
+
+其中 $\sigma_m$ 是月收益的标准差，$\sigma_a$ 是年收益的标准差。
+
+这样换算得到的是<Def id="annualized-volatility">年化波动率</Def>（annualized volatility）。用日收益时乘以 $\sqrt{252}$（每年约 252 个交易日）。例如月波动率为 5%，年化波动率约为 $5\% \times \sqrt{12} \approx 17.3\%$。
+
+这个换算依赖“各期独立”的假设。现实中收益在不同时期可能相关，这时换算的结果会有偏差。
+
+<Check id="C4" />
+
+## 最大回撤 [#drawdown]
+
+标准差把上涨和下跌一样看待，也不反映亏损持续多久。投资者更直接感受到的是从高点跌下来的幅度。一段时期内，财富从前期最高点到随后最低点的最大跌幅，叫<Def id="maximum-drawdown">最大回撤</Def>（maximum drawdown）。
+
+美国股市历史上的两次大回撤：标普 500 指数（不含股息）从 1929 年 9 月到 1932 年 6 月下跌约 86%，从 2007 年 10 月到 2009 年 3 月下跌约 57%。跌得越深，回到原来的水平越难，需要的时间也越长（<Ref check="C5" />）。对需要定期取钱的投资者（例如退休者），在深度回撤中卖出资产会把账面亏损变成永久的损失，回撤因此比标准差更重要。
+
+<Check id="C5" />
+
+## 夏普比率 [#sharpe]
+
+比较两个投资时，既要看收益也要看风险。设无风险利率为 $r_f$，<Def id="sharpe-ratio">夏普比率</Def>（Sharpe ratio）是每承担一单位波动得到的超额收益：
+
+$$
+S = \frac{\bar R - r_f}{\sigma}
+$$
+
+例如一个组合的平均收益为 9%，无风险利率为 3%，波动率为 15%，夏普比率为 $\frac{9\% - 3\%}{15\%} = 0.4$。
+
+夏普比率用标准差衡量风险，所以它和标准差有同样的局限：肥尾（<Ref concept="fat-tails" />）、偶尔才出现的大亏损、因为不常交易而被“平滑”的收益，都会使它高估一个投资的质量（<Ref check="Q3" />）。
+
+<Check id="C6" />
+
+## 历史数据 [#history]
+
+按 Damodaran（纽约大学）整理的数据，1928–2025 年，标普 500 指数（含股息）的几何平均年收益约为 10.0%，10 年期美国国债约为 4.5%，3 个月国库券约为 3.4%。股票的年收益标准差约为 20%，算术平均比几何平均高约 2 个百分点，与 $\frac{\sigma^2}{2}$ 一致。
+
+股票的预期收益超过无风险资产收益的部分，叫<Def id="equity-premium">股权溢价</Def>（equity premium）。按上面的数据，历史上股票每年比国库券多赚约 6.6 个百分点。用它估计未来的股权溢价要注意两点：
+
+- 估计误差很大。年收益的标准差约为 20%，即使有近百年的数据，平均收益的标准误（<Ref concept="standard-error" />）也有约 2 个百分点（<Ref check="Q4" />）。
+- 美国是 20 世纪表现最好的股市之一。只看一个事后证明成功的市场，会高估股票一般的回报。
+
+<Ref lesson="4.11" /> 会讨论怎样更系统地估计未来的预期收益。
+
+## 小结 [#summary]
+
+- 算术平均 $\bar R$ 估计下一年收益的期望；几何平均 $G$ 是持有者实际得到的复合增长率。收益有波动时 $G < \bar R$。
+- 波动拖累：$G \approx \mu - \frac{\sigma^2}{2}$。杠杆使期望收益直线增加，使波动拖累按平方增加。
+- 各期独立时，年化波动率 $\sigma_a = \sigma_m \sqrt{12}$。
+- 最大回撤是从前期高点到随后低点的最大跌幅；它反映标准差反映不了的风险。
+- 夏普比率 $S = \frac{\bar R - r_f}{\sigma}$ 衡量每单位波动的超额收益，但继承了标准差的局限。
+- 1928–2025 年，美国股票的几何平均年收益约 10.0%，国库券约 3.4%；历史股权溢价的估计误差很大。
+
+## 练习题 [#exercises]
+
+<Exercises />

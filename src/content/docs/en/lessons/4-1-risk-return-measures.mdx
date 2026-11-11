@@ -1,0 +1,125 @@
+---
+title: 4.1 Measuring Return and Risk
+description: "Arithmetic and geometric mean returns; volatility drag and leverage; annualized volatility; maximum drawdown; the Sharpe ratio; historical returns on US stocks, bonds and Treasury bills, and the uncertainty of the estimates."
+lesson: "4.1"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import LeverageGrowth from '../../../../components/widgets/LeverageGrowth.astro';
+
+## Two average returns [#averages]
+
+An investment returned $R_1, \ldots, R_n$ over the past $n$ years (<Ref concept="simple-return" />). There are two ways to compute an "average return".
+
+The <Def id="arithmetic-mean-return">arithmetic mean return</Def> is the simple average of the yearly returns:
+
+$$
+\bar R = \frac{1}{n} \sum_{t=1}^{n} R_t
+$$
+
+The <Def id="geometric-mean-return">geometric mean return</Def> is the yearly rate that, compounded, gives the same final wealth; it is also called the compound annual growth rate:
+
+$$
+G = \left[(1 + R_1)(1 + R_2) \cdots (1 + R_n)\right]^{1/n} - 1
+$$
+
+For example, a fund rises 25% in the first year and falls 20% in the second. The arithmetic mean is 2.5%, but $1.25 \times 0.8 = 1$: after two years wealth has not changed, so the geometric mean is 0.
+
+The two answer different questions:
+
+- The arithmetic mean estimates the expected return for next year (<Ref concept="expected-value" />). If each year's return comes from the same distribution, it is an unbiased estimate of the expected return.
+- The geometric mean describes the growth the holder actually got over the period. In terms of the <Ref concept="log-return" />, $\ln(1 + G)$ is exactly the average of the yearly log returns.
+
+Unless all yearly returns are equal, the geometric mean is below the arithmetic mean. In <Ref lesson="0.4" sec="mean-median" />, median wealth was below mean wealth; that is the other side of the same fact: long-run median wealth grows roughly at the geometric mean, while mean wealth grows at the arithmetic mean.
+
+<Check id="C1" />
+
+## Volatility drag [#volatility-drag]
+
+How far below the arithmetic mean is the geometric mean? Let each year's return have expected value $\mu$ and standard deviation $\sigma$. One can show (<Ref check="Q1" />) that
+
+$$
+G \approx \mu - \frac{\sigma^2}{2}
+$$
+
+Volatility pushes the compound growth rate below the arithmetic mean; this is <Def id="volatility-drag">volatility drag</Def>. For example, with $\mu = 10\%$ and $\sigma = 20\%$, $G \approx 10\% - \frac{(20\%)^2}{2} = 8\%$.
+
+<Check id="C2" />
+
+Leverage makes the issue sharper. Let the risk-free rate be $r$. An investor puts $L$ times his wealth into a risky asset with expected return $\mu$ and volatility $\sigma$, borrowing the rest at $r$ (when $L < 1$, lending the rest at $r$). The portfolio's expected return and volatility are
+
+$$
+\mu_L = r + L(\mu - r), \qquad \sigma_L = L\sigma
+$$
+
+The expected return rises in a straight line with $L$, but the volatility drag $\frac{\sigma_L^2}{2}$ grows with the square of $L$. Does more leverage always raise long-run growth? <Ref fig="2-1" /> plots the two lines.
+
+<Figure id="2-1" title="L times wealth invested in the risky asset, with the rest borrowed or lent at 3%. Dashed line: the portfolio's expected return (arithmetic mean); solid line: the approximate compound growth rate μ_L − σ_L²/2." observe="First move the leverage with the default parameters and compare the two lines; then raise the risky asset's volatility and see how the shape of the solid line changes.">
+	<LeverageGrowth />
+</Figure>
+
+<Check id="C3" />
+
+## Volatility and annualizing [#volatility]
+
+The standard deviation of returns (<Ref concept="standard-deviation" />) is also called volatility. A standard deviation computed from monthly or daily returns must be converted to a yearly figure to be compared. If returns in different periods are independent, the variance of the sum of $T$ periods' returns is $T$ times the variance of one period (<Ref lesson="0.3" />), so
+
+$$
+\sigma_a = \sigma_m \sqrt{12}
+$$
+
+where $\sigma_m$ is the standard deviation of monthly returns and $\sigma_a$ that of yearly returns. This gives the <Def id="annualized-volatility">annualized volatility</Def>. With daily returns, multiply by $\sqrt{252}$ (about 252 trading days a year). For example, a monthly volatility of 5% gives an annualized volatility of about $5\% \times \sqrt{12} \approx 17.3\%$.
+
+This conversion relies on the assumption that periods are independent. In practice returns in different periods may be correlated, and then the converted figure is biased.
+
+<Check id="C4" />
+
+## Maximum drawdown [#drawdown]
+
+The standard deviation treats rises and falls alike, and does not show how long losses last. What investors feel more directly is how far wealth falls from a high point. The largest fall in wealth from a previous peak to a later trough over a period is the <Def id="maximum-drawdown">maximum drawdown</Def>.
+
+Two large drawdowns in US stock market history: the S&P 500 index (excluding dividends) fell about 86% from September 1929 to June 1932, and about 57% from October 2007 to March 2009. The deeper the fall, the harder it is to get back to the earlier level, and the longer it takes (<Ref check="C5" />). For investors who must withdraw money regularly (such as retirees), selling assets during a deep drawdown turns paper losses into permanent ones, so drawdowns matter more to them than the standard deviation.
+
+<Check id="C5" />
+
+## The Sharpe ratio [#sharpe]
+
+Comparing two investments requires looking at both return and risk. Let the risk-free rate be $r_f$. The <Def id="sharpe-ratio">Sharpe ratio</Def> is the excess return earned per unit of volatility:
+
+$$
+S = \frac{\bar R - r_f}{\sigma}
+$$
+
+For example, a portfolio with an average return of 9%, a risk-free rate of 3% and a volatility of 15% has a Sharpe ratio of $\frac{9\% - 3\%}{15\%} = 0.4$.
+
+The Sharpe ratio measures risk by the standard deviation, so it shares its limits: fat tails (<Ref concept="fat-tails" />), large losses that occur only rarely, and returns "smoothed" because an asset trades infrequently can all make it overstate the quality of an investment (<Ref check="Q3" />).
+
+<Check id="C6" />
+
+## Historical data [#history]
+
+In data compiled by Damodaran (New York University), from 1928 to 2025 the S&P 500 (including dividends) had a geometric mean return of about 10.0% a year, 10-year US Treasury bonds about 4.5%, and 3-month Treasury bills about 3.4%. The standard deviation of yearly stock returns is about 20%, and the arithmetic mean is about 2 percentage points above the geometric mean, consistent with $\frac{\sigma^2}{2}$.
+
+The amount by which the expected return on stocks exceeds the return on a riskless asset is the <Def id="equity-premium">equity premium</Def>. By the figures above, stocks have historically earned about 6.6 percentage points a year more than Treasury bills. Two cautions apply when using this to estimate the future equity premium:
+
+- The estimation error is large. With a yearly standard deviation of about 20%, even nearly a century of data leaves a standard error (<Ref concept="standard-error" />) of about 2 percentage points on the average return (<Ref check="Q4" />).
+- The US was one of the best-performing stock markets of the 20th century. Looking only at a market that turned out to be successful overstates the typical return on stocks.
+
+<Ref lesson="4.11" /> discusses how to estimate future expected returns more systematically.
+
+## Summary [#summary]
+
+- The arithmetic mean $\bar R$ estimates next year's expected return; the geometric mean $G$ is the compound growth the holder actually got. With volatile returns, $G < \bar R$.
+- Volatility drag: $G \approx \mu - \frac{\sigma^2}{2}$. Leverage raises the expected return in a straight line and the volatility drag with the square.
+- With independent periods, annualized volatility is $\sigma_a = \sigma_m \sqrt{12}$.
+- Maximum drawdown is the largest fall from a previous peak to a later trough; it shows risk that the standard deviation does not.
+- The Sharpe ratio $S = \frac{\bar R - r_f}{\sigma}$ measures excess return per unit of volatility, but inherits the limits of the standard deviation.
+- From 1928 to 2025, US stocks returned about 10.0% a year (geometric) and Treasury bills about 3.4%; estimates of the historical equity premium have large errors.
+
+## Exercises [#exercises]
+
+<Exercises />

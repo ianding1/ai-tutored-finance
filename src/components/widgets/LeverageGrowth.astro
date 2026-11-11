@@ -1,0 +1,99 @@
+---
+// Figure 2-1 of lesson 4.1: expected (arithmetic) return and approximate compound growth of a portfolio that
+// puts L times its wealth in a risky asset, borrowing (or lending) the rest at 3%.
+// mu_L = 3 + L (mu - 3), sigma_L = L sigma, growth ≈ mu_L - sigma_L^2 / 2.
+// Sliders: expected return mu and volatility sigma of the risky asset, and the leverage L to mark.
+// Parameters are registered in course/widgets.yaml (id: leverage-growth).
+import { toLang } from '../../i18n/ui';
+
+const lang = toLang(Astro.locals.starlightRoute.lang);
+const L = {
+	'zh-cn': {
+		mu: '风险资产的预期收益 μ（%）',
+		sigma: '风险资产的波动率 σ（%）',
+		lev: '杠杆倍数 L',
+		x: '杠杆倍数 L',
+		y: '年收益（%）',
+		mean: '预期收益（算术平均）',
+		growth: '复合增长率（近似）',
+		readout: '杠杆 {L} 倍：预期收益 {m}%，波动率 {s}%，复合增长率约 {g}%。复合增长率最高约 {gmax}%，在杠杆 {ls} 倍处。',
+	},
+	en: {
+		mu: 'Expected return of the risky asset μ (%)',
+		sigma: 'Volatility of the risky asset σ (%)',
+		lev: 'Leverage L',
+		x: 'Leverage L',
+		y: 'Annual return (%)',
+		mean: 'Expected return (arithmetic mean)',
+		growth: 'Compound growth rate (approximate)',
+		readout: 'Leverage {L}: expected return {m}%, volatility {s}%, compound growth about {g}%. Compound growth peaks at about {gmax}%, at leverage {ls}.',
+	},
+}[lang];
+
+const xr = [0, 4];
+const yr = [-40, 40];
+const xticks = [0, 1, 2, 3, 4];
+const yticks = [-40, -20, 0, 20, 40];
+const layouts = [
+	{ cls: 'viz-wide', W: 640, H: 300, pad: { l: 44, r: 20, t: 14, b: 44 } },
+	{ cls: 'viz-narrow', W: 360, H: 300, pad: { l: 44, r: 12, t: 14, b: 44 } },
+].map((g) => ({
+	...g,
+	X: (v: number) => g.pad.l + ((v - xr[0]) / (xr[1] - xr[0])) * (g.W - g.pad.l - g.pad.r),
+	Y: (v: number) => g.pad.t + ((yr[1] - v) / (yr[1] - yr[0])) * (g.H - g.pad.t - g.pad.b),
+}));
+---
+
+<div class="lfwai-widget" data-widget="leverage-growth" data-readout={L.readout}>
+	<div class="lfwai-sliders">
+		<label>
+			<span>{L.mu} = <output data-out="mu">9</output></span>
+			<input type="range" min="5" max="12" step="0.5" value="9" data-param="mu" />
+		</label>
+		<label>
+			<span>{L.sigma} = <output data-out="sigma">18</output></span>
+			<input type="range" min="10" max="30" step="1" value="18" data-param="sigma" />
+		</label>
+		<label>
+			<span>{L.lev} = <output data-out="lev">1</output></span>
+			<input type="range" min="0" max="4" step="0.25" value="1" data-param="lev" />
+		</label>
+	</div>
+	{layouts.map(({ cls, W, H, pad, X, Y }) => (
+		<svg class={`lfwai-viz ${cls}`} viewBox={`0 0 ${W} ${H}`} role="img" aria-label={L.growth} data-geom={JSON.stringify({ W, H, pad, xr, yr })}>
+			<defs>
+				<clipPath id={`lg-clip-${cls}`}>
+					<rect x={pad.l} y={pad.t} width={W - pad.l - pad.r} height={H - pad.t - pad.b} />
+				</clipPath>
+			</defs>
+			{yticks.map((v) => (
+				<g>
+					<line class={v === 0 ? 'viz-axis' : 'viz-grid'} x1={pad.l} x2={W - pad.r} y1={Y(v)} y2={Y(v)} />
+					<text class="viz-tick" x={pad.l - 8} y={Y(v) + 4} text-anchor="end">{v}</text>
+				</g>
+			))}
+			{xticks.map((v) => (
+				<text class="viz-tick" x={X(v)} y={H - pad.b + 18} text-anchor="middle">{v}</text>
+			))}
+			<line class="viz-axis" x1={pad.l} x2={pad.l} y1={pad.t} y2={H - pad.b} />
+			<text class="viz-tick" x={(pad.l + W - pad.r) / 2} y={H - 8} text-anchor="middle">{L.x}</text>
+			<text class="viz-tick" transform={`translate(12 ${(pad.t + H - pad.b) / 2}) rotate(-90)`} text-anchor="middle">{L.y}</text>
+			<g clip-path={`url(#lg-clip-${cls})`}>
+				<polyline class="viz-avg" fill="none" data-el="mean" points="" />
+				<polyline class="viz-curve" fill="none" data-el="growth" points="" />
+				<line class="viz-mean" data-el="vx" x1="0" y1={pad.t} x2="0" y2={H - pad.b} />
+				<circle class="viz-min" data-el="pt" r="5" cx="0" cy="0" />
+			</g>
+		</svg>
+	))}
+	<ul class="lfwai-legend">
+		<li><span class="sw sw-avg"></span>{L.mean}</li>
+		<li><span class="sw sw-curve"></span>{L.growth}</li>
+	</ul>
+	<p class="lfwai-readout" data-el="readout" aria-live="polite"></p>
+</div>
+
+<script>
+	import { initLeverageGrowth } from '../../scripts/widgets/leverage-growth';
+	initLeverageGrowth();
+</script>

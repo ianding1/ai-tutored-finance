@@ -2022,10 +2022,61 @@ cape:
     zh-cn: "价格除以过去 10 年经通胀调整的平均利润；CAPE，又称 Shiller 市盈率。"
     en: "Price divided by average inflation-adjusted earnings of the past 10 years; CAPE, also called the Shiller P/E."
 
-risk-measures:
+arithmetic-mean-return:
   defined_in: "4.1"
-  zh-cn: 风险度量
-  en: risk measures
+  zh-cn: 算术平均收益
+  en: arithmetic mean return
+  short:
+    zh-cn: "各期收益的简单平均，是下一期收益的期望的估计。"
+    en: "The simple average of period returns, an estimate of the expected return for the next period."
+
+geometric-mean-return:
+  defined_in: "4.1"
+  zh-cn: 几何平均收益
+  en: geometric mean return
+  short:
+    zh-cn: "使财富以同样速度复利增长、得到同样终值的每期收益率，即复合年增长率。"
+    en: "The per-period rate that, compounded, gives the same final wealth: the compound annual growth rate."
+
+volatility-drag:
+  defined_in: "4.1"
+  zh-cn: 波动拖累
+  en: volatility drag
+  short:
+    zh-cn: "波动使几何平均收益低于算术平均收益，差额约为方差的一半：G ≈ μ − σ²/2。"
+    en: "Volatility makes the geometric mean return lower than the arithmetic mean, by about half the variance: G ≈ μ − σ²/2."
+
+annualized-volatility:
+  defined_in: "4.1"
+  zh-cn: 年化波动率
+  en: annualized volatility
+  short:
+    zh-cn: "换算成一年的收益标准差；各期收益独立时，等于每期标准差乘以每年期数的平方根。"
+    en: "The standard deviation of returns scaled to one year; with independent periods, the per-period standard deviation times the square root of periods per year."
+
+maximum-drawdown:
+  defined_in: "4.1"
+  zh-cn: 最大回撤
+  en: maximum drawdown
+  short:
+    zh-cn: "一段时期内，财富从前期最高点到随后最低点的最大跌幅。"
+    en: "The largest fall in wealth from a previous peak to a later trough over a period."
+
+sharpe-ratio:
+  defined_in: "4.1"
+  zh-cn: 夏普比率
+  en: Sharpe ratio
+  short:
+    zh-cn: "超额收益（收益减无风险利率）除以收益的标准差，每承担一单位波动得到的超额收益。"
+    en: "Excess return (return minus the risk-free rate) divided by the standard deviation of returns: excess return per unit of volatility."
+
+equity-premium:
+  defined_in: "4.1"
+  zh-cn: 股权溢价
+  en: equity premium
+  short:
+    zh-cn: "股票的预期收益超过无风险资产收益的部分。"
+    en: "The amount by which the expected return on stocks exceeds the return on a riskless asset."
 
 efficient-frontier:
   defined_in: "4.2"

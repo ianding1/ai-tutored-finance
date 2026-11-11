@@ -1,0 +1,356 @@
+# Answer key for lesson 4.1. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[4.1#sharpe]] (section), [[concept:sharpe-ratio]], [[check:Q3]], [[fig:2-1]].
+# expected: values are recomputed by course/verify/4.1.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "4.1"
+
+context:
+  - zh-cn: |-
+      学习者学过简单收益率和对数收益率（[[0.1]]）、期望、方差、标准差和相关系数（[[0.3]]）、正态分布、肥尾、均值与中位数、对数正态分布、标准误和置信区间（[[0.4]]），以及第 1 到 3 阶段的内容。讲义还没有讲组合理论（[[4.2]]）和资本市场假设（[[4.11]]）。百分数用百分点表示，方差用 %²。
+    en: |-
+      The learner has studied simple and log returns ([[0.1]]), expected value, variance, standard deviation and correlation ([[0.3]]), the normal distribution, fat tails, mean versus median, the lognormal distribution, standard errors and confidence intervals ([[0.4]]), and Stages 1 to 3. The lesson has not yet covered portfolio theory ([[4.2]]) or capital market assumptions ([[4.11]]). Percentages in percentage points; variance in %².
+  - concepts: [arithmetic-mean-return, geometric-mean-return, volatility-drag]
+    zh-cn: |-
+      讲义：$\bar R = \frac{1}{n}\sum R_t$；$G = [(1 + R_1)\cdots(1 + R_n)]^{1/n} - 1$；例：+25% 和 −20%，算术平均 2.5%，几何平均 0。算术平均估计下一年收益的期望；几何平均是实际的复合增长，$\ln(1 + G)$ 是对数收益率的平均；收益有波动时 $G$ 低于算术平均；长期财富的中位数大致按几何平均增长。$G \approx \mu - \frac{\sigma^2}{2}$（推导留给练习题）。杠杆：$\mu_L = r + L(\mu - r)$，$\sigma_L = L\sigma$。[[fig:2-1]]：无风险利率 3%；滑块：$\mu$ 为 5% 到 12%（步长 0.5，默认 9），$\sigma$ 为 10% 到 30%（步长 1，默认 18），杠杆 $L$ 为 0 到 4（步长 0.25，默认 1）；虚线为 $\mu_L$，实线为 $\mu_L - \frac{\sigma_L^2}{2}$；读数显示所选杠杆的预期收益、波动率、复合增长率，以及复合增长率的最高值和对应的杠杆。
+    en: |-
+      The lesson: $\bar R = \frac{1}{n}\sum R_t$; $G = [(1 + R_1)\cdots(1 + R_n)]^{1/n} - 1$; example: +25% and −20% give an arithmetic mean of 2.5% and a geometric mean of 0. The arithmetic mean estimates next year's expected return; the geometric mean is the realized compound growth, and $\ln(1 + G)$ is the average log return; with volatile returns $G$ is below the arithmetic mean; long-run median wealth grows roughly at the geometric mean. $G \approx \mu - \frac{\sigma^2}{2}$ (the derivation is left to an exercise). Leverage: $\mu_L = r + L(\mu - r)$, $\sigma_L = L\sigma$. [[fig:2-1]]: risk-free rate 3%; sliders: $\mu$ from 5% to 12% (in steps of 0.5, default 9), $\sigma$ from 10% to 30% (in steps of 1, default 18), leverage $L$ from 0 to 4 (in steps of 0.25, default 1); dashed line $\mu_L$, solid line $\mu_L - \frac{\sigma_L^2}{2}$; the readout shows the expected return, volatility and compound growth at the chosen leverage, and the highest compound growth and the leverage where it occurs.
+  - concepts: [annualized-volatility, maximum-drawdown]
+    zh-cn: |-
+      讲义：各期独立时 $\sigma_a = \sigma_m \sqrt{12}$，日收益乘以 $\sqrt{252}$；例：月波动率 5%，年化约 17.3%；这依赖“各期独立”。最大回撤是从前期最高点到随后最低点的最大跌幅；标普 500 指数（不含股息）1929 年 9 月到 1932 年 6 月下跌约 86%，2007 年 10 月到 2009 年 3 月下跌约 57%；需要定期取钱的投资者在回撤中卖出会把账面亏损变成永久损失。
+    en: |-
+      The lesson: with independent periods $\sigma_a = \sigma_m \sqrt{12}$, and daily returns are multiplied by $\sqrt{252}$; example: 5% monthly volatility is about 17.3% annualized; this relies on independence. Maximum drawdown is the largest fall from a previous peak to a later trough; the S&P 500 index (excluding dividends) fell about 86% from September 1929 to June 1932 and about 57% from October 2007 to March 2009; investors who withdraw money and sell during a drawdown turn paper losses into permanent ones.
+  - concepts: [sharpe-ratio]
+    zh-cn: |-
+      讲义：$S = \frac{\bar R - r_f}{\sigma}$；例：9%、3%、15% 得 0.4。它用标准差衡量风险，所以肥尾、偶尔出现的大亏损和被平滑的收益会使它高估投资的质量。
+    en: |-
+      The lesson: $S = \frac{\bar R - r_f}{\sigma}$; example: 9%, 3% and 15% give 0.4. It measures risk by the standard deviation, so fat tails, rare large losses and smoothed returns can make it overstate an investment's quality.
+  - concepts: [equity-premium]
+    zh-cn: |-
+      讲义：Damodaran（纽约大学）数据，1928–2025 年几何平均年收益：标普 500（含股息）约 10.0%，10 年期国债约 4.5%，3 个月国库券约 3.4%；股票年收益标准差约 20%，算术平均比几何平均高约 2 个百分点。股权溢价是股票预期收益超过无风险收益的部分，历史上约 6.6 个百分点；估计误差很大（标准误约 2 个百分点，计算留给练习题）；美国是 20 世纪表现最好的股市之一。
+    en: |-
+      The lesson: Damodaran (NYU) data, geometric mean yearly returns 1928–2025: S&P 500 (including dividends) about 10.0%, 10-year Treasury bonds about 4.5%, 3-month Treasury bills about 3.4%; the yearly standard deviation of stocks is about 20%, and the arithmetic mean is about 2 points above the geometric mean. The equity premium is the excess of the expected stock return over the riskless return, historically about 6.6 points; its estimation error is large (a standard error of about 2 points, computed in an exercise); the US was one of the best stock markets of the 20th century.
+
+common_errors:
+  - questions: [Q1, Q4]
+    zh-cn: |-
+      混淆算术平均和几何平均的用途：用算术平均描述过去的实际增长，或者用几何平均作为下一年收益的期望。
+    en: |-
+      Confusing the uses of the two means: describing past realized growth with the arithmetic mean, or using the geometric mean as next year's expected return.
+  - questions: [Q1, Q2]
+    zh-cn: |-
+      以为提高杠杆总能提高长期财富的增长；或者以为杠杆会改变夏普比率。
+    en: |-
+      Thinking more leverage always raises long-run wealth growth; or thinking leverage changes the Sharpe ratio.
+  - questions: [Q3]
+    zh-cn: |-
+      只看夏普比率和标准差判断风险，忽略偶尔出现的大亏损、肥尾和最大回撤。
+    en: |-
+      Judging risk only by the Sharpe ratio and the standard deviation, ignoring rare large losses, fat tails and maximum drawdown.
+  - questions: [Q4]
+    zh-cn: |-
+      把历史平均收益当作准确的期望收益，忽略标准误和幸存者偏差。
+    en: |-
+      Treating the historical average return as a precise expected return, ignoring its standard error and survivorship bias.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: averages
+    concepts: [arithmetic-mean-return, geometric-mean-return]
+    question:
+      zh-cn: |-
+        一只基金过去两年的收益为 +30% 和 −20%。下列说法正确的是：
+      en: |-
+        A fund returned +30% and −20% over the past two years. Which statement is correct?
+    choices:
+      - zh-cn: 它的年均收益为 5%，所以投资者每年平均赚了 5%
+        en: Its average yearly return is 5%, so investors earned 5% a year on average
+        why:
+          zh-cn: 5% 是算术平均。投资者实际得到多少，要看两年后财富变成了原来的多少倍。
+          en: 5% is the arithmetic mean. What investors actually earned depends on how many times their wealth was multiplied over the two years.
+      - zh-cn: 投资者这两年实际的年化收益低于 5%
+        en: Investors' actual annualized return over the two years is below 5%
+      - zh-cn: 两年后财富增加了 10%
+        en: Wealth rose 10% over the two years
+        why:
+          zh-cn: 收益要连乘，不能相加。算一算 $1.3 \times 0.8$。
+          en: Returns compound; they do not add. Work out $1.3 \times 0.8$.
+      - zh-cn: 它的几何平均收益高于算术平均收益
+        en: Its geometric mean return is above its arithmetic mean return
+        why:
+          zh-cn: 想一想：收益有涨有跌时，复合增长与简单平均相比，哪个更高？
+          en: 'Think: when returns go up and down, which is higher, compound growth or the simple average?'
+    correct: B
+    answer:
+      zh-cn: |-
+        (B)。两年后财富为 $1.3 \times 0.8 = 1.04$ 倍，几何平均为 $\sqrt{1.04} - 1 \approx 1.98\%$，低于算术平均 5%。收益有波动时，几何平均总是低于算术平均。
+      en: |-
+        (B). After two years wealth is $1.3 \times 0.8 = 1.04$ times, so the geometric mean is $\sqrt{1.04} - 1 \approx 1.98\%$, below the 5% arithmetic mean. With volatile returns the geometric mean is always below the arithmetic mean.
+
+  - id: C2
+    kind: check
+    section: volatility-drag
+    concepts: [volatility-drag]
+    question:
+      zh-cn: |-
+        A、B 两只基金的算术平均年收益都是 10%。A 的波动率为 10%，B 为 30%。长期持有，B 的复合增长率大约比 A 低多少？
+      en: |-
+        Funds A and B both have an arithmetic mean return of 10% a year. A's volatility is 10% and B's is 30%. Held for the long run, roughly how much lower is B's compound growth rate than A's?
+    choices:
+      - zh-cn: 两者相同，因为算术平均相同
+        en: They are the same, because the arithmetic means are equal
+        why:
+          zh-cn: 复合增长率不只取决于算术平均，还取决于波动的大小。
+          en: Compound growth depends not only on the arithmetic mean but also on how volatile the returns are.
+      - zh-cn: 约 4 个百分点
+        en: About 4 percentage points
+      - zh-cn: 约 20 个百分点
+        en: About 20 percentage points
+        why:
+          zh-cn: 20 个百分点是两者波动率之差。波动拖累与波动率本身成正比吗？
+          en: 20 points is the difference in volatilities. Is the drag proportional to volatility itself?
+      - zh-cn: 无法判断，要看具体的收益序列
+        en: Impossible to tell without the actual return series
+        why:
+          zh-cn: 已知期望和标准差，就可以近似估计复合增长率。
+          en: Knowing the expected return and the standard deviation is enough to approximate the compound growth rate.
+    correct: B
+    answer:
+      zh-cn: |-
+        (B)。$G \approx \mu - \frac{\sigma^2}{2}$：A 约为 $10\% - 0.5\% = 9.5\%$，B 约为 $10\% - 4.5\% = 5.5\%$，相差约 4 个百分点。波动拖累与方差成正比，波动率变为 3 倍，拖累变为 9 倍。
+      en: |-
+        (B). $G \approx \mu - \frac{\sigma^2}{2}$: A is about $10\% - 0.5\% = 9.5\%$ and B about $10\% - 4.5\% = 5.5\%$, a gap of about 4 points. The drag is proportional to the variance: tripling volatility multiplies the drag by 9.
+
+  - id: C3
+    kind: check
+    section: volatility-drag
+    concepts: [volatility-drag]
+    widget: { id: leverage-growth, set: { mu: 9, sigma: 18, lev: 1 } }
+    question:
+      zh-cn: |-
+        在 [[fig:2-1]] 中，风险资产的预期收益为 9%、波动率为 18%。把杠杆从 1 倍逐步提高到 4 倍，组合的复合增长率：
+      en: |-
+        In [[fig:2-1]], the risky asset has an expected return of 9% and a volatility of 18%. As leverage rises step by step from 1 to 4, the portfolio's compound growth rate:
+    choices:
+      - zh-cn: 一直上升，因为预期收益一直上升
+        en: Keeps rising, because the expected return keeps rising
+        why:
+          zh-cn: 预期收益随杠杆直线上升，但波动拖累按什么速度增加？看看实线在杠杆较高时的走向。
+          en: The expected return rises in a straight line with leverage, but how fast does the drag grow? Look at the solid line at high leverage.
+      - zh-cn: 先上升，后下降
+        en: First rises, then falls
+      - zh-cn: 一直下降
+        en: Keeps falling
+        why:
+          zh-cn: 在杠杆刚超过 1 倍时，看看实线是向上还是向下。
+          en: Just above a leverage of 1, look at whether the solid line goes up or down.
+      - zh-cn: 不变，因为杠杆同时放大收益和风险
+        en: Stays the same, because leverage magnifies both return and risk
+        why:
+          zh-cn: 收益和风险被放大的速度一样吗？期望收益与 $L$ 成正比，波动拖累呢？
+          en: Are return and risk magnified at the same rate? The expected return is proportional to $L$; what about the drag?
+    correct: B
+    answer:
+      zh-cn: |-
+        (B)。期望收益随 $L$ 直线上升，波动拖累 $\frac{(L\sigma)^2}{2}$ 随 $L$ 的平方增加。复合增长率在约 1.85 倍杠杆时最高（约 8.56%），之后下降，到 4 倍时只有约 1.08%。杠杆过高会降低长期财富的增长。
+      en: |-
+        (B). The expected return rises in a straight line with $L$, while the drag $\frac{(L\sigma)^2}{2}$ grows with the square of $L$. Compound growth peaks at a leverage of about 1.85 (about 8.56%) and then falls, to only about 1.08% at 4. Too much leverage lowers long-run wealth growth.
+
+  - id: C4
+    kind: check
+    section: volatility
+    concepts: [annualized-volatility, correlation]
+    question:
+      zh-cn: |-
+        如果相邻月份的收益正相关（涨了之后容易继续涨），用月波动率乘以 $\sqrt{12}$ 会低估真实的年波动率。
+      en: |-
+        If returns in neighboring months are positively correlated (rises tend to be followed by rises), multiplying monthly volatility by $\sqrt{12}$ understates the true yearly volatility.
+    correct: true
+    hint:
+      zh-cn: 想一想：12 个月收益之和的方差，除了各月方差之和，还有哪些项？各月正相关时，这些项是正还是负？
+      en: 'Think: besides the sum of the monthly variances, what other terms are in the variance of the sum of 12 monthly returns? With positive correlation, are those terms positive or negative?'
+    answer:
+      zh-cn: |-
+        对。12 个月收益之和的方差等于各月方差之和加上所有协方差项（[[0.3]]）。各月独立时协方差为 0，才得到乘以 $\sqrt{12}$ 的规则；正相关时协方差为正，年方差更大，乘以 $\sqrt{12}$ 就低估了。
+      en: |-
+        True. The variance of the sum of 12 monthly returns is the sum of the monthly variances plus all covariance terms ([[0.3]]). Only with independence are the covariances 0, giving the $\sqrt{12}$ rule; with positive correlation they are positive, the yearly variance is larger, and $\sqrt{12}$ understates it.
+
+  - id: C5
+    kind: check
+    section: drawdown
+    concepts: [maximum-drawdown]
+    question:
+      zh-cn: |-
+        一个组合从最高点下跌了 50%。要回到原来的最高点，它需要上涨多少？
+      en: |-
+        A portfolio has fallen 50% from its peak. How much must it rise to get back to the peak?
+    choices:
+      - zh-cn: 50%
+        en: 50%
+        why:
+          zh-cn: 上涨的百分比是按下跌后的金额计算的。从 50 涨 50% 能回到 100 吗？
+          en: The rise is measured on the amount after the fall. Does a 50% rise from 50 get back to 100?
+      - zh-cn: 75%
+        en: 75%
+        why:
+          zh-cn: 从 50 回到 100，需要增加多少？这个增加量占 50 的百分之几？
+          en: To go from 50 back to 100, how much must be added? What percentage of 50 is that?
+      - zh-cn: 100%
+        en: 100%
+      - zh-cn: 150%
+        en: 150%
+        why:
+          zh-cn: 从 50 回到 100，需要增加的金额是 50 的多少倍？
+          en: To go from 50 back to 100, how many times 50 must be added?
+    correct: C
+    answer:
+      zh-cn: |-
+        (C)。从 100 跌到 50，要回到 100 需要涨 $\frac{100 - 50}{50} = 100\%$。一般地，下跌 $d$ 之后需要上涨 $\frac{d}{1 - d}$，跌得越深，需要的涨幅增加得越快。
+      en: |-
+        (C). Falling from 100 to 50, getting back to 100 requires a rise of $\frac{100 - 50}{50} = 100\%$. In general, after a fall of $d$, a rise of $\frac{d}{1 - d}$ is needed, which grows faster and faster as the fall deepens.
+
+  - id: C6
+    kind: check
+    section: sharpe
+    concepts: [sharpe-ratio]
+    question:
+      zh-cn: |-
+        用 2 倍杠杆投资一个组合（按无风险利率借款），这个投资的夏普比率会翻倍。
+      en: |-
+        Investing in a portfolio with 2 times leverage (borrowing at the risk-free rate) doubles the Sharpe ratio of the investment.
+    correct: false
+    hint:
+      zh-cn: 想一想：2 倍杠杆时，超额收益 $\mu_L - r$ 变为原来的多少倍？波动率 $\sigma_L$ 呢？夏普比率是两者之比。
+      en: 'Think: with 2 times leverage, by what factor does the excess return $\mu_L - r$ change? And the volatility $\sigma_L$? The Sharpe ratio is their ratio.'
+    answer:
+      zh-cn: |-
+        错。按无风险利率借款时，超额收益 $L(\mu - r)$ 和波动率 $L\sigma$ 同样变为 2 倍，夏普比率不变。杠杆改变的是风险的大小，不改变每单位风险的回报。
+      en: |-
+        False. Borrowing at the risk-free rate, the excess return $L(\mu - r)$ and the volatility $L\sigma$ both double, so the Sharpe ratio is unchanged. Leverage changes the amount of risk, not the reward per unit of risk.
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    star: true
+    concepts: [volatility-drag, log-return, geometric-mean-return]
+    expected: { g1: "12", g2: "-10.5", i1: "8" }
+    question:
+      zh-cn: |-
+        (a) 设年收益 $R$ 的期望为 $\mu$、标准差为 $\sigma$。用近似 $\ln(1 + R) \approx R - \frac{R^2}{2}$ 和 $E[R^2] = \sigma^2 + \mu^2$，说明长期复合增长率 $G$ 满足 $\ln(1 + G) = E[\ln(1 + R)] \approx \mu - \frac{\sigma^2}{2}$（$\mu$ 较小时忽略 $\frac{\mu^2}{2}$）。
+        (b) 一只指数的预期年收益为 10%，波动率为 20%。一只 3 倍杠杆的基金近似地有 3 倍的预期收益和 3 倍的波动率（忽略借款成本和费用）。用 $G \approx \mu - \frac{\sigma^2}{2}$ 比较指数和这只基金的长期复合增长率。如果指数的波动率变为 30%，这只基金的复合增长率是多少？
+      en: |-
+        (a) Let the yearly return $R$ have expected value $\mu$ and standard deviation $\sigma$. Using the approximation $\ln(1 + R) \approx R - \frac{R^2}{2}$ and $E[R^2] = \sigma^2 + \mu^2$, show that the long-run compound growth rate $G$ satisfies $\ln(1 + G) = E[\ln(1 + R)] \approx \mu - \frac{\sigma^2}{2}$ (ignoring $\frac{\mu^2}{2}$ when $\mu$ is small).
+        (b) An index has an expected return of 10% a year and a volatility of 20%. A 3 times leveraged fund has roughly 3 times the expected return and 3 times the volatility (ignoring borrowing costs and fees). Use $G \approx \mu - \frac{\sigma^2}{2}$ to compare the long-run compound growth of the index and the fund. If the index's volatility becomes 30%, what is the fund's compound growth rate?
+    answer:
+      zh-cn: |-
+        (a) 长期中 $(1 + G)^n = \prod(1 + R_t)$，取对数并除以 $n$，$\ln(1 + G)$ 是 $\ln(1 + R_t)$ 的平均，趋于 $E[\ln(1 + R)]$。由近似，$E[\ln(1 + R)] \approx E[R] - \frac{E[R^2]}{2} = \mu - \frac{\sigma^2 + \mu^2}{2} \approx \mu - \frac{\sigma^2}{2}$。$G$ 较小时 $\ln(1 + G) \approx G$，所以 $G \approx \mu - \frac{\sigma^2}{2}$。
+        (b) 指数：$10\% - \frac{(20\%)^2}{2} = 8\%$。基金：$30\% - \frac{(60\%)^2}{2} = 12\%$，比指数高。波动率为 30% 时，基金为 $30\% - \frac{(90\%)^2}{2} = -10.5\%$：预期收益仍是指数的 3 倍，长期财富却在缩水。杠杆基金的长期结果对波动率非常敏感，适合短期使用，不适合长期持有。
+      en: |-
+        (a) In the long run $(1 + G)^n = \prod(1 + R_t)$; taking logs and dividing by $n$, $\ln(1 + G)$ is the average of $\ln(1 + R_t)$, which tends to $E[\ln(1 + R)]$. By the approximation, $E[\ln(1 + R)] \approx E[R] - \frac{E[R^2]}{2} = \mu - \frac{\sigma^2 + \mu^2}{2} \approx \mu - \frac{\sigma^2}{2}$. For small $G$, $\ln(1 + G) \approx G$, so $G \approx \mu - \frac{\sigma^2}{2}$.
+        (b) Index: $10\% - \frac{(20\%)^2}{2} = 8\%$. Fund: $30\% - \frac{(60\%)^2}{2} = 12\%$, above the index. With 30% volatility, the fund gives $30\% - \frac{(90\%)^2}{2} = -10.5\%$: its expected return is still 3 times the index's, yet long-run wealth shrinks. Leveraged funds' long-run results are very sensitive to volatility; they suit short-term use, not long-term holding.
+    rubric:
+      zh-cn:
+        - "(a) 说明 $\\ln(1 + G)$ 是对数收益率的平均，并用近似推出结果。"
+        - "(b) 8% 和 12%；波动率 30% 时约 −10.5%（写作 - 或 − 均可），并说明对波动率的敏感性。"
+      en:
+        - "(a) Explains that $\\ln(1 + G)$ is the average log return and derives the result with the approximation."
+        - "(b) 8% and 12%; about −10.5% (written with - or −) at 30% volatility, explaining the sensitivity to volatility."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [sharpe-ratio]
+    expected: { sa: "0.5", sb: "0.44", l: "2.2", s: "22" }
+    question:
+      zh-cn: |-
+        无风险利率为 3%。基金 A 的预期收益为 8%，波动率为 10%；基金 B 的预期收益为 14%，波动率为 25%。
+        (a) 两只基金的夏普比率各是多少？
+        (b) 一位投资者想要 14% 的预期收益，选择了 B。如果他可以按 3% 借款，用 A 加杠杆能否得到 14% 的预期收益？这时的波动率是多少？由此说明夏普比率为什么有用。
+      en: |-
+        The risk-free rate is 3%. Fund A has an expected return of 8% and a volatility of 10%; fund B has an expected return of 14% and a volatility of 25%.
+        (a) What is each fund's Sharpe ratio?
+        (b) An investor wants a 14% expected return and chooses B. If he can borrow at 3%, can he get a 14% expected return by leveraging A? What is the volatility then? Use this to explain why the Sharpe ratio is useful.
+    answer:
+      zh-cn: |-
+        (a) A：$\frac{8\% - 3\%}{10\%} = 0.5$；B：$\frac{14\% - 3\%}{25\%} = 0.44$。
+        (b) 能。需要 $3\% + L(8\% - 3\%) = 14\%$，$L = 2.2$，波动率 $2.2 \times 10\% = 22\%$，低于 B 的 25%。只要能按无风险利率借贷，夏普比率高的投资加上杠杆，可以在同样的预期收益下承担更低的风险。实际中借款利率通常更高，而且有借款限制，这个结论要打折扣。
+      en: |-
+        (a) A: $\frac{8\% - 3\%}{10\%} = 0.5$; B: $\frac{14\% - 3\%}{25\%} = 0.44$.
+        (b) Yes. He needs $3\% + L(8\% - 3\%) = 14\%$, so $L = 2.2$, with volatility $2.2 \times 10\% = 22\%$, below B's 25%. As long as one can borrow and lend at the risk-free rate, leveraging the higher-Sharpe investment gives the same expected return with less risk. In practice borrowing rates are higher and borrowing is limited, which weakens this conclusion.
+    rubric:
+      zh-cn:
+        - "(a) 0.5 和约 0.44。"
+        - "(b) 杠杆 2.2，波动率 22%，并说明夏普比率的意义和借款的限制。"
+      en:
+        - "(a) 0.5 and about 0.44."
+        - "(b) Leverage 2.2 and volatility 22%, explaining the meaning of the Sharpe ratio and the limits on borrowing."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [sharpe-ratio, maximum-drawdown, fat-tails]
+    expected: { mean: "5.8", sd: "13.86", sharpe: "0.2" }
+    question:
+      zh-cn: |-
+        一个策略在 5 年（60 个月）中，有 59 个月各赚 1%，有 1 个月亏 30%（用月收益的简单平均和样本标准差计算，年化时平均乘以 12、标准差乘以 $\sqrt{12}$；无风险利率 3%）。
+        (a) 如果某人的数据恰好没有包括亏损的那个月，他算出的标准差和夏普比率会是什么样？包括那个月时，年化的平均收益、波动率和夏普比率各是多少？
+        (b) 这个例子说明用夏普比率和标准差评价策略有什么风险？最大回撤提供了什么额外的信息？
+      en: |-
+        Over 5 years (60 months), a strategy earns 1% in each of 59 months and loses 30% in one month (use the simple average and the sample standard deviation of monthly returns; annualize by multiplying the average by 12 and the standard deviation by $\sqrt{12}$; risk-free rate 3%).
+        (a) If someone's data happened to leave out the losing month, what would his standard deviation and Sharpe ratio look like? Including that month, what are the annualized average return, volatility and Sharpe ratio?
+        (b) What risk in judging strategies by the Sharpe ratio and the standard deviation does this example show? What extra information does maximum drawdown give?
+    answer:
+      zh-cn: |-
+        (a) 没有亏损的月份时，每月都是 1%，标准差为 0，夏普比率无穷大，看起来是完美的策略。包括那个月：月平均 $\frac{59 - 30}{60} \approx 0.4833\%$，年化约 5.8%；年化波动率约 13.86%；夏普比率 $\frac{5.8\% - 3\%}{13.86\%} \approx 0.2$。
+        (b) 这类策略平时收益稳定，风险集中在很少发生的大亏损上（类似卖出保险或期权）。一段没有出现大亏损的历史会使标准差很小、夏普比率很高，严重低估风险；即使包括了那个月，标准差也不能说明亏损是一次性集中发生的。最大回撤直接显示一次最多亏了多少（这里至少 30%），提醒投资者能否承受这样的损失。
+      en: |-
+        (a) Without the losing month, every month is 1%, the standard deviation is 0, and the Sharpe ratio is infinite: it looks like a perfect strategy. Including that month: the monthly average is $\frac{59 - 30}{60} \approx 0.4833\%$, about 5.8% a year; annualized volatility is about 13.86%; the Sharpe ratio is $\frac{5.8\% - 3\%}{13.86\%} \approx 0.2$.
+        (b) Such strategies earn steady returns most of the time, with their risk concentrated in rare large losses (like selling insurance or options). A history without a large loss shows a tiny standard deviation and a high Sharpe ratio, badly understating the risk; even including that month, the standard deviation does not show that the loss came all at once. Maximum drawdown shows directly the most that was lost at one time (here at least 30%), reminding investors to ask whether they could bear such a loss.
+    rubric:
+      zh-cn:
+        - "(a) 指出没有亏损月时标准差为 0；包括时约 5.8%、13.86%、0.2。"
+        - "(b) 说明罕见大亏损使标准差和夏普比率误导，以及最大回撤的作用。"
+      en:
+        - "(a) Notes a zero standard deviation without the losing month; about 5.8%, 13.86% and 0.2 with it."
+        - "(b) Explains how rare large losses mislead the standard deviation and Sharpe ratio, and what maximum drawdown adds."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [equity-premium, standard-error, confidence-interval, arithmetic-mean-return, geometric-mean-return]
+    expected: { prem: "6.6", se: "2.02" }
+    question:
+      zh-cn: |-
+        用讲义中 1928–2025 年的数据（98 年；股票几何平均约 10.0%，国库券约 3.4%；股票年收益标准差约 20%）。
+        (a) 按几何平均，历史股权溢价约为多少？股票年平均收益的标准误约为多少？由此给出平均收益的 95% 置信区间的大致宽度。
+        (b) 一位顾问用 10% 的几何平均预测客户明年的期望收益，另一位用算术平均预测 30 年后财富的中位数。他们各犯了什么错误？
+      en: |-
+        Use the lesson's 1928–2025 data (98 years; stocks about 10.0% geometric, Treasury bills about 3.4%; yearly stock standard deviation about 20%).
+        (a) By geometric means, roughly what is the historical equity premium? Roughly what is the standard error of the average yearly stock return? Use it to give the rough width of a 95% confidence interval for the average return.
+        (b) One adviser uses the 10% geometric mean as a client's expected return for next year; another uses the arithmetic mean to forecast median wealth in 30 years. What mistake does each make?
+    answer:
+      zh-cn: |-
+        (a) $10.0\% - 3.4\% = 6.6$ 个百分点。标准误 $\frac{20\%}{\sqrt{98}} \approx 2.02\%$，95% 置信区间约为平均值 ± 4 个百分点，总宽度约 8 个百分点：即使有近百年的数据，平均收益仍然很不确定。
+        (b) 第一位低估了明年收益的期望：明年的期望应该用算术平均（约高 2 个百分点）。第二位高估了 30 年后的中位数财富：财富的中位数大致按几何平均增长，用算术平均复利 30 年，结果会偏高很多（约 $1.02^{30} \approx 1.8$ 倍）。
+      en: |-
+        (a) $10.0\% - 3.4\% = 6.6$ percentage points. The standard error is $\frac{20\%}{\sqrt{98}} \approx 2.02\%$, so a 95% confidence interval is about the average ± 4 points, about 8 points wide in total: even with nearly a century of data, the average return is very uncertain.
+        (b) The first understates next year's expected return: it should use the arithmetic mean (about 2 points higher). The second overstates median wealth in 30 years: median wealth grows roughly at the geometric mean, and compounding the arithmetic mean for 30 years gives a result far too high (about $1.02^{30} \approx 1.8$ times).
+    rubric:
+      zh-cn:
+        - "(a) 6.6 个百分点，标准误约 2.02%，区间约 ± 4 个百分点。"
+        - "(b) 正确指出两种平均的用途。"
+      en:
+        - "(a) About 6.6, standard error about 2.02%, interval about the average ± 4."
+        - "(b) Correctly states the use of each mean."

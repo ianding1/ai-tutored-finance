@@ -350,7 +350,15 @@ stages:
   - id: "4"
     title: { zh-cn: "第 4 阶段：投资理论与组合建模", en: "Stage 4: Investment Theory and Portfolio Modeling" }
     lessons:
-      - { id: "4.1", slug: "4-1-risk-return-measures", title: { zh-cn: "收益与风险的度量", en: "Measuring Return and Risk" } }
+      - id: "4.1"
+        slug: "4-1-risk-return-measures"
+        title: { zh-cn: "收益与风险的度量", en: "Measuring Return and Risk" }
+        summary:
+          zh-cn: "算术平均收益与几何平均收益；波动拖累与杠杆；年化波动率；最大回撤；夏普比率；美国股票、债券和国库券的历史收益，以及估计的不确定性。"
+          en: "Arithmetic and geometric mean returns; volatility drag and leverage; annualized volatility; maximum drawdown; the Sharpe ratio; historical returns on US stocks, bonds and Treasury bills, and the uncertainty of the estimates."
+        published: true
+        introduces: [arithmetic-mean-return, geometric-mean-return, volatility-drag, annualized-volatility, maximum-drawdown, sharpe-ratio, equity-premium]
+        uses: [simple-return, log-return, expected-value, variance, standard-deviation, median, lognormal-distribution, fat-tails, standard-error, confidence-interval, correlation]
       - { id: "4.2", slug: "4-2-markowitz", title: { zh-cn: "均值–方差组合理论", en: "Mean–Variance Portfolio Theory" } }
       - { id: "4.3", slug: "4-3-capital-allocation", title: { zh-cn: "资本配置线与资本市场线", en: "The Capital Allocation Line and the Capital Market Line" } }
       - { id: "4.4", slug: "4-4-capm", title: { zh-cn: "资本资产定价模型（CAPM）", en: "The Capital Asset Pricing Model (CAPM)" } }

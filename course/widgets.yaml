@@ -295,3 +295,12 @@ cycle-pe:
     price: 100
     base_earnings: 5
     period: 8
+
+leverage-growth:
+  component: src/components/widgets/LeverageGrowth.astro
+  params:
+    mu: { min: 5, max: 12, step: 0.5, default: 9 }
+    sigma: { min: 10, max: 30, step: 1, default: 18 }
+    lev: { min: 0, max: 4, step: 0.25, default: 1 }
+  fixed:
+    risk_free: 3
