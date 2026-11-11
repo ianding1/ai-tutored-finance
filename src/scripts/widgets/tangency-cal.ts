@@ -61,7 +61,7 @@ export function initTangencyCal() {
 				.replace('{w}', String(w))
 				.replace('{m}', fmt(p.m))
 				.replace('{s}', fmt(p.s))
-				.replace('{sh}', fmt(sharpe));
+				.replace('{sh}', (Math.round(sharpe * 1000) / 1000).toFixed(3));
 		}
 
 		rfIn.addEventListener('input', draw);
