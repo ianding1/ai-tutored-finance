@@ -2,7 +2,7 @@
 # Order in this file = teaching order. Concept-order checks use it.
 #
 # Lesson fields:
-#   id:          lesson number, e.g. "0.3" (block quizzes use "E0" etc.; they are scored, unlike lesson exercises)
+#   id:          lesson number, e.g. "0.3" (comprehensive quizzes use "T1", "T2", "T3"; each covers several stages)
 #   slug:        URL slug under /lessons/ (same in every language)
 #   title:       { zh, en }
 #   summary:     { zh, en } one sentence, used in link previews and prompts (required when published)
@@ -59,16 +59,6 @@ stages:
         published: true
         introduces: [regression, ols, residual, regression-coefficient, r-squared, omitted-variable-bias, correlation-vs-causation]
         uses: [covariance, correlation, variance, first-order-condition, partial-derivative, standard-error, t-statistic, confidence-interval, degrees-of-freedom, multiple-testing]
-      - id: "E0"
-        slug: "e0-quiz"
-        exam: true
-        title: { zh-cn: "测验 E0：数学与统计工具", en: "Quiz E0: Math and Statistics Tools" }
-        summary:
-          zh-cn: "第 0 阶段（0.1–0.5）的测验：货币时间价值、优化、概率与组合方差、统计推断与回归。总分 100 分，建议用时 120 分钟。"
-          en: "The quiz for Stage 0 (0.1–0.5): time value of money, optimization, probability and portfolio variance, statistical inference and regression. 100 points, about 120 minutes."
-        published: true
-        introduces: []
-        uses: [portfolio-variance, correlation, diversification, lagrange-multiplier, shadow-price, budget-constraint, simple-return, log-return, expected-value, median, normal-distribution, sample-mean, standard-error, variance, present-value, annuity, apr, ear, regression-coefficient, r-squared, residual, first-order-condition, profit-maximization, marginal-cost, fixed-cost, variable-cost, sunk-cost, perpetuity, discount-factor, hypothesis-test, t-statistic, statistical-significance, z-score]
 
   - id: "1"
     title: { zh-cn: "第 1 阶段：微观经济学", en: "Stage 1: Microeconomics" }
@@ -154,16 +144,6 @@ stages:
         published: true
         introduces: [asymmetric-information, adverse-selection, signaling, screening, moral-hazard, principal-agent-problem]
         uses: [expected-value, consumer-surplus, externality, risk-aversion, future-value, first-order-condition]
-      - id: "E1"
-        slug: "e1-quiz"
-        exam: true
-        title: { zh-cn: "测验 E1：微观经济学", en: "Quiz E1: Microeconomics" }
-        summary:
-          zh-cn: "第 1 阶段（1.1–1.9）的测验：供求与弹性、消费者与跨期选择、不确定性下的选择、厂商与市场结构、博弈论、福利与信息经济学。总分 100 分，建议用时 120 分钟。"
-          en: "The quiz for Stage 1 (1.1–1.9): supply, demand and elasticity, consumer and intertemporal choice, choice under uncertainty, firms and market structure, game theory, welfare and information economics. 100 points, about 120 minutes."
-        published: true
-        introduces: []
-        uses: [nominal-interest-rate, real-interest-rate, fisher-equation, inflation, marginal-rate-of-substitution, budget-constraint, preferences, demand, supply, comparative-statics, deadweight-loss, tax-incidence, price-elasticity, production-function, marginal-product, long-run, adverse-selection, asymmetric-information, present-value, economic-profit, perfect-competition, barriers-to-entry, economic-moat, growing-perpetuity, principal-agent-problem, moral-hazard, risk-premium, crra-utility, certainty-equivalent, repeated-game, bertrand-model, prisoners-dilemma, oligopoly, short-run]
 
   - id: "2"
     title: { zh-cn: "第 2 阶段：宏观经济学", en: "Stage 2: Macroeconomics" }
@@ -240,7 +220,16 @@ stages:
         published: true
         introduces: [business-cycle, recession, leading-indicator, yield-curve, stock-bond-correlation]
         uses: [present-value, correlation, portfolio-variance, diversification, unemployment-rate, potential-output, aggregate-demand, aggregate-supply, forward-guidance, taylor-rule, inflation]
-      - { id: "E2", slug: "e2-quiz", exam: true, title: { zh-cn: "测验 E2：宏观经济学", en: "Quiz E2: Macroeconomics" } }
+      - id: "T1"
+        slug: "t1-quiz"
+        exam: true
+        title: { zh-cn: "综合测验一：数学、微观与宏观基础", en: "Comprehensive Quiz 1: Foundations in Math, Micro and Macro" }
+        summary:
+          zh-cn: "第 0–2 阶段的综合测验：在具体情境中认出适用的概念，建立简单的模型并得出结论。建议用时 150 分钟。"
+          en: "The comprehensive quiz for Stages 0–2: recognize the concepts that apply in a situation, build a simple model and draw the conclusion. About 150 minutes."
+        published: true
+        introduces: []
+        uses: [nominal-interest-rate, real-interest-rate, fisher-equation, inflation, risk-aversion, portfolio-variance, covariance, risk-premium, regression-coefficient, correlation-vs-causation, real-gdp, business-cycle, log-return, sample-mean, standard-error, variance, tax-incidence, price-elasticity, supply, primary-deficit, budget-deficit, present-value, annuity, bank-run, deposit-insurance, nash-equilibrium, adverse-selection, asymmetric-information, fiscal-multiplier, consumption-smoothing, ricardian-equivalence, principal-agent-problem, moral-hazard, crra-utility, certainty-equivalent, phillips-curve, natural-rate-of-unemployment, perfect-competition, short-run, long-run, economic-profit]
 
   - id: "3"
     title: { zh-cn: "第 3 阶段：金融市场与证券估值", en: "Stage 3: Financial Markets and Security Valuation" }
@@ -299,7 +288,6 @@ stages:
         published: true
         introduces: [default-risk, recovery-rate, credit-spread, credit-rating, municipal-bond, tax-equivalent-yield, tips, breakeven-inflation]
         uses: [yield-to-maturity, zero-coupon-bond, present-value, expected-value, correlation, principal-agent-problem, adverse-selection, cpi, inflation, real-interest-rate, modified-duration, immunization, recession, stock-bond-correlation, term-premium]
-      - { id: "E3a", slug: "e3a-quiz", exam: true, title: { zh-cn: "测验 E3a：金融市场与固定收益", en: "Quiz E3a: Financial Markets and Fixed Income" } }
       - id: "3.7"
         slug: "3-7-financial-statements"
         title: { zh-cn: "财务报表分析", en: "Financial Statement Analysis" }
@@ -345,7 +333,6 @@ stages:
         published: true
         introduces: [price-earnings-ratio, ev-ebitda, price-to-book, price-to-sales, cape]
         uses: [gordon-growth-model, payout-ratio, sustainable-growth-rate, return-on-equity, cost-of-equity, enterprise-value, financial-leverage, earnings-quality, dividend-discount-model, business-cycle, real-interest-rate, fcff]
-      - { id: "E3b", slug: "e3b-quiz", exam: true, title: { zh-cn: "测验 E3b：财务分析与股票估值", en: "Quiz E3b: Financial Analysis and Equity Valuation" } }
 
   - id: "4"
     title: { zh-cn: "第 4 阶段：投资理论与组合建模", en: "Stage 4: Investment Theory and Portfolio Modeling" }
@@ -388,16 +375,14 @@ stages:
         uses: [market-portfolio, capital-market-line, tangency-portfolio, sharpe-ratio, covariance, correlation, equity-premium, cost-of-equity, wacc, cost-of-capital, net-present-value, diversification, financial-leverage, regression-coefficient]
       - { id: "4.5", slug: "4-5-single-index-model", title: { zh-cn: "单指数模型与 beta 估计", en: "The Single-Index Model and Estimating Beta" } }
       - { id: "4.6", slug: "4-6-multifactor-models", title: { zh-cn: "多因子模型", en: "Multifactor Models" } }
-      - { id: "E4a", slug: "e4a-quiz", exam: true, title: { zh-cn: "测验 E4a：组合理论与资产定价", en: "Quiz E4a: Portfolio Theory and Asset Pricing" } }
       - { id: "4.7", slug: "4-7-market-efficiency", title: { zh-cn: "有效市场假说", en: "The Efficient Market Hypothesis" } }
       - { id: "4.8", slug: "4-8-behavioral-finance", title: { zh-cn: "行为金融", en: "Behavioral Finance" } }
       - { id: "4.9", slug: "4-9-performance-evaluation", title: { zh-cn: "业绩评估", en: "Performance Evaluation" } }
-      - { id: "E4b", slug: "e4b-quiz", exam: true, title: { zh-cn: "测验 E4b：市场效率、行为金融与业绩评估", en: "Quiz E4b: Market Efficiency, Behavioral Finance and Performance Evaluation" } }
       - { id: "4.10", slug: "4-10-estimation-error", title: { zh-cn: "估计误差与稳健优化", en: "Estimation Error and Robust Optimization" } }
       - { id: "4.11", slug: "4-11-capital-market-assumptions", title: { zh-cn: "资本市场假设", en: "Capital Market Assumptions" } }
       - { id: "4.12", slug: "4-12-lifecycle-allocation", title: { zh-cn: "生命周期资产配置理论", en: "Life-Cycle Asset Allocation Theory" } }
       - { id: "4.13", slug: "4-13-simulation-backtesting", title: { zh-cn: "模拟与回测方法", en: "Simulation and Backtesting Methods" } }
-      - { id: "E4c", slug: "e4c-quiz", exam: true, title: { zh-cn: "测验 E4c：估计误差、资本市场假设、生命周期配置与模拟", en: "Quiz E4c: Estimation Error, Capital Market Assumptions, Life-Cycle Allocation and Simulation" } }
+      - { id: "T2", slug: "t2-quiz", exam: true, title: { zh-cn: "综合测验二：金融市场、证券估值与投资理论", en: "Comprehensive Quiz 2: Financial Markets, Valuation and Investment Theory" } }
 
   - id: "5"
     title: { zh-cn: "第 5 阶段：衍生品与另类资产", en: "Stage 5: Derivatives and Alternative Assets" }
@@ -407,7 +392,6 @@ stages:
       - { id: "5.3", slug: "5-3-option-pricing", title: { zh-cn: "期权定价", en: "Option Pricing" } }
       - { id: "5.4", slug: "5-4-swaps", title: { zh-cn: "互换（选学）", en: "Swaps (Optional)" } }
       - { id: "5.5", slug: "5-5-alternative-assets", title: { zh-cn: "另类资产", en: "Alternative Assets" } }
-      - { id: "E5", slug: "e5-quiz", exam: true, title: { zh-cn: "测验 E5：衍生品与另类资产", en: "Quiz E5: Derivatives and Alternative Assets" } }
 
   - id: "6"
     title: { zh-cn: "第 6 阶段：家庭投资实践", en: "Stage 6: Household Investing in Practice" }
@@ -416,18 +400,16 @@ stages:
       - { id: "6.2", slug: "6-2-fund-costs", title: { zh-cn: "基金成本", en: "Fund Costs" } }
       - { id: "6.3", slug: "6-3-active-vs-passive", title: { zh-cn: "主动与被动投资", en: "Active vs. Passive Investing" } }
       - { id: "6.4", slug: "6-4-fund-due-diligence", title: { zh-cn: "基金尽职调查框架", en: "A Framework for Fund Due Diligence" } }
-      - { id: "E6a", slug: "e6a-quiz", exam: true, title: { zh-cn: "测验 E6a：基金与产品", en: "Quiz E6a: Funds and Products" } }
       - { id: "6.5", slug: "6-5-accounts-taxes", title: { zh-cn: "账户与税务（美国）", en: "Accounts and Taxes (US)" } }
       - { id: "6.6", slug: "6-6-household-balance-sheet", title: { zh-cn: "家庭资产负债表与风险保障", en: "The Household Balance Sheet and Insurance" } }
       - { id: "6.7", slug: "6-7-asset-allocation", title: { zh-cn: "资产配置", en: "Asset Allocation" } }
       - { id: "6.8", slug: "6-8-stock-research", title: { zh-cn: "选股流程", en: "The Stock Research Process" } }
-      - { id: "E6b", slug: "e6b-quiz", exam: true, title: { zh-cn: "测验 E6b：账户与税务、家庭资产负债表、资产配置", en: "Quiz E6b: Accounts and Taxes, the Household Balance Sheet, Asset Allocation" } }
       - { id: "6.9", slug: "6-9-retirement-planning", title: { zh-cn: "退休规划", en: "Retirement Planning" } }
       - { id: "6.10", slug: "6-10-risk-management", title: { zh-cn: "风险管理与常见错误", en: "Risk Management and Common Mistakes" } }
       - { id: "6.11", slug: "6-11-inflation-real-returns", title: { zh-cn: "通胀与实际收益", en: "Inflation and Real Returns" } }
       - { id: "6.12", slug: "6-12-goals-based-investing", title: { zh-cn: "目标导向投资", en: "Goals-Based Investing" } }
       - { id: "6.13", slug: "6-13-monitoring-review", title: { zh-cn: "监控与复盘", en: "Monitoring and Review" } }
-      - { id: "E6c", slug: "e6c-quiz", exam: true, title: { zh-cn: "测验 E6c：退休规划、风险管理、通胀、目标导向投资与复盘", en: "Quiz E6c: Retirement, Risk Management, Inflation, Goals-Based Investing and Review" } }
+      - { id: "T3", slug: "t3-quiz", exam: true, title: { zh-cn: "综合测验三：衍生品与家庭投资实践", en: "Comprehensive Quiz 3: Derivatives and Household Investing" } }
 
   - id: "7"
     title: { zh-cn: "第 7 阶段：毕业项目", en: "Stage 7: Capstone Project" }

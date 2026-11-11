@@ -154,7 +154,7 @@ one learner, revision history and answers inline. To publish a finished lesson:
 | --- | --- | --- |
 | 随堂题 | check question | `check`, `<Check>`, answered on the page |
 | 练习题 | exercise | `exercise`, `<Exercises>` |
-| 测验 | quiz | `quiz`, `<Quiz>` on the page `lessons/e<n>-quiz.mdx` (`E0`, `E1`, ...) |
+| 综合测验 | comprehensive quiz | `quiz`, `<Quiz>` on the page `lessons/t<n>-quiz.mdx` (`T1`, `T2`, `T3`) |
 
 No question is scored: every result is "ok" or "revise".
 
@@ -174,7 +174,7 @@ No question is scored: every result is "ok" or "revise".
 - Other answers are not entered on the site. Exercises are submitted together by `<Exercises />`.
   The prompt ends with an empty "learner's answers" heading; the learner attaches a photo or types the
   answers after it.
-- Check questions (随堂题), exercises (练习题) and quizzes (测验, `E0`, `E1`, ... in the curriculum)
+- Check questions (随堂题), exercises (练习题) and comprehensive quizzes (综合测验, `T1`–`T3` in the curriculum)
   are reviewed without scores: the result marks each question "ok" or "revise". All of them use the
   same feedback prompt. Results saved with scores by earlier versions of the site become "ok" (full
   marks) or "revise".
@@ -189,7 +189,25 @@ No question is scored: every result is "ok" or "revise".
 
 ## Writing a quiz
 
-Quizzes follow the exam rules in the author's curriculum ("阶段考试"):
+The course has three comprehensive quizzes, each after a block of consecutive stages: `T1` after
+Stage 2 (Stages 0–2), `T2` after Stage 4 (Stages 3–4) and `T3` after Stage 6 (Stages 5–6). Stage 7
+(the capstone) has no quiz. A quiz may use every earlier stage but mainly tests its own block, and
+it does not try to cover every lesson: covering lessons is the job of check questions and exercises.
+
+Style: understanding and modeling first, little calculation.
+
+- Each problem is a situation (a firm, a household, an investor, a piece of news, a policy), not a
+  topic. The stem does not name the concept, formula or lesson to use, and it may contain facts that
+  turn out not to matter. The learner must recognize which concepts apply, build a simple model
+  from the description (for example, see that a payment rising with inflation is a growing
+  perpetuity discounted at a real rate) and draw the conclusion.
+- Most problems combine lessons from at least two stages; a problem that one lesson's exercises
+  could ask is not a quiz problem.
+- Difficulty never comes from harder mathematics: no long derivations, no algebra for its own sake,
+  no numbers chosen to make the arithmetic hard. Mathematics the model needs (a present value, a
+  derivative, a variance) is fine.
+
+Quizzes also follow the exam rules in the author's curriculum ("阶段考试"):
 
 - A question shows whether the learner understands the financial concept, not whether they can run a
   familiar procedure: its meaning, the conditions under which a result holds, the mechanism behind it,
@@ -202,7 +220,7 @@ Quizzes follow the exam rules in the author's curriculum ("阶段考试"):
 - Each part asks one core question. It may ask to compute and then explain when the explanation
   follows from that computation, but it never combines unrelated computations or several separate
   questions. Difficulty comes from the depth of that one question, not from the number of questions.
-- Only lessons of the block and earlier; the questions carry no lesson or difficulty labels and no
+- Only lessons of the block and earlier stages; the questions carry no lesson or difficulty labels and no
   hints. The page starts with instructions and a formula sheet.
 - Part 1 is true / false with reasons (both verdicts occur; no "uncertain") (`part: judge`); a verdict without a reason needs
   revision. Part 2 holds problems (`part: problem`).
@@ -212,8 +230,8 @@ Quizzes follow the exam rules in the author's curriculum ("阶段考试"):
 - Exercises and quizzes divide the work: exercises practise one lesson; quizzes mix lessons and
   stages without saying where a question comes from, use less calculation, and ask more often which
   concept applies and under which conditions. Before adding a quiz question, check the exercises of
-  the lessons it uses for the same insight (for example, E0 Q8 and exercise Q2 of lesson 3.4 both ask why a
-  perpetuity is not infinitely sensitive to rates and how it compares with a finite stream); if one exists, change the question so
+  the lessons it uses for the same insight (for example, a quiz question and exercise Q2 of lesson 3.4 that both
+  ask why a perpetuity is not infinitely sensitive to rates); if one exists, change the question so
   that it needs something the exercise does not.
 - For each question, ask "can it be answered by recalling an example from a lesson?" and rework it
   if so, for example by changing the situation, the known facts or the goal of the decision. Adapting

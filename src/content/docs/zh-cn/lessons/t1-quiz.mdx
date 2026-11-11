@@ -1,0 +1,42 @@
+---
+title: 综合测验一：数学、微观与宏观基础
+description: 第 0–2 阶段的综合测验：在具体情境中认出适用的概念，建立简单的模型并得出结论。建议用时 150 分钟。
+lesson: "T1"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Quiz from '../../../../components/Quiz.astro';
+
+## 说明 [#instructions]
+
+- 本测验考 <Ref lesson="0.1" /> 到 <Ref lesson="2.8" /> 的内容。大多数题会用到不同阶段的知识，题目不说明要用哪个概念：先判断情境中什么是关键，再建立模型。计算都不复杂。建议用时 150 分钟。
+- 可以使用计算器或代码，不要查看讲义。需要的公式见下面的公式表。
+- 计算题要写出过程。批改时看过程和理由：只有答案、没有过程的部分，以及只写“真”或“假”、没有理由的判断题，都需要订正。
+- 把答案写在纸上（或打字）。做完后点击页面底部的“复制批改提示词”，连同答案一起发给你的 AI 助手；也可以分几次提交。
+
+## 公式表 [#formulas]
+
+**现值**
+
+- $PV = \frac{FV}{(1 + r)^n}$；年金（每期期末付款 $C$，共 $n$ 期）：$PV = \frac{C}{r}\left[1 - (1 + r)^{-n}\right]$
+- 增长永续年金：$PV = \frac{C}{r - g}$（$C$ 为第 1 期期末的付款）
+
+**概率与统计**
+
+- $\text{Var}(aX + bY) = a^2\text{Var}(X) + b^2\text{Var}(Y) + 2ab\,\text{Cov}(X, Y)$
+- 样本均值的标准误：$\text{SE} = \frac{\sigma}{\sqrt{n}}$；回归斜率：$b = \frac{\text{Cov}(x, y)}{\text{Var}(x)}$
+
+**微观经济学**
+
+- Fisher 方程：$1 + r = \frac{1 + i}{1 + \pi}$
+- 确定性等价：$u(\text{CE}) = E[u(W)]$；CRRA 效用（相对风险厌恶系数 $\gamma$）的按比例风险溢价 $\approx \frac12\gamma\sigma^2$
+- 对每单位征税 $t$：买方付的价格 $P_b$ 与卖方得到的价格 $P_s$ 满足 $P_s = P_b - t$
+
+**宏观经济学**
+
+- 债务占 GDP 的比例：$b_{t+1} = \frac{1 + r}{1 + g}\,b_t + d$（$r$ 为利率，$g$ 为名义增长率，$d$ 为基本赤字占 GDP 的比例）
+- Phillips 曲线：$\pi = \pi^e - a(u - u^*)$，$a > 0$
+
+## 题目 [#questions]
+
+<Quiz />

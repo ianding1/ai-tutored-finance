@@ -1,0 +1,419 @@
+# Answer key for comprehensive quiz T1 (Stages 0–2: math and statistics tools, microeconomics,
+# macroeconomics). Shown to learners only inside the generated grading prompt. The quiz page shows
+# only the questions. Each question is marked ok or revise.
+# expected: values are recomputed by course/verify/T1.py in CI and must appear verbatim in every answer text.
+# Each question tests a different idea, most combine lessons from more than one stage, and each names
+# the misconception it can reveal (common_errors).
+
+lesson: "T1"
+
+context:
+  - zh-cn: |-
+      综合测验一考 [[0.1]] 到 [[2.8]]：数学与统计工具、微观经济学和宏观经济学。题目大多结合了不同阶段的内容，题干是一个情境，不说明要用哪个概念；重点是能否认出适用的概念、建立简单的模型并得出结论，计算很少。学习者可以用计算器或代码，卷首有公式表（现值、年金与增长永续年金、组合方差、标准误、回归斜率、Fisher 方程、确定性等价与风险溢价的近似公式、税收使买方价格与卖方价格相差 $t$、债务比例的变化、Phillips 曲线）。批改时，推理和理由比算术更重要。
+    en: |-
+      Comprehensive quiz T1 covers [[0.1]] to [[2.8]]: math and statistics tools, microeconomics and macroeconomics. Most questions combine material from different stages; each stem is a situation that does not say which concept to use. What matters is whether the learner recognizes the concepts that apply, builds a simple model and draws the conclusion; there is little calculation. The learner may use a calculator or code, and the quiz starts with a formula sheet (present value, annuities and growing perpetuities, portfolio variance, the standard error, the regression slope, the Fisher equation, the certainty equivalent and the approximate risk premium, a tax that makes the buyers' and sellers' prices differ by $t$, the change in the debt ratio, and the Phillips curve). When grading, reasoning and reasons count more than arithmetic.
+
+common_errors:
+  - questions: [Q2]
+    zh-cn: |-
+      只看一项资产自己的期望收益和波动来判断是否值得持有，忽略它与投资者其他财富的协方差。与其他财富负相关的资产（例如保险）能降低总风险，风险厌恶的人愿意为此放弃期望收益。
+    en: |-
+      Judging whether an asset is worth holding only by its own expected return and volatility, ignoring its covariance with the investor's other wealth. An asset negatively correlated with the rest (such as insurance) lowers total risk, and a risk-averse investor will give up expected return for that.
+  - questions: [Q3]
+    zh-cn: |-
+      把同期的相关当作可以用来获利的预测关系，忽略可预见的增长已经反映在价格中，价格只对意外作出反应。
+    en: |-
+      Treating a same-period correlation as a relation that can be used to earn money, ignoring that foreseeable growth is already in prices and prices react only to surprises.
+  - questions: [Q5]
+    zh-cn: |-
+      以为法律规定谁缴税，谁就承担税负。税负的分配取决于双方对价格的反应；在劳动市场中，员工是卖方，劳动供给缺乏弹性时，雇主缴纳的部分也会通过更低的工资转给员工。
+    en: |-
+      Thinking whoever pays a tax by law bears it. The split depends on how each side responds to the price; in the labor market employees are the sellers, and with inelastic labor supply the employers' share is passed to employees through lower wages.
+  - questions: [Q6]
+    zh-cn: |-
+      以为只要有基本赤字，债务比例就一定无限上升。利率低于增长率时，已有债务相对 GDP 自动缩小，比例趋近一个有限的值 $\frac{d(1+g)}{g-r}$。
+    en: |-
+      Thinking any primary deficit makes the debt ratio rise without limit. With the interest rate below growth, existing debt shrinks relative to GDP on its own, and the ratio approaches the finite level $\frac{d(1+g)}{g-r}$.
+  - questions: [Q7]
+    zh-cn: |-
+      以为没有坏账、按成本记账有偿付能力的银行就不会倒闭；或者没有认出固定利率房贷是年金，用贷款利率而不是市场利率给它定价。利率上升使长期资产的市场价值下降，而存款随时可取，挤兑会把账面之外的损失变成现实。
+    en: |-
+      Thinking a bank with no bad loans that is solvent at cost cannot fail; or not recognizing fixed-rate mortgages as an annuity and valuing them at the loan rate instead of the market rate. Higher rates cut the market value of long-term assets while deposits can leave at any time, and a run turns the hidden loss into a real one.
+  - questions: [Q9]
+    zh-cn: |-
+      把转移支付的乘数当作政府购买的乘数 $\frac{1}{1-b}$；或者把消费对收入的回归斜率当作家庭对一次性收入的边际消费倾向，忽略消费平滑、未来的加税以及回归中的反向因果和共同原因。
+    en: |-
+      Using the government-purchases multiplier $\frac{1}{1-b}$ for a transfer; or taking the regression slope of consumption on income as the propensity to spend a one-time payment, ignoring consumption smoothing, future taxes, and reverse causality and common causes in the regression.
+  - questions: [Q11]
+    zh-cn: |-
+      以为可预期的更高通胀能永久降低失业率；或者以为“预料到的通胀”不会伤害任何人，忽略宣布本身对按旧预期签订的名义合同是意外，使财富从名义资产的持有者转向名义债务人。
+    en: |-
+      Thinking that higher expected inflation can lower unemployment permanently; or thinking that "expected inflation" hurts no one, ignoring that the announcement itself surprises nominal contracts signed under the old expectations and moves wealth from holders of nominal assets to nominal debtors.
+  - questions: [Q4]
+    zh-cn: |-
+      认为观测数越多估计越准，所以 240 个月度数据的标准误约为 20 个年度数据的 $\frac{1}{\sqrt{12}}$。估计平均收益的精度取决于数据覆盖的时间长度，而不是观测的频率。
+    en: |-
+      Thinking that more observations always give a more precise estimate, so 240 monthly observations give about $\frac{1}{\sqrt{12}}$ of the standard error of 20 yearly ones. The precision of an estimated mean return depends on the length of time the data cover, not on how often it is observed.
+  - questions: [Q1]
+    zh-cn: |-
+      把名义上的“不亏钱”当作购买力不减少。名义收益率低于通胀时，实际收益率为负，按购买力计算财富在缩水。
+    en: |-
+      Taking "no nominal loss" to mean no loss of purchasing power. When the nominal return is below inflation, the real return is negative and wealth shrinks in purchasing power.
+  - questions: [Q12]
+    zh-cn: |-
+      认为任何税都会造成无谓损失，或者认为由谁缴税谁就承担税负。无谓损失来自成交量的减少；税负的分配取决于双方对价格的反应，而且会随时间变化。
+    en: |-
+      Thinking that every tax causes a deadweight loss, or that whoever pays a tax bears it. The deadweight loss comes from the fall in the quantity traded; the split of the burden depends on how each side responds to the price and changes over time.
+  - questions: [Q8]
+    zh-cn: |-
+      认为净现值为正的项目一定会被投资；或者没有注意到，新股按平均价值定价时，好公司的老股东要把一部分价值让给新股东。
+    en: |-
+      Thinking that a project with a positive net present value will always be undertaken; or not noticing that when new shares are priced at the average value, the old shareholders of a good company give part of its value to the new shareholders.
+  - questions: [Q10]
+    zh-cn: |-
+      直接比较有风险的期望收益和无风险的利率（7% > 4%），忽略了顾问的费用和风险溢价；或者没有注意到顾问的报酬方式使他偏向推荐投资。
+    en: |-
+      Comparing a risky expected return directly with a risk-free rate (7% > 4%), ignoring the adviser's fee and the risk premium; or not noticing that the way the adviser is paid tilts the recommendation toward investing.
+
+questions:
+  - id: Q1
+    kind: quiz
+    part: judge
+    concepts: [nominal-interest-rate, real-interest-rate, fisher-equation, inflation]
+    expected: { real: "90705", loss: "9.3" }
+    question:
+      zh-cn: |-
+        某理财产品期限 10 年，保证每年 2% 的名义收益（按年复利），到期一次还本付息，宣传为“保本，不会亏钱”。如果这 10 年每年的通胀都是 3%，持有到期的投资者按购买力计算的财富没有减少。
+      en: |-
+        A 10-year investment product guarantees a nominal return of 2% a year (compounded annually), with principal and interest paid at maturity, and is advertised as "principal protected, you cannot lose money". If inflation is 3% in each of the 10 years, an investor who holds it to maturity has not lost purchasing power.
+    answer:
+      zh-cn: |-
+        假。每年的实际收益率 $\frac{1.02}{1.03} - 1 \approx -0.97\%$，是负的。投入 100,000 美元，10 年后的名义金额是 $100{,}000 \times 1.02^{10}$，按今天的购买力相当于
+        $$100{,}000 \times \left(\frac{1.02}{1.03}\right)^{10} \approx 90{,}705$$
+        美元，购买力减少了约 9.3%。“保本”只保证名义金额不减少，不保证购买力。
+      en: |-
+        False. The real return each year is $\frac{1.02}{1.03} - 1 \approx -0.97\%$, which is negative. With 100,000 dollars invested, the nominal amount after 10 years is $100{,}000 \times 1.02^{10}$, which in today's purchasing power is
+        $$100{,}000 \times \left(\frac{1.02}{1.03}\right)^{10} \approx 90{,}705$$
+        dollars, a loss of about 9.3% of purchasing power. "Principal protected" guarantees only that the nominal amount does not fall, not purchasing power.
+    rubric:
+      zh-cn:
+        - "判断为假，并用实际收益率为负或计算出购买力约减少 9.3% 说明。"
+        - "判断为假但只说“通胀会侵蚀收益”而没有说明实际收益率为负或计算：需要订正。只写判断：需要订正。"
+      en:
+        - "States false and explains with the negative real return or by computing the loss of about 9.3% of purchasing power."
+        - "False but only saying \"inflation eats into the return\" without showing that the real return is negative or computing it: needs revision. Only the verdict: needs revision."
+
+  - id: Q2
+    kind: quiz
+    part: judge
+    concepts: [risk-aversion, portfolio-variance, covariance, risk-premium]
+    question:
+      zh-cn: |-
+        风险厌恶的投资者不应该持有期望收益低于无风险利率的资产：这样的资产风险更大，收益却更低。
+      en: |-
+        A risk-averse investor should never hold an asset whose expected return is below the risk-free rate: such an asset is riskier and earns less.
+    answer:
+      zh-cn: |-
+        假。一项资产对投资者的风险，要看它与投资者其他财富的关系，而不只看它自己的波动。如果它在投资者的其他财富下跌时上涨（协方差为负），持有一部分可以降低总财富的方差。风险厌恶的人愿意为降低风险放弃一些期望收益。最明显的例子是保险：保费高于预期损失，期望收益为负，但它在损失发生时赔付，风险厌恶的人买它能提高期望效用。同理，与投资者其他财富负相关的资产，即使期望收益低于无风险利率，也可能值得少量持有。
+      en: |-
+        False. How risky an asset is for an investor depends on how it relates to the rest of his wealth, not only on its own swings. If it rises when the rest of his wealth falls (a negative covariance), holding some of it lowers the variance of total wealth, and a risk-averse investor will give up some expected return to reduce risk. The clearest example is insurance: the premium exceeds the expected loss, so its expected return is negative, but it pays exactly when the loss happens, and buying it raises a risk-averse person's expected utility. Likewise, an asset negatively correlated with the investor's other wealth can be worth holding in a small amount even if its expected return is below the risk-free rate.
+    rubric:
+      zh-cn:
+        - "判断为假，并指出资产的风险要看它与其他财富的协方差；负相关的资产能降低总风险，风险厌恶的人愿意为此放弃期望收益。举出保险或对冲的例子也算。"
+        - "只说“风险厌恶的人也会冒险”而没有说明降低总风险的机制，或判断为真：需要订正。只写判断：需要订正。"
+      en:
+        - "States false and points out that an asset's risk depends on its covariance with other wealth; a negatively correlated asset lowers total risk, and a risk-averse investor will give up expected return for that. An example of insurance or hedging also counts."
+        - "Saying only that risk-averse people also take risks, without the mechanism of lowering total risk, or stating true: needs revision. A verdict alone: needs revision."
+
+  - id: Q3
+    kind: quiz
+    part: judge
+    concepts: [regression-coefficient, correlation-vs-causation, real-gdp, business-cycle]
+    question:
+      zh-cn: |-
+        用过去 50 年的年度数据做回归，股票指数的年收益对同一年实际 GDP 增长率的斜率显著为正。所以，如果你预测明年的实际 GDP 增长会比较高，就应该增持股票。
+      en: |-
+        A regression on 50 years of annual data finds that the stock index's annual return has a significantly positive slope on real GDP growth in the same year. So if you forecast high real GDP growth next year, you should hold more stocks.
+    answer:
+      zh-cn: |-
+        假。回归描述的是同一年股票收益和 GDP 增长一起变化，不说明可以用对 GDP 的预测来赚钱。股价反映的是对未来的预期：投资者能预见的增长早已体现在价格中，股价对的是增长的“意外”作出反应。你的预测如果和市场的一致预期相同，就不会带来更高的收益；只有比市场更准确、而且与市场不同的预测才可能有用。此外，股价通常领先于经济，同一年的正相关有一部分是股价先反映了预期。
+      en: |-
+        False. The regression describes stock returns and GDP growth moving together in the same year; it does not show that a GDP forecast can earn money. Stock prices reflect expectations: growth investors can foresee is already in the price, and prices react to growth surprises. If your forecast matches the market's consensus, it brings no extra return; only a forecast that differs from the market and is more accurate could help. Also, stock prices usually lead the economy, so part of the same-year correlation comes from prices that had already reflected expectations.
+    rubric:
+      zh-cn:
+        - "判断为假，并指出可预见的增长已经反映在价格中，只有与预期不同的部分影响收益；或指出同期相关不等于可以用预测获利。"
+        - "只说“相关不等于因果”而没有说明预期已在价格中，或判断为真：需要订正。只写判断：需要订正。"
+      en:
+        - "States false and points out that foreseeable growth is already in the price and only the part that differs from expectations affects returns; or that a same-year correlation does not mean a forecast can earn money."
+        - "Saying only that correlation is not causation, without explaining that expectations are already in prices, or stating true: needs revision. A verdict alone: needs revision."
+
+  - id: Q4
+    kind: quiz
+    part: judge
+    concepts: [log-return, sample-mean, standard-error, variance]
+    question:
+      zh-cn: |-
+        某指数过去 20 年的月对数收益率各月独立且分布相同。用这 240 个月度收益估计年平均对数收益率，标准误（按真实的标准差计算）与只用 20 个年度对数收益率估计时相同：观测数是 12 倍，估计并没有更准。
+      en: |-
+        The monthly log returns of an index over the past 20 years are independent with the same distribution. Estimating the mean yearly log return from these 240 monthly returns gives the same standard error (computed with the true standard deviation) as estimating it from the 20 yearly log returns: there are 12 times as many observations, but the estimate is no more precise.
+    answer:
+      zh-cn: |-
+        真。每年的对数收益率是这一年 12 个月的对数收益率之和。用月度数据估计年平均收益率，是把月平均乘以 12：$12 \times \frac{1}{240}\sum_{\text{月}} \ell = \frac{1}{20}\sum_{\text{月}} \ell$，这正好等于 20 个年度对数收益率的平均值，是同一个数。
+        也可以算标准误：设年对数收益率的标准差为 $\sigma$，各月独立时月度的方差是 $\frac{\sigma^2}{12}$。月平均的标准误是 $\frac{\sigma/\sqrt{12}}{\sqrt{240}}$，乘以 12 得 $\frac{12\,\sigma}{\sqrt{12}\sqrt{240}} = \frac{\sigma}{\sqrt{20}}$，与年度数据相同。
+        估计平均收益的精度取决于数据覆盖了多少年，而不是多久观测一次：把一年切成 12 段，每段的波动也小了，信息并没有增加。
+      en: |-
+        True. Each year's log return is the sum of the log returns of its 12 months. Estimating the mean yearly return from monthly data means multiplying the monthly mean by 12: $12 \times \frac{1}{240}\sum_{\text{months}} \ell = \frac{1}{20}\sum_{\text{months}} \ell$, which is exactly the mean of the 20 yearly log returns, the same number.
+        The standard error gives the same result: let the standard deviation of the yearly log return be $\sigma$; with independent months, the monthly variance is $\frac{\sigma^2}{12}$. The standard error of the monthly mean is $\frac{\sigma/\sqrt{12}}{\sqrt{240}}$, and 12 times this is $\frac{12\,\sigma}{\sqrt{12}\sqrt{240}} = \frac{\sigma}{\sqrt{20}}$, the same as with yearly data.
+        The precision of an estimated mean return depends on how many years the data cover, not on how often it is observed: cutting a year into 12 parts also makes each part less volatile, and no information is added.
+    rubric:
+      zh-cn:
+        - "判断为真，并说明两种估计是同一个数，或算出两者的标准误都是 $\\frac{\\sigma}{\\sqrt{20}}$。"
+        - "判断为真但没有考虑月度方差是年度的 $\\frac{1}{12}$，或只说“时间长度才重要”而没有论证：需要订正。只写判断：需要订正。"
+      en:
+        - "States true and shows that the two estimates are the same number, or computes that both standard errors are $\\frac{\\sigma}{\\sqrt{20}}$."
+        - "True but without using that the monthly variance is $\\frac{1}{12}$ of the yearly one, or only saying \"the length of time is what matters\" without an argument: needs revision. Only the verdict: needs revision."
+
+  - id: Q5
+    kind: quiz
+    part: judge
+    concepts: [tax-incidence, price-elasticity, supply]
+    question:
+      zh-cn: |-
+        一种工资税按工资的一定比例征收，法律规定一半由雇主缴纳、一半由员工缴纳。如果劳动的供给几乎完全没有弹性（无论税后工资多少，人们的工作时间几乎不变），这个税几乎全部由员工承担。
+      en: |-
+        A payroll tax is a percentage of wages, and the law makes employers pay half and employees half. If labor supply is almost perfectly inelastic (people work almost the same hours whatever their after-tax wage), almost all of the tax is borne by employees.
+    answer:
+      zh-cn: |-
+        真。税负的分配取决于双方对价格的敏感程度，与法律规定谁缴纳无关。这里劳动是“商品”，员工是卖方，雇主是买方。劳动供给几乎没有弹性时，员工无法通过减少工作来躲开税：雇主缴纳的那一半会使雇主愿意付的税前工资下降，最后员工得到的税后工资几乎下降了全部税额，雇主付出的总劳动成本几乎不变。
+      en: |-
+        True. How a tax is shared depends on how sensitive each side is to price, not on who pays it by law. Here labor is the "good", employees are the sellers and employers the buyers. With almost perfectly inelastic labor supply, employees cannot avoid the tax by working less: the half paid by employers lowers the pre-tax wage employers are willing to pay, so in the end the employees' after-tax wage falls by almost the whole tax, while employers' total labor cost hardly changes.
+    rubric:
+      zh-cn:
+        - "判断为真，并说明税负由弹性决定，与谁缴纳无关；劳动供给缺乏弹性的员工躲不开税，雇主的那一半通过更低的税前工资转给员工。"
+        - "认为法律规定的分配就是实际的分配，或只说“供给没有弹性”而没有说明雇主那一半怎样转给员工：需要订正。只写判断：需要订正。"
+      en:
+        - "States true and explains that incidence depends on elasticities, not on who pays; employees with inelastic labor supply cannot escape the tax, and the employers' half is passed to them through a lower pre-tax wage."
+        - "Treating the legal split as the actual split, or saying only that supply is inelastic without explaining how the employers' half reaches employees: needs revision. A verdict alone: needs revision."
+
+  - id: Q6
+    kind: quiz
+    part: judge
+    concepts: [primary-deficit, budget-deficit, nominal-interest-rate]
+    expected: { limit: "208" }
+    question:
+      zh-cn: |-
+        一国政府债务为 GDP 的 100%。债务的利率永远是每年 3%，名义 GDP 永远每年增长 4%。即使政府每年都有占 GDP 2% 的基本赤字，债务占 GDP 的比例也不会无限上升。
+      en: |-
+        A government's debt is 100% of GDP. The interest rate on the debt is 3% a year forever, and nominal GDP grows 4% a year forever. Even if the government runs a primary deficit of 2% of GDP every year, the debt-to-GDP ratio will not rise without limit.
+    answer:
+      zh-cn: |-
+        真。债务比例按 $b_{t+1} = \frac{1 + r}{1 + g} b_t + d$ 变化。利率低于增长率时，$\frac{1.03}{1.04} < 1$，已有的债务相对 GDP 每年缩小约 1%；比例越高，缩小的部分越大。比例上升到 $b^*$ 时，缩小的部分正好抵消新的赤字：$b^* = \frac{d(1 + g)}{g - r} = \frac{0.02 \times 1.04}{0.01} = 208\%$。所以比例会逐渐上升，并趋近约 208%，而不会无限上升。这依赖于利率永远低于增长率；比例很高时，利率上升到超过增长率的风险也更大。
+      en: |-
+        True. The ratio follows $b_{t+1} = \frac{1 + r}{1 + g} b_t + d$. With the interest rate below growth, $\frac{1.03}{1.04} < 1$, so existing debt shrinks by about 1% of itself relative to GDP each year, and the higher the ratio, the more it shrinks. When the ratio reaches $b^*$, that shrinkage exactly offsets the new deficit: $b^* = \frac{d(1 + g)}{g - r} = \frac{0.02 \times 1.04}{0.01} = 208\%$. So the ratio rises gradually toward about 208% but not without limit. This depends on the rate staying below growth forever; at a high ratio the risk that rates rise above growth is also larger.
+    rubric:
+      zh-cn:
+        - "判断为真，并说明利率低于增长率时已有债务的比例自动缩小，比例趋近一个有限的值（约 208%）。只说明会收敛、没有求出数值，但理由正确，也算通过。"
+        - "判断为假（以为有赤字就一定无限上升），或只写判断：需要订正。"
+      en:
+        - "States true and explains that with the rate below growth existing debt shrinks relative to GDP, so the ratio approaches a finite level (about 208%). Explaining the convergence correctly without the number also passes."
+        - "Stating false (thinking any deficit makes the ratio rise without limit), or a verdict alone: needs revision."
+
+  - id: Q7
+    kind: quiz
+    part: problem
+    concepts: [present-value, annuity, bank-run, deposit-insurance, nash-equilibrium]
+    expected: { pv: "78.43", eq: "-13.57" }
+    question:
+      zh-cn: |-
+        一家银行刚刚发放了一批 30 年期的固定利率房贷，共 100（亿美元），年利率 3%，借款人每年末还一笔相同的金额（本息合计），共 30 年。这是银行全部的资产。银行的负债是 92 的活期存款，大部分超过存款保险的上限；股东权益为 8。房贷发放后不久，市场利率升到 5%，借款人的违约风险没有变化。
+        (a) 按 5% 的市场利率，这批房贷现在值多少？按市场价值计算，银行的股东权益是多少？
+        (b) 银行的报表按成本记账，仍然显示股东权益为 8；只要没有人提款，银行可以一直收着房贷的还款经营下去，也没有一笔坏账。为什么这样一家银行可能在几天之内倒闭？
+      en: |-
+        A bank has just made a batch of 30-year fixed-rate mortgages totaling 100 (hundred million dollars) at 3% a year; borrowers repay the same amount (principal plus interest) at the end of each year for 30 years. These are all of the bank's assets. Its liabilities are 92 of demand deposits, mostly above the deposit insurance limit, and its equity is 8. Shortly after the loans are made, market interest rates rise to 5%, with no change in borrowers' default risk.
+        (a) At the 5% market rate, what are the mortgages worth now? What is the bank's equity at market value?
+        (b) The bank's accounts are kept at cost and still show equity of 8; as long as no one withdraws, the bank could keep collecting mortgage payments and carry on, with no bad loans at all. Why might such a bank fail within a few days?
+    answer:
+      zh-cn: |-
+        (a) 每年还款 $C = \frac{100 \times 0.03}{1 - 1.03^{-30}} \approx 5.10$。按 5% 折现，$\frac{5.10}{0.05}\left(1 - 1.05^{-30}\right) \approx 78.43$。股东权益按市场价值为 $78.43 - 92 \approx -13.57$：银行实际上资不抵债。还款都在未来，利率上升使它们的现值大幅下降。
+        (b) 存款人可以随时取款，而银行的资产要 30 年才能收回。存款人担心别的存款人先取款：如果大家都取，银行只能按市场价值卖出房贷，资产不够偿还所有存款，后取的人会受损。对每个未受保的存款人，只要预期别人会取，自己也应该立即取款；于是大家都取款是一个均衡，挤兑自我实现。现在按市场价值股东权益已经为负，这种担心更有根据，一个传闻就可能引发挤兑。报表上的“健康”不能阻止它，因为提款要用现金，而现金只能靠按市场价格卖出资产得到。
+      en: |-
+        (a) The annual payment is $C = \frac{100 \times 0.03}{1 - 1.03^{-30}} \approx 5.10$. Discounted at 5%, the loans are worth $\frac{5.10}{0.05}\left(1 - 1.05^{-30}\right) \approx 78.43$. Equity at market value is $78.43 - 92 \approx -13.57$: the bank is in fact insolvent. All the payments lie in the future, and the higher rate cuts their present value sharply.
+        (b) Depositors can withdraw at any time, while the bank's assets take 30 years to come back. Depositors worry that others will withdraw first: if everyone withdraws, the bank must sell the mortgages at market value, the assets cannot repay all deposits, and those who come later lose. For each uninsured depositor, if he expects others to withdraw, he should withdraw at once; so everyone withdrawing is an equilibrium, and the run fulfills itself. With equity already negative at market value, the worry is well founded, and a rumor can start a run. The healthy accounts cannot stop it, because withdrawals need cash, and cash can come only from selling assets at market prices.
+    rubric:
+      zh-cn:
+        - "(a) 认出房贷是年金，求出每年还款约 5.10、按 5% 的现值约 78.43，股东权益约 −13.57。直接假设房贷价值不变或用 3% 折现：需要订正。"
+        - "(b) 说明期限错配：存款随时可取，资产要按市场价值卖出；并说明每个存款人在预期别人取款时自己也会取款，挤兑自我实现。只说“利率上升使银行亏损”而没有说明挤兑的机制：需要订正。"
+      en:
+        - "(a) Recognizes the mortgages as an annuity, finds an annual payment of about 5.10, a present value at 5% of about 78.43, and equity of about −13.57. Assuming the loans keep their value, or discounting at 3%: needs revision."
+        - "(b) Explains the maturity mismatch (deposits can be withdrawn at any time, while assets must be sold at market value) and that each depositor withdraws if he expects others to, so the run fulfills itself. Saying only that higher rates cause a loss, without the mechanism of the run: needs revision."
+
+  - id: Q8
+    kind: quiz
+    part: problem
+    concepts: [adverse-selection, asymmetric-information, present-value]
+    expected: { avg: "145", share: "13.79", keep: "193.97", debt: "205" }
+    question:
+      zh-cn: |-
+        有两类公司，各占一半。“好公司”现有资产值 200（百万美元），“差公司”现有资产值 40。两类公司都有一个新项目：投资 20，投资后使公司价值增加 25（净现值为 +5）。经理知道自己公司属于哪一类，并为现有股东的利益做决定；外部投资者分不清，只知道各占一半，并按他们的判断公平地为新股定价。公司没有现金，要投资就必须先融资 20。
+
+        (a) 假设投资者认为两类公司都会发行新股，并据此定价。投资者会按什么价值为发行新股的公司定价（用投资后的价值）？新股东要得到公司的多大比例？好公司的老股东最后拥有的价值是多少？好公司会发行新股去投资吗？
+
+        (b) 如果好公司可以改为借入 20 的无风险债务（只看一期，不考虑利息，期末偿还 20），它会投资吗？为什么债务能避免 (a) 中的问题？
+      en: |-
+        There are two kinds of company, half of each. A "good company" has existing assets worth 200 (million dollars), and a "bad company" has existing assets worth 40. Both kinds have a new project: investing 20 raises the company's value by 25 (a net present value of +5). Managers know which kind their company is and decide in the interest of the existing shareholders; outside investors cannot tell, know only that half are of each kind, and price new shares fairly given what they believe. The companies have no cash, so to invest they must first raise 20.
+
+        (a) Suppose investors believe that both kinds will issue new shares and price them accordingly. At what value will investors price a company that issues new shares (using its value after the investment)? What share of the company must the new shareholders receive? What is the value finally owned by the old shareholders of a good company? Will a good company issue new shares to invest?
+
+        (b) If a good company can instead borrow 20 of risk-free debt (one period, ignoring interest, repaying 20 at the end), will it invest? Why does debt avoid the problem in (a)?
+    answer:
+      zh-cn: |-
+        (a) 两类都发行时，投资后好公司值 225，差公司值 65，投资者按平均值 $\frac{225 + 65}{2} = 145$ 定价。融资 20 需要让新股东得到 $\frac{20}{145} \approx 13.79\%$。好公司的老股东最后拥有 $225 \times (1 - 13.79\%) \approx 193.97$，少于不投资时的 200。所以好公司不会发行新股：它的股票被按平均值低估，新股东拿走的价值（约 31）超过了项目的净现值 5。
+        结果只有差公司发行新股（对差公司的老股东，按平均价值发行是占便宜），所以“两类都发行”的预期不会成立。这里要区分两种价值：投资者事前按平均值估计的价值（145），和公司类型确定后的真实价值（225 或 65）；好公司的老股东损失的正是两者之差中让给新股东的部分。投资者也会想到这一点，把发行新股看作“我是差公司”的信号；这正是公司宣布增发时股价往往下跌的原因。好公司放弃了一个净现值为正的项目，这是逆向选择造成的效率损失。
+        (b) 会。借 20、投资后公司值 225，偿还 20 后老股东得到 205，多于不投资时的 200。无风险债务到期只需偿还 20，它的价值不取决于公司属于哪一类，所以投资者不需要判断公司的类型，好公司也不必把被低估的股份让给新股东。融资工具的价值对公司的内部信息越不敏感，逆向选择的问题越小；这是公司通常先用内部资金和债务、最后才发行新股的原因之一。
+      en: |-
+        (a) If both kinds issue, after investing a good company is worth 225 and a bad one 65, so investors price an issuer at the average $\frac{225 + 65}{2} = 145$. Raising 20 requires giving new shareholders $\frac{20}{145} \approx 13.79\%$. The old shareholders of a good company end up with $225 \times (1 - 13.79\%) \approx 193.97$, less than the 200 they have without investing. So a good company will not issue new shares: its shares are undervalued at the average, and the value taken by the new shareholders (about 31) exceeds the project's net present value of 5.
+        In the end only bad companies issue new shares (for their old shareholders, issuing at the average value is a bargain), so the belief that both kinds issue cannot hold. Two values must be kept apart here: the value investors estimate beforehand from the average (145), and the true value once the company's type is known (225 or 65); the old shareholders of a good company lose the part of this gap that goes to the new shareholders. Investors can work this out too and read a share issue as a sign of "I am a bad company"; this is exactly why share prices often fall when companies announce an issue. The good company gives up a project with a positive net present value, an efficiency loss caused by adverse selection.
+        (b) Yes. Borrowing 20 and investing makes the company worth 225, and after repaying 20 the old shareholders get 205, more than the 200 without investing. Risk-free debt requires repaying only 20, so its value does not depend on which kind the company is; investors do not need to judge the company's type, and the good company does not have to hand undervalued shares to new shareholders. The less the value of a financing instrument depends on the company's inside information, the smaller the adverse-selection problem; this is one reason companies usually use internal funds and debt first and issue new shares last.
+    rubric:
+      zh-cn:
+        - "(a) 按平均值 145 定价（用投资前的平均价值 120 加上新资金 20 计算同样可以）；新股东比例约 13.79%；好公司老股东约 193.97 < 200，不发行；说明股票被低估、让出的价值超过净现值 5，好公司放弃正净现值项目。只说“净现值为正所以投资”：需要订正。"
+        - "(b) 老股东得到 205 > 200，会投资；说明无风险债务的价值与公司类型无关，不需要按平均值定价。"
+      en:
+        - "(a) Priced at the average of 145 (computing it as the average value before investment, 120, plus the new money of 20 is also fine); new shareholders' share about 13.79%; old shareholders of a good company about 193.97 < 200, so it does not issue; explains that the shares are undervalued and the value given away exceeds the net present value of 5, so a positive-NPV project is lost. Only \"the NPV is positive, so it invests\": needs revision."
+        - "(b) Old shareholders get 205 > 200, so it invests; explains that the value of risk-free debt does not depend on the company's type, so no pricing at the average is needed."
+
+  - id: Q9
+    kind: quiz
+    part: problem
+    concepts: [fiscal-multiplier, regression-coefficient, correlation-vs-causation, consumption-smoothing, ricardian-equivalence]
+    expected: { k: "9" }
+    question:
+      zh-cn: |-
+        一位研究员用 40 年的年度数据，把每年总消费的变化对可支配收入的变化做回归，斜率为 0.9，$R^2$ 很高。他建议：政府一次性给每个家庭发一笔钱，只发一年，用发行国债来筹钱。“边际消费倾向是 0.9，乘数是 $\frac{1}{1 - 0.9} = 10$，政府每发 1 美元，产出增加 10 美元。”
+        (a) 假设家庭对这笔钱的边际消费倾向真的是 0.9，利率不变，没有税收随收入的变化和进口。这笔发放的乘数是多少？
+        (b) 说明为什么这个回归的斜率很可能高估了家庭会把这笔一次性发放花掉的比例。
+      en: |-
+        A researcher regresses the yearly change in total consumption on the change in disposable income, using 40 years of annual data; the slope is 0.9 and $R^2$ is high. He proposes that the government give every household a one-time payment, for one year only, financed by issuing bonds: "The marginal propensity to consume is 0.9, so the multiplier is $\frac{1}{1 - 0.9} = 10$; each dollar paid out raises output by 10 dollars."
+        (a) Suppose households' marginal propensity to consume out of this payment really is 0.9, interest rates do not change, and there are no taxes that vary with income and no imports. What is the multiplier of the payment?
+        (b) Explain why the regression slope probably overstates the share of the one-time payment that households will spend.
+    answer:
+      zh-cn: |-
+        (a) 发放的钱不是直接的支出：家庭只把其中的 0.9 花掉，这 0.9 才开始“收入—消费”的循环。乘数为 $\frac{0.9}{1 - 0.9} = 9$，和减税相同，而不是政府购买的 10。
+        (b) 例如：(1) 回归中的收入变化大多是持续的（就业、工资的变化），家庭会按长期收入调整消费；一次性的发放只使一生财富增加一点，按消费平滑，家庭只会花掉其中一小部分。(2) 发放用国债筹钱，以后要加税偿还；不受借款约束、能预见未来税收的家庭会把它存起来。(3) 回归的斜率不等于因果效应：总收入中有一部分本身就来自消费（消费增加使产出和收入增加），信心、财富、利率等共同原因也同时推动收入和消费，都会使斜率偏高。受借款约束的家庭会花掉较多，但它们只是一部分。
+      en: |-
+        (a) The payment is not direct spending: households spend 0.9 of it, and only that 0.9 starts the income–consumption cycle. The multiplier is $\frac{0.9}{1 - 0.9} = 9$, as for a tax cut, not the 10 of government purchases.
+        (b) For example: (1) most income changes in the regression are lasting (changes in jobs and wages), and households set consumption by long-run income; a one-time payment raises lifetime wealth only a little, so with consumption smoothing they spend only a small part of it. (2) The payment is financed by bonds to be repaid with later taxes; households that can borrow and foresee the taxes will save it. (3) The slope is not a causal effect: part of total income itself comes from consumption (more spending raises output and income), and common causes such as confidence, wealth and interest rates push income and consumption together, all of which bias the slope up. Households that cannot borrow will spend more, but they are only part of the population.
+    rubric:
+      zh-cn:
+        - "(a) 乘数为 9，并说明发放的钱在第一轮只有 0.9 成为支出。用 10：需要订正。"
+        - "(b) 至少两个合理的理由，其中至少一个来自经济行为（一次性收入与消费平滑，或以后的加税），一个可以来自回归本身（反向因果或共同原因）。只说“相关不等于因果”而没有具体说明：需要订正。"
+      en:
+        - "(a) A multiplier of 9, explaining that only 0.9 of the payment becomes spending in the first round. Using 10: needs revision."
+        - "(b) At least two reasonable reasons, at least one about behavior (a one-time payment and consumption smoothing, or future taxes) and one possibly about the regression itself (reverse causality or common causes). Saying only that correlation is not causation, without specifics: needs revision."
+
+  - id: Q10
+    kind: quiz
+    part: problem
+    concepts: [principal-agent-problem, moral-hazard, risk-premium, crra-utility, certainty-equivalent]
+    expected: { premium: "3.375", ce: "2.625", fee: "2000" }
+    question:
+      zh-cn: |-
+        一位客户有 200,000 美元现金，这是她全部的金融资产；她还有一笔固定利率 4% 的房贷，余额也是 200,000 美元。她的理财顾问每年按他管理的资产收取 1% 的费用。顾问建议她不要提前还房贷，而是把 200,000 美元交给他投资一个股票组合：“这个组合的期望年收益是 7%，比房贷利率 4% 高，所以投资更划算。”组合年收益的标准差为 15%。客户的效用是 CRRA，相对风险厌恶系数 $\gamma = 3$；计算风险溢价时，把这 200,000 美元当作她的财富。费用在年末从收益中扣除。提前还清房贷相当于得到确定的 4% 的年收益。只比较一年，不考虑税。
+
+        (a) 评价顾问的建议：对这位客户，哪种选择更好？
+
+        (b) 如果顾问改为每年收取固定费用 2,000 美元，不论客户怎样选择，他的建议还会偏向让客户投资吗？这种收费方式会带来什么新的问题？
+      en: |-
+        A client has 200,000 dollars in cash, which is all of her financial assets; she also has a fixed-rate mortgage at 4% with a balance of 200,000 dollars. Her financial adviser charges 1% a year of the assets he manages. He advises her not to pay off the mortgage but to let him invest the 200,000 dollars in a stock portfolio: "This portfolio has an expected return of 7% a year, higher than the 4% mortgage rate, so investing pays more." The standard deviation of the portfolio's yearly return is 15%. The client has CRRA utility with a coefficient of relative risk aversion $\gamma = 3$; when computing the risk premium, treat the 200,000 dollars as her wealth. The fee is deducted from the return at the end of the year. Paying off the mortgage is equivalent to a certain return of 4% a year. Compare one year only and ignore taxes.
+
+        (a) Evaluate the adviser's advice: which choice is better for this client?
+
+        (b) If the adviser instead charged a fixed fee of 2,000 dollars a year, whatever the client chooses, would his advice still lean toward investing? What new problem could this way of charging create?
+    answer:
+      zh-cn: |-
+        比较要在同样的基础上进行。顾问的比较有两个问题：
+        第一，费用：扣除 1% 的费用后，期望收益只有 6%。
+        第二，风险：还房贷得到的 4% 是确定的，投资的收益有风险。用 CRRA 的近似公式，按比例计算的风险溢价约为 $\frac12\gamma\sigma^2 = \frac12 \times 3 \times 0.15^2 = 3.375\%$，所以投资的确定性等价收益约为 $6\% - 3.375\% = 2.625\%$，低于确定的 4%。（$\frac12\gamma\sigma^2$ 是小风险时的近似值，不是精确的确定性等价；但差距足够大，用精确的期望效用计算，结论相同。）
+        对这位客户，提前还房贷更好。（即使不扣费用，$7\% - 3.375\% = 3.625\%$ 也低于 4%。）
+        这个建议也反映了委托–代理问题：顾问按管理的资产收费，客户投资时他每年得到约 2,000 美元，还房贷时什么也得不到，所以他的比较只看对投资有利的数字。
+        (b) 固定费用与客户怎样选择无关，顾问不再因为客户投资而多得钱，偏向投资的动机消失了。但新的问题是：他的收入也不再取决于客户的结果或他自己付出的努力，可能不再认真研究客户的情况（道德风险），客户需要通过服务质量、监督或续约来约束他。也可以说：固定费用较高时，没有资产的客户可能根本请不起顾问。任何收费方式都有代价，关键是知道顾问的收入从哪里来、会使他偏向什么。
+      en: |-
+        The comparison must be made on the same basis. The adviser's comparison has two problems.
+        First, fees: after the 1% fee, the expected return is only 6%.
+        Second, risk: the 4% from paying off the mortgage is certain, while the investment return is risky. By the CRRA approximation, the proportional risk premium is about $\frac12\gamma\sigma^2 = \frac12 \times 3 \times 0.15^2 = 3.375\%$, so the certainty-equivalent return of investing is about $6\% - 3.375\% = 2.625\%$, below the certain 4%. ($\frac12\gamma\sigma^2$ is an approximation for small risks, not the exact certainty equivalent; but the gap is large enough that an exact expected-utility calculation gives the same conclusion.)
+        For this client, paying off the mortgage is better. (Even without the fee, $7\% - 3.375\% = 3.625\%$ is below 4%.)
+        The advice also reflects the principal-agent problem: the adviser charges a fee on the assets he manages, so he earns about 2,000 dollars a year if she invests and nothing if she pays off the mortgage, and his comparison shows only the numbers that favor investing.
+        (b) A fixed fee does not depend on what the client chooses, so the adviser no longer earns more when she invests, and the tilt toward investing disappears. The new problem is that his income also no longer depends on the client's results or on his own effort, so he may not study her situation carefully (moral hazard); the client has to hold him to account through the quality of service, monitoring or renewing the contract. One can also note that with a high fixed fee, clients with few assets may not be able to afford an adviser at all. Every way of charging has a cost; the key is to know where the adviser's income comes from and what it makes him favor.
+    rubric:
+      zh-cn:
+        - "(a) 扣除费用得约 6%（按年初或年末资产计算费用都可以）。"
+        - "用 $\\frac12\\gamma\\sigma^2$ 算出风险溢价约 3.375%，确定性等价约 2.625%，与确定的 4% 比较，结论为还房贷更好。只比较 7% 与 4% 或 6% 与 4%：需要订正。"
+        - "(b) 固定费用消除了偏向投资的动机；指出新的问题，例如收入与结果和努力无关带来的道德风险。"
+      en:
+        - "(a) Subtracts the fee to get about 6% (computing the fee on assets at the start or the end of the year are both fine)."
+        - "Uses $\\frac12\\gamma\\sigma^2$ to get a risk premium of about 3.375% and a certainty-equivalent return of about 2.625%, compares it with the certain 4%, and concludes that paying off the mortgage is better. Only comparing 7% or 6% with 4%: needs revision."
+        - "(b) A fixed fee removes the tilt toward investing; points out a new problem, such as the moral hazard from income no longer depending on results or effort."
+
+  - id: Q11
+    kind: quiz
+    part: problem
+    concepts: [phillips-curve, natural-rate-of-unemployment, fisher-equation, present-value, inflation]
+    expected: { price: "84.56" }
+    question:
+      zh-cn: |-
+        一个国家的央行一直以 2% 的通胀为目标，公众也相信它。央行宣布：从明年起，通胀目标提高到 4%。公众立刻相信了新的目标。一位评论员说：“更高的通胀目标能让失业率永久降低；而且既然通胀是大家都预料到的，就不会有人因此受损。”
+        (a) 评价这句话的前半部分。
+        (b) 一位投资者去年买入了一张面值 100、票面利率 3%、每年付息一次的国债，现在还有 10 年到期；宣布之前，10 年期的名义利率也是 3%。假设宣布后实际利率不变，所有期限的名义利率都上升 2 个百分点。这张债券的价格变为多少？据此评价这句话的后半部分：谁受损，谁得益？
+      en: |-
+        A country's central bank has always targeted 2% inflation, and the public believes it. The bank announces that from next year the target will be 4%, and the public believes the new target at once. A commentator says: "A higher inflation target can lower unemployment permanently; and since the inflation is expected by everyone, no one is hurt by it."
+        (a) Evaluate the first half of the statement.
+        (b) An investor bought last year a government bond with face value 100 and a 3% annual coupon, which now has 10 years to maturity; before the announcement the 10-year nominal rate was also 3%. Suppose that after the announcement real rates do not change and nominal rates at all maturities rise by 2 percentage points. What is the bond's price now? Use this to evaluate the second half of the statement: who loses and who gains?
+    answer:
+      zh-cn: |-
+        (a) 不对。失业率低于自然失业率只能来自通胀高于预期。新目标被公众相信后，预期通胀也升到 4%，实际通胀等于预期时，失业率回到自然失业率。长期中更高的通胀换不来更低的失业，只留下更高的通胀。
+        (b) 价格为 $\sum_{t=1}^{10} \frac{3}{1.05^t} + \frac{100}{1.05^{10}} \approx 84.56$，下跌约 15%。对以后签订的合同，4% 的通胀确实已被预料到，会反映在名义利率中，没有人受损。但这项宣布本身对过去签订的、按旧预期定价的名义合同是意外：持有固定利率债券、存款等名义资产的人受损，政府、固定利率房贷的借款人等名义债务人得益（还款的实际价值下降）。所以后半句只对宣布之后的新合同成立。
+      en: |-
+        (a) Wrong. Unemployment below the natural rate comes only from inflation above expectations. Once the public believes the new target, expected inflation also rises to 4%, and with actual inflation equal to expected inflation, unemployment returns to the natural rate. In the long run higher inflation does not buy lower unemployment; it leaves only higher inflation.
+        (b) The price is $\sum_{t=1}^{10} \frac{3}{1.05^t} + \frac{100}{1.05^{10}} \approx 84.56$, a fall of about 15%. For contracts signed later, 4% inflation is indeed expected and is built into nominal rates, so no one is hurt. But the announcement itself is a surprise for nominal contracts signed earlier and priced on the old expectations: holders of nominal assets such as fixed-rate bonds and deposits lose, and nominal debtors such as the government and fixed-rate mortgage borrowers gain (the real value of their repayments falls). So the second half holds only for new contracts made after the announcement.
+    rubric:
+      zh-cn:
+        - "(a) 指出预期通胀随之上升，失业率回到自然失业率，长期中没有稳定的通胀—失业权衡。"
+        - "(b) 价格约 84.56；指出宣布对已有的名义合同是意外，名义资产的持有者受损、名义债务人得益，只有新合同才不受影响。认为“预料到的通胀不会伤害任何人”而没有区分已有合同：需要订正。"
+      en:
+        - "(a) Points out that expected inflation rises too, unemployment returns to the natural rate, and there is no lasting trade-off between inflation and unemployment."
+        - "(b) A price of about 84.56; points out that the announcement is a surprise for existing nominal contracts, so holders of nominal assets lose and nominal debtors gain, and only new contracts are unaffected. Holding that expected inflation hurts no one, without separating existing contracts: needs revision."
+
+  - id: Q12
+    kind: quiz
+    part: problem
+    concepts: [tax-incidence, perfect-competition, short-run, long-run, economic-profit]
+    expected: { pb: "44.8", ps: "38.8", q: "552", pl: "46", ql: "540" }
+    question:
+      zh-cn: |-
+        一个完全竞争行业的市场需求为 $Q_d = 1000 - 10P$。短期内厂商数目不变，市场供给为 $Q_s = 40P - 1000$。长期中厂商可以自由进入和退出，每家厂商的成本都相同，而且行业规模的变化不影响投入品的价格（成本不变的行业）。长期平均成本的最低值是 40，所以长期供给在价格 40 处是一条水平线。目前行业处于长期均衡。政府对每单位产品征收 6 美元的税，由厂商缴纳。
+
+        (a) 短期内，买方付的价格、厂商得到的价格和成交量各是多少？税负怎样分配？
+
+        (b) 长期中会发生什么？求长期的买方价格和成交量。有人说：“这个税是向公司征的，最终由公司的股东承担。”评价这个说法。
+      en: |-
+        A perfectly competitive industry has market demand $Q_d = 1000 - 10P$. In the short run the number of firms is fixed and market supply is $Q_s = 40P - 1000$. In the long run firms can enter and exit freely, all firms have the same costs, and changes in the size of the industry do not affect input prices (a constant-cost industry). The minimum of long-run average cost is 40, so long-run supply is a horizontal line at a price of 40. The industry is currently in long-run equilibrium. The government imposes a tax of 6 dollars per unit, paid by the firms.
+
+        (a) In the short run, what are the price buyers pay, the price firms receive and the quantity traded? How is the burden of the tax split?
+
+        (b) What happens in the long run? Find the long-run price buyers pay and the quantity traded. Someone says: "This tax is levied on companies, so in the end it is borne by their shareholders." Evaluate this statement.
+    answer:
+      zh-cn: |-
+        (a) 税前：$1000 - 10P = 40P - 1000$，$P = 40$，$Q = 600$，与长期均衡一致。征税后 $1000 - 10P_b = 40(P_b - 6) - 1000$，$P_b = 44.8$，$P_s = 38.8$，$Q = 552$。买方每单位多付 4.8，厂商少得 1.2：短期内买方承担 80%，厂商承担 20%（短期供给对价格的反应比需求更强）。
+        (b) 短期内厂商得到的 38.8 低于长期平均成本的最低值 40，经济利润为负，一部分厂商会退出。退出使供给减少，直到厂商得到的价格回到 40、经济利润回到 0。长期中 $P_s = 40$，$P_b = 46$，$Q = 1000 - 460 = 540$。
+        这个说法只在短期部分成立：调整期间，现有厂商的股东承担了亏损（厂商得到的价格低于平均成本）。但长期中，可以自由进入和退出、成本不变的行业，供给完全有弹性（这依赖于“行业规模不影响投入品价格”的假设；如果行业收缩会使某些投入品降价，厂商或投入品的所有者仍会承担一部分），厂商得到的价格回到 40，税负全部由买方承担。税由谁缴纳不决定谁承担；随着时间延长，供给越来越有弹性，税负越来越多地转给买方。
+      en: |-
+        (a) Before the tax: $1000 - 10P = 40P - 1000$ gives $P = 40$ and $Q = 600$, consistent with the long-run equilibrium. With the tax, $1000 - 10P_b = 40(P_b - 6) - 1000$ gives $P_b = 44.8$, $P_s = 38.8$ and $Q = 552$. Buyers pay 4.8 more per unit and firms receive 1.2 less: in the short run buyers bear 80% and firms 20% (short-run supply responds to the price more than demand does).
+        (b) In the short run, the 38.8 firms receive is below the minimum long-run average cost of 40, so economic profit is negative and some firms exit. Exit reduces supply until the price firms receive returns to 40 and economic profit returns to 0. In the long run $P_s = 40$, $P_b = 46$ and $Q = 1000 - 460 = 540$.
+        The statement holds only for the short run: during the adjustment, the shareholders of existing firms bear losses (the price they receive is below average cost). But in the long run, in an industry with free entry and exit and constant costs, supply is perfectly elastic (this relies on the assumption that the size of the industry does not affect input prices; if a smaller industry made some inputs cheaper, firms or the owners of those inputs would still bear part of the tax), the price firms receive returns to 40, and buyers bear the whole tax. Who pays a tax does not decide who bears it; as time passes and supply becomes more elastic, more of the tax is passed on to buyers.
+    rubric:
+      zh-cn:
+        - "(a) $P_b = 44.8$，$P_s = 38.8$，$Q = 552$；买方承担 4.8、厂商承担 1.2，并联系到双方对价格的反应。"
+        - "(b) 说明厂商亏损、退出，直到 $P_s$ 回到 40；$P_b = 46$，$Q = 540$；评价：短期股东承担一部分，长期税负全部转给买方，税负取决于弹性而不是由谁缴税。同意“由股东承担”而没有区分短期和长期：需要订正。"
+      en:
+        - "(a) $P_b = 44.8$, $P_s = 38.8$, $Q = 552$; buyers bear 4.8 and firms 1.2, linked to how each side responds to the price."
+        - "(b) Explains that firms make losses and exit until $P_s$ returns to 40; $P_b = 46$, $Q = 540$; evaluation: shareholders bear part in the short run, buyers bear the whole tax in the long run, and the split depends on elasticity, not on who pays. Agreeing that shareholders bear it without distinguishing the short and long run: needs revision."
