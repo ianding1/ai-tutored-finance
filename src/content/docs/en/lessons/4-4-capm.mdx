@@ -1,0 +1,88 @@
+---
+title: 4.4 The Capital Asset Pricing Model (CAPM)
+description: "The idea behind the capital asset pricing model (CAPM); beta; the security market line and alpha; why only risk related to the market is rewarded; the assumptions, empirical evidence and uses of the CAPM."
+lesson: "4.4"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import SmlAlpha from '../../../../components/widgets/SmlAlpha.astro';
+
+## From the market portfolio to single assets [#derivation]
+
+<Ref lesson="4.3" /> showed that if all investors agree, they all hold the market portfolio (<Ref concept="market-portfolio" />) and add the risk-free asset according to their risk aversion. What, then, should the expected return of a single asset be?
+
+For an investor holding the market portfolio, how risky an asset is depends not on its own variance but on how much it adds to the market portfolio's risk. The market portfolio's variance is a weighted sum of all pairwise covariances (<Ref lesson="4.2" sec="frontier" />), and asset $i$'s contribution is determined by the covariance $\sigma_{iM}$ of its return with the market return. Dividing this covariance by the market's variance gives asset $i$'s <Def id="beta">beta</Def>:
+
+$$
+\beta_i = \frac{\sigma_{iM}}{\sigma_M^2} = \rho_{iM}\,\frac{\sigma_i}{\sigma_M}
+$$
+
+The market portfolio itself has a beta of 1. Beta is also the slope from regressing the asset's return on the market return (<Ref concept="regression-coefficient" />).
+
+In equilibrium, every asset must offer the same reward for the risk it adds; otherwise investors would buy more of the assets with higher rewards and less of the others, and prices would adjust. This gives (<Ref check="Q1" />):
+
+$$
+E[R_i] - r_f = \beta_i \left(E[R_M] - r_f\right)
+$$
+
+An asset's expected excess return equals its beta times the market risk premium $E[R_M] - r_f$. This is the <Def id="capm">capital asset pricing model</Def> (CAPM), proposed by Sharpe (1964), Lintner (1965) and others.
+
+<Check id="C1" />
+
+<Check id="C2" />
+
+## The security market line [#sml]
+
+With beta on the horizontal axis and expected return on the vertical axis, the CAPM is a straight line starting at $(0, r_f)$ with a slope equal to the market risk premium: the <Def id="security-market-line">security market line</Def> (SML). By the CAPM, every asset should lie on this line.
+
+If an analyst's expected return for an asset is above the return the security market line requires, the difference is its <Def id="alpha">alpha</Def>:
+
+$$
+\alpha_i = E[R_i] - \left[r_f + \beta_i\left(E[R_M] - r_f\right)\right]
+$$
+
+A positive alpha means that, by the analyst's expectations, the asset offers more return than its risk requires, so its price is low; a negative alpha means the opposite.
+
+<Figure id="2-1" title="The security market line and four stocks: U (beta 0.6, analysts' expected return 6.5%), V (1.0, 8%), W (1.5, 9%) and X (1.2, 11%). The vertical segment from each stock to the security market line is its alpha." observe="First see which stocks lie above the line and which below; then change the market risk premium and see whose alpha changes most.">
+	<SmlAlpha />
+</Figure>
+
+<Check id="C3" />
+
+## Which risk is rewarded [#which-risk]
+
+The capital market line of <Ref lesson="4.3" sec="cml" /> measures risk by the standard deviation, while the security market line uses beta. They do not conflict: the capital market line applies only to efficient portfolios, while the security market line applies to every asset.
+
+An asset's risk can be split into two parts: the part that moves with the market, and the company's own part, unrelated to the market. The latter can be diversified away by holding many assets (<Ref concept="diversification" />); an investor holding the market portfolio does not really bear it, so the market offers no reward for it. Only the part that moves with the market and cannot be diversified away (measured by beta) is rewarded. <Ref lesson="4.5" /> separates the two parts exactly.
+
+<Check id="C4" />
+
+## Assumptions, evidence and uses [#evidence]
+
+The CAPM rests on strong assumptions: investors care only about mean and variance, agree with each other, can all borrow and lend at the risk-free rate, face no taxes or trading costs, and the market portfolio includes all risky assets (including real estate, human capital and so on). None of these holds exactly.
+
+The main empirical findings:
+
+- The security market line is flatter than the CAPM predicts: low-beta stocks have earned more on average than the CAPM predicts, and high-beta stocks less (Black, Jensen and Scholes, 1972; Frazzini and Pedersen, 2014).
+- Beta does not explain the higher average returns of small-company stocks and stocks with low price-to-book ratios (Fama and French, 1992), which leads to the multifactor models of <Ref lesson="4.6" />.
+- The true market portfolio cannot be observed; when a stock index stands in for it, test results depend on the index chosen (Roll, 1977).
+
+Even so, the CAPM remains the model used most in practice: to estimate the cost of equity (<Ref concept="cost-of-equity" />) and the cost of capital of projects, and to measure fund managers' performance (<Ref lesson="4.9" />). Its most important idea is that only risk that cannot be diversified away is rewarded.
+
+<Check id="C5" />
+
+## Summary [#summary]
+
+- For an investor holding the market portfolio, an asset's risk is measured by its covariance with the market: $\beta_i = \frac{\sigma_{iM}}{\sigma_M^2}$.
+- CAPM: $E[R_i] - r_f = \beta_i(E[R_M] - r_f)$; the security market line has beta on the horizontal axis.
+- Alpha is the part of the expected return above what the security market line requires.
+- A company's own risk can be diversified away and is not rewarded; only the risk that cannot be diversified away, measured by beta, is rewarded.
+- Empirically the security market line is flatter than predicted, and beta does not explain the size and value effects; the CAPM is still widely used to estimate the cost of capital.
+
+## Exercises [#exercises]
+
+<Exercises />

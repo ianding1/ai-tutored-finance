@@ -1,0 +1,88 @@
+---
+title: 4.4 资本资产定价模型（CAPM）
+description: 资本资产定价模型（CAPM）的推导思路；beta；证券市场线与 alpha；为什么只有与市场相关的风险得到补偿；CAPM 的假设、实证证据与用途。
+lesson: "4.4"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import SmlAlpha from '../../../../components/widgets/SmlAlpha.astro';
+
+## 从市场组合到单项资产 [#derivation]
+
+<Ref lesson="4.3" /> 说明，如果所有投资者看法相同，他们都持有市场组合（<Ref concept="market-portfolio" />），再按自己的风险厌恶配置无风险资产。那么单项资产的预期收益应该是多少？
+
+对一个持有市场组合的投资者来说，一项资产的风险有多大，不看它自己的方差，而看它使市场组合的风险增加多少。市场组合的方差是所有资产两两协方差的加权和（<Ref lesson="4.2" sec="frontier" />），资产 $i$ 对它的贡献由它与市场收益的协方差 $\sigma_{iM}$ 决定。把这个协方差除以市场的方差，得到资产 $i$ 的 <Def id="beta">beta 系数</Def>（beta）：
+
+$$
+\beta_i = \frac{\sigma_{iM}}{\sigma_M^2} = \rho_{iM}\,\frac{\sigma_i}{\sigma_M}
+$$
+
+市场组合自己的 beta 为 1。beta 也是用资产收益对市场收益做回归得到的斜率（<Ref concept="regression-coefficient" />）。
+
+在均衡中，每项资产为它带来的风险提供的回报必须相同，否则投资者会多买回报高的资产、少买回报低的资产，价格随之调整。由此得到（<Ref check="Q1" />）：
+
+$$
+E[R_i] - r_f = \beta_i \left(E[R_M] - r_f\right)
+$$
+
+资产的预期超额收益等于它的 beta 乘以市场风险溢价 $E[R_M] - r_f$。这就是 Sharpe（1964）、Lintner（1965）等人提出的<Def id="capm">资本资产定价模型</Def>（capital asset pricing model，CAPM）。
+
+<Check id="C1" />
+
+<Check id="C2" />
+
+## 证券市场线 [#sml]
+
+以 beta 为横轴、预期收益为纵轴，CAPM 是一条从 $(0, r_f)$ 出发、斜率为市场风险溢价的直线，叫<Def id="security-market-line">证券市场线</Def>（security market line，SML）。按 CAPM，所有资产都应该落在这条线上。
+
+分析师对一项资产的预期收益如果高于证券市场线要求的收益，差额叫 <Def id="alpha">alpha</Def>：
+
+$$
+\alpha_i = E[R_i] - \left[r_f + \beta_i\left(E[R_M] - r_f\right)\right]
+$$
+
+alpha 为正，说明按分析师的预期，这项资产提供的收益超过了它的风险所要求的，价格偏低；alpha 为负则相反。
+
+<Figure id="2-1" title="证券市场线和四只股票：U（beta 0.6，分析师预期收益 6.5%）、V（1.0，8%）、W（1.5，9%）、X（1.2，11%）。每只股票到证券市场线的竖线是它的 alpha。" observe="先看哪些股票在线的上方、哪些在下方；再改变市场风险溢价，看哪些股票的 alpha 变化得最多。">
+	<SmlAlpha />
+</Figure>
+
+<Check id="C3" />
+
+## 哪种风险得到补偿 [#which-risk]
+
+<Ref lesson="4.3" sec="cml" /> 的资本市场线用标准差衡量风险，证券市场线却用 beta。两者并不矛盾：资本市场线只适用于有效组合，证券市场线适用于每一项资产。
+
+一项资产的风险可以分成两部分：随市场一起波动的部分，以及公司自身的、与市场无关的部分。后者可以通过持有很多资产分散掉（<Ref concept="diversification" />），持有市场组合的投资者实际上不承担它，所以市场不会为它提供回报。只有随市场波动、无法分散的那部分风险（由 beta 衡量）才得到补偿。<Ref lesson="4.5" /> 会把这两部分精确地分开。
+
+<Check id="C4" />
+
+## 假设、证据与用途 [#evidence]
+
+CAPM 依赖很强的假设：投资者只关心均值和方差、看法相同、都能按无风险利率借贷、没有税和交易成本，而且市场组合包括所有风险资产（包括房地产、人力资本等）。这些假设都不完全成立。
+
+实证研究的主要发现：
+
+- 证券市场线比 CAPM 预测的平：低 beta 股票的平均收益高于 CAPM 的预测，高 beta 股票低于预测（Black、Jensen 和 Scholes，1972；Frazzini 和 Pedersen，2014）。
+- beta 不能解释小公司股票和低市净率股票较高的平均收益（Fama 和 French，1992），这引出了 <Ref lesson="4.6" /> 的多因子模型。
+- 真正的市场组合无法观察，用股票指数代替时，检验结果取决于所选的指数（Roll，1977）。
+
+尽管如此，CAPM 仍是实践中最常用的模型：估计股权成本（<Ref concept="cost-of-equity" />）和项目的资本成本，以及衡量基金经理的业绩（<Ref lesson="4.9" />）。它最重要的思想是：只有无法分散的风险才得到补偿。
+
+<Check id="C5" />
+
+## 小结 [#summary]
+
+- 对持有市场组合的投资者，资产的风险由它与市场的协方差衡量：$\beta_i = \frac{\sigma_{iM}}{\sigma_M^2}$。
+- CAPM：$E[R_i] - r_f = \beta_i(E[R_M] - r_f)$；证券市场线以 beta 为横轴。
+- alpha 是预期收益超过证券市场线要求的部分。
+- 公司自身的风险可以分散，得不到补偿；只有 beta 衡量的、无法分散的风险得到补偿。
+- 实证上证券市场线比预测的平，beta 解释不了规模和价值效应；CAPM 仍广泛用于估计资本成本。
+
+## 练习题 [#exercises]
+
+<Exercises />

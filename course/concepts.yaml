@@ -2166,10 +2166,37 @@ capital-market-line:
     zh-cn: "以市场组合为风险组合的资本配置线；CML。"
     en: "The capital allocation line whose risky portfolio is the market portfolio; CML."
 
+capm:
+  defined_in: "4.4"
+  zh-cn: 资本资产定价模型
+  en: capital asset pricing model
+  short:
+    zh-cn: "均衡中资产的预期超额收益与它的 beta 成正比：E[R_i] − r_f = β_i(E[R_M] − r_f)；CAPM。"
+    en: "In equilibrium, an asset's expected excess return is proportional to its beta: E[R_i] − r_f = β_i(E[R_M] − r_f); CAPM."
+
 beta:
   defined_in: "4.4"
   zh-cn: beta 系数
   en: beta
+  short:
+    zh-cn: "资产收益与市场收益的协方差除以市场收益的方差，衡量资产对市场波动的敏感度。"
+    en: "The covariance of an asset's return with the market return divided by the market return's variance: how sensitive the asset is to market moves."
+
+security-market-line:
+  defined_in: "4.4"
+  zh-cn: 证券市场线
+  en: security market line
+  short:
+    zh-cn: "以 beta 为横轴、预期收益为纵轴，CAPM 给出的直线；SML。"
+    en: "The straight line the CAPM gives with beta on the horizontal axis and expected return on the vertical axis; SML."
+
+alpha:
+  defined_in: "4.4"
+  zh-cn: alpha
+  en: alpha
+  short:
+    zh-cn: "资产的预期（或实际）收益超过证券市场线所要求的收益的部分。"
+    en: "The amount by which an asset's expected (or realized) return exceeds the return the security market line requires."
 
 systematic-risk:
   defined_in: "4.5"

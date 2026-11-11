@@ -1,0 +1,312 @@
+# Answer key for lesson 4.4. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[4.4#sml]] (section), [[concept:beta]], [[check:Q3]], [[fig:2-1]].
+# expected: values are recomputed by course/verify/4.4.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "4.4"
+
+context:
+  - zh-cn: |-
+      学习者学过协方差和相关系数（[[0.3]]）、回归（[[0.5]]）、NPV、资本成本和 WACC（[[3.2]]、[[3.10]]）、股权成本（[[3.9]]）、财务杠杆（[[3.8]]）、股权溢价（[[4.1]]）、组合方差（[[4.2]]）、切点组合、市场组合和资本市场线（[[4.3]]）。讲义还没有讲单指数模型（[[4.5]]）和多因子模型（[[4.6]]）。百分数用百分点表示，方差用 %²。
+    en: |-
+      The learner has studied covariance and correlation ([[0.3]]), regression ([[0.5]]), NPV, the cost of capital and WACC ([[3.2]], [[3.10]]), the cost of equity ([[3.9]]), financial leverage ([[3.8]]), the equity premium ([[4.1]]), portfolio variance ([[4.2]]), and the tangency portfolio, the market portfolio and the capital market line ([[4.3]]). The lesson has not yet covered the single-index model ([[4.5]]) or multifactor models ([[4.6]]). Percentages in percentage points; variance in %².
+  - concepts: [capm, beta]
+    zh-cn: |-
+      讲义：持有市场组合时，资产的风险看它使市场组合的风险增加多少，由 $\sigma_{iM}$ 决定。$\beta_i = \frac{\sigma_{iM}}{\sigma_M^2} = \rho_{iM}\frac{\sigma_i}{\sigma_M}$，市场的 beta 为 1，也是回归斜率。均衡中每项资产为所带来的风险提供的回报相同，得到 $E[R_i] - r_f = \beta_i(E[R_M] - r_f)$（推导留给练习题）。
+    en: |-
+      The lesson: for a holder of the market portfolio, an asset's risk is how much it adds to the market portfolio's risk, set by $\sigma_{iM}$. $\beta_i = \frac{\sigma_{iM}}{\sigma_M^2} = \rho_{iM}\frac{\sigma_i}{\sigma_M}$; the market's beta is 1; it is also the regression slope. In equilibrium every asset offers the same reward for the risk it adds, giving $E[R_i] - r_f = \beta_i(E[R_M] - r_f)$ (the derivation is left to an exercise).
+  - concepts: [security-market-line, alpha]
+    zh-cn: |-
+      讲义：证券市场线以 beta 为横轴，从 $(0, r_f)$ 出发，斜率为市场风险溢价；$\alpha_i = E[R_i] - [r_f + \beta_i(E[R_M] - r_f)]$，为正表示按分析师的预期价格偏低。[[fig:2-1]]：U（beta 0.6，预期收益 6.5%）、V（1.0，8%）、W（1.5，9%）、X（1.2，11%）；滑块：无风险利率 0 到 5%（步长 0.5，默认 3），市场风险溢价 2% 到 8%（步长 0.5，默认 5）；读数显示四只股票的 alpha。
+    en: |-
+      The lesson: the security market line has beta on the horizontal axis, starts at $(0, r_f)$ and has a slope equal to the market risk premium; $\alpha_i = E[R_i] - [r_f + \beta_i(E[R_M] - r_f)]$, positive meaning the price is low by the analyst's expectations. [[fig:2-1]]: U (beta 0.6, expected return 6.5%), V (1.0, 8%), W (1.5, 9%), X (1.2, 11%); sliders: risk-free rate 0 to 5% (in steps of 0.5, default 3) and market risk premium 2% to 8% (in steps of 0.5, default 5); the readout shows the four alphas.
+  - concepts: [capm, beta]
+    zh-cn: |-
+      讲义：资本市场线只适用于有效组合，证券市场线适用于每项资产。公司自身的风险可以分散，得不到补偿；只有随市场波动、由 beta 衡量的风险得到补偿。假设：只关心均值和方差、看法相同、按无风险利率借贷、无税和交易成本、市场组合包括所有风险资产。证据：证券市场线比预测的平（Black、Jensen 和 Scholes，1972；Frazzini 和 Pedersen，2014）；beta 解释不了规模和低市净率效应（Fama 和 French，1992）；市场组合无法观察（Roll，1977）。用途：估计股权成本和项目资本成本、衡量业绩。
+    en: |-
+      The lesson: the capital market line applies only to efficient portfolios, the security market line to every asset. A company's own risk can be diversified away and is not rewarded; only risk that moves with the market, measured by beta, is rewarded. Assumptions: only mean and variance matter, agreement, borrowing and lending at the risk-free rate, no taxes or trading costs, a market portfolio of all risky assets. Evidence: the security market line is flatter than predicted (Black, Jensen and Scholes, 1972; Frazzini and Pedersen, 2014); beta does not explain the size and low price-to-book effects (Fama and French, 1992); the market portfolio cannot be observed (Roll, 1977). Uses: estimating the cost of equity and of projects, and measuring performance.
+
+common_errors:
+  - questions: [Q1, Q3]
+    zh-cn: |-
+      用资产自身的标准差衡量它应得的回报；或者以为 beta 只取决于资产和市场的波动率之比。
+    en: |-
+      Measuring the reward an asset deserves by its own standard deviation; or thinking beta depends only on the ratio of the asset's and the market's volatilities.
+  - questions: [Q2]
+    zh-cn: |-
+      用公司整体的资本成本评价风险不同的项目。
+    en: |-
+      Evaluating projects of different risk with the company-wide cost of capital.
+  - questions: [Q4]
+    zh-cn: |-
+      以为加杠杆降低了公司的资本成本，因为债务比股权便宜；忽略股权的 beta 随杠杆上升。
+    en: |-
+      Thinking leverage lowers a company's cost of capital because debt is cheaper than equity, ignoring that the equity beta rises with leverage.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: derivation
+    concepts: [capm, beta]
+    question:
+      zh-cn: |-
+        一只股票的波动率很高，但它的收益与市场收益的相关系数为 0。按 CAPM，它的预期收益应该：
+      en: |-
+        A stock has a very high volatility, but its return has a correlation of 0 with the market return. By the CAPM, its expected return should be:
+    choices:
+      - zh-cn: 很高，因为它的风险很大
+        en: Very high, because its risk is large
+        why:
+          zh-cn: 持有市场组合的投资者，会因为这只股票而承担更多的风险吗？它对市场组合的风险有什么贡献？
+          en: Would an investor holding the market portfolio bear more risk because of this stock? What does it add to the market portfolio's risk?
+      - zh-cn: 等于无风险利率
+        en: Equal to the risk-free rate
+      - zh-cn: 低于无风险利率
+        en: Below the risk-free rate
+        why:
+          zh-cn: 相关系数为 0 时 beta 是多少？只有 beta 为负，要求的收益才会低于无风险利率。
+          en: What is beta when the correlation is 0? Only a negative beta makes the required return fall below the risk-free rate.
+      - zh-cn: 等于市场的预期收益
+        en: Equal to the market's expected return
+        why:
+          zh-cn: 只有 beta 为 1 的资产，才要求与市场相同的预期收益。
+          en: Only an asset with a beta of 1 requires the same expected return as the market.
+    correct: B
+    answer:
+      zh-cn: |-
+        (B)。相关系数为 0 时 $\beta = 0$，按 CAPM 预期超额收益为 0。它的波动全部是公司自身的风险，在市场组合中被分散掉，不增加持有者的风险，所以得不到补偿。
+      en: |-
+        (B). With a correlation of 0, $\beta = 0$, so by the CAPM its expected excess return is 0. All its swings are company-specific risk, diversified away in the market portfolio; they add no risk for the holder and earn no reward.
+
+  - id: C2
+    kind: check
+    section: derivation
+    concepts: [beta]
+    question:
+      zh-cn: |-
+        beta 为 2 的股票，它的波动率一定正好是市场波动率的两倍。
+      en: |-
+        A stock with a beta of 2 must have a volatility exactly twice the market's.
+    correct: false
+    hint:
+      zh-cn: 想一想：$\beta_i = \rho_{iM}\frac{\sigma_i}{\sigma_M}$。除了波动率之比，beta 还取决于什么？
+      en: 'Think: $\beta_i = \rho_{iM}\frac{\sigma_i}{\sigma_M}$. Besides the ratio of volatilities, what else does beta depend on?'
+    answer:
+      zh-cn: |-
+        错。$\beta = \rho\frac{\sigma_i}{\sigma_M}$。只有相关系数为 1 时，波动率才正好是市场的两倍；相关系数小于 1 时，$\sigma_i = \frac{2\sigma_M}{\rho}$，波动率大于市场的两倍，多出来的部分是公司自身的风险。
+      en: |-
+        False. $\beta = \rho\frac{\sigma_i}{\sigma_M}$. Only with a correlation of 1 is the volatility exactly twice the market's; with a correlation below 1, $\sigma_i = \frac{2\sigma_M}{\rho}$, more than twice the market's, and the extra is company-specific risk.
+
+  - id: C3
+    kind: check
+    section: sml
+    concepts: [security-market-line, alpha]
+    widget: { id: sml-alpha, set: { rf: 3, mrp: 5 } }
+    question:
+      zh-cn: |-
+        在 [[fig:2-1]] 中，把市场风险溢价从 5% 提高到 7%。高 beta 股票 W 的 alpha 会：
+      en: |-
+        In [[fig:2-1]], raise the market risk premium from 5% to 7%. The alpha of the high-beta stock W:
+    choices:
+      - zh-cn: 上升
+        en: Rises
+        why:
+          zh-cn: 风险溢价提高，证券市场线变得更陡还是更平？对 beta 为 1.5 的股票，要求的收益变高还是变低？
+          en: When the risk premium rises, does the security market line get steeper or flatter? For a stock with a beta of 1.5, does the required return rise or fall?
+      - zh-cn: 下降
+        en: Falls
+      - zh-cn: 不变，因为分析师的预期没有变
+        en: Stays the same, because the analyst's expectation has not changed
+        why:
+          zh-cn: alpha 是预期收益减去要求的收益。W 的 beta 不为 0，要求的收益会随市场风险溢价变化。
+          en: Alpha is the expected return minus the required return. W's beta is not 0, so its required return changes with the market risk premium.
+      - zh-cn: 变为 0
+        en: Becomes 0
+        why:
+          zh-cn: 在图中看看 W 是否正好落在新的证券市场线上。
+          en: Check in the figure whether W lies exactly on the new security market line.
+    correct: B
+    answer:
+      zh-cn: |-
+        (B)。证券市场线变陡，beta 为 1.5 的 W 要求的收益从 10.5% 升到 13.5%，alpha 从 −1.5 降到 −4.5 个百分点。beta 越高，alpha 对市场风险溢价的假设越敏感：同一只股票是否“便宜”，取决于很难准确估计的市场风险溢价。
+      en: |-
+        (B). The security market line gets steeper; W, with a beta of 1.5, now requires 13.5% instead of 10.5%, so its alpha falls from −1.5 to −4.5 points. The higher the beta, the more sensitive alpha is to the assumed market risk premium: whether a stock looks "cheap" depends on a premium that is hard to estimate precisely.
+
+  - id: C4
+    kind: check
+    section: which-risk
+    concepts: [capm, beta, diversification]
+    question:
+      zh-cn: |-
+        两只股票的波动率都是 40%。A 的 beta 为 0.5，B 的 beta 为 1.5。按 CAPM：
+      en: |-
+        Two stocks both have a volatility of 40%. A's beta is 0.5 and B's is 1.5. By the CAPM:
+    choices:
+      - zh-cn: 两者的预期收益相同，因为波动率相同
+        en: Their expected returns are equal, because their volatilities are equal
+        why:
+          zh-cn: 持有市场组合的投资者，从这两只股票承担的风险一样多吗？
+          en: Does an investor holding the market portfolio bear the same risk from both stocks?
+      - zh-cn: B 的预期收益更高
+        en: B's expected return is higher
+      - zh-cn: A 的预期收益更高，因为它公司自身的风险更多
+        en: A's expected return is higher, because it has more company-specific risk
+        why:
+          zh-cn: 公司自身的风险可以分散掉。市场会为可以分散的风险提供回报吗？
+          en: Company-specific risk can be diversified away. Does the market reward risk that can be diversified away?
+      - zh-cn: 无法比较，需要知道它们过去的收益
+        en: They cannot be compared without their past returns
+        why:
+          zh-cn: CAPM 要求的收益只需要 beta、无风险利率和市场风险溢价。
+          en: The CAPM's required return needs only beta, the risk-free rate and the market risk premium.
+    correct: B
+    answer:
+      zh-cn: |-
+        (B)。按 CAPM，预期超额收益与 beta 成正比，与总波动率无关。A 的 40% 波动中大部分是公司自身的风险，可以分散；B 的波动中大部分随市场变化，无法分散，所以要求更高的回报。
+      en: |-
+        (B). By the CAPM, the expected excess return is proportional to beta, not to total volatility. Most of A's 40% volatility is company-specific risk that can be diversified away; most of B's moves with the market and cannot be, so B requires a higher return.
+
+  - id: C5
+    kind: check
+    section: evidence
+    concepts: [security-market-line, cost-of-equity]
+    question:
+      zh-cn: |-
+        如果实际的证券市场线比 CAPM 预测的更平，那么用 CAPM 估计低 beta 公司的股权成本，结果会偏低。
+      en: |-
+        If the actual security market line is flatter than the CAPM predicts, then using the CAPM to estimate the cost of equity of a low-beta company gives a result that is too low.
+    correct: true
+    hint:
+      zh-cn: 想一想：两条直线在 beta 等于 1 附近相交，更平的那条在 beta 较低的地方，比 CAPM 的线高还是低？
+      en: 'Think: the two lines cross near a beta of 1. At low betas, is the flatter line above or below the CAPM line?'
+    answer:
+      zh-cn: |-
+        对。更平的实际证券市场线在 beta 较低处高于 CAPM 的线：低 beta 股票实际要求（或得到）的收益比 CAPM 预测的高，用 CAPM 估计会低估它们的股权成本；高 beta 公司则相反。
+      en: |-
+        True. The flatter actual line lies above the CAPM line at low betas: low-beta stocks actually require (or earn) more than the CAPM predicts, so the CAPM underestimates their cost of equity; the opposite holds for high-beta companies.
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    star: true
+    concepts: [capm, beta, sharpe-ratio, market-portfolio]
+    expected: { beta: "1.5", req: "10.5" }
+    question:
+      zh-cn: |-
+        (a) 一位投资者持有市场组合，从无风险资产中拿出财富的一小部分 $\delta$ 投入资产 $i$。说明组合的预期收益增加 $\delta(\mu_i - r_f)$，标准差约增加 $\delta\frac{\sigma_{iM}}{\sigma_M}$（提示：对 $\sigma_p^2$ 关于 $\delta$ 在 $\delta = 0$ 处求导）。均衡中，这个“收益增加 ÷ 风险增加”必须等于市场组合的夏普比率，为什么？由此推出 CAPM。
+        (b) 市场的预期收益为 8%、标准差为 16%，无风险利率为 3%。资产 $i$ 与市场的协方差为 384（%²）。它的 beta 和 CAPM 要求的收益是多少？如果分析师预期它的收益是 12%，投资者会怎样做，价格和预期收益会怎样变化？
+      en: |-
+        (a) An investor holding the market portfolio moves a small share $\delta$ of wealth from the risk-free asset into asset $i$. Show that the portfolio's expected return rises by $\delta(\mu_i - r_f)$ and its standard deviation by about $\delta\frac{\sigma_{iM}}{\sigma_M}$ (hint: differentiate $\sigma_p^2$ with respect to $\delta$ at $\delta = 0$). In equilibrium, this "rise in return ÷ rise in risk" must equal the market portfolio's Sharpe ratio. Why? Derive the CAPM from it.
+        (b) The market has an expected return of 8% and a standard deviation of 16%; the risk-free rate is 3%. Asset $i$ has a covariance of 384 (%²) with the market. What are its beta and its CAPM required return? If an analyst expects it to return 12%, what will investors do, and how will its price and expected return change?
+    answer:
+      zh-cn: |-
+        (a) 新组合收益 $R_p = R_M + \delta(R_i - r_f)$，预期收益增加 $\delta(\mu_i - r_f)$。$\sigma_p^2 = \sigma_M^2 + 2\delta\sigma_{iM} + \delta^2\sigma_i^2$，在 $\delta = 0$ 处 $\frac{d\sigma_p}{d\delta} = \frac{\sigma_{iM}}{\sigma_M}$。如果比值高于市场的夏普比率，加入一点资产 $i$ 就能提高夏普比率，市场组合就不是切点组合；低于时，减少资产 $i$ 能提高夏普比率。均衡中两者相等：$\frac{\mu_i - r_f}{\sigma_{iM}/\sigma_M} = \frac{\mu_M - r_f}{\sigma_M}$，即 $\mu_i - r_f = \frac{\sigma_{iM}}{\sigma_M^2}(\mu_M - r_f) = \beta_i(\mu_M - r_f)$。
+        (b) $\beta = \frac{384}{256} = 1.5$，要求的收益 $3\% + 1.5 \times 5\% = 10.5\%$。预期 12% 意味着 alpha 为 1.5 个百分点：投资者会买入，价格上涨，预期收益随之下降，直到回到证券市场线上的 10.5%（如果分析师的预期是对的）。
+      en: |-
+        (a) The new portfolio returns $R_p = R_M + \delta(R_i - r_f)$, so the expected return rises by $\delta(\mu_i - r_f)$. $\sigma_p^2 = \sigma_M^2 + 2\delta\sigma_{iM} + \delta^2\sigma_i^2$, so at $\delta = 0$, $\frac{d\sigma_p}{d\delta} = \frac{\sigma_{iM}}{\sigma_M}$. If the ratio were above the market's Sharpe ratio, adding a little of asset $i$ would raise the Sharpe ratio, so the market portfolio would not be the tangency portfolio; if below, holding less of $i$ would raise it. In equilibrium they are equal: $\frac{\mu_i - r_f}{\sigma_{iM}/\sigma_M} = \frac{\mu_M - r_f}{\sigma_M}$, that is, $\mu_i - r_f = \frac{\sigma_{iM}}{\sigma_M^2}(\mu_M - r_f) = \beta_i(\mu_M - r_f)$.
+        (b) $\beta = \frac{384}{256} = 1.5$, with required return $3\% + 1.5 \times 5\% = 10.5\%$. An expected 12% means an alpha of 1.5 points: investors buy, the price rises, and the expected return falls until it is back on the security market line at 10.5% (if the analyst is right).
+    rubric:
+      zh-cn:
+        - "(a) 求出收益和风险的变化，说明均衡条件，推出 CAPM。"
+        - "(b) beta 1.5，要求收益 10.5%，说明价格调整。"
+      en:
+        - "(a) Finds the changes in return and risk, explains the equilibrium condition, derives the CAPM."
+        - "(b) Beta 1.5, required return 10.5%, explains the price adjustment."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [beta, capm, cost-of-capital, net-present-value]
+    expected: { bt: "1.6", rs: "6", rfirm: "9" }
+    question:
+      zh-cn: |-
+        一家没有负债的公司 beta 为 1.2，由两个部门组成：公用事业部门占公司价值的 40%，beta 为 0.6；其余是科技部门。无风险利率 3%，市场风险溢价 5%。
+        (a) 科技部门的 beta 是多少？一个与公用事业部门风险相同的新项目，按 CAPM 应该用多少的资本成本？按公司整体呢？
+        (b) 如果公司对所有项目都用整体的资本成本，长期会对公司的投资产生什么影响？
+      en: |-
+        An all-equity company has a beta of 1.2 and two divisions: a utility division worth 40% of the company, with a beta of 0.6, and a technology division making up the rest. The risk-free rate is 3% and the market risk premium 5%.
+        (a) What is the technology division's beta? For a new project as risky as the utility division, what cost of capital should be used by the CAPM? And at the company-wide rate?
+        (b) If the company used the company-wide cost of capital for every project, what would that do to its investments over time?
+    answer:
+      zh-cn: |-
+        (a) 公司的 beta 是部门 beta 的价值加权平均：$1.2 = 0.4 \times 0.6 + 0.6\beta_T$，$\beta_T = 1.6$。与公用事业部门风险相同的项目：$3\% + 0.6 \times 5\% = 6\%$；公司整体：$3\% + 1.2 \times 5\% = 9\%$。
+        (b) 资本成本应该反映项目自己的风险。用 9% 评价低风险项目，会拒绝一些回报在 6% 到 9% 之间、NPV 实际为正的项目；用 9% 评价科技项目（应为 11%），又会接受一些回报在 9% 到 11% 之间、NPV 实际为负的项目。长期下来，公司会越来越多地投资高风险业务，价值被破坏。
+      en: |-
+        (a) The company's beta is the value-weighted average of the divisions' betas: $1.2 = 0.4 \times 0.6 + 0.6\beta_T$, so $\beta_T = 1.6$. A project as risky as the utility division: $3\% + 0.6 \times 5\% = 6\%$; company-wide: $3\% + 1.2 \times 5\% = 9\%$.
+        (b) The cost of capital should reflect each project's own risk. Using 9% for low-risk projects rejects some projects returning between 6% and 9% that actually have positive NPV; using 9% for technology projects (which should use 11%) accepts some returning between 9% and 11% that actually have negative NPV. Over time the company invests more and more in risky businesses and destroys value.
+    rubric:
+      zh-cn:
+        - "(a) 1.6；6% 和 9%。"
+        - "(b) 说明低风险项目被错误拒绝、高风险项目被错误接受。"
+      en:
+        - "(a) 1.6; 6% and 9%."
+        - "(b) Explains that low-risk projects are wrongly rejected and high-risk ones wrongly accepted."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [beta, correlation, diversification]
+    expected: { b: "1", share: "25" }
+    question:
+      zh-cn: |-
+        一只股票的波动率为 30%，与市场的相关系数为 0.5；市场的波动率为 15%。
+        (a) 它的 beta 是多少？它的方差中有百分之几是随市场波动的部分（提示：这部分的方差为 $\beta^2\sigma_M^2$）？
+        (b) 一位员工把大部分退休储蓄都投在自己公司的这只股票上。他承担的风险与一位持有市场组合、只买了少量这只股票的投资者有什么不同？CAPM 给出的预期收益是否补偿了他承担的全部风险？
+      en: |-
+        A stock has a volatility of 30% and a correlation of 0.5 with the market; the market's volatility is 15%.
+        (a) What is its beta? What percentage of its variance is the part that moves with the market (hint: this part's variance is $\beta^2\sigma_M^2$)?
+        (b) An employee has put most of his retirement savings in this stock of his own company. How does the risk he bears differ from that of an investor who holds the market portfolio and only a little of this stock? Does the CAPM expected return compensate him for all the risk he bears?
+    answer:
+      zh-cn: |-
+        (a) $\beta = 0.5 \times \frac{30\%}{15\%} = 1$。随市场波动的部分方差 $1^2 \times 225 = 225$，占总方差 900 的 25%（即 $\rho^2$），其余 75% 是公司自身的风险。
+        (b) 持有市场组合的投资者，这只股票公司自身的风险被分散掉，他只承担 beta 部分。员工没有分散，承担了全部 30% 的波动，其中 75% 的方差是得不到补偿的公司风险；而且他的工作收入也依赖同一家公司，公司出问题时可能同时失去工作和储蓄。CAPM 的预期收益（与市场相同）只补偿无法分散的部分，不补偿他额外承担的风险。
+      en: |-
+        (a) $\beta = 0.5 \times \frac{30\%}{15\%} = 1$. The variance moving with the market is $1^2 \times 225 = 225$, 25% of the total variance of 900 (that is, $\rho^2$); the other 75% is company-specific risk.
+        (b) For the holder of the market portfolio, the stock's company-specific risk is diversified away and only the beta part remains. The employee is undiversified and bears the full 30% volatility, 75% of whose variance is unrewarded company risk; and his income from work depends on the same company, so if it gets into trouble he may lose both his job and his savings. The CAPM expected return (the same as the market's) compensates only the part that cannot be diversified, not the extra risk he bears.
+    rubric:
+      zh-cn:
+        - "(a) beta 为 1，随市场波动的部分占 25%。"
+        - "(b) 说明未分散的风险得不到补偿，并提到工作收入与公司的关系。"
+      en:
+        - "(a) Beta 1; the market part is 25%."
+        - "(b) Explains that undiversified risk is not rewarded and mentions the link between job income and the company."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [beta, capm, wacc, financial-leverage]
+    expected: { be: "1.6", re: "11", wacc: "7" }
+    question:
+      zh-cn: |-
+        一家公司的业务（资产）beta 为 0.8。假设负债没有风险、利率等于无风险利率 3%，没有税，市场风险溢价 5%。这时股权的 beta 为 $\beta_E = \beta_A\left(1 + \frac{D}{E}\right)$。
+        (a) 公司的负债 ÷ 股东权益为 1。股权的 beta 和股权成本各是多少？WACC 是多少？与没有负债时的资本成本相比如何？
+        (b) 结合 [[3.8#leverage]]，解释为什么借款提高了股权成本，却没有降低 WACC。
+      en: |-
+        A company's business (asset) beta is 0.8. Assume its debt is riskless, with an interest rate equal to the 3% risk-free rate, there are no taxes, and the market risk premium is 5%. Then the equity beta is $\beta_E = \beta_A\left(1 + \frac{D}{E}\right)$.
+        (a) The company's debt ÷ equity is 1. What are its equity beta and cost of equity? What is its WACC? How does it compare with the cost of capital with no debt?
+        (b) Using [[3.8#leverage]], explain why borrowing raises the cost of equity but does not lower the WACC.
+    answer:
+      zh-cn: |-
+        (a) $\beta_E = 0.8 \times 2 = 1.6$，股权成本 $3\% + 1.6 \times 5\% = 11\%$。WACC $= 0.5 \times 11\% + 0.5 \times 3\% = 7\%$，正好等于没有负债时的 $3\% + 0.8 \times 5\% = 7\%$。
+        (b) 业务的风险没有变，只是重新分配：债权人拿到固定的利息，股东承担全部业务风险，而且被杠杆放大（[[3.8#leverage]]），所以股东要求更高的回报。便宜的债务替换昂贵的股权，节省的成本正好被股权成本的上升抵消，WACC 不变（这是没有税时的 Modigliani–Miller 结论）。
+      en: |-
+        (a) $\beta_E = 0.8 \times 2 = 1.6$, with cost of equity $3\% + 1.6 \times 5\% = 11\%$. WACC $= 0.5 \times 11\% + 0.5 \times 3\% = 7\%$, exactly the no-debt cost of capital $3\% + 0.8 \times 5\% = 7\%$.
+        (b) The business risk does not change; it is only reallocated: creditors get fixed interest, and shareholders bear all the business risk, magnified by leverage ([[3.8#leverage]]), so they require a higher return. Replacing expensive equity with cheap debt saves exactly what the higher cost of equity costs, so the WACC is unchanged (the Modigliani–Miller result without taxes).
+    rubric:
+      zh-cn:
+        - "(a) 1.6，11%，WACC 7%，与无负债时相同。"
+        - "(b) 说明风险重新分配，股权成本上升抵消了债务便宜的好处。"
+      en:
+        - "(a) 1.6, 11%, WACC 7%, the same as with no debt."
+        - "(b) Explains the reallocation of risk and the offsetting rise in the cost of equity."
