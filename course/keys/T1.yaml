@@ -46,9 +46,9 @@ common_errors:
       Thinking that higher expected inflation can lower unemployment permanently; or thinking that "expected inflation" hurts no one, ignoring that the announcement itself surprises nominal contracts signed under the old expectations and moves wealth from holders of nominal assets to nominal debtors.
   - questions: [Q2]
     zh-cn: |-
-      以为更富有、资本更多的国家，资本的回报也更高。资本的边际产量递减，人均资本越多，增加一单位资本的回报越低。
+      以为更富有、资本更多的国家，资本的回报也更高，资本会流向那里。资本的边际产量递减，人均资本越多，增加一单位资本的回报越低；资本自由流动时，会从资本多的国家流向资本少的国家。
     en: |-
-      Thinking a richer country with more capital also earns a higher return on capital. Capital has a diminishing marginal product, so the more capital per worker, the less an extra unit earns.
+      Thinking a richer country with more capital also earns a higher return on capital and attracts capital. Capital has a diminishing marginal product, so the more capital per worker, the less an extra unit earns; with free mobility, capital flows from capital-rich to capital-poor countries.
   - questions: [Q4]
     zh-cn: |-
       认为观测数越多估计越准，所以 240 个月度数据的标准误约为 20 个年度数据的 $\frac{1}{\sqrt{12}}$。估计平均收益的精度取决于数据覆盖的时间长度，而不是观测的频率。
@@ -87,9 +87,9 @@ questions:
     concepts: [nominal-exchange-rate, price-elasticity, current-account]
     question:
       zh-cn: |-
-        一国货币对外币贬值 10%。本国出口品按本币定价，进口品按外币定价。在贬值后的头几个月里，本国对进口品的需求量和外国对本国出口品的需求量都几乎没有变化。在这几个月里，以本币计算的贸易逆差会扩大。
+        一国原来有贸易逆差。它的货币对外币贬值 10%。本国出口品按本币定价，进口品按外币定价。在贬值后的头几个月里，本国对进口品的需求量和外国对本国出口品的需求量都几乎没有变化。在这几个月里，以本币计算的贸易逆差会扩大。
       en: |-
-        A country's currency falls 10% against foreign currencies. Its exports are priced in its own currency and its imports in foreign currency. In the first few months after the fall, the quantity of imports the country buys and the quantity of its exports foreigners buy hardly change at all. In these months the trade deficit, measured in the home currency, widens.
+        A country already has a trade deficit. Its currency falls 10% against foreign currencies. Its exports are priced in its own currency and its imports in foreign currency. In the first few months after the fall, the quantity of imports the country buys and the quantity of its exports foreigners buy hardly change at all. In these months the trade deficit, measured in the home currency, widens.
     answer:
       zh-cn: |-
         真。进口品按外币定价，贬值后每单位进口品折合本币贵了约 10%；需求量几乎不变，以本币计的进口支出增加约 10%。出口品按本币定价，贬值后对外国人变便宜，但外国的需求量几乎不变，以本币计的出口收入几乎不变。出口不变、进口支出增加，净出口下降，逆差扩大。这和需求缺乏弹性时提价会增加收入是同一个道理：支出等于价格乘以数量，数量几乎不变时，支出随价格同比例变化。只有过一段时间，需求变得更有弹性（买方转向本国产品、外国买方多买本国出口品），贬值才可能缩小逆差。
@@ -106,23 +106,23 @@ questions:
   - id: Q2
     kind: quiz
     part: judge
-    concepts: [solow-model, steady-state, marginal-product]
+    concepts: [solow-model, steady-state, marginal-product, current-account]
     question:
       zh-cn: |-
-        两个国家的技术水平和人口增长率都相同，长期都已经处于稳态，但 A 国的储蓄率比 B 国高得多。A 国积累了更多的资本，更富有，所以在 A 国投资，每增加一单位资本得到的回报也比在 B 国高。
+        两个国家的技术水平、人口增长率和折旧率都相同，长期都已经处于稳态，但 A 国的储蓄率比 B 国高得多。现在两国之间的资本可以自由流动。A 国积累了更多的资本，更富有，在那里投资的回报也更高，所以投资者会把资本从 B 国转到 A 国。
       en: |-
-        Two countries have the same technology and population growth and are both in their long-run steady states, but country A saves a much larger share of income than country B. A has built up more capital and is richer, so an extra unit of capital invested in A also earns more than in B.
+        Two countries have the same technology, population growth and depreciation rate and are both in their long-run steady states, but country A saves a much larger share of income than country B. Capital can now move freely between them. A has built up more capital and is richer, and investment there earns more, so investors will move capital from B to A.
     answer:
       zh-cn: |-
-        假。资本的边际产量递减：其他条件相同时，每个工人拥有的资本越多，再增加一单位资本带来的产出越少。A 国储蓄率高，稳态的人均资本更多，人均产出更高，但资本的边际产量（资本的回报）更低。以 $y = Ak^{\alpha}$ 为例，资本的边际产量为 $\alpha A k^{\alpha - 1}$，随 $k$ 增大而减小。更富有说明的是平均产出高，不说明边际回报高；这也是资本有从资本多的国家流向资本少的国家的动机的原因。
+        假。资本的边际产量递减：其他条件相同时，每个工人拥有的资本越多，再增加一单位资本带来的产出越少。A 国储蓄率高，稳态的人均资本更多，人均产出更高，但资本的边际产量（资本的回报）更低。以 $y = Ak^{\alpha}$ 为例，资本的边际产量为 $\alpha A k^{\alpha - 1}$，随 $k$ 增大而减小。更富有说明的是平均产出高，不说明边际回报高。所以资本可以自由流动时，投资者会把资本从回报低的 A 国转到回报高的 B 国，而不是相反：A 国把一部分储蓄借给 B 国，A 国有经常账户顺差，B 国有逆差。（现实中风险和制度的差别会改变这个结论，但题干中两国只有储蓄率不同。）
       en: |-
-        False. Capital has a diminishing marginal product: other things equal, the more capital each worker has, the less output an extra unit adds. With its high saving rate, A has more capital per worker and higher output per person in its steady state, but a lower marginal product of capital (return on capital). With $y = Ak^{\alpha}$, for example, the marginal product of capital is $\alpha A k^{\alpha - 1}$, which falls as $k$ rises. Being richer means higher average output, not a higher marginal return; this is also why capital has an incentive to flow from capital-rich to capital-poor countries.
+        False. Capital has a diminishing marginal product: other things equal, the more capital each worker has, the less output an extra unit adds. With its high saving rate, A has more capital per worker and higher output per person in its steady state, but a lower marginal product of capital (return on capital). With $y = Ak^{\alpha}$, for example, the marginal product of capital is $\alpha A k^{\alpha - 1}$, which falls as $k$ rises. Being richer means higher average output, not a higher marginal return. So with free capital mobility, investors move capital from A, where it earns less, to B, where it earns more, not the other way: A lends part of its saving to B, running a current account surplus while B runs a deficit. (In practice differences in risk and institutions can change this conclusion, but in the question the countries differ only in their saving rates.)
     rubric:
       zh-cn:
-        - "判断为假，并用资本的边际产量递减说明：A 国人均资本更多，增加一单位资本的回报更低；区分平均产出和边际回报。"
+        - "判断为假，并用资本的边际产量递减说明：A 国人均资本更多，增加一单位资本的回报更低，所以资本会从 A 国流向 B 国；区分平均产出和边际回报。"
         - "判断为真（把更富有当作回报更高），或只说“A 国增长更慢”而没有说明边际产量：需要订正。只写判断：需要订正。"
       en:
-        - "States false and explains with the diminishing marginal product of capital that A, with more capital per worker, earns less on an extra unit; distinguishes average output from the marginal return."
+        - "States false and explains with the diminishing marginal product of capital that A, with more capital per worker, earns less on an extra unit, so capital flows from A to B; distinguishes average output from the marginal return."
         - "Stating true (taking richer to mean higher returns), or saying only that A grows more slowly without the marginal product: needs revision. A verdict alone: needs revision."
 
   - id: Q3
@@ -267,7 +267,7 @@ questions:
         (b) If a good company can instead borrow 20 of risk-free debt (one period, ignoring interest, repaying 20 at the end), what happens? Compare with (a) and explain why.
     answer:
       zh-cn: |-
-        (a) 两类都发行时，投资后好公司值 225，差公司值 65，投资者按平均值 $\frac{225 + 65}{2} = 145$ 定价。融资 20 需要让新股东得到 $\frac{20}{145} \approx 13.79\%$。好公司的老股东最后拥有 $225 \times (1 - 13.79\%) \approx 193.97$，少于不投资时的 200。所以好公司不会发行新股：它的股票被按平均值低估：新股东只出资 20，却得到约 $13.79\% \times 225 \approx 31.03$ 的价值，净拿走约 11.03，超过了项目的净现值 5。
+        (a) 两类都发行时，投资后好公司值 225，差公司值 65，投资者按平均值 $\frac{225 + 65}{2} = 145$ 定价。融资 20 需要让新股东得到 $\frac{20}{145} \approx 13.79\%$。好公司的老股东最后拥有 $225 \times (1 - 13.79\%) \approx 193.97$，少于不投资时的 200。所以好公司不会发行新股：它的股票被按平均值低估。新股东只出资 20，却得到约 $13.79\% \times 225 \approx 31.03$ 的价值，净拿走约 11.03，超过了项目的净现值 5。
         结果只有差公司发行新股（对差公司的老股东，按平均价值发行是占便宜），所以“两类都发行”的预期不会成立。这里要区分两种价值：投资者事前按平均值估计的价值（145），和公司类型确定后的真实价值（225 或 65）；好公司的老股东损失的正是两者之差中让给新股东的部分。投资者也会想到这一点，把发行新股看作“我是差公司”的信号；这正是公司宣布增发时股价往往下跌的原因。好公司放弃了一个净现值为正的项目，这是逆向选择造成的效率损失。
         (b) 会。借 20、投资后公司值 225，偿还 20 后老股东得到 205，多于不投资时的 200。无风险债务到期只需偿还 20，它的价值不取决于公司属于哪一类，所以投资者不需要判断公司的类型，好公司也不必把被低估的股份让给新股东。融资工具的价值对公司的内部信息越不敏感，逆向选择的问题越小；这是公司通常先用内部资金和债务、最后才发行新股的原因之一。
       en: |-
@@ -303,16 +303,16 @@ questions:
         Second, the regression slope probably overstates the propensity to spend this one-time payment. For example: (1) most income changes in the regression are lasting (changes in jobs and wages), and households set consumption by long-run income; a one-time payment raises lifetime wealth only a little, so with consumption smoothing they spend only a small part of it. (2) The payment is financed by bonds to be repaid with later taxes; households that can borrow and foresee the taxes will save it. (3) The slope is not a causal effect: part of total income itself comes from consumption (more spending raises output and income), and common causes such as confidence, wealth and interest rates push income and consumption together, all of which bias the slope up. Households that cannot borrow will spend more, but they are only part of the population. So the actual multiplier may be far below 9.
     rubric:
       zh-cn:
-        - "指出转移支付在第一轮只有 0.9 成为支出，乘数为 9 而不是 10。"
-        - "指出回归斜率高估了对一次性发放的边际消费倾向，至少给出一个来自经济行为的理由（消费平滑或以后的加税），并可以给出一个来自回归本身的理由（反向因果或共同原因）。只指出两处中的一处，或只说“相关不等于因果”而没有具体说明：需要订正。"
+        - "核心：指出回归斜率高估了家庭对这笔一次性发放的边际消费倾向，至少给出一个来自经济行为的理由（消费平滑或以后的加税）；还能给出一个来自回归本身的理由（反向因果或共同原因）更好。只说“相关不等于因果”而没有具体说明，或接受 0.9 作为一次性发放的边际消费倾向：需要订正。"
+        - "指出即使边际消费倾向是 0.9，转移支付的乘数也是 9 而不是 10，是额外的发现，不是通过的必要条件；没有指出时在反馈中说明。"
       en:
-        - "Points out that only 0.9 of the transfer becomes spending in the first round, so the multiplier is 9, not 10."
-        - "Points out that the regression slope overstates the propensity to spend a one-time payment, with at least one reason about behavior (consumption smoothing or future taxes) and possibly one about the regression itself (reverse causality or common causes). Finding only one of the two problems, or saying only that correlation is not causation without specifics: needs revision."
+        - "Core: points out that the regression slope overstates households' propensity to spend this one-time payment, with at least one reason about behavior (consumption smoothing or future taxes); also giving a reason about the regression itself (reverse causality or common causes) is better. Saying only that correlation is not causation without specifics, or accepting 0.9 as the propensity to spend a one-time payment: needs revision."
+        - "Noting that even with a propensity of 0.9 the transfer multiplier is 9, not 10, is an extra finding, not required to pass; if it is missing, mention it in the feedback."
 
   - id: Q10
     kind: quiz
     part: problem
-    concepts: [principal-agent-problem, moral-hazard, risk-premium, crra-utility, certainty-equivalent]
+    concepts: [principal-agent-problem, risk-premium, crra-utility, certainty-equivalent]
     expected: { premium: "3.375", ce: "2.625" }
     question:
       zh-cn: |-
