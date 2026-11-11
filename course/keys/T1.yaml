@@ -26,9 +26,9 @@ common_errors:
       Treating a same-period correlation as a relation that can be used to earn money, ignoring that foreseeable growth is already in prices and prices react only to surprises.
   - questions: [Q5]
     zh-cn: |-
-      以为降低成本的技术一定使采用它的公司长期更赚钱。在可以自由进入的行业，所有人都能使用的技术带来的利润会吸引进入，价格下降到新的成本最低点，好处归消费者；只有专利等进入壁垒才能使公司长期获益。
+      以为平均税额不变，家庭的福利就不变。比例税使税后收入在好年份少、坏年份多，波动变小而期望不变，对风险厌恶的家庭相当于一份收入保险。
     en: |-
-      Thinking a cost-cutting technology must make the firms using it more profitable in the long run. With free entry, profits from a technology everyone can use attract entry, the price falls to the new minimum cost and consumers gain; only barriers to entry such as patents let firms gain in the long run.
+      Thinking that an unchanged average tax leaves the household's welfare unchanged. A proportional tax takes more in good years and less in bad ones, lowering the swings in after-tax income with the same expected value, which for a risk-averse household works like income insurance.
   - questions: [Q6]
     zh-cn: |-
       用名义利率和实际增长率比较，得出债务比例会无限上升。债务和 GDP 都是名义量，要比较名义利率和名义增长率；利率低于名义增长率时，比例趋近一个有限的值 $\frac{d(1+g)}{g-r}$。
@@ -181,24 +181,24 @@ questions:
   - id: Q5
     kind: quiz
     part: judge
-    concepts: [total-factor-productivity, perfect-competition, long-run, economic-profit, consumer-surplus]
+    concepts: [automatic-stabilizer, risk-aversion, expected-utility, variance]
     question:
       zh-cn: |-
-        一个完全竞争的行业，厂商可以自由进入和退出，投入品的价格不受行业规模影响。现在出现了一项新技术，所有现有的和新进入的厂商都可以免费使用，它使每单位产品的成本降低 20%。长期中，这项技术带来的好处几乎全部归消费者，行业中的公司不会因此获得持续的经济利润。
+        一个家庭的收入每年随经济好坏而波动，它每年把税后收入全部花掉，不能借款或储蓄。政府把这个家庭原来每年固定交的税，改为按收入的固定比例征税，比例定得使它平均每年交的税和原来一样多。只要这个家庭厌恶风险，这项改变就提高了它的福利。
       en: |-
-        In a perfectly competitive industry, firms can enter and exit freely, and input prices do not depend on the size of the industry. A new technology appears that all existing firms and new entrants can use for free, and it cuts the cost of each unit by 20%. In the long run almost all of the gain from this technology goes to consumers, and the firms in the industry earn no lasting economic profit from it.
+        A household's income moves up and down with the economy each year; it spends all its after-tax income every year and cannot borrow or save. The government replaces the fixed amount of tax the household paid each year with a tax at a fixed percentage of income, with the percentage set so that the household pays the same tax as before on average. As long as the household is risk averse, this change makes it better off.
     answer:
       zh-cn: |-
-        真。技术刚出现时，价格还没有变，成本降低使厂商获得正的经济利润。但所有厂商都能免费使用这项技术，新厂商会进入，供给增加，价格下降，直到经济利润回到 0。长期中价格降到新的、低 20% 左右的平均成本最低点，产量增加：成本的节省以更低的价格和更多的购买转给了消费者，消费者剩余增加。公司只在调整期间获得暂时的利润。要使公司长期获益，需要有阻止别人使用这项技术的东西，例如专利或其他进入壁垒。
+        真。原来税额固定，税后收入的波动和税前收入一样大。改为比例税后，收入高的年份多交税，收入低的年份少交税，税后收入等于税前收入乘以 $(1 - \tau)$，标准差也按同一比例缩小；而平均税额不变，所以税后收入的期望不变。期望相同、波动更小，对 $u$ 是凹函数的风险厌恶家庭，期望效用更高。比例税就像一份免费的收入保险：好年份多交的税补偿了坏年份少交的税。这也是比例税作为自动稳定器在家庭层面的含义。（如果家庭可以借款和储蓄来平滑消费，这个好处会小一些，但不会消失。）
       en: |-
-        True. When the technology first appears the price has not yet changed, so lower costs give firms a positive economic profit. But since every firm can use the technology for free, new firms enter, supply rises and the price falls until economic profit is back to 0. In the long run the price falls to the new minimum of average cost, about 20% lower, and output rises: the cost saving passes to consumers through a lower price and more purchases, raising consumer surplus. Firms earn only a temporary profit during the adjustment. For firms to gain in the long run, something must stop others from using the technology, such as a patent or another barrier to entry.
+        True. With a fixed tax, after-tax income swings as much as pre-tax income. With a proportional tax, the household pays more in good years and less in bad ones; after-tax income is pre-tax income times $(1 - \tau)$, so its standard deviation shrinks in the same proportion, while the average tax is unchanged and so is expected after-tax income. With the same expected value and smaller swings, a risk-averse household with concave $u$ has higher expected utility. The proportional tax works like free income insurance: the extra tax in good years pays for the lower tax in bad years. This is what a proportional tax as an automatic stabilizer means for a household. (If the household could borrow and save to smooth consumption, the gain would be smaller, but it would not vanish.)
     rubric:
       zh-cn:
-        - "判断为真，并说明短期的正利润吸引进入，价格下降到新的成本最低点，经济利润回到 0，好处通过更低的价格归消费者；指出暂时利润或专利等例外也可以。"
-        - "判断为假（以为成本降低一定使公司长期更赚钱），或只说“完全竞争利润为 0”而没有说明价格怎样下降、好处为什么归消费者：需要订正。只写判断：需要订正。"
+        - "判断为真，并说明比例税使税后收入的波动变小而期望不变，风险厌恶（效用为凹函数）的家庭因此期望效用更高；把它看作收入保险也算。"
+        - "判断为假（以为平均税额不变，福利就不变），或只说“比例税更公平”而没有说明波动和风险厌恶：需要订正。只写判断：需要订正。"
       en:
-        - "States true and explains that the short-run profit attracts entry, the price falls to the new minimum cost, economic profit returns to 0, and the gain reaches consumers through a lower price; mentioning the temporary profit or exceptions such as patents is also fine."
-        - "Stating false (thinking lower costs must make firms more profitable in the long run), or saying only that profit is zero under perfect competition without explaining how the price falls and why consumers gain: needs revision. A verdict alone: needs revision."
+        - "States true and explains that the proportional tax lowers the swings in after-tax income while leaving its expected value unchanged, so a risk-averse household (with concave utility) has higher expected utility; describing it as income insurance also counts."
+        - "Stating false (thinking that an unchanged average tax leaves welfare unchanged), or saying only that a proportional tax is fairer without discussing the swings and risk aversion: needs revision. A verdict alone: needs revision."
 
   - id: Q6
     kind: quiz
