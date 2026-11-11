@@ -31,7 +31,7 @@ context:
       The lesson: market makers quote bid and ask prices; the spread is the cost of trading immediately and also compensates for adverse selection; US stocks have settled T+1 since May 28, 2024. Short selling: borrow shares, sell them, buy back later; the short seller pays dividends; the potential loss is unlimited. Market, limit and stop orders; the order book and price impact. The order book of [[fig:5-1]]: midpoint 100.00; asks 100.05 × 500, 100.10 × 500, 100.20 × 1000, 100.40 × 2000; bids 99.95 × 500, 99.90 × 800, 99.80 × 1000, 99.60 × 2000; a market-buy size slider from 100 to 4000 in steps of 100, default 500; the readout shows the average price, its percentage above the midpoint and the extra amount paid.
 
 common_errors:
-  - questions: [C1, Q1]
+  - questions: [C1]
     zh-cn: |-
       以为分散化可以消除所有风险。贷款的违约在衰退中会同时上升，相关的风险不能靠增加贷款数量分散掉。
     en: |-
@@ -41,16 +41,26 @@ common_errors:
       忽略交易成本，以为按中间价或最近的成交价就能买卖。立即买入付卖价、立即卖出得买价，大单还有价格冲击。
     en: |-
       Ignoring trading costs and assuming one can trade at the midpoint or the last trade price. Immediate buys pay the ask, immediate sells get the bid, and large orders also have price impact.
+  - questions: [Q1]
+    zh-cn: |-
+      以为小企业依赖银行只是因为发债的固定成本高；忽略银行通过长期往来和监督获得信息，减轻逆向选择和道德风险。
+    en: |-
+      Thinking that small firms rely on banks only because issuing bonds has a high fixed cost, and missing that banks gain information through long relationships and monitoring, which reduces adverse selection and moral hazard.
   - questions: [Q2]
     zh-cn: |-
-      计算卖空的盈亏时忘记卖空者要支付股息，或者以为卖空的最大损失是投入的保证金。
+      计算卖空的盈亏时忘记卖空者要支付股息；或者以为卖空者总能等到价格回落再买回，忽略追加保证金和出借人召回股票会迫使他们在高价买回。
     en: |-
-      Forgetting that the short seller pays the dividends, or thinking that the largest loss on a short sale is the margin put up.
+      Forgetting that the short seller pays the dividends; or thinking that a short seller can always wait for the price to fall before buying back, and missing that margin calls and the lender recalling the shares can force a buyback at a high price.
   - questions: [Q3]
     zh-cn: |-
-      以为二级市场的交易会给企业带来资金。只有一级市场的发行才为企业筹资。
+      以为二级市场的交易会给企业带来资金。只有一级市场的发行才为企业筹资；上市后股价上涨，发行公司得不到这部分钱。
     en: |-
-      Thinking that trading in the secondary market raises money for the company. Only issuance in the primary market does.
+      Thinking that trading in the secondary market raises money for the company. Only issuance in the primary market does; when the price rises after listing, the issuer does not receive that money.
+  - questions: [Q5]
+    zh-cn: |-
+      以为货币市场基金和银行存款一样安全。当时它没有存款保险，净值取决于所持资产，按固定净值“先到先得”的赎回会引发挤兑。
+    en: |-
+      Thinking that money market funds are as safe as bank deposits. At the time they had no deposit insurance, their value depended on their assets, and first-come-first-served redemptions at a fixed share value invited runs.
 
 questions:
   # ---------- Check questions (随堂题) ----------
@@ -171,23 +181,23 @@ questions:
     expected: { loss: "1100" }
     question:
       zh-cn: |-
-        一位投资者以每股 50 美元卖空 100 股，持有期间公司发放每股 1 美元的股息，之后以 60 美元买回。(a) 盈亏是多少？(b) 卖空者的最大损失和买入者的最大损失有什么不同？券商为什么要求卖空者存入保证金，并在价格上涨时要求追加？
+        一位投资者以每股 50 美元卖空 100 股，持有期间公司发放每股 1 美元的股息，之后以 60 美元买回。(a) 盈亏是多少？(b) 一只股票被大量卖空，之后公司意外宣布了好消息。为什么股价可能比好消息本身所值的涨得更多？为什么卖空者常常不能“等价格回落再买回”？
       en: |-
-        An investor sells short 100 shares at 50 dollars; while the position is open the company pays a dividend of 1 dollar per share; the shares are then bought back at 60 dollars. (a) What is the gain or loss? (b) How does the short seller's largest possible loss differ from a buyer's? Why do brokers require short sellers to post margin and add more when the price rises?
+        An investor sells short 100 shares at 50 dollars; while the position is open the company pays a dividend of 1 dollar per share; the shares are then bought back at 60 dollars. (a) What is the gain or loss? (b) Many shares of a stock have been sold short, and then the company announces unexpected good news. Why might the price rise by more than the good news alone is worth? Why can short sellers often not "wait for the price to fall and buy back then"?
     answer:
       zh-cn: |-
         (a) 卖出得 5000，买回付 6000，还要付股息 100：亏损 $1000 + 100 = 1100$ 美元。
-        (b) 买入者最多损失全部投入（股价跌到 0）；卖空者的损失没有上限，因为股价上涨没有上限。券商借出了股票，如果卖空者亏损太多无力买回，损失会落到券商身上；保证金和追加要求保证卖空者有能力承担损失。
+        (b) 卖空者的损失随股价上涨而增加，没有上限。股价上涨时，券商要求追加保证金，出借人也可能召回股票；拿不出钱或借不到股票的卖空者只能买回平仓。被大量卖空的股票上，这些被迫的买入会进一步推高价格，又迫使更多卖空者买回，这叫“轧空”（short squeeze）。所以价格可能远超好消息本身所值。卖空者即使判断最终正确，也可能在价格回落之前就被迫在高位亏损离场。
       en: |-
         (a) The sale brings 5000, buying back costs 6000, and the dividend costs 100: a loss of $1000 + 100 = 1100$ dollars.
-        (b) A buyer can lose at most the amount invested (if the price falls to 0); a short seller's loss has no limit, because the price can rise without limit. The broker has lent the shares; if the short seller loses too much to buy them back, the loss falls on the broker, so margin and margin calls make sure the short seller can cover losses.
+        (b) A short seller's loss grows as the price rises, without limit. When the price rises, the broker asks for more margin and the lender may recall the shares; short sellers who cannot add money or borrow the shares elsewhere must buy back. In a heavily shorted stock these forced purchases push the price up further and force still more short sellers to buy back: a short squeeze. So the price can rise far beyond what the good news is worth. Even a short seller who is right in the end may be forced out at a high price, with a loss, before the price falls.
     rubric:
       zh-cn:
         - "(a) 亏损 1100，计入股息。"
-        - "(b) 有限与无上限，并说明保证金的作用。"
+        - "(b) 说明价格上涨时的追加保证金和召回股票会迫使卖空者买回，这些买入推高价格（轧空）。只说“卖空损失无上限”而没有说明被迫买回的机制：需要订正。"
       en:
         - "(a) A loss of 1100, including the dividend."
-        - "(b) Limited versus unlimited, and the role of margin."
+        - "(b) Explains that margin calls and recalled shares force short sellers to buy back as the price rises, and that these purchases push the price higher (a short squeeze). Saying only that a short seller's loss is unlimited, without the mechanism of forced buybacks: needs revision."
 
   - id: Q3
     kind: exercise
@@ -196,22 +206,22 @@ questions:
     expected: { left: "50" }
     question:
       zh-cn: |-
-        一家公司 IPO 发行 1000 万股，发行价 20 美元；上市第一天收盘价为 25 美元。(a) 和按第一天的收盘价发行相比，公司少得了多少？(b) 研究发现 IPO 平均有这种“首日上涨”。从发行者和投资者之间的信息不对称，给出一种解释。
+        一家公司 IPO 发行 1000 万股，发行价 20 美元；上市第一天收盘价为 25 美元。(a) 公司的首席执行官说：“首日上涨 25%，说明这次 IPO 非常成功，公司也从股价上涨中得到了好处。”和按第一天的收盘价发行相比，公司少得了多少？评价这个说法。(b) 研究发现 IPO 平均有这种“首日上涨”。从发行者和投资者之间的信息不对称，给出一种解释。
       en: |-
-        A company sells 10 million shares in an IPO at 20 dollars; the first-day closing price is 25 dollars. (a) Compared with selling at the first-day close, how much less did the company receive? (b) Studies find such first-day gains on average in IPOs. Give one explanation based on asymmetric information between issuers and investors.
+        A company sells 10 million shares in an IPO at 20 dollars; the first-day closing price is 25 dollars. (a) The chief executive says: "The 25% first-day gain shows the IPO was a great success, and the company benefited from the rise in its share price." Compared with selling at the first-day close, how much less did the company receive? Evaluate the statement. (b) Studies find such first-day gains on average in IPOs. Give one explanation based on asymmetric information between issuers and investors.
     answer:
       zh-cn: |-
-        (a) $10 \times (25 - 20) = 50$ 百万美元。
+        (a) $10 \times (25 - 20) = 50$ 百万美元。公司只在发行时得到资金；上市后的交易发生在投资者之间（二级市场），股价上涨的好处归买到新股的投资者，公司得不到。首日上涨越多，说明发行价定得越低，公司“留在桌上的钱”越多。
         (b) 例如：消息灵通的投资者只申购好的 IPO，消息不灵通的投资者在好的 IPO 中分到的少、在差的 IPO 中分到的多（“赢家的诅咒”，一种逆向选择）。为了让他们仍然愿意参与，发行价平均要定得低一些。
       en: |-
-        (a) $10 \times (25 - 20) = 50$ million dollars.
+        (a) $10 \times (25 - 20) = 50$ million dollars. The company receives money only when it issues the shares; later trading is between investors (the secondary market), and the gain from the price rise goes to the investors who bought the new shares, not to the company. The larger the first-day gain, the lower the offer price was set and the more money the company "left on the table".
         (b) For example: well-informed investors apply only for good IPOs, so less-informed investors get little of the good ones and a lot of the bad ones (the "winner's curse", a form of adverse selection). For them to keep taking part, offer prices must be set lower on average.
     rubric:
       zh-cn:
-        - "(a) 50 百万美元。"
+        - "(a) 50 百万美元，并指出上涨的好处归新股的买入者而不是公司。"
         - "(b) 给出基于信息不对称的合理解释。"
       en:
-        - "(a) 50 million dollars."
+        - "(a) 50 million dollars, and notes that the gain goes to the buyers of the new shares, not to the company."
         - "(b) A reasonable explanation based on asymmetric information."
 
   - id: Q4

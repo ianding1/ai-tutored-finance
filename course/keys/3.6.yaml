@@ -51,6 +51,11 @@ common_errors:
       把有违约风险的债券的到期收益率当作预期收益率。到期收益率是全部按约定支付时的收益，预期收益要扣除预期损失。
     en: |-
       Treating the yield to maturity of a bond with default risk as its expected return. The yield assumes every payment is made; the expected return deducts the expected loss.
+  - questions: [Q2]
+    zh-cn: |-
+      以为把许多贷款打包分层后，高级层的风险只取决于单笔贷款的违约率。违约高度相关时，很多贷款会同时违约，高级层也可能大幅受损。
+    en: |-
+      Thinking that after many loans are pooled and split into tranches, the senior tranche's risk depends only on each loan's default rate. When defaults are highly correlated, many loans default together and the senior tranche can also suffer large losses.
   - questions: [C2, Q2]
     zh-cn: |-
       把信用评级当作对债券价格或收益的预测，或者认为同一评级的债券风险完全相同。
@@ -61,7 +66,12 @@ common_errors:
       直接比较免税债券和应税债券的收益率，不换算成税后收益；或者忽略国债免州税、本州市政债免本州税。
     en: |-
       Comparing tax-exempt and taxable yields directly without converting to after-tax returns, or ignoring that Treasuries are exempt from state tax and in-state municipal bonds from that state's tax.
-  - questions: [C4, Q4]
+  - questions: [Q4]
+    zh-cn: |-
+      以为 TIPS 的本金上调要到期时才纳税。在美国，本金因通胀上调的部分当年就算应税利息，当年纳的税可能超过收到的现金。
+    en: |-
+      Thinking the inflation increase in a TIPS's principal is taxed only at maturity. In the US, the increase counts as taxable interest in the year it happens, so the tax that year can exceed the cash received.
+  - questions: [C4]
     zh-cn: |-
       以为 TIPS 在任何情况下都比名义国债好。只有实际通胀高于盈亏平衡通胀率时，TIPS 才更好。
     en: |-

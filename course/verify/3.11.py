@@ -34,6 +34,7 @@ def results():
     r["Q2.h"], r["Q2.l"] = (12 - 4) / (10 - 4), (8 - 4) / (10 - 4)
 
     r["Q3.a"], r["Q3.b"] = 2 / 0.20, 2 / 0.02
+    r["Q3.m"] = 100 * 2 / r["Q3.a"]
 
     r["Q4.y36"], r["Q4.y15"] = 100 / 36, 100 / 15
     # Values that the questions now give or no longer ask for.

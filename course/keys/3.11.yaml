@@ -36,6 +36,21 @@ context:
       The lesson: cyclical companies' profits swing widely while prices move little, so the current P/E misleads. [[fig:4-1]]: price stays at 100, earnings are $5(1 + a \sin(2\pi t / 8))$, P/E uses current earnings and CAPE the average of the last 10 years; slider: amplitude $a$ from 0 to 0.8 (in steps of 0.1, default 0.5); the readout shows the ranges of P/E and CAPE over 16 years. CAPE: price divided by average inflation-adjusted earnings of the past 10 years (Shiller); for the S&P 500 it has averaged about 17 since 1881, was about 44 in December 1999, and about 39 to 41 from late 2025 into 2026. High CAPE tends to be followed by low average real returns over 10 years, but the relation is inexact and cannot time the market precisely; whether it can estimate long-run expected returns is left to an exercise.
 
 common_errors:
+  - questions: [Q2]
+    zh-cn: |-
+      以为市净率低于 1 就说明股票被低估。ROE 低于股权成本的公司，每一元账面权益创造的价值不到一元，合理的市净率本来就低于 1。
+    en: |-
+      Thinking a price-to-book ratio below 1 means the stock is undervalued. For a company whose ROE is below its cost of equity, each dollar of book equity creates less than a dollar of value, so a fair price-to-book ratio is below 1.
+  - questions: [Q3]
+    zh-cn: |-
+      以为市销率相同的公司估值一样高。同样的市销率，利润率低的公司意味着高得多的市盈率，或者市场预期它的利润率将大幅提高。
+    en: |-
+      Thinking companies with the same P/S are valued equally. With the same P/S, a low-margin company has a much higher P/E, or the market expects its margin to rise a lot.
+  - questions: [Q4]
+    zh-cn: |-
+      以为今天的 CAPE 与历史平均直接可比，高于平均就一定被高估。会计规则、回购、实际利率和指数构成的变化都会改变 CAPE 的合理水平。
+    en: |-
+      Thinking today's CAPE is directly comparable with its historical average, so that anything above the average must be overvalued. Changes in accounting rules, buybacks, real interest rates and the composition of the index all change the fair level of CAPE.
   - questions: [C1, C2, Q1]
     zh-cn: |-
       以为市盈率低就一定便宜；忽略市盈率反映的增长、风险和盈利能力的差别。
@@ -46,7 +61,7 @@ common_errors:
       分子分母不对应：例如用企业价值除以净利润，或用股价比较负债水平很不相同的公司而不考虑杠杆。
     en: |-
       Mismatching numerator and denominator: for example, dividing enterprise value by net income, or comparing price multiples of companies with very different debt without considering leverage.
-  - questions: [C4, Q4]
+  - questions: [C4]
     zh-cn: |-
       周期性公司在利润最高（市盈率最低）时显得最便宜；或者把 CAPE 当作精确的择时工具。
     en: |-
@@ -238,30 +253,30 @@ questions:
     kind: exercise
     level: B
     concepts: [price-to-sales, price-earnings-ratio]
-    expected: { a: "10", b: "100" }
+    expected: { a: "10", b: "100", m: "20" }
     question:
       zh-cn: |-
         A、B 两家公司的市销率都是 2。A 的净利润率为 20%，B 为 2%。
         (a) 两家公司的市盈率各是多少？
-        (b) 市销率在什么情况下有用？用它比较公司时最需要注意什么？
+        (b) 一位分析师说：“A 和 B 的市销率相同，所以两家公司的估值一样高。”如果市场认为 B 的市盈率最终会与 A 相同，市场为 B 付的价格意味着 B 的净利润率将来要达到多少？评价分析师的说法。
       en: |-
         Companies A and B both have a P/S of 2. A's net margin is 20% and B's is 2%.
         (a) What is each company's P/E?
-        (b) When is P/S useful? What matters most when using it to compare companies?
+        (b) An analyst says: "A and B have the same P/S, so they are valued equally high." If the market believes B's P/E will end up equal to A's, what net margin does the price paid for B imply that B must reach? Evaluate the analyst's statement.
     answer:
       zh-cn: |-
         (a) 市盈率 = 市销率 ÷ 净利润率：A 为 $\frac{2}{0.20} = 10$，B 为 $\frac{2}{0.02} = 100$。
-        (b) 公司目前亏损或利润很不稳定（例如初创公司、处于低谷的周期性公司）时，无法用市盈率，可以用市销率。但同样的市销率背后可能是完全不同的盈利能力：市场为 B 付同样的价格，必须相信它的利润率将来会大幅提高。比较时要看可比公司的长期利润率，以及目标公司达到这个利润率的可能性。
+        (b) 净利润率 = 市销率 ÷ 市盈率 = $\frac{2}{10} = 20\%$：B 的利润率要从 2% 提高到 20%，即提高到原来的 10 倍，市场为 B 付的价格才和 A 一样“合理”。所以分析师错了：相对于现在的盈利能力，B 的估值高得多。市销率在公司亏损或利润很不稳定时有用，但同样的市销率背后可能是完全不同的盈利能力，必须和公司可能达到的长期利润率一起看。
       en: |-
         (a) P/E = P/S ÷ net margin: A is $\frac{2}{0.20} = 10$ and B is $\frac{2}{0.02} = 100$.
-        (b) When a company is losing money or its profit is very unstable (for example, a young company or a cyclical company in a downturn), the P/E cannot be used and P/S can. But the same P/S can hide very different profitability: to pay the same price for B, the market must believe its margin will rise a lot. In comparisons, look at comparables' long-run margins and at how likely the target is to reach them.
+        (b) Net margin = P/S ÷ P/E = $\frac{2}{10} = 20\%$: B's margin must rise from 2% to 20%, ten times as high, for the price paid for B to be as "reasonable" as A's. So the analyst is wrong: relative to its current profitability, B is valued much more highly. P/S is useful when a company is losing money or its profit is very unstable, but the same P/S can hide very different profitability, and it must be judged together with the long-run margin the company can reach.
     rubric:
       zh-cn:
         - "(a) 10 和 100。"
-        - "(b) 说明适用情况和利润率的作用。"
+        - "(b) 约 20%，并指出同样的市销率下 B 的估值相对于现在的盈利能力高得多。只说“要结合利润率”而没有算出隐含的利润率：需要订正。"
       en:
         - "(a) 10 and 100."
-        - "(b) Explains when it applies and the role of margins."
+        - "(b) About 20%, and points out that with the same P/S, B is valued much more highly relative to its current profitability. Saying only that margins matter, without finding the implied margin: needs revision."
 
   - id: Q4
     kind: exercise
@@ -272,22 +287,22 @@ questions:
       zh-cn: |-
         一种粗略的看法认为，CAPE 的倒数（周期调整的盈利收益率）可以近似地看作股市的长期实际预期收益。
         (a) CAPE 为 36 和 15 时，这个近似给出的长期实际预期收益各是多少？
-        (b) 给出两个理由，说明今天的 CAPE 与几十年前的 CAPE 可能不能直接比较；再说明为什么不能用 CAPE 决定什么时候全部卖出股票。
+        (b) 给出两个理由，说明今天的 CAPE 与几十年前的 CAPE 可能不能直接比较。每个理由使今天的 CAPE 显得比实际的估值水平高还是低？
       en: |-
         A rough view holds that the inverse of CAPE (the cyclically adjusted earnings yield) approximates the stock market's long-run real expected return.
         (a) With a CAPE of 36 and of 15, what long-run real expected return does this approximation give?
-        (b) Give two reasons why today's CAPE may not be directly comparable with CAPE decades ago; then explain why CAPE cannot be used to decide when to sell all stocks.
+        (b) Give two reasons why today's CAPE may not be directly comparable with CAPE decades ago. Does each reason make today's CAPE look higher or lower than the true level of valuation?
     answer:
       zh-cn: |-
         (a) $\frac{1}{36} \approx 2.78\%$，$\frac{1}{15} \approx 6.67\%$。
-        (b) 例如：会计准则的变化（例如更多地确认资产减值）使过去 10 年的利润偏低、CAPE 偏高；公司更多地用回购代替股息，利润增长更快，过去的平均利润低估了现在的盈利能力；实际利率比过去长期偏低，投资者愿意接受较低的盈利收益率；指数中高利润率、高增长的公司比例增加。CAPE 高只说明长期平均收益可能较低，并不说明股市何时下跌：CAPE 可以在高位停留很多年，在此期间全部卖出会错过上涨；它对未来 1 到 2 年收益的预测能力很弱。
+        (b) 例如：(1) 会计准则的变化（例如更多地确认资产减值）使过去 10 年的利润偏低，CAPE 显得偏高；(2) 公司更多地用回购代替股息，每股利润增长更快，过去 10 年的平均利润低估了现在的盈利能力，CAPE 也显得偏高；(3) 指数中高利润率、高增长的公司比例增加，同样的估值下 CAPE 本来就更高。另外，实际利率比过去长期偏低时，投资者愿意接受较低的盈利收益率：这不是测量偏差，而是说明较高的 CAPE 可能与合理的估值相容，但也意味着较低的未来收益。这些理由大多使今天的 CAPE 显得比实际的估值水平高，所以不能简单地和历史平均 17 比较；但它们不能证明今天的估值不高。
       en: |-
         (a) $\frac{1}{36} \approx 2.78\%$ and $\frac{1}{15} \approx 6.67\%$.
-        (b) For example: changes in accounting rules (such as more write-downs being recognized) lower past 10-year earnings and raise CAPE; companies use more buybacks instead of dividends, so earnings grow faster and the past average understates current earning power; real interest rates have been lower than in the past for long periods, so investors accept a lower earnings yield; high-margin, high-growth companies make up more of the index. A high CAPE says only that long-run average returns may be low, not when the market will fall: CAPE can stay high for many years, and selling everything means missing the gains in the meantime; it has little power to predict returns over the next 1 to 2 years.
+        (b) For example: (1) changes in accounting rules (such as more write-downs being recognized) lower past 10-year earnings, so CAPE looks too high; (2) companies use more buybacks instead of dividends, so earnings per share grow faster and the past 10-year average understates current earning power, which also makes CAPE look too high; (3) high-margin, high-growth companies make up more of the index, so CAPE is higher at the same valuation. Also, when real interest rates stay lower than in the past, investors accept a lower earnings yield: this is not a measurement bias, but it means a higher CAPE may be consistent with fair valuation, while also meaning lower future returns. Most of these reasons make today's CAPE look higher than the true level of valuation, so it cannot simply be compared with the historical average of 17; but they do not prove that valuations today are not high.
     rubric:
       zh-cn:
         - "(a) 约 2.78% 和 6.67%。"
-        - "(b) 两个合理的理由，并说明不能用于择时。"
+        - "(b) 两个合理的理由，各自说明使 CAPE 显得偏高还是偏低。只列理由、不说方向：需要订正。"
       en:
         - "(a) About 2.78% and 6.67%."
-        - "(b) Two reasonable reasons, and why it cannot time the market."
+        - "(b) Two reasonable reasons, each with the direction in which it moves CAPE. Listing reasons without the direction: needs revision."

@@ -51,6 +51,11 @@ common_errors:
       只看报告的利润或“调整后”的利润，不检查估计的变更、现金流和被剔除的项目。
     en: |-
       Looking only at reported or "adjusted" earnings without checking changes in estimates, cash flow and excluded items.
+  - questions: [Q2]
+    zh-cn: |-
+      以为股东权益为负就说明资不抵债、即将破产。回购会减少账面股东权益；账面价值不等于市场价值，盈利稳定、现金流充足的公司可以长期有负的账面权益。
+    en: |-
+      Thinking negative shareholders' equity means the company is insolvent and close to bankruptcy. Buybacks reduce book equity; book value is not market value, and a company with stable profits and ample cash flow can have negative book equity for a long time.
 
 questions:
   # ---------- Check questions (随堂题) ----------

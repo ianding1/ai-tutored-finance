@@ -41,7 +41,7 @@ common_errors:
       把久期等同于期限。只有零息债的久期等于期限；附息债券的久期较短，而永续债券的久期是有限的。
     en: |-
       Equating duration with maturity. Only a zero's duration equals its maturity; coupon bonds have shorter durations, and a perpetuity's duration is finite.
-  - questions: [C3, Q5]
+  - questions: [C3, Q1, Q5]
     zh-cn: |-
       以为久期估计在收益率变化较大时仍然准确，或者弄错凸性修正的方向：对普通债券，久期总是高估价格的下跌、低估价格的上涨。
     en: |-
@@ -51,6 +51,11 @@ common_errors:
       以为免疫一次就够了。时间流逝和利率变化会改变久期，组合要定期调整。
     en: |-
       Thinking immunization is set once and for all. Time and rate changes alter durations, so the portfolio must be rebalanced.
+  - questions: [Q4]
+    zh-cn: |-
+      只看资产是否大于负债，不看两者的久期。资产久期远长于负债时，利率上升使资产价值比负债下降得多，股东权益按杠杆倍数缩水，即使没有任何坏账。
+    en: |-
+      Looking only at whether assets exceed liabilities, not at their durations. When assets have a much longer duration than liabilities, a rate rise lowers assets far more than liabilities, and equity shrinks by a multiple, even with no bad loans.
 
 questions:
   # ---------- Check questions (随堂题) ----------
@@ -235,25 +240,27 @@ questions:
     expected: { roll: "9083.22", long: "11009.32", match: "10016.65" }
     question:
       zh-cn: |-
-        5 年后要支付 10,000，今天有 7835.26，收益率曲线平坦在 5%。买入后收益率立即平行下降到 3% 并保持不变。比较三种做法在第 5 年能得到多少：(i) 每年滚动 1 年期零息债；(ii) 买 10 年期零息债，第 5 年卖出；(iii) 一半 2 年期、一半 8 年期零息债，到期的钱按当时的利率再投资，第 5 年卖出剩下的债券。哪种做法最接近 10,000？为什么？
+        5 年后要支付 10,000，今天有 7835.26，收益率曲线平坦在 5%。一位顾问说：“利率可能变化，最稳妥的做法是每年滚动 1 年期零息债，短期债券没有利率风险。”假设买入后收益率立即平行下降到 3% 并保持不变。比较三种做法在第 5 年能得到多少：(i) 每年滚动 1 年期零息债；(ii) 买 10 年期零息债，第 5 年卖出；(iii) 一半 2 年期、一半 8 年期零息债，到期的钱按当时的利率再投资，第 5 年卖出剩下的债券。哪种做法最接近 10,000？为什么？顾问的说法错在哪里？
       en: |-
-        10,000 is due in 5 years, 7835.26 is available today, and the yield curve is flat at 5%. Right after buying, yields shift down in parallel to 3% and stay there. Compare how much each approach has in year 5: (i) roll 1-year zeros every year; (ii) buy a 10-year zero and sell it in year 5; (iii) half in a 2-year zero and half in an 8-year zero, reinvesting maturing money at the prevailing rate and selling the remaining bond in year 5. Which approach comes closest to 10,000? Why?
+        10,000 is due in 5 years, 7835.26 is available today, and the yield curve is flat at 5%. An adviser says: "Rates may change, so the safest approach is to roll 1-year zeros every year; short-term bonds have no interest rate risk." Suppose that right after buying, yields shift down in parallel to 3% and stay there. Compare how much each approach has in year 5: (i) roll 1-year zeros every year; (ii) buy a 10-year zero and sell it in year 5; (iii) half in a 2-year zero and half in an 8-year zero, reinvesting maturing money at the prevailing rate and selling the remaining bond in year 5. Which approach comes closest to 10,000? Why? What is wrong with the adviser's statement?
     answer:
       zh-cn: |-
         (i) $7835.26 \times 1.03^5 \approx 9083.22$，不够：再投资风险。
         (ii) 零息债面值 $7835.26 \times 1.05^{10}$，第 5 年还剩 5 年，价格 $\frac{7835.26 \times 1.05^{10}}{1.03^5} \approx 11009.32$，多出很多：价格风险带来收益（利率上升时则会大亏）。
         (iii) 2 年期部分到期后按 3% 再投资 3 年，8 年期部分在第 5 年还剩 3 年、按 3% 定价，合计约 10016.65，最接近 10,000。它的久期等于 5 年，价格上涨和再投资收益下降几乎抵消。
+        顾问错在把“价格几乎不变”当作“没有利率风险”：滚动短期债券的价格风险小，但再投资风险大，利率下降时 5 年后的钱不够。对 5 年后的一笔支付，风险最小的是久期等于 5 年的组合，而不是期限最短的债券。
       en: |-
         (i) $7835.26 \times 1.03^5 \approx 9083.22$, not enough: reinvestment risk.
         (ii) The zero has face value $7835.26 \times 1.05^{10}$; in year 5 it has 5 years left and is worth $\frac{7835.26 \times 1.05^{10}}{1.03^5} \approx 11009.32$, far more: price risk working in its favor (a rate rise would have caused a large loss).
         (iii) The 2-year part matures and is reinvested at 3% for 3 years, and the 8-year part has 3 years left in year 5 and is priced at 3%, for a total of about 10016.65, closest to 10,000. Its duration equals 5 years, so the price gain and the loss of reinvestment income almost cancel.
+        The adviser mistakes "the price hardly changes" for "no interest rate risk": rolling short bonds has little price risk but large reinvestment risk, and when rates fall there is not enough money in year 5. For a payment due in 5 years, the least risky holding is a portfolio with a duration of 5 years, not the shortest bond.
     rubric:
       zh-cn:
         - "三个结果约 9083.22、11009.32、10016.65。"
-        - "用久期匹配解释为什么 (iii) 最接近。"
+        - "用久期匹配解释为什么 (iii) 最接近，并指出顾问忽略了再投资风险。"
       en:
         - "About 9083.22, 11009.32 and 10016.65."
-        - "Explains with duration matching why (iii) is closest."
+        - "Explains with duration matching why (iii) is closest, and points out that the adviser ignores reinvestment risk."
 
   - id: Q4
     kind: exercise

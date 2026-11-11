@@ -61,6 +61,11 @@ common_errors:
       只看一个比率的高低就下结论，不考虑行业特点、资产的质量（例如存货能否卖出）和经营的波动。
     en: |-
       Drawing conclusions from the level of a single ratio without considering the industry, the quality of assets (for example, whether inventory can be sold) and the volatility of operations.
+  - questions: [Q3]
+    zh-cn: |-
+      计算现金转换周期时把应付账款天数加上而不是减去；或者以为缩短周期只是节省了一点利息，忽略它释放了投入在营运资本中的现金、减少了投入资本，从而提高 ROIC。
+    en: |-
+      Adding days payable instead of subtracting them in the cash conversion cycle; or thinking a shorter cycle only saves a little interest, and missing that it frees cash tied up in working capital and reduces invested capital, which raises ROIC.
 
 questions:
   # ---------- Check questions (随堂题) ----------

@@ -291,18 +291,18 @@ questions:
       zh-cn: |-
         一家公司的业务（资产）beta 为 0.8。假设负债没有风险、利率等于无风险利率 3%，没有税，市场风险溢价 5%。这时股权的 beta 为 $\beta_E = \beta_A\left(1 + \frac{D}{E}\right)$。
         (a) 公司的负债 ÷ 股东权益为 1。股权的 beta 和股权成本各是多少？WACC 是多少？与没有负债时的资本成本相比如何？
-        (b) 结合 [[3.8#leverage]]，解释为什么借款提高了股权成本，却没有降低 WACC。
+        (b) 首席财务官说：“债务利率只有 3%，比股权成本低得多，所以多借款能降低公司的资本成本。”结合 [[3.8#leverage]]，评价这个说法。
       en: |-
         A company's business (asset) beta is 0.8. Assume its debt is riskless, with an interest rate equal to the 3% risk-free rate, there are no taxes, and the market risk premium is 5%. Then the equity beta is $\beta_E = \beta_A\left(1 + \frac{D}{E}\right)$.
         (a) The company's debt ÷ equity is 1. What are its equity beta and cost of equity? What is its WACC? How does it compare with the cost of capital with no debt?
-        (b) Using [[3.8#leverage]], explain why borrowing raises the cost of equity but does not lower the WACC.
+        (b) The chief financial officer says: "Debt costs only 3%, much less than equity, so borrowing more lowers the company's cost of capital." Using [[3.8#leverage]], evaluate this statement.
     answer:
       zh-cn: |-
         (a) $\beta_E = 0.8 \times 2 = 1.6$，股权成本 $3\% + 1.6 \times 5\% = 11\%$。WACC $= 0.5 \times 11\% + 0.5 \times 3\% = 7\%$，正好等于没有负债时的 $3\% + 0.8 \times 5\% = 7\%$。
-        (b) 业务的风险没有变，只是重新分配：债权人拿到固定的利息，股东承担全部业务风险，而且被杠杆放大（[[3.8#leverage]]），所以股东要求更高的回报。便宜的债务替换昂贵的股权，节省的成本正好被股权成本的上升抵消，WACC 不变（这是没有税时的 Modigliani–Miller 结论）。
+        (b) 这个说法错了。业务的风险没有变，只是重新分配：债权人拿到固定的利息，股东承担全部业务风险，而且被杠杆放大（[[3.8#leverage]]），所以股东要求更高的回报。便宜的债务替换昂贵的股权，节省的成本正好被股权成本的上升抵消，WACC 不变（这是没有税时的 Modigliani–Miller 结论）。
       en: |-
         (a) $\beta_E = 0.8 \times 2 = 1.6$, with cost of equity $3\% + 1.6 \times 5\% = 11\%$. WACC $= 0.5 \times 11\% + 0.5 \times 3\% = 7\%$, exactly the no-debt cost of capital $3\% + 0.8 \times 5\% = 7\%$.
-        (b) The business risk does not change; it is only reallocated: creditors get fixed interest, and shareholders bear all the business risk, magnified by leverage ([[3.8#leverage]]), so they require a higher return. Replacing expensive equity with cheap debt saves exactly what the higher cost of equity costs, so the WACC is unchanged (the Modigliani–Miller result without taxes).
+        (b) The statement is wrong. The business risk does not change; it is only reallocated: creditors get fixed interest, and shareholders bear all the business risk, magnified by leverage ([[3.8#leverage]]), so they require a higher return. Replacing expensive equity with cheap debt saves exactly what the higher cost of equity costs, so the WACC is unchanged (the Modigliani–Miller result without taxes).
     rubric:
       zh-cn:
         - "(a) 1.6，11%，WACC 7%，与无负债时相同。"

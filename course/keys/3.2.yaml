@@ -51,6 +51,11 @@ common_errors:
       以为每个项目只有一个 IRR，并且 IRR 高于资本成本就一定应该接受。
     en: |-
       Thinking every project has exactly one IRR and should always be accepted when the IRR exceeds the cost of capital.
+  - questions: [Q4]
+    zh-cn: |-
+      在预算有限时，按盈利指数从高到低选项目，直到预算用完。项目不能分割、预算不能正好用完时，这样选出的组合不一定使 NPV 总和最大，要比较各种可行组合的 NPV。
+    en: |-
+      Under a budget limit, picking projects in order of profitability index until the budget runs out. When projects cannot be split and the budget cannot be used exactly, this choice does not always give the largest total NPV; compare the NPVs of the feasible combinations.
 
 questions:
   # ---------- Check questions (随堂题) ----------

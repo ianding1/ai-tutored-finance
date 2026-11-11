@@ -234,25 +234,25 @@ questions:
     question:
       zh-cn: |-
         1 年期国债收益率为 5%，10 年期为 4.3%。一个模型估计 10 年期收益率中的期限溢价为 0.5 个百分点。
-        (a) 未来 10 年市场预期的短期利率平均约为多少？这与当前的短期利率相比说明什么？
+        (a) 一位评论员说：“10 年期收益率比 1 年期低 0.7 个百分点，所以市场预期未来 10 年的短期利率平均比现在低约 0.7 个百分点。”未来 10 年市场预期的短期利率平均约为多少？评论员对降息幅度的估计偏大还是偏小，为什么？
         (b) 一年后，央行把政策利率下调了 1 个百分点，10 年期收益率却上升了。给出两种可能的解释。
       en: |-
         The 1-year Treasury yield is 5% and the 10-year yield 4.3%. A model estimates the term premium in the 10-year yield at 0.5 percentage points.
-        (a) Roughly what average short rate does the market expect over the next 10 years? What does this say compared with the current short rate?
+        (a) A commentator says: "The 10-year yield is 0.7 percentage points below the 1-year yield, so the market expects short rates over the next 10 years to average about 0.7 percentage points below today's." Roughly what average short rate does the market expect over the next 10 years? Does the commentator overstate or understate the expected fall in rates, and why?
         (b) A year later, the central bank has cut its policy rate by 1 percentage point, yet the 10-year yield has risen. Give two possible explanations.
     answer:
       zh-cn: |-
-        (a) $4.3\% - 0.5 = 3.8\%$。它比当前的 5% 低 1.2 个百分点，说明市场预期央行以后会降息。
+        (a) $4.3\% - 0.5 = 3.8\%$。它比当前的 5% 低 1.2 个百分点，说明市场预期央行以后会降息。评论员低估了预期的降息幅度：他把收益率曲线的斜率直接当作预期，忽略了期限溢价。期限溢价使 10 年期收益率高于预期的平均短期利率，所以曲线倒挂的幅度小于预期的降息幅度。
         (b) 例如：(1) 市场对未来短期利率的预期上升了：通胀预期上升，或者经济比预期强，市场认为以后降息会更少、甚至会再加息；(2) 期限溢价上升了：政府赤字扩大使长期国债供给增加（[[2.6]]），或者对通胀和利率的不确定性增加，投资者要求更多的补偿。长期利率取决于对整个未来的预期和期限溢价，而不只是当前的政策利率。
       en: |-
-        (a) $4.3\% - 0.5 = 3.8\%$. This is 1.2 percentage points below the current 5%, so the market expects the central bank to cut rates later.
+        (a) $4.3\% - 0.5 = 3.8\%$. This is 1.2 percentage points below the current 5%, so the market expects the central bank to cut rates later. The commentator understates the expected cuts: he reads the slope of the yield curve directly as the expectation and ignores the term premium. The term premium makes the 10-year yield higher than the expected average short rate, so the curve is less inverted than the expected fall in rates.
         (b) For example: (1) expected future short rates rose: inflation expectations went up, or the economy was stronger than expected, so the market now expects fewer cuts or even new increases; (2) the term premium rose: larger government deficits increased the supply of long Treasuries ([[2.6]]), or uncertainty about inflation and rates grew, so investors demand more compensation. Long rates depend on expectations about the whole future and on the term premium, not only on the current policy rate.
     rubric:
       zh-cn:
-        - "(a) 约 3.8%，预期降息。"
+        - "(a) 约 3.8%，指出评论员忽略期限溢价、低估了预期的降息幅度。"
         - "(b) 两种合理的解释，分别对应预期和期限溢价。"
       en:
-        - "(a) About 3.8%; cuts expected."
+        - "(a) About 3.8%; points out that the commentator ignores the term premium and understates the expected cuts."
         - "(b) Two reasonable explanations, one about expectations and one about the term premium."
 
   - id: Q4

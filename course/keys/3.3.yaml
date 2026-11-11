@@ -51,6 +51,11 @@ common_errors:
       把远期利率当作简单的两个即期利率之差，或者以为远期利率就是市场对未来利率的预测。
     en: |-
       Treating the forward rate as a simple difference between two spot rates, or as the market's forecast of the future rate.
+  - questions: [Q1]
+    zh-cn: |-
+      直接比较按不同复利频率报价的收益率。每半年复利的 4.5% 相当于每年复利约 4.55%，要先换算成同一种复利方式。
+    en: |-
+      Comparing yields quoted with different compounding directly. 4.5% compounded semiannually equals about 4.55% compounded annually; convert to the same compounding first.
 
 questions:
   # ---------- Check questions (随堂题) ----------

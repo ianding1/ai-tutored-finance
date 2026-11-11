@@ -291,22 +291,22 @@ questions:
       zh-cn: |-
         两种资产互不相关，预期收益都是 8%，波动率都是 30%。
         (a) 用 $G \approx \mu - \frac{\sigma^2}{2}$ 求只持有一种资产时的长期复合增长率，以及每年再平衡、各持有一半时的复合增长率。
-        (b) 组合的预期收益没有提高，复合增长率为什么提高了？如果买入后从不再平衡，这个好处为什么会逐渐消失？
+        (b) 一位投资者说：“两种资产的预期收益都是 8%，组合的预期收益还是 8%，所以分散化只是让波动小一些，对长期财富没有好处。”评价这个说法。如果买入后从不再平衡，结论会怎样？
       en: |-
         Two assets are uncorrelated, each with an expected return of 8% and a volatility of 30%.
         (a) Use $G \approx \mu - \frac{\sigma^2}{2}$ to find the long-run compound growth rate of holding one asset, and of holding half in each, rebalanced every year.
-        (b) The portfolio's expected return did not rise; why did its compound growth rate rise? If the portfolio is never rebalanced after purchase, why does this benefit gradually disappear?
+        (b) An investor says: "Both assets have an expected return of 8%, and so does the portfolio, so diversification only makes the swings smaller and does nothing for long-run wealth." Evaluate this statement. What changes if the portfolio is never rebalanced after purchase?
     answer:
       zh-cn: |-
         (a) 单一资产：$8\% - \frac{(30\%)^2}{2} = 3.5\%$。各一半：标准差 $\sqrt{2 \times (0.5 \times 30\%)^2} \approx 21.21\%$，复合增长率 $8\% - \frac{21.21\%^2}{2} \approx 5.75\%$。
-        (b) 波动拖累与方差成正比。分散化把方差从 900 降到 450，拖累减半，预期收益不变，所以复合增长率提高。这需要定期再平衡：卖出涨得多的、买入跌得多的，使两者的权重回到一半。如果从不再平衡，涨得多的资产占比越来越大，组合逐渐接近只持有一种资产，波动又回到接近 30%，好处随之消失。
+        (b) 这个说法错了。长期财富的增长取决于复合增长率，而不是预期收益。波动拖累与方差成正比。分散化把方差从 900 降到 450，拖累减半，预期收益不变，所以复合增长率提高。这需要定期再平衡：卖出涨得多的、买入跌得多的，使两者的权重回到一半。如果从不再平衡，涨得多的资产占比越来越大，组合逐渐接近只持有一种资产，波动又回到接近 30%，好处随之消失。
       en: |-
         (a) One asset: $8\% - \frac{(30\%)^2}{2} = 3.5\%$. Half in each: standard deviation $\sqrt{2 \times (0.5 \times 30\%)^2} \approx 21.21\%$, compound growth $8\% - \frac{21.21\%^2}{2} \approx 5.75\%$.
-        (b) The drag is proportional to the variance. Diversification cuts the variance from 900 to 450, halving the drag with the same expected return, so compound growth rises. This needs regular rebalancing: selling what rose more and buying what fell more to bring the weights back to half. Without rebalancing, the asset that rises more takes a growing share, the portfolio drifts toward holding one asset, volatility returns toward 30%, and the benefit fades.
+        (b) The statement is wrong. Long-run wealth grows at the compound growth rate, not the expected return. The drag is proportional to the variance. Diversification cuts the variance from 900 to 450, halving the drag with the same expected return, so compound growth rises. This needs regular rebalancing: selling what rose more and buying what fell more to bring the weights back to half. Without rebalancing, the asset that rises more takes a growing share, the portfolio drifts toward holding one asset, volatility returns toward 30%, and the benefit fades.
     rubric:
       zh-cn:
         - "(a) 3.5% 和约 5.75%。"
-        - "(b) 用方差降低解释，并说明再平衡的作用。"
+        - "(b) 指出长期财富取决于复合增长率，分散化降低方差、减少波动拖累；并说明再平衡的作用。同意投资者的说法：需要订正。"
       en:
         - "(a) 3.5% and about 5.75%."
-        - "(b) Explains through the lower variance and the role of rebalancing."
+        - "(b) Points out that long-run wealth depends on the compound growth rate and that diversification lowers the variance and so the volatility drag; explains the role of rebalancing. Agreeing with the investor: needs revision."
