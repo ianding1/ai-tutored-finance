@@ -26,9 +26,9 @@ common_errors:
       Treating a same-period correlation as a relation that can be used to earn money, ignoring that foreseeable growth is already in prices and prices react only to surprises.
   - questions: [Q5]
     zh-cn: |-
-      以为每家银行自己最清楚该持有多少流动资产，所以市场的结果就是最优的。一家银行出问题时挤兑会传到其他银行，这部分成本由别人承担，是负外部性，银行会持有得太少。
+      以为降低成本的技术一定使采用它的公司长期更赚钱。在可以自由进入的行业，所有人都能使用的技术带来的利润会吸引进入，价格下降到新的成本最低点，好处归消费者；只有专利等进入壁垒才能使公司长期获益。
     en: |-
-      Thinking each bank knows best how many liquid assets to hold, so the market outcome is optimal. When one bank gets into trouble the run spreads to others, a cost borne by others: a negative externality, so banks hold too little.
+      Thinking a cost-cutting technology must make the firms using it more profitable in the long run. With free entry, profits from a technology everyone can use attract entry, the price falls to the new minimum cost and consumers gain; only barriers to entry such as patents let firms gain in the long run.
   - questions: [Q6]
     zh-cn: |-
       用名义利率和实际增长率比较，得出债务比例会无限上升。债务和 GDP 都是名义量，要比较名义利率和名义增长率；利率低于名义增长率时，比例趋近一个有限的值 $\frac{d(1+g)}{g-r}$。
@@ -181,24 +181,24 @@ questions:
   - id: Q5
     kind: quiz
     part: judge
-    concepts: [externality, bank-run, fractional-reserve-banking]
+    concepts: [total-factor-productivity, perfect-competition, long-run, economic-profit, consumer-surplus]
     question:
       zh-cn: |-
-        一家银行发生挤兑时，存款人会担心其他银行也有问题，到其他银行取款。每家银行在决定持有多少现金和其他容易变现的资产时，只考虑自己的成本和收益。在这种情况下，银行自愿持有的这类资产，会少于对整个社会最优的水平。
+        一个完全竞争的行业，厂商可以自由进入和退出，投入品的价格不受行业规模影响。现在出现了一项新技术，所有现有的和新进入的厂商都可以免费使用，它使每单位产品的成本降低 20%。长期中，这项技术带来的好处几乎全部归消费者，行业中的公司不会因此获得持续的经济利润。
       en: |-
-        When one bank suffers a run, depositors worry that other banks have problems too and withdraw from them as well. Each bank decides how much cash and other easily sold assets to hold by weighing only its own costs and benefits. In this situation, banks voluntarily hold less of such assets than is best for society as a whole.
+        In a perfectly competitive industry, firms can enter and exit freely, and input prices do not depend on the size of the industry. A new technology appears that all existing firms and new entrants can use for free, and it cuts the cost of each unit by 20%. In the long run almost all of the gain from this technology goes to consumers, and the firms in the industry earn no lasting economic profit from it.
     answer:
       zh-cn: |-
-        真。持有现金和容易变现的资产对银行有成本（收益低于贷款），好处是降低自己被挤兑和被迫贱卖资产的风险。但一家银行出问题时，挤兑会传到其他银行，这部分损失落在别的银行和它们的存款人身上，这家银行自己不承担：这是一种负外部性，和污染一样。每家银行只按自己的边际收益和边际成本决定持有多少，没有算上它给别人带来的风险，所以持有的流动资产少于社会最优。这是监管要求银行持有最低流动性和资本、以及央行充当最后贷款人的理由之一。（存款保险会进一步削弱银行自己持有流动性的动机，但题目的结论不依赖它。）
+        真。技术刚出现时，价格还没有变，成本降低使厂商获得正的经济利润。但所有厂商都能免费使用这项技术，新厂商会进入，供给增加，价格下降，直到经济利润回到 0。长期中价格降到新的、低 20% 左右的平均成本最低点，产量增加：成本的节省以更低的价格和更多的购买转给了消费者，消费者剩余增加。公司只在调整期间获得暂时的利润。要使公司长期获益，需要有阻止别人使用这项技术的东西，例如专利或其他进入壁垒。
       en: |-
-        True. Holding cash and easily sold assets costs a bank something (they earn less than loans), and the benefit is a lower risk of a run and of having to sell assets cheaply. But when one bank gets into trouble, the run spreads to other banks, and that loss falls on those banks and their depositors, not on the bank itself: it is a negative externality, like pollution. Each bank sets its holdings by its own marginal benefit and marginal cost, without counting the risk it creates for others, so it holds fewer liquid assets than is socially optimal. This is one reason regulators require banks to hold minimum liquidity and capital, and why the central bank acts as lender of last resort. (Deposit insurance further weakens banks' own incentive to hold liquidity, but the conclusion does not depend on it.)
+        True. When the technology first appears the price has not yet changed, so lower costs give firms a positive economic profit. But since every firm can use the technology for free, new firms enter, supply rises and the price falls until economic profit is back to 0. In the long run the price falls to the new minimum of average cost, about 20% lower, and output rises: the cost saving passes to consumers through a lower price and more purchases, raising consumer surplus. Firms earn only a temporary profit during the adjustment. For firms to gain in the long run, something must stop others from using the technology, such as a patent or another barrier to entry.
     rubric:
       zh-cn:
-        - "判断为真，并指出挤兑传染给其他银行的成本由别人承担，是负外部性；银行只按自己的成本和收益决定，因此持有的流动资产少于社会最优。"
-        - "判断为假（以为银行自己最清楚该持有多少，市场结果就是最优的），或者只说“银行会冒险”而没有说明外部成本：需要订正。只写判断：需要订正。"
+        - "判断为真，并说明短期的正利润吸引进入，价格下降到新的成本最低点，经济利润回到 0，好处通过更低的价格归消费者；指出暂时利润或专利等例外也可以。"
+        - "判断为假（以为成本降低一定使公司长期更赚钱），或只说“完全竞争利润为 0”而没有说明价格怎样下降、好处为什么归消费者：需要订正。只写判断：需要订正。"
       en:
-        - "States true and points out that the cost of a run spreading to other banks is borne by others, a negative externality; each bank decides by its own costs and benefits, so it holds fewer liquid assets than is socially optimal."
-        - "Stating false (thinking banks know best how much to hold, so the market outcome is optimal), or saying only that banks take risks without explaining the external cost: needs revision. A verdict alone: needs revision."
+        - "States true and explains that the short-run profit attracts entry, the price falls to the new minimum cost, economic profit returns to 0, and the gain reaches consumers through a lower price; mentioning the temporary profit or exceptions such as patents is also fine."
+        - "Stating false (thinking lower costs must make firms more profitable in the long run), or saying only that profit is zero under perfect competition without explaining how the price falls and why consumers gain: needs revision. A verdict alone: needs revision."
 
   - id: Q6
     kind: quiz
