@@ -239,7 +239,7 @@ Quizzes also follow the exam rules in the author's curriculum ("阶段考试"):
 - For each question, ask "can it be answered by recalling an example from a lesson?" and rework it
   if so, for example by changing the situation, the known facts or the goal of the decision. Adapting
   an exercise with a new extension is fine.
-- Every numeric answer is in `expected` and recomputed in `course/verify/E<n>.py`.
+- Every numeric answer is in `expected` and recomputed in `course/verify/T<n>.py`.
 - The site's quizzes are for every learner; do not target one learner's weak points.
 
 ## Writing conventions
