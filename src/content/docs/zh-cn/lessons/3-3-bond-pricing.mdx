@@ -9,7 +9,6 @@ import Def from '../../../../components/Def.astro';
 import Figure from '../../../../components/Figure.astro';
 import Check from '../../../../components/Check.astro';
 import Exercises from '../../../../components/Exercises.astro';
-import CheckAll from '../../../../components/CheckAll.astro';
 import BondPrice from '../../../../components/widgets/BondPrice.astro';
 
 ## 债券的现金流 [#bonds]
@@ -87,8 +86,6 @@ $f_{1,2}$ 叫从第 1 年到第 2 年的<Def id="forward-rate">远期利率</Def
 - 收益率不变时，价格向面值靠拢，持有收益等于到期收益率；但到期收益率假设持有到期、不违约、票息按同样收益率再投资。
 - 零息债的收益率是即期利率；附息债券的每笔现金流应按各自期限的即期利率折现，否则存在套利。
 - 远期利率 $f_{1,2}$ 满足 $(1 + s_2)^2 = (1 + s_1)(1 + f_{1,2})$，可以今天锁定。
-
-<CheckAll />
 
 ## 练习题 [#exercises]
 

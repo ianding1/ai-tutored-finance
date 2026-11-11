@@ -38,6 +38,9 @@ def results():
     r["Q3.d0"], r["Q3.d1"] = 100 / 1000 * 365, 160 / 1200 * 365
 
     r["Q4.a"], r["Q4.b"] = 100 * (100 - 120) / 1000, 100 * (100 - 40) / 1000
+    # Values that the questions now give or no longer ask for.
+    for k in ['C2.ni', 'C2.cfo', 'C3.dep4', 'C3.dep6', 'C3.diff', 'C4.adj', 'C4.share']:
+        del r[k]
     return r
 
 

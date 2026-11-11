@@ -31,6 +31,9 @@ def results():
     r["Q3.free"] = 3650 / 365 * (60 - 40)
 
     r["Q4.cr"], r["Q4.qr"] = 500 / 400, (50 + 150) / 400
+    # Values that the questions now give or no longer ask for.
+    for k in ['C1.roe', 'C1.mb', 'C1.tb', 'C1.lb', 'C2.r10', 'C2.r2', 'C3.ep', 'C4.c0', 'C4.c1']:
+        del r[k]
     return r
 
 

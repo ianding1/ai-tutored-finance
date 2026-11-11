@@ -353,8 +353,8 @@ def check_keys():
                         err(where, f"'correct' must be one of {', '.join(letters)}")
                     for n, c in enumerate(choices if isinstance(choices, list) else []):
                         for lang in LANGS:
-                            if not isinstance(c, dict) or not str(c.get(lang) or "").strip():
-                                err(where, f"choice {n + 1} has no text in {lang}")
+                            if not isinstance(c, dict) or not isinstance(c.get(lang), str) or not c[lang].strip():
+                                err(where, f"choice {n + 1} needs text (a string) in {lang}")
                 for f in ("expected", "rubric"):
                     if f in q:
                         err(where, f"a check question answered on the page has no '{f}'")

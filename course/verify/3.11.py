@@ -36,6 +36,9 @@ def results():
     r["Q3.a"], r["Q3.b"] = 2 / 0.20, 2 / 0.02
 
     r["Q4.y36"], r["Q4.y15"] = 100 / 36, 100 / 15
+    # Values that the questions now give or no longer ask for.
+    for k in ['C1.p', 'C2.pe', 'C3.a', 'C3.b', 'C4.lo', 'C4.hi', 'C4.clo', 'C4.chi']:
+        del r[k]
     return r
 
 

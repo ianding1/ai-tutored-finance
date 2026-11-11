@@ -8,6 +8,8 @@
 #   - one of its `concepts` is tested by a question being graded, or
 #   - one of its `questions` is being graded.
 # common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`;
+# `answer` is the explanation shown after a wrong answer. They have no expected and no rubric.
 
 lesson: "3.1"
 

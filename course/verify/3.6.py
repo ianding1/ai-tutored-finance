@@ -32,6 +32,9 @@ def results():
     r["Q4.inc"] = 1000 * 1.03 * 0.015 + 30
 
     r["Q5.dp"] = -4.8 * 2
+    # Values that the questions now give or no longer ask for.
+    for k in ['C1.p', 'C1.y', 'C3.t24', 'C3.t37', 'C4.be', 'C4.nom', 'C4.tips']:
+        del r[k]
     return r
 
 

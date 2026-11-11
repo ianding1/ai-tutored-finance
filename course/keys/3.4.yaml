@@ -8,6 +8,8 @@
 #   - one of its `concepts` is tested by a question being graded, or
 #   - one of its `questions` is being graded.
 # common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`;
+# `answer` is the explanation shown after a wrong answer. They have no expected and no rubric.
 
 lesson: "3.4"
 
@@ -57,97 +59,91 @@ questions:
     concepts: [macaulay-duration]
     question:
       zh-cn: |-
-        一位投资者 5 年后要用一笔钱。他可以每年买 1 年期国债、到期再滚动，也可以买 30 年期国债、5 年后卖出。如果刚买入利率就大幅下降并保持在低位，两种做法各受到什么影响？反过来利率大幅上升呢？
+        一位投资者 5 年后要用一笔钱。刚买入，利率就大幅下降并一直保持在低位。哪种做法的结果会好于原先的预期？
       en: |-
-        An investor will need some money in 5 years. He can buy 1-year Treasury bills and roll them over each year, or buy a 30-year Treasury bond and sell it after 5 years. If rates fall sharply just after he buys and stay low, how is each approach affected? And if rates rise sharply instead?
+        An investor will need some money in 5 years. Just after he buys, rates fall sharply and stay low. Which approach ends up better than originally expected?
+    choices:
+      - zh-cn: 每年买 1 年期国债，到期再滚动
+        en: Buying 1-year Treasury bills each year and rolling them over
+      - zh-cn: 买 30 年期国债，5 年后卖出
+        en: Buying a 30-year Treasury bond and selling it after 5 years
+      - zh-cn: 两种做法都好于预期
+        en: Both approaches
+      - zh-cn: 两种做法都差于预期
+        en: Neither approach
+    correct: B
     answer:
       zh-cn: |-
-        利率下降：滚动 1 年期国债的人以后只能按低利率再投资，5 年后的钱少于原先预期（再投资风险）；持有 30 年期国债的人，债券价格大幅上涨，5 年后卖出得到的钱多于预期（价格风险带来收益）。
-        利率上升：滚动的人再投资得到更高的利率，结果好于预期；30 年期国债价格大跌，5 年后卖出时亏损。两种做法都有风险，只是方向相反。
+        (B)。利率下降使 30 年期国债的价格大幅上涨，5 年后卖出得到的钱多于预期；滚动 1 年期国债的人以后只能按低利率再投资，结果差于预期（再投资风险）。利率上升时正好反过来。
       en: |-
-        Rates fall: the investor rolling 1-year bills must reinvest at low rates, so he has less than expected after 5 years (reinvestment risk); the holder of the 30-year bond sees its price rise sharply and gets more than expected when selling after 5 years (price risk working in his favor).
-        Rates rise: the roller reinvests at higher rates and does better than expected; the 30-year bond's price falls sharply and is sold at a loss after 5 years. Both approaches are risky, in opposite directions.
-    rubric:
-      zh-cn:
-        - "正确区分两种做法面临的再投资风险和价格风险，以及在两种情形下的方向。"
-      en:
-        - "Correctly identifies reinvestment risk and price risk for the two approaches and their direction in both cases."
+        (B). Falling rates push the 30-year bond's price up sharply, so selling it after 5 years brings more than expected; the investor rolling 1-year bills must reinvest at low rates and ends up with less than expected (reinvestment risk). Rising rates reverse both results.
 
   - id: C2
     kind: check
     section: duration
     concepts: [macaulay-duration, modified-duration]
-    expected: { d: "2.74", dp: "-1.27" }
     question:
       zh-cn: |-
-        一张面值 1000、票面利率 10%、每年付息、3 年到期的债券，收益率为 8%，价格为 1051.54。(a) 求它的 Macaulay 久期。为什么小于 3 年？(b) 如果收益率升到 8.5%，用修正久期估计价格变化的百分比。
+        收益率相同时，在所有 10 年后到期的国债中，10 年期零息债的价格对收益率的变化最敏感。
       en: |-
-        A bond with face value 1000, a 10% annual coupon and 3 years to maturity yields 8% and is priced at 1051.54. (a) Find its Macaulay duration. Why is it less than 3 years? (b) If the yield rises to 8.5%, use modified duration to estimate the percentage price change.
+        At the same yield, among all Treasuries maturing in 10 years, the 10-year zero-coupon bond's price is the most sensitive to changes in yield.
+    correct: true
     answer:
       zh-cn: |-
-        (a) 各期现值：$\frac{100}{1.08} \approx 92.59$，$\frac{100}{1.08^2} \approx 85.73$，$\frac{1100}{1.08^3} \approx 873.22$。$D = \frac{1 \times 92.59 + 2 \times 85.73 + 3 \times 873.22}{1051.54} \approx 2.74$ 年。前两年的票息较早收回，把平均回收时间拉到 3 年以下。
-        (b) $D^* = \frac{2.74}{1.08} \approx 2.54$，$\frac{\Delta P}{P} \approx -2.54 \times 0.5\% \approx -1.27\%$。
+        对。零息债的全部现金流都在第 10 年，久期等于 10 年；附息债券有一部分现金较早收回，久期短于 10 年。修正久期越长，价格对收益率越敏感。
       en: |-
-        (a) Present values: $\frac{100}{1.08} \approx 92.59$, $\frac{100}{1.08^2} \approx 85.73$, $\frac{1100}{1.08^3} \approx 873.22$. $D = \frac{1 \times 92.59 + 2 \times 85.73 + 3 \times 873.22}{1051.54} \approx 2.74$ years. The coupons in the first two years come back early and pull the average below 3 years.
-        (b) $D^* = \frac{2.74}{1.08} \approx 2.54$, so $\frac{\Delta P}{P} \approx -2.54 \times 0.5\% \approx -1.27\%$.
-    rubric:
-      zh-cn:
-        - "(a) 约 2.74 年，并解释。"
-        - "(b) 约 −1.27%（写作 -1.27 或 −1.27 均可）。"
-      en:
-        - "(a) About 2.74 years, with the reason."
-        - "(b) About −1.27% (written -1.27 or −1.27)."
+        True. All of the zero's cash flow comes in year 10, so its duration is 10 years; a coupon bond returns some cash earlier, so its duration is shorter than 10 years. The longer the modified duration, the more sensitive the price is to the yield.
 
   - id: C3
     kind: check
     section: convexity
     concepts: [convexity, modified-duration]
     widget: { id: duration-convexity, set: { n: 10, dy: 2 } }
-    expected: { a: "-14.05", b: "-15.44" }
     question:
       zh-cn: |-
-        在 [[fig:3-1]] 中取 10 年期债券。收益率上升 2 个百分点时，价格的实际变化和久期估计各是多少？一位基金经理只用久期估计利率上下各变化 2 个百分点的影响，他会高估还是低估下跌的风险和上涨的收益？
+        在 [[fig:3-1]] 中，把收益率的变化固定为上升 2 个百分点，再把债券的期限从 10 年拉长到 30 年。久期估计与实际价格变化之间的差距会：
       en: |-
-        In [[fig:3-1]], take the 10-year bond. When the yield rises by 2 points, what are the exact price change and the duration estimate? A fund manager uses duration alone to estimate the effect of yields rising or falling by 2 points. Does he overstate or understate the downside and the upside?
+        In [[fig:3-1]], fix the change in yield at a 2-point rise and lengthen the bond's maturity from 10 to 30 years. The gap between the duration estimate and the exact price change:
+    choices:
+      - zh-cn: 变大
+        en: Grows
+      - zh-cn: 变小
+        en: Shrinks
+      - zh-cn: 不变，因为收益率的变化相同
+        en: Stays the same, because the change in yield is the same
+      - zh-cn: 消失，因为长期债券的价格曲线接近直线
+        en: Disappears, because the price curve of a long bond is close to a straight line
+    correct: A
     answer:
       zh-cn: |-
-        实际变化约 -14.05%，久期估计约 -15.44%。
-        价格曲线是凸的，久期的直线始终在曲线下方：他高估了利率上升时的损失，也低估了利率下降时的收益（下降 2 个百分点时，实际约 +17.06%，久期估计只有 +15.44%）。
+        (A)。期限越长，凸性越大，价格曲线越弯，直线（久期）近似的误差越大。所以长期债券在利率大幅变化时，更需要加上凸性的修正。
       en: |-
-        The exact change is about -14.05% and the duration estimate about -15.44%.
-        The price curve is convex and the duration line lies below it everywhere: he overstates the loss when yields rise and understates the gain when they fall (for a 2-point fall, the exact change is about +17.06% against a duration estimate of only +15.44%).
-    rubric:
-      zh-cn:
-        - "约 −14.05% 和 −15.44%（写作 - 或 − 均可）。"
-        - "说明高估下跌、低估上涨，并用凸性解释。"
-      en:
-        - "About −14.05% and −15.44% (written with - or −)."
-        - "Explains that duration overstates the downside and understates the upside, by convexity."
+        (A). The longer the maturity, the larger the convexity and the more the price curve bends, so the straight-line (duration) approximation errs more. Long bonds therefore need the convexity correction more when rates move a lot.
 
   - id: C4
     kind: check
     section: immunization
     concepts: [immunization, macaulay-duration]
-    expected: { a6: "7475.60", l6: "7472.58" }
     question:
       zh-cn: |-
-        5 年后要支付 10,000，收益率曲线平坦在 5%，负债现值为 7835.26。一位经理把这笔钱一半买 2 年期零息债、一半买 8 年期零息债，组合久期为 5 年。买入后收益率立即平行上升到 6%。资产和负债的现值各变为多少？资产为什么仍然足够？
+        5 年后要支付一笔确定的钱。下列哪个组合（今天的价值都等于这笔负债的现值）最接近免疫？
       en: |-
-        A payment of 10,000 is due in 5 years; the yield curve is flat at 5%, and the liability's present value is 7835.26. A manager puts half of this money in a 2-year zero and half in an 8-year zero, giving a portfolio duration of 5 years. Right after the purchase, yields shift up in parallel to 6%. What do the present values of the assets and the liability become? Why are the assets still enough?
+        A fixed amount must be paid in 5 years. Which portfolio (each worth today the present value of the liability) comes closest to immunization?
+    choices:
+      - zh-cn: 全部买 1 年期国债，每年滚动
+        en: All in 1-year Treasury bills, rolled over every year
+      - zh-cn: 全部买 30 年期国债
+        en: All in 30-year Treasury bonds
+      - zh-cn: Macaulay 久期为 5 年的债券组合
+        en: A bond portfolio with a Macaulay duration of 5 years
+      - zh-cn: 5 年后到期、票面利率很高的附息债券
+        en: A coupon bond maturing in 5 years with a very high coupon rate
+    correct: C
     answer:
       zh-cn: |-
-        资产：$3917.63 \times \left(\frac{1.05}{1.06}\right)^2 + 3917.63 \times \left(\frac{1.05}{1.06}\right)^8 \approx 7475.60$；负债：$\frac{10000}{1.06^5} \approx 7472.58$。
-        久期相等，两者下降的幅度几乎相同；资产组合（2 年和 8 年）的凸性大于负债（5 年零息债），所以利率变化后资产的价值略高于负债。
+        (C)。免疫要求资产的久期等于负债的久期（5 年），这样一次利率变化带来的价格变化和再投资收益的变化相互抵消。票面利率很高的 5 年期债券到期日虽然相同，但久期短于 5 年，主要承担再投资风险。
       en: |-
-        Assets: $3917.63 \times \left(\frac{1.05}{1.06}\right)^2 + 3917.63 \times \left(\frac{1.05}{1.06}\right)^8 \approx 7475.60$; liability: $\frac{10000}{1.06^5} \approx 7472.58$.
-        With equal durations, both fall by almost the same amount; the asset portfolio (2 and 8 years) has more convexity than the liability (a 5-year zero), so after the rate change the assets are worth slightly more than the liability.
-    rubric:
-      zh-cn:
-        - "约 7475.60 和 7472.58。"
-        - "用久期相等和资产凸性更大解释。"
-      en:
-        - "About 7475.60 and 7472.58."
-        - "Explains with equal durations and greater asset convexity."
+        (C). Immunization requires the assets' duration to equal the liability's (5 years), so that the price effect and the reinvestment effect of a rate change offset each other. A high-coupon 5-year bond has the same maturity date but a duration shorter than 5 years, so it carries mainly reinvestment risk.
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1
@@ -208,9 +204,9 @@ questions:
     expected: { roll: "9083.22", long: "11009.32", match: "10016.65" }
     question:
       zh-cn: |-
-        沿用 [[check:C4]]：5 年后要支付 10,000，今天有 7835.26，收益率曲线平坦在 5%。买入后收益率立即平行下降到 3% 并保持不变。比较三种做法在第 5 年能得到多少：(i) 每年滚动 1 年期零息债；(ii) 买 10 年期零息债，第 5 年卖出；(iii) 一半 2 年期、一半 8 年期零息债，到期的钱按当时的利率再投资，第 5 年卖出剩下的债券。哪种做法最接近 10,000？为什么？
+        5 年后要支付 10,000，今天有 7835.26，收益率曲线平坦在 5%。买入后收益率立即平行下降到 3% 并保持不变。比较三种做法在第 5 年能得到多少：(i) 每年滚动 1 年期零息债；(ii) 买 10 年期零息债，第 5 年卖出；(iii) 一半 2 年期、一半 8 年期零息债，到期的钱按当时的利率再投资，第 5 年卖出剩下的债券。哪种做法最接近 10,000？为什么？
       en: |-
-        Continue [[check:C4]]: 10,000 is due in 5 years, 7835.26 is available today, and the yield curve is flat at 5%. Right after buying, yields shift down in parallel to 3% and stay there. Compare how much each approach has in year 5: (i) roll 1-year zeros every year; (ii) buy a 10-year zero and sell it in year 5; (iii) half in a 2-year zero and half in an 8-year zero, reinvesting maturing money at the prevailing rate and selling the remaining bond in year 5. Which approach comes closest to 10,000? Why?
+        10,000 is due in 5 years, 7835.26 is available today, and the yield curve is flat at 5%. Right after buying, yields shift down in parallel to 3% and stay there. Compare how much each approach has in year 5: (i) roll 1-year zeros every year; (ii) buy a 10-year zero and sell it in year 5; (iii) half in a 2-year zero and half in an 8-year zero, reinvesting maturing money at the prevailing rate and selling the remaining bond in year 5. Which approach comes closest to 10,000? Why?
     answer:
       zh-cn: |-
         (i) $7835.26 \times 1.03^5 \approx 9083.22$，不够：再投资风险。

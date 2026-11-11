@@ -9,7 +9,6 @@ import Def from '../../../../components/Def.astro';
 import Figure from '../../../../components/Figure.astro';
 import Check from '../../../../components/Check.astro';
 import Exercises from '../../../../components/Exercises.astro';
-import CheckAll from '../../../../components/CheckAll.astro';
 import GordonPrice from '../../../../components/widgets/GordonPrice.astro';
 
 ## 股票的内在价值 [#intrinsic-value]
@@ -74,7 +73,7 @@ $$
 P_0 = \frac{E_1}{r} + \text{PVGO}
 $$
 
-把利润留下来投资，股价一定更高吗？<Ref check="C3" /> 用一个例子说明。
+把利润留下来投资，股价一定更高吗？<Ref check="C3" /> 讨论这个问题。
 
 <Check id="C3" />
 
@@ -100,8 +99,6 @@ DDM 的结论对假设很敏感：股权成本和长期增长率都只能估计�
 - Gordon 增长模型：$P_0 = \frac{D_1}{r - g}$，要求 $g < r$；预期收益 $r = \frac{D_1}{P_0} + g$。价格对 $r - g$ 非常敏感。
 - 可持续增长率 $g = b \times \text{ROE}$；$P_0 = \frac{E_1}{r} + \text{PVGO}$。
 - 多阶段模型先逐年估计高增长期的股息，再用终值表示以后的价值；不派息或主要回购的公司，可以用股东得到的全部现金估值。
-
-<CheckAll />
 
 ## 练习题 [#exercises]
 

@@ -8,6 +8,8 @@
 #   - one of its `concepts` is tested by a question being graded, or
 #   - one of its `questions` is being graded.
 # common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`;
+# `answer` is the explanation shown after a wrong answer. They have no expected and no rubric.
 
 lesson: "3.9"
 
@@ -65,83 +67,68 @@ questions:
     kind: check
     section: intrinsic-value
     concepts: [dividend-discount-model, cost-of-equity]
-    expected: { p0: "50" }
     question:
       zh-cn: |-
-        (a) 一只股票明年预期派息 2，一年后预期股价 52，股权成本 8%。按持有一年的思路，今天的价格是多少？
-        (b) 一家盈利的公司宣布：永远不派股息，也永远不以回购或任何其他方式把现金交给股东，公司也不会被收购或清算。按 DDM，它的股票值多少？为什么现实中不派息的公司的股票仍然有价值？
+        一家盈利的公司宣布：永远不派股息，也永远不以回购或任何其他方式把现金交给股东，公司也不会被收购或清算。按股利贴现模型，它的股票值多少？
       en: |-
-        (a) A stock is expected to pay a dividend of 2 next year and to trade at 52 in a year; the cost of equity is 8%. Valuing it as a one-year holding, what is today's price?
-        (b) A profitable company announces that it will never pay dividends, never return cash to shareholders through buybacks or in any other way, and will never be acquired or liquidated. By the DDM, what is its stock worth? Why do stocks of companies that pay no dividends still have value in reality?
+        A profitable company announces that it will never pay dividends, never return cash to shareholders through buybacks or in any other way, and will never be acquired or liquidated. By the dividend discount model, what is its stock worth?
+    choices:
+      - zh-cn: "0"
+        en: "0"
+      - zh-cn: 每股账面价值
+        en: Its book value per share
+      - zh-cn: 未来所有利润的现值
+        en: The present value of all its future profits
+      - zh-cn: 无法确定，取决于下一个买家愿意付多少
+        en: It cannot be determined; it depends on what the next buyer will pay
+    correct: A
     answer:
       zh-cn: |-
-        (a) $P_0 = \frac{2 + 52}{1.08} = 50$。
-        (b) 值 0：股东永远得不到任何现金，股价只能来自下一个买家愿意付的价钱，而下一个买家面对同样的问题，层层推下去没有任何现金支撑。现实中不派息的公司，投资者预期它将来会派息、回购，或者被收购、清算，股东最终会得到现金；现在不派息，往往是因为公司把利润用于回报更高的投资。
+        (A)。股东永远得不到任何现金，股价只能来自下一个买家愿意付的价钱，而下一个买家面对同样的问题，层层推下去没有任何现金支撑。现实中不派息的公司有价值，是因为投资者预期它将来会派息、回购，或者被收购、清算。
       en: |-
-        (a) $P_0 = \frac{2 + 52}{1.08} = 50$.
-        (b) Zero: shareholders never receive any cash, so the price could only come from what the next buyer would pay, and that buyer faces the same problem; down the chain nothing is backed by cash. In reality, investors expect a company that pays no dividends now to pay dividends or buy back shares later, or to be acquired or liquidated, so shareholders eventually receive cash; it pays none now usually because it invests its profit at higher returns.
-    rubric:
-      zh-cn:
-        - "(a) 50。"
-        - "(b) 价值为 0，并说明现实中投资者预期将来会得到现金。"
-      en:
-        - "(a) 50."
-        - "(b) Worth 0, explaining that in reality investors expect cash later."
+        (A). Shareholders never receive any cash, so the price could only come from what the next buyer would pay, and that buyer faces the same problem; down the chain nothing is backed by cash. In reality, companies that pay no dividends have value because investors expect dividends, buybacks, an acquisition or a liquidation later.
 
   - id: C2
     kind: check
     section: gordon
     concepts: [gordon-growth-model]
     widget: { id: gordon-price, set: { r: 9, g: 4 } }
-    expected: { p: "40", p2: "50", chg: "25" }
     question:
       zh-cn: |-
-        在 [[fig:2-1]] 中，设要求的收益率为 9%。(a) 读出增长率为 4% 和 5% 时的股价。增长率只提高 1 个百分点，股价变化百分之几？(b) 这对给高增长的股票估值有什么启示？
+        在 [[fig:2-1]] 中，设要求的收益率为 9%。先把增长率从 1% 提高到 2%，再把增长率从 7% 提高到 8%。两次股价变化的百分比相比：
       en: |-
-        In [[fig:2-1]], set the required return to 9%. (a) Read off the price with growth of 4% and of 5%. By what percentage does the price change when growth rises by only 1 percentage point? (b) What does this suggest about valuing high-growth stocks?
+        In [[fig:2-1]], set the required return to 9%. First raise growth from 1% to 2%, then raise it from 7% to 8%. Comparing the two percentage changes in price:
+    choices:
+      - zh-cn: 两次相同，因为增长率都提高了 1 个百分点
+        en: They are equal, because growth rose by 1 percentage point both times
+      - zh-cn: 第二次大得多
+        en: The second is much larger
+      - zh-cn: 第一次大得多
+        en: The first is much larger
+      - zh-cn: 两次都很小
+        en: Both are small
+    correct: B
     answer:
       zh-cn: |-
-        (a) $\frac{2}{0.09 - 0.04} = 40$，$\frac{2}{0.09 - 0.05} = 50$，股价上涨 25%。分母 $r - g$ 从 5 个百分点降到 4 个百分点，减少了五分之一。
-        (b) $g$ 越接近 $r$，价格对增长率的假设越敏感：增长预期的一点变化就使价格大幅变化。高增长股票的估值很大程度上取决于很难估计的长期增长率，所以估值的误差很大，股价也容易随增长预期的变化剧烈波动。
+        (B)。股价是 $\frac{D_1}{r - g}$：从 1% 到 2%，分母从 8 个百分点变为 7 个，股价上涨约 14%；从 7% 到 8%，分母从 2 个百分点变为 1 个，股价翻倍。$g$ 越接近 $r$，价格对增长率的假设越敏感。
       en: |-
-        (a) $\frac{2}{0.09 - 0.04} = 40$ and $\frac{2}{0.09 - 0.05} = 50$, a 25% rise in price. The denominator $r - g$ falls from 5 to 4 percentage points, by a fifth.
-        (b) The closer $g$ is to $r$, the more sensitive the price is to the growth assumption: a small change in expected growth moves the price a lot. The value of high-growth stocks depends heavily on a long-run growth rate that is hard to estimate, so valuation errors are large and prices can swing sharply as growth expectations change.
-    rubric:
-      zh-cn:
-        - "(a) 40 和 50，上涨 25%。"
-        - "(b) 说明敏感性和估值误差。"
-      en:
-        - "(a) 40 and 50; a 25% rise."
-        - "(b) Explains the sensitivity and valuation error."
+        (B). The price is $\frac{D_1}{r - g}$: from 1% to 2% the denominator goes from 8 to 7 percentage points and the price rises about 14%; from 7% to 8% it goes from 2 to 1, and the price doubles. The closer $g$ is to $r$, the more sensitive the price is to the growth assumption.
 
   - id: C3
     kind: check
     section: growth
     concepts: [sustainable-growth-rate, pvgo, payout-ratio, return-on-equity]
-    expected: { g: "7.2", p: "71.43", p8: "38.46" }
     question:
       zh-cn: |-
-        一家公司明年每股利润 5，股权成本 10%。如果它把利润全部派发、不再增长，股价为 $\frac{5}{0.10} = 50$。
-        (a) 如果它派发 40%、留存 60%，ROE 为 12%，可持续增长率和股价各是多少？
-        (b) 如果 ROE 只有 8%，同样留存 60%，股价是多少？什么条件下留存利润才能提高股价？
+        公司把更多的利润留下来再投资，增长率因此提高，股价就一定上升。
       en: |-
-        A company will earn 5 per share next year, and the cost of equity is 10%. If it paid out all its profit and stopped growing, the price would be $\frac{5}{0.10} = 50$.
-        (a) If it pays out 40% and retains 60%, with an ROE of 12%, what are the sustainable growth rate and the price?
-        (b) If ROE is only 8%, with the same 60% retained, what is the price? Under what condition does retaining profit raise the price?
+        If a company retains more of its profit to reinvest and its growth rate rises as a result, its stock price must go up.
+    correct: false
     answer:
       zh-cn: |-
-        (a) $g = 0.6 \times 12\% = 7.2\%$，$D_1 = 0.4 \times 5 = 2$，$P_0 = \frac{2}{0.10 - 0.072} \approx 71.43$，PVGO 约 21.43。
-        (b) $g = 0.6 \times 8\% = 4.8\%$，$P_0 = \frac{2}{0.10 - 0.048} \approx 38.46$，低于全部派发时的 50，PVGO 为负：公司增长了，股价却下降。只有新投资的回报（ROE）高于股权成本时，留存利润才提高股价；ROE 低于股权成本时，把钱留在公司里投资不如还给股东，股东自己可以获得 10% 的回报。
+        错。只有新投资的回报（ROE）高于股权成本时，留存利润才提高股价。ROE 低于股权成本时，把钱留在公司里投资不如还给股东，公司增长了，股价反而下降（PVGO 为负）。
       en: |-
-        (a) $g = 0.6 \times 12\% = 7.2\%$, $D_1 = 0.4 \times 5 = 2$, $P_0 = \frac{2}{0.10 - 0.072} \approx 71.43$, so PVGO is about 21.43.
-        (b) $g = 0.6 \times 8\% = 4.8\%$ and $P_0 = \frac{2}{0.10 - 0.048} \approx 38.46$, below the 50 with full payout, so PVGO is negative: the company grows, yet its price falls. Retaining profit raises the price only when new investment earns a return (ROE) above the cost of equity; when ROE is below it, the money is better returned to shareholders, who can earn 10% themselves.
-    rubric:
-      zh-cn:
-        - "(a) 7.2%，约 71.43。"
-        - "(b) 约 38.46，并说明 ROE 要高于股权成本。"
-      en:
-        - "(a) 7.2%; about 71.43."
-        - "(b) About 38.46, explaining that ROE must exceed the cost of equity."
+        False. Retaining profit raises the price only when new investment earns a return (ROE) above the cost of equity. When ROE is below the cost of equity, the money is better returned to shareholders; the company grows, but its price falls (PVGO is negative).
 
   - id: C4
     kind: check
@@ -149,23 +136,15 @@ questions:
     concepts: [gordon-growth-model, dividend-discount-model]
     question:
       zh-cn: |-
-        一家公司的股息过去几年每年增长 12%，股权成本为 9%。(a) 一位分析师用 $g = 12\%$ 代入 Gordon 公式，得到一个负的股价。错在哪里？(b) 多阶段模型怎样处理这家公司？第二阶段的增长率应满足什么条件？
+        一家公司的股息过去几年每年增长 12%，股权成本为 9%。把 $g = 12\%$ 代入 Gordon 公式得到一个负的股价，这说明这只股票没有价值。
       en: |-
-        A company's dividends have grown 12% a year in recent years, and its cost of equity is 9%. (a) An analyst plugs $g = 12\%$ into the Gordon formula and gets a negative price. What is wrong? (b) How does a multistage model handle this company? What condition should the growth rate of the second stage satisfy?
+        A company's dividends have grown 12% a year in recent years, and its cost of equity is 9%. Plugging $g = 12\%$ into the Gordon formula gives a negative price, which shows that the stock has no value.
+    correct: false
     answer:
       zh-cn: |-
-        (a) Gordon 公式由增长永续年金的求和得到，只在 $g < r$ 时成立；$g \ge r$ 时股息的现值之和发散，公式给出的负数没有意义。而且没有公司能永远以 12% 增长：那样它最终会比整个经济还大。
-        (b) 先逐年估计高增长期（例如今后 5 到 10 年）的股息，增长率可以逐步下降；然后从某一年起假设一个较低、能永远维持的增长率，用 Gordon 公式求终值再折现。第二阶段的增长率必须低于股权成本，而且不应高于经济的长期名义增长率。
+        错。Gordon 公式只在 $g < r$ 时成立；$g \ge r$ 时股息现值之和发散，公式给出的负数没有意义。而且没有公司能永远以 12% 增长。应该用多阶段模型：先逐年估计高增长期的股息，再假设一个较低、能永远维持的增长率计算终值。
       en: |-
-        (a) The Gordon formula comes from summing a growing perpetuity and holds only when $g < r$; when $g \ge r$ the sum of present values diverges, and the negative number the formula gives is meaningless. Besides, no company can grow at 12% forever: it would eventually be larger than the whole economy.
-        (b) Estimate the dividends of the high-growth period (for example, the next 5 to 10 years) year by year, possibly with growth slowing step by step; then, from some year on, assume a lower growth rate that can last forever, compute the terminal value with the Gordon formula and discount it. The second-stage growth rate must be below the cost of equity and should not exceed the economy's long-run nominal growth rate.
-    rubric:
-      zh-cn:
-        - "(a) 指出公式要求 $g < r$，以及高增长不能永远持续。"
-        - "(b) 说明两阶段的做法和长期增长率的条件。"
-      en:
-        - "(a) Points out that the formula needs $g < r$ and that high growth cannot last forever."
-        - "(b) Describes the two-stage approach and the condition on long-run growth."
+        False. The Gordon formula holds only when $g < r$; when $g \ge r$ the sum of present values diverges and the negative number is meaningless. Besides, no company can grow at 12% forever. A multistage model should be used: estimate the dividends of the high-growth years one by one, then compute a terminal value with a lower growth rate that can last forever.
 
   # ---------- Exercises (练习题) ----------
   - id: Q1
@@ -173,28 +152,28 @@ questions:
     level: B
     star: true
     concepts: [gordon-growth-model, geometric-series, growing-perpetuity]
-    expected: { r: "7", up: "100" }
+    expected: { r: "7", r2: "6" }
     question:
       zh-cn: |-
         (a) 由 $P_0 = \sum_{t=1}^{\infty} \frac{D_1(1 + g)^{t-1}}{(1 + r)^t}$ 推出 $P_0 = \frac{D_1}{r - g}$，并说明为什么需要 $g < r$。证明这时一年后的股价 $P_1 = P_0(1 + g)$。
-        (b) 一个股票市场的股息率为 2%，投资者预期股息每年增长 5%。按 Gordon 模型，预期收益率是多少？如果投资者要求的收益率下降 1 个百分点，增长预期不变，股价变化多少？
+        (b) 一个股票市场的股息率为 2%，投资者预期股息每年增长 5%。按 Gordon 模型，预期收益率是多少？如果股价随后上涨一倍，而股息和增长预期都不变，此后的预期收益率变为多少？这对在估值很高时买入的投资者意味着什么？
       en: |-
         (a) From $P_0 = \sum_{t=1}^{\infty} \frac{D_1(1 + g)^{t-1}}{(1 + r)^t}$, derive $P_0 = \frac{D_1}{r - g}$ and explain why $g < r$ is needed. Show that the price a year later is $P_1 = P_0(1 + g)$.
-        (b) A stock market has a dividend yield of 2%, and investors expect dividends to grow 5% a year. By the Gordon model, what is the expected return? If the return investors require falls by 1 percentage point with growth expectations unchanged, by how much does the price change?
+        (b) A stock market has a dividend yield of 2%, and investors expect dividends to grow 5% a year. By the Gordon model, what is the expected return? If prices then double while dividends and growth expectations stay the same, what does the expected return become? What does this mean for investors who buy when valuations are high?
     answer:
       zh-cn: |-
         (a) 这是首项 $\frac{D_1}{1 + r}$、公比 $q = \frac{1 + g}{1 + r}$ 的等比数列。$|q| < 1$，即 $g < r$ 时收敛，和为 $\frac{D_1}{1 + r} \cdot \frac{1}{1 - q} = \frac{D_1}{1 + r} \cdot \frac{1 + r}{r - g} = \frac{D_1}{r - g}$；$g \ge r$ 时各项不趋于 0，和发散。一年后的股价 $P_1 = \frac{D_2}{r - g} = \frac{D_1(1 + g)}{r - g} = P_0(1 + g)$：股价和股息以同样的速度增长。
-        (b) $r = 2\% + 5\% = 7\%$。要求的收益率降到 6% 时，$\frac{P_0'}{P_0} = \frac{0.07 - 0.05}{0.06 - 0.05} = 2$，股价上涨 100%。$r - g$ 只有 2 个百分点，要求收益率的一点变化就使股价大幅变化。
+        (b) $r = 2\% + 5\% = 7\%$。股价翻倍后股息率降为 1%，预期收益率 $1\% + 5\% = 6\%$。已经持有的人从上涨中获益，但此后买入的人预期收益更低：估值上升把未来的收益提前实现了。估值很高时买入，长期预期收益较低。
       en: |-
         (a) This is a geometric series with first term $\frac{D_1}{1 + r}$ and ratio $q = \frac{1 + g}{1 + r}$. It converges when $|q| < 1$, that is, $g < r$, with sum $\frac{D_1}{1 + r} \cdot \frac{1}{1 - q} = \frac{D_1}{1 + r} \cdot \frac{1 + r}{r - g} = \frac{D_1}{r - g}$; when $g \ge r$ the terms do not go to 0 and the sum diverges. The price a year later is $P_1 = \frac{D_2}{r - g} = \frac{D_1(1 + g)}{r - g} = P_0(1 + g)$: the price grows at the same rate as dividends.
-        (b) $r = 2\% + 5\% = 7\%$. If the required return falls to 6%, $\frac{P_0'}{P_0} = \frac{0.07 - 0.05}{0.06 - 0.05} = 2$, so the price rises 100%. With $r - g$ only 2 percentage points, a small change in the required return moves the price a lot.
+        (b) $r = 2\% + 5\% = 7\%$. After prices double the dividend yield is 1%, so the expected return is $1\% + 5\% = 6\%$. Existing holders gain from the rise, but those who buy afterwards expect less: the rise in valuation pulls future returns forward. Buying at high valuations means lower long-run expected returns.
     rubric:
       zh-cn:
         - "(a) 用等比数列求和推出公式，说明收敛条件，并证明 $P_1 = P_0(1 + g)$。"
-        - "(b) 7%；股价上涨约 100%。"
+        - "(b) 7% 和 6%，并说明高估值意味着较低的预期收益。"
       en:
         - "(a) Derives the formula by summing a geometric series, states the convergence condition, and shows $P_1 = P_0(1 + g)$."
-        - "(b) 7%; the price rises about 100%."
+        - "(b) 7% and 6%, explaining that high valuations mean lower expected returns."
 
   - id: Q2
     kind: exercise
@@ -229,30 +208,28 @@ questions:
     kind: exercise
     level: B
     concepts: [pvgo, sustainable-growth-rate, cost-of-equity]
-    expected: { pvgo: "20", share: "33.33", p: "40" }
+    expected: { pvgo: "20", share: "33.33", p: "33.33" }
     question:
       zh-cn: |-
-        一家公司明年每股利润 4，股权成本 10%，股价 60。
-        (a) PVGO 是多少？占股价的百分之几？
-        (b) 另一家公司明年每股利润也是 4，留存 50%，ROE 为 10%。用 Gordon 模型求它的股价。它在增长，为什么股价与不增长时相同？
+        (a) 一家公司明年每股利润 4，股权成本 10%，股价 60。PVGO 是多少？占股价的百分之几？
+        (b) 另一家公司现有业务的 ROE 为 15%，明年每股利润也是 4，股权成本 10%。它计划留存 50% 的利润投资于新项目，但新项目的回报只有 8%。管理层说：“我们的 ROE 有 15%，高于股权成本，所以应该多留存利润。”按新项目的回报求增长率和股价，并与全部派发、不增长时的股价比较。管理层错在哪里？
       en: |-
-        A company will earn 4 per share next year; its cost of equity is 10% and its price is 60.
-        (a) What is PVGO? What percentage of the price is it?
-        (b) Another company will also earn 4 per share next year, retains 50% and has an ROE of 10%. Use the Gordon model to find its price. It is growing; why is its price the same as with no growth?
+        (a) A company will earn 4 per share next year; its cost of equity is 10% and its price is 60. What is PVGO? What percentage of the price is it?
+        (b) Another company earns an ROE of 15% on its existing business, will also earn 4 per share next year, and has a cost of equity of 10%. It plans to retain 50% of its profit for new projects, but the new projects earn only 8%. Management says: "Our ROE is 15%, above the cost of equity, so we should retain more profit." Using the return on the new projects, find the growth rate and the price, and compare with the price if all profit were paid out with no growth. What is wrong with management's argument?
     answer:
       zh-cn: |-
         (a) 不增长时的价值 $\frac{4}{0.10} = 40$，PVGO $= 60 - 40 = 20$，占股价约 33.33%：市场认为公司将来的投资会创造价值。
-        (b) $g = 0.5 \times 10\% = 5\%$，$D_1 = 2$，$P_0 = \frac{2}{0.10 - 0.05} = 40$，正好等于 $\frac{4}{0.10}$。新投资的回报等于股权成本，NPV 为 0：留存的每 1 元在公司里赚 10%，股东拿回去自己投资也能赚 10%，增长没有增加价值。
+        (b) 增长来自新投资：$g = 0.5 \times 8\% = 4\%$，$D_1 = 2$，$P_0 = \frac{2}{0.10 - 0.04} \approx 33.33$，低于全部派发时的 $\frac{4}{0.10} = 40$。决定留存是否值得的是新投资的回报，而不是现有业务的平均 ROE：15% 是过去投资的成果，新项目只赚 8%，低于股东要求的 10%，留存利润降低了股价。
       en: |-
         (a) The no-growth value is $\frac{4}{0.10} = 40$, so PVGO $= 60 - 40 = 20$, about 33.33% of the price: the market expects the company's future investments to create value.
-        (b) $g = 0.5 \times 10\% = 5\%$, $D_1 = 2$, $P_0 = \frac{2}{0.10 - 0.05} = 40$, exactly $\frac{4}{0.10}$. New investment earns exactly the cost of equity and has zero NPV: each dollar retained earns 10% in the company, and shareholders could earn 10% investing it themselves, so growth adds no value.
+        (b) Growth comes from the new investment: $g = 0.5 \times 8\% = 4\%$, $D_1 = 2$, $P_0 = \frac{2}{0.10 - 0.04} \approx 33.33$, below the $\frac{4}{0.10} = 40$ with full payout. What decides whether retaining is worthwhile is the return on new investment, not the average ROE of the existing business: 15% is the result of past investments, while the new projects earn only 8%, below the 10% shareholders require, so retaining profit lowers the price.
     rubric:
       zh-cn:
         - "(a) 20，约 33.33%。"
-        - "(b) 40，并说明新投资的 NPV 为 0。"
+        - "(b) 4%，约 33.33，低于 40；指出应看新投资的回报而不是平均 ROE。"
       en:
         - "(a) 20; about 33.33%."
-        - "(b) 40, explaining that new investment has zero NPV."
+        - "(b) 4%, about 33.33, below 40; points out that the return on new investment matters, not the average ROE."
 
   - id: Q4
     kind: exercise

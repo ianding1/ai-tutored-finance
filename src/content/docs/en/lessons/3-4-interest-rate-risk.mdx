@@ -9,7 +9,6 @@ import Def from '../../../../components/Def.astro';
 import Figure from '../../../../components/Figure.astro';
 import Check from '../../../../components/Check.astro';
 import Exercises from '../../../../components/Exercises.astro';
-import CheckAll from '../../../../components/CheckAll.astro';
 import DurationConvexity from '../../../../components/widgets/DurationConvexity.astro';
 
 ## Two kinds of interest rate risk [#rate-risk]
@@ -81,8 +80,6 @@ This idea also matters for the bank risk of <Ref lesson="2.3" />: a bank's asset
 - Macaulay duration $D = \sum_t t \, w_t$ is the present-value-weighted average time to receive cash; a zero's duration equals its maturity. Modified duration $D^* = \frac{D}{1 + y}$, and $\frac{\Delta P}{P} \approx -D^* \Delta y$.
 - Convexity corrects the error of duration: $\frac{\Delta P}{P} \approx -D^* \Delta y + \frac{1}{2} C (\Delta y)^2$; more convexity is better for the holder.
 - Immunization: equal present values and durations of assets and liabilities make the price and reinvestment effects of a one-time rate change offset; it needs regular rebalancing and holds only approximately for parallel shifts.
-
-<CheckAll />
 
 ## Exercises [#exercises]
 

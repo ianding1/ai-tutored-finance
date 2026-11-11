@@ -73,6 +73,9 @@ def results():
     # Intermediate values that the questions now give or no longer ask for.
     for k in ['C2.p4', 'C2.p6', 'C3.p1', 'C3.p1b', 'C3.ret', 'C4.ytm', 'Q2.p30']:
         del r[k]
+    # Values that the questions now give or no longer ask for.
+    for k in ['C1.p', 'C2.up', 'C2.down', 'C3.retb', 'C4.p', 'C5.f']:
+        del r[k]
     return r
 
 

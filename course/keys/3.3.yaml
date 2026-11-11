@@ -8,6 +8,8 @@
 #   - one of its `concepts` is tested by a question being graded, or
 #   - one of its `questions` is being graded.
 # common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`;
+# `answer` is the explanation shown after a wrong answer. They have no expected and no rubric.
 
 lesson: "3.3"
 
@@ -55,127 +57,109 @@ questions:
     kind: check
     section: bonds
     concepts: [coupon-rate, annuity]
-    expected: { p: "1043.29" }
     question:
       zh-cn: |-
-        一张债券面值 1000，票面利率 6%，每年付息一次，还有 5 年到期。投资者对它要求 5% 的年收益率。它的价格是多少？为什么高于面值？
+        一张债券的票面利率为 6%，市场对它要求的收益率为 5%。它的价格：
       en: |-
-        A bond has a face value of 1000, a coupon rate of 6% paid once a year, and 5 years to maturity. Investors require a 5% yearly return on it. What is its price? Why is it above face value?
+        A bond has a 6% coupon rate, and the market requires a 5% yield on it. Its price is:
+    choices:
+      - zh-cn: 高于面值
+        en: Above face value
+      - zh-cn: 等于面值
+        en: Equal to face value
+      - zh-cn: 低于面值
+        en: Below face value
+      - zh-cn: 无法判断，要看还有几年到期
+        en: Impossible to tell without knowing the years to maturity
+    correct: A
     answer:
       zh-cn: |-
-        $P = 60 \times \frac{1 - 1.05^{-5}}{0.05} + \frac{1000}{1.05^5} \approx 259.77 + 783.53 = 1043.29$。
-        它每年付 60，比按 5% 计算的 50 多 10；投资者愿意为多出的票息多付钱，多付的部分正好是每年多出的 10 在 5 年中的现值（$10 \times 4.3295 \approx 43.29$）。
+        (A)。它每年付的票息比按 5% 计算的多，投资者愿意为多出的票息多付钱，价格高于面值（溢价）。到期年数只影响溢价的大小，不影响方向。
       en: |-
-        $P = 60 \times \frac{1 - 1.05^{-5}}{0.05} + \frac{1000}{1.05^5} \approx 259.77 + 783.53 = 1043.29$.
-        It pays 60 a year, 10 more than a 5% rate would give; investors pay extra for the higher coupons, and the extra is exactly the present value of 10 a year for 5 years ($10 \times 4.3295 \approx 43.29$).
-    rubric:
-      zh-cn:
-        - "价格约 1043.29。"
-        - "用票面利率高于要求收益解释溢价。"
-      en:
-        - "Price about 1043.29."
-        - "Explains the premium by the coupon rate exceeding the required return."
+        (A). Each year it pays more than a 5% coupon would, and investors pay extra for the extra coupons, so the price is above face value (a premium). The years to maturity affect only the size of the premium, not its direction.
 
   - id: C2
     kind: check
     section: ytm
     concepts: [yield-to-maturity]
     widget: { id: bond-price, set: { c: 5, n: 10, y: 6 } }
-    expected: { up: "8.11", down: "7.36" }
     question:
       zh-cn: |-
-        在 [[fig:2-1]] 中，票面利率 5%，10 年到期，收益率为 5% 时价格为 100。收益率下降和上升 1 个百分点时，价格各变化百分之几？哪个变化更大，为什么？
+        在 [[fig:2-1]] 中，票面利率 5%、10 年到期的债券按面值交易（收益率 5%）。收益率下降 1 个百分点和上升 1 个百分点，价格变化的幅度相比：
       en: |-
-        In [[fig:2-1]], take a coupon rate of 5% and 10 years to maturity; at a 5% yield the price is 100. When the yield falls or rises by 1 point, by what percentage does the price change? Which change is larger, and why?
+        In [[fig:2-1]], a 5% coupon, 10-year bond trades at par (yield 5%). Comparing a 1-point fall in yield with a 1-point rise, the size of the price change is:
+    choices:
+      - zh-cn: 收益率下降时，价格上涨的幅度更大
+        en: Larger for the price rise when the yield falls
+      - zh-cn: 收益率上升时，价格下跌的幅度更大
+        en: Larger for the price fall when the yield rises
+      - zh-cn: 两者相等
+        en: The same in both cases
+      - zh-cn: 取决于债券是否按面值交易
+        en: Dependent on whether the bond trades at par
+    correct: A
     answer:
       zh-cn: |-
-        收益率 4% 时价格约 108.11，上涨约 8.11%；6% 时约 92.64，下跌约 7.36%。
-        上涨的幅度更大，因为价格与收益率的关系是凸的：收益率越低，曲线越陡。
+        (A)。价格与收益率的关系是凸的：收益率越低，曲线越陡。所以收益率下降带来的涨幅（约 8.11%）大于收益率上升带来的跌幅（约 7.36%）。
       en: |-
-        At a 4% yield the price is about 108.11, up about 8.11%; at 6% it is about 92.64, down about 7.36%.
-        The rise is larger because the price–yield relation is convex: the curve is steeper at lower yields.
-    rubric:
-      zh-cn:
-        - "约 +8.11% 和 −7.36%。"
-        - "指出凸性。"
-      en:
-        - "About +8.11% and −7.36%."
-        - "Points to convexity."
+        (A). The price–yield relation is convex: the lower the yield, the steeper the curve. So the rise from a fall in yield (about 8.11%) is larger than the fall from a rise in yield (about 7.36%).
 
   - id: C3
     kind: check
     section: price-over-time
     concepts: [yield-to-maturity]
-    expected: { retb: "1.6" }
     question:
       zh-cn: |-
-        以 1043.29 买入 [[check:C1]] 的债券（到期收益率 5%）。一年后刚收到第一笔票息时，收益率升到 6%。这一年的持有收益是多少？这说明到期收益率在什么条件下才等于实际得到的收益？
+        按 5% 的到期收益率买入一张 5 年期债券，一年后卖出。即使这一年里市场收益率升到了 6%，这一年的持有收益仍然是 5%。
       en: |-
-        You buy the bond of [[check:C1]] at 1043.29 (yield to maturity 5%). One year later, just after the first coupon, the yield has risen to 6%. What is your holding return for the year? What does this say about when the yield to maturity equals the return actually earned?
+        You buy a 5-year bond at a yield to maturity of 5% and sell it a year later. Even if the market yield has risen to 6% during the year, your holding return for the year is still 5%.
+    correct: false
     answer:
       zh-cn: |-
-        还有 4 年，收益率等于票面利率，价格为 1000。持有收益 $\frac{60 + 1000 - 1043.29}{1043.29} \approx 1.6\%$，远低于 5%。
-        只有收益率不变（或者持有到期、票息按同样收益率再投资）时，实际收益才等于买入时的到期收益率；中途卖出时，收益率上升会带来价格损失。
+        错。收益率上升使债券价格下跌，中途卖出要承受价格损失，这一年的持有收益低于 5%。只有收益率不变，或者持有到期且票息按同样的收益率再投资时，实际收益才等于买入时的到期收益率。
       en: |-
-        With 4 years left, the yield equals the coupon rate, so the price is 1000. The holding return is $\frac{60 + 1000 - 1043.29}{1043.29} \approx 1.6\%$, far below 5%.
-        The return earned equals the yield at purchase only if the yield does not change (or the bond is held to maturity with coupons reinvested at the same yield); if sold early, a rise in yield brings a price loss.
-    rubric:
-      zh-cn:
-        - "约 1.6%。"
-        - "说明条件。"
-      en:
-        - "About 1.6%."
-        - "States the condition."
+        False. The rise in yield lowers the bond's price, so selling early means a price loss and the holding return is below 5%. The realized return equals the yield at purchase only if the yield does not change, or if the bond is held to maturity with coupons reinvested at that yield.
 
   - id: C4
     kind: check
     section: spot-rates
     concepts: [spot-rate, zero-coupon-bond]
-    expected: { p: "1019.14" }
     question:
       zh-cn: |-
-        1 年期即期利率为 4%，2 年期为 5%。(a) 一张面值 1000、票面利率 6%、每年付息、2 年到期的国债，价格应该是多少？(b) 如果市场上它的价格是 1010，怎样套利？
+        1 年期即期利率为 4%，2 年期为 5%。一张 2 年期附息国债的市场价格，低于用这两个即期利率折现它的现金流得到的价格。怎样获得无风险利润？
       en: |-
-        The 1-year spot rate is 4% and the 2-year spot rate 5%. (a) What should be the price of a 2-year Treasury with face value 1000 and a 6% annual coupon? (b) If it trades at 1010, how can one profit by arbitrage?
+        The 1-year spot rate is 4% and the 2-year spot rate is 5%. A 2-year coupon Treasury trades below the price obtained by discounting its cash flows at these two spot rates. How can a riskless profit be made?
+    choices:
+      - zh-cn: 卖空这张债券，买入现金流相同的零息债
+        en: Short the bond and buy zeros with the same cash flows
+      - zh-cn: 买入这张债券，同时卖出现金流相同的零息债
+        en: Buy the bond and sell zeros with the same cash flows
+      - zh-cn: 买入这张债券并持有到期
+        en: Buy the bond and hold it to maturity
+      - zh-cn: 无法套利，因为它的到期收益率与即期利率不同
+        en: No arbitrage is possible, because its yield to maturity differs from the spot rates
+    correct: B
     answer:
       zh-cn: |-
-        (a) $\frac{60}{1.04} + \frac{1060}{1.05^2} \approx 57.69 + 961.45 = 1019.14$。
-        (b) 债券以 1010 出售，比用零息债复制的成本便宜：买入这张债券，同时卖出（或卖空）1 年后支付 60 和 2 年后支付 1060 的零息债，今天得到 1019.14。两边未来的现金流正好抵消，今天赚约 9.14。
+        (B)。用零息债复制这张债券的现金流，成本就是按即期利率折现的价格。债券比复制它的零息债便宜，就买入便宜的债券、卖出贵的零息债：未来的现金流正好抵消，今天得到差价。只买入并持有虽然收益较高，但不是无风险套利。
       en: |-
-        (a) $\frac{60}{1.04} + \frac{1060}{1.05^2} \approx 57.69 + 961.45 = 1019.14$.
-        (b) At 1010 the bond is cheaper than replicating it with zeros: buy the bond and sell (or short) zeros paying 60 in a year and 1060 in two years, receiving 1019.14 today. The future cash flows cancel exactly, and about 9.14 is earned today.
-    rubric:
-      zh-cn:
-        - "(a) 约 1019.14。"
-        - "(b) 买债券、卖零息债。"
-      en:
-        - "(a) About 1019.14."
-        - "(b) Buy the bond and sell the zeros."
+        (B). Replicating the bond's cash flows with zeros costs exactly the price at the spot rates. If the bond is cheaper than the zeros that replicate it, buy the cheap bond and sell the expensive zeros: future cash flows cancel and the difference is earned today. Just buying and holding gives a higher return, but it is not riskless arbitrage.
 
   - id: C5
     kind: check
     section: forward-rates
     concepts: [forward-rate, spot-rate]
-    expected: { f: "6.01" }
     question:
       zh-cn: |-
-        1 年期即期利率为 4%，2 年期为 5%。一家公司一年后要借款一年。(a) 它今天能锁定的利率是多少？(b) 怎样用今天的零息债锁定这个利率？
+        1 年期即期利率为 4%，2 年期为 5%。今天能用零息债锁定的、从第 1 年到第 2 年的利率高于 5%。
       en: |-
-        The 1-year spot rate is 4% and the 2-year spot rate 5%. A company will need to borrow for one year starting a year from now. (a) What rate can it lock in today? (b) How can it do so with today's zero-coupon bonds?
+        The 1-year spot rate is 4% and the 2-year spot rate is 5%. The rate that can be locked in today with zeros, from year 1 to year 2, is above 5%.
+    correct: true
     answer:
       zh-cn: |-
-        (a) 远期利率 $\frac{1.05^2}{1.04} - 1 \approx 6.01\%$。
-        (b) 今天买入 1 年期零息债、卖空同样现值的 2 年期零息债（例如买入面值 1000 的 1 年期零息债，卖空面值 $1000 \times 1.0601$ 的 2 年期零息债），今天的净现金流为零。一年后收到 1000，两年后支付约 1060.1：相当于从第 1 年起以约 6.01% 借款一年。
+        对。两年的总收益 $(1.05)^2$ 要等于先按 4% 投资一年、再按远期利率投资一年，第一年只有 4%，第二年就必须高于 5% 才能补足：$f_{1,2} = \frac{1.05^2}{1.04} - 1 \approx 6.01\%$。
       en: |-
-        (a) The forward rate $\frac{1.05^2}{1.04} - 1 \approx 6.01\%$.
-        (b) Today buy a 1-year zero and short a 2-year zero of equal present value (for example, buy a 1-year zero with face 1000 and short a 2-year zero with face $1000 \times 1.0601$), so today's net cash flow is zero. It receives 1000 in a year and pays about 1060.1 in two years: in effect borrowing for one year from year 1 at about 6.01%.
-    rubric:
-      zh-cn:
-        - "(a) 约 6.01%。"
-        - "(b) 正确的买入 / 卖空组合。"
-      en:
-        - "(a) About 6.01%."
-        - "(b) A correct long / short combination."
+        True. Two years at 5%, $(1.05)^2$, must equal one year at 4% followed by one year at the forward rate; since the first year earns only 4%, the second must earn more than 5% to make up for it: $f_{1,2} = \frac{1.05^2}{1.04} - 1 \approx 6.01\%$.
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1
@@ -287,9 +271,9 @@ questions:
     expected: { fv: "318.55", r: "4.79" }
     question:
       zh-cn: |-
-        你以 1043.29 买入 [[check:C1]] 的债券（到期收益率 5%），持有到期，但收到的票息只能按 3% 的年利率再投资。(a) 这 5 年的实际年收益率是多少？(b) 为什么低于 5%？零息债有没有这个问题？
+        一张债券面值 1000，票面利率 6%，每年付息一次，还有 5 年到期。你以 1043.29 买入（到期收益率 5%），持有到期，但收到的票息只能按 3% 的年利率再投资。(a) 这 5 年的实际年收益率是多少？(b) 为什么低于 5%？零息债有没有这个问题？
       en: |-
-        You buy the bond of [[check:C1]] at 1043.29 (yield to maturity 5%) and hold it to maturity, but coupons can only be reinvested at 3% a year. (a) What is your realized yearly return over the 5 years? (b) Why is it below 5%? Does a zero-coupon bond have this problem?
+        A bond has face value 1000, a 6% annual coupon and 5 years to maturity. You buy it at 1043.29 (yield to maturity 5%) and hold it to maturity, but coupons can only be reinvested at 3% a year. (a) What is your realized yearly return over the 5 years? (b) Why is it below 5%? Does a zero-coupon bond have this problem?
     answer:
       zh-cn: |-
         (a) 票息及再投资收益的终值 $60 \times \frac{1.03^5 - 1}{0.03} \approx 318.55$，到期共有 1318.55；年收益 $\left(\frac{1318.55}{1043.29}\right)^{1/5} - 1 \approx 4.79\%$。

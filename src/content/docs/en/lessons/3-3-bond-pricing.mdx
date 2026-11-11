@@ -9,7 +9,6 @@ import Def from '../../../../components/Def.astro';
 import Figure from '../../../../components/Figure.astro';
 import Check from '../../../../components/Check.astro';
 import Exercises from '../../../../components/Exercises.astro';
-import CheckAll from '../../../../components/CheckAll.astro';
 import BondPrice from '../../../../components/widgets/BondPrice.astro';
 
 ## Bond cash flows [#bonds]
@@ -87,8 +86,6 @@ $f_{1,2}$ is called the <Def id="forward-rate">forward rate</Def> from year 1 to
 - With an unchanged yield, the price is pulled to par and the holding return equals the yield to maturity; but the yield to maturity assumes holding to maturity, no default and reinvestment of coupons at the same yield.
 - The yield on a zero is a spot rate; each cash flow of a coupon bond should be discounted at the spot rate for its maturity, or there is arbitrage.
 - The forward rate $f_{1,2}$ satisfies $(1 + s_2)^2 = (1 + s_1)(1 + f_{1,2})$ and can be locked in today.
-
-<CheckAll />
 
 ## Exercises [#exercises]
 

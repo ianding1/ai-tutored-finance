@@ -9,7 +9,6 @@ import Def from '../../../../components/Def.astro';
 import Figure from '../../../../components/Figure.astro';
 import Check from '../../../../components/Check.astro';
 import Exercises from '../../../../components/Exercises.astro';
-import CheckAll from '../../../../components/CheckAll.astro';
 import TermStructure from '../../../../components/widgets/TermStructure.astro';
 
 ## The yield curve [#yield-curve]
@@ -47,7 +46,7 @@ $$
 
 This is the <Def id="expectations-hypothesis">expectations hypothesis</Def>. Under it, an upward-sloping curve means the market expects short rates to rise, and an inverted curve means it expects them to fall; <Ref check="Q5" lesson="2.5" /> and <Ref lesson="2.8" /> used this idea.
 
-When the curve slopes upward, long bonds have higher yields. Under the expectations hypothesis, are long bonds the better choice for an investor with a 1-year horizon? <Ref check="C1" /> answers this with an example.
+When the curve slopes upward, long bonds have higher yields. Under the expectations hypothesis, are long bonds the better choice for an investor with a 1-year horizon? <Ref check="C1" /> asks about this.
 
 <Check id="C1" />
 
@@ -92,8 +91,6 @@ For investors, extending duration earns the term premium on average but carries 
 - Expectations hypothesis: $(1 + s_n)^n = (1 + s_1)(1 + E[r_2]) \cdots (1 + E[r_n])$; forward rates equal expected future short rates.
 - Term premium: $f_{t-1,t} = E[r_t] + \phi_t$. The liquidity premium theory holds that it is positive and rises with maturity; the preferred habitat theory holds that it depends on supply and demand at each maturity and can be positive or negative.
 - A long rate is roughly the average expected short rate plus the term premium; most movements of the curve can be described by changes in level, slope and curvature.
-
-<CheckAll />
 
 ## Exercises [#exercises]
 

@@ -8,6 +8,8 @@
 #   - one of its `concepts` is tested by a question being graded, or
 #   - one of its `questions` is being graded.
 # common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`;
+# `answer` is the explanation shown after a wrong answer. They have no expected and no rubric.
 
 lesson: "3.6"
 
@@ -75,26 +77,17 @@ questions:
     kind: check
     section: credit-spread
     concepts: [default-risk, recovery-rate, credit-spread]
-    expected: { p: "95.00", y: "5.26" }
     question:
       zh-cn: |-
-        一张 1 年期公司零息债，面值 100，违约概率 2%，违约时回收 40。1 年期国债利率为 4%。(a) 如果投资者不在乎风险，按到期金额的期望用 4% 折现，这张债券的价格和到期收益率各是多少？(b) 投资者买入它的预期收益率是多少？与到期收益率相比说明了什么？
+        一张有违约风险的公司债，到期收益率为 7%。投资者买入它的预期收益率也是 7%。
       en: |-
-        A 1-year corporate zero has face value 100, a default probability of 2% and a recovery of 40 if it defaults. The 1-year Treasury rate is 4%. (a) If investors do not care about risk and discount the expected payoff at 4%, what are the bond's price and yield to maturity? (b) What is the expected return of an investor who buys it? What does the comparison with the yield to maturity show?
+        A corporate bond with default risk has a yield to maturity of 7%. An investor who buys it has an expected return of 7% as well.
+    correct: false
     answer:
       zh-cn: |-
-        (a) 到期金额的期望 $0.98 \times 100 + 0.02 \times 40 = 98.8$，价格 $\frac{98.8}{1.04} = 95.00$；到期收益率 $\frac{100}{95} - 1 \approx 5.26\%$，信用利差约 1.26 个百分点，接近预期损失率 $2\% \times (1 - 0.4) = 1.2\%$。
-        (b) 预期收益率为 $\frac{98.8}{95} - 1 = 4\%$，与国债相同。5.26% 只有在不违约时才能得到，是“承诺”的收益；把它当作预期收益会高估回报。
+        错。到期收益率是假设全部按约定支付时的收益，是“承诺”的收益。考虑到违约的可能和违约后只能收回一部分，预期收益要扣除预期损失，低于 7%。
       en: |-
-        (a) The expected payoff is $0.98 \times 100 + 0.02 \times 40 = 98.8$, so the price is $\frac{98.8}{1.04} = 95.00$ and the yield to maturity $\frac{100}{95} - 1 \approx 5.26\%$, a credit spread of about 1.26 percentage points, close to the expected loss rate $2\% \times (1 - 0.4) = 1.2\%$.
-        (b) The expected return is $\frac{98.8}{95} - 1 = 4\%$, the same as Treasuries. The 5.26% is earned only if there is no default; it is a "promised" return, and treating it as the expected return overstates the reward.
-    rubric:
-      zh-cn:
-        - "(a) 价格 95.00，到期收益率约 5.26%。"
-        - "(b) 预期收益率 4%，区分承诺收益和预期收益。"
-      en:
-        - "(a) Price 95.00; yield to maturity about 5.26%."
-        - "(b) Expected return 4%; distinguishes promised and expected returns."
+        False. The yield to maturity assumes every payment is made as promised; it is a "promised" return. Allowing for the chance of default and the partial recovery after it, the expected return deducts the expected loss and is below 7%.
 
   - id: C2
     kind: check
@@ -102,74 +95,75 @@ questions:
     concepts: [credit-rating, principal-agent-problem]
     question:
       zh-cn: |-
-        (a) 一家公司的债券评级从 BBB− 降为 BB+，而公司的实际经营几乎没有新的变化。为什么债券价格可能下跌得比违约风险的变化所能解释的更多？(b) 评级机构的收入主要来自被评级的发行人。用 [[1.9]] 的委托–代理问题说明这可能带来什么问题。
+        一家公司的债券评级从 BBB− 降为 BB+，而公司的经营几乎没有新的变化。债券价格却大幅下跌。最主要的原因是：
       en: |-
-        (a) A company's bonds are downgraded from BBB− to BB+, while almost nothing new has happened to the business. Why might the bond price fall more than the change in default risk can explain? (b) Rating agencies earn most of their income from the issuers they rate. Use the principal–agent problem from [[1.9]] to explain what problem this may cause.
+        A company's bonds are downgraded from BBB− to BB+, while almost nothing new has happened to the business. Yet the bond price falls sharply. The main reason is:
+    choices:
+      - zh-cn: 降级使违约概率翻了一倍
+        en: The downgrade doubled the probability of default
+      - zh-cn: 很多机构只允许或主要持有投资级债券，它们被迫一起卖出
+        en: Many institutions may hold only or mainly investment-grade bonds, so they are forced to sell at the same time
+      - zh-cn: 评级是对未来价格的预测，市场照着评级定价
+        en: A rating is a forecast of the future price, and the market prices bonds by it
+      - zh-cn: 降级使国债利率上升
+        en: The downgrade raises Treasury yields
+    correct: B
     answer:
       zh-cn: |-
-        (a) 这次降级使债券从投资级变成投机级。许多机构的规定只允许或主要持有投资级债券，它们要在短时间内一起卖出，而能买高收益债的投资者有限，价格要下跌到足以吸引新的买家。下跌来自被迫卖出和需求的变化，而不只是违约风险。
-        (b) 投资者（委托人）依靠评级判断风险，但评级机构（代理人）的收入来自发行人，发行人希望得到高评级，还可以在几家机构中选择评级最高的一家。评级机构因此有给出较高评级的动机，投资者又难以监督它们的工作；2008 年前许多被评为 AAA 的抵押贷款证券后来大量违约，就是一个例子。
+        (B)。BB+ 已经是投机级。只允许或主要持有投资级债券的机构要在短时间内一起卖出，而能买高收益债的投资者有限，价格要跌到足以吸引新的买家。下跌主要来自被迫卖出，而不是违约风险的突然变化。
       en: |-
-        (a) The downgrade moves the bonds from investment grade to speculative grade. Many institutions may hold only or mainly investment-grade bonds, so they sell at the same time, while the investors able to buy high-yield bonds are limited; the price must fall far enough to attract new buyers. The fall comes from forced selling and a change in demand, not only from default risk.
-        (b) Investors (the principals) rely on ratings to judge risk, but the agencies (the agents) are paid by issuers, who want high ratings and can choose the agency that gives the highest one. So agencies have an incentive to give generous ratings, and investors find it hard to monitor their work; many mortgage securities rated AAA before 2008 later suffered heavy defaults.
-    rubric:
-      zh-cn:
-        - "(a) 指出投资级分界和被迫卖出。"
-        - "(b) 说明发行人付费带来的激励问题。"
-      en:
-        - "(a) Points to the investment-grade line and forced selling."
-        - "(b) Explains the incentive problem of issuer-pays."
+        (B). BB+ is speculative grade. Institutions that may hold only or mainly investment-grade bonds must sell at the same time, while the investors able to buy high-yield bonds are limited, so the price must fall far enough to attract new buyers. The fall comes mainly from forced selling, not from a sudden change in default risk.
 
   - id: C3
     kind: check
     section: munis
     concepts: [tax-equivalent-yield, municipal-bond]
-    expected: { t24: "3.95", t37: "4.76" }
     question:
       zh-cn: |-
-        一只本州以外的市政债收益率为 3%，一只评级和期限相近的公司债收益率为 4.5%（只考虑联邦所得税）。(a) 边际税率为 24% 和 37% 的投资者，市政债的含税等价收益率各是多少？各应选择哪一只？(b) 如果这笔钱放在延迟纳税的退休账户里，应选择哪一只？
+        两位投资者都用应税账户买债券，一位的联邦边际税率为 12%，另一位为 37%。谁更可能因为买市政债而获益？
       en: |-
-        An out-of-state municipal bond yields 3%, and a corporate bond with a similar rating and maturity yields 4.5% (consider only federal income tax). (a) For investors with marginal tax rates of 24% and 37%, what is the tax-equivalent yield of the municipal bond? Which bond should each choose? (b) If the money is held in a tax-deferred retirement account, which bond should be chosen?
+        Two investors both buy bonds in taxable accounts; one has a federal marginal tax rate of 12% and the other 37%. Who is more likely to gain from buying municipal bonds?
+    choices:
+      - zh-cn: 税率 12% 的投资者
+        en: The investor with a 12% rate
+      - zh-cn: 税率 37% 的投资者
+        en: The investor with a 37% rate
+      - zh-cn: 两人获益相同，因为市政债的收益率对两人一样
+        en: Both equally, because the municipal yield is the same for both
+      - zh-cn: 两人都不能获益，因为市政债的收益率较低
+        en: Neither, because municipal yields are lower
+    correct: B
     answer:
       zh-cn: |-
-        (a) 24%：$\frac{3\%}{1 - 0.24} \approx 3.95\%$，低于 4.5%，选公司债；37%：$\frac{3\%}{1 - 0.37} \approx 4.76\%$，高于 4.5%，选市政债。
-        (b) 公司债。退休账户里的利息本来就不在当年纳税，市政债的免税优势用不上，只剩下较低的收益率。
+        (B)。市政债的好处是利息免联邦所得税。含税等价收益率 $\frac{y_m}{1 - t}$ 随税率 $t$ 上升：税率越高，应税债券交税后剩下的越少，免税的价值越大。市政债的收益率较低，正是因为高税率的投资者愿意接受较低的税前收益。
       en: |-
-        (a) 24%: $\frac{3\%}{1 - 0.24} \approx 3.95\%$, below 4.5%, so the corporate bond; 37%: $\frac{3\%}{1 - 0.37} \approx 4.76\%$, above 4.5%, so the municipal bond.
-        (b) The corporate bond. Interest in a retirement account is not taxed in the current year anyway, so the municipal bond's exemption is wasted and only its lower yield remains.
-    rubric:
-      zh-cn:
-        - "(a) 约 3.95% 和 4.76%，选择正确。"
-        - "(b) 公司债，说明免税优势用不上。"
-      en:
-        - "(a) About 3.95% and 4.76%, with the right choices."
-        - "(b) The corporate bond, explaining that the exemption is wasted."
+        (B). The benefit of municipal bonds is that their interest is exempt from federal income tax. The tax-equivalent yield $\frac{y_m}{1 - t}$ rises with the tax rate $t$: the higher the rate, the less a taxable bond keeps after tax and the more the exemption is worth. Municipal yields are lower precisely because high-rate investors accept lower pre-tax returns.
 
   - id: C4
     kind: check
     section: tips
     concepts: [tips, breakeven-inflation]
     widget: { id: tips-nominal, set: { y: 4.2, ry: 1.9, pi: 4 } }
-    expected: { be: "2.26", nom: "101.94", tips: "120.71" }
     question:
       zh-cn: |-
-        在 [[fig:4-1]] 中，名义国债收益率为 4.2%，TIPS 实际收益率为 1.9%。(a) 读出盈亏平衡通胀率。如果未来 10 年平均通胀为 4%，两者 10 年后的实际价值各是多少？(b) 盈亏平衡通胀率能否直接当作市场预期的通胀率？说出一个原因。
+        在 [[fig:4-1]] 中，名义国债收益率为 4.2%，TIPS 实际收益率为 1.9%。如果未来 10 年平均通胀为 4%，哪种债券 10 年后的实际价值更高？
       en: |-
-        In [[fig:4-1]], the nominal Treasury yields 4.2% and TIPS yield 1.9% real. (a) Read off breakeven inflation. If inflation averages 4% over the next 10 years, what is the real value of each after 10 years? (b) Can breakeven inflation be read directly as the market's expected inflation? Give one reason.
+        In [[fig:4-1]], the nominal Treasury yields 4.2% and TIPS yield 1.9% real. If inflation averages 4% over the next 10 years, which bond has the higher real value after 10 years?
+    choices:
+      - zh-cn: 名义国债，因为它的收益率更高
+        en: The nominal Treasury, because its yield is higher
+      - zh-cn: TIPS
+        en: TIPS
+      - zh-cn: 两者相同
+        en: They are the same
+      - zh-cn: 无法判断，因为不知道未来的利率
+        en: Impossible to tell without knowing future interest rates
+    correct: B
     answer:
       zh-cn: |-
-        (a) 盈亏平衡通胀率 $\frac{1.042}{1.019} - 1 \approx 2.26\%$。平均通胀为 4% 时，名义国债的实际价值约 101.94，TIPS 约 120.71：通胀高于盈亏平衡通胀率，TIPS 好得多。
-        (b) 不能完全。名义国债的持有者承担通胀风险，可能要求通胀风险溢价，使名义收益率和盈亏平衡通胀率偏高；TIPS 的交易不如普通国债活跃，投资者要求流动性补偿，TIPS 收益率偏高，又使盈亏平衡通胀率偏低。
+        (B)。盈亏平衡通胀率约为 2.26%（约等于 4.2% − 1.9%）。实际通胀高于它时 TIPS 更好：通胀为 4% 时，名义国债的实际价值约 101.94，TIPS 约 120.71。名义收益率高，只是因为它要补偿预期的通胀。
       en: |-
-        (a) Breakeven inflation is $\frac{1.042}{1.019} - 1 \approx 2.26\%$. With 4% average inflation, the nominal Treasury's real value is about 101.94 and the TIPS about 120.71: inflation above breakeven makes TIPS much better.
-        (b) Not exactly. Holders of nominal Treasuries bear inflation risk and may demand an inflation risk premium, which pushes the nominal yield and breakeven inflation up; TIPS trade less actively than ordinary Treasuries, so investors demand compensation for liquidity, which raises the TIPS yield and pushes breakeven inflation down.
-    rubric:
-      zh-cn:
-        - "(a) 约 2.26%；约 101.94 和 120.71。"
-        - "(b) 一个合理的原因（通胀风险溢价或流动性）。"
-      en:
-        - "(a) About 2.26%; about 101.94 and 120.71."
-        - "(b) One reasonable reason (inflation risk premium or liquidity)."
+        (B). Breakeven inflation is about 2.26% (roughly 4.2% − 1.9%). When inflation turns out above it, TIPS do better: at 4% inflation the nominal Treasury's real value is about 101.94 and the TIPS about 120.71. The nominal yield is higher only because it compensates for expected inflation.
 
   # ---------- Exercises (练习题) ----------
   - id: Q1

@@ -8,6 +8,8 @@
 #   - one of its `concepts` is tested by a question being graded, or
 #   - one of its `questions` is being graded.
 # common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`;
+# `answer` is the explanation shown after a wrong answer. They have no expected and no rubric.
 
 lesson: "3.11"
 
@@ -55,104 +57,93 @@ questions:
     kind: check
     section: multiples
     concepts: [price-earnings-ratio]
-    expected: { p: "60" }
     question:
       zh-cn: |-
-        同行业可比公司的平均市盈率为 15，目标公司每股利润为 4。(a) 按可比公司的倍数，目标公司每股值多少？(b) 目标公司的负债比同行高得多，增长也较慢。用同行的平均市盈率估值，结果可能偏高还是偏低？为什么？
+        目标公司的负债比同行高得多，增长也较慢。用同行的平均市盈率乘以它的每股利润来估值，结果可能：
       en: |-
-        Comparable companies in the industry have an average P/E of 15, and the target company earns 4 per share. (a) By the comparables' multiple, what is the target worth per share? (b) The target has much more debt than its peers and grows more slowly. Is a valuation with the peers' average P/E likely too high or too low? Why?
+        The target company has much more debt than its peers and grows more slowly. Valuing it at the peers' average P/E times its earnings per share is likely to give a value that is:
+    choices:
+      - zh-cn: 偏高
+        en: Too high
+      - zh-cn: 偏低
+        en: Too low
+      - zh-cn: 准确，因为用的是同行业的倍数
+        en: About right, because the multiple comes from the same industry
+      - zh-cn: 无法判断
+        en: Impossible to judge
+    correct: A
     answer:
       zh-cn: |-
-        (a) $15 \times 4 = 60$。
-        (b) 偏高。负债高使股东的风险更大，股权成本 $r$ 更高；增长较慢使 $g$ 更低。两者都使合理的市盈率低于同行，直接用同行的 15 倍会高估它。
+        (A)。负债高使股东的风险更大，股权成本更高；增长较慢使增长率更低。两者都使它合理的市盈率低于同行，直接用同行的倍数会高估它。可比公司必须在增长、风险和盈利能力上确实相似。
       en: |-
-        (a) $15 \times 4 = 60$.
-        (b) Too high. More debt makes shareholders' risk larger, so the cost of equity $r$ is higher; slower growth means a lower $g$. Both push the justified P/E below the peers', so using the peers' 15 overvalues it.
-    rubric:
-      zh-cn:
-        - "(a) 60。"
-        - "(b) 偏高，用风险（股权成本）和增长说明。"
-      en:
-        - "(a) 60."
-        - "(b) Too high, explained by risk (cost of equity) and growth."
+        (A). More debt makes shareholders' risk larger and the cost of equity higher; slower growth means a lower growth rate. Both push its justified P/E below the peers', so the peers' multiple overvalues it. Comparable companies must really be similar in growth, risk and profitability.
 
   - id: C2
     kind: check
     section: pe
     concepts: [price-earnings-ratio, gordon-growth-model, payout-ratio]
-    expected: { pe: "10" }
     question:
       zh-cn: |-
-        (a) 一家公司派息率为 40%，股权成本 10%，股息和利润预计永远每年增长 6%。按 Gordon 模型，合理的动态市盈率是多少？
-        (b) A、B 两家公司的静态市盈率都是 25。A 的利润稳定增长；B 是周期性公司，去年利润因行业低迷大幅下降。两者的 25 倍含义有什么不同？
+        其他条件不变，下列哪种变化会使一家公司合理的动态市盈率上升？
       en: |-
-        (a) A company has a payout ratio of 40% and a cost of equity of 10%, and its dividends and earnings are expected to grow 6% a year forever. By the Gordon model, what is the justified forward P/E?
-        (b) Companies A and B both have a trailing P/E of 25. A's earnings grow steadily; B is cyclical and its earnings fell sharply last year in an industry downturn. How do the two 25s differ in meaning?
+        Other things equal, which change raises a company's justified forward P/E?
+    choices:
+      - zh-cn: 股权成本上升
+        en: A higher cost of equity
+      - zh-cn: 预期增长率下降
+        en: Lower expected growth
+      - zh-cn: 公司的风险下降
+        en: Lower risk for the company
+      - zh-cn: 派息率下降，而增长率不变
+        en: A lower payout ratio with growth unchanged
+    correct: C
     answer:
       zh-cn: |-
-        (a) $\frac{0.4}{0.10 - 0.06} = 10$ 倍。
-        (b) A 的 25 倍反映市场对它长期增长的预期（或较低的风险）。B 的 25 倍主要是因为分母（去年的利润）暂时很低，市场预期利润会恢复，股价并没有随利润同比例下降；它不一定说明市场预期 B 会高增长，用正常年份的利润计算，它的市盈率可能并不高。
+        (C)。$\frac{P_0}{E_1} = \frac{1 - b}{r - g}$：风险下降使股权成本 $r$ 下降，分母变小，市盈率上升。$r$ 上升或 $g$ 下降使市盈率下降；派息率下降而增长不变，说明多留存的利润没有带来增长，分子变小，市盈率也下降。
       en: |-
-        (a) $\frac{0.4}{0.10 - 0.06} = 10$ times.
-        (b) A's 25 reflects the market's expectation of long-run growth (or lower risk). B's 25 arises mainly because the denominator (last year's earnings) is temporarily very low; the market expects earnings to recover, so the price did not fall in proportion to earnings. It does not necessarily mean the market expects high growth from B; on normal-year earnings its P/E may not be high.
-    rubric:
-      zh-cn:
-        - "(a) 10 倍。"
-        - "(b) 区分增长预期和暂时偏低的利润。"
-      en:
-        - "(a) 10 times."
-        - "(b) Distinguishes growth expectations from temporarily low earnings."
+        (C). $\frac{P_0}{E_1} = \frac{1 - b}{r - g}$: lower risk lowers the cost of equity $r$, the denominator shrinks and the P/E rises. A higher $r$ or a lower $g$ lowers the P/E; a lower payout with unchanged growth means the extra retained profit brings no growth, so the numerator shrinks and the P/E falls too.
 
   - id: C3
     kind: check
     section: other-multiples
     concepts: [ev-ebitda, price-earnings-ratio, financial-leverage]
-    expected: { a: "13.33", b: "8.89" }
     question:
       zh-cn: |-
-        A、B 两家公司的业务完全相同：EBITDA 都是 100，折旧 20，税率 25%，企业价值都是 800（EV/EBITDA 都是 8）。A 没有负债，股权价值 800；B 有 400 的负债（利息 20），股权价值 400。(a) 两家公司的市盈率各是多少？(b) B 的市盈率较低，是否说明 B 的股票更便宜？
+        两家业务完全相同、企业价值也相同的公司，负债较多的一家市盈率较低。这说明它的股票更便宜。
       en: |-
-        Companies A and B have identical businesses: EBITDA of 100 each, depreciation of 20, a tax rate of 25%, and an enterprise value of 800 each (EV/EBITDA of 8 for both). A has no debt and equity worth 800; B has debt of 400 (interest 20) and equity worth 400. (a) What is each company's P/E? (b) B has a lower P/E. Does that mean B's stock is cheaper?
+        Two companies have identical businesses and the same enterprise value; the one with more debt has a lower P/E. This shows that its stock is cheaper.
+    correct: false
     answer:
       zh-cn: |-
-        (a) A 的净利润 $(100 - 20) \times 0.75 = 60$，市盈率 $\frac{800}{60} \approx 13.33$。B 的净利润 $(100 - 20 - 20) \times 0.75 = 45$，市盈率 $\frac{400}{45} \approx 8.89$。
-        (b) 不是。两家公司的业务和企业价值完全相同，B 的市盈率较低只是因为杠杆：B 的股东承担更大的风险，要求更高的回报，所以每 1 元利润的价格较低。比较资本结构不同的公司时，用 EV/EBITDA 这类与资本结构无关的倍数更合适。
+        错。较低的市盈率只是杠杆的结果：负债多的公司股东承担更大的风险，要求更高的回报，每 1 元利润的价格就较低。比较资本结构不同的公司，应该用 EV/EBITDA 这类不受资本结构影响的倍数。
       en: |-
-        (a) A's net income is $(100 - 20) \times 0.75 = 60$, so its P/E is $\frac{800}{60} \approx 13.33$. B's net income is $(100 - 20 - 20) \times 0.75 = 45$, so its P/E is $\frac{400}{45} \approx 8.89$.
-        (b) No. The two businesses and their enterprise values are identical; B's lower P/E comes only from leverage: B's shareholders bear more risk and require a higher return, so each dollar of earnings is priced lower. To compare companies with different capital structures, a multiple independent of capital structure, such as EV/EBITDA, is more suitable.
-    rubric:
-      zh-cn:
-        - "(a) 约 13.33 和 8.89。"
-        - "(b) 不是，用杠杆和风险说明。"
-      en:
-        - "(a) About 13.33 and 8.89."
-        - "(b) No, explained by leverage and risk."
+        False. The lower P/E comes only from leverage: shareholders of the more indebted company bear more risk and require a higher return, so each dollar of earnings is priced lower. To compare companies with different capital structures, use a multiple unaffected by capital structure, such as EV/EBITDA.
 
   - id: C4
     kind: check
     section: cape
     concepts: [cape, price-earnings-ratio, business-cycle]
     widget: { id: cycle-pe, set: { a: 0.5 } }
-    expected: { lo: "13.33", hi: "40", clo: "18.43", chi: "21.87" }
     question:
       zh-cn: |-
-        在 [[fig:4-1]] 中，把利润周期的幅度设为 0.5。(a) 读出 16 年中市盈率和 CAPE 的范围。市盈率在利润周期的哪个阶段最高？(b) 一位投资者只在周期性股票的市盈率很低时买入。这个规则有什么问题？
+        在 [[fig:4-1]] 中，把利润周期的幅度设为 0.5。一家周期性公司的市盈率在什么时候最高？
       en: |-
-        In [[fig:4-1]], set the amplitude of the earnings cycle to 0.5. (a) Read off the ranges of P/E and CAPE over the 16 years. At which stage of the earnings cycle is the P/E highest? (b) An investor buys cyclical stocks only when their P/E is very low. What is wrong with this rule?
+        In [[fig:4-1]], set the amplitude of the earnings cycle to 0.5. When is a cyclical company's P/E highest?
+    choices:
+      - zh-cn: 利润处于顶峰时
+        en: When earnings are at their peak
+      - zh-cn: 利润处于谷底时
+        en: When earnings are at their trough
+      - zh-cn: 利润增长最快时
+        en: When earnings grow fastest
+      - zh-cn: 与周期无关
+        en: It does not depend on the cycle
+    correct: B
     answer:
       zh-cn: |-
-        (a) 市盈率在约 13.33 到 40 之间，CAPE 只在约 18.43 到 21.87 之间。市盈率在利润最低（周期的谷底）时最高，在利润最高时最低，而股价并没有变。
-        (b) 周期性股票的市盈率最低时，往往正是利润处于顶峰、即将下降的时候；按这个规则会在周期的高点买入，在谷底（市盈率很高）时却不敢买。对周期性公司，应该用正常化的利润（例如多年平均）计算市盈率。
+        (B)。股价反映长期的价值，变化不大，而当年利润在谷底时最低，所以市盈率最高；利润在顶峰时市盈率最低。只在市盈率很低时买入周期性股票，往往是在周期的高点买入。用多年平均的利润（例如 CAPE）可以减少这种误导。
       en: |-
-        (a) P/E ranges from about 13.33 to 40, while CAPE stays between about 18.43 and 21.87. The P/E is highest when earnings are lowest (the trough of the cycle) and lowest when earnings peak, although the price does not change.
-        (b) A cyclical stock's P/E is lowest exactly when earnings are at a peak and about to fall; the rule buys at the top of the cycle and avoids buying at the bottom, when the P/E is high. For cyclical companies, the P/E should use normalized earnings (for example, a multi-year average).
-    rubric:
-      zh-cn:
-        - "(a) 约 13.33 到 40，CAPE 约 18.43 到 21.87；谷底时市盈率最高。"
-        - "(b) 指出低市盈率出现在利润顶峰，应使用正常化的利润。"
-      en:
-        - "(a) About 13.33 to 40; CAPE about 18.43 to 21.87; P/E highest at the trough."
-        - "(b) Points out that low P/Es come at earnings peaks and that normalized earnings should be used."
+        (B). The price reflects long-run value and changes little, while current earnings are lowest at the trough, so the P/E is highest then; at the earnings peak the P/E is lowest. Buying cyclical stocks only when their P/E is low often means buying at the top of the cycle. Using multi-year average earnings (such as CAPE) reduces this distortion.
 
   # ---------- Exercises (练习题) ----------
   - id: Q1

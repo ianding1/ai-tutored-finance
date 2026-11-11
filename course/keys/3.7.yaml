@@ -8,6 +8,8 @@
 #   - one of its `concepts` is tested by a question being graded, or
 #   - one of its `questions` is being graded.
 # common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`;
+# `answer` is the explanation shown after a wrong answer. They have no expected and no rubric.
 
 lesson: "3.7"
 
@@ -57,97 +59,91 @@ questions:
     concepts: [balance-sheet, income-statement, cash-flow-statement, depreciation]
     question:
       zh-cn: |-
-        年初，一家公司借款 50 买入一台能用 5 年的设备（不考虑税和利息）。(a) 买入时，三张报表各有什么变化？(b) 第一年末确认折旧 10，三张报表各有什么变化？
+        年初，一家公司借款 50 买入一台能用 5 年的设备（不考虑税和利息）。买入的当天，利润表有什么变化？
       en: |-
-        At the start of the year a company borrows 50 to buy equipment that lasts 5 years (ignore taxes and interest). (a) At the purchase, what changes in each of the three statements? (b) When depreciation of 10 is recognized at the end of the first year, what changes in each statement?
+        At the start of the year a company borrows 50 to buy equipment that lasts 5 years (ignore taxes and interest). On the day of the purchase, what changes on the income statement?
+    choices:
+      - zh-cn: 费用增加 50，净利润减少 50
+        en: Expenses rise by 50 and net income falls by 50
+      - zh-cn: 没有变化
+        en: Nothing changes
+      - zh-cn: 收入增加 50
+        en: Revenue rises by 50
+      - zh-cn: 折旧增加 50
+        en: Depreciation rises by 50
+    correct: B
     answer:
       zh-cn: |-
-        (a) 资产负债表：设备增加 50，借款增加 50，两边相等，股东权益不变。利润表：没有变化，买设备不是费用。现金流量表：投资活动现金流 −50，筹资活动现金流 +50，现金不变。
-        (b) 利润表：折旧费用 10，净利润减少 10。资产负债表：设备的账面价值降为 40，留存收益（股东权益）减少 10，两边仍然相等。现金流量表：折旧不付现金，现金没有变化；用间接法时，净利润少了 10，但折旧要加回 10，经营活动现金流不受影响。
+        (B)。买设备不是费用：资产负债表上设备和借款各增加 50，现金流量表上投资活动现金流 −50、筹资活动现金流 +50。设备的成本以后按年通过折旧进入利润表（每年 10）。
       en: |-
-        (a) Balance sheet: equipment up 50 and borrowing up 50, both sides equal, equity unchanged. Income statement: no change; buying equipment is not an expense. Cash flow statement: investing cash flow −50, financing cash flow +50, cash unchanged.
-        (b) Income statement: depreciation expense 10, net income down 10. Balance sheet: the equipment's book value falls to 40 and retained earnings (equity) fall by 10, so both sides still match. Cash flow statement: depreciation uses no cash, so cash is unchanged; under the indirect method net income is 10 lower but the 10 of depreciation is added back, so operating cash flow is unaffected.
-    rubric:
-      zh-cn:
-        - "(a) 三张报表的变化正确，利润表不变。"
-        - "(b) 净利润和股东权益减少 10，现金不变，并说明折旧加回。"
-      en:
-        - "(a) Correct changes in all three statements; no income statement change."
-        - "(b) Net income and equity down 10, cash unchanged, with the add-back of depreciation."
+        (B). Buying equipment is not an expense: on the balance sheet equipment and borrowing each rise by 50, and on the cash flow statement investing cash flow is −50 and financing cash flow +50. The cost reaches the income statement later through depreciation (10 a year).
 
   - id: C2
     kind: check
     section: linkages
     concepts: [working-capital, accrual-accounting]
     widget: { id: growth-cash, set: { g: 40, dso: 90 } }
-    expected: { ni: "153.24", cfo: "45.28" }
     question:
       zh-cn: |-
-        在 [[fig:2-1]] 中，把收入增长率设为 40%，应收账款天数设为 90。(a) 读出 5 年的净利润合计和经营活动现金流合计。差别是从哪里来的？(b) 这家公司的经营一定有问题吗？它可能需要什么？
+        在 [[fig:2-1]] 中，应收账款天数保持为 60，把收入增长率从 0 提高到 40%。5 年的经营活动现金流合计与净利润合计相比：
       en: |-
-        In [[fig:2-1]], set revenue growth to 40% and days of receivables to 90. (a) Read off the five-year totals of net income and operating cash flow. Where does the difference come from? (b) Is something necessarily wrong with this business? What might it need?
+        In [[fig:2-1]], keep days of receivables at 60 and raise revenue growth from 0 to 40%. Compared with five-year total net income, five-year total operating cash flow:
+    choices:
+      - zh-cn: 落后得越来越多
+        en: Falls further and further behind
+      - zh-cn: 差距越来越小
+        en: Gets closer and closer
+      - zh-cn: 始终相等
+        en: Is always equal
+      - zh-cn: 超过净利润
+        en: Exceeds net income
+    correct: A
     answer:
       zh-cn: |-
-        (a) 净利润合计约 153.24，经营活动现金流合计约 45.28。收入增长时，应收账款按同样的比例增加，每年新增的应收账款是已经确认为收入、但还没有收到的现金，所以现金流远低于利润。
-        (b) 不一定。如果客户信用良好，这些应收账款最终能收回，增长本身就需要占用资金。但公司需要资金来支持增长：借款或发行股票。快速增长的公司即使盈利，也可能因为现金不足而陷入困境；如果应收账款天数还在上升，就要怀疑收入的质量。
+        (A)。不增长时应收账款不变，现金流等于利润。收入增长时，应收账款按同样的比例增加，每年新增的应收账款是已经确认为收入、还没有收到的现金，增长越快，现金流比利润落后得越多。增长本身需要资金。
       en: |-
-        (a) Total net income is about 153.24 and total operating cash flow about 45.28. As revenue grows, receivables grow in the same proportion; each year's new receivables are revenue already recognized but not yet received in cash, so cash flow is far below profit.
-        (b) Not necessarily. If customers are creditworthy, the receivables will be collected; growth simply ties up money. But the company needs funding to support its growth: borrowing or issuing shares. A fast-growing company can get into trouble from lack of cash even while profitable; if the days of receivables keep rising, the quality of revenue becomes suspect.
-    rubric:
-      zh-cn:
-        - "(a) 约 153.24 和 45.28，指出应收账款的增加。"
-        - "(b) 不一定有问题，并指出增长需要资金。"
-      en:
-        - "(a) About 153.24 and 45.28, pointing to the increase in receivables."
-        - "(b) Not necessarily a problem; growth needs funding."
+        (A). With no growth receivables stay constant and cash flow equals profit. When revenue grows, receivables grow in proportion; each year's new receivables are revenue already recognized but not yet collected, so the faster the growth, the further cash flow falls behind profit. Growth itself needs funding.
 
   - id: C3
     kind: check
     section: earnings-quality
     concepts: [depreciation, earnings-quality]
-    expected: { dep4: "300", dep6: "200", diff: "100" }
     question:
       zh-cn: |-
-        一家公司有 1200 的服务器，原来按 4 年直线折旧。今年它把服务器的使用年限改为 6 年（不考虑税）。(a) 每年的折旧从多少变为多少？营业利润和经营活动现金流各变化多少？(b) 分析师应该怎样看待由此带来的利润增长？
+        公司把服务器的折旧年限从 4 年延长到 6 年（不考虑税）。这使营业利润增加，经营活动现金流也同样增加。
       en: |-
-        A company has servers that cost 1200, depreciated straight-line over 4 years. This year it changes their useful life to 6 years (ignore taxes). (a) How does annual depreciation change? How much do operating income and operating cash flow change? (b) How should an analyst view the resulting rise in profit?
+        A company lengthens the depreciation life of its servers from 4 to 6 years (ignore taxes). This raises operating income, and operating cash flow rises by the same amount.
+    correct: false
     answer:
       zh-cn: |-
-        (a) 折旧从 $\frac{1200}{4} = 300$ 变为 $\frac{1200}{6} = 200$，营业利润每年增加 100；经营活动现金流不变，因为折旧不是现金支出。
-        (b) 这部分利润增长来自会计估计的变化，而不是经营的改善，也没有带来更多的现金。如果服务器实际上确实能用 6 年，新的估计更准确；如果技术更新很快，服务器 4 年后就要更换，利润就被高估了，以后会以更高的资本支出或资产减值的形式反映出来。分析时应把估计变更的影响单独列出，与以前的年份比较时剔除它。
+        错。折旧不是现金支出，改变使用年限只改变每年分摊的费用：营业利润增加，现金流不变。这部分利润增长来自会计估计的变化，而不是经营的改善；如果服务器实际上 4 年就要更换，利润就被高估了。
       en: |-
-        (a) Depreciation goes from $\frac{1200}{4} = 300$ to $\frac{1200}{6} = 200$, so operating income rises by 100 a year; operating cash flow is unchanged, because depreciation is not a cash payment.
-        (b) This rise in profit comes from a change in an accounting estimate, not from a better business, and brings no extra cash. If the servers really do last 6 years, the new estimate is more accurate; if technology changes fast and they must be replaced after 4 years, profit is overstated, and this will show up later as higher capital spending or write-downs. An analyst should separate the effect of the change and remove it when comparing with earlier years.
-    rubric:
-      zh-cn:
-        - "(a) 300 变为 200，利润增加 100，现金流不变。"
-        - "(b) 指出利润增长来自估计变化，并讨论估计是否合理。"
-      en:
-        - "(a) From 300 to 200; profit up 100; cash flow unchanged."
-        - "(b) Points out that the rise comes from an estimate change and discusses whether the estimate is reasonable."
+        False. Depreciation is not a cash payment; changing the useful life only changes the expense spread over each year: operating income rises and cash flow is unchanged. The rise in profit comes from a change in an accounting estimate, not from a better business; if the servers really need replacing after 4 years, profit is overstated.
 
   - id: C4
     kind: check
     section: red-flags
     concepts: [earnings-quality]
-    expected: { adj: "200", share: "40" }
     question:
       zh-cn: |-
-        一家公司的 GAAP 净利润为 120，其中扣除了 80 的股票薪酬（以股票或期权支付给员工的报酬）。公司强调“调整后净利润”，剔除了股票薪酬（不考虑税）。调整后净利润是多少？股票薪酬占调整后利润的比例是多少？为什么说股票薪酬是真实的成本？
+        一家公司强调剔除股票薪酬（以股票或期权支付给员工的报酬）的“调整后利润”。为什么股票薪酬仍然是现有股东真实承担的成本？
       en: |-
-        A company's GAAP net income is 120, after deducting 80 of stock-based compensation (pay to employees in shares or options). The company stresses "adjusted net income", which excludes stock-based compensation (ignore taxes). What is adjusted net income? What share of adjusted earnings is the stock-based compensation? Why is stock-based compensation a real cost?
+        A company stresses "adjusted earnings" that exclude stock-based compensation (pay to employees in shares or options). Why is stock-based compensation still a real cost for existing shareholders?
+    choices:
+      - zh-cn: 它减少了公司当期的现金
+        en: It reduces the company's cash in the period
+      - zh-cn: 它是员工劳动的报酬，发行新股使现有股东的持股被稀释
+        en: It pays for employees' work, and issuing new shares dilutes existing shareholders
+      - zh-cn: 它使公司多交所得税
+        en: It makes the company pay more income tax
+      - zh-cn: 它不是真实成本，剔除它是合理的
+        en: It is not a real cost, so excluding it is reasonable
+    correct: B
     answer:
       zh-cn: |-
-        调整后净利润为 $120 + 80 = 200$，股票薪酬占 $\frac{80}{200} = 40\%$。股票薪酬是员工劳动的报酬，如果不用股票支付，公司就要多付现金工资。它不减少公司的现金，但发行新股使现有股东的持股比例被稀释；如果公司用现金回购股票来抵消稀释，就会真的花掉现金。剔除它会把对现有股东的成本藏起来。
+        (B)。股票薪酬不减少公司的现金，但它是员工劳动的报酬：不用股票支付，就要多付现金工资。发行新股稀释了现有股东；如果公司用现金回购股票来抵消稀释，就真的花掉了现金。剔除它会把对现有股东的成本藏起来。
       en: |-
-        Adjusted net income is $120 + 80 = 200$, and stock-based compensation is $\frac{80}{200} = 40\%$ of it. Stock-based compensation pays for employees' work; without it the company would have to pay more cash wages. It does not reduce the company's cash, but issuing new shares dilutes existing shareholders; if the company buys back shares with cash to offset the dilution, it really spends cash. Excluding it hides a cost borne by existing shareholders.
-    rubric:
-      zh-cn:
-        - "200，约 40%。"
-        - "说明股票薪酬是报酬并稀释现有股东。"
-      en:
-        - "200; about 40%."
-        - "Explains that it is pay and dilutes existing shareholders."
+        (B). Stock-based compensation does not reduce the company's cash, but it pays for employees' work: without it, the company would pay more cash wages. Issuing new shares dilutes existing shareholders; if the company buys back shares with cash to offset the dilution, it really spends cash. Excluding it hides a cost borne by existing shareholders.
 
   # ---------- Exercises (练习题) ----------
   - id: Q1

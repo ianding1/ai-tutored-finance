@@ -30,7 +30,11 @@ def results():
     r["Q3.w0"] = 0.8 * 9 + 0.2 * 4 * 0.75
     r["Q3.w1"] = 0.5 * 12 + 0.5 * 5.2 * 0.75
 
-    r["Q4.v8"], r["Q4.v16"] = 100 * multiple(4, 8, 8), 100 * multiple(4, 16, 8)
+    r["Q4.v16"], r["Q4.naive"] = 100 * multiple(4, 16, 8), 100 / 0.04
+    r["Q4.over"] = 100 * (r["Q4.naive"] / r["Q4.v16"] - 1)
+    # Values that the questions now give or no longer ask for.
+    for k in ['C1.f', 'C2.w', 'C3.m', 'C3.m0', 'C3.mlow']:
+        del r[k]
     return r
 
 

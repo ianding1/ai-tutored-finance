@@ -23,7 +23,7 @@ def results():
     assert gordon(5, 10, 0) == 50
 
     r["Q1.r"] = 2 + 5
-    r["Q1.up"] = 100 * (gordon(1, 6, 5) / gordon(1, 7, 5) - 1)
+    r["Q1.r2"] = 2 / 2 + 5  # the dividend yield halves when the price doubles
 
     d, pv = 1.0, 0.0
     for t in range(1, 6):
@@ -34,9 +34,12 @@ def results():
 
     r["Q3.pvgo"] = 60 - 4 / 0.10
     r["Q3.share"] = 100 * r["Q3.pvgo"] / 60
-    r["Q3.p"] = gordon(2, 10, 0.5 * 10)
+    r["Q3.p"] = gordon(2, 10, 0.5 * 8)
 
     r["Q4.g"] = 9 - 100 * 3.2 / 80
+    # Values that the questions now give or no longer ask for.
+    for k in ['C1.p0', 'C2.p', 'C2.p2', 'C2.chg', 'C3.g', 'C3.p', 'C3.p8']:
+        del r[k]
     return r
 
 

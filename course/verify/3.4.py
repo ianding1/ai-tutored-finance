@@ -52,6 +52,9 @@ def results():
         f = 1.05 / (1.05 + dy)
         assert abs(100 * (f**5 - 1) - bullet) < 0.005
         assert abs(50 * (f - 1) + 50 * (f**9 - 1) - barbell) < 0.005
+    # Values that the questions now give or no longer ask for.
+    for k in ['C2.d', 'C2.dp', 'C3.a', 'C3.b', 'C4.a6', 'C4.l6']:
+        del r[k]
     return r
 
 

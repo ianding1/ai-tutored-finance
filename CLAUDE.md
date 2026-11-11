@@ -70,18 +70,19 @@ one learner, revision history and answers inline. To publish a finished lesson:
    context item with the `concepts` or `questions` it serves (leave both out only for facts every
    question needs), and each common error with its `questions`. Any fact a question needs from the
    lesson (example data, figure parameters) must be in a context item tagged for that question.
-   Place `<Check id="..."/>` (question text only) in the right section, `<CheckAll />` after the
-   summary and `<Exercises />` at the end.
-   Check questions:
-   - each is one true / false statement ("判断：……") or one multiple-choice question with options
-     (A)–(D), about one core point of the section it follows;
+   Place `<Check id="..."/>` in the right section and `<Exercises />` at the end. `<CheckAll />`
+   (after the summary) is only for older lessons whose check questions are still graded by prompt.
+   Check questions are answered on the page:
+   - each is one true / false statement (`correct: true` or `false`, no `choices`) or one
+     multiple-choice question (`choices`: a list of options, `correct`: the letter), about one core
+     point of the section it follows;
    - they test qualitative conclusions: direction, conditions, mechanism, whether a claim holds. A
      number may appear, but the answer must follow from understanding, not from working through a
      calculation. A figure-based check question asks about a direction or pattern in the figure, not
      a precise reading;
-   - the learner writes only the answer (no reason). The reference answer states the correct choice
-     and a short explanation; the rubric is the correct choice;
-   - they have no `expected`.
+   - the learner picks an answer and submits it; the page says at once whether it is right, and a
+     wrong answer shows `answer`, which starts with the correct choice and explains it briefly;
+   - they have no `expected` and no `rubric`.
    Exercises:
    - they hold the calculations, derivations and applications, without many parts; when a question
      has many parts, drop the ones that only plug numbers into a formula and keep the ones that need
@@ -115,9 +116,11 @@ one learner, revision history and answers inline. To publish a finished lesson:
 - Slider values named in questions are reachable; slider attributes match `course/widgets.yaml`.
 - No private teaching notes (学员, 教案, 修订记录, briefing) in published content.
 - Context items and common errors in key files refer to existing concepts and questions.
-- A lesson with check questions contains
-  `<CheckAll />` exactly once, and a lesson with
+- A lesson with check questions graded by prompt (no `correct`) contains `<CheckAll />` exactly once,
+  a lesson whose check questions are all answered on the page has no `<CheckAll />`, and a lesson with
   exercises contains `<Exercises />` exactly once.
+- A check question answered on the page has `correct` (true / false, or a letter of `choices`), has
+  2 to 8 options if it has `choices`, and has no `expected` and no `rubric`.
 - Check questions and exercises have no `points`, and their rubrics do not mention points.
 - Quiz questions have `points`, and the points of a quiz total 100.
 - Chinese text (every `zh-*` language) uses Chinese quotation marks and the word 提示词 (提示詞 in
@@ -130,7 +133,7 @@ one learner, revision history and answers inline. To publish a finished lesson:
 
 | zh-cn | en | `kind` / component | Scored |
 | --- | --- | --- | --- |
-| 随堂题 | check question | `check`, `<Check>`, submitted by `<CheckAll>` | no ("ok" / "revise") |
+| 随堂题 | check question | `check`, `<Check>`, answered on the page (older lessons: `<CheckAll>`) | no ("ok" / "revise") |
 | 练习题 | exercise | `exercise`, `<Exercises>` | no ("ok" / "revise") |
 | 测验 | quiz | `quiz`, `<Quiz>` on the page `lessons/e<n>-quiz.mdx` (`E0`, `E1`, ...) | yes (points, total 100) |
 
@@ -144,9 +147,12 @@ one learner, revision history and answers inline. To publish a finished lesson:
   ring (some submitted), a filled ring (all submitted, including questions that need revision).
   There is no separate course outline page and no "how to use" page: the interface must explain
   itself through its labels and short hints next to the controls.
-- Answers are not entered on the site. Check questions are submitted together by
-  `<CheckAll />` at the end of the lesson, and exercises by `<Exercises />`. The prompt ends with an
-  empty "learner's answers" heading; the learner attaches a photo or types the answers after it.
+- Check questions are true / false or multiple choice and are answered on the page: each has its own
+  submit button, the result ("ok" / "revise") is shown and stored at once, and a wrong answer shows
+  the explanation. Older lessons not yet converted still submit them with `<CheckAll />`.
+- Other answers are not entered on the site. Exercises are submitted together by `<Exercises />`.
+  The prompt ends with an empty "learner's answers" heading; the learner attaches a photo or types the
+  answers after it.
 - Check questions (随堂题) and exercises (练习题) are reviewed without scores: the result marks each
   one "ok" or "revise". Only the quizzes after a group of lessons (测验, `E0`, `E1`, ... in the
   curriculum) are scored: their questions have `points` (total 100), and the scoring prompt asks

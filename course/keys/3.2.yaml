@@ -8,6 +8,8 @@
 #   - one of its `concepts` is tested by a question being graded, or
 #   - one of its `questions` is being graded.
 # common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`;
+# `answer` is the explanation shown after a wrong answer. They have no expected and no rubric.
 
 lesson: "3.2"
 
@@ -55,126 +57,110 @@ questions:
     kind: check
     section: npv
     concepts: [net-present-value, cost-of-capital, annuity]
-    expected: { npv: "137.24" }
     question:
       zh-cn: |-
-        一台设备今天花费 1000，今后 5 年每年年末带来 300 的现金流，风险相同的投资预期收益为 10%。(a) 求 NPV。(b) 公司可以从银行以 6% 借到这 1000，有人说“应该用 6% 折现”。这种说法对吗？
+        一家公司可以从银行以 6% 借到一个项目所需的全部资金，而风险相同的投资预期收益为 10%。计算这个项目的 NPV 应该用哪个折现率？
       en: |-
-        A machine costs 1000 today and brings cash flows of 300 at the end of each of the next 5 years; investments of the same risk are expected to return 10%. (a) Find the NPV. (b) The company can borrow the 1000 from a bank at 6%, and someone says "we should discount at 6%". Is this right?
+        A company can borrow all the money a project needs from a bank at 6%, while investments of the same risk are expected to earn 10%. Which discount rate should be used for the project's NPV?
+    choices:
+      - zh-cn: 6%，因为这是公司实际的融资成本
+        en: 6%, because it is the company's actual financing cost
+      - zh-cn: 10%，因为这是把钱投到风险相同的地方能得到的回报
+        en: 10%, because it is what the money could earn in an investment of the same risk
+      - zh-cn: 8%，取两者的平均
+        en: 8%, the average of the two
+      - zh-cn: 无风险利率，因为未来现金流已经估计好了
+        en: The risk-free rate, because the future cash flows are already estimated
+    correct: B
     answer:
       zh-cn: |-
-        (a) $\text{NPV} = -1000 + 300 \times \frac{1 - 1.1^{-5}}{0.1} \approx -1000 + 1137.24 = 137.24$。
-        (b) 不对。折现率应反映项目现金流的风险：投资者把钱投到风险相同的地方能得到 10%，这是机会成本。借款利率反映的是银行贷款（优先偿还、风险较低）的成本，不是这个项目风险的价格。
+        (B)。折现率是资本的机会成本，应反映项目现金流的风险：投资者把钱投到风险相同的地方能得到 10%。银行贷款优先偿还、风险较低，它的利率不是这个项目风险的价格。
       en: |-
-        (a) $\text{NPV} = -1000 + 300 \times \frac{1 - 1.1^{-5}}{0.1} \approx -1000 + 1137.24 = 137.24$.
-        (b) No. The discount rate should reflect the risk of the project's cash flows: investors can earn 10% on investments of the same risk, and that is the opportunity cost. The borrowing rate reflects the cost of a bank loan (repaid first, less risky), not the price of this project's risk.
-    rubric:
-      zh-cn:
-        - "(a) 约 137.24。"
-        - "(b) 说明折现率是风险相同的机会成本。"
-      en:
-        - "(a) About 137.24."
-        - "(b) Explains that the discount rate is the opportunity cost for the same risk."
+        (B). The discount rate is the opportunity cost of capital and should reflect the risk of the project's cash flows: investors could earn 10% elsewhere at the same risk. A bank loan is repaid first and is less risky, so its rate is not the price of this project's risk.
 
   - id: C2
     kind: check
     section: cash-flows
     concepts: [net-present-value, sunk-cost]
-    expected: { npv: "11.42" }
     question:
       zh-cn: |-
-        沿用 [[check:C1]] 的设备项目（NPV 137.24），补充以下信息：(i) 去年已经花了 200 做市场调研；(ii) 项目要使用公司闲置的一块场地，这块场地现在可以 50 卖掉，项目结束后没有价值；(iii) 新产品会使公司原有产品今后 5 年每年的现金流减少 20。项目的 NPV 变为多少？
+        评估一个新产品项目时，下列哪一项不应计入项目的现金流？
       en: |-
-        Continue the machine project of [[check:C1]] (NPV 137.24) with more information: (i) 200 was spent on market research last year; (ii) the project uses an idle plot of the company's land, which could be sold now for 50 and will be worth nothing after the project; (iii) the new product will reduce the cash flows of the company's existing product by 20 a year for the next 5 years. What does the project's NPV become?
+        When evaluating a new product project, which of the following should not be included in the project's cash flows?
+    choices:
+      - zh-cn: 项目要用的一块闲置场地，现在可以出售得到的价格
+        en: The price at which an idle piece of land the project will use could be sold now
+      - zh-cn: 新产品使公司原有产品减少的现金流
+        en: The cash flow the company's existing products lose because of the new product
+      - zh-cn: 去年已经花掉的市场调研费用
+        en: Market research costs already spent last year
+      - zh-cn: 项目需要增加的存货
+        en: The extra inventory the project needs
+    correct: C
     answer:
       zh-cn: |-
-        (i) 沉没成本，不计入。(ii) 机会成本 50，计入。(iii) 蚕食效应，计入：现值 $20 \times 3.7908 \approx 75.82$。
-        $\text{NPV} \approx 137.24 - 50 - 75.82 = 11.42$，仍为正，但比原来小得多。
+        (C)。去年的调研费已经花掉，做不做项目都收不回来，是沉没成本。场地的出售价格是机会成本，原有产品减少的现金流和增加的存货都随项目而发生，应当计入。
       en: |-
-        (i) A sunk cost: not included. (ii) An opportunity cost of 50: included. (iii) Cannibalization: included, with present value $20 \times 3.7908 \approx 75.82$.
-        $\text{NPV} \approx 137.24 - 50 - 75.82 = 11.42$: still positive, but much smaller.
-    rubric:
-      zh-cn:
-        - "三项处理正确，NPV 约 11.42。"
-      en:
-        - "All three items handled correctly; NPV about 11.42."
+        (C). Last year's research cost is already spent and cannot be recovered whether or not the project goes ahead: it is a sunk cost. The land's sale price is an opportunity cost, and the lost sales of existing products and the extra inventory happen because of the project, so they are included.
 
   - id: C3
     kind: check
     section: irr
     concepts: [internal-rate-of-return, net-present-value]
     widget: { id: npv-profile, set: { r: 15 } }
-    expected: { na: "3.13" }
     question:
       zh-cn: |-
-        [[fig:3-1]] 中项目 A 的 IRR 约为 17.21%。资本成本为 15% 时，它的 NPV 是多少？为什么对这个项目，IRR 法则和 NPV 法则一定给出相同的结论？
+        对一个先付出、后收回的常规项目（例如 [[fig:3-1]] 中的项目 A），只要资本成本低于它的 IRR，它的 NPV 就一定为正。
       en: |-
-        In [[fig:3-1]], project A's IRR is about 17.21%. At a cost of capital of 15%, what is its NPV? Why must the IRR rule and the NPV rule give the same answer for this project?
+        For a conventional project that pays out first and receives later (such as project A in [[fig:3-1]]), as long as the cost of capital is below its IRR, its NPV must be positive.
+    correct: true
     answer:
       zh-cn: |-
-        NPV 约 3.13，为正；IRR 17.21% 高于 15%，两个法则都接受。
-        A 是常规项目（先付出、后收回），NPV 随折现率上升而下降，只与横轴交一次，所以折现率低于 IRR 时 NPV 必为正，高于时必为负。
+        对。常规项目的 NPV 随折现率上升而下降，只与横轴相交一次（在 IRR 处），所以折现率低于 IRR 时 NPV 为正，高于时为负，IRR 法则与 NPV 法则一致。
       en: |-
-        The NPV is about 3.13, positive; the IRR of 17.21% is above 15%, so both rules accept.
-        A is a conventional project (pay first, receive later): its NPV falls as the rate rises and crosses the axis once, so the NPV must be positive at any rate below the IRR and negative above it.
-    rubric:
-      zh-cn:
-        - "约 3.13。"
-        - "说明常规项目 NPV 曲线单调、只交一次。"
-      en:
-        - "About 3.13."
-        - "Explains that a conventional project's NPV curve is monotonic and crosses once."
+        True. A conventional project's NPV falls as the discount rate rises and crosses the horizontal axis only once (at the IRR), so the NPV is positive below the IRR and negative above it; the IRR rule and the NPV rule agree.
 
   - id: C4
     kind: check
     section: irr-pitfalls
     concepts: [internal-rate-of-return, net-present-value]
     widget: { id: npv-profile, set: { r: 5 } }
-    expected: { na: "19.77", nb: "27.01", x: "11.07" }
     question:
       zh-cn: |-
-        [[fig:3-1]] 中项目 B 的 IRR 约为 14.76%，低于 A。两个项目只能选一个。(a) 资本成本为 5% 时应选哪个？(b) 资本成本在什么范围内结论会反过来？
+        [[fig:3-1]] 中项目 B 的 IRR（约 14.76%）低于项目 A（约 17.21%）。两个项目只能选一个，资本成本为 5%。应该怎样选？
       en: |-
-        In [[fig:3-1]], project B's IRR is about 14.76%, lower than A's. Only one project can be chosen. (a) At a cost of capital of 5%, which should be chosen? (b) For what range of the cost of capital is the answer reversed?
+        In [[fig:3-1]], project B's IRR (about 14.76%) is below project A's (about 17.21%). Only one of the two can be chosen, and the cost of capital is 5%. Which should be chosen?
+    choices:
+      - zh-cn: 选 A，因为它的 IRR 更高
+        en: A, because its IRR is higher
+      - zh-cn: 选 B，因为在 5% 时它的 NPV 更大
+        en: B, because its NPV is larger at 5%
+      - zh-cn: 选 A，因为它回收得更快
+        en: A, because it pays back faster
+      - zh-cn: 两者一样好，因为两者的 NPV 都为正
+        en: Either, because both NPVs are positive
+    correct: B
     answer:
       zh-cn: |-
-        (a) 5% 时 A 的 NPV 约 19.77，B 约 27.01，选 B，尽管它的 IRR 较低。
-        (b) 两条曲线约在 11.07% 相交。资本成本高于约 11.07%（且 A 的 NPV 仍为正，即低于约 17.21%）时，A 的 NPV 较大，应选 A。
+        (B)。互斥项目要比较 NPV。B 的现金流来得晚，折现率低时受益更多：在 5% 时 B 的 NPV 更大。两条 NPV 曲线约在 11.07% 相交，资本成本高于这个水平时才应选 A。IRR 的高低不等于 NPV 的大小。
       en: |-
-        (a) At 5%, A's NPV is about 19.77 and B's about 27.01: choose B, even though its IRR is lower.
-        (b) The curves cross at about 11.07%. With a cost of capital above about 11.07% (and A's NPV still positive, below about 17.21%), A has the larger NPV and should be chosen.
-    rubric:
-      zh-cn:
-        - "(a) 约 19.77 和 27.01，选 B。"
-        - "(b) 约 11.07% 以上选 A。"
-      en:
-        - "(a) About 19.77 and 27.01; choose B."
-        - "(b) Above about 11.07%, choose A."
+        (B). Mutually exclusive projects are compared by NPV. B's cash flows come later and gain more from a low discount rate: at 5% B's NPV is larger. The two NPV curves cross at about 11.07%, and only above that should A be chosen. A higher IRR does not mean a larger NPV.
 
   - id: C5
     kind: check
     section: other-rules
     concepts: [payback-period]
-    expected: { pa: "1.8", pb: "2.61" }
     question:
       zh-cn: |-
-        求 [[fig:3-1]] 中两个项目的回收期（假设每年的现金流在年内均匀到来）。回收期法会选哪个？资本成本为 5% 时这个选择对吗？
+        回收期较短的项目，NPV 一定较大。
       en: |-
-        Find the payback periods of the two projects in [[fig:3-1]] (assume each year's cash flow arrives evenly during the year). Which project does the payback rule pick? Is that choice right at a cost of capital of 5%?
+        A project with a shorter payback period always has a larger NPV.
+    correct: false
     answer:
       zh-cn: |-
-        A：第 1 年收回 60，还差 40，要第 2 年的 $\frac{40}{50} = 0.8$ 年，回收期 1.8 年。B：前两年收回 30，还差 70，要第 3 年的 $\frac{70}{115} \approx 0.61$ 年，回收期约 2.61 年。回收期法选 A。
-        资本成本为 5% 时 B 的 NPV 更大（[[check:C4]]），回收期法选错了：B 第 3 年的 115 大部分在回收期之外，被回收期法忽略。
+        错。回收期法不折现，而且完全忽略回收期之后的现金流。[[fig:3-1]] 中 A 回收得更快，但 B 第 3 年有一大笔现金流，资本成本为 5% 时 B 的 NPV 更大。
       en: |-
-        A: year 1 brings 60, leaving 40, which takes $\frac{40}{50} = 0.8$ of year 2: payback 1.8 years. B: the first two years bring 30, leaving 70, which takes $\frac{70}{115} \approx 0.61$ of year 3: payback about 2.61 years. The payback rule picks A.
-        At 5% B has the larger NPV ([[check:C4]]), so the payback rule picks wrong: most of B's 115 in year 3 comes after payback and is ignored.
-    rubric:
-      zh-cn:
-        - "回收期 1.8 和约 2.61 年，选 A。"
-        - "指出在 5% 时选错。"
-      en:
-        - "Paybacks 1.8 and about 2.61 years; picks A."
-        - "Notes the wrong choice at 5%."
+        False. The payback method does not discount and ignores all cash flows after the payback date. In [[fig:3-1]] A pays back faster, but B has a large cash flow in year 3, and at a 5% cost of capital B's NPV is larger.
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1

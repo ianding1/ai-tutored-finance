@@ -43,6 +43,9 @@ def results():
     r["Q3.avg"] = 4.3 - 0.5
 
     r["Q4.dp"] = 9 * 0.5
+    # Values that the questions now give or no longer ask for.
+    for k in ['C1.f', 'C1.p0', 'C1.p1', 'C1.ret', 'C2.y10', 'C2.e10', 'C4.ride']:
+        del r[k]
     return r
 
 

@@ -9,7 +9,6 @@ import Def from '../../../../components/Def.astro';
 import Figure from '../../../../components/Figure.astro';
 import Check from '../../../../components/Check.astro';
 import Exercises from '../../../../components/Exercises.astro';
-import CheckAll from '../../../../components/CheckAll.astro';
 import TermStructure from '../../../../components/widgets/TermStructure.astro';
 
 ## 收益率曲线 [#yield-curve]
@@ -47,7 +46,7 @@ $$
 
 这叫<Def id="expectations-hypothesis">预期假说</Def>（expectations hypothesis）。按这个假说，曲线向上倾斜说明市场预期短期利率上升，倒挂说明预期下降；<Ref check="Q5" lesson="2.5" /> 和 <Ref lesson="2.8" /> 用的就是这个想法。
 
-曲线向上倾斜时，长期债券的收益率较高。按预期假说，对只投资 1 年的投资者，长期债券是不是更好的选择？<Ref check="C1" /> 用一个例子回答这个问题。
+曲线向上倾斜时，长期债券的收益率较高。按预期假说，对只投资 1 年的投资者，长期债券是不是更好的选择？<Ref check="C1" /> 讨论这个问题。
 
 <Check id="C1" />
 
@@ -92,8 +91,6 @@ $\phi_t$ 叫<Def id="term-premium">期限溢价</Def>（term premium）。认为
 - 预期假说：$(1 + s_n)^n = (1 + s_1)(1 + E[r_2]) \cdots (1 + E[r_n])$，远期利率等于预期的未来短期利率。
 - 期限溢价：$f_{t-1,t} = E[r_t] + \phi_t$。流动性溢价理论认为它为正并随期限增加；优先偏好理论认为它取决于各期限的供求，可正可负。
 - 长期利率约等于预期短期利率的平均值加期限溢价；曲线的变动大部分可以用水平、斜率和曲率三种变化描述。
-
-<CheckAll />
 
 ## 练习题 [#exercises]
 

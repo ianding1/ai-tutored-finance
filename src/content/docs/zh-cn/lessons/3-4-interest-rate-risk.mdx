@@ -9,7 +9,6 @@ import Def from '../../../../components/Def.astro';
 import Figure from '../../../../components/Figure.astro';
 import Check from '../../../../components/Check.astro';
 import Exercises from '../../../../components/Exercises.astro';
-import CheckAll from '../../../../components/CheckAll.astro';
 import DurationConvexity from '../../../../components/widgets/DurationConvexity.astro';
 
 ## 两种利率风险 [#rate-risk]
@@ -81,8 +80,6 @@ $C$ 叫<Def id="convexity">凸性</Def>（convexity），$C = \frac{1}{P} \frac{
 - Macaulay 久期 $D = \sum_t t \, w_t$ 是以现值加权的平均回收时间；零息债的久期等于期限。修正久期 $D^* = \frac{D}{1 + y}$，$\frac{\Delta P}{P} \approx -D^* \Delta y$。
 - 凸性修正久期的误差：$\frac{\Delta P}{P} \approx -D^* \Delta y + \frac{1}{2} C (\Delta y)^2$；凸性越大，对持有者越有利。
 - 免疫：资产与负债的现值和久期相等，使一次利率变化的价格影响和再投资影响相互抵消；需要定期调整，只对平行移动近似成立。
-
-<CheckAll />
 
 ## 练习题 [#exercises]
 
