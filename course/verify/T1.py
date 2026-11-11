@@ -16,11 +16,13 @@ def results():
     r["Q1.real"] = real
     r["Q1.loss"] = 100 * (1 - real / 100000)
 
-    # Q6: b' = (1 + r) / (1 + g) b + d with r = 3%, g = 4%, d = 2%: the ratio converges.
-    b_star = 0.02 * 1.04 / (0.04 - 0.03)
+    # Q6: b' = (1 + r) / (1 + g) b + d with nominal r = 3%, nominal g = 1.02 * 1.02 - 1, d = 2%.
+    g = 1.02 * 1.02 - 1
+    assert g > 0.03  # the rate is below nominal growth, so the ratio converges
+    b_star = 0.02 * (1 + g) / (g - 0.03)
     b = 1.0
-    for _ in range(5000):
-        b = 1.03 / 1.04 * b + 0.02
+    for _ in range(10000):
+        b = 1.03 / (1 + g) * b + 0.02
     assert abs(b - b_star) < 1e-9
     r["Q6.limit"] = 100 * b_star
 
@@ -54,7 +56,7 @@ def results():
 
     # Q12: Qd = 1000 - 10P, short-run Qs = 40P - 1000, long-run supply flat at 40, tax 6.
     pb = (1000 + 1000 + 40 * 6) / 50
-    r["Q12.pb"], r["Q12.ps"], r["Q12.q"] = pb, pb - 6, 1000 - 10 * pb
+    assert (pb, pb - 6) == (44.8, 38.8)  # the short-run prices given in the question
     assert 1000 - 10 * 40 == 40 * 40 - 1000  # the starting point is the long-run equilibrium
     r["Q12.pl"] = 40 + 6
     r["Q12.ql"] = 1000 - 10 * r["Q12.pl"]

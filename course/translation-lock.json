@@ -10844,10 +10844,14 @@
   "zh-cn": "99cf92babe2eb309"
  },
  "course/keys/T1.yaml#common_errors[10]": {
+  "en": "9c184e585f7c5550",
+  "zh-cn": "d403a1d33f5e57d3"
+ },
+ "course/keys/T1.yaml#common_errors[11]": {
   "en": "a674f052396c04ff",
   "zh-cn": "1f8d7c63c559f670"
  },
- "course/keys/T1.yaml#common_errors[11]": {
+ "course/keys/T1.yaml#common_errors[12]": {
   "en": "a9c07c57efeebd27",
   "zh-cn": "a5b0afc3cbd8c49c"
  },
@@ -10860,8 +10864,8 @@
   "zh-cn": "8db4cdd621556b46"
  },
  "course/keys/T1.yaml#common_errors[3]": {
-  "en": "a529f9f17025ca61",
-  "zh-cn": "90994190f5dd71d4"
+  "en": "a7bd91b84ca91bb9",
+  "zh-cn": "dde40d4364a0e29f"
  },
  "course/keys/T1.yaml#common_errors[4]": {
   "en": "136bfe43ae205f18",
@@ -10884,8 +10888,8 @@
   "zh-cn": "ca5d3ed297d7cfdd"
  },
  "course/keys/T1.yaml#common_errors[9]": {
-  "en": "9c184e585f7c5550",
-  "zh-cn": "d403a1d33f5e57d3"
+  "en": "e1abd9f3874e37e6",
+  "zh-cn": "3e72b47c66597fb8"
  },
  "course/keys/T1.yaml#context[0]": {
   "en": "b76f0bd8cfb1f4fc",
@@ -10896,36 +10900,36 @@
   "zh-cn": "10986601f859de8c"
  },
  "course/keys/T1.yaml#questions[Q10].question": {
-  "en": "39633c73ccd93a3e",
-  "zh-cn": "f542d15dd550cda7"
+  "en": "fe141d9c24dc09ad",
+  "zh-cn": "045d1f2974773715"
  },
  "course/keys/T1.yaml#questions[Q10].rubric": {
-  "en": "304c5fb20085ee0c",
-  "zh-cn": "3dc795d448215264"
+  "en": "a45c1648a6b28ff9",
+  "zh-cn": "3ad8d5c5ed2e67da"
  },
  "course/keys/T1.yaml#questions[Q11].answer": {
   "en": "90bcb664dc6499ff",
   "zh-cn": "23188403ef6b1182"
  },
  "course/keys/T1.yaml#questions[Q11].question": {
-  "en": "1ab4d8ab185e7585",
-  "zh-cn": "f1b3e5fefcac1cda"
+  "en": "3ae611df4a98183b",
+  "zh-cn": "9643bf2a96043dd6"
  },
  "course/keys/T1.yaml#questions[Q11].rubric": {
   "en": "aa9b80251df45648",
   "zh-cn": "a4603e51d5049b78"
  },
  "course/keys/T1.yaml#questions[Q12].answer": {
-  "en": "0c8bbd1858d54341",
-  "zh-cn": "2bff7a5920b8a9cf"
+  "en": "f40dae7b5a17d955",
+  "zh-cn": "5791ad4ae108211a"
  },
  "course/keys/T1.yaml#questions[Q12].question": {
-  "en": "06a304f704b534c8",
-  "zh-cn": "9d0837fc7ced7985"
+  "en": "357cab22a6aa52e1",
+  "zh-cn": "ce9d9e6ed2e31c03"
  },
  "course/keys/T1.yaml#questions[Q12].rubric": {
-  "en": "d36367fedfcd1865",
-  "zh-cn": "fa2c40790202bd28"
+  "en": "d3f32739093f6353",
+  "zh-cn": "4a9e988e8e319225"
  },
  "course/keys/T1.yaml#questions[Q1].answer": {
   "en": "61c2d14ec09d0a2c",
@@ -10988,24 +10992,24 @@
   "zh-cn": "7ea3c699268a7cef"
  },
  "course/keys/T1.yaml#questions[Q6].answer": {
-  "en": "efcc345205af2707",
-  "zh-cn": "ed2dcd7bff647db3"
+  "en": "4cb2e4cc59b57bd3",
+  "zh-cn": "e72ffdf1222db13e"
  },
  "course/keys/T1.yaml#questions[Q6].question": {
-  "en": "205076971c1bbf34",
-  "zh-cn": "25ddeff7286a7d97"
+  "en": "16938b8601a6b88b",
+  "zh-cn": "fa526308f6a62dac"
  },
  "course/keys/T1.yaml#questions[Q6].rubric": {
-  "en": "f9d41068a8b14ece",
-  "zh-cn": "446a9770efba7d1e"
+  "en": "2d1c5474d9aee4d2",
+  "zh-cn": "f43128d20af0a51e"
  },
  "course/keys/T1.yaml#questions[Q7].answer": {
   "en": "5795c5eb6ea51da8",
   "zh-cn": "6aa3a1f6f11e8915"
  },
  "course/keys/T1.yaml#questions[Q7].question": {
-  "en": "1c552f0ff7af9659",
-  "zh-cn": "b3bbe3d2298d8c07"
+  "en": "092911237a186921",
+  "zh-cn": "9224160cb87a2a4c"
  },
  "course/keys/T1.yaml#questions[Q7].rubric": {
   "en": "b8af766861a18375",
@@ -11016,8 +11020,8 @@
   "zh-cn": "fe76e7304b042041"
  },
  "course/keys/T1.yaml#questions[Q8].question": {
-  "en": "6b6adafcb6dbba4b",
-  "zh-cn": "75a5fba15a9fe2ef"
+  "en": "59714521f861ac81",
+  "zh-cn": "af0d18c1cb58621b"
  },
  "course/keys/T1.yaml#questions[Q8].rubric": {
   "en": "aca6686facc32fa1",
@@ -11028,8 +11032,8 @@
   "zh-cn": "6a0bd1d76b62a47b"
  },
  "course/keys/T1.yaml#questions[Q9].question": {
-  "en": "ed853ba6e8b16c90",
-  "zh-cn": "b6bef1dbf6ddd303"
+  "en": "9544599a92d2795f",
+  "zh-cn": "1975be90067b8c8b"
  },
  "course/keys/T1.yaml#questions[Q9].rubric": {
   "en": "15b07060942d10bc",
@@ -11188,7 +11192,7 @@
   "zh-cn": "c22431323199b602"
  },
  "src/content/docs/<lang>/lessons/t1-quiz.mdx": {
-  "en": "ebd5ae8786ce83ce",
-  "zh-cn": "a4e5c78e9fd8dcc7"
+  "en": "cab42e8d96532d58",
+  "zh-cn": "5300ac738b3ab028"
  }
 }
