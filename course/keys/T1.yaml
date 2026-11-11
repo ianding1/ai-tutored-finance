@@ -41,9 +41,9 @@ common_errors:
       Using the government-purchases multiplier $\frac{1}{1-b}$ for a transfer; or taking the regression slope of consumption on income as the propensity to spend a one-time payment, ignoring consumption smoothing, future taxes, and reverse causality and common causes in the regression.
   - questions: [Q11]
     zh-cn: |-
-      以为可预期的更高通胀能永久降低失业率；或者以为“预料到的通胀”不会伤害任何人，忽略宣布本身对按旧预期签订的名义合同是意外，使财富从名义资产的持有者转向名义债务人。
+      以为“预料到的通胀”不会伤害任何人，忽略宣布本身对按旧预期签订的名义合同是意外，使财富从名义资产的持有者转向名义债务人。
     en: |-
-      Thinking that higher expected inflation can lower unemployment permanently; or thinking that "expected inflation" hurts no one, ignoring that the announcement itself surprises nominal contracts signed under the old expectations and moves wealth from holders of nominal assets to nominal debtors.
+      Thinking that "expected inflation" hurts no one, ignoring that the announcement itself surprises nominal contracts signed under the old expectations and moves wealth from holders of nominal assets to nominal debtors.
   - questions: [Q2]
     zh-cn: |-
       以为更富有、资本更多的国家，资本的回报也更高，资本会流向那里。资本的边际产量递减，人均资本越多，增加一单位资本的回报越低；资本自由流动时，会从资本多的国家流向资本少的国家。
@@ -109,9 +109,9 @@ questions:
     concepts: [solow-model, steady-state, marginal-product, current-account]
     question:
       zh-cn: |-
-        两个国家的技术水平、人口增长率和折旧率都相同，长期都已经处于稳态，但 A 国的储蓄率比 B 国高得多。现在两国之间的资本可以自由流动。A 国积累了更多的资本，更富有，在那里投资的回报也更高，所以投资者会把资本从 B 国转到 A 国。
+        两个国家的技术水平、人口增长率和折旧率都相同，长期都已经处于稳态，但 A 国的储蓄率比 B 国高得多。现在两国之间的资本可以自由流动。A 国积累了更多的资本，更富有，在那里投资的回报也更高，所以资本会流入 A 国，A 国会出现经常账户逆差。
       en: |-
-        Two countries have the same technology, population growth and depreciation rate and are both in their long-run steady states, but country A saves a much larger share of income than country B. Capital can now move freely between them. A has built up more capital and is richer, and investment there earns more, so investors will move capital from B to A.
+        Two countries have the same technology, population growth and depreciation rate and are both in their long-run steady states, but country A saves a much larger share of income than country B. Capital can now move freely between them. A has built up more capital and is richer, and investment there earns more, so capital will flow into A, and A will run a current account deficit.
     answer:
       zh-cn: |-
         假。资本的边际产量递减：其他条件相同时，每个工人拥有的资本越多，再增加一单位资本带来的产出越少。A 国储蓄率高，稳态的人均资本更多，人均产出更高，但资本的边际产量（资本的回报）更低。以 $y = Ak^{\alpha}$ 为例，资本的边际产量为 $\alpha A k^{\alpha - 1}$，随 $k$ 增大而减小。更富有说明的是平均产出高，不说明边际回报高。所以资本可以自由流动时，投资者会把资本从回报低的 A 国转到回报高的 B 国，而不是相反：A 国把一部分储蓄借给 B 国，A 国有经常账户顺差，B 国有逆差。（现实中风险和制度的差别会改变这个结论，但题干中两国只有储蓄率不同。）
@@ -119,10 +119,10 @@ questions:
         False. Capital has a diminishing marginal product: other things equal, the more capital each worker has, the less output an extra unit adds. With its high saving rate, A has more capital per worker and higher output per person in its steady state, but a lower marginal product of capital (return on capital). With $y = Ak^{\alpha}$, for example, the marginal product of capital is $\alpha A k^{\alpha - 1}$, which falls as $k$ rises. Being richer means higher average output, not a higher marginal return. So with free capital mobility, investors move capital from A, where it earns less, to B, where it earns more, not the other way: A lends part of its saving to B, running a current account surplus while B runs a deficit. (In practice differences in risk and institutions can change this conclusion, but in the question the countries differ only in their saving rates.)
     rubric:
       zh-cn:
-        - "判断为假，并用资本的边际产量递减说明：A 国人均资本更多，增加一单位资本的回报更低，所以资本会从 A 国流向 B 国；区分平均产出和边际回报。"
+        - "判断为假，并用资本的边际产量递减说明：A 国人均资本更多，增加一单位资本的回报更低，所以资本从 A 国流向 B 国，A 国的储蓄超过国内投资，出现经常账户顺差而不是逆差；区分平均产出和边际回报。只判断资本流向而没有说明经常账户：需要订正。"
         - "判断为真（把更富有当作回报更高），或只说“A 国增长更慢”而没有说明边际产量：需要订正。只写判断：需要订正。"
       en:
-        - "States false and explains with the diminishing marginal product of capital that A, with more capital per worker, earns less on an extra unit, so capital flows from A to B; distinguishes average output from the marginal return."
+        - "States false and explains with the diminishing marginal product of capital that A, with more capital per worker, earns less on an extra unit, so capital flows from A to B, A's saving exceeds its domestic investment, and A runs a current account surplus, not a deficit; distinguishes average output from the marginal return. Judging the direction of capital flows without the current account: needs revision."
         - "Stating true (taking richer to mean higher returns), or saying only that A grows more slowly without the marginal product: needs revision. A verdict alone: needs revision."
 
   - id: Q3
@@ -168,10 +168,10 @@ questions:
     rubric:
       zh-cn:
         - "判断为真，并说明两种估计是同一个数，或算出两者的标准误都是 $\\frac{\\sigma}{\\sqrt{20}}$。"
-        - "判断为真但没有考虑月度方差是年度的 $\\frac{1}{12}$，或只说“时间长度才重要”而没有论证：需要订正。只写判断：需要订正。"
+        - "认为月度数据的标准误是年度的 $\\frac{1}{\\sqrt{12}}$（判断为假），或只说“时间长度才重要”而没有论证：需要订正。只写判断：需要订正。"
       en:
         - "States true and shows that the two estimates are the same number, or computes that both standard errors are $\\frac{\\sigma}{\\sqrt{20}}$."
-        - "True but without using that the monthly variance is $\\frac{1}{12}$ of the yearly one, or only saying \"the length of time is what matters\" without an argument: needs revision. Only the verdict: needs revision."
+        - "Thinking the monthly standard error is $\\frac{1}{\\sqrt{12}}$ of the yearly one (stating false), or only saying \"the length of time is what matters\" without an argument: needs revision. Only the verdict: needs revision."
 
   - id: Q5
     kind: quiz
@@ -289,9 +289,9 @@ questions:
     expected: { k: "9" }
     question:
       zh-cn: |-
-        一位研究员用 40 年的年度数据，把每年总消费的变化对可支配收入的变化做回归，斜率为 0.9，$R^2$ 很高。他建议：政府一次性给每个家庭发一笔钱，只发一年，用发行国债来筹钱。“边际消费倾向是 0.9，乘数是 $\frac{1}{1 - 0.9} = 10$，政府每发 1 美元，产出增加 10 美元。”假设利率不变，没有税收随收入的变化和进口。评价研究员的推理。
+        一位研究员用 40 年的年度数据，把每年总消费的变化对可支配收入的变化做回归，斜率为 0.9，$R^2$ 很高。他建议：政府一次性给每个家庭发一笔钱，只发一年，用发行国债来筹钱。“边际消费倾向是 0.9，所以乘数约为 10：政府每发 1 美元，产出增加约 10 美元。”假设利率不变，没有税收随收入的变化和进口。评价研究员的推理。
       en: |-
-        A researcher regresses the yearly change in total consumption on the change in disposable income, using 40 years of annual data; the slope is 0.9 and $R^2$ is high. He proposes that the government give every household a one-time payment, for one year only, financed by issuing bonds: "The marginal propensity to consume is 0.9, so the multiplier is $\frac{1}{1 - 0.9} = 10$; each dollar paid out raises output by 10 dollars." Assume interest rates do not change and there are no taxes that vary with income and no imports. Evaluate the researcher's reasoning.
+        A researcher regresses the yearly change in total consumption on the change in disposable income, using 40 years of annual data; the slope is 0.9 and $R^2$ is high. He proposes that the government give every household a one-time payment, for one year only, financed by issuing bonds: "The marginal propensity to consume is 0.9, so the multiplier is about 10: each dollar paid out raises output by about 10 dollars." Assume interest rates do not change and there are no taxes that vary with income and no imports. Evaluate the researcher's reasoning.
     answer:
       zh-cn: |-
         推理有两处问题，结论高估了效果。
@@ -343,31 +343,29 @@ questions:
   - id: Q11
     kind: quiz
     part: problem
-    concepts: [phillips-curve, natural-rate-of-unemployment, fisher-equation, present-value, inflation]
+    concepts: [fisher-equation, present-value, inflation, nominal-interest-rate]
     expected: { price: "84.56" }
     question:
       zh-cn: |-
-        一个国家的央行一直以 2% 的通胀为目标，公众也相信它。央行宣布：从今天起，通胀目标提高到 4%。公众立刻相信了新的目标，预期以后每年的通胀都是 4%。一位评论员说：“更高的通胀目标能让失业率永久降低；而且既然通胀是大家都预料到的，就不会有人因此受损。”
-        (a) 评价这句话的前半部分。
-        (b) 一位投资者去年买入了一张面值 100、票面利率 3%、每年付息一次的国债。今天刚付过息，以后还有 10 次付息，最后一次与本金一起支付。宣布之前，所有期限的名义利率都是 3%。假设宣布前后实际利率不变。宣布之后，这张债券的价格约为多少？据此评价这句话的后半部分：谁受损，谁得益？
+        一个国家的央行一直以 2% 的通胀为目标，公众也相信它。央行宣布：从今天起，通胀目标提高到 4%。公众立刻相信了新的目标，预期以后每年的通胀都是 4%。一位评论员说：“既然更高的通胀是大家都预料到的，就不会有人因此受损。”
+        一位投资者去年买入了一张面值 100、票面利率 3%、每年付息一次的国债。今天刚付过息，以后还有 10 次付息，最后一次与本金一起支付。宣布之前，所有期限的名义利率都是 3%。假设宣布前后实际利率不变。宣布之后，这张债券的价格约为多少？据此评价评论员的说法：谁受损，谁得益？
       en: |-
-        A country's central bank has always targeted 2% inflation, and the public believes it. The bank announces that from today the target is 4%. The public believes the new target at once and expects inflation of 4% every year from now on. A commentator says: "A higher inflation target can lower unemployment permanently; and since the inflation is expected by everyone, no one is hurt by it."
-        (a) Evaluate the first half of the statement.
-        (b) An investor bought last year a government bond with face value 100 and a 3% annual coupon. A coupon was paid today, and 10 more remain, the last together with the principal. Before the announcement, nominal rates at all maturities were 3%. Suppose real rates are the same before and after the announcement. After the announcement, roughly what is the bond's price? Use this to evaluate the second half of the statement: who loses and who gains?
+        A country's central bank has always targeted 2% inflation, and the public believes it. The bank announces that from today the target is 4%. The public believes the new target at once and expects inflation of 4% every year from now on. A commentator says: "Since the higher inflation is expected by everyone, no one is hurt by it."
+        An investor bought last year a government bond with face value 100 and a 3% annual coupon. A coupon was paid today, and 10 more remain, the last together with the principal. Before the announcement, nominal rates at all maturities were 3%. Suppose real rates are the same before and after the announcement. After the announcement, roughly what is the bond's price? Use this to evaluate the commentator's statement: who loses and who gains?
     answer:
       zh-cn: |-
-        (a) 不对。失业率低于自然失业率只能来自通胀高于预期。新目标被公众相信后，预期通胀也升到 4%，实际通胀等于预期时，失业率回到自然失业率；由于公众立刻相信，连短期的失业下降都不会有。长期中更高的通胀换不来更低的失业，只留下更高的通胀。
-        (b) 实际利率不变、预期通胀上升 2 个百分点，由 Fisher 方程，名义利率约升到 5%（按精确的 $1 + i = (1 + r)(1 + \pi)$ 约为 5.02%）。价格约为 $\sum_{t=1}^{10} \frac{3}{1.05^t} + \frac{100}{1.05^{10}} \approx 84.56$（按 5.02% 约为 84.42），下跌约 15%。对以后签订的合同，4% 的通胀已被预料到，会反映在名义利率中，没有人受损。但这项宣布本身对过去签订的、按旧预期定价的名义合同是意外：持有固定利率债券、存款等名义资产的人受损，政府、固定利率房贷的借款人等名义债务人得益（还款的实际价值下降）。所以后半句只对宣布之后的新合同成立。
+        实际利率不变、预期通胀上升 2 个百分点，由 Fisher 方程，名义利率约升到 5%（按精确的 $1 + i = (1 + r)(1 + \pi)$ 约为 5.02%）。价格约为 $\sum_{t=1}^{10} \frac{3}{1.05^t} + \frac{100}{1.05^{10}} \approx 84.56$（按 5.02% 约为 84.42），下跌约 15%。
+        对以后签订的合同，4% 的通胀已被预料到，会反映在名义利率中，没有人受损。但这项宣布本身对过去签订的、按旧预期定价的名义合同是意外：持有固定利率债券、存款等名义资产的人受损，政府、固定利率房贷的借款人等名义债务人得益（还款的实际价值下降）。所以评论员的说法只对宣布之后的新合同成立；“预料到”要看是在签订合同之前还是之后预料到的。
       en: |-
-        (a) Wrong. Unemployment below the natural rate comes only from inflation above expectations. Once the public believes the new target, expected inflation also rises to 4%, and with actual inflation equal to expected inflation, unemployment returns to the natural rate; since the public believes it at once, there is not even a short-run fall in unemployment. In the long run higher inflation does not buy lower unemployment; it leaves only higher inflation.
-        (b) With the real rate unchanged and expected inflation up 2 percentage points, the Fisher equation puts the nominal rate at about 5% (about 5.02% with the exact $1 + i = (1 + r)(1 + \pi)$). The price is about $\sum_{t=1}^{10} \frac{3}{1.05^t} + \frac{100}{1.05^{10}} \approx 84.56$ (about 84.42 at 5.02%), a fall of about 15%. For contracts signed later, 4% inflation is expected and is built into nominal rates, so no one is hurt. But the announcement itself is a surprise for nominal contracts signed earlier and priced on the old expectations: holders of nominal assets such as fixed-rate bonds and deposits lose, and nominal debtors such as the government and fixed-rate mortgage borrowers gain (the real value of their repayments falls). So the second half holds only for new contracts made after the announcement.
+        With the real rate unchanged and expected inflation up 2 percentage points, the Fisher equation puts the nominal rate at about 5% (about 5.02% with the exact $1 + i = (1 + r)(1 + \pi)$). The price is about $\sum_{t=1}^{10} \frac{3}{1.05^t} + \frac{100}{1.05^{10}} \approx 84.56$ (about 84.42 at 5.02%), a fall of about 15%.
+        For contracts signed later, 4% inflation is expected and is built into nominal rates, so no one is hurt. But the announcement itself is a surprise for nominal contracts signed earlier and priced on the old expectations: holders of nominal assets such as fixed-rate bonds and deposits lose, and nominal debtors such as the government and fixed-rate mortgage borrowers gain (the real value of their repayments falls). So the statement holds only for new contracts made after the announcement; what matters is whether the inflation was expected before or after a contract was signed.
     rubric:
       zh-cn:
-        - "(a) 指出预期通胀随之上升，失业率回到自然失业率，没有稳定的通胀—失业权衡。认为至少能永久降低一部分失业：需要订正。"
-        - "(b) 由 Fisher 方程得出名义利率约升到 5%，价格约 84.56（用精确公式得约 84.42 同样算对）；指出宣布对已有的名义合同是意外，名义资产的持有者受损、名义债务人得益，只有新合同不受影响。认为名义利率不变，或认为“预料到的通胀不会伤害任何人”而没有区分已有合同：需要订正。"
+        - "由 Fisher 方程得出名义利率约升到 5%，价格约 84.56（用精确公式得约 84.42 同样算对）。认为名义利率不变：需要订正。"
+        - "指出宣布对已有的名义合同是意外，名义资产的持有者受损、名义债务人得益，只有新合同不受影响。同意评论员的说法而没有区分已有合同：需要订正。"
       en:
-        - "(a) Points out that expected inflation rises too, unemployment returns to the natural rate, and there is no lasting trade-off between inflation and unemployment. Holding that at least part of unemployment can be lowered permanently: needs revision."
-        - "(b) Uses the Fisher equation to put the nominal rate at about 5% and the price at about 84.56 (about 84.42 with the exact formula also counts); points out that the announcement is a surprise for existing nominal contracts, so holders of nominal assets lose and nominal debtors gain, and only new contracts are unaffected. Treating the nominal rate as unchanged, or holding that expected inflation hurts no one without separating existing contracts: needs revision."
+        - "Uses the Fisher equation to put the nominal rate at about 5% and the price at about 84.56 (about 84.42 with the exact formula also counts). Treating the nominal rate as unchanged: needs revision."
+        - "Points out that the announcement is a surprise for existing nominal contracts, so holders of nominal assets lose and nominal debtors gain, and only new contracts are unaffected. Agreeing with the commentator without separating existing contracts: needs revision."
 
   - id: Q12
     kind: quiz
