@@ -35,10 +35,6 @@ def results():
     r["C4.x"] = M / px
     r["C4.u"] = log(M / px)
 
-    # Q3: p = 50, C = q^2 + 10q + 50
-    q = (50 - 10) / 2
-    r["Q3.q"] = q
-    r["Q3.profit"] = 50 * q - (q**2 + 10 * q + 50)
 
     # Q4: U = x^2 y, px = 2, py = 1, M = 30 -> x = y
     x = 30 / 3
@@ -46,6 +42,11 @@ def results():
     r["Q4.y"] = x
     r["Q4.lambda"] = x**2
     r["Q4.u"] = x**2 * x
+    r["Q2.pi"] = 40 * 20 - 500 - 20**2
+    r["Q2.pi25"] = 40 * 25 - 500 - 25**2
+    # Values that the questions now give or no longer ask for.
+    for k in ['C1.q', 'C1.profit', 'C1.profit_new', 'C2.x', 'C2.y', 'C2.f', 'C3.x', 'C3.y', 'C3.lambda', 'C4.lambda', 'C4.x_lag', 'C4.y_lag', 'C4.x', 'C4.u']:
+        del r[k]
     return r
 
 

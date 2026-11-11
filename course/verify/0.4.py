@@ -40,6 +40,11 @@ def results():
     r["Q4.r"] = 100 * (0.6 - 0.4) / 2
     r["Q4.mean"] = 100 * 1.1**20
     r["Q4.median"] = 100 * (1.6 * 0.6) ** 10
+    r["Q4.median_h"] = 100 * (1.3 * 0.8) ** 10
+    r["Q4.mean_h"] = 100 * 1.05**20
+    r["Q3.z10"] = (0 - 7) / (15 / 10**0.5)
+    r["Q3.p10"] = 100 * N.cdf(-1.48)
+    r["Q5.n"] = __import__("math").ceil((1.96 * 6 / 3) ** 2)
 
     se5 = 6 / sqrt(5)
     r["Q5.se"] = se5
@@ -48,6 +53,9 @@ def results():
     r["Q6.false100"] = 100 * 0.05
     # Values that the questions now give or no longer ask for.
     for k in ['Q4.r']:
+        del r[k]
+    # Values that the questions now give or no longer ask for.
+    for k in ['C1.below', 'C1.above', 'C2.z', 'C3.mean', 'C3.median', 'C4.mean', 'C4.s', 'C5.se', 'C5.lo', 'C5.hi', 'C6.n', 'Q3.z', 'Q4.mean']:
         del r[k]
     return r
 

@@ -43,6 +43,26 @@ common_errors:
       残差的符号弄反：残差是实际值减去拟合值，点在直线上方时为正。
     en: |-
       Getting the sign of the residual wrong: the residual is the actual value minus the fitted value, positive when the point is above the line.
+  - questions: [Q1]
+    zh-cn: |-
+      以为 $R^2$ 低就说明 $x$ 对 $y$ 没有影响。$R^2$ 衡量 $x$ 解释了 $y$ 的总变化的多大部分；$y$ 有很多其他来源的波动时，作用明确、显著的 $x$ 也可能只有很低的 $R^2$。
+    en: |-
+      Thinking a low $R^2$ means $x$ has no effect on $y$. $R^2$ measures the share of $y$'s total variation that $x$ explains; when $y$ varies for many other reasons, an $x$ with a clear, significant effect can still have a low $R^2$.
+  - questions: [Q3]
+    zh-cn: |-
+      把基金收益超过市场的部分全部当作选股能力，忽略斜率大于 1 时，市场上涨期间基金本来就会多赚；或者用很少的数据下结论。
+    en: |-
+      Treating all of a fund's return above the market as stock-picking skill, ignoring that with a slope above 1 the fund earns more anyway when the market rises; or drawing conclusions from very little data.
+  - questions: [Q5, Q6]
+    zh-cn: |-
+      对 $S(a, b)$ 求偏导数时漏掉链式法则中的系数 −2 或 $-x_i$，或者只对一个参数求导。
+    en: |-
+      Leaving out the factor −2 or $-x_i$ from the chain rule when taking partial derivatives of $S(a, b)$, or differentiating with respect to only one parameter.
+  - questions: [Q7]
+    zh-cn: |-
+      把显著的回归系数当作因果关系，没有考虑反向因果和共同原因，例如经济前景同时影响利率和股价。
+    en: |-
+      Treating a significant regression coefficient as a causal effect without considering reverse causality and common causes, such as the economic outlook affecting both interest rates and stock prices.
   - questions: [Q2]
     zh-cn: |-
       把斜率的大小当作相关程度：斜率有单位，取决于 $x$ 和 $y$ 的尺度；相关系数没有单位。
@@ -60,122 +80,126 @@ questions:
     kind: check
     section: regression
     concepts: [regression, residual]
-    expected: { fit: "6", resid: "-2" }
     question:
       zh-cn: |-
-        回归直线为 $\hat y = 2 + 0.8x$。数据中有一个点 $x = 5$，$y = 4$。它的拟合值和残差各是多少？这个点在直线上方还是下方？
+        讲义中的回归直线是 $\hat y = 1 + 1.5x$。由此可知，市场月收益为 2% 的月份，这只股票的月收益一定是 4%。
       en: |-
-        The regression line is $\hat y = 2 + 0.8x$. One data point has $x = 5$ and $y = 4$. What are its fitted value and its residual? Is the point above or below the line?
+        The lesson's regression line is $\hat y = 1 + 1.5x$. So in a month when the market returns 2%, the stock's return is certain to be 4%.
+    correct: false
+    hint:
+      zh-cn: 回归直线给出的是什么？数据中的点都正好落在直线上吗？
+      en: What does the regression line give? Do the data points all lie exactly on the line?
     answer:
       zh-cn: |-
-        拟合值 $\hat y = 2 + 0.8 \times 5 = 6$，残差 $e = 4 - 6 = -2$。残差为负，点在直线下方。
+        错。4% 是拟合值，是市场收益为 2% 时这只股票收益的平均值。实际的收益还有残差 $e_i = y_i - \hat y_i$：讲义中市场收益为 2% 的那个月，股票收益是 3%，残差为 −1。回归描述的是平均关系，不是每一次都成立。
       en: |-
-        Fitted value $\hat y = 2 + 0.8 \times 5 = 6$; residual $e = 4 - 6 = -2$. The residual is negative, so the point is below the line.
-    rubric:
-      zh-cn:
-        - "拟合值 6，残差 −2。"
-        - "点在直线下方。"
-      en:
-        - "Fitted value 6, residual −2."
-        - "The point is below the line."
+        False. 4% is the fitted value: the average return of the stock when the market returns 2%. Actual returns also have a residual $e_i = y_i - \hat y_i$: in the lesson's month with a market return of 2%, the stock returned 3%, a residual of −1. A regression describes an average relationship, not one that holds every time.
 
   - id: C2
     kind: check
     section: ols
     concepts: [ols, regression-coefficient]
-    expected: { b: "1.4", a: "0.5" }
     question:
       zh-cn: |-
-        数据：$x$ = 1、2、3、4，$y$ = 2、3、5、6。用最小二乘法求回归直线的斜率和截距。
+        在讲义的 6 个数据点中再加入一个远离其他点的点：$x = 10$，$y = -5$。最小二乘直线会：
       en: |-
-        Data: $x$ = 1, 2, 3, 4 and $y$ = 2, 3, 5, 6. Use least squares to find the slope and intercept of the regression line.
+        Add to the lesson's 6 data points one point far from the others: $x = 10$, $y = -5$. The least-squares line:
+    choices:
+      - zh-cn: 明显改变，斜率变小
+        en: Changes a lot, with a smaller slope
+      - zh-cn: 几乎不变，因为只多了一个点
+        en: Hardly changes, because only one point was added
+        why:
+          zh-cn: 最小二乘法最小化的是残差的平方和。如果直线不动，这个点的残差有多大，它的平方呢？
+          en: Least squares minimizes the sum of squared residuals. If the line stayed put, how large would this point's residual be, and its square?
+      - zh-cn: 完全不变，因为最小二乘法会忽略异常的点
+        en: Does not change at all, because least squares ignores unusual points
+        why:
+          zh-cn: 最小二乘的目标函数里，每个点都出现吗？它对远离直线的点是惩罚得更轻还是更重？
+          en: Does every point appear in the least-squares objective? Does it penalize points far from the line less or more?
+      - zh-cn: 斜率变大，因为这个点的 $x$ 很大
+        en: Has a larger slope, because this point's $x$ is large
+        why:
+          zh-cn: 这个点的 $x$ 大，但 $y$ 是高于还是低于原来的直线在 $x = 10$ 处的值？直线要向哪个方向转才能靠近它？
+          en: Its $x$ is large, but is its $y$ above or below the old line at $x = 10$? Which way must the line turn to get closer to it?
+    correct: A
     answer:
       zh-cn: |-
-        $\bar x = 2.5$，$\bar y = 4$。$\sum (x_i - \bar x)(y_i - \bar y) = 3 + 0.5 + 0.5 + 3 = 7$，$\sum (x_i - \bar x)^2 = 5$。
-        $b = \frac{7}{5} = 1.4$，$a = 4 - 1.4 \times 2.5 = 0.5$。回归直线 $\hat y = 0.5 + 1.4x$。
+        (A)。原来的直线在 $x = 10$ 处的拟合值是 16，这个点的残差为 −21，平方为 441，远大于其他所有残差平方之和 4。最小二乘法会把直线大幅向下转来减小它：斜率从 1.5 降到约 0.09。平方会放大大的偏离，所以 OLS 对离群的点很敏感。
       en: |-
-        $\bar x = 2.5$ and $\bar y = 4$. $\sum (x_i - \bar x)(y_i - \bar y) = 3 + 0.5 + 0.5 + 3 = 7$ and $\sum (x_i - \bar x)^2 = 5$.
-        $b = \frac{7}{5} = 1.4$ and $a = 4 - 1.4 \times 2.5 = 0.5$. The regression line is $\hat y = 0.5 + 1.4x$.
-    rubric:
-      zh-cn:
-        - "两个和计算正确（7 和 5）。"
-        - "斜率 1.4、截距 0.5。"
-      en:
-        - "Both sums are correct (7 and 5)."
-        - "Slope 1.4, intercept 0.5."
+        (A). The old line's fitted value at $x = 10$ is 16, so this point's residual would be −21, squared 441, far more than the sum of all other squared residuals, 4. Least squares turns the line down sharply to reduce it: the slope falls from 1.5 to about 0.09. Squaring magnifies large deviations, so OLS is very sensitive to outlying points.
 
   - id: C3
     kind: check
     section: coefficients
     concepts: [regression-coefficient]
-    expected: { per_sqft: "200", per_m2: "2.15" }
     question:
       zh-cn: |-
-        某地区房价的回归结果为：房价（千美元）$= 50 + 0.2 \times$ 面积（平方英尺）。(a) 0.2 是什么意思？写出单位。(b) 如果面积改用平方米（1 平方米约 10.76 平方英尺），其他不变，斜率会变成多少？
+        用成年人的工资（千美元）对身高（厘米）做回归，得到：工资 $= -20 + 0.4 \times$ 身高。截距 −20 表示身高为 0 的人工资为负，所以这个回归一定有错误。
       en: |-
-        A regression of house prices in an area gives: price (thousand dollars) $= 50 + 0.2 \times$ area (square feet). (a) What does 0.2 mean? Give its units. (b) If area were measured in square meters instead (1 square meter is about 10.76 square feet), with nothing else changed, what would the slope be?
+        Regressing adults' pay (thousand dollars) on height (centimeters) gives: pay $= -20 + 0.4 \times$ height. The intercept of −20 means a person of height 0 has negative pay, so the regression must be wrong.
+    correct: false
+    hint:
+      zh-cn: 截距是哪个 $x$ 处的拟合值？数据里有接近这个 $x$ 的观测吗？
+      en: The intercept is the fitted value at which $x$? Are there observations near that $x$ in the data?
     answer:
       zh-cn: |-
-        (a) 面积每多 1 平方英尺，房价平均高 0.2 千美元，即 200 美元。单位是千美元 / 平方英尺。
-        (b) 1 平方米约等于 10.76 平方英尺，所以每平方米房价平均高 $0.2 \times 10.76 \approx 2.15$ 千美元。斜率的数值随单位变化，但描述的关系不变。
+        错。截距是 $x = 0$ 时的拟合值，而成年人的身高大约在 150 到 200 厘米之间，$x = 0$ 远在数据范围之外。直线只描述数据范围内的平均关系，截距在这里只是为了确定直线的位置，本身没有实际意义，不能说明回归有错。在数据范围内，例如身高 170 厘米，拟合值是 48 千美元。
       en: |-
-        (a) Each additional square foot raises the price by 0.2 thousand dollars on average, that is, 200 dollars. The unit is thousand dollars per square foot.
-        (b) 1 square meter is about 10.76 square feet, so each square meter raises the price by about $0.2 \times 10.76 \approx 2.15$ thousand dollars on average. The number changes with the units, but the relation it describes does not.
-    rubric:
-      zh-cn:
-        - "(a) 含义和单位正确（平均每平方英尺 200 美元）。"
-        - "(b) 约 2.15 千美元 / 平方米。"
-      en:
-        - "(a) Correct meaning and unit (200 dollars per square foot on average)."
-        - "(b) About 2.15 thousand dollars per square meter."
+        False. The intercept is the fitted value at $x = 0$, while adult heights lie roughly between 150 and 200 centimeters, so $x = 0$ is far outside the data. The line describes the average relationship only within the range of the data; here the intercept just fixes the position of the line and has no meaning of its own, so it does not show that the regression is wrong. Within the range, for example at 170 centimeters, the fitted value is 48 thousand dollars.
 
   - id: C4
     kind: check
     section: r-squared
     concepts: [r-squared, residual]
-    expected: { ssr: "0.2", sst: "10", r2: "0.98" }
     question:
       zh-cn: |-
-        对 [[check:C2]] 的数据和你求出的回归直线，计算残差平方和、总平方和与 $R^2$，并用一句话说明 $R^2$ 的含义。
+        把回归中 $y$ 的单位从百分数改为小数（所有 $y$ 都除以 100），$x$ 不变。$R^2$ 会：
       en: |-
-        For the data in [[check:C2]] and the regression line you found, compute the sum of squared residuals, the total sum of squares and $R^2$, and explain $R^2$ in one sentence.
+        In a regression, change the unit of $y$ from percent to decimals (divide every $y$ by 100), leaving $x$ unchanged. $R^2$:
+    choices:
+      - zh-cn: 不变
+        en: Does not change
+      - zh-cn: 变为原来的 $\frac{1}{100}$
+        en: Becomes $\frac{1}{100}$ of its value
+        why:
+          zh-cn: $R^2 = 1 - \frac{\text{SSR}}{\text{SST}}$。$y$ 除以 100 时，SSR 和 SST 各变为原来的多少？
+          en: $R^2 = 1 - \frac{\text{SSR}}{\text{SST}}$. When $y$ is divided by 100, by what factor do SSR and SST change?
+      - zh-cn: 变为原来的 $\frac{1}{10{,}000}$
+        en: Becomes $\frac{1}{10{,}000}$ of its value
+        why:
+          zh-cn: 平方和确实缩小 10,000 倍，但 $R^2$ 是两个平方和的比值。比值会变吗？
+          en: The sums of squares do shrink by a factor of 10,000, but $R^2$ is a ratio of two of them. Does the ratio change?
+      - zh-cn: 变大，因为数值变小后残差也变小了
+        en: Rises, because the residuals get smaller with smaller numbers
+        why:
+          zh-cn: 残差变小了，$y$ 的总变化呢？$R^2$ 比较的是哪两样东西？
+          en: The residuals get smaller, but what about the total variation of $y$? What two things does $R^2$ compare?
+    correct: A
     answer:
       zh-cn: |-
-        拟合值 1.9、3.3、4.7、6.1，残差 0.1、−0.3、0.3、−0.1，残差平方和 $0.01 + 0.09 + 0.09 + 0.01 = 0.2$。
-        总平方和 $4 + 1 + 1 + 4 = 10$。$R^2 = 1 - \frac{0.2}{10} = 0.98$：$y$ 的变化中 98% 可以由 $x$ 解释。
+        (A)。$y$ 除以 100 时，残差也都除以 100，SSR 和 SST 都缩小 10,000 倍，比值不变。$R^2$ 是没有单位的比例，衡量直线解释了 $y$ 的总变化的多大部分，不受单位影响；而斜率有单位，会变为原来的 $\frac{1}{100}$。
       en: |-
-        Fitted values 1.9, 3.3, 4.7, 6.1; residuals 0.1, −0.3, 0.3, −0.1; sum of squared residuals $0.01 + 0.09 + 0.09 + 0.01 = 0.2$.
-        Total sum of squares $4 + 1 + 1 + 4 = 10$. $R^2 = 1 - \frac{0.2}{10} = 0.98$: 98% of the variation of $y$ is explained by $x$.
-    rubric:
-      zh-cn:
-        - "残差平方和 0.2、总平方和 10。"
-        - "$R^2 = 0.98$，含义说明正确。"
-      en:
-        - "Sum of squared residuals 0.2, total sum of squares 10."
-        - "$R^2 = 0.98$, with a correct explanation."
+        (A). Dividing $y$ by 100 divides every residual by 100 too, so SSR and SST both shrink by a factor of 10,000 and their ratio is unchanged. $R^2$ is a unit-free share of the total variation of $y$ that the line explains, so units do not affect it; the slope does have units and becomes $\frac{1}{100}$ of its value.
 
   - id: C5
     kind: check
     section: inference
     concepts: [standard-error, t-statistic, confidence-interval, regression-coefficient]
-    expected: { t: "2.4", lo: "0.22", hi: "2.18" }
     question:
       zh-cn: |-
-        一个回归得到斜率 $b = 1.2$，标准误 $\text{SE}(b) = 0.5$，数据有 40 个点。斜率在 5% 水平上显著不为 0 吗？写出 95% 置信区间。
+        一个回归的斜率为 1.2，标准误为 0.5，在 5% 水平上显著不为 0。这说明斜率已经估计得很精确了。
       en: |-
-        A regression gives the slope $b = 1.2$ with standard error $\text{SE}(b) = 0.5$, from 40 data points. Is the slope significantly different from 0 at the 5% level? Give the 95% confidence interval.
+        A regression slope is 1.2 with a standard error of 0.5, significantly different from 0 at the 5% level. This shows the slope has been estimated precisely.
+    correct: false
+    hint:
+      zh-cn: 写出斜率的 95% 置信区间，看看它有多宽。显著回答的是什么问题？
+      en: Write down the 95% confidence interval of the slope and see how wide it is. What question does significance answer?
     answer:
       zh-cn: |-
-        $t = \frac{1.2}{0.5} = 2.4 > 1.96$，显著。95% 置信区间 $1.2 \pm 1.96 \times 0.5$，即 $[0.22, 2.18]$，不包含 0。区间很宽：斜率可能小到 0.22，也可能大到 2.18。
+        错。$t = 2.4 > 1.96$，所以斜率显著不为 0，但 95% 置信区间是 $1.2 \pm 1.96 \times 0.5$，即约 $[0.22, 2.18]$：斜率可能小到 0.22，也可能大到 2.18。显著只说明斜率不太可能是 0，不说明它的大小已经确定。
       en: |-
-        $t = \frac{1.2}{0.5} = 2.4 > 1.96$, so it is significant. The 95% confidence interval is $1.2 \pm 1.96 \times 0.5$, that is, $[0.22, 2.18]$, which does not contain 0. The interval is wide: the slope could be as small as 0.22 or as large as 2.18.
-    rubric:
-      zh-cn:
-        - "t 值 2.4，显著。"
-        - "区间约为 0.22 到 2.18。"
-      en:
-        - "t-statistic 2.4, significant."
-        - "The interval is about 0.22 to 2.18."
+        False. $t = 2.4 > 1.96$, so the slope is significantly different from 0, but the 95% confidence interval is $1.2 \pm 1.96 \times 0.5$, about $[0.22, 2.18]$: the slope could be as small as 0.22 or as large as 2.18. Significance says only that the slope is unlikely to be 0, not that its size is pinned down.
 
   - id: C6
     kind: check
@@ -183,21 +207,33 @@ questions:
     concepts: [omitted-variable-bias]
     question:
       zh-cn: |-
-        在某个城市，用房价对“到市中心的距离”做回归，得到正的斜率：离市中心越远，房子越贵。一个可能被遗漏的变量是房子的面积。说明为什么面积可能造成偏差，以及偏差的方向。距离对房价的真实作用可能是什么符号？
+        在某个城市，用房价对“到市中心的距离”做回归，得到正的斜率。回归中遗漏了房子的面积：面积越大房价越高，而离市中心越远，房子往往越大。在面积相同的情况下，距离对房价的真实作用：
       en: |-
-        In a city, house prices are regressed on "distance from the city center", and the slope is positive: the farther from the center, the more expensive the house. One variable that may have been left out is the size of the house. Explain why size may cause a bias and in which direction. What sign might the true effect of distance on price have?
+        In a city, regressing house prices on distance from the center gives a positive slope. The regression leaves out floor area: larger houses cost more, and houses further from the center tend to be larger. With floor area held the same, the true effect of distance on price:
+    choices:
+      - zh-cn: 比回归的斜率小，可能是负的
+        en: Is smaller than the regression slope and may be negative
+      - zh-cn: 比回归的斜率大，一定是正的
+        en: Is larger than the regression slope and certainly positive
+        why:
+          zh-cn: 遗漏的面积对房价的作用是正的，它与距离的协方差也是正的。偏差项 $\beta_2 \frac{\text{Cov}}{\text{Var}}$ 的符号是什么？它让回归的斜率偏高还是偏低？
+          en: The omitted area has a positive effect on price, and its covariance with distance is positive. What is the sign of the bias term $\beta_2 \frac{\text{Cov}}{\text{Var}}$? Does it push the regression slope up or down?
+      - zh-cn: 与回归的斜率相同，遗漏变量只会降低 $R^2$
+        en: Equals the regression slope; an omitted variable only lowers $R^2$
+        why:
+          zh-cn: 遗漏变量偏差不为 0 需要哪两个条件？这里两个条件都成立吗？
+          en: Which two conditions make the omitted variable bias nonzero? Do both hold here?
+      - zh-cn: 无法判断偏差的方向
+        en: The direction of the bias cannot be determined
+        why:
+          zh-cn: 题目给出了面积对房价作用的符号，以及面积和距离一起变化的方向。偏差的方向由这两个符号决定。
+          en: The question gives the sign of the effect of area on price and the direction in which area and distance move together. Those two signs decide the direction of the bias.
+    correct: A
     answer:
       zh-cn: |-
-        面积满足两个条件：它影响房价（越大越贵，$\beta_2 > 0$），而且和距离相关（离市中心越远，房子往往越大，协方差为正）。所以偏差项 $\beta_2 \frac{\text{Cov}}{\text{Var}}$ 为正，距离的系数被高估。在面积相同的情况下，距离的真实作用很可能是负的（越远越便宜），回归里的正斜率主要来自远处的房子更大。
+        (A)。面积影响房价（$\beta_2 > 0$），而且和距离正相关，所以偏差项为正，距离的系数被高估。回归的正斜率有一部分来自远处的房子更大；在面积相同时，距离的真实作用很可能是负的（越远越便宜）。
       en: |-
-        Size meets both conditions: it affects the price (bigger is more expensive, $\beta_2 > 0$), and it is correlated with distance (houses farther from the center tend to be bigger, a positive covariance). So the bias term $\beta_2 \frac{\text{Cov}}{\text{Var}}$ is positive and the distance coefficient is overstated. For houses of the same size, the true effect of distance is probably negative (farther is cheaper); the positive slope mainly comes from houses far away being bigger.
-    rubric:
-      zh-cn:
-        - "说明面积既影响房价、又与距离相关。"
-        - "偏差为正，距离的真实作用可能为负。"
-      en:
-        - "Explains that size affects price and is correlated with distance."
-        - "The bias is positive, and the true effect of distance may be negative."
+        (A). Area affects price ($\beta_2 > 0$) and is positively correlated with distance, so the bias term is positive and the coefficient on distance is overstated. Part of the positive slope comes from larger houses further out; with area held the same, the true effect of distance is probably negative (further means cheaper).
 
   - id: C7
     kind: check
@@ -205,23 +241,18 @@ questions:
     concepts: [correlation-vs-causation, omitted-variable-bias]
     question:
       zh-cn: |-
-        数据显示，持有指数基金的家庭，平均净资产比不持有的家庭高得多。有人得出结论：买指数基金会让家庭变富。给出至少两种其他的解释。
+        数据显示，持有指数基金的家庭，平均净资产比不持有的家庭高得多。这说明买指数基金会让家庭变富。
       en: |-
-        Data show that households that hold index funds have a much higher average net worth than households that do not. Someone concludes that buying index funds makes households rich. Give at least two other explanations.
+        Data show that households holding index funds have a much higher average net worth than those that do not. This shows that buying index funds makes households richer.
+    correct: false
+    hint:
+      zh-cn: 是先买了基金才变富，还是先有了钱才买基金？有没有别的因素同时影响两者？
+      en: Did households get rich after buying funds, or buy funds after having money? Could something else affect both?
     answer:
       zh-cn: |-
-        - 反向因果：家庭有了钱，才更可能去投资、买指数基金。
-        - 共同原因：收入、受教育程度、理财知识等，同时让家庭更可能买指数基金、也更可能积累财富。
-        - 其他也可以，例如年龄（年龄大的家庭积累了更多财富，也更可能有退休账户里的指数基金）。
+        错。相关不等于因果。可能是反向因果：家庭有了钱，才更可能去投资。也可能有共同原因：收入、受教育程度、理财知识、年龄等，同时让家庭更可能买指数基金、也更可能积累财富。数据本身不能区分这些解释。
       en: |-
-        - Reverse causation: households with money are more likely to invest and buy index funds.
-        - A common cause: income, education or financial knowledge make a household both more likely to buy index funds and more likely to build wealth.
-        - Other answers are possible, for example age (older households have built more wealth and are more likely to hold index funds in retirement accounts).
-    rubric:
-      zh-cn:
-        - "给出至少两种合理的其他解释（反向因果、共同原因等）。"
-      en:
-        - "Gives at least two reasonable other explanations (reverse causation, a common cause, and so on)."
+        False. Correlation is not causation. It could be reverse causality: households with money are more likely to invest. Or a common cause: income, education, financial knowledge or age can make a household both more likely to buy index funds and more likely to build wealth. The data alone cannot tell these explanations apart.
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1
@@ -272,53 +303,59 @@ questions:
     kind: exercise
     level: B
     concepts: [ols, regression-coefficient, r-squared]
-    expected: { b: "1.1", a: "0.57", r2: "0.91" }
+    expected: { b: "1.1", a: "0.57", diff: "0.67", beta_part: "0.1" }
     question:
       zh-cn: |-
-        6 个月的数据：市场月收益 $x$ = −3、−1、0、2、4、4（%），某基金月收益 $y$ = −2、−2、1、3、6、4（%）。计算回归直线的斜率、截距和 $R^2$，并说明斜率和截距在这里的含义。
+        6 个月的数据：市场月收益 $x$ = −3、−1、0、2、4、4（%），某基金月收益 $y$ = −2、−2、1、3、6、4（%）。
+        (a) 求基金收益对市场收益回归的斜率和截距。
+        (b) 基金的宣传说：“过去 6 个月，我们平均每月比市场多赚约 0.67 个百分点，说明我们的选股能力很强。”用回归结果把这 0.67 个百分点分成两部分：一部分来自基金承担了比市场更多的市场风险，另一部分是截距。这个结论还有什么局限？
       en: |-
-        Six months of data: market monthly returns $x$ = −3, −1, 0, 2, 4, 4 (%) and a fund's monthly returns $y$ = −2, −2, 1, 3, 6, 4 (%). Calculate the slope, intercept and $R^2$ of the regression line, and explain what the slope and intercept mean here.
+        Six months of data: market monthly returns $x$ = −3, −1, 0, 2, 4, 4 (%), and a fund's monthly returns $y$ = −2, −2, 1, 3, 6, 4 (%).
+        (a) Find the slope and intercept of the regression of the fund's return on the market return.
+        (b) The fund's advertisement says: "Over the past 6 months we beat the market by about 0.67 percentage points a month on average, which shows our stock picking is very strong." Use the regression to split these 0.67 percentage points into two parts: one from the fund taking more market risk than the market, and the intercept. What are the limits of this conclusion?
     answer:
       zh-cn: |-
-        $\bar x = 1$，$\bar y \approx 1.667$。$\sum (x_i - \bar x)(y_i - \bar y) = 44$，$\sum (x_i - \bar x)^2 = 40$，$b = 1.1$，$a = 1.667 - 1.1 \times 1 \approx 0.57$。
-        残差平方和约 4.93，总平方和约 53.33，$R^2 \approx 0.91$。
-        含义：市场月收益每高 1 个百分点，这只基金平均高 1.1 个百分点；市场收益为 0 的月份，基金平均收益约 0.57%。只有 6 个月的数据，这些估计的误差很大。
+        (a) $\bar x = 1$，$\bar y \approx 1.67$。$\sum (x_i - \bar x)(y_i - \bar y) = 44$，$\sum (x_i - \bar x)^2 = 40$，$b = 1.1$，$a = 1.67 - 1.1 \times 1 \approx 0.57$。
+        (b) $\bar y - \bar x \approx 0.67$。因为回归直线经过 $(\bar x, \bar y)$，$\bar y - \bar x = a + (b - 1)\bar x$：斜率为 1.1，基金随市场的波动比市场大，这部分贡献 $(1.1 - 1) \times 1 = 0.1$ 个百分点；截距贡献约 0.57 个百分点。所以多赚的部分中有一些只是因为承担了更多市场风险，在市场下跌时会变成多亏。截距才可能反映选股能力，但只有 6 个点，它的标准误很大，很可能和 0 没有显著差别；而且 6 个月里市场平均上涨，结果依赖于这段时间。要判断能力，需要更长的数据，并检验截距是否显著。
       en: |-
-        $\bar x = 1$ and $\bar y \approx 1.667$. $\sum (x_i - \bar x)(y_i - \bar y) = 44$ and $\sum (x_i - \bar x)^2 = 40$, so $b = 1.1$ and $a = 1.667 - 1.1 \times 1 \approx 0.57$.
-        The sum of squared residuals is about 4.93 and the total sum of squares about 53.33, so $R^2 \approx 0.91$.
-        Meaning: for each percentage point of market return, the fund returns 1.1 percentage points more on average; in a month with a market return of 0, the fund's average return is about 0.57%. With only 6 months of data, these estimates have large errors.
+        (a) $\bar x = 1$ and $\bar y \approx 1.67$. $\sum (x_i - \bar x)(y_i - \bar y) = 44$ and $\sum (x_i - \bar x)^2 = 40$, so $b = 1.1$ and $a = 1.67 - 1.1 \times 1 \approx 0.57$.
+        (b) $\bar y - \bar x \approx 0.67$. Because the regression line passes through $(\bar x, \bar y)$, $\bar y - \bar x = a + (b - 1)\bar x$: with a slope of 1.1 the fund swings more than the market, which contributes $(1.1 - 1) \times 1 = 0.1$ percentage points; the intercept contributes about 0.57. So part of the extra return comes only from taking more market risk and would turn into extra losses when the market falls. Only the intercept might reflect stock picking, but with 6 points its standard error is large and it is probably not significantly different from 0; and the market rose on average in these 6 months, so the result depends on that period. Judging skill needs much longer data and a test of whether the intercept is significant.
     rubric:
       zh-cn:
-        - "斜率、截距、$R^2$ 正确。"
-        - "含义说明正确，最好指出样本太小。"
+        - "(a) 斜率 1.1，截距约 0.57。"
+        - "(b) 分成市场风险的部分约 0.1 和截距约 0.57，并指出样本太小、截距可能不显著。把 0.67 全部当作选股能力：需要订正。"
       en:
-        - "Slope, intercept and $R^2$ are correct."
-        - "The meaning is explained correctly, ideally noting that the sample is very small."
+        - "(a) A slope of 1.1 and an intercept of about 0.57."
+        - "(b) Splits it into about 0.1 from market risk and about 0.57 from the intercept, and points out that the sample is too small and the intercept may not be significant. Treating all 0.67 as stock-picking skill: needs revision."
 
   - id: Q4
     kind: exercise
     level: B
     concepts: [omitted-variable-bias]
-    expected: { biased: "3.5", negative: "0.5" }
+    expected: { biased: "1" }
     question:
       zh-cn: |-
-        真实关系为 $y = 1 + 2x_1 + 3x_2 + \varepsilon$，$\text{Var}(x_1) = 4$，$\text{Cov}(x_1, x_2) = 2$。(a) 数据很多时，只用 $x_1$ 做回归，斜率接近多少？(b) 如果 $x_2$ 的系数是 −3（其他不变）呢？偏差的方向由什么决定？
+        研究者用基金的年收益 $y$ 对基金规模 $x_1$（标准化后的数值）做回归。假设真实关系为 $y = 1 - 0.5x_1 + 2x_2 + \varepsilon$，其中 $x_2$ 是基金经理的能力（无法直接观察）：能力强的经理收益高，也吸引更多资金。设 $\text{Var}(x_1) = 4$，$\text{Cov}(x_1, x_2) = 3$。
+        (a) 数据很多时，只用规模做回归，斜率接近多少？一位分析师据此说：“基金越大越好。”评价这个说法。
+        (b) 要更好地估计规模本身的作用，可以用什么样的数据或比较？
       en: |-
-        The true relation is $y = 1 + 2x_1 + 3x_2 + \varepsilon$, with $\text{Var}(x_1) = 4$ and $\text{Cov}(x_1, x_2) = 2$. (a) With a lot of data, what is the slope from regressing $y$ on $x_1$ only? (b) What if the coefficient of $x_2$ is −3 (otherwise unchanged)? What determines the direction of the bias?
+        A researcher regresses funds' annual returns $y$ on fund size $x_1$ (in standardized units). Suppose the true relationship is $y = 1 - 0.5x_1 + 2x_2 + \varepsilon$, where $x_2$ is the manager's skill (not directly observable): skilled managers earn more and also attract more money. Let $\text{Var}(x_1) = 4$ and $\text{Cov}(x_1, x_2) = 3$.
+        (a) With a lot of data, what does the slope of a regression on size alone approach? An analyst concludes: "The bigger the fund, the better." Evaluate this.
+        (b) What kind of data or comparison would give a better estimate of the effect of size itself?
     answer:
       zh-cn: |-
-        (a) $2 + 3 \times \frac{2}{4} = 3.5$，高估了 $x_1$ 的作用。
-        (b) $2 - 3 \times \frac{2}{4} = 0.5$，低估了 $x_1$ 的作用。偏差的方向由遗漏变量的系数与 $\text{Cov}(x_1, x_2)$ 的符号共同决定：两者同号时高估，异号时低估；协方差为 0 时没有偏差。
+        (a) $-0.5 + 2 \times \frac{3}{4} = 1$。回归的斜率为正，但规模本身的作用是 −0.5：基金越大，收益越低（例如大资金难以买卖小盘股）。正斜率来自遗漏的能力：能力影响收益（$\beta_2 > 0$），又与规模正相关，偏差为正，大到使符号反转。分析师把能力的作用算到了规模头上。
+        (b) 例如：加入能代表能力的变量（例如基金规模扩大之前的业绩）；比较同一只基金在规模变化前后的收益，这样经理的能力基本不变；或者利用与能力无关的规模变化（例如因为外部原因突然流入或流出的资金）。
       en: |-
-        (a) $2 + 3 \times \frac{2}{4} = 3.5$, which overstates the effect of $x_1$.
-        (b) $2 - 3 \times \frac{2}{4} = 0.5$, which understates the effect of $x_1$. The direction of the bias depends on the signs of the omitted variable's coefficient and $\text{Cov}(x_1, x_2)$ together: the same sign means overstatement, opposite signs understatement; with zero covariance there is no bias.
+        (a) $-0.5 + 2 \times \frac{3}{4} = 1$. The regression slope is positive, but the effect of size itself is −0.5: bigger funds earn less (for example, large sums are hard to trade in small stocks). The positive slope comes from the omitted skill: skill affects returns ($\beta_2 > 0$) and is positively correlated with size, so the bias is positive and large enough to flip the sign. The analyst credits size with the effect of skill.
+        (b) For example: add a variable that proxies for skill (such as performance before the fund grew); compare the same fund before and after its size changes, so that the manager's skill stays roughly the same; or use changes in size unrelated to skill (such as sudden inflows or outflows for outside reasons).
     rubric:
       zh-cn:
-        - "3.5 和 0.5。"
-        - "说明偏差方向由系数和协方差的符号决定。"
+        - "(a) 斜率接近 1，并指出遗漏的能力使符号反转，规模本身的作用为负。"
+        - "(b) 至少一种能排除能力影响的合理方法。"
       en:
-        - "3.5 and 0.5."
-        - "Explains that the direction depends on the signs of the coefficient and the covariance."
+        - "(a) A slope near 1, and points out that the omitted skill flips the sign, while the effect of size itself is negative."
+        - "(b) At least one reasonable way to remove the influence of skill."
 
   - id: Q5
     kind: exercise

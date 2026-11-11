@@ -58,6 +58,31 @@ common_errors:
       混淆资产的标准差 $\sigma$ 与样本均值的标准误：$\sigma$ 描述某一年收益的波动，不随数据量变化；标准误描述估计 $\mu$ 的误差，随 $\sqrt{n}$ 变小。
     en: |-
       Confusing the asset's standard deviation $\sigma$ with the standard error of the sample mean: $\sigma$ describes how much one year's return varies and does not change with the amount of data; the standard error describes the error in estimating $\mu$ and shrinks with $\sqrt{n}$.
+  - questions: [Q3]
+    zh-cn: |-
+      以为期望收益为正的投资长期持有就几乎不会亏钱；或者把每年收益的标准差当作多年平均收益的标准差。多年平均收益的标准差是 $\frac{\sigma}{\sqrt{n}}$，亏损的概率下降但不为 0。
+    en: |-
+      Thinking an investment with a positive expected return almost never loses money if held long enough; or using the standard deviation of one year's return for the average over many years. The average has standard deviation $\frac{\sigma}{\sqrt{n}}$, so the chance of a loss falls but is not 0.
+  - questions: [Q4]
+    zh-cn: |-
+      用期望财富描述普通投资者的结果，忽略右偏使中位数远低于均值；或者以为降低期望收益一定使长期结果变差，忽略波动的拖累。
+    en: |-
+      Using the expected wealth to describe the typical investor's result, ignoring that right skew puts the median far below the mean; or thinking a lower expected return must make long-run results worse, ignoring the drag from volatility.
+  - questions: [Q5]
+    zh-cn: |-
+      以为不显著就说明没有能力，或者以为几年的业绩就足以判断能力。真实能力也要很多年的记录才能和运气区分开。
+    en: |-
+      Thinking that a result that is not significant shows a lack of skill, or that a few years of performance are enough to judge skill. Even real skill takes many years of record to tell apart from luck.
+  - questions: [Q6]
+    zh-cn: |-
+      只看报告出来的那个显著结果，不问一共检验了多少个。检验 20 个无效的策略，平均就有 1 个会碰巧在 5% 水平上显著。
+    en: |-
+      Looking only at the significant result reported, without asking how many were tested. Testing 20 useless strategies gives on average 1 that is significant at the 5% level by chance.
+  - questions: [Q7]
+    zh-cn: |-
+      以为数据越多，样本均值的误差总会趋于 0。各年收益正相关时，样本均值的方差趋于协方差 $c$，增加数据也无法消除这部分误差。
+    en: |-
+      Thinking that more data always drive the error of the sample mean to 0. When years are positively correlated, the variance of the sample mean approaches the covariance $c$, and more data cannot remove that error.
   - questions: [C4]
     zh-cn: |-
       计算样本标准差时除以 $n$ 而不是 $n - 1$。
@@ -75,145 +100,160 @@ questions:
     kind: check
     section: normal
     concepts: [normal-distribution, z-score]
-    expected: { below: "16", above: "2.5" }
     question:
       zh-cn: |-
-        年收益服从 $N(8\%, 16\%^2)$。一年收益低于 −8% 的概率约是多少？高于 40% 呢？
+        资产 A 的年收益服从 $N(8\%, 16\%^2)$，资产 B 服从 $N(4\%, 8\%^2)$。哪一项一年亏损超过 12% 的概率更大？
       en: |-
-        Annual returns follow $N(8\%, 16\%^2)$. What is the approximate probability that a year's return is below −8%? Above 40%?
+        Asset A's annual return follows $N(8\%, 16\%^2)$ and asset B's follows $N(4\%, 8\%^2)$. Which is more likely to lose more than 12% in a year?
+    choices:
+      - zh-cn: A
+        en: A
+      - zh-cn: B，因为它的期望收益更低
+        en: B, because its expected return is lower
+        why:
+          zh-cn: 亏损超过 12% 的概率取决于 −12% 离各自的期望有几个标准差。分别算一算这个距离。
+          en: The probability of losing more than 12% depends on how many standard deviations −12% is from each expected value. Work out that distance for each.
+      - zh-cn: 两者相同，因为 −12% 对两者都是 2 个标准差以外
+        en: The same, because −12% is more than 2 standard deviations away for both
+        why:
+          zh-cn: 用 $z = \frac{R - \mu}{\sigma}$ 分别检查一下，两者的 $z$ 真的相同吗？
+          en: Check each with $z = \frac{R - \mu}{\sigma}$. Are the two values of $z$ really the same?
+      - zh-cn: 不知道真实的分布，无法比较
+        en: They cannot be compared without knowing the true distributions
+        why:
+          zh-cn: 题目已经给出了两个正态分布。正态分布由哪两个数完全确定？
+          en: The question gives both normal distributions. Which two numbers fully determine a normal distribution?
+    correct: A
     answer:
       zh-cn: |-
-        −8% 是 $\mu - 1\sigma$。$\mu \pm 1\sigma$ 内约 68%，两侧各约 16%，所以低于 −8% 的概率约 16%。
-        40% 是 $\mu + 2\sigma$。$\mu \pm 2\sigma$ 外约 5%，右侧约 2.5%。
+        (A)。对 A，$z = \frac{-12 - 8}{16} = -1.25$；对 B，$z = \frac{-12 - 4}{8} = -2$。−12% 离 A 的期望只有 1.25 个标准差，离 B 有 2 个标准差，所以 A 亏损超过 12% 的概率（约 11%）大于 B（约 2.3%）。期望较高并不意味着大亏的概率较低，还要看标准差。
       en: |-
-        −8% is $\mu - 1\sigma$. About 68% is within $\mu \pm 1\sigma$, about 16% on each side, so the probability of less than −8% is about 16%.
-        40% is $\mu + 2\sigma$. About 5% is outside $\mu \pm 2\sigma$, so about 2.5% is on the right.
-    rubric:
-      zh-cn:
-        - "算出 −8% 和 40% 分别离期望几个标准差。"
-        - "利用对称性，两个概率约为 16% 和 2.5%。"
-      en:
-        - "Finds how many standard deviations −8% and 40% are from the mean."
-        - "Uses symmetry; the probabilities are about 16% and 2.5%."
+        (A). For A, $z = \frac{-12 - 8}{16} = -1.25$; for B, $z = \frac{-12 - 4}{8} = -2$. −12% is only 1.25 standard deviations below A's expected value but 2 below B's, so A is more likely to lose more than 12% (about 11%) than B (about 2.3%). A higher expected return does not mean a lower chance of a large loss; the standard deviation matters too.
 
   - id: C2
     kind: check
     section: fat-tails
     concepts: [fat-tails, normal-distribution, z-score]
-    expected: { z: "20" }
     question:
       zh-cn: |-
-        1987 年 10 月 19 日，美国股市一天下跌约 20%。假设当时日收益的标准差约为 1%、日期望收益约为 0。按正态分布，这是离期望几个标准差的事件？它真的发生了，说明假设正态分布的风险模型会怎样估计大跌的概率？
+        1987 年 10 月 19 日，美国股市一天下跌约 20%。按日期望收益约为 0、日标准差约为 1% 的正态分布，这是离期望约 20 个标准差的事件。这说明那一天发生了一件即使用正确的模型来看也几乎不可能发生的事。
       en: |-
-        On October 19, 1987, the US stock market fell about 20% in one day. Assume that the standard deviation of daily returns was then about 1% and the mean daily return about 0. Under a normal distribution, how many standard deviations from the mean is this event? Given that it did happen, how does a risk model that assumes normal returns estimate the probability of large falls?
+        On October 19, 1987, the US stock market fell about 20% in one day. Under a normal distribution with an expected daily return of about 0 and a daily standard deviation of about 1%, this is an event about 20 standard deviations from the expected value. This shows that something happened that was almost impossible even under the correct model.
+    correct: false
+    hint:
+      zh-cn: 一件按某个模型“几乎不可能”的事真的发生了，更可能说明运气极差，还是这个模型的假设有问题？
+      en: When something "almost impossible" under a model actually happens, is it more likely very bad luck, or a wrong assumption in the model?
     answer:
       zh-cn: |-
-        $z = \frac{-20 - 0}{1} = -20$，离期望 20 个标准差。按正态分布，3 个标准差以外的概率就只有约 0.3%，20 个标准差的事件在宇宙的寿命里几乎不可能发生。它真的发生了，说明真实收益的尾部比正态分布厚（肥尾），假设正态分布的风险模型会低估大跌的概率。
+        错。按正态分布，20 个标准差的事件在宇宙的寿命里也几乎不会发生，而类似的大跌在历史上多次出现。更合理的结论是正态分布的假设错了：真实收益的尾部比正态分布厚（肥尾），极端涨跌比正态分布预测的频繁得多。假设正态分布的风险模型会严重低估大跌的概率。
       en: |-
-        $z = \frac{-20 - 0}{1} = -20$, 20 standard deviations from the mean. Under a normal distribution, even moves beyond 3 standard deviations have a probability of only about 0.3%; a 20-standard-deviation event should practically never happen in the age of the universe. It did happen, which shows that real returns have thicker tails than a normal distribution (fat tails), so a risk model that assumes a normal distribution understates the probability of a large fall.
-    rubric:
-      zh-cn:
-        - "约 20 个标准差。"
-        - "指出肥尾，正态模型低估大跌的概率。"
-      en:
-        - "About 20 standard deviations."
-        - "Points to fat tails; the normal model understates the probability of a large fall."
+        False. Under a normal distribution, a 20-standard-deviation event would almost never happen in the lifetime of the universe, yet similar crashes have happened several times. The more reasonable conclusion is that the normal assumption is wrong: real returns have fatter tails, and extreme moves are far more frequent than the normal distribution predicts. Risk models that assume normality greatly underestimate the probability of crashes.
 
   - id: C3
     kind: check
     section: mean-median
     concepts: [median, right-skew, expected-value]
-    expected: { mean: "110.25", median: "90" }
     question:
       zh-cn: |-
-        同一个抛硬币投资（每年等概率乘以 1.5 或 0.6），投入 100 美元，玩 2 年。期望财富和中位数各是多少？为什么期望高于中位数？
+        在讲义的抛硬币投资中（每年等概率乘以 1.5 或 0.6），玩的年数越多：
       en: |-
-        The same coin-flip investment (each year the wealth is multiplied by 1.5 or 0.6 with equal probability), starting with 100 dollars, for 2 years. What are the mean wealth and the median? Why is the mean above the median?
+        In the lesson's coin-flip investment (each year wealth is multiplied by 1.5 or 0.6 with equal probability), the more years one plays:
+    choices:
+      - zh-cn: 期望财富越来越高，中位数越来越低
+        en: The expected wealth keeps rising and the median keeps falling
+      - zh-cn: 期望财富和中位数都越来越高，因为每年的期望收益是正的
+        en: Both the expected wealth and the median keep rising, because the expected return each year is positive
+        why:
+          zh-cn: 一个普通人大约一半年份正面、一半反面。一正一反之后，他的财富是原来的多少倍？
+          en: A typical player gets heads about half the years and tails the other half. After one head and one tail, how many times the starting wealth does he have?
+      - zh-cn: 两者都越来越低
+        en: Both keep falling
+        why:
+          zh-cn: 整个群体平均每人的钱，每年期望乘以多少？
+          en: Each year, by what factor is the average wealth of the whole group expected to be multiplied?
+      - zh-cn: 两者越来越接近，因为结果会平均掉
+        en: The two get closer, because the outcomes average out
+        why:
+          zh-cn: 在 [[fig:3-1]] 中拖动年数，均值和中位数的差距是变大还是变小？想一想少数幸运者的财富怎样增长。
+          en: Drag the number of years in [[fig:3-1]]. Does the gap between the mean and the median grow or shrink? Think about how the wealth of the few lucky players grows.
+    correct: A
     answer:
       zh-cn: |-
-        两次正面 225 美元（概率 0.25），一正一反 90 美元（概率 0.5），两次反面 36 美元（概率 0.25）。期望 $0.25 \times 225 + 0.5 \times 90 + 0.25 \times 36 = 110.25$ 美元，中位数 90 美元。
-        期望被概率较小但财富很高的结果（225）拉高；最常见的结果是一涨一跌，$1.5 \times 0.6 = 0.9 < 1$，财富缩水。
+        (A)。整个群体平均每人的钱每年期望乘以 1.05，均值是 $100 \times 1.05^n$，越来越高。一个普通人大约一半正面、一半反面，一正一反的净效果是 $1.5 \times 0.6 = 0.9$，中位数约为 $100 \times 0.9^{n/2}$，越来越低。年数越多，总财富越集中在少数幸运者手里，分布越右偏，两者分得越开。
       en: |-
-        Two heads give 225 dollars (probability 0.25), one of each 90 dollars (probability 0.5), two tails 36 dollars (probability 0.25). The mean is $0.25 \times 225 + 0.5 \times 90 + 0.25 \times 36 = 110.25$ dollars and the median 90 dollars.
-        The mean is pulled up by the less likely but very high outcome (225); the most common outcome is one rise and one fall, and $1.5 \times 0.6 = 0.9 < 1$, so wealth shrinks.
-    rubric:
-      zh-cn:
-        - "期望 110.25、中位数 90。"
-        - "用高端结果拉高期望、一涨一跌净效果小于 1 解释。"
-      en:
-        - "Mean 110.25, median 90."
-        - "Explains by the high outcome pulling up the mean and one rise and one fall netting below 1."
+        (A). The group's average wealth is expected to be multiplied by 1.05 each year, so the mean is $100 \times 1.05^n$ and keeps rising. A typical player gets about half heads and half tails, and one of each has a net effect of $1.5 \times 0.6 = 0.9$, so the median is about $100 \times 0.9^{n/2}$ and keeps falling. The more years, the more total wealth is concentrated among the few lucky players, the more right-skewed the distribution, and the further apart the two become.
 
   - id: C4
     kind: check
     section: estimation
     concepts: [sample-mean, sample-standard-deviation, degrees-of-freedom]
-    expected: { mean: "10", s: "11.55" }
     question:
       zh-cn: |-
-        某资产 4 年的收益为 12%、−4%、8%、24%。计算样本均值和样本标准差。
+        有 1,000 个观测时，样本方差除以 $n$ 还是除以 $n - 1$，对样本标准差几乎没有影响。
       en: |-
-        An asset's returns over 4 years are 12%, −4%, 8% and 24%. Calculate the sample mean and the sample standard deviation.
+        With 1,000 observations, whether the sample variance is divided by $n$ or by $n - 1$ makes almost no difference to the sample standard deviation.
+    correct: true
+    hint:
+      zh-cn: 比较 $\frac{1}{1000}$ 和 $\frac{1}{999}$ 相差多少。$n = 5$ 时呢？
+      en: Compare $\frac{1}{1000}$ with $\frac{1}{999}$. What about $n = 5$?
     answer:
       zh-cn: |-
-        $\bar R = \frac{12 - 4 + 8 + 24}{4} = 10$%。偏差为 2、−14、−2、14，平方和 $4 + 196 + 4 + 196 = 400$。
-        $s^2 = \frac{400}{3} \approx 133.3$，$s \approx 11.55$%。
+        对。两种算法的方差之比为 $\frac{n}{n-1}$，$n = 1000$ 时只差约 0.1%，标准差只差约 0.05%。除以 $n - 1$ 是为了修正“偏差相对样本均值计算”造成的低估，这个修正只在样本小时重要：$n = 5$ 时方差差 25%。
       en: |-
-        $\bar R = \frac{12 - 4 + 8 + 24}{4} = 10$%. The deviations are 2, −14, −2 and 14, and the sum of squares is $4 + 196 + 4 + 196 = 400$.
-        $s^2 = \frac{400}{3} \approx 133.3$, so $s \approx 11.55$%.
-    rubric:
-      zh-cn:
-        - "样本均值正确，偏差平方和为 400。"
-        - "除以 $n - 1 = 3$，样本标准差约 11.55%。"
-      en:
-        - "The sample mean is correct, and the sum of squared deviations is 400."
-        - "Divides by $n - 1 = 3$; the sample standard deviation is about 11.55%."
+        True. The two variances differ by the factor $\frac{n}{n-1}$: with $n = 1000$ only about 0.1%, and the standard deviations about 0.05%. Dividing by $n - 1$ corrects the underestimate caused by measuring deviations from the sample mean, and that correction matters only for small samples: with $n = 5$ the variances differ by 25%.
 
   - id: C5
     kind: check
     section: standard-error
     concepts: [standard-error, confidence-interval, hypothesis-test]
-    expected: { se: "4", lo: "-1.84", hi: "13.84" }
     question:
       zh-cn: |-
-        $\sigma = 20\%$，有 25 年的数据，样本均值为 6%。标准误和 95% 置信区间各是多少？这个区间包含 0 吗？
+        25 年的数据给出平均收益的 95% 置信区间为 $[-1.84\%, 13.84\%]$。下面哪种说法正确？
       en: |-
-        $\sigma = 20\%$, there are 25 years of data, and the sample mean is 6%. What are the standard error and the 95% confidence interval? Does the interval contain 0?
+        25 years of data give a 95% confidence interval of $[-1.84\%, 13.84\%]$ for the average return. Which statement is correct?
+    choices:
+      - zh-cn: 用这种方法造的区间，约 95% 会包含真实的期望收益
+        en: About 95% of intervals made this way contain the true expected return
+      - zh-cn: 真实的期望收益有 95% 的概率落在这个区间里
+        en: The true expected return lies in this interval with 95% probability
+        why:
+          zh-cn: 真实的期望收益是一个固定的数，还是随机的？95% 描述的是哪一个随机的东西？
+          en: Is the true expected return a fixed number or a random one? What random thing does the 95% describe?
+      - zh-cn: 以后约 95% 的年份，收益会落在这个区间里
+        en: In about 95% of future years, the return will lie in this interval
+        why:
+          zh-cn: 这个区间的宽度由标准误决定。标准误描述的是每一年收益的波动，还是平均收益的估计误差？
+          en: The width of this interval is set by the standard error. Does the standard error describe the swings in each year's return or the error in estimating the average?
+      - zh-cn: 区间包含 0，说明真实的期望收益就是 0
+        en: The interval contains 0, so the true expected return is 0
+        why:
+          zh-cn: 区间里还有很多别的数，例如 10%。数据能说明真实值就是区间里的某一个数吗？
+          en: The interval also contains many other numbers, such as 10%. Can the data show that the true value is one particular number in it?
+    correct: A
     answer:
       zh-cn: |-
-        $\text{SE} = \frac{20}{\sqrt{25}} = 4$%。区间 $6 \pm 1.96 \times 4$，即 $[-1.84\%, 13.84\%]$。包含 0。
+        (A)。真实的期望收益是固定的，随机的是区间：换一段历史，样本均值和区间都会变。95% 的意思是用这种方法造区间，约 95% 的历史中区间会罩住真实值；我们不知道自己这一段是不是例外。区间描述的是平均收益的估计误差，不是每一年收益的范围。区间包含 0 只说明数据不能排除 0，不说明真实值是 0。
       en: |-
-        $\text{SE} = \frac{20}{\sqrt{25}} = 4$%. The interval is $6 \pm 1.96 \times 4$, that is, $[-1.84\%, 13.84\%]$. It contains 0.
-    rubric:
-      zh-cn:
-        - "标准误为 4%。"
-        - "区间约为 −1.84% 到 13.84%，包含 0。"
-      en:
-        - "The standard error is 4%."
-        - "The interval is about −1.84% to 13.84% and contains 0."
+        (A). The true expected return is fixed; the interval is random: with another stretch of history, the sample mean and the interval would change. 95% means that in about 95% of histories an interval made this way covers the true value; we do not know whether ours is an exception. The interval describes the error in estimating the average, not the range of each year's return. Containing 0 means only that the data cannot rule out 0, not that the true value is 0.
 
   - id: C6
     kind: check
     section: standard-error
     concepts: [standard-error]
-    expected: { n: "64" }
     question:
       zh-cn: |-
-        $\sigma = 16\%$。要让样本均值的标准误降到 2%，需要多少年的数据？把标准误再减半，需要的数据是多少倍？
+        要把样本均值的标准误减半，需要两倍年数的数据。
       en: |-
-        $\sigma = 16\%$. How many years of data are needed to bring the standard error of the sample mean down to 2%? To halve the standard error again, how many times as much data is needed?
+        Halving the standard error of the sample mean requires twice as many years of data.
+    correct: false
+    hint:
+      zh-cn: 标准误等于 $\frac{\sigma}{\sqrt{n}}$。$n$ 变为两倍时，$\sqrt{n}$ 变为几倍？
+      en: The standard error equals $\frac{\sigma}{\sqrt{n}}$. When $n$ doubles, by what factor does $\sqrt{n}$ grow?
     answer:
       zh-cn: |-
-        $\frac{16}{\sqrt{n}} = 2$，$\sqrt{n} = 8$，$n = 64$ 年。标准误与 $\sqrt{n}$ 成反比，再减半需要 4 倍的数据，即 256 年。
+        错。标准误与 $\sqrt{n}$ 成反比，减半需要 $\sqrt{n}$ 变为两倍，即 4 倍的数据。例如 $\sigma = 16\%$ 时，标准误从 4% 降到 2%，需要的数据从 16 年增加到 64 年。估计精度的提高非常慢，这是从历史数据估计期望收益很难的原因。
       en: |-
-        $\frac{16}{\sqrt{n}} = 2$, so $\sqrt{n} = 8$ and $n = 64$ years. The standard error is inversely proportional to $\sqrt{n}$, so halving it again needs 4 times as much data, 256 years.
-    rubric:
-      zh-cn:
-        - "$n = 64$ 年。"
-        - "再减半需要 4 倍的数据。"
-      en:
-        - "$n = 64$ years."
-        - "Halving again needs 4 times as much data."
+        False. The standard error is inversely proportional to $\sqrt{n}$, so halving it requires $\sqrt{n}$ to double, that is, 4 times as much data. With $\sigma = 16\%$, for example, cutting the standard error from 4% to 2% takes the data from 16 to 64 years. Precision improves very slowly, which is why expected returns are hard to estimate from history.
 
   - id: C7
     kind: check
@@ -222,21 +262,33 @@ questions:
     widget: { id: ci-sim, set: { n: 5 } }
     question:
       zh-cn: |-
-        在 [[fig:5-1]] 中把年数调到 5，多按几次“重新抽样”。包含真实期望的区间大约有多少个？为什么常常少于 95 个？
+        在 [[fig:5-1]] 中把年数调到 5，多按几次“重新抽样”。包含真实期望的区间：
       en: |-
-        In [[fig:5-1]], set the number of years to 5 and press "Draw again" several times. About how many intervals contain the true mean? Why is it often fewer than 95?
+        In [[fig:5-1]], set the number of years to 5 and press "Resample" several times. The intervals that contain the true expected value:
+    choices:
+      - zh-cn: 常常少于 95 个
+        en: Are often fewer than 95
+      - zh-cn: 每次都正好是 95 个
+        en: Are exactly 95 every time
+        why:
+          zh-cn: 每次重新抽样，100 个区间都不同。罩住真实值的个数会每次都一样吗？
+          en: Each resample gives 100 different intervals. Can the number that covers the true value be the same every time?
+      - zh-cn: 常常多于 95 个，因为样本小时区间很宽
+        en: Are often more than 95, because intervals are wide in small samples
+        why:
+          zh-cn: 区间用样本标准差 $s$ 代替 $\sigma$。只有 5 个观测时，$s$ 常常偏大还是偏小？偏小时区间会怎样？
+          en: The intervals use the sample standard deviation $s$ instead of $\sigma$. With only 5 observations, is $s$ often too large or too small? What happens to the interval when it is too small?
+      - zh-cn: 大约只有 50 个
+        en: Are only about 50
+        why:
+          zh-cn: 多按几次，数一数实际的个数。区间虽然不够宽，但会差这么多吗？
+          en: Press it a few more times and count. The intervals are not wide enough, but are they that far off?
+    correct: A
     answer:
       zh-cn: |-
-        每次抽样的结果不同，大约在 80 到 95 个之间，平均约 88 个，常常少于 95 个。原因：区间用样本标准差 $s$ 代替 $\sigma$，$n = 5$ 时 $s$ 的误差很大，有时明显偏小，区间就太窄；1.96 没有考虑这部分误差。应改用 t 分布的临界值（$n = 5$ 时约 2.78），区间更宽，覆盖率回到约 95%。
+        (A)。每次抽样的结果不同，大约在 80 到 95 个之间，平均约 88 个。区间用样本标准差 $s$ 代替 $\sigma$，$n = 5$ 时 $s$ 的误差很大，有时明显偏小，区间就太窄；1.96 没有考虑这部分误差。改用 t 分布的临界值（$n = 5$ 时约 2.78），区间更宽，覆盖率回到约 95%。
       en: |-
-        The count differs from draw to draw, roughly between 80 and 95, about 88 on average, and often fewer than 95. The reason: the interval uses the sample standard deviation $s$ instead of $\sigma$, and with $n = 5$ the error in $s$ is large; sometimes $s$ is clearly too small and the interval is too narrow. 1.96 does not account for this error. The critical value of the t distribution (about 2.78 for $n = 5$) should be used instead; the intervals are then wider and about 95% of them cover the true mean.
-    rubric:
-      zh-cn:
-        - "观察到少于 95 个（具体数目因抽样而异）。"
-        - "原因是用 $s$ 代替 $\\sigma$ 时小样本误差大，应改用 t 分布的临界值。"
-      en:
-        - "Observes fewer than 95 (the exact count depends on the sample)."
-        - "The reason is that replacing $\\sigma$ by $s$ adds a large error in small samples, so the t distribution's critical value should be used."
+        (A). The count varies from sample to sample, roughly between 80 and 95, about 88 on average. The intervals use the sample standard deviation $s$ instead of $\sigma$; with $n = 5$, $s$ has a large error and is sometimes clearly too small, making the interval too narrow, and 1.96 does not allow for this. With the t-distribution critical value (about 2.78 for $n = 5$), the intervals are wider and the coverage returns to about 95%.
 
   - id: C8
     kind: check
@@ -244,23 +296,18 @@ questions:
     concepts: [hypothesis-test, standard-error, multiple-testing]
     question:
       zh-cn: |-
-        一位基金经理过去 4 年每年都跑赢指数。这能说明他有选股能力吗？要判断，还需要哪些信息？
+        用 100 万个日观测检验一个交易策略，平均每天多赚 0.001%，t 值为 5，在 5% 水平上高度显著。所以这是一个值得投入资金的策略。
       en: |-
-        A fund manager has beaten the index in each of the past 4 years. Does this show stock-picking skill? What more information is needed to judge?
+        A trading strategy is tested on 1 million daily observations: it earns 0.001% more per day on average, with a t-statistic of 5, highly significant at the 5% level. So it is a strategy worth putting money into.
+    correct: false
+    hint:
+      zh-cn: 统计显著说明的是什么？它能说明效果有多大、扣除交易成本后还剩多少吗？
+      en: What does statistical significance tell you? Does it say how large the effect is, or what is left after trading costs?
     answer:
       zh-cn: |-
-        不能。4 年样本太小。如果每年跑赢的概率是 50%，连续 4 年跑赢的概率是 $0.5^4 = \frac{1}{16}$；成千上万个经理中，纯靠运气连续 4 年跑赢的会有很多。
-        需要的信息：每年跑赢的幅度和它的波动（才能算标准误和 t 值）；有多少经理参与比较（多重检验）；是否扣除了费用、比较基准是否合适。
+        错。显著只说明真实效果不太可能是 0，不说明效果大到值得做。样本非常大时，标准误很小，微小的差别也会显著。每天 0.001%，一年约 0.25%，很可能还不够支付交易成本。判断时要同时看效果的大小、成本和风险。
       en: |-
-        No. 4 years is too small a sample. If the chance of beating the index in a year is 50%, the chance of doing it 4 years in a row is $0.5^4 = \frac{1}{16}$; among thousands of managers, many will do it by luck alone.
-        Information needed: the size of the outperformance each year and how much it varies (to compute the standard error and the t-statistic); how many managers are being compared (multiple testing); whether fees are taken into account and whether the benchmark is suitable.
-    rubric:
-      zh-cn:
-        - "结论为不能，并指出样本小或运气的可能。"
-        - "指出需要跑赢幅度的均值与波动（t 值），或需要考虑参与比较的人数。"
-      en:
-        - "Concludes no, pointing to the small sample or the role of luck."
-        - "Says that the mean and variability of the outperformance (t-statistic) are needed, or that the number of managers compared must be considered."
+        False. Significance says only that the true effect is unlikely to be 0, not that it is large enough to matter. With a very large sample the standard error is tiny, so even a small difference becomes significant. 0.001% a day is about 0.25% a year, probably not enough to pay for trading costs. Size of the effect, costs and risk must all be considered.
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1
@@ -285,98 +332,92 @@ questions:
         - "States false."
         - "Distinguishes $\\sigma$ (a property of the asset) from the standard error (the error of an estimate, which shrinks with $n$)."
 
-  - id: Q2
-    kind: exercise
-    level: A
-    concepts: [median, right-skew, expected-value]
-    question:
-      zh-cn: |-
-        解释：为什么在做长期退休规划时，只看“期望终值”会过于乐观？规划时应该看什么？
-      en: |-
-        Explain: why is it too optimistic to look only at the "expected final wealth" when planning for retirement over a long period? What should the plan look at instead?
-    answer:
-      zh-cn: |-
-        期望是很多人（很多条路径）的平均，被少数非常幸运的路径拉高。长期连乘的财富分布右偏，期望大于中位数。一个家庭只有一条路径，典型的结果是中位数，低于期望。规划时应看中位数和较差情况的分位数（例如有 10% 的可能低于多少），以及达成目标的概率。
-      en: |-
-        The expected value is the average over many people (many paths) and is pulled up by a few very lucky paths. Wealth that compounds over many years is right-skewed, so its mean is above its median. A household has only one path, and its typical result is the median, which is below the mean. A plan should look at the median and at low percentiles (for example, the level that wealth falls below with 10% probability), and at the probability of reaching the goal.
-    rubric:
-      zh-cn:
-        - "说清期望与中位数各代表什么，以及右偏的来源。"
-        - "指出应看中位数、较差情况的分位数或达成目标的概率。"
-      en:
-        - "Explains what the mean and the median each represent, and where the right skew comes from."
-        - "Says that the plan should use the median, low percentiles or the probability of reaching the goal."
-
   - id: Q3
     kind: exercise
     level: B
     concepts: [normal-distribution, z-score]
-    expected: { z: "-0.47", p: "32" }
+    expected: { p: "32", z10: "-1.48", p10: "7" }
     question:
       zh-cn: |-
-        年收益服从正态分布，$\mu = 7\%$，$\sigma = 15\%$。某一年亏损的概率大约是多少？（已知标准正态分布 $P(Z < -0.47) \approx 0.32$。）
+        年收益服从正态分布，$\mu = 7\%$，$\sigma = 15\%$，各年相互独立。一位顾问说：“这项投资的期望收益是 7%，长期持有几乎不会亏钱。”
+        (a) 某一年亏损的概率大约是多少？
+        (b) 持有 10 年，这 10 年的平均年收益低于 0 的概率大约是多少？据此评价顾问的说法。（已知 $P(Z < -0.47) \approx 0.32$，$P(Z < -1.48) \approx 0.07$。）
       en: |-
-        Annual returns are normally distributed with $\mu = 7\%$ and $\sigma = 15\%$. What is the approximate probability of a loss in a given year? (For the standard normal distribution, $P(Z < -0.47) \approx 0.32$.)
+        Annual returns are normally distributed with $\mu = 7\%$ and $\sigma = 15\%$, independent from year to year. An adviser says: "The expected return is 7%, so holding it for the long run you will almost never lose money."
+        (a) Roughly what is the probability of a loss in a given year?
+        (b) Holding it for 10 years, roughly what is the probability that the average annual return over the 10 years is below 0? Use this to evaluate the adviser's statement. (Given: $P(Z < -0.47) \approx 0.32$ and $P(Z < -1.48) \approx 0.07$.)
     answer:
       zh-cn: |-
-        亏损即收益低于 0：$z = \frac{0 - 7}{15} \approx -0.47$，概率约 32%。
+        (a) $z = \frac{0 - 7}{15} \approx -0.47$，亏损的概率约 32%，大约每三年一次。
+        (b) 10 年平均年收益的标准差为 $\frac{15}{\sqrt{10}} \approx 4.74\%$，$z = \frac{0 - 7}{4.74} \approx -1.48$，概率约 7%。持有越久，平均收益越集中在 7% 附近，亏损的概率确实下降，但 10 年后仍有约 7% 的可能平均收益为负，并不是“几乎不会”。而且这个计算假设分布和期望都已知、各年独立；真实的期望收益本身估计得很不准（[[0.4#standard-error]]）。
       en: |-
-        A loss means a return below 0: $z = \frac{0 - 7}{15} \approx -0.47$, so the probability is about 32%.
+        (a) $z = \frac{0 - 7}{15} \approx -0.47$, so the probability of a loss is about 32%, roughly one year in three.
+        (b) The standard deviation of the 10-year average is $\frac{15}{\sqrt{10}} \approx 4.74\%$, so $z = \frac{0 - 7}{4.74} \approx -1.48$ and the probability is about 7%. The longer the holding, the more the average return concentrates near 7%, so the chance of a loss does fall, but after 10 years there is still about a 7% chance that the average return is negative, which is not "almost never". And this calculation assumes that the distribution and the expected value are known and that years are independent; the true expected return is itself estimated very imprecisely ([[0.4#standard-error]]).
     rubric:
       zh-cn:
-        - "标准化正确，$z \\approx -0.47$。"
-        - "概率约 32%。"
+        - "(a) 约 32%。"
+        - "(b) 用 $\\frac{15}{\\sqrt{10}}$ 作为 10 年平均收益的标准差，得到约 7%，并指出风险下降但没有消失。用 15% 作为 10 年平均收益的标准差：需要订正。"
       en:
-        - "Standardizes correctly: $z \\approx -0.47$."
-        - "The probability is about 32%."
+        - "(a) About 32%."
+        - "(b) Uses $\\frac{15}{\\sqrt{10}}$ as the standard deviation of the 10-year average, gets about 7%, and points out that the risk falls but does not vanish. Using 15% as the standard deviation of the 10-year average: needs revision."
 
   - id: Q4
     kind: exercise
     level: B
     concepts: [median, right-skew, expected-value]
-    expected: { mean: "672.7", median: "66.5" }
+    expected: { median: "66.5", median_h: "148.0", mean_h: "265.3" }
     question:
       zh-cn: |-
-        一项投资每年等概率 +60% 或 −40%，每年的期望收益为 10%。投入 100 美元，20 年后的期望财富和中位数各是多少？为什么两者差这么多？
+        一项投资每年等概率 +60% 或 −40%，每年的期望收益为 10%。投入 100 美元，20 年后的期望财富约为 672.7 美元。
+        (a) 20 年后财富的中位数是多少？一位顾问说：“期望收益每年 10%，长期持有，大多数人的财富都会增长。”评价这个说法。
+        (b) 改为一半钱投入这项投资、一半持有现金（收益为 0），每年年初再平衡回各一半。20 年后的期望财富和中位数各是多少？为什么期望收益降低了，普通人的结果反而变好了？
       en: |-
-        An investment returns +60% or −40% each year with equal probability, an expected return of 10% a year. Starting with 100 dollars, what are the mean and the median wealth after 20 years? Why do they differ so much?
+        An investment returns +60% or −40% each year with equal probability, an expected return of 10% a year. With 100 dollars invested, the expected wealth after 20 years is about 672.7 dollars.
+        (a) What is the median wealth after 20 years? An adviser says: "The expected return is 10% a year, so over the long run most people's wealth will grow." Evaluate the statement.
+        (b) Instead, put half the money in this investment and keep half in cash (return 0), rebalancing to half and half at the start of each year. What are the expected wealth and the median after 20 years? Why does the typical result improve even though the expected return is lower?
     answer:
       zh-cn: |-
-        期望 $100 \times 1.1^{20} \approx 672.7$ 美元；中位数（10 正 10 反）$100 \times (1.6 \times 0.6)^{10} = 100 \times 0.96^{10} \approx 66.5$ 美元。
-        一涨一跌的净效果是 $1.6 \times 0.6 = 0.96 < 1$，典型的路径在缩水；期望被少数多次上涨、财富极大的路径拉高。财富按比例增减、亏损有下限，分布右偏。
+        (a) 一个普通人 10 次涨、10 次跌，一涨一跌的净效果是 $1.6 \times 0.6 = 0.96$，中位数为 $100 \times 0.96^{10} \approx 66.5$ 美元。超过一半的人亏钱，顾问错了：期望财富被少数幸运者的巨大收益拉高，不代表普通人的结果。
+        (b) 每年组合乘以 1.3 或 0.8，期望收益为 5%，期望财富为 $100 \times 1.05^{20} \approx 265.3$ 美元；一涨一跌的净效果是 $1.3 \times 0.8 = 1.04 > 1$，中位数为 $100 \times 1.04^{10} \approx 148.0$ 美元。持有现金把波动减半，一涨一跌的损失大幅减小，普通人的财富从缩水变为增长。期望收益只降低一半，波动造成的拖累却按波动的平方减小（[[4.1]] 会正式讨论）。每年再平衡是关键：不再平衡时，投资部分涨多了比例会变大，波动又会回升。
       en: |-
-        Mean $100 \times 1.1^{20} \approx 672.7$ dollars; median (10 up and 10 down) $100 \times (1.6 \times 0.6)^{10} = 100 \times 0.96^{10} \approx 66.5$ dollars.
-        One rise and one fall together give $1.6 \times 0.6 = 0.96 < 1$, so the typical path shrinks; the mean is pulled up by a few paths with many rises and very large wealth. Wealth changes in proportion and losses have a floor, so the distribution is right-skewed.
+        (a) A typical investor gets 10 rises and 10 falls, and one of each has a net effect of $1.6 \times 0.6 = 0.96$, so the median is $100 \times 0.96^{10} \approx 66.5$ dollars. More than half of investors lose money, so the adviser is wrong: the expected wealth is pulled up by the huge gains of a few lucky investors and does not describe the typical result.
+        (b) Each year the portfolio is multiplied by 1.3 or 0.8, an expected return of 5%, so the expected wealth is $100 \times 1.05^{20} \approx 265.3$ dollars; one rise and one fall give $1.3 \times 0.8 = 1.04 > 1$, so the median is $100 \times 1.04^{10} \approx 148.0$ dollars. Holding cash halves the swings and greatly reduces the loss from a rise followed by a fall, so the typical investor's wealth grows instead of shrinking. The expected return falls only by half, while the drag from volatility shrinks with the square of the volatility ([[4.1]] treats this formally). Rebalancing each year is essential: without it, the invested part grows as a share after gains and the swings return.
     rubric:
       zh-cn:
-        - "期望约 672.7、中位数约 66.5。"
-        - "用一涨一跌的净效果小于 1、右偏来解释。"
+        - "(a) 中位数约 66.5 美元，并指出期望财富不代表普通人的结果。"
+        - "(b) 期望约 265.3 美元，中位数约 148.0 美元；用一涨一跌的净效果（或波动的减小）解释中位数为什么提高。只算数字、不解释：需要订正。"
       en:
-        - "Mean about 672.7 and median about 66.5."
-        - "Explains with the net effect of one rise and one fall being below 1, and with right skew."
+        - "(a) A median of about 66.5 dollars, and points out that the expected wealth does not describe the typical result."
+        - "(b) An expected wealth of about 265.3 dollars and a median of about 148.0 dollars; explains with the net effect of a rise and a fall (or the smaller swings) why the median rises. Numbers without an explanation: needs revision."
 
   - id: Q5
     kind: exercise
     level: C
     concepts: [standard-error, t-statistic, statistical-significance]
-    expected: { se: "2.68", t: "1.12" }
+    expected: { se: "2.68", t: "1.12", n: "16" }
     question:
       zh-cn: |-
-        某基金经理过去 5 年平均每年跑赢指数 3 个百分点，跑赢部分的年标准差为 6 个百分点。用标准误和 t 值判断：这能在 5% 水平上说明他有能力吗？
+        某基金经理过去 5 年平均每年跑赢指数 3 个百分点，跑赢部分的年标准差为 6 个百分点。
+        (a) 用标准误和 t 值判断：这能在 5% 水平上说明他有能力吗？
+        (b) 假设他真实的能力就是每年跑赢 3 个百分点、标准差 6 个百分点，而且以后的记录的平均值正好是 3 个百分点。至少要多少年的记录，结果才会在 5% 水平上显著？这对评价基金经理意味着什么？
       en: |-
-        A fund manager has beaten the index by an average of 3 percentage points a year over the past 5 years, and the yearly standard deviation of the outperformance is 6 percentage points. Use the standard error and the t-statistic to judge: does this show skill at the 5% level?
+        A fund manager has beaten the index by 3 percentage points a year on average over the past 5 years, with an annual standard deviation of 6 percentage points for the excess return.
+        (a) Use the standard error and the t-statistic to judge: does this show skill at the 5% level?
+        (b) Suppose his true skill is exactly 3 percentage points a year with a standard deviation of 6 percentage points, and his future record averages exactly 3 percentage points. At least how many years of record are needed for the result to be significant at the 5% level? What does this mean for judging fund managers?
     answer:
       zh-cn: |-
-        $\text{SE} = \frac{6}{\sqrt{5}} \approx 2.68$，$t = \frac{3}{2.68} \approx 1.12 < 1.96$，不显著。数据不够：既不能说明他有能力，也不能说明他没有能力。（样本这么小，严格来说还应该用 t 分布的临界值，约 2.78，结论不变。）
+        (a) $\text{SE} = \frac{6}{\sqrt{5}} \approx 2.68$，$t = \frac{3}{2.68} \approx 1.12 < 1.96$，不显著。数据和“没有能力”并不矛盾，但这也不说明他没有能力。
+        (b) 需要 $\frac{3}{6 / \sqrt{n}} > 1.96$，即 $\sqrt{n} > 3.92$，$n > 15.4$，至少 16 年。即使能力是真的，也要很多年的记录才能和运气区分开；而基金经理的任期和策略常常比这短，所以单凭几年的业绩很难判断能力。
       en: |-
-        $\text{SE} = \frac{6}{\sqrt{5}} \approx 2.68$ and $t = \frac{3}{2.68} \approx 1.12 < 1.96$, so it is not significant. There is not enough data: it shows neither that he has skill nor that he does not. (With such a small sample, the t distribution's critical value of about 2.78 would strictly be more appropriate; the conclusion is the same.)
+        (a) $\text{SE} = \frac{6}{\sqrt{5}} \approx 2.68$ and $t = \frac{3}{2.68} \approx 1.12 < 1.96$: not significant. The data do not contradict "no skill", but they do not show a lack of skill either.
+        (b) We need $\frac{3}{6 / \sqrt{n}} > 1.96$, that is, $\sqrt{n} > 3.92$ and $n > 15.4$: at least 16 years. Even real skill takes many years of record to tell apart from luck, and managers' tenures and strategies often last less than that, so a few years of performance say little about skill.
     rubric:
       zh-cn:
-        - "标准误与 t 值正确。"
-        - "结论为不显著，并说明“不显著”不等于“没有能力”。"
+        - "(a) 标准误约 2.68，t 约 1.12，不显著。"
+        - "(b) 至少 16 年，并说明从短期业绩判断能力的困难。"
       en:
-        - "The standard error and the t-statistic are correct."
-        - "Concludes that it is not significant, and explains that not significant does not mean no skill."
+        - "(a) A standard error of about 2.68 and t of about 1.12: not significant."
+        - "(b) At least 16 years, and explains the difficulty of judging skill from a short record."
 
   - id: Q6
     kind: exercise

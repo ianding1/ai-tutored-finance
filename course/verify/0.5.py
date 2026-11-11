@@ -37,11 +37,16 @@ def results():
     a, b, ssr, sst = ols([-3, -1, 0, 2, 4, 4], [-2, -2, 1, 3, 6, 4])
     r["Q3.b"], r["Q3.a"], r["Q3.r2"] = b, a, 1 - ssr / sst
 
-    r["Q4.biased"] = 2 + 3 * 2 / 4
+    r["Q4.biased"] = -0.5 + 2 * 3 / 4
+    r["Q3.diff"] = 10 / 6 - 6 / 6
+    r["Q3.beta_part"] = (r["Q3.b"] - 1) * 1
     r["Q4.unbiased"] = 2 + 3 * 0 / 4
     r["Q4.negative"] = 2 - 3 * 2 / 4
     # Values that the questions now give or no longer ask for.
     for k in ['C3.price', 'Q4.unbiased']:
+        del r[k]
+    # Values that the questions now give or no longer ask for.
+    for k in ['C1.fit', 'C1.resid', 'C2.b', 'C2.a', 'C4.ssr', 'C4.sst', 'C4.r2', 'C3.per_sqft', 'C3.per_m2', 'C5.t', 'C5.lo', 'C5.hi', 'Q3.r2', 'Q4.negative']:
         del r[k]
     return r
 

@@ -9,7 +9,6 @@ import Def from '../../../../components/Def.astro';
 import Figure from '../../../../components/Figure.astro';
 import Check from '../../../../components/Check.astro';
 import Exercises from '../../../../components/Exercises.astro';
-import CheckAll from '../../../../components/CheckAll.astro';
 import AnnuityTimeline from '../../../../components/widgets/AnnuityTimeline.astro';
 
 ## Why money today is worth more [#why]
@@ -207,8 +206,6 @@ In the example above, the log returns of the two periods are $\ln 0.8 \approx -0
 - The APR is the quoted rate; the EAR is the rate you actually get after compounding within the year: $\text{EAR} = (1+\frac{r}{m})^m - 1$. Continuous compounding: $FV = PV\,e^{rT}$.
 - Present value of an annuity: $\frac{C}{r}[1-(1+r)^{-n}]$; future value of an annuity: $C\frac{(1+r)^n-1}{r}$; perpetuity: $\frac{C}{r}$; growing perpetuity: $\frac{C}{r-g}$.
 - Simple returns over several periods are multiplied; log returns are added.
-
-<CheckAll />
 
 ## Exercises [#exercises]
 

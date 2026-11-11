@@ -48,6 +48,26 @@ common_errors:
       把一阶条件当作充分条件：导数为 0 的点也可能是最小值或拐点。
     en: |-
       Treating the first-order condition as sufficient: a point where the derivative is 0 can also be a minimum or an inflection point.
+  - questions: [Q2]
+    zh-cn: |-
+      用分摊到每件产品上的固定成本决定产量，以为多生产能“摊薄”固定成本、提高利润；或者以为亏损就应该立即停产，没有区分短期的沉没成本和长期可以避免的成本。
+    en: |-
+      Choosing output by the fixed cost per unit, thinking that producing more "spreads" the fixed cost and raises profit; or thinking a loss means stopping at once, without separating sunk costs in the short run from costs that can be avoided in the long run.
+  - questions: [Q4]
+    zh-cn: |-
+      以为两种商品的支出比例取决于价格。对 $U = x^2 y$，支出的比例只取决于效用函数的指数，价格只决定能买多少单位。
+    en: |-
+      Thinking the shares of spending on the two goods depend on prices. For $U = x^2 y$, the shares depend only on the exponents of the utility function; prices only decide how many units are bought.
+  - questions: [Q5]
+    zh-cn: |-
+      以为一种商品降价一定会改变另一种商品的需求。对 $U = xy$，每种商品的支出总是预算的一半，$y^*$ 与 $p_x$ 无关。
+    en: |-
+      Thinking a fall in one good's price must change the demand for the other. For $U = xy$, spending on each good is always half the budget, so $y^*$ does not depend on $p_x$.
+  - questions: [Q6]
+    zh-cn: |-
+      改变拉格朗日函数中约束的写法后，以为 $\lambda$ 不变。约束写成 $p_x x + p_y y - M$ 时，$\lambda$ 变号，影子价格是 $-\lambda$。
+    en: |-
+      Thinking $\lambda$ stays the same when the constraint is written the other way. With $p_x x + p_y y - M$, $\lambda$ changes sign, and the shadow price is $-\lambda$.
   - questions: [C4]
     zh-cn: |-
       拉格朗日法解出负数时直接接受，没有检查非负约束。
@@ -65,101 +85,122 @@ questions:
     kind: check
     section: single-variable
     concepts: [first-order-condition, second-order-condition, fixed-cost, profit-maximization]
-    expected: { q: "10", profit: "250", profit_new: "100" }
     question:
       zh-cn: |-
-        $\pi(q) = 60q - 3q^2 - 50$，其中 50 是固定成本。求利润最高的产量 $q^*$ 和最大利润。如果固定成本从 50 变成 200，$q^*$ 会变吗？最大利润呢？为什么？
+        一家公司的固定成本从 100 美元提高到 300 美元，价格和可变成本都不变，而且公司继续生产。利润最高的产量和最大利润会怎样变化？
       en: |-
-        $\pi(q) = 60q - 3q^2 - 50$, where 50 is the fixed cost. Find the output $q^*$ with the highest profit and the maximum profit. If the fixed cost rises from 50 to 200, does $q^*$ change? Does the maximum profit? Why?
+        A firm's fixed cost rises from 100 to 300 dollars; the price and the variable cost do not change, and the firm keeps producing. How do the profit-maximizing output and the maximum profit change?
+    choices:
+      - zh-cn: 产量不变，最大利润减少 200 美元
+        en: Output stays the same, and the maximum profit falls by 200 dollars
+      - zh-cn: 产量减少，最大利润减少
+        en: Output falls, and the maximum profit falls
+        why:
+          zh-cn: 产量由一阶条件决定。固定成本对 $q$ 求导是多少？它会进入一阶条件吗？
+          en: Output is set by the first-order condition. What is the derivative of the fixed cost with respect to $q$? Does it enter that condition?
+      - zh-cn: 产量增加，把固定成本分摊到更多产品上
+        en: Output rises, to spread the fixed cost over more units
+        why:
+          zh-cn: 多生产一件时，固定成本会增加或减少吗？比较的应该是多生产一件带来的收入和成本。
+          en: Does producing one more unit change the fixed cost? The comparison is between the revenue and the cost of one more unit.
+      - zh-cn: 产量和最大利润都不变
+        en: Neither output nor the maximum profit changes
+        why:
+          zh-cn: 固定成本不影响产量的选择，但它会不会出现在利润里？
+          en: The fixed cost does not affect the choice of output, but does it appear in the profit?
+    correct: A
     answer:
       zh-cn: |-
-        $\pi'(q) = 60 - 6q = 0$，$q^* = 10$；$\pi'' = -6 < 0$，是最大值；$\pi^* = 600 - 300 - 50 = 250$。
-        固定成本变为 200 时 $q^*$ 仍为 10，最大利润变为 100。固定成本与 $q$ 无关，求导为 0，不影响一阶条件；它只让利润曲线整体下移 150。
+        (A)。固定成本与产量无关，对 $q$ 求导为 0，不进入一阶条件 $MR = MC$，所以 $q^*$ 不变。它让整条利润曲线下移 200 美元，最大利润也减少 200 美元。
       en: |-
-        $\pi'(q) = 60 - 6q = 0$, so $q^* = 10$; $\pi'' = -6 < 0$, so it is a maximum; $\pi^* = 600 - 300 - 50 = 250$.
-        When the fixed cost is 200, $q^*$ is still 10 and the maximum profit is 100. The fixed cost does not depend on $q$, so its derivative is 0 and it does not enter the first-order condition; it only shifts the whole profit curve down by 150.
-    rubric:
-      zh-cn:
-        - "$q^*$ 和最大利润正确，并检查了是最大值。"
-        - "$q^*$ 不变、最大利润变为 100，理由是固定成本的导数为 0。"
-      en:
-        - "$q^*$ and the maximum profit are correct, and the answer checks that it is a maximum."
-        - "$q^*$ does not change and the maximum profit becomes 100, because the derivative of the fixed cost is 0."
+        (A). The fixed cost does not depend on output; its derivative with respect to $q$ is 0, so it does not enter the first-order condition $MR = MC$, and $q^*$ is unchanged. It shifts the whole profit curve down by 200 dollars, so the maximum profit also falls by 200 dollars.
 
   - id: C2
     kind: check
     section: partial
     concepts: [partial-derivative, first-order-condition]
-    expected: { x: "2", y: "3", f: "13" }
     question:
       zh-cn: |-
-        $f(x, y) = -x^2 - y^2 + 4x + 6y$ 在哪一点取最大值？最大值是多少？
+        函数 $f(x, y)$ 在某一点处 $\frac{\partial f}{\partial x} = 0$，而 $\frac{\partial f}{\partial y} > 0$。这一点：
       en: |-
-        At which point does $f(x, y) = -x^2 - y^2 + 4x + 6y$ reach its maximum? What is the maximum value?
+        At some point a function $f(x, y)$ has $\frac{\partial f}{\partial x} = 0$ and $\frac{\partial f}{\partial y} > 0$. This point:
+    choices:
+      - zh-cn: 是最大值点，因为对 $x$ 的偏导数为 0
+        en: Is a maximum, because the partial derivative with respect to $x$ is 0
+        why:
+          zh-cn: 没有约束的内部最大值点，需要哪些偏导数为 0？
+          en: At an unconstrained interior maximum, which partial derivatives must be 0?
+      - zh-cn: 不是最大值点：稍微增大 $y$ 就能使 $f$ 更大
+        en: 'Is not a maximum: increasing $y$ slightly makes $f$ larger'
+      - zh-cn: 是最小值点
+        en: Is a minimum
+        why:
+          zh-cn: 在这一点，沿某个方向移动能使 $f$ 变大或变小吗？最小值点要满足什么？
+          en: Can moving in some direction make $f$ larger or smaller at this point? What must hold at a minimum?
+      - zh-cn: 只有知道二阶偏导数才能判断它是不是最大值点
+        en: Only the second partial derivatives can tell whether it is a maximum
+        why:
+          zh-cn: 二阶条件用来区分满足一阶条件的点。这一点满足全部一阶条件吗？
+          en: Second-order conditions sort out points that satisfy the first-order conditions. Does this point satisfy all of them?
+    correct: B
     answer:
       zh-cn: |-
-        $\frac{\partial f}{\partial x} = -2x + 4 = 0$，$\frac{\partial f}{\partial y} = -2y + 6 = 0$，得 $x = 2$，$y = 3$。$f(2, 3) = -4 - 9 + 8 + 18 = 13$。$f_{xx} = f_{yy} = -2 < 0$ 且交叉项为 0，所以是最大值。
+        (B)。没有约束时，内部最优点处所有偏导数都要为 0。$\frac{\partial f}{\partial y} > 0$ 说明保持 $x$ 不变、增大 $y$ 时 $f$ 增加，所以这一点既不是最大值点也不是最小值点，不需要再看二阶条件。
       en: |-
-        $\frac{\partial f}{\partial x} = -2x + 4 = 0$ and $\frac{\partial f}{\partial y} = -2y + 6 = 0$ give $x = 2$, $y = 3$. $f(2, 3) = -4 - 9 + 8 + 18 = 13$. $f_{xx} = f_{yy} = -2 < 0$ and the cross term is 0, so it is a maximum.
-    rubric:
-      zh-cn:
-        - "两个偏导数同时为 0，点 $(2, 3)$ 正确。"
-        - "最大值 13 正确。"
-      en:
-        - "Both partial derivatives are set to 0, and the point $(2, 3)$ is correct."
-        - "The maximum value 13 is correct."
+        (B). Without constraints, all partial derivatives must be 0 at an interior optimum. $\frac{\partial f}{\partial y} > 0$ means that $f$ rises when $y$ increases with $x$ held fixed, so the point is neither a maximum nor a minimum, and there is no need to look at second-order conditions.
 
   - id: C3
     kind: check
     section: lagrange
     concepts: [lagrange-multiplier, shadow-price, budget-constraint]
-    expected: { x: "20", y: "10", lambda: "10" }
     question:
       zh-cn: |-
-        $U = xy$，$p_x = 1$，$p_y = 2$，预算 40 美元。用拉格朗日乘数法求 $x^*$、$y^*$ 和 $\lambda$，并用一句话说明这里 $\lambda$ 的含义。
+        在讲义的例子中（$U = xy$，$p_x = 2$，$p_y = 4$，预算 100 美元），$\lambda = 6.25$。由此可知，预算从 100 美元增加到 200 美元时，最大效用大约增加 $100 \times 6.25 = 625$。
       en: |-
-        $U = xy$, $p_x = 1$, $p_y = 2$, and the budget is 40 dollars. Use the Lagrange multiplier method to find $x^*$, $y^*$ and $\lambda$, and explain in one sentence what $\lambda$ means here.
+        In the lesson's example ($U = xy$, $p_x = 2$, $p_y = 4$, a budget of 100 dollars), $\lambda = 6.25$. So when the budget rises from 100 to 200 dollars, the maximum utility rises by about $100 \times 6.25 = 625$.
+    correct: false
+    hint:
+      zh-cn: $\lambda$ 描述的是预算变化很小时的效用变化。预算大幅增加时，$\lambda$ 本身会不会变？
+      en: $\lambda$ describes the change in utility for a small change in the budget. When the budget rises a lot, does $\lambda$ itself change?
     answer:
       zh-cn: |-
-        $\mathcal{L} = xy + \lambda(40 - x - 2y)$。$y = \lambda$，$x = 2\lambda$，代入 $x + 2y = 40$ 得 $\lambda = 10$，$x^* = 20$，$y^* = 10$，$U^* = 200$。
-        含义：预算多 1 美元，最大效用约增加 10（预算为 41 时 $U^* = 210.125$，多 10.125）。
+        错。$\lambda$ 是影子价格，只说明预算多 1 美元时最大效用约增加多少。这里 $U^* = \frac{M^2}{32}$，预算越多，$\lambda$ 越大：预算为 200 美元时 $U^* = 1250$，比 312.5 多 937.5，远大于 625。大幅变化时，不能把 $\lambda$ 当作不变的单价。
       en: |-
-        $\mathcal{L} = xy + \lambda(40 - x - 2y)$. $y = \lambda$ and $x = 2\lambda$; substituting into $x + 2y = 40$ gives $\lambda = 10$, $x^* = 20$, $y^* = 10$ and $U^* = 200$.
-        Meaning: if the budget rises by 1 dollar, the maximum utility rises by about 10 (at a budget of 41, $U^* = 210.125$, which is 10.125 more).
-    rubric:
-      zh-cn:
-        - "$x^*$、$y^*$、$\\lambda$ 正确。"
-        - "说明 $\\lambda$ 是预算多 1 美元时最大效用的近似增量。"
-      en:
-        - "$x^*$, $y^*$ and $\\lambda$ are correct."
-        - "Explains that $\\lambda$ is the approximate increase in maximum utility when the budget rises by 1 dollar."
+        False. $\lambda$ is a shadow price: it tells only how much the maximum utility rises with one more dollar of budget. Here $U^* = \frac{M^2}{32}$, and $\lambda$ grows with the budget: with a budget of 200 dollars $U^* = 1250$, which is 937.5 more than 312.5, far more than 625. For large changes, $\lambda$ cannot be treated as a fixed price per dollar.
 
   - id: C4
     kind: check
     section: corner
     concepts: [corner-solution, lagrange-multiplier, budget-constraint]
-    expected: { lambda: "0.25", x_lag: "2", y_lag: "-0.25", x: "1.5", u: "0.405" }
     question:
       zh-cn: |-
-        $U = \ln x + y$，$p_x = 2$，$p_y = 4$，预算 $M = 3$。用拉格朗日乘数法求解，结果合理吗？真正的最优选择是什么？用“挪一美元”的论证说明。
+        用拉格朗日乘数法求消费者的最优选择，解出 $x = 10$，$y = -0.5$。下一步应该怎样做？
       en: |-
-        $U = \ln x + y$, $p_x = 2$, $p_y = 4$, and the budget is $M = 3$. Solve it with the Lagrange multiplier method. Is the result reasonable? What is the true optimal choice? Explain with the "move one dollar" argument.
+        Solving a consumer's choice with the Lagrange multiplier method gives $x = 10$ and $y = -0.5$. What should be done next?
+    choices:
+      - zh-cn: 接受这个解，$y$ 为负表示把这种商品卖给别人
+        en: Accept the solution; a negative $y$ means selling the good to others
+        why:
+          zh-cn: 消费者能买到负数量的商品吗？拉格朗日法保证满足哪些约束？
+          en: Can a consumer buy a negative quantity of a good? Which constraints does the Lagrange method guarantee?
+      - zh-cn: 改为 $y = 0$，把预算全部花在 $x$ 上，并检查这时挪一美元是否还能提高效用
+        en: Set $y = 0$, spend the whole budget on $x$, and check whether moving a dollar can still raise utility
+      - zh-cn: 取绝对值，改为 $y = 0.5$
+        en: Take the absolute value and use $y = 0.5$
+        why:
+          zh-cn: 改成 0.5 之后，还在预算线上吗？这样做有什么依据？
+          en: Is the point still on the budget line after the change? What would justify it?
+      - zh-cn: 说明这个问题没有最优解
+        en: Conclude that the problem has no optimum
+        why:
+          zh-cn: 预算线上可行的那一段有没有效用最高的点？
+          en: Does the feasible part of the budget line have a point with the highest utility?
+    correct: B
     answer:
       zh-cn: |-
-        一阶条件 $\frac{1}{x} = 2\lambda$、$1 = 4\lambda$，得 $\lambda = 0.25$，$x = 2$，$y = \frac{3 - 4}{4} = -0.25$。$y$ 为负数，不可行。
-        真正的最优是角点 $x = 1.5$，$y = 0$，$U = \ln 1.5 \approx 0.405$。在这一点 $\frac{MU_x}{p_x} = \frac{1/1.5}{2} = \frac{1}{3}$，大于 $\frac{MU_y}{p_y} = \frac{1}{4}$：从 $y$ 挪钱到 $x$ 能提高效用，但 $y$ 已经是 0，无法再挪；反过来把钱从 $x$ 挪到 $y$ 会降低效用（例如挪 1 美元：$x = 1$，$y = 0.25$，$U = 0.25$）。
+        (B)。拉格朗日法只保证满足写进拉格朗日函数的等式约束，不保证非负。解出负数说明最优点在边界上，是角点解：$y = 0$，钱全部花在 $x$ 上。在角点处检查等边际条件的方向：如果 $\frac{MU_x}{p_x} > \frac{MU_y}{p_y}$，消费者还想从 $y$ 挪钱到 $x$，但 $y$ 已经是 0，这就是最优点。
       en: |-
-        The first-order conditions $\frac{1}{x} = 2\lambda$ and $1 = 4\lambda$ give $\lambda = 0.25$, $x = 2$ and $y = \frac{3 - 4}{4} = -0.25$. $y$ is negative, so this is not feasible.
-        The true optimum is the corner $x = 1.5$, $y = 0$, with $U = \ln 1.5 \approx 0.405$. At this point $\frac{MU_x}{p_x} = \frac{1/1.5}{2} = \frac{1}{3}$, which is more than $\frac{MU_y}{p_y} = \frac{1}{4}$: moving money from $y$ to $x$ would raise utility, but $y$ is already 0; moving money from $x$ to $y$ lowers utility (for example, moving 1 dollar gives $x = 1$, $y = 0.25$, $U = 0.25$).
-    rubric:
-      zh-cn:
-        - "拉格朗日解正确，并指出 $y < 0$ 不可行。"
-        - "角点解 $x = 1.5$、$y = 0$ 正确。"
-        - "用每美元边际效用的比较说明角点为什么最优。"
-      en:
-        - "The Lagrange solution is correct, and the answer points out that $y < 0$ is not feasible."
-        - "The corner solution $x = 1.5$, $y = 0$ is correct."
-        - "Explains why the corner is optimal by comparing the marginal utility per dollar."
+        (B). The Lagrange method guarantees only the equality constraints written into the Lagrangian, not nonnegativity. A negative solution means the optimum is on the boundary, a corner solution: $y = 0$, with all money spent on $x$. At the corner, check the direction of the equal-marginal condition: if $\frac{MU_x}{p_x} > \frac{MU_y}{p_y}$, the consumer would like to move money from $y$ to $x$, but $y$ is already 0, so this is the optimum.
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1
@@ -188,48 +229,30 @@ questions:
     kind: exercise
     level: A
     concepts: [fixed-cost, variable-cost, marginal-cost, profit-maximization, sunk-cost]
+    expected: { pi: "-100", pi25: "-125" }
     question:
       zh-cn: |-
-        总成本由固定成本和可变成本组成。解释为什么固定成本不影响利润最大化的产量，但会影响利润，以及长期是否值得经营。
+        一家公司按价格 40 美元出售产品，成本为 $C(q) = 500 + q^2$，其中 500 是固定成本。经理说：“我们的固定成本很高，所以要多生产，把固定成本分摊到更多产品上，每件的成本降下来，利润就会更高。”
+        (a) 比较 $q = 20$ 和 $q = 25$ 时的利润，评价经理的说法。
+        (b) 公司在利润最高的产量下仍然亏损。短期内，如果 500 是已经签约、无论是否生产都要付的租金，公司应该停产吗？长期呢？
       en: |-
-        Total cost consists of fixed cost and variable cost. Explain why the fixed cost does not affect the profit-maximizing output, but does affect the profit and whether it is worth staying in business in the long run.
+        A firm sells its product at 40 dollars, with cost $C(q) = 500 + q^2$, where 500 is the fixed cost. The manager says: "Our fixed cost is high, so we should produce more and spread it over more units; with a lower cost per unit, profit will be higher."
+        (a) Compare the profit at $q = 20$ and at $q = 25$, and evaluate the manager's statement.
+        (b) Even at the profit-maximizing output the firm loses money. In the short run, if the 500 is rent already contracted and payable whether or not the firm produces, should it stop producing? What about the long run?
     answer:
       zh-cn: |-
-        边际成本是可变成本的导数，固定成本与产量无关，求导为 0，不进入 $MR = MC$，所以不影响 $q^*$。
-        固定成本让利润曲线整体下移 $F$，最大利润减少 $F$。如果长期最大利润小于 0，就不值得经营，应该退出。即使亏损，$q^*$ 仍是亏得最少的产量。
+        (a) $\pi(20) = 800 - 500 - 400 = -100$，$\pi(25) = 1000 - 500 - 625 = -125$。多生产反而亏得更多。经理错在用分摊后的固定成本做决策：多生产一件时固定成本不变，该比较的是多生产一件的收入 40 和边际成本 $2q$。$q > 20$ 时边际成本超过 40，多生产的每一件都在亏钱。固定成本不影响 $q^* = 20$。
+        (b) 短期内租金是沉没成本，停产仍要付 500，亏损 500；生产 20 件只亏 100，所以应该继续生产。长期内租约到期，固定成本可以避免；如果价格不变，最大利润仍为 −100，就应该退出。
       en: |-
-        Marginal cost is the derivative of variable cost. The fixed cost does not depend on output, so its derivative is 0; it does not enter $MR = MC$ and does not affect $q^*$.
-        The fixed cost shifts the whole profit curve down by $F$, so the maximum profit falls by $F$. If the maximum profit is negative in the long run, it is not worth staying in business, and the firm should exit. Even with a loss, $q^*$ is the output with the smallest loss.
+        (a) $\pi(20) = 800 - 500 - 400 = -100$ and $\pi(25) = 1000 - 500 - 625 = -125$. Producing more loses more. The manager decides with the fixed cost spread per unit, but one more unit does not change the fixed cost; the comparison is between the revenue of one more unit, 40, and the marginal cost $2q$. Above $q = 20$ the marginal cost exceeds 40, so each extra unit loses money. The fixed cost does not affect $q^* = 20$.
+        (b) In the short run the rent is a sunk cost: stopping still costs 500, a loss of 500, while producing 20 units loses only 100, so the firm should keep producing. In the long run the lease ends and the fixed cost can be avoided; if the price stays the same, the maximum profit is still −100, and the firm should exit.
     rubric:
       zh-cn:
-        - "用导数说明固定成本不影响 $q^*$。"
-        - "说明固定成本使最大利润减少 $F$，长期利润为负时应退出。"
+        - "(a) 利润 −100 和 −125，并指出决策应比较边际收入和边际成本，固定成本不影响产量。"
+        - "(b) 短期继续生产（停产亏损更多），长期退出。只说“亏损就停产”：需要订正。"
       en:
-        - "Uses the derivative to explain why the fixed cost does not affect $q^*$."
-        - "Explains that the fixed cost lowers the maximum profit by $F$, and that the firm should exit if long-run profit is negative."
-
-  - id: Q3
-    kind: exercise
-    level: B
-    concepts: [marginal-revenue, marginal-cost, profit-maximization]
-    expected: { q: "20", profit: "350" }
-    question:
-      zh-cn: |-
-        完全竞争的厂商按市场价格 $p = 50$ 出售产品，成本为 $C(q) = q^2 + 10q + 50$。求利润最高的产量 $q^*$ 和最大利润。
-      en: |-
-        A firm in perfect competition sells at the market price $p = 50$, and its cost is $C(q) = q^2 + 10q + 50$. Find the output $q^*$ with the highest profit and the maximum profit.
-    answer:
-      zh-cn: |-
-        $MR = 50$，$MC = 2q + 10$，$MR = MC$ 得 $q^* = 20$。利润 $= 50 \times 20 - (400 + 200 + 50) = 1000 - 650 = 350$。
-      en: |-
-        $MR = 50$ and $MC = 2q + 10$; $MR = MC$ gives $q^* = 20$. Profit $= 50 \times 20 - (400 + 200 + 50) = 1000 - 650 = 350$.
-    rubric:
-      zh-cn:
-        - "$q^*$ 正确。"
-        - "最大利润正确，成本的三项都计入。"
-      en:
-        - "$q^*$ is correct."
-        - "The maximum profit is correct, with all three cost terms included."
+        - "(a) Profits of −100 and −125, and points out that the decision compares marginal revenue with marginal cost and that the fixed cost does not affect output."
+        - "(b) Keep producing in the short run (stopping loses more) and exit in the long run. Saying only \"stop when losing money\": needs revision."
 
   - id: Q4
     kind: exercise

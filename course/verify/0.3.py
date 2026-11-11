@@ -51,6 +51,8 @@ def results():
     r["Q3.sd_D"] = sqrt(var(D, q))
     r["Q3.cov_CD"] = cov(C, D, q)
     r["Q3.rho_CD"] = cov(C, D, q) / sqrt(var(C, q) * var(D, q))
+    r["Q3.E50"] = 0.5 * E(C, q) + 0.5 * E(D, q)
+    r["Q3.sd50"] = sqrt(0.25 * var(C, q) + 0.25 * var(D, q) + 0.5 * cov(C, D, q))
 
     sa, sb, rho, wa = 18, 8, 0.2, 0.6
     v = wa**2 * sa**2 + (1 - wa) ** 2 * sb**2 + 2 * wa * (1 - wa) * rho * sa * sb
@@ -59,4 +61,7 @@ def results():
     r["Q4.wavg"] = wa * sa + (1 - wa) * sb
 
     r["Q6.w"] = 100 * sb / (sa + sb)
+    # Values that the questions now give or no longer ask for.
+    for k in ['C1.E_B', 'C2.E_new', 'C3.E_B_new', 'C3.cov_new', 'C4.E_P', 'C4.var_P', 'C4.sd_P', 'C5.w_A', 'C5.sd_min', 'Q3.E_C', 'Q3.sd_C', 'Q3.E_D', 'Q3.sd_D', 'Q4.var_P', 'Q4.sd_P', 'Q4.wavg']:
+        del r[k]
     return r

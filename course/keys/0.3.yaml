@@ -58,7 +58,22 @@ common_errors:
       认为“两只基金都涨了，所以正相关”：相关看的是相对各自期望的偏差方向，不是收益的正负；而且一次观测说明不了概率关系。
     en: |-
       Saying "both funds went up, so they are positively correlated": correlation is about the direction of deviations from each expected value, not about whether returns are positive. Also, one observation says nothing about a probabilistic relationship.
-  - questions: [C2, C4, Q3, Q4]
+  - questions: [Q3]
+    zh-cn: |-
+      只看一项资产自己的期望和波动来判断是否值得持有，忽略它与组合中其他资产的相关性。与组合负相关的资产，即使期望收益较低，也可能大幅降低组合的风险。
+    en: |-
+      Judging whether an asset is worth holding only by its own expected return and volatility, ignoring its correlation with the rest of the portfolio. An asset negatively correlated with the portfolio can greatly lower its risk even if its expected return is lower.
+  - questions: [Q5]
+    zh-cn: |-
+      展开 $(aX + bY - E[aX + bY])^2$ 时漏掉交叉项或它的系数 2，或者以为 $E[XY] = E[X]E[Y]$ 总是成立。
+    en: |-
+      Leaving out the cross term or its factor 2 when expanding $(aX + bY - E[aX + bY])^2$, or assuming $E[XY] = E[X]E[Y]$ always holds.
+  - questions: [Q7]
+    zh-cn: |-
+      以为持有足够多的股票就能消除全部风险。股票之间的协方差为正时，组合方差趋于协方差 $c$，这部分风险分散不掉。
+    en: |-
+      Thinking that holding enough stocks removes all risk. When stocks have positive covariances, the portfolio variance approaches the covariance $c$, and that risk cannot be diversified away.
+  - questions: [C2, C4, Q3]
     zh-cn: |-
       把方差的单位写成 %，或者直接比较方差和期望收益的大小。
     en: |-
@@ -70,129 +85,142 @@ questions:
     kind: check
     section: expected-value
     concepts: [expected-value]
-    expected: { E_B: "3.5" }
     question:
       zh-cn: |-
-        用同样的方法计算 B 的期望收益，写出计算过程。
+        一项投资的期望收益，就是最可能出现的收益。
       en: |-
-        Use the same method to calculate the expected return of B. Show the calculation.
+        The expected return of an investment is the return most likely to occur.
+    correct: false
+    hint:
+      zh-cn: 期望是怎样算出来的？想一个收益只有两种可能的例子，例如一半概率得 0、一半概率得 20%。
+      en: How is the expected value computed? Think of an example with only two possible returns, such as 0 or 20% with equal probability.
     answer:
       zh-cn: |-
-        $E[R_B] = 0.25 \times 1 + 0.5 \times 5 + 0.25 \times 3 = 3.5$（%）。
+        错。期望是按概率加权的平均，表示同样的情况重复很多次时平均的结果，不一定是概率最大的结果，甚至可能根本不会出现。例如一半概率得 0、一半概率得 20%，期望是 10%，但每次的结果只能是 0 或 20%。
       en: |-
-        $E[R_B] = 0.25 \times 1 + 0.5 \times 5 + 0.25 \times 3 = 3.5$ (%).
-    rubric:
-      zh-cn:
-        - "按概率加权求和，过程完整。"
-      en:
-        - "Computes the probability-weighted sum and shows each term."
+        False. The expected value is a probability-weighted average: the average result if the same situation were repeated many times. It need not be the most likely result and may never occur at all. With a 50% chance of 0 and a 50% chance of 20%, the expected return is 10%, but each outcome is either 0 or 20%.
 
   - id: C2
     kind: check
     section: variance
     concepts: [expected-value, variance, standard-deviation]
-    expected: { E_new: "15" }
     question:
       zh-cn: |-
-        如果 A 在每种情景下的收益都加 5 个百分点，期望和标准差分别怎么变？为什么？
+        如果股票 A 在每种情景下的收益都增加 5 个百分点，它的期望和标准差会怎样变化？
       en: |-
-        If A's return in every scenario increases by 5 percentage points, how do its expected value and standard deviation change? Why?
+        If stock A's return rises by 5 percentage points in every scenario, how do its expected value and standard deviation change?
+    choices:
+      - zh-cn: 期望增加 5 个百分点，标准差不变
+        en: The expected value rises by 5 percentage points, and the standard deviation does not change
+      - zh-cn: 期望和标准差都增加 5 个百分点
+        en: Both rise by 5 percentage points
+        why:
+          zh-cn: 标准差衡量的是结果偏离期望有多远。每种情景下的偏差 $R_i - E[R]$ 变了吗？
+          en: The standard deviation measures how far results are from the expected value. Do the deviations $R_i - E[R]$ change?
+      - zh-cn: 期望增加 5 个百分点，标准差变大，因为收益的数值更大了
+        en: The expected value rises by 5 percentage points, and the standard deviation grows because the returns are larger numbers
+        why:
+          zh-cn: 方差计算的是收益本身的平方，还是收益与期望之差的平方？
+          en: Does the variance square the returns themselves, or their differences from the expected value?
+      - zh-cn: 两者都不变
+        en: Neither changes
+        why:
+          zh-cn: 每种情景的收益都变高了，按概率加权的平均会不变吗？
+          en: Every scenario's return is higher. Can the probability-weighted average stay the same?
+    correct: A
     answer:
       zh-cn: |-
-        期望增加 5 个百分点，变为 15%。标准差不变，因为每种情景的偏差 $R_i - E[R]$ 都没有变。
+        (A)。期望是加权平均，每个结果加 5，期望也加 5，变为 15%。每种情景的偏差 $R_i - E[R]$ 都不变，所以方差和标准差不变。把整个分布平移，不改变它的分散程度。
       en: |-
-        The expected value increases by 5 percentage points to 15%. The standard deviation does not change, because the deviation $R_i - E[R]$ in every scenario stays the same.
-    rubric:
-      zh-cn:
-        - "期望的变化正确。"
-        - "标准差不变，并用“偏差不变”说明理由。"
-      en:
-        - "The change in the expected value is correct."
-        - "States that the standard deviation is unchanged and gives the reason: the deviations do not change."
+        (A). The expected value is a weighted average: adding 5 to every result adds 5 to it, giving 15%. Each deviation $R_i - E[R]$ is unchanged, so the variance and standard deviation do not change. Shifting the whole distribution does not change how spread out it is.
 
   - id: C3
     kind: check
     section: covariance
     concepts: [covariance]
-    expected: { E_B_new: "4.75", cov_new: "-35" }
     question:
       zh-cn: |-
-        如果把 B 在衰退时的收益从 3% 改为 8%（其他不变），协方差会变大还是变小？先凭直觉判断，再计算验证。
+        在讲义的情景表中，把债券 B 在衰退时的收益从 3% 改为 8%，其他不变。A 与 B 的协方差会：
       en: |-
-        If B's return in the recession scenario changes from 3% to 8% (everything else unchanged), does the covariance become larger or smaller? First judge by intuition, then verify by calculation.
+        In the lesson's scenario table, change bond fund B's return in a recession from 3% to 8%, with everything else unchanged. The covariance of A and B:
+    choices:
+      - zh-cn: 变得更负
+        en: Becomes more negative
+      - zh-cn: 变成正数
+        en: Becomes positive
+        why:
+          zh-cn: 衰退时 A 远低于它的期望。B 改为 8% 以后，在衰退时它高于还是低于自己的期望？这一项乘积的符号是什么？
+          en: In a recession A is far below its expected value. After the change, is B above or below its own expected value in a recession? What is the sign of that product?
+      - zh-cn: 不变，因为只改了一种情景
+        en: Does not change, because only one scenario changed
+        why:
+          zh-cn: 一种情景的变化会改变这一项的乘积，也会改变 B 的期望。协方差会不受影响吗？
+          en: Changing one scenario changes that product and also B's expected value. Can the covariance stay the same?
+      - zh-cn: 变得不那么负，因为 B 的收益提高了
+        en: Becomes less negative, because B's return is higher
+        why:
+          zh-cn: 协方差看的不是收益的高低，而是两者相对各自期望的偏差是同向还是反向。
+          en: Covariance is not about how high the returns are, but whether the two deviate from their own expected values in the same or opposite directions.
+    correct: A
     answer:
       zh-cn: |-
-        变得更负（变小）。直觉：衰退时 A 远低于期望，B 改为 8% 后 B 在衰退时高于期望，二者反向，贡献负值。
-        计算：B 的新期望为 4.75%，偏差为 −3.75、+0.25、+3.25；
-        $\text{Cov} = 0.25(20)(-3.75) + 0.5(0)(0.25) + 0.25(-20)(3.25) = -35$。
+        (A)。衰退时 A 远低于期望（偏差 −20）。B 改为 8% 后，它在衰退时高于自己的新期望 4.75%，两者反向，这一项的贡献由正变负。B 的偏差也重新分布：繁荣时为 −3.75。协方差从 −10 变为 −35。B 在 A 表现最差的时候表现好，对 A 的对冲作用更强了。
       en: |-
-        It becomes more negative (smaller). Intuition: in the recession A is far below its expected value; after the change, B is above its expected value in the recession, so the two move in opposite directions and the contribution is negative.
-        Calculation: B's new expected value is 4.75%, and its deviations are −3.75, +0.25 and +3.25;
-        $\text{Cov} = 0.25(20)(-3.75) + 0.5(0)(0.25) + 0.25(-20)(3.25) = -35$.
-    rubric:
-      zh-cn:
-        - "注意到 B 的期望也随之改变，并重新计算了偏差。"
-        - "协方差数值正确。"
-        - "直觉判断用偏差的方向来解释。"
-      en:
-        - "Notices that B's expected value also changes and recomputes the deviations."
-        - "The covariance value is correct."
-        - "The intuitive judgment is explained with the direction of the deviations."
+        (A). In a recession A is far below its expected value (deviation −20). After the change, B is above its new expected value of 4.75% in a recession, so the two move in opposite directions, and this term turns from positive to negative. B's other deviations also change: −3.75 in a boom. The covariance goes from −10 to −35. B does well exactly when A does worst, so it hedges A more strongly.
 
   - id: C4
     kind: check
     section: linear-combination
     concepts: [portfolio-variance]
-    expected: { E_P: "8.7", var_P: "124.91", sd_P: "11.18" }
     question:
       zh-cn: |-
-        A 占 80%、B 占 20% 时，组合的期望和标准差是多少？
+        组合中 A 的权重从 50% 提高到 80%。组合的期望收益按权重线性变化，组合的标准差也按权重线性变化，等于两项资产标准差的加权平均。
       en: |-
-        With 80% in A and 20% in B, what are the portfolio's expected value and standard deviation?
+        The weight of A in a portfolio rises from 50% to 80%. The portfolio's expected return changes linearly with the weight, and so does its standard deviation, which equals the weighted average of the two assets' standard deviations.
+    correct: false
+    hint:
+      zh-cn: 组合方差的公式里，权重以什么形式出现？还有没有别的项？
+      en: In the formula for portfolio variance, in what form do the weights appear? Is there another term?
     answer:
       zh-cn: |-
-        $E[R_P] = 0.8 \times 10 + 0.2 \times 3.5 = 8.7$（%）。
-        $\text{Var} = 0.64 \times 200 + 0.04 \times 2.75 + 2 \times 0.8 \times 0.2 \times (-10) = 124.91$（%²），$\sigma_P \approx 11.18$%。
+        错。前半句对：期望是线性的。后半句错：组合方差中权重以平方和乘积的形式出现，还有协方差项，所以标准差不是加权平均。只有相关系数为 1 时，组合标准差才等于加权平均；相关系数小于 1 时，它低于加权平均。
       en: |-
-        $E[R_P] = 0.8 \times 10 + 0.2 \times 3.5 = 8.7$ (%).
-        $\text{Var} = 0.64 \times 200 + 0.04 \times 2.75 + 2 \times 0.8 \times 0.2 \times (-10) = 124.91$ (%²), so $\sigma_P \approx 11.18$%.
-    rubric:
-      zh-cn:
-        - "期望正确。"
-        - "方差公式三项齐全，协方差项带系数 2。"
-        - "标准差正确，单位正确。"
-      en:
-        - "The expected value is correct."
-        - "All three terms of the variance formula are present, with the factor 2 on the covariance term."
-        - "The standard deviation and its unit are correct."
+        False. The first half is right: the expected value is linear. The second half is wrong: in the portfolio variance the weights appear squared and multiplied together, and there is a covariance term, so the standard deviation is not a weighted average. Only with a correlation of 1 does the portfolio's standard deviation equal the weighted average; with a correlation below 1 it is lower.
 
   - id: C5
     kind: check
     section: diversification
     concepts: [diversification, portfolio-variance]
     widget: { id: diversification, set: { rho: 0 } }
-    expected: { w_A: "20", sd_min: "8.94" }
     question:
       zh-cn: |-
-        把 $\rho$ 调到 0，找出组合标准差最小的大致权重。这时组合的标准差比 B 自己的 10% 还小吗？这说明了什么？
+        在 [[fig:6-1]] 中把 $\rho$ 调到 0（$\sigma_A = 20\%$，$\sigma_B = 10\%$）。组合标准差的最小值：
       en: |-
-        Set $\rho$ to 0 and find the approximate weight that minimizes the portfolio standard deviation. Is the portfolio standard deviation then smaller than B's own 10%? What does this show?
+        In [[fig:6-1]], set $\rho$ to 0 ($\sigma_A = 20\%$, $\sigma_B = 10\%$). The smallest portfolio standard deviation:
+    choices:
+      - zh-cn: 比 B 自己的 10% 还小
+        en: Is below B's own 10%
+      - zh-cn: 等于 10%，在全部持有 B 时取得
+        en: Equals 10%, reached by holding only B
+        why:
+          zh-cn: 看图中曲线在权重为 0 附近的走向：从全部持有 B 开始加入一点 A，组合标准差上升还是下降？
+          en: 'Look at the curve near a weight of 0: starting from all B and adding a little A, does the portfolio''s standard deviation rise or fall?'
+      - zh-cn: 等于两者标准差的加权平均
+        en: Equals the weighted average of the two standard deviations
+        why:
+          zh-cn: 比较图中的曲线和表示加权平均的虚线，$\rho = 0$ 时它们重合吗？
+          en: Compare the curve with the dashed line for the weighted average. Do they coincide when $\rho = 0$?
+      - zh-cn: 只有 $\rho$ 为负时，才可能低于 10%
+        en: Can fall below 10% only when $\rho$ is negative
+        why:
+          zh-cn: $\rho = 0$ 时协方差项为 0，但两项资产的方差是按权重的平方相加的。图中的曲线最低点在哪里？
+          en: With $\rho = 0$ the covariance term is 0, but the two variances add with squared weights. Where is the lowest point of the curve?
+    correct: A
     answer:
       zh-cn: |-
-        $\rho = 0$ 时 $w_A = \frac{\sigma_B^2}{\sigma_A^2 + \sigma_B^2} = 20$%，$\sigma_P = \sqrt{80} \approx 8.94$% $< 10$%。
-        说明不相关的资产也能分散风险：在低波动的 B 中加入一部分波动更高的 A，组合的总风险反而下降。
+        (A)。$\rho = 0$ 时，在 A 的权重约为 20% 处，组合标准差约为 8.94%，低于 B 的 10%。不相关的资产也能分散风险：在低波动的 B 中加入一部分波动更高的 A，组合的总风险反而下降，因为方差按权重的平方相加，而标准差不这样相加。
       en: |-
-        At $\rho = 0$, $w_A = \frac{\sigma_B^2}{\sigma_A^2 + \sigma_B^2} = 20$%, and $\sigma_P = \sqrt{80} \approx 8.94$% $< 10$%.
-        This shows that uncorrelated assets also diversify risk: adding some of the more volatile A to the low-volatility B lowers the total risk of the portfolio.
-    rubric:
-      zh-cn:
-        - "最小方差权重约为 20%。"
-        - "标准差约 8.9%，小于 10%。"
-        - "结论指出不相关也能分散，或加入高波动资产反而降低风险。"
-      en:
-        - "The minimum-variance weight is about 20%."
-        - "The standard deviation is about 8.9%, which is less than 10%."
-        - "The conclusion states that uncorrelated assets also diversify, or that adding a more volatile asset can lower risk."
+        (A). With $\rho = 0$, at a weight of about 20% in A, the portfolio's standard deviation is about 8.94%, below B's 10%. Even uncorrelated assets diversify: adding some of the more volatile A to the less volatile B lowers total risk, because variances add with squared weights and standard deviations do not add that way.
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1
@@ -243,47 +271,30 @@ questions:
     kind: exercise
     level: B
     concepts: [expected-value, variance, standard-deviation, covariance, correlation]
-    expected: { E_C: "7.7", sd_C: "13.56", E_D: "4.5", sd_D: "6.70", cov_CD: "-88.95", rho_CD: "-0.98" }
+    expected: { cov_CD: "-88.95", rho_CD: "-0.98", E50: "6.1", sd50: "3.56" }
     question:
       zh-cn: |-
-        三种情景概率为 0.3、0.4、0.3；资产 C 收益为 25、8、−10（%），资产 D 收益为 −5、6、12（%）。计算两者的期望、标准差、协方差和相关系数。
+        三种情景概率为 0.3、0.4、0.3；资产 C 的收益为 25、8、−10（%），资产 D 为 −5、6、12（%）。已知 $E[C] = 7.7\%$，$\sigma_C \approx 13.56\%$，$E[D] = 4.5\%$，$\sigma_D \approx 6.70\%$。
+        (a) 计算两者的协方差和相关系数。
+        (b) 一位分析师说：“D 的期望收益比 C 低得多，波动也不算小，放进组合只会拉低收益，不值得持有。”计算 C、D 各一半的组合的期望和标准差，评价这个说法。
       en: |-
-        Three scenarios have probabilities 0.3, 0.4 and 0.3. Asset C returns 25, 8 and −10 (%), and asset D returns −5, 6 and 12 (%). Calculate the expected value and standard deviation of each asset, their covariance and their correlation.
+        Three scenarios have probabilities 0.3, 0.4 and 0.3. Asset C returns 25, 8 and −10 (%), and asset D returns −5, 6 and 12 (%). Given: $E[C] = 7.7\%$, $\sigma_C \approx 13.56\%$, $E[D] = 4.5\%$, $\sigma_D \approx 6.70\%$.
+        (a) Calculate their covariance and correlation.
+        (b) An analyst says: "D's expected return is much lower than C's and its swings are not small, so adding it to a portfolio only drags down the return; it is not worth holding." Calculate the expected value and standard deviation of a portfolio with half in each, and evaluate the statement.
     answer:
       zh-cn: |-
-        $E[C] = 7.7$，$\sigma_C \approx 13.56$；$E[D] = 4.5$，$\sigma_D \approx 6.70$；$\text{Cov} = -88.95$（%²）；$\rho \approx -0.98$。
+        (a) $\text{Cov} = 0.3(17.3)(-9.5) + 0.4(0.3)(1.5) + 0.3(-17.7)(7.5) = -88.95$（%²），$\rho = \frac{-88.95}{13.56 \times 6.70} \approx -0.98$。
+        (b) $E = 0.5 \times 7.7 + 0.5 \times 4.5 = 6.1\%$；$\text{Var} = 0.25 \times 183.81 + 0.25 \times 44.85 + 2 \times 0.25 \times (-88.95) = 12.69$（%²），$\sigma \approx 3.56\%$。和只持有 C 相比，期望收益只少 1.6 个百分点，标准差却从 13.56% 降到 3.56%。分析师只看了 D 自己的期望和波动，忽略了它与 C 几乎完全负相关：D 在 C 表现差的时候表现好，持有它大幅降低了组合的风险。评价一项资产，要看它对组合的影响。
       en: |-
-        $E[C] = 7.7$ and $\sigma_C \approx 13.56$; $E[D] = 4.5$ and $\sigma_D \approx 6.70$; $\text{Cov} = -88.95$ (%²); $\rho \approx -0.98$.
+        (a) $\text{Cov} = 0.3(17.3)(-9.5) + 0.4(0.3)(1.5) + 0.3(-17.7)(7.5) = -88.95$ (%²), and $\rho = \frac{-88.95}{13.56 \times 6.70} \approx -0.98$.
+        (b) $E = 0.5 \times 7.7 + 0.5 \times 4.5 = 6.1\%$; $\text{Var} = 0.25 \times 183.81 + 0.25 \times 44.85 + 2 \times 0.25 \times (-88.95) = 12.69$ (%²), so $\sigma \approx 3.56\%$. Compared with holding only C, the expected return is only 1.6 percentage points lower, while the standard deviation falls from 13.56% to 3.56%. The analyst looks only at D's own expected return and swings and ignores that it is almost perfectly negatively correlated with C: D does well when C does badly, so holding it greatly lowers the portfolio's risk. An asset should be judged by its effect on the portfolio.
     rubric:
       zh-cn:
-        - "两个期望、两个标准差、协方差和相关系数都正确。"
-        - "计算过程必须写出，以便指出出错的步骤。"
+        - "(a) 协方差 −88.95（%²），相关系数约 −0.98，写出计算过程。"
+        - "(b) 期望 6.1%、标准差约 3.56%，并指出 D 的价值在于与 C 负相关、降低组合风险。同意分析师的说法：需要订正。"
       en:
-        - "Both expected values, both standard deviations, the covariance and the correlation are correct."
-        - "The working must be shown, so that the step with an error can be identified."
-
-  - id: Q4
-    kind: exercise
-    level: B
-    concepts: [portfolio-variance, diversification]
-    expected: { var_P: "140.70", sd_P: "11.86", wavg: "14" }
-    question:
-      zh-cn: |-
-        $\sigma_A = 18\%$，$\sigma_B = 8\%$，$\rho = 0.2$，权重 60% / 40%。计算组合标准差，并与加权平均比较。
-      en: |-
-        $\sigma_A = 18\%$, $\sigma_B = 8\%$, $\rho = 0.2$, and the weights are 60% / 40%. Calculate the portfolio standard deviation and compare it with the weighted average.
-    answer:
-      zh-cn: |-
-        $\text{Var} = 0.36 \times 324 + 0.16 \times 64 + 2 \times 0.6 \times 0.4 \times 0.2 \times 18 \times 8 = 140.70$（%²），$\sigma_P \approx 11.86$%；加权平均为 14%，组合标准差更低。
-      en: |-
-        $\text{Var} = 0.36 \times 324 + 0.16 \times 64 + 2 \times 0.6 \times 0.4 \times 0.2 \times 18 \times 8 = 140.70$ (%²), so $\sigma_P \approx 11.86$%. The weighted average is 14%, so the portfolio standard deviation is lower.
-    rubric:
-      zh-cn:
-        - "方差三项正确。"
-        - "求出标准差，并与加权平均比较。"
-      en:
-        - "All three variance terms are correct."
-        - "Finds the standard deviation and compares it with the weighted average."
+        - "(a) A covariance of −88.95 (%²) and a correlation of about −0.98, with working shown."
+        - "(b) An expected value of 6.1% and a standard deviation of about 3.56%, and points out that D's value lies in its negative correlation with C, which lowers portfolio risk. Agreeing with the analyst: needs revision."
 
   - id: Q5
     kind: exercise
@@ -319,9 +330,9 @@ questions:
     expected: { w: "30.8" }
     question:
       zh-cn: |-
-        若 $\rho = -1$，求使组合方差为 0 的权重 $w$（用 $\sigma_A, \sigma_B$ 表示），并代入 [[check:Q4]] 的 $\sigma_A, \sigma_B$ 求数值。
+        若 $\rho = -1$，求使组合方差为 0 的权重 $w$（用 $\sigma_A, \sigma_B$ 表示），并代入 $\sigma_A = 18\%$、$\sigma_B = 8\%$ 求数值。
       en: |-
-        If $\rho = -1$, find the weight $w$ that makes the portfolio variance 0 (in terms of $\sigma_A$ and $\sigma_B$), and then compute its value using $\sigma_A$ and $\sigma_B$ from [[check:Q4]].
+        If $\rho = -1$, find the weight $w$ that makes the portfolio variance 0 (in terms of $\sigma_A$ and $\sigma_B$), and then compute its value for $\sigma_A = 18\%$ and $\sigma_B = 8\%$.
     answer:
       zh-cn: |-
         $\rho = -1$ 时 $\sigma_P^2 = \big(w\sigma_A - (1-w)\sigma_B\big)^2$，令其为 0 得 $w = \frac{\sigma_B}{\sigma_A + \sigma_B} = \frac{8}{26} \approx 30.8$%。$w$ 自动在 0 与 1 之间，不需要卖空。

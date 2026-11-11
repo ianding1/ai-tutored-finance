@@ -24,6 +24,8 @@ def results():
 
     r["Q3.ear_A"] = 100 * ((1 + 0.05 / 365) ** 365 - 1)
     r["Q3.ear_B"] = 5.10
+    r["Q1.lim"] = 100 * (2.718281828459045**0.1 - 1)
+    r["Q4.pv"] = annuity_pv(payment(500_000, 0.005, 360), 0.005, 360)
 
     c15 = payment(500_000, 0.055 / 12, 180)
     c30 = payment(500_000, 0.06 / 12, 360)
@@ -34,6 +36,9 @@ def results():
     r["Q4.saving"] = interest30 - interest15
 
     r["Q5.less"] = 100 * (1 - (1.06 / 1.0695) ** 30)
+    # Values that the questions now give or no longer ask for.
+    for k in ['C1.pv', 'C2.ear', 'C3.pv', 'C4.pv', 'C5.pv', 'Q4.payment', 'Q4.interest', 'Q4.saving']:
+        del r[k]
     return r
 
 

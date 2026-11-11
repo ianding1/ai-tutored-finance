@@ -43,6 +43,26 @@ context:
       Simple return $R = \frac{P_1}{P_0} - 1$, which compounds by multiplication over several periods. Log return $\ell = \ln\frac{P_1}{P_0}$; the lesson states that log returns add over several periods (with the example 100 → 80 → 100) but does not explain why.
 
 common_errors:
+  - questions: [Q1]
+    zh-cn: |-
+      以为复利越频繁，有效年利率可以无限增大。它随复利频率增大，但有上限 $e^r - 1$。
+    en: |-
+      Thinking that more frequent compounding can raise the effective annual rate without limit. It increases with the frequency but is bounded by $e^r - 1$.
+  - questions: [Q2]
+    zh-cn: |-
+      以为 $g \ge r$ 时公式 $\frac{C}{r-g}$ 仍然适用；这时各期现值不减小，级数发散，公式不成立。
+    en: |-
+      Thinking that $\frac{C}{r-g}$ still applies when $g \ge r$; then the present values of the payments do not shrink, the series diverges, and the formula does not hold.
+  - questions: [Q4]
+    zh-cn: |-
+      把不同时间付的钱直接相加来比较成本，例如把 30 年房贷的月供合计与贷款额比较。
+    en: |-
+      Comparing costs by adding up money paid at different dates, for example comparing the sum of 30 years of mortgage payments with the loan.
+  - questions: [Q5]
+    zh-cn: |-
+      以为 1% 和 0.05% 的年费率差别很小；复利使费率的差距随时间放大。
+    en: |-
+      Thinking that annual fees of 1% and 0.05% differ little; compounding magnifies the difference over time.
   - questions: [Q4]
     zh-cn: |-
       按月付款却用年利率和年数代入年金公式：每月付款时，利率要用月利率，期数要用月数。
@@ -55,145 +75,148 @@ questions:
     kind: check
     section: fv-pv
     concepts: [present-value]
-    expected: { pv: "7472.58" }
     question:
       zh-cn: |-
-        5 年后你会收到 10,000 美元。年利率 6% 时，这笔钱今天值多少？
+        年利率从 5% 升到 6%。下面哪一笔未来的钱，现值下降的比例最大？
       en: |-
-        You will receive 10,000 dollars in 5 years. At an interest rate of 6% per year, what is it worth today?
+        The annual interest rate rises from 5% to 6%. Which of these future amounts loses the largest share of its present value?
+    choices:
+      - zh-cn: 1 年后的 100 美元
+        en: 100 dollars in 1 year
+        why:
+          zh-cn: 1 年后的钱只折现一年。想一想折现的年数越多，利率的变化会被放大还是缩小。
+          en: Money in 1 year is discounted for only one year. Think about whether more years of discounting magnify or shrink the effect of a rate change.
+      - zh-cn: 10 年后的 100 美元
+        en: 100 dollars in 10 years
+        why:
+          zh-cn: 它比 1 年后的钱受影响更大，但选项中还有折现年数更多的。
+          en: It is affected more than money in 1 year, but another option is discounted for more years.
+      - zh-cn: 30 年后的 100 美元
+        en: 100 dollars in 30 years
+      - zh-cn: 三笔下降的比例相同，因为利率都只升了 1 个百分点
+        en: All three fall by the same share, because the rate rose by only 1 percentage point for each
+        why:
+          zh-cn: 折现因子是 $\frac{1}{(1+r)^n}$。利率的变化对它的影响和 $n$ 有没有关系？
+          en: The discount factor is $\frac{1}{(1+r)^n}$. Does the effect of a rate change on it depend on $n$?
+    correct: C
     answer:
       zh-cn: |-
-        $PV = \frac{10{,}000}{1.06^5} \approx 7{,}472.58$ 美元。
+        (C)。折现因子 $\frac{1}{(1+r)^n}$ 中，利率的作用要乘 $n$ 次：现值变为原来的 $\left(\frac{1.05}{1.06}\right)^n$。1 年后的钱下降约 0.9%，10 年后约 9%，30 年后约 25%。越远的现金流，现值对利率越敏感。
       en: |-
-        $PV = \frac{10{,}000}{1.06^5} \approx 7{,}472.58$ dollars.
-    rubric:
-      zh-cn:
-        - "用 $(1+r)^n$ 折现，指数是 5。"
-        - "数值正确。"
-      en:
-        - "Discounts with $(1+r)^n$, with the exponent 5."
-        - "The value is correct."
+        (C). In the discount factor $\frac{1}{(1+r)^n}$ the rate acts $n$ times: the present value is multiplied by $\left(\frac{1.05}{1.06}\right)^n$. Money in 1 year loses about 0.9%, in 10 years about 9%, in 30 years about 25%. The further away a cash flow is, the more sensitive its present value is to the rate.
 
   - id: C2
     kind: check
     section: compounding
     concepts: [apr, ear]
-    expected: { ear: "12.55" }
     question:
       zh-cn: |-
-        名义年利率 12%，按季度复利。有效年利率是多少？
+        两笔贷款的名义年利率（APR）都是 12%，一笔按月计息，一笔按年计息。按月计息的贷款，一年实际付的利息更多。
       en: |-
-        The annual percentage rate is 12%, compounded quarterly. What is the effective annual rate?
+        Two loans both have an annual percentage rate (APR) of 12%; one charges interest monthly and the other yearly. The loan with monthly interest costs more interest over a year.
+    correct: true
+    hint:
+      zh-cn: 想一想第一个月的利息，在之后的月份里会不会继续计息。
+      en: Think about whether the first month's interest itself earns interest in the following months.
     answer:
       zh-cn: |-
-        每季度利率 3%，$\text{EAR} = 1.03^4 - 1 \approx 12.55$%。
+        对。按月计息时，每月的利息计入欠款，以后的月份也要计息，有效年利率为 $1.01^{12} - 1 \approx 12.68\%$，高于按年计息的 12%。APR 相同不代表实际成本相同，比较要看有效年利率。
       en: |-
-        The quarterly rate is 3%, so $\text{EAR} = 1.03^4 - 1 \approx 12.55$%.
-    rubric:
-      zh-cn:
-        - "每期利率为 12% / 4 = 3%，复利 4 次。"
-        - "EAR 约为 12.55%，大于 12%。"
-      en:
-        - "The rate per quarter is 12% / 4 = 3%, compounded 4 times."
-        - "The EAR is about 12.55%, which is more than 12%."
+        True. With monthly interest, each month's interest is added to the balance and is charged interest in later months, so the effective annual rate is $1.01^{12} - 1 \approx 12.68\%$, above the 12% of yearly interest. The same APR does not mean the same actual cost; compare effective annual rates.
 
   - id: C3
     kind: check
     section: annuity
     concepts: [annuity, present-value]
-    expected: { pv: "86.78" }
     question:
       zh-cn: |-
-        每年末收 50 美元，共 2 年，折现率 10%。这串现金流今天值多少？分别用逐笔折现和年金公式计算。
+        折现率 10%。每年末收 100 美元、共 20 年的年金，现值是每年末收 100 美元、共 10 年的年金的两倍。
       en: |-
-        You receive 50 dollars at the end of each year for 2 years, and the discount rate is 10%. What are these cash flows worth today? Compute it by discounting each payment and with the annuity formula.
+        The discount rate is 10%. An annuity paying 100 dollars at the end of each year for 20 years has twice the present value of one paying 100 dollars a year for 10 years.
+    correct: false
+    hint:
+      zh-cn: 后 10 年的付款和前 10 年的付款，折现到今天值得一样多吗？
+      en: Are the payments of the second 10 years worth as much today as those of the first 10 years?
     answer:
       zh-cn: |-
-        逐笔折现：$\frac{50}{1.1} + \frac{50}{1.1^2} \approx 45.45 + 41.32$，合计约 86.78 美元。
-        年金公式：$\frac{50}{0.1}\left[1 - 1.1^{-2}\right] \approx 86.78$。
+        错。后 10 年的每笔付款都要多折现 10 年，今天的价值只有前 10 年对应付款的 $\frac{1}{1.1^{10}} \approx 0.39$ 倍。20 年年金的现值约 851.36 美元，10 年年金约 614.46 美元，只多出约 39%。付款的笔数加倍，现值远不到两倍。
       en: |-
-        Discounting each payment: $\frac{50}{1.1} + \frac{50}{1.1^2} \approx 45.45 + 41.32$, about 86.78 dollars in total.
-        Annuity formula: $\frac{50}{0.1}\left[1 - 1.1^{-2}\right] \approx 86.78$.
-    rubric:
-      zh-cn:
-        - "两笔付款分别折现，第二笔折现两次。"
-        - "两种方法结果一致，约 86.78 美元。"
-      en:
-        - "Each payment is discounted separately, the second one twice."
-        - "Both methods give the same result, about 86.78 dollars."
+        False. Each payment of the second 10 years is discounted for 10 more years, so today it is worth only $\frac{1}{1.1^{10}} \approx 0.39$ times the matching payment of the first 10 years. The 20-year annuity is worth about 851.36 dollars and the 10-year one about 614.46 dollars, only about 39% more. Twice as many payments give far less than twice the present value.
 
   - id: C4
     kind: check
     section: perpetuity
     concepts: [perpetuity]
-    expected: { pv: "1000000" }
     question:
       zh-cn: |-
-        利率 4%。想从明年起永远每年末领 40,000 美元，今天需要存多少钱？
+        折现率 10%。每年末收 100 美元、共 50 年的年金，现值已经很接近永远每年末收 100 美元的永续年金（1,000 美元）。
       en: |-
-        The interest rate is 4%. You want to receive 40,000 dollars at the end of every year forever, starting next year. How much do you need to deposit today?
+        The discount rate is 10%. An annuity paying 100 dollars at the end of each year for 50 years is already worth almost as much as a perpetuity paying 100 dollars a year forever (1,000 dollars).
+    correct: true
+    hint:
+      zh-cn: 50 年以后的那些付款，折现到今天还值多少？
+      en: How much are the payments after year 50 worth today?
     answer:
       zh-cn: |-
-        $PV = \frac{40{,}000}{0.04} = 1{,}000{,}000$ 美元。每年的利息正好是 40,000 美元，本金不动。
+        对。50 年年金的现值为 $1{,}000 \times (1 - 1.1^{-50}) \approx 991.5$ 美元。永续年金比它多的，只是第 50 年以后的付款，而它们的现值合计只有 $\frac{1{,}000}{1.1^{50}} \approx 8.5$ 美元。很远的现金流折现后几乎不值钱，所以“永远”的价值是有限的。
       en: |-
-        $PV = \frac{40{,}000}{0.04} = 1{,}000{,}000$ dollars. The interest each year is exactly 40,000 dollars, and the principal stays the same.
-    rubric:
-      zh-cn:
-        - "用永续年金公式 $\\frac{C}{r}$。"
-        - "数值正确。"
-      en:
-        - "Uses the perpetuity formula $\\frac{C}{r}$."
-        - "The value is correct."
+        True. The 50-year annuity is worth $1{,}000 \times (1 - 1.1^{-50}) \approx 991.5$ dollars. The perpetuity adds only the payments after year 50, and together they are worth only $\frac{1{,}000}{1.1^{50}} \approx 8.5$ dollars today. Very distant cash flows are worth almost nothing after discounting, which is why "forever" has a finite value.
 
   - id: C5
     kind: check
     section: growing-perpetuity
     concepts: [growing-perpetuity]
-    expected: { pv: "100000" }
     question:
       zh-cn: |-
-        一项资产第 1 年末付 5,000 美元，以后每年增长 2%，永远持续。折现率 7%，它今天值多少？如果把 5,000 美元误当成今天的付款，会有什么问题？
+        一项资产今天刚付了 5,000 美元，以后每年末付款，每年增长 2%，永远持续。用 $\frac{C}{r-g}$ 计算以后所有付款的现值时，$C$ 应该代入：
       en: |-
-        An asset pays 5,000 dollars at the end of the first year, and the payment grows by 2% every year forever. The discount rate is 7%. What is it worth today? What goes wrong if you take the 5,000 dollars to be a payment made today?
+        An asset has just paid 5,000 dollars today; from now on it pays at the end of each year, growing 2% a year, forever. When using $\frac{C}{r-g}$ to value all the future payments, $C$ should be:
+    choices:
+      - zh-cn: 5,000 美元
+        en: 5,000 dollars
+        why:
+          zh-cn: 公式中的 $C$ 是哪个时点的付款？5,000 美元是在这个时点付的吗？
+          en: Which date's payment is $C$ in the formula? Is the 5,000 dollars paid on that date?
+      - zh-cn: 5,100 美元
+        en: 5,100 dollars
+      - zh-cn: $\frac{5{,}000}{1.02}$ 美元
+        en: $\frac{5{,}000}{1.02}$ dollars
+        why:
+          zh-cn: 付款每年增长，下一笔付款比今天的这笔大还是小？
+          en: The payments grow every year. Is the next payment larger or smaller than today's?
+      - zh-cn: 5,000 美元乘以 1 加折现率
+        en: 5,000 dollars times 1 plus the discount rate
+        why:
+          zh-cn: 付款按什么比例增长？折现率描述的是付款本身的变化吗？
+          en: At what rate do the payments grow? Does the discount rate describe how the payments change?
+    correct: B
     answer:
       zh-cn: |-
-        $PV = \frac{5{,}000}{0.07 - 0.02} = 100{,}000$ 美元。
-        公式中的 $C$ 是第 1 期期末的付款。如果 5,000 美元是今天的付款，那么第 1 年末的付款是 5,100 美元，应代入 5,100，今天的 5,000 美元另外加上。
+        (B)。公式中的 $C$ 是第 1 期期末的付款。今天的 5,000 美元已经付过，第 1 年末的付款是 $5{,}000 \times 1.02 = 5{,}100$ 美元。代入 5,000 美元会少算一年的增长。
       en: |-
-        $PV = \frac{5{,}000}{0.07 - 0.02} = 100{,}000$ dollars.
-        In the formula, $C$ is the payment at the end of the first period. If 5,000 dollars were paid today, the payment at the end of the first year would be 5,100 dollars, which is what goes into the formula, and the 5,000 dollars paid today is added separately.
-    rubric:
-      zh-cn:
-        - "现值正确。"
-        - "指出 $C$ 是第 1 期期末的付款，今天的付款不在公式里。"
-      en:
-        - "The present value is correct."
-        - "Points out that $C$ is the payment at the end of the first period, and a payment today is not part of the formula."
+        (B). $C$ in the formula is the payment at the end of the first period. Today's 5,000 dollars has already been paid; the payment at the end of year 1 is $5{,}000 \times 1.02 = 5{,}100$ dollars. Using 5,000 dollars leaves out one year of growth.
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1
     kind: exercise
     level: A
     concepts: [apr, ear, continuous-compounding]
+    expected: { lim: "10.52" }
     question:
       zh-cn: |-
-        判断真假并说明理由：名义年利率相同时，复利频率越高，有效年利率越高。有效年利率有没有上限？如果有，是多少？
+        一款存款产品的广告说：“名义年利率 10%，每秒复利一次。复利越频繁，赚得越多；只要复利足够频繁，一年的实际收益可以要多高有多高。”这个说法对吗？复利频率无限增加时，有效年利率趋于多少？
       en: |-
-        Determine whether this statement is true or false, and explain: with the same annual percentage rate, the more often interest is compounded, the higher the effective annual rate. Does the effective annual rate have an upper limit? If so, what is it?
+        An advertisement for a savings product says: "10% annual percentage rate, compounded every second. The more often interest is compounded, the more you earn; with frequent enough compounding, the actual return in a year can be as high as you like." Is this right? What does the effective annual rate approach as the compounding frequency grows without limit?
     answer:
       zh-cn: |-
-        真。复利越频繁，利息越早计入本金、越早开始生息，所以 $(1+\frac{r}{m})^m$ 随 $m$ 增大（$r > 0$ 时）。
-        有上限：$m \to \infty$ 时 $(1+\frac{r}{m})^m \to e^r$，所以 EAR 的上限是 $e^r - 1$，即连续复利对应的有效年利率。
+        前半句对，后半句错。复利越频繁，利息越早开始生息，$(1+\frac{r}{m})^m$ 随 $m$ 增大。但它有上限：$m \to \infty$ 时 $(1+\frac{r}{m})^m \to e^r$，所以有效年利率不超过 $e^{0.1} - 1 \approx 10.52\%$。按日复利已经是约 10.52%，再频繁也几乎不再增加。
       en: |-
-        True. The more often interest is compounded, the earlier interest is added to the principal and starts to earn interest, so $(1+\frac{r}{m})^m$ increases with $m$ (when $r > 0$).
-        There is an upper limit: as $m \to \infty$, $(1+\frac{r}{m})^m \to e^r$, so the upper limit of the EAR is $e^r - 1$, the effective annual rate under continuous compounding.
+        The first half is right and the second wrong. The more often interest is compounded, the earlier it starts to earn interest, so $(1+\frac{r}{m})^m$ increases with $m$. But it has a limit: as $m \to \infty$, $(1+\frac{r}{m})^m \to e^r$, so the effective annual rate cannot exceed $e^{0.1} - 1 \approx 10.52\%$. Daily compounding already gives about 10.52%, and more frequent compounding adds almost nothing.
     rubric:
       zh-cn:
-        - "结论为真，并给出理由（利息更早生息，或其他正确论证）。"
-        - "上限是 $e^r - 1$。"
+        - "指出 EAR 随复利频率增大，但有上限 $e^r - 1 \\approx 10.52\\%$。只说“越频繁越高”而没有指出上限：需要订正。"
       en:
-        - "States true and gives a reason (interest starts to earn interest earlier, or another correct argument)."
-        - "The upper limit is $e^r - 1$."
+        - "Points out that the EAR increases with the compounding frequency but has the limit $e^r - 1 \\approx 10.52\\%$. Saying only that more frequent compounding gives more, without the limit: needs revision."
 
   - id: Q2
     kind: exercise
@@ -246,26 +269,30 @@ questions:
     kind: exercise
     level: B
     concepts: [annuity, apr]
-    expected: { payment: "4085.42", interest: "235375", saving: "343816" }
+    expected: { pv: "500000" }
     question:
       zh-cn: |-
-        房贷 500,000 美元，15 年期，名义年利率 5.5%，按月复利、每月还款。(a) 月供是多少？(b) 总利息比讲义中 30 年、6% 的方案少多少？
+        贷款 500,000 美元，30 年，名义年利率 6%，按月还款。讲义算出月供约 2,997.75 美元，360 个月共还约 1,079,191 美元。一位朋友说：“利息比本金还多，30 年房贷让你多付了一倍多的钱。手里有现金的话，应该一次性付清。”
+        (a) 按每月 0.5% 折现，这 360 笔月供今天合计值多少？朋友的比较错在哪里？
+        (b) 在什么条件下，用手里的现金提前还清这笔贷款更好？
       en: |-
-        A mortgage of 500,000 dollars for 15 years, with an APR of 5.5% compounded monthly and monthly payments. (a) What is the monthly payment? (b) How much less total interest is paid than in the 30-year, 6% example in the lesson?
+        A loan of 500,000 dollars for 30 years at an annual percentage rate of 6%, repaid monthly. The lesson finds a monthly payment of about 2,997.75 dollars, about 1,079,191 dollars in total over 360 months. A friend says: "The interest is more than the loan itself, so a 30-year mortgage makes you pay more than twice as much. If you have the cash, pay it all at once."
+        (a) Discounted at 0.5% a month, what are the 360 payments worth today in total? What is wrong with the friend's comparison?
+        (b) Under what condition is it better to use your cash to repay this loan early?
     answer:
       zh-cn: |-
-        (a) $i = 0.055/12$，$n = 180$，$C = \frac{500{,}000\,i}{1-(1+i)^{-180}} \approx 4{,}085.42$ 美元。
-        (b) 总利息 $180 \times 4{,}085.42 - 500{,}000 \approx 235{,}375$ 美元；30 年方案约 579,191 美元；少约 343,816 美元。
+        (a) 月供正是按“所有月供按贷款利率折现后等于贷款额”算出来的，所以现值正好是 500,000 美元。朋友把 30 年里不同时间付的钱直接相加，忽略了货币时间价值：30 年后的 2,997.75 美元远不如今天的 2,997.75 美元值钱。按贷款利率折现，分期付款和一次付清的代价相同。
+        (b) 提前还款相当于得到 6% 的确定收益（省下的利息）。如果这笔现金能得到的、风险相近的收益低于 6%（例如国债利率只有 4%），提前还清更好；如果能稳定地得到高于 6% 的收益，保留贷款更好。还要考虑保留现金应急的需要，以及房贷利息可能有的税收抵扣。
       en: |-
-        (a) $i = 0.055/12$, $n = 180$, $C = \frac{500{,}000\,i}{1-(1+i)^{-180}} \approx 4{,}085.42$ dollars.
-        (b) Total interest is $180 \times 4{,}085.42 - 500{,}000 \approx 235{,}375$ dollars; the 30-year plan pays about 579,191 dollars, so about 343,816 dollars less.
+        (a) The payment is found exactly so that all payments, discounted at the loan rate, equal the loan, so their present value is exactly 500,000 dollars. The friend adds up money paid at different dates over 30 years, ignoring the time value of money: 2,997.75 dollars in 30 years is worth far less than 2,997.75 dollars today. At the loan rate, paying over time and paying at once cost the same.
+        (b) Repaying early is like earning a sure 6% (the interest saved). If the cash would earn less than 6% at similar risk (for example, Treasury bonds pay only 4%), repaying is better; if it could reliably earn more than 6%, keeping the loan is better. The need to keep cash for emergencies and any tax deduction for mortgage interest also matter.
     rubric:
       zh-cn:
-        - "用月利率和月数计算月供。"
-        - "总利息为总还款减去本金，并与 30 年方案比较。"
+        - "(a) 现值为 500,000，并指出不同时间的钱不能直接相加。"
+        - "(b) 把贷款利率和这笔钱在风险相近时能得到的收益比较。"
       en:
-        - "Computes the payment with the monthly rate and the number of months."
-        - "Total interest is total payments minus the principal, and it is compared with the 30-year plan."
+        - "(a) A present value of 500,000, and points out that money at different dates cannot simply be added."
+        - "(b) Compares the loan rate with what the money could earn at similar risk."
 
   - id: Q5
     kind: exercise
