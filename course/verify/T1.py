@@ -11,11 +11,6 @@ def annuity_pv(c, r, n):
 
 def results():
     r = {}
-    # Q1: 2% nominal for 10 years with 3% inflation, 100,000 invested.
-    real = 100000 * (1.02 / 1.03) ** 10
-    r["Q1.real"] = real
-    r["Q1.loss"] = 100 * (1 - real / 100000)
-
     # Q6: b' = (1 + r) / (1 + g) b + d with nominal r = 3%, nominal g = 1.02 * 1.02 - 1, d = 2%.
     g = 1.02 * 1.02 - 1
     assert g > 0.03  # the rate is below nominal growth, so the ratio converges
@@ -26,10 +21,12 @@ def results():
     assert abs(b - b_star) < 1e-9
     r["Q6.limit"] = 100 * b_star
 
-    # Q7: 100 of 30-year mortgages at 3%, revalued at 5%; deposits 92.
-    c = 100 * 0.03 / (1 - 1.03**-30)
-    pv = annuity_pv(c, 0.05, 30)
-    r["Q7.pv"], r["Q7.eq"] = pv, pv - 92
+    # Q7: 50 of 30-year mortgages at 4%, revalued at 6%. A's liabilities pay 92% of each mortgage
+    # payment; B's are 46 of demand deposits.
+    c = 50 * 0.04 / (1 - 1.04**-30)
+    pv = annuity_pv(c, 0.06, 30)
+    r["Q7.pv"], r["Q7.ea"], r["Q7.eb"] = pv, pv - 0.92 * pv, pv - 46
+    assert abs(0.92 * annuity_pv(c, 0.04, 30) - 46) < 1e-9  # A's liabilities are 46 at book value
 
     # Q8: good assets 200, bad 40; project costs 20 and adds 25; half of each type.
     good, bad = 200 + 25, 40 + 25
@@ -49,17 +46,18 @@ def results():
     ce = 0.07 - 0.01 - premium
     assert ce < 0.04 and 0.07 - premium < 0.04
     r["Q10.premium"], r["Q10.ce"] = 100 * premium, 100 * ce
-    r["Q10.fee"] = 0.01 * 200000
 
-    # Q11: 3% annual coupon, 10 years left, yield rises from 3% to 5%.
+    # Q11: 3% annual coupon, 10 payments left; the real rate is unchanged and expected inflation
+    # rises from 2% to 4%, so the nominal rate goes from 3% to about 5% (approximate Fisher).
     r["Q11.price"] = annuity_pv(3, 0.05, 10) + 100 / 1.05**10
+    i = 1.03 / 1.02 * 1.04 - 1  # exact Fisher, also accepted
+    assert abs(annuity_pv(3, i, 10) + 100 / (1 + i) ** 10 - 84.42) < 0.005
 
-    # Q12: Qd = 1000 - 10P, short-run Qs = 40P - 1000, long-run supply flat at 40, tax 6.
-    pb = (1000 + 1000 + 40 * 6) / 50
-    assert (pb, pb - 6) == (44.8, 38.8)  # the short-run prices given in the question
-    assert 1000 - 10 * 40 == 40 * 40 - 1000  # the starting point is the long-run equilibrium
-    r["Q12.pl"] = 40 + 6
-    r["Q12.ql"] = 1000 - 10 * r["Q12.pl"]
+    # Q12: Qd = 1200 - 20P, long-run supply flat at 30, tax 5; short-run prices given in the question.
+    assert 1200 - 20 * 33.75 == 60 * 28.75 - 1200  # consistent with short-run supply Qs = 60P - 1200
+    assert 1200 - 20 * 30 == 60 * 30 - 1200  # the starting point is the long-run equilibrium
+    r["Q12.pl"] = 30 + 5
+    r["Q12.ql"] = 1200 - 20 * r["Q12.pl"]
     return r
 
 
