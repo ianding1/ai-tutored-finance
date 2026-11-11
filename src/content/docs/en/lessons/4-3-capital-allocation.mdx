@@ -1,0 +1,89 @@
+---
+title: 4.3 The Capital Allocation Line and the Capital Market Line
+description: "The risk-free asset and the capital allocation line; the optimal risky portfolio (the tangency portfolio) and the separation theorem; mean–variance utility and the optimal share in risky assets; allocation when borrowing and lending rates differ; the market portfolio and the capital market line."
+lesson: "4.3"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import TangencyCal from '../../../../components/widgets/TangencyCal.astro';
+
+## The capital allocation line [#cal]
+
+<Ref lesson="4.2" /> considered only risky assets. Now add a risk-free asset (such as short-term Treasury bills) with return $r_f$ and standard deviation 0. An investor puts a share $y$ of wealth into a risky portfolio P (expected return $\mu_P$, standard deviation $\sigma_P$) and the rest into the risk-free asset. The whole portfolio's expected return and standard deviation are
+
+$$
+\mu_c = r_f + y(\mu_P - r_f), \qquad \sigma_c = y\,\sigma_P
+$$
+
+The risk-free asset has zero variance and zero covariance with P, so the standard deviation is proportional to $y$. Eliminating $y$:
+
+$$
+\mu_c = r_f + \frac{\mu_P - r_f}{\sigma_P}\,\sigma_c
+$$
+
+On the standard deviation–expected return chart, these portfolios form a straight line starting at $(0, r_f)$ and passing through P: the <Def id="capital-allocation-line">capital allocation line</Def> (CAL). Its slope is exactly P's Sharpe ratio (<Ref concept="sharpe-ratio" />). $y > 1$ means borrowing at the risk-free rate to invest in P with leverage.
+
+<Check id="C1" />
+
+## The tangency portfolio and the separation theorem [#tangency]
+
+An investor can choose any risky portfolio as P. Different choices of P give capital allocation lines with different slopes. The steeper the line, the higher the expected return for the same risk, so the best choice is the risky portfolio that makes the line steepest. Turning the line, the steepest position is where it touches the efficient frontier (<Ref concept="efficient-frontier" />). The risky portfolio at that point is the <Def id="tangency-portfolio">tangency portfolio</Def>, also called the optimal risky portfolio.
+
+<Figure id="2-1" title="Portfolios of asset A (expected return 10%, standard deviation 20%) and B (5%, 10%), with correlation 0.2. The dashed line is the capital allocation line from the risk-free rate through the chosen risky portfolio." observe="Move the weight of A to find the risky portfolio that makes the capital allocation line steepest; then change the risk-free rate and find it again.">
+	<TangencyCal />
+</Figure>
+
+This leads to an important conclusion: as long as investors agree about the expected returns and risks of the assets and can all borrow and lend at the risk-free rate, they all hold the same tangency portfolio. Cautious and bold investors differ only in $y$: how much goes into the tangency portfolio and how much into the risk-free asset. Choosing the risky portfolio and deciding the share in risky assets can be solved separately; this is the <Def id="separation-theorem">separation theorem</Def>.
+
+<Check id="C2" />
+
+<Check id="C3" />
+
+## The optimal share in risky assets [#allocation]
+
+How much to invest is decided by risk aversion (<Ref concept="risk-aversion" />). <Ref lesson="1.4" sec="crra" /> showed that a CRRA investor requires a risk premium of about $\frac{1}{2}\gamma\sigma^2$ for a proportional risk with standard deviation $\sigma$. So a portfolio can be valued with the following <Def id="mean-variance-utility">mean–variance utility</Def>, which is approximately the certainty equivalent (<Ref concept="certainty-equivalent" />) of the portfolio return:
+
+$$
+U = \mu_c - \frac{1}{2}\gamma\sigma_c^2
+$$
+
+$\gamma$ is the risk-aversion coefficient. Substituting the capital allocation line and choosing $y$ to maximize $U$ gives (<Ref check="Q1" />)
+
+$$
+y^* = \frac{\mu_P - r_f}{\gamma\,\sigma_P^2}
+$$
+
+The optimal share is proportional to the risk premium and inversely proportional to risk aversion and the variance.
+
+In practice the borrowing rate is usually above the return on the risk-free asset. Then the part with $y > 1$ uses the higher rate, and the capital allocation line bends at $y = 1$ and becomes flatter (<Ref check="Q2" />).
+
+<Check id="C4" />
+
+## The capital market line [#cml]
+
+If all investors agree and all hold the same tangency portfolio, then adding up the risky assets everyone holds gives all the risky assets in the market. So in equilibrium the tangency portfolio is the <Def id="market-portfolio">market portfolio</Def>: all risky assets weighted by market value.
+
+The capital allocation line with the market portfolio as its risky portfolio is the <Def id="capital-market-line">capital market line</Def> (CML):
+
+$$
+\mu_c = r_f + \frac{\mu_M - r_f}{\sigma_M}\,\sigma_c
+$$
+
+$\mu_M$ and $\sigma_M$ are the market portfolio's expected return and standard deviation. The capital market line gives a theoretical basis for passive investing: hold an index fund that covers the whole market with market-value weights, and add the risk-free asset according to one's own tolerance for risk. <Ref lesson="4.4" /> uses this to derive what the expected return of a single asset should be.
+
+<Check id="C5" />
+
+## Summary [#summary]
+
+- Combining a risky portfolio P with the risk-free asset gives the capital allocation line $\mu_c = r_f + \frac{\mu_P - r_f}{\sigma_P}\sigma_c$, whose slope is P's Sharpe ratio.
+- The best risky portfolio is the tangency portfolio, which makes the capital allocation line steepest; separation theorem: everyone holds the same tangency portfolio and differs only in the share invested.
+- Mean–variance utility $U = \mu_c - \frac{1}{2}\gamma\sigma_c^2$; optimal share $y^* = \frac{\mu_P - r_f}{\gamma\sigma_P^2}$. With a higher borrowing rate, the capital allocation line bends at $y = 1$.
+- If everyone agrees, the tangency portfolio is the market portfolio and the capital allocation line becomes the capital market line.
+
+## Exercises [#exercises]
+
+<Exercises />

@@ -1,0 +1,89 @@
+---
+title: 4.3 资本配置线与资本市场线
+description: 无风险资产与资本配置线；最优风险组合（切点组合）与分离定理；均值–方差效用与最优的风险资产比例；借贷利率不同时的配置；市场组合与资本市场线。
+lesson: "4.3"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import TangencyCal from '../../../../components/widgets/TangencyCal.astro';
+
+## 资本配置线 [#cal]
+
+<Ref lesson="4.2" /> 只考虑了风险资产。现在加入一种无风险资产（例如短期国库券），收益为 $r_f$，标准差为 0。投资者把财富的比例 $y$ 投入一个风险组合 P（预期收益 $\mu_P$，标准差 $\sigma_P$），其余投入无风险资产。整个组合的预期收益和标准差为
+
+$$
+\mu_c = r_f + y(\mu_P - r_f), \qquad \sigma_c = y\,\sigma_P
+$$
+
+无风险资产的方差为 0，与 P 的协方差也为 0，所以标准差与 $y$ 成正比。消去 $y$：
+
+$$
+\mu_c = r_f + \frac{\mu_P - r_f}{\sigma_P}\,\sigma_c
+$$
+
+在“标准差–预期收益”图上，这些组合是一条从 $(0, r_f)$ 出发、经过 P 的直线，叫<Def id="capital-allocation-line">资本配置线</Def>（capital allocation line，CAL）。它的斜率正是 P 的夏普比率（<Ref concept="sharpe-ratio" />）。$y > 1$ 表示按无风险利率借款、加杠杆投资 P。
+
+<Check id="C1" />
+
+## 切点组合与分离定理 [#tangency]
+
+投资者可以选择任何一个风险组合作为 P。P 不同，资本配置线的斜率也不同。斜率越大，同样的风险下预期收益越高，所以最好的选择是使资本配置线最陡的那个风险组合。转动这条直线，最陡的位置是它与有效前沿（<Ref concept="efficient-frontier" />）相切的地方。切点处的风险组合叫<Def id="tangency-portfolio">切点组合</Def>（tangency portfolio），也叫最优风险组合。
+
+<Figure id="2-1" title="资产 A（预期收益 10%，标准差 20%）和 B（5%，10%）的组合，相关系数 0.2。虚线是从无风险利率出发、经过所选风险组合的资本配置线。" observe="移动 A 的权重，找到使资本配置线最陡的风险组合；再改变无风险利率，重新找一次。">
+	<TangencyCal />
+</Figure>
+
+这带来一个重要的结论：只要投资者对各资产的预期收益和风险看法相同，并且都能按无风险利率借贷，他们都会持有同一个切点组合。保守的人和激进的人的区别只在于 $y$：投入切点组合多少、无风险资产多少。选择风险组合和决定风险资产的比例这两个问题可以分开解决，这叫<Def id="separation-theorem">分离定理</Def>（separation theorem）。
+
+<Check id="C2" />
+
+<Check id="C3" />
+
+## 最优的风险资产比例 [#allocation]
+
+投入多少由风险厌恶决定（<Ref concept="risk-aversion" />）。<Ref lesson="1.4" sec="crra" /> 说明，CRRA 投资者对一个标准差为 $\sigma$ 的比例风险要求的风险溢价约为 $\frac{1}{2}\gamma\sigma^2$。所以可以用下面的<Def id="mean-variance-utility">均值–方差效用</Def>（mean–variance utility）评价一个组合，它近似等于组合收益的确定性等价（<Ref concept="certainty-equivalent" />）：
+
+$$
+U = \mu_c - \frac{1}{2}\gamma\sigma_c^2
+$$
+
+$\gamma$ 是风险厌恶系数。把资本配置线代入，选择 $y$ 使 $U$ 最大，得到（<Ref check="Q1" />）
+
+$$
+y^* = \frac{\mu_P - r_f}{\gamma\,\sigma_P^2}
+$$
+
+最优比例与风险溢价成正比，与风险厌恶系数和方差成反比。
+
+现实中借款利率通常高于无风险资产的收益率。这时 $y > 1$ 的部分要按较高的利率计算，资本配置线在 $y = 1$ 处折弯，变得更平（<Ref check="Q2" />）。
+
+<Check id="C4" />
+
+## 资本市场线 [#cml]
+
+如果所有投资者看法相同、都持有同一个切点组合，那么把所有人持有的风险资产加起来，就是市场上全部的风险资产。所以在均衡中，切点组合就是<Def id="market-portfolio">市场组合</Def>（market portfolio）：所有风险资产按市值加权的组合。
+
+以市场组合为风险组合的资本配置线叫<Def id="capital-market-line">资本市场线</Def>（capital market line，CML）：
+
+$$
+\mu_c = r_f + \frac{\mu_M - r_f}{\sigma_M}\,\sigma_c
+$$
+
+$\mu_M$ 和 $\sigma_M$ 是市场组合的预期收益和标准差。资本市场线为被动投资提供了理论基础：持有一个覆盖整个市场、按市值加权的指数基金，再按自己的风险承受能力配置无风险资产。<Ref lesson="4.4" /> 由此推出单个资产的预期收益应该是多少。
+
+<Check id="C5" />
+
+## 小结 [#summary]
+
+- 风险组合 P 与无风险资产组合，得到资本配置线 $\mu_c = r_f + \frac{\mu_P - r_f}{\sigma_P}\sigma_c$，斜率是 P 的夏普比率。
+- 最好的风险组合是使资本配置线最陡的切点组合；分离定理：所有人持有同一个切点组合，只在投入比例上不同。
+- 均值–方差效用 $U = \mu_c - \frac{1}{2}\gamma\sigma_c^2$；最优比例 $y^* = \frac{\mu_P - r_f}{\gamma\sigma_P^2}$。借款利率较高时，资本配置线在 $y = 1$ 处折弯。
+- 所有人看法相同时，切点组合是市场组合，资本配置线成为资本市场线。
+
+## 练习题 [#exercises]
+
+<Exercises />

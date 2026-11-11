@@ -2118,6 +2118,54 @@ short-sale-constraint:
     zh-cn: "要求每项资产的权重不小于 0 的约束；它可能使最优解落在边界上。"
     en: "The constraint that every weight be at least 0; it can put the optimum on the boundary."
 
+capital-allocation-line:
+  defined_in: "4.3"
+  zh-cn: 资本配置线
+  en: capital allocation line
+  short:
+    zh-cn: "一个风险组合与无风险资产按不同比例组合得到的直线，斜率是这个风险组合的夏普比率；CAL。"
+    en: "The straight line of combinations of a risky portfolio with the risk-free asset; its slope is the risky portfolio's Sharpe ratio; CAL."
+
+tangency-portfolio:
+  defined_in: "4.3"
+  zh-cn: 切点组合
+  en: tangency portfolio
+  short:
+    zh-cn: "资本配置线与有效前沿相切处的风险组合，夏普比率最高的风险组合，也叫最优风险组合。"
+    en: "The risky portfolio where the capital allocation line touches the efficient frontier: the risky portfolio with the highest Sharpe ratio, also called the optimal risky portfolio."
+
+separation-theorem:
+  defined_in: "4.3"
+  zh-cn: 分离定理
+  en: separation theorem
+  short:
+    zh-cn: "选择风险组合与决定风险资产比例可以分开：所有投资者持有同一个切点组合，只按风险厌恶决定投入多少。"
+    en: "Choosing the risky portfolio and deciding how much to put in it are separate: every investor holds the same tangency portfolio and uses risk aversion only to decide how much."
+
+mean-variance-utility:
+  defined_in: "4.3"
+  zh-cn: 均值–方差效用
+  en: mean–variance utility
+  short:
+    zh-cn: "U = E[r] − ½γσ²，用预期收益减去风险的代价来评价组合，γ 是风险厌恶系数。"
+    en: "U = E[r] − ½γσ², valuing a portfolio by its expected return minus a cost for risk; γ is the risk-aversion coefficient."
+
+market-portfolio:
+  defined_in: "4.3"
+  zh-cn: 市场组合
+  en: market portfolio
+  short:
+    zh-cn: "所有风险资产按市值加权的组合。"
+    en: "The portfolio of all risky assets weighted by market value."
+
+capital-market-line:
+  defined_in: "4.3"
+  zh-cn: 资本市场线
+  en: capital market line
+  short:
+    zh-cn: "以市场组合为风险组合的资本配置线；CML。"
+    en: "The capital allocation line whose risky portfolio is the market portfolio; CML."
+
 beta:
   defined_in: "4.4"
   zh-cn: beta 系数

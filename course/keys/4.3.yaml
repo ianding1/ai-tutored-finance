@@ -1,0 +1,322 @@
+# Answer key for lesson 4.3. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[4.3#cal]] (section), [[concept:capital-allocation-line]], [[check:Q3]], [[fig:2-1]].
+# expected: values are recomputed by course/verify/4.3.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "4.3"
+
+context:
+  - zh-cn: |-
+      学习者学过二阶条件（[[0.2]]）、期望效用、风险厌恶、确定性等价和 CRRA 效用（[[1.4]]，比例风险的风险溢价约为 $\frac{1}{2}\gamma\sigma^2$）、夏普比率和波动拖累（[[4.1]]，其中的杠杆图在 $\mu = 9\%$、$\sigma = 18\%$、无风险利率 3% 时复合增长率最高的杠杆约为 1.85 倍）、有效前沿和均值–方差优化（[[4.2]]）。讲义还没有讲 CAPM（[[4.4]]）。百分数用百分点表示，方差用 %²。
+    en: |-
+      The learner has studied second-order conditions ([[0.2]]), expected utility, risk aversion, certainty equivalents and CRRA utility ([[1.4]]; the risk premium for a proportional risk is about $\frac{1}{2}\gamma\sigma^2$), the Sharpe ratio and volatility drag ([[4.1]], whose leverage figure has its highest compound growth at a leverage of about 1.85 when $\mu = 9\%$, $\sigma = 18\%$ and the risk-free rate is 3%), and the efficient frontier and mean–variance optimization ([[4.2]]). The lesson has not yet covered the CAPM ([[4.4]]). Percentages in percentage points; variance in %².
+  - concepts: [capital-allocation-line, tangency-portfolio, separation-theorem]
+    zh-cn: |-
+      讲义：$\mu_c = r_f + y(\mu_P - r_f)$，$\sigma_c = y\sigma_P$，即 $\mu_c = r_f + \frac{\mu_P - r_f}{\sigma_P}\sigma_c$，斜率是 P 的夏普比率；$y > 1$ 表示借款。最好的风险组合使资本配置线最陡，是与有效前沿相切的切点组合。分离定理：看法相同、能按无风险利率借贷时，所有人持有同一个切点组合，只在 $y$ 上不同。[[fig:2-1]]：A 预期收益 10%、标准差 20%，B 为 5%、10%，相关系数 0.2；滑块：无风险利率 0 到 4.5%（步长 0.5，默认 3），风险组合中 A 的权重 0 到 1.5（步长 0.05，默认 0.5）；读数显示所选风险组合的预期收益、标准差和夏普比率。
+    en: |-
+      The lesson: $\mu_c = r_f + y(\mu_P - r_f)$, $\sigma_c = y\sigma_P$, so $\mu_c = r_f + \frac{\mu_P - r_f}{\sigma_P}\sigma_c$, whose slope is P's Sharpe ratio; $y > 1$ means borrowing. The best risky portfolio makes the capital allocation line steepest: the tangency portfolio, where the line touches the efficient frontier. Separation theorem: with agreement and borrowing and lending at the risk-free rate, everyone holds the same tangency portfolio and differs only in $y$. [[fig:2-1]]: A has expected return 10% and standard deviation 20%, B 5% and 10%, correlation 0.2; sliders: risk-free rate 0 to 4.5% (in steps of 0.5, default 3) and the weight of A in the risky portfolio 0 to 1.5 (in steps of 0.05, default 0.5); the readout shows the chosen risky portfolio's expected return, standard deviation and Sharpe ratio.
+  - concepts: [mean-variance-utility, market-portfolio, capital-market-line]
+    zh-cn: |-
+      讲义：$U = \mu_c - \frac{1}{2}\gamma\sigma_c^2$，近似为确定性等价；$y^* = \frac{\mu_P - r_f}{\gamma\sigma_P^2}$（推导留给练习题）。借款利率高于无风险收益率时，资本配置线在 $y = 1$ 处折弯、变平（留给练习题）。看法相同时，切点组合是市场组合（所有风险资产按市值加权），资本配置线成为资本市场线 $\mu_c = r_f + \frac{\mu_M - r_f}{\sigma_M}\sigma_c$；它是被动投资的理论基础。
+    en: |-
+      The lesson: $U = \mu_c - \frac{1}{2}\gamma\sigma_c^2$, approximately a certainty equivalent; $y^* = \frac{\mu_P - r_f}{\gamma\sigma_P^2}$ (the derivation is left to an exercise). When the borrowing rate is above the risk-free return, the capital allocation line bends at $y = 1$ and becomes flatter (left to an exercise). With agreement, the tangency portfolio is the market portfolio (all risky assets at market-value weights), and the capital allocation line becomes the capital market line $\mu_c = r_f + \frac{\mu_M - r_f}{\sigma_M}\sigma_c$, the theoretical basis for passive investing.
+
+common_errors:
+  - questions: [Q1, Q2]
+    zh-cn: |-
+      以为风险厌恶不同的投资者应该持有不同的风险资产组合；或者在 $y^*$ 中用标准差代替方差。
+    en: |-
+      Thinking investors with different risk aversion should hold different risky portfolios; or using the standard deviation instead of the variance in $y^*$.
+  - questions: [Q2]
+    zh-cn: |-
+      借款利率较高时仍然用无风险利率计算借款部分，忽略资本配置线的折弯和停在 $y = 1$ 的角点解。
+    en: |-
+      Using the risk-free rate for the borrowed part when the borrowing rate is higher, ignoring the bend in the capital allocation line and the corner solution at $y = 1$.
+  - questions: [Q3, Q4]
+    zh-cn: |-
+      以为夏普比率较低的资产不应该进入最优风险组合；或者以为单只股票只要预期收益高就值得持有，忽略它不在资本市场线上。
+    en: |-
+      Thinking an asset with a lower Sharpe ratio does not belong in the optimal risky portfolio; or thinking a single stock is worth holding whenever its expected return is high, ignoring that it lies below the capital market line.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: cal
+    concepts: [capital-allocation-line, sharpe-ratio]
+    question:
+      zh-cn: |-
+        同一个风险组合与无风险资产按不同比例组合（风险组合的比例 $y > 0$），这些组合的夏普比率都相同。
+      en: |-
+        Combining the same risky portfolio with the risk-free asset in different proportions (a share $y > 0$ in the risky portfolio), all these combinations have the same Sharpe ratio.
+    correct: true
+    hint:
+      zh-cn: 想一想：这些组合在“标准差–预期收益”图上落在什么形状的线上？从无风险利率到一个组合的连线斜率代表什么？
+      en: 'Think: on the standard deviation–expected return chart, what shape of line do these combinations lie on? What does the slope of the line from the risk-free rate to a combination represent?'
+    answer:
+      zh-cn: |-
+        对。超额收益 $y(\mu_P - r_f)$ 和标准差 $y\sigma_P$ 都与 $y$ 成正比，比值不变，都等于 P 的夏普比率。这些组合都在同一条资本配置线上，这条线的斜率就是夏普比率。
+      en: |-
+        True. The excess return $y(\mu_P - r_f)$ and the standard deviation $y\sigma_P$ are both proportional to $y$, so their ratio is constant and equals P's Sharpe ratio. All the combinations lie on the same capital allocation line, whose slope is the Sharpe ratio.
+
+  - id: C2
+    kind: check
+    section: tangency
+    concepts: [separation-theorem, tangency-portfolio]
+    question:
+      zh-cn: |-
+        一位顾问给保守的客户推荐“30% 股票、70% 长期债券”，给激进的客户推荐“70% 股票、30% 长期债券”。按分离定理（假设两人看法相同，都能按无风险利率借贷），哪种说法正确？
+      en: |-
+        An adviser recommends "30% stocks, 70% long-term bonds" to a cautious client and "70% stocks, 30% long-term bonds" to a bold client. By the separation theorem (assuming both agree on the outlook and can borrow and lend at the risk-free rate), which statement is correct?
+    choices:
+      - zh-cn: 两人的风险资产中，股票与长期债券的比例应该相同，区别只在于持有多少无风险资产
+        en: Both should have the same ratio of stocks to long-term bonds within their risky assets, differing only in how much they hold in the risk-free asset
+      - zh-cn: 顾问的建议符合分离定理，因为保守的人应该持有更多债券
+        en: The advice fits the separation theorem, because cautious people should hold more bonds
+        why:
+          zh-cn: 在分离定理中，保守的人用什么来降低风险？长期债券的价格随利率波动，它是风险资产还是无风险资产？
+          en: In the separation theorem, what does a cautious person use to lower risk? Long-term bond prices move with interest rates; are they a risky asset or the risk-free asset?
+      - zh-cn: 保守的客户应该只持有长期债券
+        en: The cautious client should hold only long-term bonds
+        why:
+          zh-cn: 只持有长期债券，他的风险组合就不再是切点组合了。怎样在不改变风险组合的情况下降低风险？
+          en: Holding only long-term bonds, his risky portfolio is no longer the tangency portfolio. How can he lower risk without changing the risky portfolio?
+      - zh-cn: 两人的整体组合应该完全相同
+        en: Both should hold exactly the same overall portfolio
+        why:
+          zh-cn: 两人的风险厌恶程度不同，投入风险组合的比例 $y$ 会一样吗？
+          en: Their risk aversion differs; would the share $y$ they put in the risky portfolio be the same?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。按分离定理，两人持有同一个切点组合（股票与长期债券的比例相同），保守的人把更多的钱放在短期国库券等无风险资产上。现实中顾问常给保守的客户提高长期债券与股票的比例，这与分离定理不一致，可能的原因包括借款受限、长期债券对长期投资者的特殊作用等。
+      en: |-
+        (A). By the separation theorem both hold the same tangency portfolio (the same ratio of stocks to long-term bonds), and the cautious client puts more money in risk-free assets such as Treasury bills. In practice advisers often raise the ratio of long-term bonds to stocks for cautious clients, which does not fit the theorem; possible reasons include borrowing limits and the special role of long-term bonds for long-horizon investors.
+
+  - id: C3
+    kind: check
+    section: tangency
+    concepts: [tangency-portfolio, capital-allocation-line]
+    widget: { id: tangency-cal, set: { rf: 2, w: 0.5 } }
+    question:
+      zh-cn: |-
+        在 [[fig:2-1]] 中，把无风险利率从 2% 提高到 4%。使资本配置线最陡的风险组合中，A 的权重会怎样变化？
+      en: |-
+        In [[fig:2-1]], raise the risk-free rate from 2% to 4%. How does the weight of A change in the risky portfolio that makes the capital allocation line steepest?
+    choices:
+      - zh-cn: 上升
+        en: It rises
+      - zh-cn: 下降
+        en: It falls
+        why:
+          zh-cn: 在两种利率下分别找出最陡的位置，比较 A 的权重。利率提高后，B 的超额收益相对 A 怎样变化？
+          en: Find the steepest position at each rate and compare the weight of A. When the rate rises, how does B's excess return change relative to A's?
+      - zh-cn: 不变，因为两种资产没有变
+        en: It does not change, because the two assets are the same
+        why:
+          zh-cn: 切点的位置取决于直线从哪一点出发。起点变了，切点还会在原来的位置吗？
+          en: The tangency point depends on where the line starts. If the starting point moves, does the tangency point stay put?
+      - zh-cn: 变为 0
+        en: It becomes 0
+        why:
+          zh-cn: 无风险利率仍低于 A 的预期收益，A 的超额收益仍然为正，而且比 B 的大得多。
+          en: The risk-free rate is still below A's expected return, so A's excess return is still positive and much larger than B's.
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。切点组合中 A 的权重从约 0.44 升到约 0.78。无风险利率提高后，B 的超额收益（5% 减利率）相对 A 下降得更多，切点沿前沿向风险较高的一侧移动。
+      en: |-
+        (A). The weight of A in the tangency portfolio rises from about 0.44 to about 0.78. When the risk-free rate rises, B's excess return (5% minus the rate) falls by more relative to A's, and the tangency point moves along the frontier toward the riskier side.
+
+  - id: C4
+    kind: check
+    section: allocation
+    concepts: [mean-variance-utility, risk-aversion]
+    question:
+      zh-cn: |-
+        风险厌恶系数和风险组合的预期超额收益都不变，风险组合的波动率从 15% 升到 30%。最优的风险资产比例 $y^*$ 变为原来的：
+      en: |-
+        Risk aversion and the risky portfolio's expected excess return stay the same, while its volatility rises from 15% to 30%. The optimal share in risky assets $y^*$ becomes:
+    choices:
+      - zh-cn: 一半
+        en: Half
+        why:
+          zh-cn: $y^*$ 与波动率成反比，还是与方差成反比？
+          en: Is $y^*$ inversely proportional to the volatility, or to the variance?
+      - zh-cn: 四分之一
+        en: A quarter
+      - zh-cn: 两倍
+        en: Twice as large
+        why:
+          zh-cn: 风险变大而回报不变，投资者会投入更多还是更少？
+          en: With more risk and the same reward, would an investor put in more or less?
+      - zh-cn: 不变
+        en: Unchanged
+        why:
+          zh-cn: $y^*$ 的公式中含有 $\sigma_P$。
+          en: The formula for $y^*$ contains $\sigma_P$.
+    correct: B
+    answer:
+      zh-cn: |-
+        (B)。$y^* = \frac{\mu_P - r_f}{\gamma\sigma_P^2}$ 与方差成反比。波动率翻倍，方差变为 4 倍，最优比例变为原来的四分之一。风险的代价 $\frac{1}{2}\gamma\sigma^2$ 随风险的平方增加。
+      en: |-
+        (B). $y^* = \frac{\mu_P - r_f}{\gamma\sigma_P^2}$ is inversely proportional to the variance. Doubling volatility quadruples the variance, so the optimal share falls to a quarter. The cost of risk, $\frac{1}{2}\gamma\sigma^2$, grows with the square of risk.
+
+  - id: C5
+    kind: check
+    section: cml
+    concepts: [capital-market-line, market-portfolio]
+    question:
+      zh-cn: |-
+        按资本市场线的逻辑，一位只愿意承担很小风险的投资者应该怎样做？
+      en: |-
+        By the logic of the capital market line, what should an investor who wants to bear only a little risk do?
+    choices:
+      - zh-cn: 只买几只波动很小的股票
+        en: Buy only a few stocks with low volatility
+        why:
+          zh-cn: 单只股票的风险中有一部分可以通过分散化消除，却得不到额外的回报。这样的组合会在资本市场线上吗？
+          en: Part of a single stock's risk can be diversified away and earns no extra reward. Would such a portfolio lie on the capital market line?
+      - zh-cn: 少量持有市场组合，其余持有无风险资产
+        en: Hold a small amount of the market portfolio and the rest in the risk-free asset
+      - zh-cn: 全部持有长期国债
+        en: Hold only long-term government bonds
+        why:
+          zh-cn: 长期国债的价格随利率波动，不是无风险资产。按资本市场线，降低风险的方法是什么？
+          en: Long-term government bond prices move with interest rates, so they are not the risk-free asset. By the capital market line, how is risk lowered?
+      - zh-cn: 持有市场组合，同时卖空高风险的股票
+        en: Hold the market portfolio and sell high-risk stocks short
+        why:
+          zh-cn: 这样做改变了风险组合，它不再是市场组合。
+          en: That changes the risky portfolio, so it is no longer the market portfolio.
+    correct: B
+    answer:
+      zh-cn: |-
+        (B)。资本市场线上的每个组合都由市场组合和无风险资产构成。想承担的风险越小，$y$ 越小：少量持有市场组合（例如全市场指数基金），其余放在国库券等无风险资产中。这样在同样的风险下得到的预期收益最高。
+      en: |-
+        (B). Every portfolio on the capital market line is made of the market portfolio and the risk-free asset. The less risk wanted, the smaller $y$: hold a small amount of the market portfolio (for example, a total-market index fund) and the rest in risk-free assets such as Treasury bills. This gives the highest expected return for that risk.
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    star: true
+    concepts: [mean-variance-utility, capital-allocation-line, volatility-drag, second-order-condition]
+    expected: { y1: "1.85", y4: "0.46" }
+    question:
+      zh-cn: |-
+        (a) 把 $\mu_c = r_f + y(\mu_P - r_f)$ 和 $\sigma_c = y\sigma_P$ 代入 $U = \mu_c - \frac{1}{2}\gamma\sigma_c^2$，求使 $U$ 最大的 $y^*$，并验证二阶条件。
+        (b) 风险组合的预期收益为 9%，波动率为 18%，无风险利率为 3%。求 $\gamma = 1$ 和 $\gamma = 4$ 时的 $y^*$。把 $\gamma = 1$ 的结果与 [[4.1#volatility-drag]] 中使复合增长率最高的杠杆比较，说明为什么。大多数投资者为什么不按复合增长率最高的比例投资？
+      en: |-
+        (a) Substitute $\mu_c = r_f + y(\mu_P - r_f)$ and $\sigma_c = y\sigma_P$ into $U = \mu_c - \frac{1}{2}\gamma\sigma_c^2$, find the $y^*$ that maximizes $U$, and check the second-order condition.
+        (b) The risky portfolio has an expected return of 9% and a volatility of 18%, and the risk-free rate is 3%. Find $y^*$ for $\gamma = 1$ and $\gamma = 4$. Compare the $\gamma = 1$ result with the leverage that maximizes compound growth in [[4.1#volatility-drag]], and explain why. Why do most investors not invest at the share that maximizes compound growth?
+    answer:
+      zh-cn: |-
+        (a) $U(y) = r_f + y(\mu_P - r_f) - \frac{1}{2}\gamma y^2\sigma_P^2$。$U'(y) = \mu_P - r_f - \gamma y\sigma_P^2 = 0$，$y^* = \frac{\mu_P - r_f}{\gamma\sigma_P^2}$。$U''(y) = -\gamma\sigma_P^2 < 0$，是最大值。
+        (b) $\gamma = 1$：$\frac{0.06}{0.0324} \approx 1.85$；$\gamma = 4$：约 0.46。$\gamma = 1$ 时 $U = \mu_c - \frac{1}{2}\sigma_c^2$，正是 [[4.1]] 中复合增长率的近似 $G \approx \mu - \frac{\sigma^2}{2}$，所以两者相同：对数效用的投资者使长期复合增长率最大。按这个比例投资波动很大，短期内可能出现很深的回撤，而且它对预期收益的估计非常敏感；大多数人的风险厌恶高于 $\gamma = 1$，宁愿少一些长期增长，换取更小的波动。
+      en: |-
+        (a) $U(y) = r_f + y(\mu_P - r_f) - \frac{1}{2}\gamma y^2\sigma_P^2$. $U'(y) = \mu_P - r_f - \gamma y\sigma_P^2 = 0$, so $y^* = \frac{\mu_P - r_f}{\gamma\sigma_P^2}$. $U''(y) = -\gamma\sigma_P^2 < 0$, a maximum.
+        (b) $\gamma = 1$: $\frac{0.06}{0.0324} \approx 1.85$; $\gamma = 4$: about 0.46. With $\gamma = 1$, $U = \mu_c - \frac{1}{2}\sigma_c^2$, exactly the approximation of compound growth $G \approx \mu - \frac{\sigma^2}{2}$ in [[4.1]], so the two coincide: a log-utility investor maximizes long-run compound growth. Investing at that share is very volatile, with deep drawdowns possible in the short run, and very sensitive to the estimated expected return; most people are more risk-averse than $\gamma = 1$ and accept less long-run growth for smaller swings.
+    rubric:
+      zh-cn:
+        - "(a) 求导得 $y^*$，并验证二阶条件。"
+        - "(b) 约 1.85 和 0.46；说明 $\\gamma = 1$ 与复合增长率最大一致，以及不采用的原因。"
+      en:
+        - "(a) Derives $y^*$ and checks the second-order condition."
+        - "(b) About 1.85 and 0.46; explains that $\\gamma = 1$ maximizes compound growth and why most investors do not use it."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [capital-allocation-line, mean-variance-utility]
+    expected: { y: "0.75" }
+    question:
+      zh-cn: |-
+        风险组合的预期收益为 9%，波动率为 18%。投资者可以按 3% 借出（买国库券），但借款的利率是 6%。一位投资者在能按 3% 借款时，最优比例是 $y^* = 1.5$。
+        (a) 他的风险厌恶系数是多少？按 6% 借款时，如果他借款，最优的 $y$ 是多少？他实际应该怎样配置？
+        (b) 画出（或描述）这时的资本配置线，并说明为什么会有一批风险厌恶不同的投资者都选择 $y = 1$。
+      en: |-
+        A risky portfolio has an expected return of 9% and a volatility of 18%. An investor can lend at 3% (buying Treasury bills), but borrowing costs 6%. If he could borrow at 3%, his optimal share would be $y^* = 1.5$.
+        (a) What is his risk-aversion coefficient? Borrowing at 6%, what would his optimal $y$ be if he borrowed? How should he actually allocate?
+        (b) Draw (or describe) the capital allocation line in this case, and explain why a group of investors with different risk aversion all choose $y = 1$.
+    answer:
+      zh-cn: |-
+        (a) $1.5 = \frac{0.06}{\gamma \times 0.0324}$，$\gamma \approx 1.23$。按 6% 借款时，借款部分的超额收益只有 $9\% - 6\% = 3\%$，$y = \frac{0.03}{1.23 \times 0.0324} \approx 0.75$。但 $y < 1$ 不需要借款，与“借款”的前提矛盾；而按 3% 借出时最优比例是 1.5，大于 1，与“借出”的前提也矛盾。所以最优解在 $y = 1$：全部投资风险组合，既不借款也不借出。
+        (b) 资本配置线在 $y = 1$（风险组合 P 处）折弯：左边从 3% 出发，斜率 $\frac{9\% - 3\%}{18\%}$；右边斜率变为 $\frac{9\% - 6\%}{18\%}$，更平。按 3% 计算想要 $y > 1$、按 6% 计算想要 $y < 1$ 的投资者，都停在折点 $y = 1$，这是一个角点解（[[0.2#corner]]）。
+      en: |-
+        (a) $1.5 = \frac{0.06}{\gamma \times 0.0324}$, so $\gamma \approx 1.23$. Borrowing at 6%, the excess return on the borrowed part is only $9\% - 6\% = 3\%$, so $y = \frac{0.03}{1.23 \times 0.0324} \approx 0.75$. But $y < 1$ needs no borrowing, contradicting the premise of borrowing; and lending at 3% gives an optimum of 1.5, above 1, contradicting the premise of lending. So the optimum is $y = 1$: everything in the risky portfolio, neither borrowing nor lending.
+        (b) The capital allocation line bends at $y = 1$ (at the risky portfolio P): to the left it starts at 3% with slope $\frac{9\% - 3\%}{18\%}$; to the right its slope becomes $\frac{9\% - 6\%}{18\%}$, flatter. Investors who want $y > 1$ at 3% but $y < 1$ at 6% all stop at the bend, $y = 1$: a corner solution ([[0.2#corner]]).
+    rubric:
+      zh-cn:
+        - "(a) $\\gamma$ 约 1.23，借款时约 0.75，结论是 $y = 1$。"
+        - "(b) 描述折弯的资本配置线，并用角点解说明。"
+      en:
+        - "(a) $\\gamma$ about 1.23, about 0.75 when borrowing, conclusion $y = 1$."
+        - "(b) Describes the bent capital allocation line and explains with a corner solution."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [tangency-portfolio, sharpe-ratio, diversification]
+    expected: { w: "0.54", s: "0.37", sa: "0.35" }
+    question:
+      zh-cn: |-
+        两种风险资产时，切点组合中 A 的权重为 $w_A = \frac{(\mu_A - r_f)\sigma_B^2 - (\mu_B - r_f)\sigma_{AB}}{(\mu_A - r_f)\sigma_B^2 + (\mu_B - r_f)\sigma_A^2 - (\mu_A - r_f + \mu_B - r_f)\sigma_{AB}}$。用 [[fig:2-1]] 中的资产（A：10%、20%；B：5%、10%；相关系数 0.2），无风险利率 3%。
+        (a) 求切点组合中 A 的权重和切点组合的夏普比率，并与只持有 A 的夏普比率比较。
+        (b) B 的夏普比率只有 0.2，比 A 低得多，为什么加入 B 反而提高了夏普比率？
+      en: |-
+        With two risky assets, the weight of A in the tangency portfolio is $w_A = \frac{(\mu_A - r_f)\sigma_B^2 - (\mu_B - r_f)\sigma_{AB}}{(\mu_A - r_f)\sigma_B^2 + (\mu_B - r_f)\sigma_A^2 - (\mu_A - r_f + \mu_B - r_f)\sigma_{AB}}$. Use the assets of [[fig:2-1]] (A: 10%, 20%; B: 5%, 10%; correlation 0.2) and a risk-free rate of 3%.
+        (a) Find the weight of A in the tangency portfolio and the tangency portfolio's Sharpe ratio, and compare it with the Sharpe ratio of A alone.
+        (b) B's Sharpe ratio, only 0.2, is much lower than A's. Why does adding B raise the Sharpe ratio?
+    answer:
+      zh-cn: |-
+        (a) $\sigma_{AB} = 0.2 \times 20 \times 10 = 40$。$w_A = \frac{7 \times 100 - 2 \times 40}{7 \times 100 + 2 \times 400 - 9 \times 40} = \frac{620}{1140} \approx 0.54$。预期收益约 7.72%，标准差约 12.61%，夏普比率 $\frac{7.72\% - 3\%}{12.61\%} \approx 0.37$，高于只持有 A 的 $\frac{7\%}{20\%} = 0.35$。
+        (b) B 与 A 的相关系数只有 0.2，加入 B 使组合的波动大幅下降，而预期收益下降得少：组合的风险不是各资产风险的加权平均。一项资产对组合的贡献取决于它和组合的相关性，而不只是它自己的夏普比率。
+      en: |-
+        (a) $\sigma_{AB} = 0.2 \times 20 \times 10 = 40$. $w_A = \frac{7 \times 100 - 2 \times 40}{7 \times 100 + 2 \times 400 - 9 \times 40} = \frac{620}{1140} \approx 0.54$. The expected return is about 7.72% and the standard deviation about 12.61%, so the Sharpe ratio is $\frac{7.72\% - 3\%}{12.61\%} \approx 0.37$, above A alone at $\frac{7\%}{20\%} = 0.35$.
+        (b) B's correlation with A is only 0.2, so adding B cuts portfolio volatility a lot while lowering the expected return less: portfolio risk is not a weighted average of the assets' risks. An asset's contribution depends on its correlation with the portfolio, not only on its own Sharpe ratio.
+    rubric:
+      zh-cn:
+        - "(a) 约 0.54，夏普比率约 0.37，高于 A 的 0.35。"
+        - "(b) 用相关性和分散化说明。"
+      en:
+        - "(a) About 0.54; Sharpe ratio about 0.37, above A's 0.35."
+        - "(b) Explains with correlation and diversification."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [capital-market-line, market-portfolio, diversification]
+    expected: { y: "0.75", mu: "6.75", cml: "13" }
+    question:
+      zh-cn: |-
+        市场组合的预期收益为 8%，标准差为 16%，无风险利率为 3%。
+        (a) 一位投资者希望组合的标准差为 12%。按资本市场线，他应该把多少比例放在市场组合上？预期收益是多少？
+        (b) 一只股票的预期收益为 9%，标准差为 32%。资本市场线上标准差为 32% 的组合，预期收益是多少？一位投资者因为“这只股票的预期收益比市场高”而把全部资金投入它，这个理由错在哪里？
+      en: |-
+        The market portfolio has an expected return of 8% and a standard deviation of 16%; the risk-free rate is 3%.
+        (a) An investor wants a portfolio standard deviation of 12%. By the capital market line, what share should he put in the market portfolio? What is the expected return?
+        (b) A stock has an expected return of 9% and a standard deviation of 32%. What is the expected return of the portfolio on the capital market line with a 32% standard deviation? An investor puts all his money in the stock because "its expected return is higher than the market's". What is wrong with this reasoning?
+    answer:
+      zh-cn: |-
+        (a) $y = \frac{12\%}{16\%} = 0.75$，预期收益 $3\% + 0.75 \times 5\% = 6.75\%$。
+        (b) $3\% + 32\% \times \frac{5\%}{16\%} = 13\%$。承担同样 32% 的标准差，按 2 倍杠杆持有市场组合可以预期得到 13%，远高于这只股票的 9%。这只股票的风险中有很大一部分是可以分散掉的公司自身的风险，承担它得不到相应的回报；只比较预期收益，忽略了风险。（哪部分风险能得到回报，是 [[4.4]] 的内容。）
+      en: |-
+        (a) $y = \frac{12\%}{16\%} = 0.75$, with expected return $3\% + 0.75 \times 5\% = 6.75\%$.
+        (b) $3\% + 32\% \times \frac{5\%}{16\%} = 13\%$. Bearing the same 32% standard deviation, holding the market portfolio with 2 times leverage would give an expected 13%, far above the stock's 9%. Much of the stock's risk is company-specific risk that could be diversified away and earns no matching reward; comparing only expected returns ignores risk. (Which risk is rewarded is the subject of [[4.4]].)
+    rubric:
+      zh-cn:
+        - "(a) 0.75，6.75%。"
+        - "(b) 13%，并说明这只股票在资本市场线下方的原因。"
+      en:
+        - "(a) 0.75; 6.75%."
+        - "(b) 13%, explaining why the stock lies below the capital market line."

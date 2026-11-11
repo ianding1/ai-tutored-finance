@@ -368,7 +368,15 @@ stages:
         published: true
         introduces: [minimum-variance-portfolio, minimum-variance-frontier, efficient-frontier, mean-variance-optimization, short-sale-constraint]
         uses: [portfolio-variance, covariance, correlation, diversification, expected-value, standard-deviation, lagrange-multiplier, partial-derivative, second-order-condition, short-selling, volatility-drag, standard-error]
-      - { id: "4.3", slug: "4-3-capital-allocation", title: { zh-cn: "资本配置线与资本市场线", en: "The Capital Allocation Line and the Capital Market Line" } }
+      - id: "4.3"
+        slug: "4-3-capital-allocation"
+        title: { zh-cn: "资本配置线与资本市场线", en: "The Capital Allocation Line and the Capital Market Line" }
+        summary:
+          zh-cn: "无风险资产与资本配置线；最优风险组合（切点组合）与分离定理；均值–方差效用与最优的风险资产比例；借贷利率不同时的配置；市场组合与资本市场线。"
+          en: "The risk-free asset and the capital allocation line; the optimal risky portfolio (the tangency portfolio) and the separation theorem; mean–variance utility and the optimal share in risky assets; allocation when borrowing and lending rates differ; the market portfolio and the capital market line."
+        published: true
+        introduces: [capital-allocation-line, tangency-portfolio, separation-theorem, mean-variance-utility, market-portfolio, capital-market-line]
+        uses: [efficient-frontier, minimum-variance-frontier, sharpe-ratio, risk-aversion, crra-utility, certainty-equivalent, risk-premium, expected-utility, volatility-drag, second-order-condition, short-selling, diversification]
       - { id: "4.4", slug: "4-4-capm", title: { zh-cn: "资本资产定价模型（CAPM）", en: "The Capital Asset Pricing Model (CAPM)" } }
       - { id: "4.5", slug: "4-5-single-index-model", title: { zh-cn: "单指数模型与 beta 估计", en: "The Single-Index Model and Estimating Beta" } }
       - { id: "4.6", slug: "4-6-multifactor-models", title: { zh-cn: "多因子模型", en: "Multifactor Models" } }
