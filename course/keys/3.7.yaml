@@ -8,8 +8,9 @@
 #   - one of its `concepts` is tested by a question being graded, or
 #   - one of its `questions` is being graded.
 # common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
-# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`;
-# `answer` is the explanation shown after a wrong answer. They have no expected and no rubric.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
 
 lesson: "3.7"
 
@@ -65,12 +66,21 @@ questions:
     choices:
       - zh-cn: 费用增加 50，净利润减少 50
         en: Expenses rise by 50 and net income falls by 50
+        why:
+          zh-cn: "设备能用 5 年。按权责发生制，它的成本会在买入时一次计为费用吗？"
+          en: "The equipment lasts 5 years. Under accrual accounting, is its cost expensed all at once when it is bought?"
       - zh-cn: 没有变化
         en: Nothing changes
       - zh-cn: 收入增加 50
         en: Revenue rises by 50
+        why:
+          zh-cn: "借款和买设备都不是销售，不产生收入。"
+          en: "Neither borrowing nor buying equipment is a sale, so neither creates revenue."
       - zh-cn: 折旧增加 50
         en: Depreciation rises by 50
+        why:
+          zh-cn: "折旧在设备使用期间逐年确认，买入当天设备还没有使用。"
+          en: "Depreciation is recognized year by year while the equipment is used; on the day of purchase it has not been used yet."
     correct: B
     answer:
       zh-cn: |-
@@ -93,10 +103,19 @@ questions:
         en: Falls further and further behind
       - zh-cn: 差距越来越小
         en: Gets closer and closer
+        why:
+          zh-cn: "增长越快，每年新增的应收账款越多。这些是已经确认为收入、但还没有收到的现金。"
+          en: "The faster the growth, the more new receivables each year: revenue already recognized but not yet received in cash."
       - zh-cn: 始终相等
         en: Is always equal
+        why:
+          zh-cn: "只有应收账款不变时，两者才相等。收入增长时，应收账款会怎样？"
+          en: "The two are equal only if receivables stay constant. What happens to receivables when revenue grows?"
       - zh-cn: 超过净利润
         en: Exceeds net income
+        why:
+          zh-cn: "应收账款增加使现金流低于利润，还是高于利润？"
+          en: "Do rising receivables put cash flow below profit or above it?"
     correct: A
     answer:
       zh-cn: |-
@@ -114,6 +133,9 @@ questions:
       en: |-
         A company lengthens the depreciation life of its servers from 4 to 6 years (ignore taxes). This raises operating income, and operating cash flow rises by the same amount.
     correct: false
+    hint:
+      zh-cn: "想一想：折旧是不是现金支出？改变折旧年限，公司实际付出的现金会变吗？"
+      en: "Think: is depreciation a cash payment? Does changing the depreciation life change the cash the company actually pays?"
     answer:
       zh-cn: |-
         错。折旧不是现金支出，改变使用年限只改变每年分摊的费用：营业利润增加，现金流不变。这部分利润增长来自会计估计的变化，而不是经营的改善；如果服务器实际上 4 年就要更换，利润就被高估了。
@@ -132,12 +154,21 @@ questions:
     choices:
       - zh-cn: 它减少了公司当期的现金
         en: It reduces the company's cash in the period
+        why:
+          zh-cn: "以股票支付报酬时，公司当期并没有付出现金。"
+          en: "When pay is given in shares, the company pays no cash in the period."
       - zh-cn: 它是员工劳动的报酬，发行新股使现有股东的持股被稀释
         en: It pays for employees' work, and issuing new shares dilutes existing shareholders
       - zh-cn: 它使公司多交所得税
         en: It makes the company pay more income tax
+        why:
+          zh-cn: "股票薪酬一般作为费用在税前扣除，不会使公司多交税。"
+          en: "Stock-based compensation is generally deducted as an expense before tax; it does not raise the company's tax."
       - zh-cn: 它不是真实成本，剔除它是合理的
         en: It is not a real cost, so excluding it is reasonable
+        why:
+          zh-cn: "员工的劳动是有价值的，如果不用股票支付，公司就要付现金。发行给员工的新股对现有股东意味着什么？"
+          en: "Employees' work has value; without shares, the company would pay cash. What do new shares issued to employees mean for existing shareholders?"
     correct: B
     answer:
       zh-cn: |-

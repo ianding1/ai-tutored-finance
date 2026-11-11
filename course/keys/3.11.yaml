@@ -8,8 +8,9 @@
 #   - one of its `concepts` is tested by a question being graded, or
 #   - one of its `questions` is being graded.
 # common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
-# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`;
-# `answer` is the explanation shown after a wrong answer. They have no expected and no rubric.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
 
 lesson: "3.11"
 
@@ -67,10 +68,19 @@ questions:
         en: Too high
       - zh-cn: 偏低
         en: Too low
+        why:
+          zh-cn: "负债高、增长慢，合理的市盈率应该比同行高还是低？"
+          en: "With more debt and slower growth, should the justified P/E be above or below the peers'?"
       - zh-cn: 准确，因为用的是同行业的倍数
         en: About right, because the multiple comes from the same industry
+        why:
+          zh-cn: "同一个行业的公司，增长和风险也可能差别很大。"
+          en: "Companies in the same industry can still differ a lot in growth and risk."
       - zh-cn: 无法判断
         en: Impossible to judge
+        why:
+          zh-cn: "分别想一想：负债高对股权成本有什么影响？增长慢对市盈率有什么影响？"
+          en: "Think about each in turn: how does more debt affect the cost of equity? How does slower growth affect the P/E?"
     correct: A
     answer:
       zh-cn: |-
@@ -90,12 +100,21 @@ questions:
     choices:
       - zh-cn: 股权成本上升
         en: A higher cost of equity
+        why:
+          zh-cn: "$\\frac{P_0}{E_1} = \\frac{1 - b}{r - g}$。股权成本上升，分母变大还是变小？"
+          en: "$\\frac{P_0}{E_1} = \\frac{1 - b}{r - g}$. When the cost of equity rises, does the denominator grow or shrink?"
       - zh-cn: 预期增长率下降
         en: Lower expected growth
+        why:
+          zh-cn: "增长率下降时，分母 $r - g$ 变大还是变小？"
+          en: "When growth falls, does the denominator $r - g$ grow or shrink?"
       - zh-cn: 公司的风险下降
         en: Lower risk for the company
       - zh-cn: 派息率下降，而增长率不变
         en: A lower payout ratio with growth unchanged
+        why:
+          zh-cn: "派息率下降、增长率不变，说明多留存的利润没有带来增长。公式的分子会怎样？"
+          en: "A lower payout with unchanged growth means the extra retained profit brings no growth. What happens to the numerator?"
     correct: C
     answer:
       zh-cn: |-
@@ -113,6 +132,9 @@ questions:
       en: |-
         Two companies have identical businesses and the same enterprise value; the one with more debt has a lower P/E. This shows that its stock is cheaper.
     correct: false
+    hint:
+      zh-cn: "想一想：两家公司的业务和企业价值相同，股东承担的风险也相同吗？风险不同时，股东为每 1 元利润愿意付的价格会一样吗？"
+      en: "Think: the two businesses and enterprise values are the same, but do the shareholders bear the same risk? With different risk, would they pay the same price for each dollar of earnings?"
     answer:
       zh-cn: |-
         错。较低的市盈率只是杠杆的结果：负债多的公司股东承担更大的风险，要求更高的回报，每 1 元利润的价格就较低。比较资本结构不同的公司，应该用 EV/EBITDA 这类不受资本结构影响的倍数。
@@ -132,12 +154,21 @@ questions:
     choices:
       - zh-cn: 利润处于顶峰时
         en: When earnings are at their peak
+        why:
+          zh-cn: "股价变化不大，而利润在顶峰时最高。市盈率的分母最大时，市盈率是高还是低？"
+          en: "The price changes little, while earnings are highest at the peak. When the denominator of the P/E is largest, is the P/E high or low?"
       - zh-cn: 利润处于谷底时
         en: When earnings are at their trough
       - zh-cn: 利润增长最快时
         en: When earnings grow fastest
+        why:
+          zh-cn: "利润增长最快的时候，利润本身不一定最低。市盈率的分母在什么时候最小？"
+          en: "When earnings grow fastest, they are not necessarily at their lowest. When is the denominator of the P/E smallest?"
       - zh-cn: 与周期无关
         en: It does not depend on the cycle
+        why:
+          zh-cn: "在图中把幅度设为 0.5，看看市盈率是否随利润周期变化。"
+          en: "Set the amplitude to 0.5 in the figure and see whether the P/E moves with the earnings cycle."
     correct: B
     answer:
       zh-cn: |-

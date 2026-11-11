@@ -8,8 +8,9 @@
 #   - one of its `concepts` is tested by a question being graded, or
 #   - one of its `questions` is being graded.
 # common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
-# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`;
-# `answer` is the explanation shown after a wrong answer. They have no expected and no rubric.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
 
 lesson: "3.3"
 
@@ -67,10 +68,19 @@ questions:
         en: Above face value
       - zh-cn: 等于面值
         en: Equal to face value
+        why:
+          zh-cn: "只有票面利率等于要求的收益率时，债券才按面值交易。这里两者不同。"
+          en: "A bond trades at face value only when its coupon rate equals the required yield. Here they differ."
       - zh-cn: 低于面值
         en: Below face value
+        why:
+          zh-cn: "这张债券每年付的票息，比按要求的收益率计算的多还是少？投资者会愿意多付还是少付？"
+          en: "Does this bond pay more or less each year than a coupon at the required yield would? Would investors pay more or less for it?"
       - zh-cn: 无法判断，要看还有几年到期
         en: Impossible to tell without knowing the years to maturity
+        why:
+          zh-cn: "到期年数影响价格偏离面值的幅度，但不影响偏离的方向。"
+          en: "The years to maturity affect how far the price is from face value, but not the direction."
     correct: A
     answer:
       zh-cn: |-
@@ -93,10 +103,19 @@ questions:
         en: Larger for the price rise when the yield falls
       - zh-cn: 收益率上升时，价格下跌的幅度更大
         en: Larger for the price fall when the yield rises
+        why:
+          zh-cn: "看看图中价格曲线的形状：在收益率较低的一边，曲线更陡还是更平？"
+          en: "Look at the shape of the price curve in the figure: is it steeper or flatter on the low-yield side?"
       - zh-cn: 两者相等
         en: The same in both cases
+        why:
+          zh-cn: "只有价格与收益率的关系是一条直线时，两个方向的变化才会相等。图中是直线吗？"
+          en: "The two changes would be equal only if price and yield were related by a straight line. Is it a straight line in the figure?"
       - zh-cn: 取决于债券是否按面值交易
         en: Dependent on whether the bond trades at par
+        why:
+          zh-cn: "这张债券正是按面值交易的。想一想价格曲线弯曲的方向。"
+          en: "This bond does trade at par. Think about which way the price curve bends."
     correct: A
     answer:
       zh-cn: |-
@@ -114,6 +133,9 @@ questions:
       en: |-
         You buy a 5-year bond at a yield to maturity of 5% and sell it a year later. Even if the market yield has risen to 6% during the year, your holding return for the year is still 5%.
     correct: false
+    hint:
+      zh-cn: "想一想：市场收益率上升时，债券的价格怎样变化？中途卖出时，这个变化会影响持有收益吗？"
+      en: "Think: when the market yield rises, what happens to the bond's price? If you sell before maturity, does that affect your holding return?"
     answer:
       zh-cn: |-
         错。收益率上升使债券价格下跌，中途卖出要承受价格损失，这一年的持有收益低于 5%。只有收益率不变，或者持有到期且票息按同样的收益率再投资时，实际收益才等于买入时的到期收益率。
@@ -132,12 +154,21 @@ questions:
     choices:
       - zh-cn: 卖空这张债券，买入现金流相同的零息债
         en: Short the bond and buy zeros with the same cash flows
+        why:
+          zh-cn: "卖空这张债券就是卖出便宜的一方。套利应该买入便宜的、卖出贵的。"
+          en: "Shorting the bond means selling the cheap side. Arbitrage buys what is cheap and sells what is expensive."
       - zh-cn: 买入这张债券，同时卖出现金流相同的零息债
         en: Buy the bond and sell zeros with the same cash flows
       - zh-cn: 买入这张债券并持有到期
         en: Buy the bond and hold it to maturity
+        why:
+          zh-cn: "只买入并持有可以得到较高的收益，但还要承担利率变化等风险，不是无风险套利。"
+          en: "Just buying and holding earns a higher return but still bears risks such as rate changes, so it is not riskless arbitrage."
       - zh-cn: 无法套利，因为它的到期收益率与即期利率不同
         en: No arbitrage is possible, because its yield to maturity differs from the spot rates
+        why:
+          zh-cn: "到期收益率不同并不妨碍套利：要比较的是这张债券和复制它的零息债的价格。"
+          en: "Different yields do not prevent arbitrage: what matters is the price of the bond compared with the zeros that replicate it."
     correct: B
     answer:
       zh-cn: |-
@@ -155,6 +186,9 @@ questions:
       en: |-
         The 1-year spot rate is 4% and the 2-year spot rate is 5%. The rate that can be locked in today with zeros, from year 1 to year 2, is above 5%.
     correct: true
+    hint:
+      zh-cn: "想一想：两年都按 5% 投资，与第一年按 4%、第二年按某个利率投资，结果相同时，第二年的利率应该是多少？"
+      en: "Think: if two years at 5% must give the same result as one year at 4% and one year at some other rate, what must the second-year rate be?"
     answer:
       zh-cn: |-
         对。两年的总收益 $(1.05)^2$ 要等于先按 4% 投资一年、再按远期利率投资一年，第一年只有 4%，第二年就必须高于 5% 才能补足：$f_{1,2} = \frac{1.05^2}{1.04} - 1 \approx 6.01\%$。

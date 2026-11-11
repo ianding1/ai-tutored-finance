@@ -8,8 +8,9 @@
 #   - one of its `concepts` is tested by a question being graded, or
 #   - one of its `questions` is being graded.
 # common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
-# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`;
-# `answer` is the explanation shown after a wrong answer. They have no expected and no rubric.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
 
 lesson: "3.1"
 
@@ -63,6 +64,9 @@ questions:
       en: |-
         As long as a bank makes enough loans, its default losses as a share of total lending will be very stable, whether or not the economy falls into recession.
     correct: false
+    hint:
+      zh-cn: "想一想：增加贷款笔数能分散哪一种风险？衰退时，不同借款者的违约还相互独立吗？"
+      en: "Think: which kind of risk can more loans diversify away? In a recession, are defaults by different borrowers still independent?"
     answer:
       zh-cn: |-
         错。增加贷款笔数只能分散相互独立的违约风险。衰退中很多借款者同时出问题，违约正相关，这部分风险不能靠增加贷款数量分散掉，所以损失比例在衰退时会明显上升。
@@ -81,12 +85,21 @@ questions:
     choices:
       - zh-cn: 缩小买卖价差，以吸引更多交易
         en: Narrow the bid-ask spread to attract more trading
+        why:
+          zh-cn: "缩小价差会让做市商与知情交易者交易的亏损更难弥补。知情交易者多了，做市商面对的风险是变大还是变小？"
+          en: "A narrower spread makes losses to informed traders harder to recover. With more informed traders, does the market maker face more risk or less?"
       - zh-cn: 扩大买卖价差
         en: Widen the bid-ask spread
       - zh-cn: 价差不变，因为价差只取决于交易量
         en: Keep the spread unchanged, because the spread depends only on trading volume
+        why:
+          zh-cn: "价差不只取决于交易量，它还要补偿做市商的风险，包括遇到比自己知道得多的交易者的风险。"
+          en: "The spread does not depend only on volume; it also compensates the market maker for risk, including the risk of trading with people who know more."
       - zh-cn: 只报买价，不报卖价
         en: Quote only a bid and no ask
+        why:
+          zh-cn: "做市商的作用是同时报出买价和卖价；只报一边并不能解决与知情交易者交易的问题。"
+          en: "A market maker quotes both a bid and an ask; quoting only one side does not solve the problem of trading with informed traders."
     correct: B
     answer:
       zh-cn: |-
@@ -107,12 +120,21 @@ questions:
     choices:
       - zh-cn: 正好变为两倍
         en: It exactly doubles
+        why:
+          zh-cn: "只有每股多付的金额不变，总额才会正好翻倍。在订单簿上，后面的股数按什么价格成交？"
+          en: "The total doubles exactly only if the extra paid per share stays the same. In the order book, at what prices do the later shares trade?"
       - zh-cn: 增加，但不到两倍
         en: It rises, but less than double
+        why:
+          zh-cn: "看看后 1500 股要吃到哪些价位，它们每股多付的金额与前 1500 股相比如何。"
+          en: "Look at the price levels the second 1500 shares must take, and compare their extra cost per share with the first 1500."
       - zh-cn: 超过两倍
         en: It more than doubles
       - zh-cn: 不变
         en: It does not change
+        why:
+          zh-cn: "股数增加后，成交的价位也变了，多付的总金额不可能不变。"
+          en: "With more shares, the prices reached change too, so the total extra amount cannot stay the same."
     correct: C
     answer:
       zh-cn: |-

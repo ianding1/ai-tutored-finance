@@ -8,8 +8,9 @@
 #   - one of its `concepts` is tested by a question being graded, or
 #   - one of its `questions` is being graded.
 # common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
-# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`;
-# `answer` is the explanation shown after a wrong answer. They have no expected and no rubric.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
 
 lesson: "3.10"
 
@@ -75,12 +76,21 @@ questions:
     choices:
       - zh-cn: 利息不是现金支出
         en: Interest is not a cash payment
+        why:
+          zh-cn: "利息是公司实际付出的现金。"
+          en: "Interest is cash the company actually pays."
       - zh-cn: 债权人要求的回报已经体现在折现率 WACC 中，再扣除就重复计算了
         en: The return creditors require is already in the discount rate, the WACC, so deducting it would count it twice
       - zh-cn: 利息可以在税前扣除，所以不重要
         en: Interest is tax-deductible, so it does not matter
+        why:
+          zh-cn: "利息可以税前扣除，这一点体现在税后债务成本里，但它不是 FCFF 不扣利息的原因。"
+          en: "Interest is tax-deductible, which is reflected in the after-tax cost of debt, but that is not why FCFF leaves interest out."
       - zh-cn: 利息通常金额很小，可以忽略
         en: Interest is usually small enough to ignore
+        why:
+          zh-cn: "利息的金额可能很大；不扣除的原因与金额大小无关。"
+          en: "Interest can be large; the reason it is left out has nothing to do with its size."
     correct: B
     answer:
       zh-cn: |-
@@ -98,6 +108,9 @@ questions:
       en: |-
         Other things equal, when the corporate tax rate falls, the WACC of a company with debt rises slightly.
     correct: true
+    hint:
+      zh-cn: "想一想：WACC 中的债务成本是怎样计算的？税率在其中起什么作用？"
+      en: "Think: how does the cost of debt enter the WACC? What role does the tax rate play in it?"
     answer:
       zh-cn: |-
         对。债务成本在 WACC 中按税后计算，$r_D(1 - t)$。税率下降，每付 1 元利息少交的税变少（利息税盾变小），税后债务成本上升，WACC 随之略微上升。
@@ -117,12 +130,21 @@ questions:
     choices:
       - zh-cn: 上升，因为增长越快，未来的现金流越多
         en: Rises, because faster growth means more future cash flow
+        why:
+          zh-cn: "增长需要再投资。新投资只赚 6%，投资者要求 8%，每一笔新投资创造的价值是正还是负？"
+          en: "Growth needs reinvestment. New investment earns 6% while investors require 8%; does each new investment create positive or negative value?"
       - zh-cn: 下降
         en: Falls
       - zh-cn: 不变
         en: Does not change
+        why:
+          zh-cn: "只有新投资的回报正好等于 WACC 时，增长才不改变价值。这里两者相等吗？"
+          en: "Growth leaves value unchanged only if new investment earns exactly the WACC. Are they equal here?"
       - zh-cn: 先上升后下降
         en: First rises, then falls
+        why:
+          zh-cn: "在图中把增长率从 0 一直提高，看看倍数是否先升后降。"
+          en: "Raise growth from 0 step by step in the figure and see whether the multiple first rises and then falls."
     correct: B
     answer:
       zh-cn: |-
@@ -140,6 +162,9 @@ questions:
       en: |-
         A company has negative FCFF in every year of a 5-year forecast period (it is investing heavily). Its DCF enterprise value must also be negative.
     correct: false
+    hint:
+      zh-cn: "想一想：企业价值除了预测期内的现金流，还包括哪一部分？大量投资以后可能带来什么？"
+      en: "Think: besides the cash flows in the forecast period, what else does enterprise value include? What might heavy investment bring later?"
     answer:
       zh-cn: |-
         错。企业价值还包括终值，即预测期以后全部现金流的价值。如果大量投资在以后带来足够大的正现金流，终值可以远大于预测期内负现金流的现值。这也说明这类公司的估值几乎全部取决于对遥远未来的假设。

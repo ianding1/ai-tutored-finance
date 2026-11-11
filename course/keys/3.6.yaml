@@ -8,8 +8,9 @@
 #   - one of its `concepts` is tested by a question being graded, or
 #   - one of its `questions` is being graded.
 # common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
-# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`;
-# `answer` is the explanation shown after a wrong answer. They have no expected and no rubric.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
 
 lesson: "3.6"
 
@@ -83,6 +84,9 @@ questions:
       en: |-
         A corporate bond with default risk has a yield to maturity of 7%. An investor who buys it has an expected return of 7% as well.
     correct: false
+    hint:
+      zh-cn: "想一想：到期收益率是在什么假设下算出来的？如果有一定概率违约、违约后只能收回一部分，预期能得到的钱会怎样？"
+      en: "Think: under what assumption is the yield to maturity computed? If there is some chance of default with only partial recovery, what happens to the money you can expect?"
     answer:
       zh-cn: |-
         错。到期收益率是假设全部按约定支付时的收益，是“承诺”的收益。考虑到违约的可能和违约后只能收回一部分，预期收益要扣除预期损失，低于 7%。
@@ -101,12 +105,21 @@ questions:
     choices:
       - zh-cn: 降级使违约概率翻了一倍
         en: The downgrade doubled the probability of default
+        why:
+          zh-cn: "评级从 BBB− 降到 BB+ 只差一级，公司经营也没有新的变化，违约概率不会因此突然翻倍。"
+          en: "BBB− to BB+ is one notch, and nothing new has happened to the business; the default probability does not suddenly double."
       - zh-cn: 很多机构只允许或主要持有投资级债券，它们被迫一起卖出
         en: Many institutions may hold only or mainly investment-grade bonds, so they are forced to sell at the same time
       - zh-cn: 评级是对未来价格的预测，市场照着评级定价
         en: A rating is a forecast of the future price, and the market prices bonds by it
+        why:
+          zh-cn: "评级是对违约可能性的排序，不是对价格的预测。"
+          en: "A rating ranks the likelihood of default; it is not a forecast of prices."
       - zh-cn: 降级使国债利率上升
         en: The downgrade raises Treasury yields
+        why:
+          zh-cn: "一家公司的降级不会改变国债的利率。"
+          en: "One company's downgrade does not change Treasury yields."
     correct: B
     answer:
       zh-cn: |-
@@ -126,12 +139,21 @@ questions:
     choices:
       - zh-cn: 税率 12% 的投资者
         en: The investor with a 12% rate
+        why:
+          zh-cn: "市政债的好处来自免税。税率越低，应税债券交的税越少，免税的价值是更大还是更小？"
+          en: "The benefit of municipal bonds comes from the tax exemption. With a lower tax rate a taxable bond loses less to tax; is the exemption worth more or less?"
       - zh-cn: 税率 37% 的投资者
         en: The investor with a 37% rate
       - zh-cn: 两人获益相同，因为市政债的收益率对两人一样
         en: Both equally, because the municipal yield is the same for both
+        why:
+          zh-cn: "两人从同一只市政债得到的收益相同，但如果改买应税债券，交税后剩下的不同。"
+          en: "Both get the same return from the same municipal bond, but if they bought a taxable bond instead, they would keep different amounts after tax."
       - zh-cn: 两人都不能获益，因为市政债的收益率较低
         en: Neither, because municipal yields are lower
+        why:
+          zh-cn: "比较时要看税后收益，而不是税前收益率。"
+          en: "The comparison should use after-tax returns, not pre-tax yields."
     correct: B
     answer:
       zh-cn: |-
@@ -152,12 +174,21 @@ questions:
     choices:
       - zh-cn: 名义国债，因为它的收益率更高
         en: The nominal Treasury, because its yield is higher
+        why:
+          zh-cn: "名义收益率高，是因为它要补偿预期的通胀。比较时要看扣除实际通胀之后的收益。"
+          en: "The nominal yield is higher because it compensates for expected inflation. Compare returns after actual inflation."
       - zh-cn: TIPS
         en: TIPS
       - zh-cn: 两者相同
         en: They are the same
+        why:
+          zh-cn: "两者只在通胀正好等于盈亏平衡通胀率时才相同。盈亏平衡通胀率大约是多少？"
+          en: "They are equal only if inflation exactly equals breakeven inflation. Roughly what is breakeven inflation here?"
       - zh-cn: 无法判断，因为不知道未来的利率
         en: Impossible to tell without knowing future interest rates
+        why:
+          zh-cn: "两种债券都持有到期，10 年后的实际价值只取决于收益率和实际通胀，不需要知道以后的利率。"
+          en: "Both are held to maturity, so their real values after 10 years depend only on the yields and actual inflation, not on future interest rates."
     correct: B
     answer:
       zh-cn: |-

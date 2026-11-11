@@ -8,8 +8,9 @@
 #   - one of its `concepts` is tested by a question being graded, or
 #   - one of its `questions` is being graded.
 # common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
-# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`;
-# `answer` is the explanation shown after a wrong answer. They have no expected and no rubric.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
 
 lesson: "3.2"
 
@@ -65,12 +66,21 @@ questions:
     choices:
       - zh-cn: 6%，因为这是公司实际的融资成本
         en: 6%, because it is the company's actual financing cost
+        why:
+          zh-cn: "借款利率是银行所承担风险的价格。银行贷款优先偿还，风险低于这个项目的现金流，它的利率不能代表项目风险的价格。"
+          en: "The loan rate is the price of the bank's risk. A bank loan is repaid first and is less risky than the project's cash flows, so its rate is not the price of the project's risk."
       - zh-cn: 10%，因为这是把钱投到风险相同的地方能得到的回报
         en: 10%, because it is what the money could earn in an investment of the same risk
       - zh-cn: 8%，取两者的平均
         en: 8%, the average of the two
+        why:
+          zh-cn: "取平均没有依据：折现率应该反映项目现金流本身的风险，与钱从哪里借来无关。"
+          en: "Averaging has no basis: the discount rate should reflect the risk of the project's own cash flows, whatever the source of the money."
       - zh-cn: 无风险利率，因为未来现金流已经估计好了
         en: The risk-free rate, because the future cash flows are already estimated
+        why:
+          zh-cn: "项目的现金流是有风险的估计，不是确定的金额；用无风险利率折现会忽略这种风险。"
+          en: "The project's cash flows are risky estimates, not certain amounts; discounting at the risk-free rate ignores that risk."
     correct: B
     answer:
       zh-cn: |-
@@ -90,12 +100,21 @@ questions:
     choices:
       - zh-cn: 项目要用的一块闲置场地，现在可以出售得到的价格
         en: The price at which an idle piece of land the project will use could be sold now
+        why:
+          zh-cn: "这块场地如果不用于项目，可以卖掉换成现金。用于项目就放弃了这笔钱，这是项目的机会成本。"
+          en: "If the land were not used for the project, it could be sold for cash. Using it gives up that money, which is an opportunity cost of the project."
       - zh-cn: 新产品使公司原有产品减少的现金流
         en: The cash flow the company's existing products lose because of the new product
+        why:
+          zh-cn: "原有产品减少的现金流是因为做了这个项目才发生的，属于项目带来的增量现金流。"
+          en: "The lost cash flow of existing products happens because of the project, so it is part of the project's incremental cash flow."
       - zh-cn: 去年已经花掉的市场调研费用
         en: Market research costs already spent last year
       - zh-cn: 项目需要增加的存货
         en: The extra inventory the project needs
+        why:
+          zh-cn: "增加的存货要占用现金，而且是因为做项目才需要的。"
+          en: "The extra inventory ties up cash, and it is needed only because of the project."
     correct: C
     answer:
       zh-cn: |-
@@ -114,6 +133,9 @@ questions:
       en: |-
         For a conventional project that pays out first and receives later (such as project A in [[fig:3-1]]), as long as the cost of capital is below its IRR, its NPV must be positive.
     correct: true
+    hint:
+      zh-cn: "想一想：常规项目的 NPV 随折现率怎样变化？NPV 曲线与横轴相交几次？"
+      en: "Think: how does a conventional project's NPV change with the discount rate? How many times does its NPV curve cross the horizontal axis?"
     answer:
       zh-cn: |-
         对。常规项目的 NPV 随折现率上升而下降，只与横轴相交一次（在 IRR 处），所以折现率低于 IRR 时 NPV 为正，高于时为负，IRR 法则与 NPV 法则一致。
@@ -133,12 +155,21 @@ questions:
     choices:
       - zh-cn: 选 A，因为它的 IRR 更高
         en: A, because its IRR is higher
+        why:
+          zh-cn: "IRR 的高低不等于 NPV 的大小。两个项目只能选一个时，要比较在资本成本下哪个创造的价值更多。"
+          en: "A higher IRR does not mean a larger NPV. When only one project can be chosen, compare which creates more value at the cost of capital."
       - zh-cn: 选 B，因为在 5% 时它的 NPV 更大
         en: B, because its NPV is larger at 5%
       - zh-cn: 选 A，因为它回收得更快
         en: A, because it pays back faster
+        why:
+          zh-cn: "回收的快慢没有考虑回收之后的现金流，也没有考虑折现。"
+          en: "How fast a project pays back ignores the cash flows after payback, and ignores discounting."
       - zh-cn: 两者一样好，因为两者的 NPV 都为正
         en: Either, because both NPVs are positive
+        why:
+          zh-cn: "两个项目只能选一个，NPV 都为正时，还要比较哪个更大。"
+          en: "Only one can be chosen; when both NPVs are positive, you still have to compare which is larger."
     correct: B
     answer:
       zh-cn: |-
@@ -156,6 +187,9 @@ questions:
       en: |-
         A project with a shorter payback period always has a larger NPV.
     correct: false
+    hint:
+      zh-cn: "想一想：回收期法怎样对待回收期之后的现金流？它有没有考虑折现？"
+      en: "Think: how does the payback method treat cash flows after the payback date? Does it discount?"
     answer:
       zh-cn: |-
         错。回收期法不折现，而且完全忽略回收期之后的现金流。[[fig:3-1]] 中 A 回收得更快，但 B 第 3 年有一大笔现金流，资本成本为 5% 时 B 的 NPV 更大。

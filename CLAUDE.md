@@ -80,8 +80,11 @@ one learner, revision history and answers inline. To publish a finished lesson:
      number may appear, but the answer must follow from understanding, not from working through a
      calculation. A figure-based check question asks about a direction or pattern in the figure, not
      a precise reading;
-   - the learner picks an answer and submits it; the page says at once whether it is right, and a
-     wrong answer shows `answer`, which starts with the correct choice and explains it briefly;
+   - the learner picks an answer and submits it; the page says at once whether it is right. A wrong
+     answer never reveals the right one, so the learner can think again: each wrong option of a
+     multiple-choice question has `why` (what is wrong with that option), and a true / false question
+     has `hint` (what to think about, without the verdict). `answer` holds the full explanation for
+     reference and is not shown;
    - they have no `expected` and no `rubric`.
    Exercises:
    - they hold the calculations, derivations and applications, without many parts; when a question
@@ -120,7 +123,8 @@ one learner, revision history and answers inline. To publish a finished lesson:
   a lesson whose check questions are all answered on the page has no `<CheckAll />`, and a lesson with
   exercises contains `<Exercises />` exactly once.
 - A check question answered on the page has `correct` (true / false, or a letter of `choices`), has
-  2 to 8 options if it has `choices`, and has no `expected` and no `rubric`.
+  2 to 8 options if it has `choices`, a `why` on every wrong option (none on the right one) or a
+  `hint` if it is true / false, and no `expected` and no `rubric`.
 - Check questions and exercises have no `points`, and their rubrics do not mention points.
 - Quiz questions have `points`, and the points of a quiz total 100.
 - Chinese text (every `zh-*` language) uses Chinese quotation marks and the word 提示词 (提示詞 in
@@ -149,7 +153,7 @@ one learner, revision history and answers inline. To publish a finished lesson:
   itself through its labels and short hints next to the controls.
 - Check questions are true / false or multiple choice and are answered on the page: each has its own
   submit button, the result ("ok" / "revise") is shown and stored at once, and a wrong answer shows
-  the explanation. Older lessons not yet converted still submit them with `<CheckAll />`.
+  what is wrong with the chosen option (or a hint) without revealing the right answer. Older lessons not yet converted still submit them with `<CheckAll />`.
 - Other answers are not entered on the site. Exercises are submitted together by `<Exercises />`.
   The prompt ends with an empty "learner's answers" heading; the learner attaches a photo or types the
   answers after it.

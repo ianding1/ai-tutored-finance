@@ -2,7 +2,8 @@
 // One question: label, result, points (quiz questions only) and text. Most answers are not entered on the site; the
 // learner writes them on paper (or types them after the copied prompt) and submits them at the end of the lesson.
 // Check questions with `correct` in the key are answered here instead: the learner picks an option and submits it,
-// the result is shown at once, and a wrong answer shows the explanation (the reference answer).
+// and the result is shown at once. A wrong answer shows what is wrong with the picked option (`why`), or for a
+// true / false question a hint (`hint`), without giving away the right answer, so the learner can try again.
 // The result (not answered / OK / needs revision) is filled in from the stored progress by
 // src/scripts/questions.ts.
 import { t, type Lang } from '../i18n/ui';
@@ -20,11 +21,16 @@ const letters = 'ABCDEFGH';
 const options = !interactive
 	? []
 	: q.choices?.length
-		? q.choices.map((c, i) => ({ value: letters[i], html: `(${letters[i]}) ${renderRich(c[lang], lang, lessonId)}` }))
+		? q.choices.map((c, i) => ({
+				value: letters[i],
+				html: `(${letters[i]}) ${renderRich(c[lang], lang, lessonId)}`,
+				why: c.why ? renderRich(c.why[lang], lang, lessonId) : '',
+			}))
 		: [
-				{ value: 'true', html: t(lang, 'choiceTrue') },
-				{ value: 'false', html: t(lang, 'choiceFalse') },
+				{ value: 'true', html: t(lang, 'choiceTrue'), why: '' },
+				{ value: 'false', html: t(lang, 'choiceFalse'), why: '' },
 			];
+const hint = interactive && q.hint ? renderRich(q.hint[lang], lang, lessonId) : '';
 const correct = interactive ? String(q.correct) : '';
 const name = `choice-${lessonId}-${q.id}`;
 ---
@@ -54,7 +60,10 @@ const name = `choice-${lessonId}-${q.id}`;
 				<button type="submit" class="lfwai-btn">{t(lang, 'submitAnswer')}</button>
 				<span class="lfwai-choice-result" data-choice-result aria-live="polite"></span>
 			</div>
-			<div class="lfwai-choice-explain" data-choice-explain hidden set:html={renderRich(q.answer[lang], lang, lessonId)} />
+			{options.filter((o) => o.why).map((o) => (
+				<div class="lfwai-choice-explain" data-choice-why={o.value} hidden set:html={o.why} />
+			))}
+			{hint && <div class="lfwai-choice-explain" data-choice-why="hint" hidden set:html={hint} />}
 		</form>
 	)}
 </div>

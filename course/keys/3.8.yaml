@@ -8,8 +8,9 @@
 #   - one of its `concepts` is tested by a question being graded, or
 #   - one of its `questions` is being graded.
 # common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
-# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`;
-# `answer` is the explanation shown after a wrong answer. They have no expected and no rubric.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
 
 lesson: "3.8"
 
@@ -75,12 +76,21 @@ questions:
     choices:
       - zh-cn: A，因为它的利润率高，可以损失的利润更多
         en: A, because its margin is high and it has more profit to lose
+        why:
+          zh-cn: "利润率高意味着收入下降时有较大的缓冲，利润不容易变为负数。"
+          en: "A high margin gives a large cushion when revenue falls, so profit does not easily turn negative."
       - zh-cn: B，因为它的利润率很低，杠杆又高
         en: B, because its margin is very low and its leverage high
       - zh-cn: 两家一样，因为 ROE 相同
         en: Both the same, because their ROEs are equal
+        why:
+          zh-cn: "ROE 相同，但来源不同：看看两家的利润率和杠杆。"
+          en: "The ROEs are equal but come from different sources: look at each company's margin and leverage."
       - zh-cn: B，因为它的资产周转率高
         en: B, because its asset turnover is high
+        why:
+          zh-cn: "资产周转率高本身不增加风险。想一想利润率只有 2% 时，收入下降 10% 会怎样。"
+          en: "High asset turnover does not add risk by itself. Think about what a 10% fall in revenue does with a 2% margin."
     correct: B
     answer:
       zh-cn: |-
@@ -101,12 +111,21 @@ questions:
     choices:
       - zh-cn: 降到 2%，与没有负债时相同
         en: Falls to 2%, the same as without debt
+        why:
+          zh-cn: "有负债时，股东还要支付固定的利息。资产收益率低于借款利率时，利息吃掉的比例更大。"
+          en: "With debt, fixed interest must still be paid. When the return on assets is below the interest rate, interest takes a larger share."
       - zh-cn: 仍然高于没有负债时
         en: Stays above the ROE without debt
+        why:
+          zh-cn: "负债只在资产收益率高于借款利率时才提高 ROE。这里资产收益率降到 2%，借款利率是 5%。"
+          en: "Debt raises ROE only when the return on assets exceeds the interest rate. Here the return on assets falls to 2% and the rate is 5%."
       - zh-cn: 变为负数
         en: Turns negative
       - zh-cn: 不变，因为负债比例不变
         en: Does not change, because the debt ratio is unchanged
+        why:
+          zh-cn: "负债比例不变，但资产收益率变了，ROE 也会变化，而且变化被杠杆放大。"
+          en: "The debt ratio is unchanged, but the return on assets changed, so ROE changes too, magnified by leverage."
     correct: C
     answer:
       zh-cn: |-
@@ -126,12 +145,21 @@ questions:
     choices:
       - zh-cn: 有利，因为利润增长了
         en: Good, because profit grows
+        why:
+          zh-cn: "会计利润增长不等于价值增长。新投资的回报与投资者要求的回报相比如何？"
+          en: "Growth in accounting profit is not growth in value. How does the return on new investment compare with what investors require?"
       - zh-cn: 不利，因为新投资的回报低于投资者要求的回报
         en: Bad, because the new investment earns less than investors require
       - zh-cn: 没有影响，因为 ROIC 不变
         en: Neutral, because ROIC does not change
+        why:
+          zh-cn: "ROIC 不变，但新投入的资本仍然只赚 6%。投资者对这些资本要求多少？"
+          en: "ROIC is unchanged, but the new capital still earns only 6%. What do investors require on it?"
       - zh-cn: 有利，因为公司规模变大，风险降低
         en: Good, because a larger company is less risky
+        why:
+          zh-cn: "规模变大不能弥补回报低于资本成本的问题。"
+          en: "Becoming larger does not make up for earning less than the cost of capital."
     correct: B
     answer:
       zh-cn: |-
@@ -151,12 +179,21 @@ questions:
     choices:
       - zh-cn: 电力公司，因为它的资产更多
         en: The utility, because it has more assets
+        why:
+          zh-cn: "资产多少不决定偿债风险。要看利润和现金流在坏年份能下降多少。"
+          en: "The amount of assets does not decide debt risk. What matters is how far profit and cash flow can fall in bad years."
       - zh-cn: 半导体公司，因为它的利润随周期大幅波动
         en: The semiconductor company, because its profit swings widely with the cycle
       - zh-cn: 两家一样，因为两个比率都相同
         en: Both the same, because both ratios are equal
+        why:
+          zh-cn: "比率只描述现在。衰退来临时，两家公司的利润会变化得一样多吗？"
+          en: "The ratios describe only the present. In a recession, would both companies' profits change by the same amount?"
       - zh-cn: 无法判断，要看股价
         en: Impossible to tell without the share prices
+        why:
+          zh-cn: "债权人关心的是能否按时收到利息和本金，这主要取决于利润和现金流，而不是股价。"
+          en: "Creditors care about being paid interest and principal on time, which depends mainly on profit and cash flow, not on the share price."
     correct: B
     answer:
       zh-cn: |-

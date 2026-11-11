@@ -8,8 +8,9 @@
 #   - one of its `concepts` is tested by a question being graded, or
 #   - one of its `questions` is being graded.
 # common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
-# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`;
-# `answer` is the explanation shown after a wrong answer. They have no expected and no rubric.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
 
 lesson: "3.5"
 
@@ -68,6 +69,9 @@ questions:
       en: |-
         The expectations hypothesis holds and the yield curve slopes upward. An investor with a 1-year horizon who buys a 2-year zero and sells it after a year has a higher expected return than if he simply bought a 1-year bill.
     correct: false
+    hint:
+      zh-cn: "想一想：按预期假说，市场预期一年后的 1 年期利率是多少？一年后这张债券的预期价格，会使持有一年的预期收益等于什么？"
+      en: "Think: under the expectations hypothesis, what 1-year rate does the market expect a year from now? What does the bond's expected price then make the expected one-year return equal to?"
     answer:
       zh-cn: |-
         错。按预期假说，市场预期明年的短期利率等于远期利率，一年后债券的预期价格正好使持有一年的预期收益等于 1 年期利率。2 年期利率较高，只是因为预期以后的短期利率更高，不代表持有长期债券的预期收益更高。
@@ -87,12 +91,21 @@ questions:
     choices:
       - zh-cn: 整体向下倾斜，反映降息的预期
         en: Slopes downward throughout, reflecting the expected cuts
+        why:
+          zh-cn: "加入期限溢价后，长期收益率被抬高了多少？看看 10 年期收益率与 1 年期的 4% 相比。"
+          en: "How much does the term premium raise long yields? Compare the 10-year yield with the 1-year 4%."
       - zh-cn: 开头略有下降，之后向上倾斜，10 年期收益率高于 1 年期
         en: Dips slightly at first and then slopes upward, with the 10-year yield above the 1-year
       - zh-cn: 完全平坦
         en: Is completely flat
+        why:
+          zh-cn: "预期部分和期限溢价都随期限变化，曲线不会完全平坦。"
+          en: "Both the expected part and the term premium change with maturity, so the curve is not completely flat."
       - zh-cn: 向下倾斜，而且比没有期限溢价时更陡
         en: Slopes downward, more steeply than with no term premium
+        why:
+          zh-cn: "期限溢价使长期收益率升高还是降低？它会让下降的曲线更陡吗？"
+          en: "Does the term premium raise or lower long yields? Would it make a falling curve steeper?"
     correct: B
     answer:
       zh-cn: |-
@@ -112,12 +125,21 @@ questions:
     choices:
       - zh-cn: 每年滚动的 1 年期国债
         en: 1-year Treasury bills rolled over every year
+        why:
+          zh-cn: "滚动 1 年期国债时，30 年后得到多少钱取决于未来每一年的利率。这对一笔 30 年后的支出意味着什么？"
+          en: "With rolling 1-year bills, the money in 30 years depends on every future year's rate. What does that mean for a payment due in 30 years?"
       - zh-cn: 30 年期零息国债
         en: A 30-year zero-coupon Treasury
       - zh-cn: 货币市场基金
         en: A money market fund
+        why:
+          zh-cn: "货币市场基金的收益随短期利率变化，30 年后的金额同样不确定。"
+          en: "A money market fund's return moves with short rates, so the amount in 30 years is just as uncertain."
       - zh-cn: 股票指数基金
         en: A stock index fund
+        why:
+          zh-cn: "股票的价值波动很大，30 年后的金额更不确定，与一笔固定的支出不匹配。"
+          en: "Stock values swing widely, so the amount in 30 years is even less certain and does not match a fixed payment."
     correct: B
     answer:
       zh-cn: |-
@@ -135,6 +157,9 @@ questions:
       en: |-
         The expectations hypothesis holds and the yield curve slopes upward. Buying bonds longer than the investment horizon and selling them before maturity (riding the yield curve) has a higher expected return than buying bonds that match the horizon.
     correct: false
+    hint:
+      zh-cn: "想一想：按预期假说，市场预期收益率曲线一年后会怎样变化？卖出时的收益率还会沿着今天的曲线下降吗？"
+      en: "Think: under the expectations hypothesis, how does the market expect the yield curve to change over a year? Will the yield at sale still fall along today's curve?"
     answer:
       zh-cn: |-
         错。按预期假说，市场预期未来的短期利率等于远期利率，曲线会随时间上移，卖出时的收益率不会沿原来的曲线下降那么多，预期收益与买入期限相同的债券一样。骑乘只有在未来的短期利率低于远期利率时（例如有正的期限溢价）才会多赚。

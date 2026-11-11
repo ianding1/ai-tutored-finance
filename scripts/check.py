@@ -345,6 +345,8 @@ def check_keys():
                 if choices is None:
                     if not isinstance(q["correct"], bool):
                         err(where, "a true / false check question needs correct: true or false")
+                    if not isinstance(q.get("hint"), dict):
+                        err(where, "a true / false check question needs 'hint' (shown after a wrong answer, without the verdict)")
                 else:
                     letters = "ABCDEFGH"[: len(choices)] if isinstance(choices, list) else ""
                     if not isinstance(choices, list) or not 2 <= len(choices) <= 8:
@@ -355,6 +357,13 @@ def check_keys():
                         for lang in LANGS:
                             if not isinstance(c, dict) or not isinstance(c.get(lang), str) or not c[lang].strip():
                                 err(where, f"choice {n + 1} needs text (a string) in {lang}")
+                        is_right = n < len(letters) and letters[n] == q["correct"]
+                        if isinstance(c, dict) and not is_right and not isinstance(c.get("why"), dict):
+                            err(where, f"wrong choice {letters[n] if n < len(letters) else n + 1} needs 'why' (what is wrong with it)")
+                        if isinstance(c, dict) and is_right and "why" in c:
+                            err(where, "the correct choice has no 'why'")
+                    if "hint" in q:
+                        err(where, "a multiple-choice check question uses 'why' on its wrong choices, not 'hint'")
                 for f in ("expected", "rubric"):
                     if f in q:
                         err(where, f"a check question answered on the page has no '{f}'")

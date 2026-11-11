@@ -43,11 +43,16 @@ export interface Question {
 	points?: number;
 	concepts: string[];
 	question: Bi;
-	/** check questions answered on the page: options (A), (B), ... of a multiple-choice question */
-	choices?: Bi[];
+	/**
+	 * check questions answered on the page: options (A), (B), ... of a multiple-choice question. Each wrong
+	 * option has `why`: what is wrong with it, shown when it is picked, without giving away the right option.
+	 */
+	choices?: (Bi & { why?: Bi })[];
+	/** true / false check questions answered on the page: a hint shown after a wrong answer, without the verdict */
+	hint?: Bi;
 	/** check questions answered on the page: the correct letter, or true / false for a true-or-false question */
 	correct?: string | boolean;
-	/** reference answer; for a check question answered on the page, the explanation shown after a wrong answer */
+	/** reference answer; for a check question answered on the page it is not shown (feedback comes from `why` / `hint`) */
 	answer: Bi;
 	/** not used by check questions answered on the page */
 	rubric?: Localized<string[]>;
