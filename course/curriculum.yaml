@@ -359,7 +359,15 @@ stages:
         published: true
         introduces: [arithmetic-mean-return, geometric-mean-return, volatility-drag, annualized-volatility, maximum-drawdown, sharpe-ratio, equity-premium]
         uses: [simple-return, log-return, expected-value, variance, standard-deviation, median, lognormal-distribution, fat-tails, standard-error, confidence-interval, correlation]
-      - { id: "4.2", slug: "4-2-markowitz", title: { zh-cn: "均值–方差组合理论", en: "Mean–Variance Portfolio Theory" } }
+      - id: "4.2"
+        slug: "4-2-markowitz"
+        title: { zh-cn: "均值–方差组合理论", en: "Mean–Variance Portfolio Theory" }
+        summary:
+          zh-cn: "两种风险资产的组合与相关系数；最小方差组合；最小方差前沿与有效前沿；用拉格朗日乘数法做均值–方差优化；卖空限制与角点解；分散化的作用与方法的局限。"
+          en: "Portfolios of two risky assets and the role of correlation; the minimum-variance portfolio; the minimum-variance frontier and the efficient frontier; mean–variance optimization with Lagrange multipliers; short-sale constraints and corner solutions; what diversification does and the limits of the method."
+        published: true
+        introduces: [minimum-variance-portfolio, minimum-variance-frontier, efficient-frontier, mean-variance-optimization, short-sale-constraint]
+        uses: [portfolio-variance, covariance, correlation, diversification, expected-value, standard-deviation, lagrange-multiplier, partial-derivative, second-order-condition, short-selling, volatility-drag, standard-error]
       - { id: "4.3", slug: "4-3-capital-allocation", title: { zh-cn: "资本配置线与资本市场线", en: "The Capital Allocation Line and the Capital Market Line" } }
       - { id: "4.4", slug: "4-4-capm", title: { zh-cn: "资本资产定价模型（CAPM）", en: "The Capital Asset Pricing Model (CAPM)" } }
       - { id: "4.5", slug: "4-5-single-index-model", title: { zh-cn: "单指数模型与 beta 估计", en: "The Single-Index Model and Estimating Beta" } }

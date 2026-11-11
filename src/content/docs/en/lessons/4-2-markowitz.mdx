@@ -1,0 +1,89 @@
+---
+title: 4.2 Mean–Variance Portfolio Theory
+description: "Portfolios of two risky assets and the role of correlation; the minimum-variance portfolio; the minimum-variance frontier and the efficient frontier; mean–variance optimization with Lagrange multipliers; short-sale constraints and corner solutions; what diversification does and the limits of the method."
+lesson: "4.2"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import TwoAssetFrontier from '../../../../components/widgets/TwoAssetFrontier.astro';
+
+## Portfolios of two assets [#two-assets]
+
+<Ref lesson="0.3" /> showed how the variance of a two-asset portfolio depends on the correlation. Now draw each portfolio on one chart, with standard deviation on the horizontal axis and expected return on the vertical axis. Let assets A and B have expected returns $\mu_A$ and $\mu_B$, standard deviations $\sigma_A$ and $\sigma_B$, and correlation $\rho$, and let the weight of A be $w$:
+
+$$
+\mu_p = w\mu_A + (1 - w)\mu_B, \qquad \sigma_p^2 = w^2\sigma_A^2 + (1 - w)^2\sigma_B^2 + 2w(1 - w)\rho\sigma_A\sigma_B
+$$
+
+The expected return is a weighted average of the two and changes in a straight line with $w$; the standard deviation does not (<Ref concept="portfolio-variance" />). As $w$ goes from 0 to 1, the portfolio traces a curve on the chart. With $w < 0$ or $w > 1$ one asset is sold short (<Ref concept="short-selling" />), and the curve extends at both ends.
+
+<Figure id="1-1" title="Portfolios of asset A (expected return 10%, standard deviation 20%) and B (5%, 10%). Solid: portfolios without short sales; dashed: portfolios that need short sales; the dot is the portfolio with the chosen weight." observe="First move the weight of A and watch the dot move along the curve; then change the correlation and see how the curve bends.">
+	<TwoAssetFrontier />
+</Figure>
+
+<Check id="C1" />
+
+Of all possible portfolios, the one with the lowest variance is the <Def id="minimum-variance-portfolio">minimum-variance portfolio</Def>. With two assets, its weight can be found with a derivative (<Ref check="Q1" />).
+
+<Check id="C2" />
+
+## The efficient frontier [#frontier]
+
+With more than two assets, the possible portfolios fill a region of the chart. For each target expected return $m$, find the portfolio with the lowest variance; the curve these portfolios form is the <Def id="minimum-variance-frontier">minimum-variance frontier</Def>. Its leftmost point is the minimum-variance portfolio.
+
+The half of the frontier below the minimum-variance portfolio is of no use: at the same standard deviation, the portfolios on the upper half have higher expected returns. The part of the minimum-variance frontier above the minimum-variance portfolio is the <Def id="efficient-frontier">efficient frontier</Def>: the highest expected return for the risk, and the lowest risk for the expected return.
+
+Finding portfolios on the frontier is a constrained optimization problem. Suppose there are $N$ assets with weights $w_i$ and expected returns $\mu_i$, and let $\sigma_{ij}$ be the covariance of assets $i$ and $j$ ($\sigma_{ii} = \sigma_i^2$). The portfolio's variance is
+
+$$
+\sigma_p^2 = \sum_{i=1}^{N} \sum_{j=1}^{N} w_i w_j \sigma_{ij}
+$$
+
+It is minimized subject to two constraints:
+
+$$
+\sum_{i=1}^{N} w_i \mu_i = m, \qquad \sum_{i=1}^{N} w_i = 1
+$$
+
+This is the <Def id="mean-variance-optimization">mean–variance optimization</Def> proposed by Markowitz (1952). Each constraint has its own Lagrange multiplier (<Ref concept="lagrange-multiplier" />); setting the partial derivative with respect to each $w_i$ to 0 gives the weights on the frontier (<Ref check="Q2" />).
+
+<Check id="C3" />
+
+## Short-sale constraints [#short-sales]
+
+Many investors (such as most mutual funds and individual retirement accounts) cannot sell short. Then the constraint $w_i \ge 0$ is added; this is a <Def id="short-sale-constraint">short-sale constraint</Def>. With it, the optimum may lie on the boundary, with some weights exactly 0; this is the same kind of problem as the corner solutions of <Ref lesson="0.2" sec="corner" />: at the optimum, the tangency condition no longer holds.
+
+<Check id="C4" />
+
+## What diversification does [#diversification]
+
+The benefit of <Ref concept="diversification" /> comes from correlations below 1. Adding a new asset to the choices cannot make the efficient frontier worse: every old portfolio is still available (with a weight of 0 on the new asset). When can the new asset make the frontier better?
+
+<Check id="C5" />
+
+The benefit of diversification also shows up in long-run compound growth. <Ref lesson="4.1" /> showed that volatility drags down compound growth; by lowering volatility, diversification can raise compound growth even without raising the expected return (<Ref check="Q4" />).
+
+## Limits of the method [#limits]
+
+Mean–variance optimization gives a clear framework, but using it in practice raises several problems:
+
+- The inputs must be estimated. Estimates of expected returns have large errors (<Ref lesson="4.1" sec="history" />), and the optimizer "believes" them, putting large amounts in assets whose estimates are too high and often producing extreme weights (<Ref check="Q3" />). <Ref lesson="4.10" /> is devoted to this problem.
+- Variance treats rises and falls alike and ignores fat tails and maximum drawdown.
+- It is a single-period model that ignores the investor's horizon, income and liabilities.
+
+## Summary [#summary]
+
+- Two-asset portfolios: the expected return changes in a straight line with the weight, the standard deviation does not; the lower the correlation, the more the curve bends to the left.
+- The minimum-variance portfolio has the lowest variance; the minimum-variance frontier holds the lowest-variance portfolio for each target expected return; the efficient frontier is its part above the minimum-variance portfolio.
+- Mean–variance optimization: minimize $\sigma_p^2$ subject to $\sum w_i \mu_i = m$ and $\sum w_i = 1$, solvable with Lagrange multipliers.
+- A short-sale constraint $w_i \ge 0$ may put the optimum on the boundary.
+- Adding a new asset cannot make the efficient frontier worse; diversification can also raise compound growth.
+- Estimation errors in the inputs make optimization results very unstable.
+
+## Exercises [#exercises]
+
+<Exercises />

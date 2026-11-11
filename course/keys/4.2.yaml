@@ -1,0 +1,312 @@
+# Answer key for lesson 4.2. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[4.2#frontier]] (section), [[concept:efficient-frontier]], [[check:Q3]], [[fig:1-1]].
+# expected: values are recomputed by course/verify/4.2.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "4.2"
+
+context:
+  - zh-cn: |-
+      学习者学过偏导数、二阶条件、拉格朗日乘数法和角点解（[[0.2]]）、协方差、相关系数、组合方差和分散化（[[0.3]]）、卖空（[[3.1]]）、波动拖累和历史收益的估计误差（[[4.1]]）。讲义还没有讲无风险资产与资本配置线（[[4.3]]）和估计误差的处理方法（[[4.10]]）。百分数用百分点表示，方差用 %²。
+    en: |-
+      The learner has studied partial derivatives, second-order conditions, Lagrange multipliers and corner solutions ([[0.2]]), covariance, correlation, portfolio variance and diversification ([[0.3]]), short selling ([[3.1]]), and volatility drag and the estimation error of historical returns ([[4.1]]). The lesson has not yet covered the risk-free asset and the capital allocation line ([[4.3]]) or methods for handling estimation error ([[4.10]]). Percentages in percentage points; variance in %².
+  - concepts: [minimum-variance-portfolio]
+    zh-cn: |-
+      讲义：$\mu_p = w\mu_A + (1 - w)\mu_B$，$\sigma_p^2 = w^2\sigma_A^2 + (1 - w)^2\sigma_B^2 + 2w(1 - w)\rho\sigma_A\sigma_B$；$w < 0$ 或 $w > 1$ 需要卖空。最小方差组合是方差最小的组合，两种资产时的权重由导数求出（留给练习题）。[[fig:1-1]]：A 预期收益 10%、标准差 20%，B 为 5%、10%；滑块：相关系数 −1 到 1（步长 0.1，默认 0.2），A 的权重 −0.5 到 1.5（步长 0.05，默认 0.5）；实线为不卖空的组合，虚线为需要卖空的组合；读数显示所选权重的预期收益和标准差。
+    en: |-
+      The lesson: $\mu_p = w\mu_A + (1 - w)\mu_B$, $\sigma_p^2 = w^2\sigma_A^2 + (1 - w)^2\sigma_B^2 + 2w(1 - w)\rho\sigma_A\sigma_B$; $w < 0$ or $w > 1$ requires a short sale. The minimum-variance portfolio has the lowest variance; with two assets its weight comes from a derivative (left to an exercise). [[fig:1-1]]: A has expected return 10% and standard deviation 20%, B 5% and 10%; sliders: correlation from −1 to 1 (in steps of 0.1, default 0.2) and the weight of A from −0.5 to 1.5 (in steps of 0.05, default 0.5); solid line for portfolios without short sales, dashed for those that need them; the readout shows the expected return and standard deviation at the chosen weight.
+  - concepts: [minimum-variance-frontier, efficient-frontier, mean-variance-optimization, short-sale-constraint]
+    zh-cn: |-
+      讲义：最小方差前沿是每个目标预期收益 $m$ 下方差最小的组合；有效前沿是其中最小方差组合以上的部分。均值–方差优化（Markowitz，1952）：在 $\sum w_i \mu_i = m$ 和 $\sum w_i = 1$ 下使 $\sigma_p^2 = \sum_i \sum_j w_i w_j \sigma_{ij}$ 最小，用两个拉格朗日乘数求解（留给练习题）。卖空限制 $w_i \ge 0$ 可能使最优解落在边界上（角点解）。加入新资产不会使有效前沿变差（新资产权重为 0 时原组合仍可选）。分散化降低波动，能提高复合增长率（留给练习题）。局限：输入的估计误差使权重极端，方差忽略肥尾和回撤，单期模型。
+    en: |-
+      The lesson: the minimum-variance frontier holds the lowest-variance portfolio for each target expected return $m$; the efficient frontier is its part above the minimum-variance portfolio. Mean–variance optimization (Markowitz, 1952): minimize $\sigma_p^2 = \sum_i \sum_j w_i w_j \sigma_{ij}$ subject to $\sum w_i \mu_i = m$ and $\sum w_i = 1$, using two Lagrange multipliers (left to an exercise). A short-sale constraint $w_i \ge 0$ may put the optimum on the boundary (a corner solution). Adding a new asset cannot make the efficient frontier worse (old portfolios stay available with a weight of 0). Diversification lowers volatility and can raise compound growth (left to an exercise). Limits: estimation errors in the inputs give extreme weights; variance ignores fat tails and drawdowns; it is a single-period model.
+
+common_errors:
+  - questions: [Q1, Q2]
+    zh-cn: |-
+      以为最小方差组合就是全部投资风险最低的资产；或者以为最小方差组合的权重一定在 0 和 1 之间。
+    en: |-
+      Thinking the minimum-variance portfolio is everything in the least risky asset; or thinking its weights must lie between 0 and 1.
+  - questions: [Q2]
+    zh-cn: |-
+      列拉格朗日函数时漏掉预算约束 $\sum w_i = 1$，或者对协方差项求导时漏掉系数 2。
+    en: |-
+      Leaving out the budget constraint $\sum w_i = 1$ from the Lagrangian, or dropping the factor 2 when differentiating the covariance terms.
+  - questions: [Q3]
+    zh-cn: |-
+      把优化器给出的权重当作可靠的结果，忽略预期收益的估计误差对权重的巨大影响。
+    en: |-
+      Treating the optimizer's weights as reliable, ignoring how much estimation errors in expected returns move them.
+  - questions: [Q4]
+    zh-cn: |-
+      以为分散化只降低风险、不影响长期财富；或者忽略分散化提高复合增长率需要定期再平衡。
+    en: |-
+      Thinking diversification only lowers risk and does not affect long-run wealth; or ignoring that raising compound growth through diversification needs regular rebalancing.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: two-assets
+    concepts: [portfolio-variance, correlation]
+    widget: { id: two-asset-frontier, set: { rho: 0.2, w: 0.5 } }
+    question:
+      zh-cn: |-
+        在 [[fig:1-1]] 中，把相关系数从 0.2 调到 −1。组合的曲线会怎样变化？
+      en: |-
+        In [[fig:1-1]], change the correlation from 0.2 to −1. How does the curve of portfolios change?
+    choices:
+      - zh-cn: 变成连接 A、B 两点的直线
+        en: It becomes a straight line joining A and B
+        why:
+          zh-cn: 连接 A、B 的直线对应的是哪一个相关系数？在图中试一试 $\rho = 1$。
+          en: Which correlation gives the straight line joining A and B? Try $\rho = 1$ in the figure.
+      - zh-cn: 更向左弯曲，最左端碰到纵轴，存在标准差为 0 的组合
+        en: It bends further to the left, and its leftmost point touches the vertical axis, so some portfolio has zero standard deviation
+      - zh-cn: 整条曲线向右移动
+        en: The whole curve moves to the right
+        why:
+          zh-cn: 相关系数降低时，两种资产的波动更多地相互抵消。组合的风险会变大还是变小？
+          en: When the correlation falls, more of the two assets' swings cancel out. Does portfolio risk rise or fall?
+      - zh-cn: 不变，因为两种资产的标准差没有变
+        en: It does not change, because the two assets' standard deviations are unchanged
+        why:
+          zh-cn: 组合方差的公式中，哪一项含有 $\rho$？
+          en: Which term of the portfolio variance formula contains $\rho$?
+    correct: B
+    answer:
+      zh-cn: |-
+        (B)。$\rho = -1$ 时，A 的涨跌总是被 B 反向抵消。选择适当的权重（A 约占 1/3），组合的标准差为 0，曲线在这一点碰到纵轴。相关系数越低，曲线越向左弯曲，分散化的好处越大；$\rho = 1$ 时曲线是连接 A、B 的直线，没有分散化的好处。
+      en: |-
+        (B). With $\rho = -1$, A's moves are always offset by B's opposite moves. With the right weights (about 1/3 in A), the portfolio's standard deviation is 0 and the curve touches the vertical axis there. The lower the correlation, the more the curve bends to the left and the larger the benefit of diversification; with $\rho = 1$ the curve is the straight line joining A and B, with no benefit.
+
+  - id: C2
+    kind: check
+    section: two-assets
+    concepts: [minimum-variance-portfolio]
+    question:
+      zh-cn: |-
+        A 的预期收益 10%、标准差 20%；B 的预期收益 5%、标准差 10%；相关系数为 0.2。最小方差组合是什么样的？
+      en: |-
+        A has an expected return of 10% and a standard deviation of 20%; B has 5% and 10%; their correlation is 0.2. What does the minimum-variance portfolio look like?
+    choices:
+      - zh-cn: 全部投资 B，因为 B 的风险最低
+        en: Everything in B, because B is the least risky
+        why:
+          zh-cn: 从全部投资 B 开始，加入一小部分 A，组合方差会怎样变化？相关系数只有 0.2，A 的一部分波动能被 B 抵消。
+          en: Starting from everything in B, add a little A. How does the portfolio variance change? With a correlation of only 0.2, part of A's swings is offset by B.
+      - zh-cn: 主要投资 B，也包括一小部分 A，标准差低于 B 的 10%
+        en: Mostly B with a small part in A, with a standard deviation below B's 10%
+      - zh-cn: A、B 各一半
+        en: Half in A and half in B
+        why:
+          zh-cn: 在图中把 A 的权重设为 0.5，比较这时的标准差和全部投资 B 时的标准差。
+          en: Set the weight of A to 0.5 in the figure and compare the standard deviation with that of everything in B.
+      - zh-cn: 主要投资 A
+        en: Mostly A
+        why:
+          zh-cn: A 的标准差是 B 的两倍。方差最小的组合会把大部分资金放在风险较高的资产上吗？
+          en: A's standard deviation is twice B's. Would the lowest-variance portfolio put most of the money in the riskier asset?
+    correct: B
+    answer:
+      zh-cn: |-
+        (B)。最小方差组合中 A 的权重约为 0.14，标准差约 9.56%，低于 B 的 10%。只要相关系数足够低，加入一小部分风险较高的资产也能降低组合的风险，所以最小方差组合不一定是风险最低的单项资产。
+      en: |-
+        (B). The minimum-variance portfolio has about 0.14 in A and a standard deviation of about 9.56%, below B's 10%. As long as the correlation is low enough, adding a little of a riskier asset lowers portfolio risk, so the minimum-variance portfolio need not be the least risky single asset.
+
+  - id: C3
+    kind: check
+    section: frontier
+    concepts: [efficient-frontier]
+    question:
+      zh-cn: |-
+        只关心预期收益和方差的投资者中，风险厌恶程度不同的人会选择有效前沿上不同的组合，但没有人会选择有效前沿下方的组合。
+      en: |-
+        Among investors who care only about expected return and variance, those with different degrees of risk aversion choose different portfolios on the efficient frontier, but none chooses a portfolio below the efficient frontier.
+    correct: true
+    hint:
+      zh-cn: 想一想：有效前沿下方的一个组合，与它正上方的前沿上的组合相比，风险和预期收益各如何？
+      en: 'Think: compare a portfolio below the efficient frontier with the frontier portfolio directly above it. How do their risk and expected return compare?'
+    answer:
+      zh-cn: |-
+        对。前沿下方的任何组合，都有一个前沿上的组合标准差相同、预期收益更高，任何只关心均值和方差、偏好更高收益的投资者都不会选它。风险厌恶程度只决定在有效前沿上选哪一点。
+      en: |-
+        True. For any portfolio below the frontier, there is a frontier portfolio with the same standard deviation and a higher expected return, so no investor who cares only about mean and variance and prefers higher returns would choose it. Risk aversion only decides which point on the efficient frontier to choose.
+
+  - id: C4
+    kind: check
+    section: short-sales
+    concepts: [short-sale-constraint, efficient-frontier]
+    question:
+      zh-cn: |-
+        加上卖空限制后，有效前沿会：
+      en: |-
+        After adding a short-sale constraint, the efficient frontier:
+    choices:
+      - zh-cn: 向左上方移动，同样风险下预期收益更高
+        en: Moves up and to the left, with higher expected returns for the same risk
+        why:
+          zh-cn: 加上约束以后，可以选择的组合变多了还是变少了？
+          en: After adding a constraint, are there more portfolios to choose from, or fewer?
+      - zh-cn: 不变，或者变差（同样风险下预期收益不会更高）
+        en: Stays the same or gets worse (no higher expected return for the same risk)
+      - zh-cn: 一定不变
+        en: Certainly stays the same
+        why:
+          zh-cn: 如果不受约束时某个前沿上的组合需要卖空，加上约束后还能选它吗？
+          en: If a frontier portfolio needs a short sale without the constraint, can it still be chosen with the constraint?
+      - zh-cn: 消失，因为无法再进行优化
+        en: Disappears, because optimization is no longer possible
+        why:
+          zh-cn: 不卖空的组合（例如全部买一种资产）仍然可以选，优化问题仍然有解。
+          en: Portfolios without short sales (such as everything in one asset) can still be chosen, so the optimization still has a solution.
+    correct: B
+    answer:
+      zh-cn: |-
+        (B)。约束只会减少可选的组合，不会增加。如果不受约束时前沿上的组合都不需要卖空，前沿不变；如果有些需要卖空，它们不能再选，前沿在这些地方变差。
+      en: |-
+        (B). A constraint can only remove portfolios, never add them. If no frontier portfolio needs a short sale, the frontier is unchanged; if some do, they are no longer available and the frontier gets worse there.
+
+  - id: C5
+    kind: check
+    section: diversification
+    concepts: [diversification, efficient-frontier, correlation]
+    question:
+      zh-cn: |-
+        一项资产的预期收益低于现有的所有资产。把它加入可选的资产，有效前沿就不可能变好。
+      en: |-
+        An asset has a lower expected return than every existing asset. Adding it to the choices cannot make the efficient frontier better.
+    correct: false
+    hint:
+      zh-cn: 想一想：如果这项资产与其他资产的相关性很低甚至为负，加入一小部分会怎样影响组合的风险？
+      en: 'Think: if this asset has a very low or even negative correlation with the others, how would adding a little of it affect portfolio risk?'
+    answer:
+      zh-cn: |-
+        错。一项资产对组合的作用不只看它自己的预期收益，还看它和其他资产的相关性。与其他资产相关性很低或为负的资产，即使预期收益较低，加入一小部分也能明显降低组合的风险，使同样风险下可以得到更高的预期收益，前沿因此变好。
+      en: |-
+        False. An asset's effect on a portfolio depends not only on its own expected return but also on its correlation with the other assets. An asset with very low or negative correlation can lower portfolio risk noticeably even in a small amount, despite a lower expected return, allowing a higher expected return for the same risk, so the frontier improves.
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    star: true
+    concepts: [minimum-variance-portfolio, second-order-condition, short-selling]
+    expected: { wneg: "-0.33" }
+    question:
+      zh-cn: |-
+        (a) 对两种资产组合的方差 $\sigma_p^2(w)$ 求导，证明最小方差组合中 A 的权重为 $w^* = \frac{\sigma_B^2 - \rho\sigma_A\sigma_B}{\sigma_A^2 + \sigma_B^2 - 2\rho\sigma_A\sigma_B}$，并用二阶条件说明它是最小值（$\rho < 1$ 时）。
+        (b) $\sigma_A = 20\%$，$\sigma_B = 10\%$，$\rho = 0.8$。求 $w^*$。为什么这时卖空 A 反而能降低组合的风险？$\rho$ 满足什么条件时 $w^* < 0$？
+      en: |-
+        (a) Differentiate the two-asset portfolio variance $\sigma_p^2(w)$ and show that the weight of A in the minimum-variance portfolio is $w^* = \frac{\sigma_B^2 - \rho\sigma_A\sigma_B}{\sigma_A^2 + \sigma_B^2 - 2\rho\sigma_A\sigma_B}$; use the second-order condition to show it is a minimum (when $\rho < 1$).
+        (b) $\sigma_A = 20\%$, $\sigma_B = 10\%$, $\rho = 0.8$. Find $w^*$. Why does selling A short lower portfolio risk here? For what values of $\rho$ is $w^* < 0$?
+    answer:
+      zh-cn: |-
+        (a) $\frac{d\sigma_p^2}{dw} = 2w\sigma_A^2 - 2(1 - w)\sigma_B^2 + 2(1 - 2w)\rho\sigma_A\sigma_B = 0$，整理得 $w(\sigma_A^2 + \sigma_B^2 - 2\rho\sigma_A\sigma_B) = \sigma_B^2 - \rho\sigma_A\sigma_B$，即所给公式。二阶导数 $2(\sigma_A^2 + \sigma_B^2 - 2\rho\sigma_A\sigma_B) = 2[(\sigma_A - \sigma_B)^2 + 2(1 - \rho)\sigma_A\sigma_B] > 0$，所以是最小值。
+        (b) $w^* = \frac{100 - 160}{400 + 100 - 320} \approx -0.33$。A 和 B 高度正相关，A 的波动又大得多：卖空一部分 A，A 的下跌会带来收益，正好抵消 B 的下跌，组合的风险比只持有 B 还低。$w^* < 0$ 要求 $\sigma_B^2 - \rho\sigma_A\sigma_B < 0$，即 $\rho > \frac{\sigma_B}{\sigma_A} = 0.5$。
+      en: |-
+        (a) $\frac{d\sigma_p^2}{dw} = 2w\sigma_A^2 - 2(1 - w)\sigma_B^2 + 2(1 - 2w)\rho\sigma_A\sigma_B = 0$, which rearranges to $w(\sigma_A^2 + \sigma_B^2 - 2\rho\sigma_A\sigma_B) = \sigma_B^2 - \rho\sigma_A\sigma_B$, the given formula. The second derivative is $2(\sigma_A^2 + \sigma_B^2 - 2\rho\sigma_A\sigma_B) = 2[(\sigma_A - \sigma_B)^2 + 2(1 - \rho)\sigma_A\sigma_B] > 0$, so it is a minimum.
+        (b) $w^* = \frac{100 - 160}{400 + 100 - 320} \approx -0.33$. A and B are highly positively correlated and A swings much more: shorting some A gains when A falls, which offsets B's fall, so the portfolio is less risky than B alone. $w^* < 0$ requires $\sigma_B^2 - \rho\sigma_A\sigma_B < 0$, that is, $\rho > \frac{\sigma_B}{\sigma_A} = 0.5$.
+    rubric:
+      zh-cn:
+        - "(a) 求导得出公式，并用二阶导数说明是最小值。"
+        - "(b) 约 −0.33（写作 - 或 − 均可），解释卖空的作用，条件 $\\rho > 0.5$。"
+      en:
+        - "(a) Derives the formula and shows a minimum with the second derivative."
+        - "(b) About −0.33 (written with - or −), explains the role of the short sale, condition $\\rho > 0.5$."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [mean-variance-optimization, minimum-variance-portfolio, lagrange-multiplier]
+    expected: { w1: "0.67", sd: "8.16" }
+    question:
+      zh-cn: |-
+        三种资产互不相关，标准差分别为 10%、20%、20%。
+        (a) 只考虑预算约束 $w_1 + w_2 + w_3 = 1$，用拉格朗日乘数法求最小方差组合的权重和标准差。
+        (b) 如果三种资产的预期收益都相同，有效前沿是什么样的？投资者应该选择哪个组合？
+      en: |-
+        Three assets are uncorrelated, with standard deviations of 10%, 20% and 20%.
+        (a) With only the budget constraint $w_1 + w_2 + w_3 = 1$, use a Lagrange multiplier to find the weights and standard deviation of the minimum-variance portfolio.
+        (b) If all three assets have the same expected return, what does the efficient frontier look like? Which portfolio should an investor choose?
+    answer:
+      zh-cn: |-
+        (a) $\mathcal{L} = \sum w_i^2\sigma_i^2 - \lambda(\sum w_i - 1)$，$\frac{\partial \mathcal{L}}{\partial w_i} = 2w_i\sigma_i^2 - \lambda = 0$，所以 $w_i \propto \frac{1}{\sigma_i^2}$：比例为 100 : 25 : 25，权重约 0.67、0.17、0.17。方差 $\left(\frac{2}{3}\right)^2 \times 100 + 2 \times \left(\frac{1}{6}\right)^2 \times 400 \approx 66.67$，标准差约 8.16%，低于最稳的资产（10%）。
+        (b) 所有组合的预期收益都相同，最小方差前沿只剩一个有意义的点：最小方差组合。它在同样的预期收益下风险最低，所有只关心均值和方差的投资者都应该选它；增加风险不会带来任何额外的收益。
+      en: |-
+        (a) $\mathcal{L} = \sum w_i^2\sigma_i^2 - \lambda(\sum w_i - 1)$, $\frac{\partial \mathcal{L}}{\partial w_i} = 2w_i\sigma_i^2 - \lambda = 0$, so $w_i \propto \frac{1}{\sigma_i^2}$: in the ratio 100 : 25 : 25, weights about 0.67, 0.17 and 0.17. The variance is $\left(\frac{2}{3}\right)^2 \times 100 + 2 \times \left(\frac{1}{6}\right)^2 \times 400 \approx 66.67$, a standard deviation of about 8.16%, below the safest asset's 10%.
+        (b) Every portfolio has the same expected return, so only one point of the frontier matters: the minimum-variance portfolio. It has the lowest risk for that expected return, so every investor who cares only about mean and variance should choose it; taking more risk brings no extra return.
+    rubric:
+      zh-cn:
+        - "(a) 列出拉格朗日函数，权重约 0.67、0.17、0.17，标准差约 8.16%。"
+        - "(b) 有效的只有最小方差组合，并说明理由。"
+      en:
+        - "(a) Sets up the Lagrangian; weights about 0.67, 0.17 and 0.17; standard deviation about 8.16%."
+        - "(b) Only the minimum-variance portfolio is efficient, with the reason."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [mean-variance-optimization, short-selling, standard-error]
+    expected: { wb: "2", sd: "23.66", wb2: "4" }
+    question:
+      zh-cn: |-
+        两种资产的标准差都是 20%，相关系数为 0.9。分析师估计 A 的预期收益为 8%，B 为 9%。允许卖空。
+        (a) 要使组合的预期收益为 10%，两种资产的权重各是多少？组合的标准差是多少？
+        (b) 如果 B 的预期收益实际估计为 8.5%（只差 0.5 个百分点），达到 10% 需要的 B 的权重变为多少？结合 [[4.1#history]] 中预期收益的估计误差，说明直接使用均值–方差优化的问题。
+      en: |-
+        Two assets both have a standard deviation of 20% and a correlation of 0.9. An analyst estimates A's expected return at 8% and B's at 9%. Short sales are allowed.
+        (a) For a portfolio expected return of 10%, what are the weights of the two assets? What is the portfolio's standard deviation?
+        (b) If B's expected return were estimated at 8.5% instead (only 0.5 points lower), what weight in B would a 10% return need? Using the estimation error of expected returns in [[4.1#history]], explain the problem with using mean–variance optimization directly.
+    answer:
+      zh-cn: |-
+        (a) $8\% + w_B(9\% - 8\%) = 10\%$，$w_B = 2$，$w_A = -1$：卖空与自有资金等额的 A，买入两倍的 B。方差 $1 \times 400 + 4 \times 400 - 2 \times 2 \times 0.9 \times 400 = 560$，标准差约 23.66%。
+        (b) $w_B = \frac{10\% - 8\%}{8.5\% - 8\%} = 4$，要卖空 3 倍的 A。两种资产高度相关时，预期收益的一点差别就会被优化器放大成很大的多空头寸。而预期收益的估计误差常有几个百分点，远大于这里 0.5 个百分点的差别，所以优化得到的极端权重主要反映的是估计误差，而不是真实的投资机会。
+      en: |-
+        (a) $8\% + w_B(9\% - 8\%) = 10\%$, so $w_B = 2$ and $w_A = -1$: short A in an amount equal to one's own money and buy twice that in B. The variance is $1 \times 400 + 4 \times 400 - 2 \times 2 \times 0.9 \times 400 = 560$, a standard deviation of about 23.66%.
+        (b) $w_B = \frac{10\% - 8\%}{8.5\% - 8\%} = 4$, with 3 times one's money shorted in A. When two assets are highly correlated, a small difference in expected returns is blown up by the optimizer into large long and short positions. Estimation errors in expected returns are often several percentage points, far larger than the 0.5-point difference here, so the extreme weights mostly reflect estimation error rather than real opportunities.
+    rubric:
+      zh-cn:
+        - "(a) $w_B = 2$，$w_A = -1$，标准差约 23.66%。"
+        - "(b) 权重变为 4，并说明估计误差被放大。"
+      en:
+        - "(a) $w_B = 2$, $w_A = -1$, standard deviation about 23.66%."
+        - "(b) The weight becomes 4, explaining how estimation error is magnified."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [diversification, volatility-drag]
+    expected: { g1: "3.5", g2: "5.75" }
+    question:
+      zh-cn: |-
+        两种资产互不相关，预期收益都是 8%，波动率都是 30%。
+        (a) 用 $G \approx \mu - \frac{\sigma^2}{2}$ 求只持有一种资产时的长期复合增长率，以及每年再平衡、各持有一半时的复合增长率。
+        (b) 组合的预期收益没有提高，复合增长率为什么提高了？如果买入后从不再平衡，这个好处为什么会逐渐消失？
+      en: |-
+        Two assets are uncorrelated, each with an expected return of 8% and a volatility of 30%.
+        (a) Use $G \approx \mu - \frac{\sigma^2}{2}$ to find the long-run compound growth rate of holding one asset, and of holding half in each, rebalanced every year.
+        (b) The portfolio's expected return did not rise; why did its compound growth rate rise? If the portfolio is never rebalanced after purchase, why does this benefit gradually disappear?
+    answer:
+      zh-cn: |-
+        (a) 单一资产：$8\% - \frac{(30\%)^2}{2} = 3.5\%$。各一半：标准差 $\sqrt{2 \times (0.5 \times 30\%)^2} \approx 21.21\%$，复合增长率 $8\% - \frac{21.21\%^2}{2} \approx 5.75\%$。
+        (b) 波动拖累与方差成正比。分散化把方差从 900 降到 450，拖累减半，预期收益不变，所以复合增长率提高。这需要定期再平衡：卖出涨得多的、买入跌得多的，使两者的权重回到一半。如果从不再平衡，涨得多的资产占比越来越大，组合逐渐接近只持有一种资产，波动又回到接近 30%，好处随之消失。
+      en: |-
+        (a) One asset: $8\% - \frac{(30\%)^2}{2} = 3.5\%$. Half in each: standard deviation $\sqrt{2 \times (0.5 \times 30\%)^2} \approx 21.21\%$, compound growth $8\% - \frac{21.21\%^2}{2} \approx 5.75\%$.
+        (b) The drag is proportional to the variance. Diversification cuts the variance from 900 to 450, halving the drag with the same expected return, so compound growth rises. This needs regular rebalancing: selling what rose more and buying what fell more to bring the weights back to half. Without rebalancing, the asset that rises more takes a growing share, the portfolio drifts toward holding one asset, volatility returns toward 30%, and the benefit fades.
+    rubric:
+      zh-cn:
+        - "(a) 3.5% 和约 5.75%。"
+        - "(b) 用方差降低解释，并说明再平衡的作用。"
+      en:
+        - "(a) 3.5% and about 5.75%."
+        - "(b) Explains through the lower variance and the role of rebalancing."

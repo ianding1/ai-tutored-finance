@@ -2078,10 +2078,45 @@ equity-premium:
     zh-cn: "股票的预期收益超过无风险资产收益的部分。"
     en: "The amount by which the expected return on stocks exceeds the return on a riskless asset."
 
+minimum-variance-portfolio:
+  defined_in: "4.2"
+  zh-cn: 最小方差组合
+  en: minimum-variance portfolio
+  short:
+    zh-cn: "在所有可能的组合中方差最小的那一个。"
+    en: "The portfolio with the lowest variance among all possible portfolios."
+
+minimum-variance-frontier:
+  defined_in: "4.2"
+  zh-cn: 最小方差前沿
+  en: minimum-variance frontier
+  short:
+    zh-cn: "对每一个目标预期收益，方差最小的组合连成的曲线。"
+    en: "The curve of portfolios with the lowest variance for each target expected return."
+
 efficient-frontier:
   defined_in: "4.2"
   zh-cn: 有效前沿
   en: efficient frontier
+  short:
+    zh-cn: "最小方差前沿在最小方差组合以上的部分：同样风险下预期收益最高的组合。"
+    en: "The part of the minimum-variance frontier above the minimum-variance portfolio: the portfolios with the highest expected return for their risk."
+
+mean-variance-optimization:
+  defined_in: "4.2"
+  zh-cn: 均值–方差优化
+  en: mean–variance optimization
+  short:
+    zh-cn: "在给定预期收益下使组合方差最小（或在给定方差下使预期收益最大）的权重选择方法，由 Markowitz 提出。"
+    en: "Choosing weights to minimize portfolio variance for a given expected return (or maximize expected return for a given variance), proposed by Markowitz."
+
+short-sale-constraint:
+  defined_in: "4.2"
+  zh-cn: 卖空限制
+  en: short-sale constraint
+  short:
+    zh-cn: "要求每项资产的权重不小于 0 的约束；它可能使最优解落在边界上。"
+    en: "The constraint that every weight be at least 0; it can put the optimum on the boundary."
 
 beta:
   defined_in: "4.4"

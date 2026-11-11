@@ -1,0 +1,89 @@
+---
+title: 4.2 均值–方差组合理论
+description: 两种风险资产的组合与相关系数；最小方差组合；最小方差前沿与有效前沿；用拉格朗日乘数法做均值–方差优化；卖空限制与角点解；分散化的作用与方法的局限。
+lesson: "4.2"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import TwoAssetFrontier from '../../../../components/widgets/TwoAssetFrontier.astro';
+
+## 两种资产的组合 [#two-assets]
+
+<Ref lesson="0.3" /> 说明了两种资产组合的方差怎样取决于相关系数。现在把每个组合画在一张图上：横轴是标准差，纵轴是预期收益。设资产 A、B 的预期收益为 $\mu_A$、$\mu_B$，标准差为 $\sigma_A$、$\sigma_B$，相关系数为 $\rho$，A 的权重为 $w$：
+
+$$
+\mu_p = w\mu_A + (1 - w)\mu_B, \qquad \sigma_p^2 = w^2\sigma_A^2 + (1 - w)^2\sigma_B^2 + 2w(1 - w)\rho\sigma_A\sigma_B
+$$
+
+预期收益是两者的加权平均，随 $w$ 直线变化；标准差却不是（<Ref concept="portfolio-variance" />）。$w$ 从 0 变到 1，组合在图上画出一条曲线。$w < 0$ 或 $w > 1$ 时要卖空一种资产（<Ref concept="short-selling" />），曲线向两端延伸。
+
+<Figure id="1-1" title="资产 A（预期收益 10%，标准差 20%）和 B（5%，10%）的组合。实线是不卖空的组合，虚线是需要卖空的组合，圆点是所选权重的组合。" observe="先移动 A 的权重，看圆点沿曲线怎样移动；再改变相关系数，看曲线怎样弯曲。">
+	<TwoAssetFrontier />
+</Figure>
+
+<Check id="C1" />
+
+在所有可能的组合中，方差最小的那一个叫<Def id="minimum-variance-portfolio">最小方差组合</Def>（minimum-variance portfolio）。两种资产时，它的权重可以用导数求出（<Ref check="Q1" />）。
+
+<Check id="C2" />
+
+## 有效前沿 [#frontier]
+
+资产多于两种时，可能的组合充满图上的一片区域。对每一个目标预期收益 $m$，找出方差最小的组合，这些组合连成的曲线叫<Def id="minimum-variance-frontier">最小方差前沿</Def>（minimum-variance frontier）。曲线最左边的点就是最小方差组合。
+
+最小方差组合以下的那一半前沿没有意义：在同样的标准差下，上面那一半的组合预期收益更高。最小方差前沿在最小方差组合以上的部分叫<Def id="efficient-frontier">有效前沿</Def>（efficient frontier）：在同样风险下预期收益最高，在同样预期收益下风险最低。
+
+求前沿上的组合是一个有约束的优化问题。设有 $N$ 种资产，权重为 $w_i$，预期收益为 $\mu_i$，资产 $i$ 和 $j$ 的协方差为 $\sigma_{ij}$（$\sigma_{ii} = \sigma_i^2$）。组合的方差是
+
+$$
+\sigma_p^2 = \sum_{i=1}^{N} \sum_{j=1}^{N} w_i w_j \sigma_{ij}
+$$
+
+在两个约束下使它最小：
+
+$$
+\sum_{i=1}^{N} w_i \mu_i = m, \qquad \sum_{i=1}^{N} w_i = 1
+$$
+
+这就是 Markowitz（1952）提出的<Def id="mean-variance-optimization">均值–方差优化</Def>（mean–variance optimization）。两个约束各有一个拉格朗日乘数（<Ref concept="lagrange-multiplier" />），对每个 $w_i$ 求偏导数并令其为 0，就得到前沿上的权重（<Ref check="Q2" />）。
+
+<Check id="C3" />
+
+## 卖空限制 [#short-sales]
+
+很多投资者（例如大多数共同基金和个人退休账户）不能卖空。这时要再加上约束 $w_i \ge 0$，这叫<Def id="short-sale-constraint">卖空限制</Def>（short-sale constraint）。加上这个约束后，最优解可能落在边界上，一些资产的权重正好为 0，这与 <Ref lesson="0.2" sec="corner" /> 的角点解是同一类问题：在最优点，相切条件不再成立。
+
+<Check id="C4" />
+
+## 分散化的作用 [#diversification]
+
+<Ref concept="diversification" /> 的好处来自相关系数小于 1。往可选的资产中加入一项新资产，有效前沿不会变差：原来的每个组合仍然可以选（新资产的权重为 0）。新资产什么时候能使前沿变好？
+
+<Check id="C5" />
+
+分散化的好处也体现在长期的复合增长上。<Ref lesson="4.1" /> 说明波动会拖累复合增长率；分散化降低波动，即使不提高预期收益，也能提高复合增长率（<Ref check="Q4" />）。
+
+## 方法的局限 [#limits]
+
+均值–方差优化给出了一个清楚的框架，但用在实际中有几个问题：
+
+- 输入要估计。预期收益的估计误差很大（<Ref lesson="4.1" sec="history" />），而优化器会“相信”这些估计，把大量资金放在估计值偏高的资产上，常常得到极端的权重（<Ref check="Q3" />）。<Ref lesson="4.10" /> 专门讨论这个问题。
+- 方差把上涨和下跌一样看待，忽略肥尾和最大回撤。
+- 这是一个单期模型，没有考虑投资者的期限、收入和负债。
+
+## 小结 [#summary]
+
+- 两种资产的组合：预期收益随权重直线变化，标准差不是；相关系数越低，组合的曲线越向左弯曲。
+- 最小方差组合是方差最小的组合；最小方差前沿是每个目标预期收益下方差最小的组合；有效前沿是其中最小方差组合以上的部分。
+- 均值–方差优化：在 $\sum w_i \mu_i = m$ 和 $\sum w_i = 1$ 的约束下使 $\sigma_p^2$ 最小，可以用拉格朗日乘数法求解。
+- 卖空限制 $w_i \ge 0$ 可能使最优解落在边界上。
+- 加入新资产不会使有效前沿变差；分散化还能提高复合增长率。
+- 输入的估计误差会使优化结果很不稳定。
+
+## 练习题 [#exercises]
+
+<Exercises />

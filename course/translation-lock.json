@@ -563,6 +563,10 @@
   "en": "ba2f197e11e9a6b6",
   "zh-cn": "56579dfc4f7cba1f"
  },
+ "course/concepts.yaml#efficient-frontier.short": {
+  "en": "5b02580e19e45772",
+  "zh-cn": "da7bc641a6e085e8"
+ },
  "course/concepts.yaml#enterprise-value": {
   "en": "cb5a484e2bcc5622",
   "zh-cn": "d54021856ada60a1"
@@ -1043,6 +1047,14 @@
   "en": "b29fdc0b1c96dc7f",
   "zh-cn": "033a1f618c22014f"
  },
+ "course/concepts.yaml#mean-variance-optimization": {
+  "en": "7da5405b382afdef",
+  "zh-cn": "a341107114742e80"
+ },
+ "course/concepts.yaml#mean-variance-optimization.short": {
+  "en": "1e89a2600ebf2154",
+  "zh-cn": "a21cc26cb39258c7"
+ },
  "course/concepts.yaml#median": {
   "en": "4759bee99ff089a5",
   "zh-cn": "14604324b45586ef"
@@ -1050,6 +1062,22 @@
  "course/concepts.yaml#median.short": {
   "en": "c481187a06b5a083",
   "zh-cn": "3371ffcb3c91126c"
+ },
+ "course/concepts.yaml#minimum-variance-frontier": {
+  "en": "533bf97d9b4abbc7",
+  "zh-cn": "435a236e9ce7dfa2"
+ },
+ "course/concepts.yaml#minimum-variance-frontier.short": {
+  "en": "eb365be0b06e4e96",
+  "zh-cn": "c86786064129fc76"
+ },
+ "course/concepts.yaml#minimum-variance-portfolio": {
+  "en": "de1d634a252792f3",
+  "zh-cn": "b93c2798f47ea76f"
+ },
+ "course/concepts.yaml#minimum-variance-portfolio.short": {
+  "en": "a45ff932671423ef",
+  "zh-cn": "7c22a235d3c7f3b9"
  },
  "course/concepts.yaml#modified-duration": {
   "en": "833caef58ec2e45a",
@@ -1723,6 +1751,14 @@
   "en": "fa74e68d3d642932",
   "zh-cn": "7eedc355cff1dbea"
  },
+ "course/concepts.yaml#short-sale-constraint": {
+  "en": "22903daf07f3f798",
+  "zh-cn": "1c79258ab1678875"
+ },
+ "course/concepts.yaml#short-sale-constraint.short": {
+  "en": "72feca1e987251b6",
+  "zh-cn": "b1d29480d13cbfbd"
+ },
  "course/concepts.yaml#short-selling": {
   "en": "1f80867490c970cc",
   "zh-cn": "95ec82d378c74275"
@@ -2390,6 +2426,10 @@
  "course/curriculum.yaml#stages[4].lessons[4.1].title": {
   "en": "0141ab8fa61131ed",
   "zh-cn": "ea5644683eec3d71"
+ },
+ "course/curriculum.yaml#stages[4].lessons[4.2].summary": {
+  "en": "5cb5050b6e0da370",
+  "zh-cn": "5b9ddf26dfc51f7b"
  },
  "course/curriculum.yaml#stages[4].lessons[4.2].title": {
   "en": "43b76344d13195a4",
@@ -8479,6 +8519,214 @@
   "en": "8326f30eb2ada914",
   "zh-cn": "e6f154af37cd6086"
  },
+ "course/keys/4.2.yaml#common_errors[0]": {
+  "en": "5eb170705b497b06",
+  "zh-cn": "855581d163a2f197"
+ },
+ "course/keys/4.2.yaml#common_errors[1]": {
+  "en": "cfc31cc48bf9baf5",
+  "zh-cn": "69fe66e133be73df"
+ },
+ "course/keys/4.2.yaml#common_errors[2]": {
+  "en": "3037d8d03385813e",
+  "zh-cn": "34716e5948de0cfc"
+ },
+ "course/keys/4.2.yaml#common_errors[3]": {
+  "en": "908f2bc680d8e52d",
+  "zh-cn": "3469ffaec33d2576"
+ },
+ "course/keys/4.2.yaml#context[0]": {
+  "en": "8d8d1348463b5fdd",
+  "zh-cn": "be732037767a6163"
+ },
+ "course/keys/4.2.yaml#context[1]": {
+  "en": "6ad882525f61d92b",
+  "zh-cn": "64ebb142b04986f4"
+ },
+ "course/keys/4.2.yaml#context[2]": {
+  "en": "188ed35e6c7a72e3",
+  "zh-cn": "6096a94d18754ac4"
+ },
+ "course/keys/4.2.yaml#questions[C1].answer": {
+  "en": "c43458fe656fde8e",
+  "zh-cn": "71a7f7b74dfe9c21"
+ },
+ "course/keys/4.2.yaml#questions[C1].choices[0]": {
+  "en": "28949dc86b23cc58",
+  "zh-cn": "1e5b4192dfb6d0ca"
+ },
+ "course/keys/4.2.yaml#questions[C1].choices[0].why": {
+  "en": "b756568fcdc0f16f",
+  "zh-cn": "acf71871d09d88c6"
+ },
+ "course/keys/4.2.yaml#questions[C1].choices[1]": {
+  "en": "0d98d678e7ba10b0",
+  "zh-cn": "0f3d4dfa72bd5731"
+ },
+ "course/keys/4.2.yaml#questions[C1].choices[2]": {
+  "en": "c4d9fe2ab924f74b",
+  "zh-cn": "c60792ce5f0bc0ec"
+ },
+ "course/keys/4.2.yaml#questions[C1].choices[2].why": {
+  "en": "d030f94a2bf3c26f",
+  "zh-cn": "2379a2967dbefdaf"
+ },
+ "course/keys/4.2.yaml#questions[C1].choices[3]": {
+  "en": "f1a94f687f2f8bde",
+  "zh-cn": "6ea2d517a4f06cc3"
+ },
+ "course/keys/4.2.yaml#questions[C1].choices[3].why": {
+  "en": "917d63c52c9a1a90",
+  "zh-cn": "638ebbdbd101cfeb"
+ },
+ "course/keys/4.2.yaml#questions[C1].question": {
+  "en": "6d70c5ea96efa05c",
+  "zh-cn": "1b99d4ff13f8ebb1"
+ },
+ "course/keys/4.2.yaml#questions[C2].answer": {
+  "en": "b93786280de08921",
+  "zh-cn": "0b40036493dd4768"
+ },
+ "course/keys/4.2.yaml#questions[C2].choices[0]": {
+  "en": "9346bce07e3780db",
+  "zh-cn": "703df24f9ca4cfcb"
+ },
+ "course/keys/4.2.yaml#questions[C2].choices[0].why": {
+  "en": "6306121f9feea74f",
+  "zh-cn": "1cb7c9d689ff5f6b"
+ },
+ "course/keys/4.2.yaml#questions[C2].choices[1]": {
+  "en": "9ac50e7ecce7133e",
+  "zh-cn": "7c525dfeebbff129"
+ },
+ "course/keys/4.2.yaml#questions[C2].choices[2]": {
+  "en": "67e447141699a865",
+  "zh-cn": "ab3cb30508242c96"
+ },
+ "course/keys/4.2.yaml#questions[C2].choices[2].why": {
+  "en": "2911b9baec5d65f0",
+  "zh-cn": "6967c8d6d57a871e"
+ },
+ "course/keys/4.2.yaml#questions[C2].choices[3]": {
+  "en": "b45c4fcfac637c91",
+  "zh-cn": "87e2af02d69c4d22"
+ },
+ "course/keys/4.2.yaml#questions[C2].choices[3].why": {
+  "en": "f810b7129feba635",
+  "zh-cn": "e0126bcbc111fa41"
+ },
+ "course/keys/4.2.yaml#questions[C2].question": {
+  "en": "fc57f592bada1ead",
+  "zh-cn": "4d7df023534a3529"
+ },
+ "course/keys/4.2.yaml#questions[C3].answer": {
+  "en": "8d706dabeccc3495",
+  "zh-cn": "3dae27e5fc9bb962"
+ },
+ "course/keys/4.2.yaml#questions[C3].hint": {
+  "en": "b02b955c22c56ceb",
+  "zh-cn": "257b8bb8ba37038d"
+ },
+ "course/keys/4.2.yaml#questions[C3].question": {
+  "en": "fac615f42294362e",
+  "zh-cn": "82cbe98aba21da91"
+ },
+ "course/keys/4.2.yaml#questions[C4].answer": {
+  "en": "3f72d1c520f46fa9",
+  "zh-cn": "ba019085056f4400"
+ },
+ "course/keys/4.2.yaml#questions[C4].choices[0]": {
+  "en": "7597c3f4bb67eb7e",
+  "zh-cn": "992c5878c242e4f5"
+ },
+ "course/keys/4.2.yaml#questions[C4].choices[0].why": {
+  "en": "deed09cc6827fa40",
+  "zh-cn": "f6f08b7bf0d7a1cf"
+ },
+ "course/keys/4.2.yaml#questions[C4].choices[1]": {
+  "en": "d89444352178b222",
+  "zh-cn": "86603a76937b1525"
+ },
+ "course/keys/4.2.yaml#questions[C4].choices[2]": {
+  "en": "3b494539f25c970c",
+  "zh-cn": "6f7c55ae747da6fd"
+ },
+ "course/keys/4.2.yaml#questions[C4].choices[2].why": {
+  "en": "e40fcc6b68cbeabe",
+  "zh-cn": "d99c025797c30784"
+ },
+ "course/keys/4.2.yaml#questions[C4].choices[3]": {
+  "en": "fdf475811e929c7e",
+  "zh-cn": "bcc2af7aded96d2c"
+ },
+ "course/keys/4.2.yaml#questions[C4].choices[3].why": {
+  "en": "c4db332f219a00c7",
+  "zh-cn": "d8dcb232416121eb"
+ },
+ "course/keys/4.2.yaml#questions[C4].question": {
+  "en": "91603bb53813e051",
+  "zh-cn": "a8e31c8a08a97722"
+ },
+ "course/keys/4.2.yaml#questions[C5].answer": {
+  "en": "e7db02418e2135f3",
+  "zh-cn": "92a8dafbaf651381"
+ },
+ "course/keys/4.2.yaml#questions[C5].hint": {
+  "en": "2480748f1ab912dd",
+  "zh-cn": "4c68020e7c3eade5"
+ },
+ "course/keys/4.2.yaml#questions[C5].question": {
+  "en": "7b6c7732276be0bc",
+  "zh-cn": "03055a4ae0f3b9af"
+ },
+ "course/keys/4.2.yaml#questions[Q1].answer": {
+  "en": "c068f6cd6ad93804",
+  "zh-cn": "38e1da0d5e52d150"
+ },
+ "course/keys/4.2.yaml#questions[Q1].question": {
+  "en": "59583fd0bcb5ca44",
+  "zh-cn": "f85e3efffc578e3b"
+ },
+ "course/keys/4.2.yaml#questions[Q1].rubric": {
+  "en": "06349068401b9967",
+  "zh-cn": "c3aa5c59acb0545b"
+ },
+ "course/keys/4.2.yaml#questions[Q2].answer": {
+  "en": "ec69e75cd359dc3b",
+  "zh-cn": "f839efc1618b078c"
+ },
+ "course/keys/4.2.yaml#questions[Q2].question": {
+  "en": "d59518b8c1e61b75",
+  "zh-cn": "68fad23439260e18"
+ },
+ "course/keys/4.2.yaml#questions[Q2].rubric": {
+  "en": "03194df63e58c134",
+  "zh-cn": "d0049c5cc4fcc3e4"
+ },
+ "course/keys/4.2.yaml#questions[Q3].answer": {
+  "en": "69ade826c8899791",
+  "zh-cn": "18bf547d31683d70"
+ },
+ "course/keys/4.2.yaml#questions[Q3].question": {
+  "en": "eeed4e74805cb8b0",
+  "zh-cn": "719962054e4709d7"
+ },
+ "course/keys/4.2.yaml#questions[Q3].rubric": {
+  "en": "b2193130f28fdd06",
+  "zh-cn": "1901adc623d1ca46"
+ },
+ "course/keys/4.2.yaml#questions[Q4].answer": {
+  "en": "052b76e7e8621ed8",
+  "zh-cn": "5162663479c13f74"
+ },
+ "course/keys/4.2.yaml#questions[Q4].question": {
+  "en": "ff79cd3a64c85066",
+  "zh-cn": "fc3c8004216a8acf"
+ },
+ "course/keys/4.2.yaml#questions[Q4].rubric": {
+  "en": "b1b1880e7405356e",
+  "zh-cn": "f70fc40da747a868"
+ },
  "course/keys/E0.yaml#common_errors[0]": {
   "en": "5892871353963f3f",
   "zh-cn": "4d0b656928c8c79b"
@@ -8926,6 +9174,10 @@
  "src/content/docs/<lang>/lessons/4-1-risk-return-measures.mdx": {
   "en": "3d58256c73221d1d",
   "zh-cn": "e9b869c5996f2deb"
+ },
+ "src/content/docs/<lang>/lessons/4-2-markowitz.mdx": {
+  "en": "5480334711366fcc",
+  "zh-cn": "f57fbf691ca6bf6d"
  },
  "src/content/docs/<lang>/lessons/e0-quiz.mdx": {
   "en": "0909e73cdcf97cfc",
