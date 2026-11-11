@@ -70,8 +70,9 @@ one learner, revision history and answers inline. To publish a finished lesson:
    context item with the `concepts` or `questions` it serves (leave both out only for facts every
    question needs), and each common error with its `questions`. Any fact a question needs from the
    lesson (example data, figure parameters) must be in a context item tagged for that question.
-   Place `<Check id="..."/>` in the right section and `<Exercises />` at the end. `<CheckAll />`
-   (after the summary) is only for older lessons whose check questions are still graded by prompt.
+   Place `<Check id="..."/>` in the right section and `<Exercises />` at the end. Every lesson
+   answers its check questions on the page; `<CheckAll />` (check questions graded by prompt) is no
+   longer used by any lesson.
    Check questions are answered on the page:
    - each is one true / false statement (`correct: true` or `false`, no `choices`) or one
      multiple-choice question (`choices`: a list of options, `correct`: the letter), about one core
@@ -151,7 +152,7 @@ one learner, revision history and answers inline. To publish a finished lesson:
 
 | zh-cn | en | `kind` / component |
 | --- | --- | --- |
-| 随堂题 | check question | `check`, `<Check>`, answered on the page (older lessons: `<CheckAll>`) |
+| 随堂题 | check question | `check`, `<Check>`, answered on the page |
 | 练习题 | exercise | `exercise`, `<Exercises>` |
 | 测验 | quiz | `quiz`, `<Quiz>` on the page `lessons/e<n>-quiz.mdx` (`E0`, `E1`, ...) |
 
@@ -169,7 +170,7 @@ No question is scored: every result is "ok" or "revise".
   itself through its labels and short hints next to the controls.
 - Check questions are true / false or multiple choice and are answered on the page: each has its own
   submit button, the result ("ok" / "revise") is shown and stored at once, and a wrong answer shows
-  what is wrong with the chosen option (or a hint) without revealing the right answer. Older lessons not yet converted still submit them with `<CheckAll />`.
+  what is wrong with the chosen option (or a hint) without revealing the right answer.
 - Other answers are not entered on the site. Exercises are submitted together by `<Exercises />`.
   The prompt ends with an empty "learner's answers" heading; the learner attaches a photo or types the
   answers after it.

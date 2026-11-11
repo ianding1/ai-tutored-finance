@@ -63,6 +63,11 @@ common_errors:
       用全部人口而不是劳动力作为失业率的分母；或者认为失业率下降一定说明就业改善。
     en: |-
       Using the whole population instead of the labor force as the denominator of the unemployment rate; or thinking that a falling unemployment rate always means more people have jobs.
+  - questions: [Q2]
+    zh-cn: |-
+      把各个环节的销售额相加，重复计算了中间产品。GDP 只算最终产品，或者各环节的增加值之和。
+    en: |-
+      Adding up the sales of every stage and so counting intermediate goods several times. GDP counts only final goods, or equivalently the sum of value added at each stage.
   - questions: [C5]
     zh-cn: |-
       认为好的经济数据一定使股价上涨。价格反映的是数据与预期之差，以及它对利率预期的影响。
@@ -75,102 +80,108 @@ questions:
     kind: check
     section: expenditure
     concepts: [gdp]
-    expected: { inv: "1100" }
     question:
       zh-cn: |-
-        某国一年的消费 700、投资 200、政府购买 180、出口 120、进口 150（十亿美元），GDP 为 1050。(a) 如果家庭多花 30 买进口电视，GDP 会怎样变化？(b) 如果企业多生产了 50 的产品但没有卖出去，GDP 会怎样变化？记在哪一项？
+        今年企业多生产了价值 50 的产品，但没有卖出去，留在仓库里。今年的 GDP：
       en: |-
-        In a year a country has consumption 700, investment 200, government purchases 180, exports 120 and imports 150 (billions of dollars), so GDP is 1050. (a) If households spend 30 more on imported TVs, how does GDP change? (b) If firms produce 50 more goods that are not sold, how does GDP change, and under which component is it recorded?
+        This year firms produce an extra 50 worth of goods that are not sold and stay in the warehouse. This year's GDP:
+    choices:
+      - zh-cn: 增加 50，记在投资（存货的增加）中
+        en: Rises by 50, recorded in investment (the change in inventories)
+      - zh-cn: 不变，因为产品没有卖出去
+        en: Does not change, because the goods were not sold
+        why:
+          zh-cn: GDP 衡量的是一年内生产了什么，还是卖出了什么？
+          en: Does GDP measure what was produced in the year, or what was sold?
+      - zh-cn: 增加 50，记在消费中
+        en: Rises by 50, recorded in consumption
+        why:
+          zh-cn: 还没有家庭买这些产品。它们属于谁，在支出法里应该算作哪一项？
+          en: No household has bought these goods yet. Who holds them, and under which item of the expenditure approach do they belong?
+      - zh-cn: 等到明年卖出时才计入 GDP
+        en: Is counted only next year, when the goods are sold
+        why:
+          zh-cn: 产品是今年生产的。明年卖出时，存货减少，明年的 GDP 会再算一次吗？
+          en: The goods were produced this year. When they are sold next year and inventories fall, does next year's GDP count them again?
+    correct: A
     answer:
       zh-cn: |-
-        (a) 不变：消费增加 30，进口也增加 30，净出口减少 30，两者抵消。电视不是在本国生产的。
-        (b) 增加 50，变为 1100：没卖出去的产品是存货的增加，记在投资中。GDP 衡量的是生产，不是销售。
+        (A)。GDP 衡量的是一定时期内生产的最终产品，不是销售。没有卖出的产品是企业存货的增加，记在投资中，所以今年的 GDP 增加 50。明年卖出时，消费增加、存货减少，两者抵消，不会重复计算。
       en: |-
-        (a) No change: consumption rises by 30 and imports by 30, so net exports fall by 30 and the two cancel. The TVs were not produced at home.
-        (b) It rises by 50 to 1100: unsold goods are an increase in inventories, recorded under investment. GDP measures production, not sales.
-    rubric:
-      zh-cn:
-        - "(a) 不变，并说明进口抵消。"
-        - "(b) 增加到 1100，记在投资（存货）中。"
-      en:
-        - "(a) No change, explained by the offsetting imports."
-        - "(b) Rises to 1100, recorded as investment (inventories)."
+        (A). GDP measures final goods produced in a period, not sales. Unsold goods are an increase in firms' inventories and are recorded in investment, so this year's GDP rises by 50. When they are sold next year, consumption rises and inventories fall by the same amount, so they are not counted twice.
 
   - id: C2
     kind: check
     section: real-gdp
     concepts: [real-gdp, gdp-deflator]
-    expected: { g: "5", d: "120" }
     question:
       zh-cn: |-
-        一个只生产苹果和橙子的经济。第 1 年：苹果 100 个、每个 1 美元，橙子 50 个、每个 2 美元。第 2 年：苹果 110 个、每个 1.2 美元，橙子 50 个、每个 2.4 美元。名义 GDP 从 200 增加到 252，增长 26%。以第 1 年为基年，实际 GDP 增长率和第 2 年的 GDP 平减指数各是多少？它们和 26% 是什么关系？
+        一个国家的名义 GDP 一年增长了 26%，这说明它生产的商品和服务增加了约 26%。
       en: |-
-        An economy produces only apples and oranges. Year 1: 100 apples at 1 dollar each and 50 oranges at 2 dollars each. Year 2: 110 apples at 1.2 dollars and 50 oranges at 2.4 dollars. Nominal GDP rises from 200 to 252, up 26%. With year 1 as the base year, what are real GDP growth and the year-2 GDP deflator? How do they relate to the 26%?
+        A country's nominal GDP grew 26% in a year, which means it produced about 26% more goods and services.
+    correct: false
+    hint:
+      zh-cn: 名义 GDP 是按哪一年的价格计算的？如果所有价格都上涨了，名义 GDP 会怎样变化？
+      en: At which year's prices is nominal GDP measured? If all prices rose, what would happen to nominal GDP?
     answer:
       zh-cn: |-
-        第 2 年实际 GDP（按第 1 年价格）$110 \times 1 + 50 \times 2 = 210$，实际增长 $\frac{210}{200} - 1 = 5\%$。平减指数 $\frac{252}{210} \times 100 = 120$，价格上涨 20%。
-        $1.05 \times 1.20 = 1.26$：名义增长是实际增长与价格上涨的复合。
+        错。名义 GDP 按当年价格计算，它的增长包括产量的增长和价格的上涨。要看生产了多少，要用实际 GDP（按基年价格计算）。例如讲义的苹果和橙子经济中，名义 GDP 增长 26%，实际 GDP 只增长 5%，其余来自价格上涨 20%：$1.05 \times 1.20 = 1.26$。
       en: |-
-        Year-2 real GDP (at year-1 prices) is $110 \times 1 + 50 \times 2 = 210$, so real growth is $\frac{210}{200} - 1 = 5\%$. The deflator is $\frac{252}{210} \times 100 = 120$, a 20% rise in prices.
-        $1.05 \times 1.20 = 1.26$: nominal growth compounds real growth and price growth.
-    rubric:
-      zh-cn:
-        - "实际增长 5%、平减指数 120。"
-        - "说明 $1.05 \\times 1.20 = 1.26$。"
-      en:
-        - "Real growth 5%, deflator 120."
-        - "Shows $1.05 \\times 1.20 = 1.26$."
+        False. Nominal GDP uses each year's prices, so its growth includes both more output and higher prices. To see how much was produced, use real GDP (at base-year prices). In an apples-and-oranges economy, for example, nominal GDP can grow 26% while real GDP grows only 5%, with the rest from a 20% rise in prices: $1.05 \times 1.20 = 1.26$.
 
   - id: C3
     kind: check
     section: price-indexes
     concepts: [cpi, substitution-effect]
     widget: { id: substitution-bias, set: { a: 60 } }
-    expected: { util: "26.49", gap: "3.51" }
     question:
       zh-cn: |-
-        在 [[fig:4-1]] 中把 A 的涨价调到 60%，固定篮子的成本上涨 30%。保持同样效用的成本上涨多少？为什么家庭的实际生活成本涨得比固定篮子少？
+        在 [[fig:4-1]] 中提高 A 的涨幅。与固定篮子的成本相比，保持同样效用所需的成本：
       en: |-
-        In [[fig:4-1]], set the price rise of A to 60%; the fixed basket's cost rises 30%. By how much does the cost of keeping the same utility rise? Why does the household's true cost of living rise less than the fixed basket?
+        In [[fig:4-1]], raise the price increase of A. Compared with the cost of the fixed basket, the cost of keeping the same utility:
+    choices:
+      - zh-cn: 上涨得更少，而且 A 涨得越多，两者差距越大
+        en: Rises less, and the more A's price rises, the larger the gap
+      - zh-cn: 上涨得一样多，因为家庭的收入一半花在 A 上
+        en: Rises by the same amount, because the household spends half its income on A
+        why:
+          zh-cn: A 变贵后，家庭还会买和原来一样多的 A 吗？
+          en: After A gets dearer, does the household still buy as much A as before?
+      - zh-cn: 上涨得更多，因为家庭被迫改买不喜欢的 B
+        en: Rises more, because the household is forced to buy B, which it likes less
+        why:
+          zh-cn: 家庭转向 B 是被迫的，还是因为这样能用更少的钱得到同样的满足？如果原来的篮子更好，它还可以照买吗？
+          en: Does the household switch to B because it must, or because it reaches the same satisfaction for less money? Could it still buy the old basket if that were better?
+      - zh-cn: 不变，因为 B 的价格没有变
+        en: Does not change, because B's price is unchanged
+        why:
+          zh-cn: 家庭原来也买 A。A 涨价后，即使改买更多 B，花费会完全不变吗？
+          en: The household also bought A before. After A's price rises, can it keep its spending exactly the same even by buying more B?
+    correct: A
     answer:
       zh-cn: |-
-        约 26.49%，比固定篮子少约 3.51 个百分点。
-        A 变贵后，家庭少买 A、多买 B，用相对便宜的 B 替代一部分 A，所以达到原来的满足程度不需要多花 30%。固定篮子假设购买量不变，忽略了这种替代，所以高估了生活成本的上涨。
+        (A)。A 变贵后，家庭少买 A、多买相对便宜的 B，达到原来的满足程度所需的花费比固定篮子少。固定篮子假设购买量不变，忽略了这种替代，所以高估了生活成本的上涨。A 涨得越多，替代越多，高估越大。原来的篮子仍然买得起，所以保持同样效用的成本不会比固定篮子更高。
       en: |-
-        About 26.49%, about 3.51 points less than the fixed basket.
-        Once A is dearer, the household buys less A and more B, replacing some A with the relatively cheaper B, so reaching the old level of satisfaction does not take 30% more. The fixed basket assumes quantities do not change, ignoring this substitution, so it overstates the rise in the cost of living.
-    rubric:
-      zh-cn:
-        - "约 26.49%。"
-        - "用替代解释。"
-      en:
-        - "About 26.49%."
-        - "Explains by substitution."
+        (A). After A gets dearer, the household buys less A and more of the relatively cheaper B, reaching its old satisfaction for less than the fixed basket costs. The fixed basket assumes unchanged quantities and ignores this substitution, so it overstates the rise in the cost of living. The more A's price rises, the more substitution and the larger the overstatement. The old basket remains affordable, so keeping the same utility never costs more than the fixed basket.
 
   - id: C4
     kind: check
     section: labor-market
     concepts: [unemployment-rate, labor-force-participation-rate]
-    expected: { u2: "3.23", lfpr2: "62" }
     question:
       zh-cn: |-
-        某国 16 岁及以上人口 250（百万），就业 150，失业 7，失业率约 4.46%，劳动参与率 62.8%。一年后，失业者中有 2 人不再找工作，其余数字不变。失业率和劳动参与率变为多少？这个国家的劳动市场改善了吗？
+        一个国家的失业率下降了，说明有更多的人找到了工作。
       en: |-
-        A country has 250 million people aged 16 and over, 150 million employed and 7 million unemployed: unemployment about 4.46% and participation 62.8%. A year later, 2 million of the unemployed stop looking for work and nothing else changes. What do the unemployment rate and the participation rate become? Has the labor market improved?
+        A country's unemployment rate fell, so more people have found jobs.
+    correct: false
+    hint:
+      zh-cn: 失业率的分母是什么？一个失业者不再找工作时，他还算在劳动力里吗？
+      en: What is the denominator of the unemployment rate? When an unemployed person stops looking for work, is he still in the labor force?
     answer:
       zh-cn: |-
-        失业 5，劳动力 155：失业率 $\frac{5}{155} \approx 3.23\%$，劳动参与率 $\frac{155}{250} = 62\%$。
-        失业率下降了，但没有一个人找到工作，就业人数仍是 150。劳动市场没有改善，只是有人放弃了找工作。
+        错。失业率是失业人数除以劳动力（就业加上正在找工作的人）。失业者放弃找工作后退出劳动力，失业人数和劳动力都减少，失业率下降，但就业人数没有变。所以还要同时看就业人数和劳动参与率。
       en: |-
-        Unemployed 5, labor force 155: unemployment $\frac{5}{155} \approx 3.23\%$ and participation $\frac{155}{250} = 62\%$.
-        Unemployment fell, but nobody found a job; employment is still 150. The labor market has not improved; some people simply gave up looking.
-    rubric:
-      zh-cn:
-        - "约 3.23% 和 62%。"
-        - "指出没有改善。"
-      en:
-        - "About 3.23% and 62%."
-        - "Notes that there is no improvement."
+        False. The unemployment rate is the number unemployed divided by the labor force (the employed plus those looking for work). When unemployed people give up looking, they leave the labor force; the number unemployed and the labor force both shrink and the rate falls, but employment is unchanged. So employment and the participation rate must be looked at as well.
 
   - id: C5
     kind: check
@@ -178,21 +189,33 @@ questions:
     concepts: [unemployment-rate]
     question:
       zh-cn: |-
-        某月就业报告公布前，分析师的一致预期是非农就业增加 10 万人。实际公布增加 16.5 万人，失业率下降。当天股价指数下跌，10 年期国债收益率上升。就业比预期好，股价为什么反而会跌？
+        某月就业报告公布前，分析师的一致预期是非农就业增加 10 万人。实际增加 16.5 万人，失业率下降。当天股价指数下跌，10 年期国债收益率上升。最可能的原因是：
       en: |-
-        Before a monthly jobs report, the consensus forecast was a rise of 100,000 in nonfarm payrolls. The report showed a rise of 165,000 and a lower unemployment rate. That day the stock index fell and the 10-year Treasury yield rose. Why would stock prices fall when jobs came in better than expected?
+        Before a monthly jobs report, analysts expect payrolls to rise by 100 thousand. The actual rise is 165 thousand, and unemployment falls. That day the stock index falls and the 10-year Treasury yield rises. The most likely reason:
+    choices:
+      - zh-cn: 市场预期央行会让利率在较高水平保持更久，未来现金流的折现率上升
+        en: The market expects the central bank to keep rates high for longer, so future cash flows are discounted at a higher rate
+      - zh-cn: 就业增加使企业的工资成本上升，利润一定下降
+        en: More jobs raise firms' wage costs, so profits must fall
+        why:
+          zh-cn: 就业强通常意味着需求也强。为什么国债收益率也同时上升了？
+          en: Strong hiring usually also means strong demand. Why did the Treasury yield rise at the same time?
+      - zh-cn: 市场不理性，好消息本来应该让股价上涨
+        en: The market is irrational; good news should make stock prices rise
+        why:
+          zh-cn: 价格在公布前已经反映了什么？市场对数据作出反应，是对数据本身，还是对它与预期之差及其影响？
+          en: What did prices already reflect before the release? Does the market react to the number itself, or to its surprise and what that implies?
+      - zh-cn: 公布的数据有错误，市场不相信它
+        en: The data are wrong and the market does not believe them
+        why:
+          zh-cn: 如果市场不相信数据，价格还会有这样一致的反应吗？
+          en: If the market did not believe the data, would prices react in such a consistent way?
+    correct: A
     answer:
       zh-cn: |-
-        价格已经反映了预期，市场对的是“意外”作出反应。就业比预期强，投资者会预期经济更热、通胀压力更大，央行更可能维持较高的利率或推迟降息，所以收益率上升。更高的利率使未来现金流的现值下降（[[0.1]] 的折现），也提高了债券相对股票的吸引力，股价可能因此下跌，即使企业盈利前景略有改善。
+        (A)。价格已经反映了预期，市场对的是“意外”作出反应。就业比预期强，投资者预期经济更热、通胀压力更大，央行更可能维持较高的利率或推迟降息，所以收益率上升。更高的利率使未来现金流的现值下降，也提高了债券相对股票的吸引力，股价可能因此下跌，即使企业盈利前景略有改善。
       en: |-
-        Prices already reflect expectations, so the market reacts to the surprise. Stronger-than-expected jobs lead investors to expect a hotter economy and more inflation pressure, so the central bank is more likely to keep rates high or delay cuts, and yields rise. Higher rates lower the present value of future cash flows (discounting, [[0.1]]) and make bonds more attractive relative to stocks, so stock prices can fall even though the outlook for profits improves a little.
-    rubric:
-      zh-cn:
-        - "指出市场对数据与预期之差作出反应。"
-        - "用利率预期上升、现值下降解释股价下跌。"
-      en:
-        - "Points out that the market reacts to the difference from expectations."
-        - "Explains the fall with higher expected interest rates and lower present values."
+        (A). Prices already reflect expectations; the market reacts to the surprise. Stronger hiring than expected makes investors expect a hotter economy and more inflation pressure, so the central bank is more likely to keep rates high or delay cuts, and yields rise. Higher rates lower the present value of future cash flows and make bonds more attractive relative to stocks, so stock prices can fall even if earnings prospects improve a little.
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1

@@ -43,6 +43,21 @@ context:
       Simple return $R = \frac{P_1}{P_0} - 1$, which compounds by multiplication over several periods. Log return $\ell = \ln\frac{P_1}{P_0}$; the lesson states that log returns add over several periods (with the example 100 → 80 → 100) but does not explain why.
 
 common_errors:
+  - questions: [Q3]
+    zh-cn: |-
+      直接比较两家银行的名义年利率，忽略复利频率的不同；要比较有效年利率。
+    en: |-
+      Comparing the two banks' annual percentage rates directly, ignoring the different compounding; compare effective annual rates.
+  - questions: [Q6]
+    zh-cn: |-
+      求等比数列的和时弄错项数或首项；或者以为期初年金的现值比普通年金少一期的折现，把系数 $(1+r)$ 乘反成除。
+    en: |-
+      Getting the number of terms or the first term of the geometric series wrong; or dividing by $(1+r)$ instead of multiplying when relating an annuity due to an ordinary annuity.
+  - questions: [Q7]
+    zh-cn: |-
+      以为简单收益率也可以多期相加；多期的简单收益率要连乘，只有对数收益率可以相加，因为乘积的对数等于对数之和。
+    en: |-
+      Thinking simple returns over several periods can be added; they must be multiplied, and only log returns add, because the log of a product is the sum of the logs.
   - questions: [Q1]
     zh-cn: |-
       以为复利越频繁，有效年利率可以无限增大。它随复利频率增大，但有上限 $e^r - 1$。

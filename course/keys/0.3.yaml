@@ -68,6 +68,11 @@ common_errors:
       展开 $(aX + bY - E[aX + bY])^2$ 时漏掉交叉项或它的系数 2，或者以为 $E[XY] = E[X]E[Y]$ 总是成立。
     en: |-
       Leaving out the cross term or its factor 2 when expanding $(aX + bY - E[aX + bY])^2$, or assuming $E[XY] = E[X]E[Y]$ always holds.
+  - questions: [Q6]
+    zh-cn: |-
+      以为 $\rho = -1$ 时各持有一半就能消除风险。使方差为 0 的权重取决于两项资产的标准差：波动大的资产权重要小。
+    en: |-
+      Thinking that with $\rho = -1$ holding half of each removes the risk. The weight that makes the variance 0 depends on the two standard deviations: the more volatile asset gets the smaller weight.
   - questions: [Q7]
     zh-cn: |-
       以为持有足够多的股票就能消除全部风险。股票之间的协方差为正时，组合方差趋于协方差 $c$，这部分风险分散不掉。

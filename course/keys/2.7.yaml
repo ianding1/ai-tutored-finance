@@ -60,100 +60,108 @@ questions:
     kind: check
     section: bop
     concepts: [current-account]
-    expected: { ca: "-3.6" }
     question:
       zh-cn: |-
-        某国的国民储蓄为 GDP 的 18%，投资为 GDP 的 21.6%（忽略净投资收入和转移）。(a) 经常账户差额占 GDP 的百分之几？外国资本净流入呢？(b) 如果这个赤字是因为企业投资增加造成的，是否一定是坏事？
+        一个国家的经常账户有赤字，说明它的经济状况不好。
       en: |-
-        A country's national saving is 18% of GDP and its investment is 21.6% of GDP (ignore net investment income and transfers). (a) What is the current account balance as a percentage of GDP? What is the net inflow of foreign capital? (b) If the deficit was caused by higher business investment, is it necessarily bad?
+        A country with a current account deficit must be in poor economic shape.
+    correct: false
+    hint:
+      zh-cn: 经常账户差额等于国民储蓄减去投资。投资旺盛会使它变成怎样？
+      en: The current account balance equals national saving minus investment. What does strong investment do to it?
     answer:
       zh-cn: |-
-        (a) $S - I = 18\% - 21.6\% = -3.6\%$，经常账户赤字为 GDP 的 3.6%；外国资本净流入也是 GDP 的 3.6%。
-        (b) 不一定。借外国的钱投资，如果投资的收益高于借款的成本，将来的产出足以偿还，就是合理的；如果赤字来自消费或政府赤字，未来要用更多的产出偿还而没有相应的资产，更值得担心。
+        错。经常账户差额等于国民储蓄减去投资，赤字说明投资超过了国内储蓄，由外国资本弥补。如果赤字来自旺盛的投资，而投资的收益高于借款的成本，将来的产出足以偿还，就是合理的，例如快速发展的经济常有赤字。如果赤字来自消费或政府赤字，未来要用更多的产出偿还而没有相应的资产，才更值得担心。
       en: |-
-        (a) $S - I = 18\% - 21.6\% = -3.6\%$: a current account deficit of 3.6% of GDP, and a net inflow of foreign capital of 3.6% of GDP.
-        (b) Not necessarily. Borrowing from abroad to invest is reasonable if the investment earns more than the cost of borrowing, so that future output can repay it; a deficit that comes from consumption or a government deficit is more worrying, because more output must be paid back later with no matching assets.
-    rubric:
-      zh-cn:
-        - "(a) −3.6%（写作 - 或 − 均可），资本净流入 3.6%。"
-        - "(b) 比较投资收益和借款成本。"
-      en:
-        - "(a) −3.6% (written with - or −); net capital inflow 3.6%."
-        - "(b) Compares the return on investment with the cost of borrowing."
+        False. The current account balance equals national saving minus investment; a deficit means investment exceeds domestic saving, with foreign capital filling the gap. If the deficit comes from strong investment that earns more than the cost of borrowing, future output can repay it, and it is reasonable; fast-growing economies often run deficits. A deficit that comes from consumption or government deficits, to be repaid from future output with no matching assets, is more worrying.
 
   - id: C2
     kind: check
     section: ppp
     concepts: [purchasing-power-parity, real-exchange-rate]
-    expected: { e10: "1.2127" }
     question:
       zh-cn: |-
-        现在 1 欧元 = 1.10 美元。假设今后 10 年美国每年通胀 3%，欧元区每年 2%。(a) 按相对购买力平价（精确形式 $\frac{E_{t+1}}{E_t} = \frac{1 + \pi}{1 + \pi^*}$），10 年后的汇率是多少？哪种货币贬值？(b) 为什么不能用这个方法预测明年的汇率？
+        假设今后美国每年通胀 3%，欧元区每年 2%。按相对购买力平价，长期中：
       en: |-
-        Now 1 euro = 1.10 dollars. Suppose that over the next 10 years US inflation is 3% a year and euro-area inflation 2% a year. (a) By relative purchasing power parity (exact form $\frac{E_{t+1}}{E_t} = \frac{1 + \pi}{1 + \pi^*}$), what is the exchange rate after 10 years? Which currency depreciates? (b) Why can this method not be used to forecast next year's exchange rate?
+        Suppose US inflation is 3% a year from now on and euro-area inflation 2%. By relative purchasing power parity, in the long run:
+    choices:
+      - zh-cn: 美元每年对欧元约贬值 1%
+        en: The dollar depreciates against the euro by about 1% a year
+      - zh-cn: 美元每年对欧元约升值 1%，因为美国的利率通常更高
+        en: The dollar appreciates against the euro by about 1% a year, because US interest rates are usually higher
+        why:
+          zh-cn: 美国物价涨得更快，同样的美元能买的东西越来越少。要使两地的购买力保持一致，美元应该升值还是贬值？
+          en: US prices rise faster, so a dollar buys less and less. To keep purchasing power equal across the two, should the dollar rise or fall?
+      - zh-cn: 汇率保持不变
+        en: The exchange rate stays the same
+        why:
+          zh-cn: 如果名义汇率不变，而美国物价涨得更快，美国产品会变得更贵还是更便宜？
+          en: If the nominal rate stays put while US prices rise faster, do US goods become dearer or cheaper?
+      - zh-cn: 美元每年对欧元约贬值 3%，等于美国的通胀
+        en: The dollar depreciates against the euro by about 3% a year, equal to US inflation
+        why:
+          zh-cn: 欧元区的物价也在上涨。汇率的变化应该抵消哪一部分通胀？
+          en: Euro-area prices are rising too. Which part of inflation should the exchange rate offset?
+    correct: A
     answer:
       zh-cn: |-
-        (a) $E_{10} = 1.10 \times \left(\frac{1.03}{1.02}\right)^{10} \approx 1.2127$ 美元。$E$ 上升，欧元升值，美元贬值，每年约 1%，正好抵消美国较高的通胀，实际汇率不变。
-        (b) 短期中汇率主要受资本流动、利率和预期影响，可以多年偏离购买力平价；通胀的差别每年只有 1 个百分点左右，远小于汇率每年的波动。
+        (A)。按相对购买力平价，汇率的变化抵消两国通胀之差：$\frac{E_{t+1}}{E_t} = \frac{1.03}{1.02}$，美元每年约贬值 1%，实际汇率不变。这个关系在长期中大致成立，但短期中汇率主要受资本流动、利率和预期影响，可以多年偏离购买力平价。
       en: |-
-        (a) $E_{10} = 1.10 \times \left(\frac{1.03}{1.02}\right)^{10} \approx 1.2127$ dollars. $E$ rises: the euro appreciates and the dollar depreciates, by about 1% a year, which exactly offsets the higher US inflation and leaves the real exchange rate unchanged.
-        (b) In the short run exchange rates are driven mainly by capital flows, interest rates and expectations, and can stay away from purchasing power parity for years; the inflation difference is only about 1 percentage point a year, far smaller than yearly exchange-rate swings.
-    rubric:
-      zh-cn:
-        - "(a) 约 1.2127 美元，美元贬值。"
-        - "(b) 说明短期汇率的主要影响因素。"
-      en:
-        - "(a) About 1.2127 dollars; the dollar depreciates."
-        - "(b) Explains what drives exchange rates in the short run."
+        (A). Under relative purchasing power parity, the exchange rate offsets the inflation difference: $\frac{E_{t+1}}{E_t} = \frac{1.03}{1.02}$, so the dollar loses about 1% a year and the real exchange rate stays the same. This holds roughly in the long run; in the short run exchange rates are driven mostly by capital flows, interest rates and expectations and can depart from purchasing power parity for years.
 
   - id: C3
     kind: check
     section: interest-parity
     concepts: [covered-interest-parity, uncovered-interest-parity]
     widget: { id: fx-return, set: { i: 4, istar: 2 } }
-    expected: { f: "1.1216", be: "1.96" }
     question:
       zh-cn: |-
-        美元 1 年期利率 4%，欧元 2%，即期汇率 1 欧元 = 1.10 美元。(a) 由抛补利率平价，1 年期远期汇率是多少？美国投资者买欧元国债并对冲，收益是多少？(b) 在 [[fig:4-1]] 中读出：不对冲时，欧元的变化要高于多少才比对冲好？按非抛补利率平价，市场预期欧元怎样变化？
+        美元 1 年期利率 4%，欧元 2%。一位美国投资者买入 1 年期欧元国债，并用远期合约完全对冲汇率风险。以美元计，他的收益约为：
       en: |-
-        The 1-year dollar rate is 4%, the euro rate 2%, and the spot rate 1 euro = 1.10 dollars. (a) By covered interest parity, what is the 1-year forward rate? What does a US investor earn on euro government bonds when hedged? (b) In [[fig:4-1]], read off how much the euro must change for not hedging to beat hedging. Under uncovered interest parity, what change in the euro does the market expect?
+        The 1-year dollar rate is 4% and the euro rate 2%. A US investor buys a 1-year euro government bond and fully hedges the currency risk with a forward contract. In dollars, his return is about:
+    choices:
+      - zh-cn: 4%
+        en: 4%
+      - zh-cn: 2%
+        en: 2%
+        why:
+          zh-cn: 对冲时，远期汇率和即期汇率一样吗？由抛补利率平价，远期汇率比即期汇率高还是低？
+          en: When hedging, is the forward rate the same as the spot rate? By covered interest parity, is the forward rate above or below spot?
+      - zh-cn: 6%
+        en: 6%
+        why:
+          zh-cn: 如果对冲后能得到 6%，借美元换成欧元投资再对冲，就能无风险地赚 2%。这样的机会会长期存在吗？
+          en: If hedging gave 6%, borrowing dollars, buying euro bonds and hedging would earn 2% without risk. Would such a chance last?
+      - zh-cn: 取决于欧元以后的涨跌
+        en: Depends on how the euro moves later
+        why:
+          zh-cn: 用远期合约对冲后，一年后按什么汇率换回美元？这个汇率是今天确定的，还是一年后才知道？
+          en: After hedging with a forward, at what rate are euros changed back in a year? Is that rate fixed today or known only in a year?
+    correct: A
     answer:
       zh-cn: |-
-        (a) $F = 1.10 \times \frac{1.04}{1.02} \approx 1.1216$ 美元。对冲时按远期汇率换回，收益为 4%，与美国国债相同。
-        (b) 欧元的变化要高于约 1.96%（$\frac{1.04}{1.02} - 1$）。按非抛补利率平价，市场正是预期欧元升值约 1.96%，使两种投资的预期收益相等；欧元利率低，是由预期的升值补偿的。
+        (A)。由抛补利率平价，远期汇率 $F = S \times \frac{1.04}{1.02}$，比即期汇率高约 1.96%。对冲时按远期汇率换回，欧元利率低的部分正好由远期汇率的升水补上，收益等于美元利率 4%。否则就有无风险套利。外国更高或更低的利率，只有在承担汇率风险时才会使收益不同。
       en: |-
-        (a) $F = 1.10 \times \frac{1.04}{1.02} \approx 1.1216$ dollars. Hedged, the euros are converted back at the forward rate and the return is 4%, the same as on US Treasuries.
-        (b) The euro must change by more than about 1.96% ($\frac{1.04}{1.02} - 1$). Under uncovered interest parity the market expects exactly this appreciation of about 1.96%, which makes the expected returns equal; the lower euro rate is offset by the expected appreciation.
-    rubric:
-      zh-cn:
-        - "(a) 约 1.1216 美元，对冲收益 4%。"
-        - "(b) 约 1.96%，说明预期升值补偿利差。"
-      en:
-        - "(a) About 1.1216 dollars; hedged return 4%."
-        - "(b) About 1.96%, explaining that expected appreciation offsets the rate gap."
+        (A). By covered interest parity, the forward rate is $F = S \times \frac{1.04}{1.02}$, about 1.96% above spot. Changing back at the forward rate makes up exactly for the lower euro rate, so the hedged return equals the dollar rate of 4%; otherwise there would be riskless arbitrage. A higher or lower foreign rate changes the return only if the currency risk is borne.
 
   - id: C4
     kind: check
     section: fx-risk
     concepts: [currency-hedging]
-    expected: { r: "1.2" }
     question:
       zh-cn: |-
-        一位美国投资者持有日本股票。一年中，以日元计的收益为 10%，日元对美元贬值 8%。以美元计的收益是多少？有人直接算 $10\% - 8\% = 2\%$，差别来自哪里？
+        一位美国投资者持有日本股票。一年中，以日元计的收益为 10%，日元对美元贬值 8%。他以美元计的收益正好是 2%。
       en: |-
-        A US investor holds Japanese stocks. Over a year the return in yen is 10% and the yen falls 8% against the dollar. What is the return in dollars? Someone simply computes $10\% - 8\% = 2\%$; where does the difference come from?
+        A US investor holds Japanese stocks. Over a year, the return in yen is 10% and the yen falls 8% against the dollar. His return in dollars is exactly 2%.
+    correct: false
+    hint:
+      zh-cn: 日元贬值 8% 只作用于本金，还是也作用于 10% 的收益？用 $(1 + R^*)(1 + x) - 1$ 算一算。
+      en: Does the yen's 8% fall apply only to the principal, or also to the 10% gain? Work out $(1 + R^*)(1 + x) - 1$.
     answer:
       zh-cn: |-
-        $1.10 \times 0.92 - 1 = 1.2\%$。直接相减忽略了交叉项 $10\% \times (-8\%) = -0.8\%$：日元贬值不只作用于本金，也作用于 10% 的收益。
+        错。以美元计的收益为 $1.10 \times 0.92 - 1 = 1.2\%$。直接相减忽略了交叉项 $10\% \times (-8\%) = -0.8\%$：日元贬值不只作用于本金，也作用于 10% 的收益。收益和汇率变化都小时，交叉项可以忽略；变化大时就不能。
       en: |-
-        $1.10 \times 0.92 - 1 = 1.2\%$. Simple subtraction ignores the cross term $10\% \times (-8\%) = -0.8\%$: the fall of the yen applies not only to the principal but also to the 10% gain.
-    rubric:
-      zh-cn:
-        - "1.2%。"
-        - "指出交叉项。"
-      en:
-        - "1.2%."
-        - "Points to the cross term."
+        False. The dollar return is $1.10 \times 0.92 - 1 = 1.2\%$. Simple subtraction leaves out the cross term $10\% \times (-8\%) = -0.8\%$: the yen's fall applies to the 10% gain as well as the principal. When the return and the currency move are small the cross term can be ignored; when they are large it cannot.
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1

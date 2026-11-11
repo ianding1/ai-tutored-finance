@@ -48,6 +48,11 @@ common_errors:
       以为只有资不抵债的银行才会被挤兑。挤兑是自我实现的：只要存款人担心别人先取钱，即使银行有偿付能力，它也可能因贱卖资产而倒闭。
     en: |-
       Thinking that only insolvent banks suffer runs. Runs are self-fulfilling: if depositors fear that others will withdraw first, even a solvent bank can fail through fire sales of its assets.
+  - questions: [Q5]
+    zh-cn: |-
+      以为保证所有存款只有好处。全额保障使存款人不再关心银行的风险，银行可能冒更大的风险，损失由保险基金或纳税人承担（道德风险）；保险的费用也会转给其他存款人。
+    en: |-
+      Thinking that guaranteeing all deposits has only benefits. Full protection means depositors stop caring about the bank's risk, so banks may take more risk with losses borne by the insurance fund or taxpayers (moral hazard); the cost of insurance is also passed on to other depositors.
   - questions: [C3, Q3]
     zh-cn: |-
       把 $MV = PY$ 当成一定会让通胀等于货币增长率，忘了产出增长和流通速度的变化。
@@ -66,105 +71,122 @@ questions:
     section: money-creation
     concepts: [money-multiplier, fractional-reserve-banking]
     widget: { id: money-multiplier, set: { r: 0.1, c: 0.2 } }
-    expected: { m1: "10", m2: "4" }
     question:
       zh-cn: |-
-        在 [[fig:2-1]] 中把准备金率设为 0.1。现金比例从 0 调到 0.2 时，货币乘数从多少变为多少？为什么公众多持有现金会使货币供给变少？
+        在 [[fig:2-1]] 中把准备金率设为 0.1，然后提高现金比例（公众持有的现金与存款之比）。货币乘数：
       en: |-
-        In [[fig:2-1]], set the reserve ratio to 0.1. When the currency ratio goes from 0 to 0.2, how does the money multiplier change? Why does the public holding more currency make the money supply smaller?
+        In [[fig:2-1]], set the reserve ratio to 0.1 and then raise the currency ratio (the public's cash relative to deposits). The money multiplier:
+    choices:
+      - zh-cn: 变小
+        en: Falls
+      - zh-cn: 变大，因为公众手里的钱更多了
+        en: Rises, because the public holds more money
+        why:
+          zh-cn: 公众多持有的现金是从哪里来的？这部分钱还会存入银行、被银行贷出去吗？
+          en: Where does the extra cash held by the public come from? Is that money still deposited and lent out by banks?
+      - zh-cn: 不变，因为准备金率没有变
+        en: Does not change, because the reserve ratio is unchanged
+        why:
+          zh-cn: 看图中的虚线（极限）。只改变现金比例时，它移动了吗？
+          en: Look at the dashed line (the limit) in the figure. Does it move when only the currency ratio changes?
+      - zh-cn: 先变大后变小
+        en: First rises and then falls
+        why:
+          zh-cn: 每一轮贷款中漏出银行体系的比例越大，下一轮能贷出的是越多还是越少？
+          en: The more leaks out of the banks in each round of lending, is more or less lent in the next round?
+    correct: A
     answer:
       zh-cn: |-
-        $c = 0$ 时 $m = \frac{1}{0.1} = 10$；$c = 0.2$ 时 $m = \frac{1.2}{0.3} = 4$，货币供给从 1000 降到 400。
-        每一轮贷款后，借款人付出的钱有一部分以现金的形式留在公众手中，不再存入银行，银行不能用它作准备金再贷款。漏出银行体系的越多，每轮能继续贷出的越少，乘数越小。
+        (A)。每一轮贷款后，借款人付出的钱有一部分以现金的形式留在公众手中，不再存入银行，银行不能用它作准备金再贷款。漏出银行体系的越多，每轮能继续贷出的越少，乘数 $\frac{1 + c}{c + r}$ 越小：$r = 0.1$ 时，$c$ 从 0 升到 0.2，乘数从 10 降到 4。
       en: |-
-        With $c = 0$, $m = \frac{1}{0.1} = 10$; with $c = 0.2$, $m = \frac{1.2}{0.3} = 4$, so the money supply falls from 1000 to 400.
-        After each round of lending, part of the money paid out stays with the public as currency instead of being deposited, so banks cannot hold it as reserves and lend against it. The more leaks out of the banking system, the less can be lent in each round, and the smaller the multiplier.
-    rubric:
-      zh-cn:
-        - "乘数 10 → 4。"
-        - "用现金漏出银行体系解释。"
-      en:
-        - "Multiplier 10 → 4."
-        - "Explains by currency leaking out of the banking system."
+        (A). After each round of lending, part of what borrowers pay out stays with the public as cash and is not redeposited, so banks cannot hold it as reserves and lend it again. The more that leaks out, the less is lent in each later round, and the smaller the multiplier $\frac{1 + c}{c + r}$: with $r = 0.1$, raising $c$ from 0 to 0.2 lowers it from 10 to 4.
 
   - id: C2
     kind: check
     section: bank-runs
     concepts: [bank-run, deposit-insurance]
-    expected: { loss: "9", eq: "-1" }
     question:
       zh-cn: |-
-        一家银行的资产是准备金 10 和长期债券 90，负债是存款 92，股东权益 8。利率上升使债券的市场价格下跌 10%。按市场价格，银行的股东权益是多少？
-        另一种情况：债券只跌了 3%，银行按市场价格仍有偿付能力，但大部分存款超过存款保险的上限。为什么这些存款人仍可能抢着取款？存款保险怎样改变他们的选择？
+        一家银行的资产是准备金 10 和长期债券 90，负债是存款 92，股东权益 8。利率上升使这些债券的市场价格下跌 10%。按市场价格计算，这家银行：
       en: |-
-        A bank's assets are reserves of 10 and long-term bonds of 90; its liabilities are deposits of 92, and equity is 8. Rising interest rates push the market price of the bonds down 10%. At market prices, what is the bank's equity?
-        In another case, the bonds fall only 3%, so the bank is still solvent at market prices, but most deposits are above the insurance limit. Why might these depositors still rush to withdraw? How does deposit insurance change their choice?
+        A bank's assets are reserves of 10 and long-term bonds of 90; its liabilities are deposits of 92, with shareholders' equity of 8. Rising interest rates cut the market price of the bonds by 10%. At market prices, the bank:
+    choices:
+      - zh-cn: 资不抵债：资产的市场价值低于存款
+        en: 'Is insolvent: its assets are worth less than its deposits'
+      - zh-cn: 仍有偿付能力，因为债券持有到期能全额收回
+        en: Is still solvent, because the bonds will be repaid in full at maturity
+        why:
+          zh-cn: 如果存款人现在就要取钱，银行能等到债券到期吗？它现在卖出债券能得到多少？
+          en: If depositors want their money now, can the bank wait for the bonds to mature? What would it get by selling them now?
+      - zh-cn: 不受影响，因为债券没有违约
+        en: Is unaffected, because the bonds have not defaulted
+        why:
+          zh-cn: 没有违约，债券的市场价格就不会变吗？利率上升对已发行债券的价格有什么影响？
+          en: Without default, can a bond's market price not change? What does a rise in rates do to the price of existing bonds?
+      - zh-cn: 股东权益增加，因为以后可以按更高的利率投资
+        en: Has more equity, because it can now invest at higher rates
+        why:
+          zh-cn: 银行手里的是已经买入的债券。按市场价格，它们现在值多少？
+          en: The bank holds bonds it has already bought. What are they worth at market prices now?
+    correct: A
     answer:
       zh-cn: |-
-        债券损失 $90 \times 10\% = 9$，大于股东权益 8，股东权益变为 $8 - 9 = -1$，按市场价格资不抵债。
-        第二种情况：准备金只有 10，大量提款要靠卖债券；卖得越急，价格越低，损失可能吃掉剩下的股东权益。每个未受保的存款人都想在别人之前取钱，因为后取的人可能拿不回全额；结果大家都取，银行真的倒闭，挤兑自我实现。有存款保险时，受保的存款人无论银行怎样都能拿回存款，抢先取钱没有好处，挤兑的动机就消失了。
+        (A)。债券损失 $90 \times 10\% = 9$，大于股东权益 8，按市场价格股东权益变为 −1。银行没有任何坏账，只是资产的期限长、负债可以随时取走。一旦存款人要取钱，银行就得按市场价格卖出债券，损失变成现实。这正是 2023 年硅谷银行遇到的问题。
       en: |-
-        The bond loss is $90 \times 10\% = 9$, more than the equity of 8, so equity becomes $8 - 9 = -1$; at market prices the bank is insolvent.
-        Second case: reserves are only 10, so large withdrawals must be met by selling bonds; the faster the sales, the lower the prices, and the losses can wipe out the remaining equity. Each uninsured depositor wants to withdraw before the others, because those who come later may not get everything back; so everyone withdraws and the bank really fails: the run is self-fulfilling. With deposit insurance, insured depositors get their money back whatever happens, so withdrawing first brings no advantage and the motive for a run disappears.
-    rubric:
-      zh-cn:
-        - "股东权益 −1（写作 -1 或 −1 均可）。"
-        - "说明挤兑的自我实现，以及存款保险如何消除抢先取款的动机。"
-      en:
-        - "Equity −1 (written -1 or −1)."
-        - "Explains the self-fulfilling run and how deposit insurance removes the motive to withdraw first."
+        (A). The bonds lose $90 \times 10\% = 9$, more than the equity of 8, so at market prices equity becomes −1. The bank has no bad loans; its assets are simply long-term while its deposits can be withdrawn at any time. Once depositors want their money, it must sell the bonds at market prices and the loss becomes real. This is the problem Silicon Valley Bank faced in 2023.
 
   - id: C3
     kind: check
     section: quantity-theory
     concepts: [quantity-theory-of-money]
-    expected: { pi1: "4", pi2: "2" }
     question:
       zh-cn: |-
-        某国货币供给每年增长 7%，实际 GDP 增长 3%。(a) 如果流通速度不变，按 $g_M + g_V \approx \pi + g_Y$，通胀约为多少？(b) 如果人们因利率下降而愿意持有更多货币，流通速度每年下降 2%，通胀约为多少？
+        某国货币供给每年增长 7%，实际 GDP 增长 3%。人们愿意持有更多货币，流通速度每年下降 2%。按 $g_M + g_V \approx \pi + g_Y$，通胀约为：
       en: |-
-        A country's money supply grows 7% a year and real GDP 3%. (a) If velocity is constant, what is inflation by $g_M + g_V \approx \pi + g_Y$? (b) If falling interest rates make people willing to hold more money and velocity falls 2% a year, what is inflation?
+        A country's money supply grows 7% a year and real GDP 3%. People want to hold more money, and velocity falls 2% a year. By $g_M + g_V \approx \pi + g_Y$, inflation is about:
+    choices:
+      - zh-cn: 2%
+        en: 2%
+      - zh-cn: 4%
+        en: 4%
+        why:
+          zh-cn: 4% 是流通速度不变时的结果。流通速度下降时，多出来的货币是被花掉了，还是被人们持有？
+          en: 4% is the answer with constant velocity. When velocity falls, is the extra money spent or held?
+      - zh-cn: 6%
+        en: 6%
+        why:
+          zh-cn: 流通速度下降时，同样的货币支持的支出是更多还是更少？$g_V$ 是加上还是减去？
+          en: When velocity falls, does the same money support more or less spending? Is $g_V$ added or subtracted?
+      - zh-cn: 7%，通胀总是等于货币增长率
+        en: 7%, because inflation always equals money growth
+        why:
+          zh-cn: 实际产出增长时，同样的货币要支持更多的交易。产出增长和流通速度会影响通胀吗？
+          en: When real output grows, the same money must support more transactions. Do output growth and velocity affect inflation?
+    correct: A
     answer:
       zh-cn: |-
-        (a) $\pi \approx 7\% - 3\% = 4\%$。
-        (b) $\pi \approx 7\% - 2\% - 3\% = 2\%$。
-        同样的货币增长，流通速度下降时，多出来的货币被人们持有而不是花掉，对价格的推动变小。这也是货币增长率在短期内不能可靠地预测通胀的原因。
+        (A)。$\pi \approx 7\% - 2\% - 3\% = 2\%$。一部分新增的货币被用于支持更多的产出，一部分被人们持有而不是花掉，只有剩下的部分推高价格。流通速度不稳定，这也是货币增长率在短期内不能可靠地预测通胀的原因。
       en: |-
-        (a) $\pi \approx 7\% - 3\% = 4\%$.
-        (b) $\pi \approx 7\% - 2\% - 3\% = 2\%$.
-        With the same money growth, when velocity falls the extra money is held rather than spent, so it pushes prices up less. This is also why money growth does not reliably predict inflation in the short run.
-    rubric:
-      zh-cn:
-        - "(a) 约 4%；(b) 约 2%。"
-        - "解释流通速度下降的作用。"
-      en:
-        - "(a) About 4%; (b) about 2%."
-        - "Explains the effect of falling velocity."
+        (A). $\pi \approx 7\% - 2\% - 3\% = 2\%$. Part of the new money supports more output, part is held rather than spent, and only the rest pushes up prices. Velocity is unstable, which is why money growth does not reliably predict inflation in the short run.
 
   - id: C4
     kind: check
     section: inflation-costs
     concepts: [inflation, fisher-equation]
-    expected: { r2: "-0.94" }
     question:
       zh-cn: |-
-        一笔贷款的名义年利率为 5%，签约时双方都预期通胀为 2%（预期的实际利率约 2.94%）。(a) 实际通胀为 6%，事后的实际利率是多少？谁得益、谁受损？(b) 如果签约时双方就预期到 6% 的通胀，结果会怎样不同？
+        通胀总是对债务人有利，对债权人不利。
       en: |-
-        A loan has a nominal rate of 5% a year, and when it is signed both sides expect 2% inflation (an expected real rate of about 2.94%). (a) Actual inflation turns out to be 6%. What is the realized real rate? Who gains and who loses? (b) How would the outcome differ if both sides had expected 6% inflation when signing?
+        Inflation always helps debtors and hurts creditors.
+    correct: false
+    hint:
+      zh-cn: 如果签约时双方就已经预期到通胀，名义利率会怎样定？
+      en: If both sides already expect the inflation when they sign, how will the nominal interest rate be set?
     answer:
       zh-cn: |-
-        (a) $\frac{1.05}{1.06} - 1 \approx -0.94\%$。债务人得益：还款的实际价值低于预期；债权人受损。
-        (b) 名义利率会在签约时定得更高（约 $1.0294 \times 1.06 - 1 \approx 9.1\%$），实际利率仍约 2.94%，没有财富的重新分配。重新分配来自**未预期到的**通胀。
+        错。只有未预期到的通胀才在债务人和债权人之间重新分配财富。签约时双方就预期到的通胀已经反映在名义利率中：例如预期通胀为 6%、实际利率为 2.94% 时，名义利率会定在约 9.1%，实际利率不变，没有人得益或受损。通胀高于预期时债务人得益，低于预期时债权人得益。
       en: |-
-        (a) $\frac{1.05}{1.06} - 1 \approx -0.94\%$. The borrower gains: the real value of repayments is lower than expected; the lender loses.
-        (b) The nominal rate would have been set higher at signing (about $1.0294 \times 1.06 - 1 \approx 9.1\%$), the real rate would still be about 2.94%, and there would be no redistribution. Redistribution comes from **unexpected** inflation.
-    rubric:
-      zh-cn:
-        - "(a) 约 −0.94%（写作 -0.94 或 −0.94 均可），债务人得益。"
-        - "(b) 说明预期到的通胀会反映在名义利率中。"
-      en:
-        - "(a) About −0.94% (written -0.94 or −0.94); the borrower gains."
-        - "(b) Explains that expected inflation is built into the nominal rate."
+        False. Only unexpected inflation moves wealth between debtors and creditors. Inflation both sides expect at signing is already in the nominal rate: with expected inflation of 6% and a real rate of 2.94%, for example, the nominal rate is set at about 9.1%, the real rate is unchanged, and no one gains or loses. Inflation above expectations helps debtors; below expectations it helps creditors.
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1

@@ -60,51 +60,39 @@ questions:
     kind: check
     section: indicators
     concepts: [leading-indicator, recession]
-    expected: { avg: "4.43", diff: "0.53" }
     question:
       zh-cn: |-
-        最近 3 个月的失业率为 4.3%、4.4% 和 4.6%；过去 12 个月中，3 个月平均失业率的最低值为 3.9%。(a) Sahm 规则是否被触发？(b) 说出一种情况，使这个规则发出错误信号。
+        最近 3 个月的平均失业率比过去 12 个月中的最低值高了 0.5 个百分点以上，Sahm 规则被触发。这说明经济一定已经进入了衰退。
       en: |-
-        The unemployment rate in the last 3 months was 4.3%, 4.4% and 4.6%; over the past 12 months the lowest 3-month average was 3.9%. (a) Is the Sahm rule triggered? (b) Name a situation in which the rule gives a false signal.
+        The 3-month average unemployment rate has risen more than 0.5 percentage points above its low of the past 12 months, triggering the Sahm rule. This shows the economy must already be in a recession.
+    correct: false
+    hint:
+      zh-cn: 失业率上升一定是因为裁员吗？如果有很多人新加入劳动力、正在找工作，会怎样？
+      en: Must rising unemployment come from layoffs? What if many people newly join the labor force and are looking for work?
     answer:
       zh-cn: |-
-        (a) 3 个月平均 $\frac{4.3 + 4.4 + 4.6}{3} \approx 4.43\%$，比 3.9% 高约 0.53 个百分点，超过 0.5，触发。
-        (b) 例如劳动力增长很快（移民或更多人开始找工作），新进入的人需要时间找到工作，失业率上升，但并没有大量裁员，也没有“失业—消费减少—再裁员”的循环。
+        错。Sahm 规则在历史上是很好的衰退信号，但它只是一个经验规律。例如劳动力增长很快（移民或更多人开始找工作），新进入的人需要时间找到工作，失业率上升，但并没有大量裁员，也没有“失业—消费减少—再裁员”的循环。任何一个指标触发都不能确定衰退，NBER 要综合就业、收入、消费、生产等多方面的数据判断。
       en: |-
-        (a) The 3-month average is $\frac{4.3 + 4.4 + 4.6}{3} \approx 4.43\%$, about 0.53 percentage points above 3.9%, more than 0.5, so it is triggered.
-        (b) For example, the labor force grows fast (immigration, or more people starting to look for work); newcomers take time to find jobs, so unemployment rises without large layoffs and without the chain of job losses, lower spending and further layoffs.
-    rubric:
-      zh-cn:
-        - "(a) 约 4.43%，高出约 0.53，触发。"
-        - "(b) 一种失业率上升而没有大量裁员的合理情况。"
-      en:
-        - "(a) About 4.43%, about 0.53 higher; triggered."
-        - "(b) A reasonable situation in which unemployment rises without large layoffs."
+        False. The Sahm rule has been a good recession signal historically, but it is only an empirical regularity. If the labor force grows fast (immigration, or more people starting to look for work), newcomers take time to find jobs and unemployment rises without mass layoffs and without the cycle of job losses, lower spending and more layoffs. No single indicator settles whether there is a recession; the NBER weighs employment, income, spending, production and more.
 
   - id: C2
     kind: check
     section: yield-curve
     concepts: [yield-curve]
-    expected: { f: "4" }
     question:
       zh-cn: |-
-        1 年期国债收益率为 5%，2 年期为 4.5%。按 [[2.5]] 的近似（2 年期利率约等于今年和明年 1 年期利率的平均值），市场预期明年的 1 年期利率是多少？这条曲线是什么形状？它为什么可能预示经济走弱？
+        收益率曲线倒挂会导致经济衰退：只要长期利率低于短期利率，衰退就会随之而来。
       en: |-
-        The 1-year Treasury yield is 5% and the 2-year 4.5%. Using the approximation of [[2.5]] (the 2-year rate is about the average of this year's and next year's 1-year rates), what 1-year rate do markets expect next year? What shape is this curve? Why might it signal a weaker economy?
+        An inverted yield curve causes recessions: whenever long rates fall below short rates, a recession follows.
+    correct: false
+    hint:
+      zh-cn: 倒挂反映的是市场对未来短期利率的什么预期？它和衰退之间是因果关系，还是都和别的东西有关？倒挂之后一定有衰退吗？
+      en: What does an inversion say about expected future short rates? Is it a cause of recessions, or are both linked to something else? Does a recession always follow?
     answer:
       zh-cn: |-
-        $\frac{5\% + r}{2} = 4.5\%$，$r = 4\%$。长期利率低于短期利率，曲线倒挂。
-        市场预期利率将下降约 1 个百分点，央行通常在经济走弱、通胀下降时降息，所以倒挂反映了市场对经济走弱的预期；同时，当前的高短期利率本身也在抑制需求。
+        错。倒挂主要反映市场预期央行将来会降息，而央行通常在经济走弱、通胀下降时降息，所以倒挂是对经济走弱的预期，不是衰退的原因。当前的高短期利率确实会抑制需求，但这来自央行的政策，而不是曲线的形状。而且信号有很长且不固定的时滞，也出现过倒挂之后没有衰退的情况；期限溢价的变化也会改变曲线的形状。
       en: |-
-        $\frac{5\% + r}{2} = 4.5\%$, so $r = 4\%$. The long rate is below the short rate: the curve is inverted.
-        Markets expect rates to fall by about 1 point, and central banks usually cut when the economy weakens and inflation falls, so the inversion reflects expectations of a weaker economy; at the same time, today's high short rates are themselves restraining demand.
-    rubric:
-      zh-cn:
-        - "预期利率 4%，曲线倒挂。"
-        - "用对降息的预期和紧缩政策解释。"
-      en:
-        - "Expected rate 4%, inverted curve."
-        - "Explains by expected cuts and tight policy."
+        False. An inversion mainly reflects expectations that the central bank will cut rates later, and central banks usually cut when the economy weakens and inflation falls; so an inversion is an expectation of weakness, not a cause of recession. High short rates do restrain demand, but that comes from policy, not from the shape of the curve. The signal also has long and variable lags, inversions have been followed by no recession, and changes in the term premium can change the curve's shape too.
 
   - id: C3
     kind: check
@@ -112,49 +100,68 @@ questions:
     concepts: [business-cycle, recession]
     question:
       zh-cn: |-
-        NBER 宣布：经济在 8 个月前已经进入衰退。当天股市上涨。(a) 这矛盾吗？(b) 在衰退中，汽车制造商和电力公司的股票，哪个通常跌得更多？为什么？
+        NBER 宣布：经济在 8 个月前已经进入衰退。当天股市上涨。最合理的解释是：
       en: |-
-        The NBER announces that the economy entered a recession 8 months ago. The stock market rises that day. (a) Is this a contradiction? (b) In a recession, which usually falls more, a carmaker's stock or an electric utility's stock? Why?
+        The NBER announces that the economy entered a recession 8 months ago. The stock market rises that day. The most reasonable explanation:
+    choices:
+      - zh-cn: 股价早已反映了衰退，宣布不是新信息；市场可能已经在预期经济复苏
+        en: Prices already reflected the recession, the announcement is not news, and the market may already expect a recovery
+      - zh-cn: 市场不理性，衰退的消息应该使股价下跌
+        en: The market is irrational; news of a recession should make stocks fall
+        why:
+          zh-cn: 在 NBER 宣布之前，投资者能不能从其他数据看到经济在走弱？那时股价有什么变化？
+          en: Before the NBER spoke, could investors see the economy weakening in other data? What did stock prices do then?
+      - zh-cn: 衰退在宣布的当天结束了
+        en: The recession ended on the day of the announcement
+        why:
+          zh-cn: NBER 的宣布描述的是 8 个月前发生的事。宣布本身会改变经济吗？
+          en: The announcement describes what happened 8 months ago. Does the announcement itself change the economy?
+      - zh-cn: NBER 的判断错了，投资者不相信它
+        en: The NBER is wrong, and investors do not believe it
+        why:
+          zh-cn: 如果投资者早就看到了衰退，他们需要不相信 NBER 才会让股价上涨吗？
+          en: If investors had already seen the recession, would they need to disbelieve the NBER for prices to rise?
+    correct: A
     answer:
       zh-cn: |-
-        (a) 不矛盾。股价反映对未来的预期，投资者早已从各种数据中看到了衰退，股价已经下跌；NBER 的宣布只是确认了已知的事，不是新信息。股价可能已经在预期经济将在未来某个时候回升。
-        (b) 汽车制造商。汽车是可以推迟购买的耐用品，收入下降时需求大幅减少，利润下降很多；电力的需求很稳定，利润受周期的影响小。
+        (A)。股价反映对未来的预期。投资者早已从各种数据中看到了衰退，股价已经下跌；NBER 的宣布只是确认了已知的事，不是新信息。到宣布时，股价可能已经在反映经济将来的回升。所以等数据确认衰退后再卖出股票，往往已经太晚。
       en: |-
-        (a) No. Stock prices reflect expectations of the future; investors had already seen the recession in many data and prices had already fallen; the NBER announcement only confirms what was known and is not new information. Prices may already be anticipating a recovery at some point.
-        (b) The carmaker. Cars are durable goods whose purchase can be postponed, so demand falls sharply when incomes fall and profits drop a lot; demand for electricity is stable, and the utility's profits are little affected by the cycle.
-    rubric:
-      zh-cn:
-        - "(a) 说明股价反映预期，宣布不是新信息。"
-        - "(b) 汽车制造商，用需求的周期性解释。"
-      en:
-        - "(a) Explains that prices reflect expectations and the announcement is not news."
-        - "(b) The carmaker, explained by cyclical demand."
+        (A). Stock prices reflect expectations about the future. Investors had seen the recession in many data long before and prices had already fallen; the NBER only confirmed what was known, which is not news. By the time of the announcement, prices may already reflect a future recovery. That is why selling stocks after the data confirm a recession is usually too late.
 
   - id: C4
     kind: check
     section: stock-bond
     concepts: [stock-bond-correlation, portfolio-variance]
     widget: { id: stock-bond-mix, set: { rho: 0.5, w: 0.6 } }
-    expected: { s1: "9.17", s2: "11" }
     question:
       zh-cn: |-
-        在 [[fig:5-1]] 中，股票权重设为 0.6。相关系数为 −0.3 时，组合的标准差是多少？相关系数为 0.5 时呢？用 [[2.4]] 的需求冲击和供给冲击，解释为什么相关系数会从负变为正。
+        在 [[fig:5-1]] 中把股票权重设为 0.6，再把股债相关系数从 −0.3 调到 0.5。组合的标准差：
       en: |-
-        In [[fig:5-1]], set the stock weight to 0.6. What is the portfolio standard deviation when the correlation is −0.3? When it is 0.5? Using the demand and supply shocks of [[2.4]], explain why the correlation can turn from negative to positive.
+        In [[fig:5-1]], set the stock weight to 0.6, then move the stock–bond correlation from −0.3 to 0.5. The portfolio's standard deviation:
+    choices:
+      - zh-cn: 上升
+        en: Rises
+      - zh-cn: 下降，因为两种资产一起上涨的时候更多了
+        en: Falls, because the two assets rise together more often
+        why:
+          zh-cn: 相关系数为正时，两种资产也更常一起下跌。组合方差中的协方差项是变大还是变小？
+          en: With a positive correlation they also fall together more often. Does the covariance term in the portfolio variance grow or shrink?
+      - zh-cn: 不变，因为两种资产各自的标准差没有变
+        en: Stays the same, because each asset's standard deviation is unchanged
+        why:
+          zh-cn: 组合的方差只取决于两种资产各自的方差吗？还有哪一项？
+          en: Does the portfolio variance depend only on each asset's own variance? What other term is there?
+      - zh-cn: 先下降后上升
+        en: First falls and then rises
+        why:
+          zh-cn: 协方差项 $2w(1-w)\rho\sigma_1\sigma_2$ 随 $\rho$ 怎样变化？是单调的吗？
+          en: How does the covariance term $2w(1-w)\rho\sigma_1\sigma_2$ change with $\rho$? Is it monotonic?
+    correct: A
     answer:
       zh-cn: |-
-        相关系数 −0.3 时约 9.17%，0.5 时约 11%。
-        需求冲击使产出和通胀同向变化：坏消息使股价下跌，同时通胀下降、央行降息，债券上涨，相关为负。供给冲击或通胀冲击使产出下降、通胀上升：股价下跌，同时利率上升，债券也下跌，相关为正。通胀成为主要的风险时，同样的股债组合风险更高，债券分散风险的作用变弱。
+        (A)。组合方差中的协方差项与相关系数成正比，相关系数从负变正，标准差从约 9.17% 上升到约 11%。需求冲击使股价和通胀同向下降、央行降息、债券上涨，股债负相关；通胀冲击使股价下跌、利率上升、债券也下跌，股债正相关。通胀成为主要的风险时，债券分散风险的作用变弱。
       en: |-
-        About 9.17% with a correlation of −0.3, about 11% with 0.5.
-        Demand shocks move output and inflation together: bad news lowers stock prices while inflation falls and the central bank cuts rates, so bonds rise: negative correlation. Supply or inflation shocks lower output and raise inflation: stock prices fall while interest rates rise, so bonds fall too: positive correlation. When inflation becomes the main risk, the same stock–bond portfolio is riskier and bonds diversify less.
-    rubric:
-      zh-cn:
-        - "约 9.17% 和 11%。"
-        - "用两种冲击解释相关性的符号。"
-      en:
-        - "About 9.17% and 11%."
-        - "Explains the sign of the correlation by the two kinds of shock."
+        (A). The covariance term in the portfolio variance is proportional to the correlation, so moving it from negative to positive raises the standard deviation from about 9.17% to about 11%. Demand shocks push stocks and inflation down together, the central bank cuts rates and bonds rise, so stocks and bonds are negatively correlated; inflation shocks push stocks down and rates up, so bonds fall too, and the correlation is positive. When inflation is the main risk, bonds diversify less.
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1

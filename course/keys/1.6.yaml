@@ -43,6 +43,11 @@ common_errors:
       对线性需求 $P = a - bQ$，把 MR 的斜率写成 $-b$ 而不是 $-2b$；或者需求写成 $Q = \ldots - kP$ 时没有先改写成 $P$ 的形式。
     en: |-
       For linear demand $P = a - bQ$, writing the slope of MR as $-b$ instead of $-2b$, or not first rewriting demand of the form $Q = \ldots - kP$ in terms of $P$.
+  - questions: [Q1]
+    zh-cn: |-
+      以为需求缺乏弹性的垄断者已经定价合理。在缺乏弹性的区间，提价既增加收入又减少成本，利润还能提高，所以利润最大的垄断者一定在富有弹性的区间生产。
+    en: |-
+      Thinking a monopolist facing inelastic demand is already pricing well. Where demand is inelastic, a price rise raises revenue and lowers cost, so profit can still rise; a profit-maximizing monopolist always produces where demand is elastic.
   - questions: [Q2]
     zh-cn: |-
       求古诺均衡时把其他厂商的产量也当作自己的选择变量，或者在求导之前就代入对称条件，得到的是合谋的结果。

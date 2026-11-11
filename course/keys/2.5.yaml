@@ -49,6 +49,16 @@ common_errors:
       把 Taylor 规则当作精确的“正确利率”。它的结果取决于中性利率、通胀指标和产出缺口的估计，三者都不确定。
     en: |-
       Treating the Taylor rule as the exact "correct rate". Its answer depends on estimates of the neutral rate, the inflation measure and the output gap, all of which are uncertain.
+  - questions: [Q3]
+    zh-cn: |-
+      以为规则建议的利率为负时，央行把利率降到 0 就够了。名义利率难以远低于 0，央行要用量化宽松、前瞻指引等其他工具，通过长期利率和预期影响经济。
+    en: |-
+      Thinking that when the rule recommends a negative rate, cutting to 0 is enough. Nominal rates cannot go far below 0, so the central bank must use other tools, such as quantitative easing and forward guidance, working through long-term rates and expectations.
+  - questions: [Q4]
+    zh-cn: |-
+      以为加息会立即同样地影响所有房贷家庭。固定利率房贷的家庭的月供不变，加息主要影响新借款和换房的家庭，所以传导比浮动利率普遍的国家慢；锁定低利率的房主不愿意换房，二手房的供给减少。
+    en: |-
+      Thinking a rate hike hits all mortgage holders at once and equally. Households with fixed-rate mortgages keep their payments, so the hike mainly affects new borrowers and those moving, and transmission is slower than where floating rates are common; owners locked into low rates are reluctant to move, which cuts the supply of existing homes.
   - questions: [C4, Q5]
     zh-cn: |-
       以为利率不变，市场就不会变动。市场价格已经反映了预期，变动来自决定或指引与预期的差距。
@@ -63,74 +73,102 @@ questions:
     concepts: [federal-funds-rate]
     question:
       zh-cn: |-
-        准备金利率为 3.90%，隔夜逆回购利率为 3.75%。(a) 一家准备金很多的银行，会以 3.5% 的隔夜利率把准备金借给另一家银行吗？为什么？(b) 如果 FOMC 决定把目标区间提高到 4.00%–4.25%，美联储要怎样调整这些利率？
+        准备金利率为 3.90%，隔夜逆回购利率为 3.75%。一家准备金很多的银行，愿意以 3.5% 的隔夜利率把准备金借给另一家银行吗？
       en: |-
-        The interest rate on reserves is 3.90% and the ON RRP rate 3.75%. (a) Would a bank with plenty of reserves lend them overnight to another bank at 3.5%? Why? (b) If the FOMC decides to raise the target range to 4.00%–4.25%, how does the Fed adjust these rates?
+        The interest rate on reserve balances is 3.90% and the overnight reverse repo rate 3.75%. Would a bank with ample reserves lend them overnight to another bank at 3.5%?
+    choices:
+      - zh-cn: 不会，因为把钱留在美联储就能无风险地得到 3.90%
+        en: No, because leaving the money at the Fed earns 3.90% without risk
+      - zh-cn: 会，因为闲着的准备金没有收益
+        en: Yes, because idle reserves earn nothing
+        why:
+          zh-cn: 银行存在美联储的准备金有没有利息？利率是多少？
+          en: Do reserves held at the Fed earn interest? At what rate?
+      - zh-cn: 会，只要借款银行的信用足够好
+        en: Yes, as long as the borrowing bank's credit is good enough
+        why:
+          zh-cn: 即使借款银行完全没有风险，3.5% 和留在美联储得到的利率比，哪个高？
+          en: 'Even if the borrower were riskless, which is higher: 3.5% or what the Fed pays?'
+      - zh-cn: 不会，因为法律禁止银行之间互相借准备金
+        en: No, because the law forbids banks to lend reserves to each other
+        why:
+          zh-cn: 联邦基金市场本身就是银行之间借贷准备金的市场。这家银行不愿意借出的原因是什么？
+          en: The federal funds market is itself a market where banks lend reserves to each other. Why, then, would this bank refuse?
+    correct: A
     answer:
       zh-cn: |-
-        (a) 不会：把钱留在美联储就能无风险地得到 3.90%，借给别的银行只拿 3.5% 还要承担风险。所以市场利率不会远低于准备金利率；不能在美联储开户的货币市场基金也可以通过逆回购得到 3.75%，这是市场利率的下限。
-        (b) 把准备金利率、隔夜逆回购利率和贴现率都提高 0.25 个百分点（例如 4.15%、4.00% 和 4.25%），市场利率随之上移到新的区间。
+        (A)。把钱留在美联储就能无风险地得到 3.90%，借给别的银行只拿 3.5% 还要承担风险，所以没有银行愿意这样借出。这就是在准备金充裕的框架下，美联储通过设定准备金利率和逆回购利率来控制市场利率的原因：市场利率不会远低于这些利率。
       en: |-
-        (a) No: it can earn 3.90% risk-free by leaving the money at the Fed, while lending to another bank pays only 3.5% and carries risk. So market rates do not fall far below the rate on reserves; money market funds, which cannot hold reserve accounts, can get 3.75% through reverse repos, which sets a floor.
-        (b) Raise the rate on reserves, the ON RRP rate and the discount rate by 0.25 percentage points each (for example to 4.15%, 4.00% and 4.25%), and market rates move up into the new range.
-    rubric:
-      zh-cn:
-        - "(a) 用机会成本解释下限。"
-        - "(b) 一起提高管理利率。"
-      en:
-        - "(a) Explains the floor by opportunity cost."
-        - "(b) The administered rates are raised together."
+        (A). Leaving the money at the Fed earns 3.90% without risk, while lending to another bank earns only 3.5% with risk, so no bank would lend at that rate. This is how, with ample reserves, the Fed controls market rates by setting the interest on reserves and the reverse repo rate: market rates cannot fall far below them.
 
   - id: C2
     kind: check
     section: taylor-rule
     concepts: [taylor-rule, neutral-interest-rate]
     widget: { id: taylor-rule, set: { pi: 4, gap: 0, rstar: 1 } }
-    expected: { i1: "4.5", i2: "6", r1: "1.5", r2: "2" }
     question:
       zh-cn: |-
-        在 [[fig:3-1]] 中，中性利率设为 1%，产出缺口设为 0。通胀从 3% 升到 4% 时，规则建议的名义利率和实际利率各从多少变为多少？如果央行只把名义利率提高 1 个百分点，政策是变紧还是变松了？
+        在 [[fig:3-1]] 中保持通胀和中性利率不变，把产出缺口从 0 调到 −2%（经济处于衰退）。规则建议的名义利率：
       en: |-
-        In [[fig:3-1]], set the neutral rate to 1% and the output gap to 0. When inflation rises from 3% to 4%, how do the nominal and real rates suggested by the rule change? If the central bank raised the nominal rate by only 1 point, would policy have tightened or eased?
+        In [[fig:3-1]], keep inflation and the neutral rate fixed and move the output gap from 0 to −2% (a recession). The rule's recommended nominal rate:
+    choices:
+      - zh-cn: 下降 1 个百分点
+        en: Falls by 1 percentage point
+      - zh-cn: 下降 2 个百分点
+        en: Falls by 2 percentage points
+        why:
+          zh-cn: 规则中产出缺口前面的系数是多少？
+          en: What is the coefficient on the output gap in the rule?
+      - zh-cn: 上升 1 个百分点，因为衰退时要防止资本外流
+        en: Rises by 1 percentage point, to prevent capital outflows in a recession
+        why:
+          zh-cn: 产出低于潜在水平时，央行希望刺激还是抑制需求？利率应该升还是降？
+          en: With output below potential, does the central bank want to stimulate or restrain demand? Should the rate rise or fall?
+      - zh-cn: 不变，因为通胀没有变
+        en: Does not change, because inflation has not changed
+        why:
+          zh-cn: Taylor 规则中，利率只对通胀作出反应吗？
+          en: In the Taylor rule, does the rate respond only to inflation?
+    correct: A
     answer:
       zh-cn: |-
-        通胀 3%：$i = 1 + 3 + 0.5 \times 1 = 4.5\%$，实际利率 1.5%。通胀 4%：$i = 1 + 4 + 0.5 \times 2 = 6\%$，实际利率 2%。名义利率提高 1.5 个百分点，实际利率提高 0.5 个百分点。
-        如果名义利率只提高 1 个百分点，实际利率仍为 1.5%，没有上升，对需求的抑制没有增强；相对于通胀上升，政策并没有变紧。要真正抑制需求，名义利率的提高必须超过通胀的上升。
+        (A)。规则中产出缺口的系数是 0.5，缺口为 −2% 时，建议的利率下降 $0.5 \times 2 = 1$ 个百分点。产出低于潜在水平时，降低利率能刺激投资和消费，使产出回升；产出高于潜在水平时则相反。
       en: |-
-        Inflation 3%: $i = 1 + 3 + 0.5 \times 1 = 4.5\%$, real rate 1.5%. Inflation 4%: $i = 1 + 4 + 0.5 \times 2 = 6\%$, real rate 2%. The nominal rate rises 1.5 points and the real rate 0.5 points.
-        If the nominal rate rose only 1 point, the real rate would stay at 1.5%: no stronger restraint on demand, so relative to the rise in inflation policy would not have tightened. To really restrain demand, the nominal rate must rise by more than inflation.
-    rubric:
-      zh-cn:
-        - "4.5% 和 1.5%；6% 和 2%。"
-        - "说明只提高 1 个百分点时政策没有变紧。"
-      en:
-        - "4.5% and 1.5%; 6% and 2%."
-        - "Explains that a 1-point rise does not tighten policy."
+        (A). The rule's coefficient on the output gap is 0.5, so a gap of −2% lowers the recommended rate by $0.5 \times 2 = 1$ percentage point. With output below potential, a lower rate stimulates investment and consumption and helps output recover; above potential, the opposite.
 
   - id: C3
     kind: check
     section: transmission
     concepts: [growing-perpetuity, present-value]
-    expected: { ch: "-20" }
     question:
       zh-cn: |-
-        一只股票明年的股息为 4 美元，此后每年永远增长 3%。央行加息使投资者要求的收益率从 7% 升到 8%（股息预期不变）。股价变化了百分之几？为什么股息增长越快、价值越依赖远期现金流的资产，对利率越敏感？
+        央行加息，使投资者对各种资产要求的收益率都上升 1 个百分点，现金流的预期不变。下面哪种资产的价格下跌的比例最大？
       en: |-
-        A stock pays a dividend of 4 dollars next year, growing 3% a year forever. A rate hike raises the required return from 7% to 8% (with expected dividends unchanged). By what percentage does the price change? Why are assets with faster-growing dividends, whose value depends more on distant cash flows, more sensitive to interest rates?
+        A rate hike raises the return investors require on every asset by 1 percentage point, with expected cash flows unchanged. Which asset's price falls by the largest percentage?
+    choices:
+      - zh-cn: 股息增长很快、价值主要来自远期现金流的成长股
+        en: A growth stock with fast-growing dividends, whose value comes mostly from distant cash flows
+      - zh-cn: 股息很高、增长很慢的公用事业股
+        en: A utility stock with high dividends and slow growth
+        why:
+          zh-cn: 这只股票的价值主要来自近期还是远期的现金流？近期的现金流折现的期数多吗？
+          en: Does this stock's value come mostly from near or distant cash flows? Are near cash flows discounted over many periods?
+      - zh-cn: 1 年期国债
+        en: A 1-year Treasury bill
+        why:
+          zh-cn: 1 年后就收回全部现金，折现率上升 1 个百分点，它的价格变化有多大？
+          en: All its cash comes back in a year. How much does its price change when the discount rate rises 1 percentage point?
+      - zh-cn: 三种跌得一样多，因为要求收益率都上升了 1 个百分点
+        en: All fall by the same share, because each required return rose by 1 percentage point
+        why:
+          zh-cn: 折现率变化对现值的影响和折现的期数有没有关系？
+          en: Does the effect of a change in the discount rate on present value depend on the number of periods discounted?
+    correct: A
     answer:
       zh-cn: |-
-        $\frac{4}{0.07 - 0.03} = 100$ 变为 $\frac{4}{0.08 - 0.03} = 80$，下跌 20%（变化 -20%）。
-        价值越依赖远期的现金流，折现的期数越多，要求收益率的同样变化对现值的影响越大。增长快的资产价值主要来自很远的将来，所以对利率更敏感（例如高增长的科技股比公用事业股更敏感）。
+        (A)。价值越依赖远期的现金流，折现的期数越多，同样的折现率变化对现值的影响越大。增长快的股票价值主要来自很远的将来：例如明年股息 4 美元、永远增长 3% 时，要求收益率从 7% 升到 8%，价格从 100 跌到 80，跌 20%。1 年期国债几乎不受影响。
       en: |-
-        The price goes from $\frac{4}{0.07 - 0.03} = 100$ to $\frac{4}{0.08 - 0.03} = 80$, a fall of 20% (a change of -20%).
-        The more a value depends on distant cash flows, the more periods they are discounted over, and the more the same change in the required return affects present value. Fast-growing assets get most of their value from the distant future, so they are more sensitive to rates (for example, high-growth technology stocks more than utilities).
-    rubric:
-      zh-cn:
-        - "下跌 20%。"
-        - "用远期现金流折现期数长解释敏感性。"
-      en:
-        - "A 20% fall."
-        - "Explains sensitivity by the long discounting of distant cash flows."
+        (A). The more an asset's value depends on distant cash flows, the more periods they are discounted over, and the larger the effect of the same change in the discount rate. A fast-growing stock's value comes mostly from the far future: with a dividend of 4 dollars next year growing 3% forever, a rise in the required return from 7% to 8% cuts the price from 100 to 80, a 20% fall. A 1-year bill hardly moves.
 
   - id: C4
     kind: check
@@ -138,21 +176,18 @@ questions:
     concepts: [federal-funds-rate]
     question:
       zh-cn: |-
-        FOMC 开会前，联邦基金利率期货显示市场认为降息 0.25 个百分点的可能性约为 90%。结果 FOMC 维持利率不变，声明还暗示近期不打算降息。短期国债收益率和股价大概会怎样变化？为什么“利率没变”也会使市场大幅变动？
+        FOMC 决定维持利率不变，所以这一天的短期国债收益率和股价不会大幅变动。
       en: |-
-        Before an FOMC meeting, federal funds futures show that markets put the chance of a 0.25-point cut at about 90%. The FOMC holds rates unchanged, and its statement suggests no cut is planned soon. How are short-term Treasury yields and stock prices likely to move? Why can "no change in rates" move markets a lot?
+        The FOMC decides to leave rates unchanged, so short-term Treasury yields and stock prices will not move much that day.
+    correct: false
+    hint:
+      zh-cn: 会议之前，市场价格已经反映了什么？如果市场原本以为会降息呢？
+      en: What did market prices already reflect before the meeting? What if the market had expected a cut?
     answer:
       zh-cn: |-
-        短期国债收益率上升，股价下跌。市场原本已经按降息定价：短期收益率反映了预期的更低利率，股价也包含了更低的折现率。决定和声明说明未来的利率路径比预期高，价格就要调整。市场对“意外”作出反应，而不是对利率是否改变本身作出反应。
+        错。价格已经反映了对决定的预期，市场对的是“意外”作出反应。例如会前市场认为降息的可能性约为 90%，结果维持不变，声明还暗示近期不降息，说明未来的利率路径比预期高：短期国债收益率上升，股价下跌。即使利率没有变，决定和指引与预期的差距也会使价格大幅调整。
       en: |-
-        Short-term Treasury yields rise and stock prices fall. Markets had already priced in the cut: short-term yields reflected the expected lower rate, and stock prices included a lower discount rate. The decision and statement show that the path of future rates is higher than expected, so prices must adjust. Markets react to surprises, not to whether rates change as such.
-    rubric:
-      zh-cn:
-        - "方向正确：收益率上升、股价下跌。"
-        - "用预期已反映在价格中解释。"
-      en:
-        - "Correct directions: yields up, stocks down."
-        - "Explains that expectations were already in prices."
+        False. Prices already reflect the expected decision, and markets react to surprises. If, for example, the market saw a 90% chance of a cut before the meeting and the FOMC held rates and signaled no cuts soon, the future rate path is higher than expected: short-term yields rise and stocks fall. Even with no change in the rate, the gap between the decision or guidance and expectations can move prices a lot.
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1

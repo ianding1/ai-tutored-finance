@@ -54,6 +54,11 @@ common_errors:
       只看赤字的绝对大小判断债务能否持续，忽略利率与名义增长率之差和债务比例本身。
     en: |-
       Judging whether debt is sustainable only from the size of the deficit, ignoring the gap between the interest rate and nominal growth and the debt ratio itself.
+  - questions: [Q2]
+    zh-cn: |-
+      以为比例税只是减少了家庭的收入。收入下降时税收自动减少，可支配收入下降得少，消费波动变小，乘数降低，冲击对产出的影响被缓和；代价是扩张性冲击和政策的效果也被削弱。
+    en: |-
+      Thinking a proportional tax only reduces households' income. When income falls, taxes fall automatically, disposable income falls less, consumption swings less and the multiplier is smaller, softening shocks; the price is that expansionary shocks and policies are weakened too.
   - questions: [C4, Q4]
     zh-cn: |-
       把 Ricardo 等价理解为“赤字无关紧要”。它是在很强的假设下关于融资方式的结论，并不说政府支出本身无关紧要。
@@ -66,108 +71,108 @@ questions:
     kind: check
     section: multiplier
     concepts: [fiscal-multiplier]
-    expected: { dt: "400" }
     question:
       zh-cn: |-
-        边际消费倾向 $b = 0.8$，利率不变，不考虑税收随收入的变化和进口；这时政府购买增加 100 会使产出增加 500。如果政府改为向家庭减税 100，产出增加多少？为什么和增加政府购买不同？
+        利率不变时，政府向家庭减税 100，和政府增加购买 100，对产出的效果相同。
       en: |-
-        The marginal propensity to consume is $b = 0.8$, the interest rate is constant, and taxes that vary with income and imports are ignored; then a 100 rise in government purchases raises output by 500. If the government instead cuts household taxes by 100, by how much does output rise? Why does this differ from higher purchases?
+        With interest rates unchanged, cutting households' taxes by 100 has the same effect on output as raising government purchases by 100.
+    correct: false
+    hint:
+      zh-cn: 政府购买的 100 全部直接成为需求。家庭得到减税的 100 后，会全部花掉吗？
+      en: The 100 of government purchases is all direct demand. Do households spend all of a 100 tax cut?
     answer:
       zh-cn: |-
-        减税 100 使可支配收入增加 100，家庭只消费 80，这 80 才开始“收入—消费”的循环：产出增加 $80 \times 5 = 400$，即减税乘数为 $\frac{b}{1 - b} = 4$。
-        政府购买的 100 全部直接成为对产出的需求；减税的 100 中有 20 在第一轮就被储蓄了，没有成为需求。
+        错。政府购买的 100 全部直接成为对产出的需求；减税的 100 只增加家庭的可支配收入，家庭只消费其中的一部分（边际消费倾向 $b$），其余被储蓄，没有成为需求。所以减税乘数 $\frac{b}{1 - b}$ 小于政府购买乘数 $\frac{1}{1 - b}$：$b = 0.8$ 时分别为 4 和 5。
       en: |-
-        A tax cut of 100 raises disposable income by 100, but households consume only 80, and only these 80 start the income–spending chain: output rises by $80 \times 5 = 400$, a tax multiplier of $\frac{b}{1 - b} = 4$.
-        All 100 of government purchases is direct demand for output; of the 100 tax cut, 20 is saved in the first round and never becomes demand.
-    rubric:
-      zh-cn:
-        - "产出增加 400。"
-        - "指出减税第一轮的储蓄。"
-      en:
-        - "Output rises by 400."
-        - "Points to the saving in the first round of the tax cut."
+        False. The 100 of government purchases is all direct demand for output; a 100 tax cut only raises households' disposable income, of which they spend a fraction (the marginal propensity to consume $b$) and save the rest. So the tax multiplier $\frac{b}{1 - b}$ is smaller than the purchases multiplier $\frac{1}{1 - b}$: with $b = 0.8$, 4 against 5.
 
   - id: C2
     kind: check
     section: crowding-out
     concepts: [crowding-out]
-    expected: { y: "3040", dy: "240", di: "-40" }
     question:
       zh-cn: |-
-        沿用 [[2.4]] 随堂题中的经济：$Y = 4\,(400 + G - 20r)$（$T = 400$），开始时 $G = 400$、$r = 5$，产出 2800。政府购买增加到 500。
-        (a) 如果央行担心经济过热，把实际利率提高到 7%，产出变为多少，比原来增加多少？投资变化多少？
-        (b) 和利率不变时的增加（400）相比，差别来自哪里？在什么情况下这种挤出会很小？
+        政府增加购买，央行担心经济过热而提高利率。与利率不变时相比，产出的增加：
       en: |-
-        Use the economy of [[2.4]]: $Y = 4\,(400 + G - 20r)$ (with $T = 400$), starting at $G = 400$, $r = 5$ and output 2800. Government purchases rise to 500.
-        (a) If the central bank, worried about overheating, raises the real rate to 7%, what does output become, and by how much has it risen? By how much does investment change?
-        (b) Compared with the rise at a constant rate (400), where does the difference come from? When would this crowding out be small?
+        The government raises its purchases, and the central bank, worried about overheating, raises interest rates. Compared with unchanged rates, the increase in output is:
+    choices:
+      - zh-cn: 更少，因为利率上升使私人投资减少
+        en: Smaller, because higher rates reduce private investment
+      - zh-cn: 更多，因为利率上升使储蓄者的收入增加
+        en: Larger, because higher rates raise savers' incomes
+        why:
+          zh-cn: 在 IS 曲线中，利率通过哪一项支出影响产出？它向哪个方向变化？
+          en: Through which spending does the interest rate affect output in the IS curve? Which way does it move?
+      - zh-cn: 一样多，因为政府购买的增加不变
+        en: The same, because the increase in government purchases is the same
+        why:
+          zh-cn: 利率上升时，企业的投资会不会变化？投资的变化也会通过乘数影响产出吗？
+          en: When rates rise, does firms' investment change? Does that change also work through the multiplier?
+      - zh-cn: 变为负数，产出比原来更低
+        en: Negative, with output below where it started
+        why:
+          zh-cn: 央行加息是为了抑制过热。它通常会把利率提高到完全抵消财政扩张、甚至更多吗？
+          en: The central bank raises rates to curb overheating. Would it usually raise them enough to cancel the fiscal expansion, or more?
+    correct: A
     answer:
       zh-cn: |-
-        (a) $Y = 4 \times (400 + 500 - 140) = 3040$，增加 240。投资 $I = 500 - 20r$ 从 400 降到 360，变化 -40。
-        (b) 利率上升使投资减少 40，这 40 的减少又通过乘数使产出少增加 160：政府支出挤出了一部分私人投资。经济处于衰退、有大量闲置资源，或利率处于零下限、央行不会加息时，挤出很小。
+        (A)。利率上升使投资减少，投资的减少又通过乘数使产出少增加一部分：政府支出挤出了一部分私人投资。挤出的大小取决于央行的反应：经济处于衰退、有大量闲置资源，或利率处于零下限、央行不会加息时，挤出很小。
       en: |-
-        (a) $Y = 4 \times (400 + 500 - 140) = 3040$, up 240. Investment $I = 500 - 20r$ falls from 400 to 360, a change of -40.
-        (b) The higher rate cuts investment by 40, and through the multiplier this cut makes output rise 160 less: government spending crowds out part of private investment. Crowding out is small when the economy is in recession with many idle resources, or at the zero lower bound when the central bank will not raise rates.
-    rubric:
-      zh-cn:
-        - "(a) 3040，增加 240，投资 −40（写作 -40 或 −40 均可）。"
-        - "(b) 说明挤出的机制和挤出小的条件。"
-      en:
-        - "(a) 3040, up 240, investment −40 (written -40 or −40)."
-        - "(b) Explains the mechanism and when crowding out is small."
+        (A). Higher rates cut investment, and the drop in investment works through the multiplier to reduce the rise in output: government spending crowds out part of private investment. How much depends on the central bank's response: in a deep recession with idle resources, or at the zero lower bound when the central bank will not raise rates, crowding out is small.
 
   - id: C3
     kind: check
     section: debt
     concepts: [primary-deficit, budget-deficit]
     widget: { id: debt-dynamics, set: { d: 3, r: 5, g: 4 } }
-    expected: { s1: "0.48", s2: "-0.96" }
     question:
       zh-cn: |-
-        (a) 由 $b_{t+1} = \frac{1 + r}{1 + g} b_t + d$，求使 $b_{t+1} = b_t = b$ 的基本赤字 $d$（用 $r$、$g$、$b$ 表示）。
-        (b) 在 [[fig:4-1]] 中，增长率为 4%。利率从 3.5% 升到 5% 时，使债务比例保持在 100% 的基本赤字从多少变为多少？这意味着什么？
+        在 [[fig:4-1]] 中把基本赤字设为 0，利率略高于名义增长率。债务占 GDP 的比例：
       en: |-
-        (a) From $b_{t+1} = \frac{1 + r}{1 + g} b_t + d$, find the primary deficit $d$ that makes $b_{t+1} = b_t = b$ (in terms of $r$, $g$ and $b$).
-        (b) In [[fig:4-1]], growth is 4%. When the interest rate rises from 3.5% to 5%, how does the primary deficit that keeps the debt ratio at 100% change? What does this mean?
+        In [[fig:4-1]], set the primary deficit to 0, with the interest rate slightly above nominal growth. The debt-to-GDP ratio:
+    choices:
+      - zh-cn: 逐年上升
+        en: Rises year after year
+      - zh-cn: 保持在 100%，因为没有基本赤字
+        en: Stays at 100%, because there is no primary deficit
+        why:
+          zh-cn: 没有基本赤字时，债务还会因为什么增加？债务和 GDP 哪个增长得更快？
+          en: With no primary deficit, what else makes the debt grow? Which grows faster, the debt or GDP?
+      - zh-cn: 逐年下降
+        en: Falls year after year
+        why:
+          zh-cn: 比例下降需要 GDP 增长得比债务快。这里债务按什么速度增长？
+          en: For the ratio to fall, GDP must grow faster than the debt. At what rate does the debt grow here?
+      - zh-cn: 先上升后下降
+        en: First rises and then falls
+        why:
+          zh-cn: 公式 $b_{t+1} = \frac{1 + r}{1 + g} b_t$ 中，比值 $\frac{1 + r}{1 + g}$ 会随时间变化吗？
+          en: In $b_{t+1} = \frac{1 + r}{1 + g} b_t$, does the factor $\frac{1 + r}{1 + g}$ change over time?
+    correct: A
     answer:
       zh-cn: |-
-        (a) $b = \frac{1 + r}{1 + g} b + d$，所以 $d = b\left(1 - \frac{1 + r}{1 + g}\right) = \frac{g - r}{1 + g}\,b$。
-        (b) 从 $\frac{0.04 - 0.035}{1.04} \times 100 \approx 0.48\%$ 变为 $\frac{0.04 - 0.05}{1.04} \times 100 \approx -0.96\%$，即需要约 0.96% 的基本盈余。利率超过增长率后，仅仅不让债务比例上升，就要求税收超过非利息支出。
+        (A)。没有基本赤字时，债务每年按利率增长（利息靠借新债支付），GDP 按名义增长率增长。$r > g$ 时，$b_{t+1} = \frac{1 + r}{1 + g} b_t$ 中的比值大于 1，债务比例逐年上升，而且越来越快。要让比例不升，需要基本盈余；反过来，$r < g$ 时，即使有少量基本赤字，比例也可以保持稳定。
       en: |-
-        (a) $b = \frac{1 + r}{1 + g} b + d$, so $d = b\left(1 - \frac{1 + r}{1 + g}\right) = \frac{g - r}{1 + g}\,b$.
-        (b) From $\frac{0.04 - 0.035}{1.04} \times 100 \approx 0.48\%$ to $\frac{0.04 - 0.05}{1.04} \times 100 \approx -0.96\%$, that is, a primary surplus of about 0.96% is needed. Once the interest rate exceeds growth, just keeping the debt ratio from rising requires taxes to exceed non-interest spending.
-    rubric:
-      zh-cn:
-        - "(a) $d = \\frac{g - r}{1 + g} b$。"
-        - "(b) 约 0.48% 和 −0.96%（写作 - 或 − 均可），说明需要基本盈余。"
-      en:
-        - "(a) $d = \\frac{g - r}{1 + g} b$."
-        - "(b) About 0.48% and −0.96% (written with - or −), explaining that a primary surplus is needed."
+        (A). With no primary deficit, the debt grows at the interest rate (interest is paid by new borrowing), while GDP grows at the nominal growth rate. With $r > g$, the factor in $b_{t+1} = \frac{1 + r}{1 + g} b_t$ is above 1, so the ratio rises every year, ever faster. Holding it steady needs a primary surplus; conversely, with $r < g$ the ratio can stay steady even with a small primary deficit.
 
   - id: C4
     kind: check
     section: ricardian
     concepts: [ricardian-equivalence, present-value]
-    expected: { pv: "1000" }
     question:
       zh-cn: |-
-        政府今年给每个家庭减税 1000 美元，用发行 1 年期国债弥补，利率 5%；明年向每个家庭加税还本付息。(a) 明年多交的税的现值是多少？按 Ricardo 等价，家庭今年的消费会怎样变化？(b) 举出两种使家庭会把一部分减税花掉的情况。
+        按 Ricardo 等价，政府今年减税、发行国债弥补、以后加税还本付息时，家庭会把减税的钱存起来，今年的消费不变。
       en: |-
-        This year the government cuts each household's taxes by 1000 dollars, financed by a 1-year bond at 5%; next year it raises each household's taxes to repay the bond with interest. (a) What is the present value of next year's extra tax? Under Ricardian equivalence, how does household consumption change this year? (b) Give two situations in which households would spend part of the tax cut.
+        Under Ricardian equivalence, when the government cuts taxes this year, issues bonds to cover it and raises taxes later to repay them, households save the tax cut and keep this year's consumption unchanged.
+    correct: true
+    hint:
+      zh-cn: 以后多交的税，折现到今天值多少？家庭一生的财富因为减税变化了吗？
+      en: What are the future extra taxes worth today? Does the tax cut change households' lifetime wealth?
     answer:
       zh-cn: |-
-        (a) 明年多交 $1000 \times 1.05 = 1050$ 美元，现值 $\frac{1050}{1.05} = 1000$ 美元，正好等于今年的减税。家庭的一生财富没有变化，消费不变，把 1000 美元存起来（例如买政府发行的国债），明年用本息交税。
-        (b) 例如：家庭受流动性约束，原本就想多花钱却借不到；家庭认为加税会落在别人身上（高收入者、下一代），或者不考虑那么远的将来。
+        对。以后多交的税的现值正好等于今天的减税，家庭一生的财富没有变化，所以消费不变，把减税的钱存起来（例如买政府发行的国债），以后用本息交税。这个结论依赖很强的假设：家庭不受流动性约束、能预见未来的税、把子孙的负担也考虑在内。现实中这些假设常常不成立，家庭会花掉一部分减税。
       en: |-
-        (a) Next year each household pays $1000 \times 1.05 = 1050$ dollars more, with present value $\frac{1050}{1.05} = 1000$ dollars, exactly the tax cut. Lifetime wealth is unchanged, so consumption does not change; households save the 1000 dollars (for example, by buying the bonds) and use principal and interest to pay next year's tax.
-        (b) For example: households are liquidity-constrained and already wanted to spend more but could not borrow; households expect the tax increase to fall on others (high earners, the next generation), or do not look that far ahead.
-    rubric:
-      zh-cn:
-        - "(a) 现值 1000，消费不变。"
-        - "(b) 两种合理的情况。"
-      en:
-        - "(a) Present value 1000; consumption unchanged."
-        - "(b) Two reasonable situations."
+        True. The future extra taxes have a present value exactly equal to today's cut, so lifetime wealth is unchanged, consumption stays the same, and households save the cut (for example, by buying the bonds issued) and use the proceeds to pay the later taxes. The result rests on strong assumptions: households are not liquidity constrained, foresee the future taxes and count their descendants' burden. In practice these often fail, and households spend part of a tax cut.
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1
@@ -268,25 +273,25 @@ questions:
       zh-cn: |-
         国民储蓄 = 私人储蓄 + 政府储蓄（政府储蓄 = −赤字）。政府减税 200，使赤字增加 200，政府购买不变。
         (a) 如果 Ricardo 等价成立，国民储蓄变化多少？如果家庭只把减税的 25% 存起来呢？
-        (b) 两种情况下，减税对利率和私人投资的影响有什么不同？
+        (b) 一位议员说：“减税让家庭有更多的钱，一定能刺激经济，而且不会影响企业的投资。”分别在两种情况下评价这个说法。
       en: |-
         National saving = private saving + government saving (government saving = −deficit). The government cuts taxes by 200, raising the deficit by 200, with purchases unchanged.
         (a) If Ricardian equivalence holds, by how much does national saving change? What if households save only 25% of the tax cut?
-        (b) How do the effects of the tax cut on interest rates and private investment differ between the two cases?
+        (b) A legislator says: "A tax cut leaves households more money, so it must stimulate the economy, and it does not affect business investment." Evaluate the statement in each of the two cases.
     answer:
       zh-cn: |-
         (a) Ricardo 等价成立时，私人储蓄增加 200，政府储蓄减少 200，国民储蓄变化 0。只存 25% 时，私人储蓄增加 50，国民储蓄变化 $50 - 200 = -150$。
-        (b) Ricardo 等价成立时，家庭多买的国债正好等于政府多发的国债，资金的供求不变，利率和投资都不变，减税也不刺激需求。不成立时，国民储蓄减少，可用于投资的资金减少，实际利率上升，私人投资被挤出；同时消费增加，短期需求上升。
+        (b) 两种情况下这个说法都不成立，但错的地方不同。Ricardo 等价成立时，家庭多买的国债正好等于政府多发的国债，资金的供求不变，利率和投资都不变，减税也不刺激需求。不成立时，国民储蓄减少，可用于投资的资金减少，实际利率上升，私人投资被挤出；同时消费增加，短期需求上升。
       en: |-
         (a) Under Ricardian equivalence, private saving rises by 200 and government saving falls by 200, so national saving changes by 0. If only 25% is saved, private saving rises by 50, so national saving changes by $50 - 200 = -150$.
-        (b) Under Ricardian equivalence, the extra bonds households buy exactly match the extra bonds issued, so the supply and demand for funds are unchanged, interest rates and investment do not change, and the tax cut does not stimulate demand. Otherwise national saving falls, less is available for investment, the real rate rises and private investment is crowded out; consumption rises at the same time, so short-run demand goes up.
+        (b) The statement fails in both cases, but in different ways. Under Ricardian equivalence, the extra bonds households buy exactly match the extra bonds issued, so the supply and demand for funds are unchanged, interest rates and investment do not change, and the tax cut does not stimulate demand. Otherwise national saving falls, less is available for investment, the real rate rises and private investment is crowded out; consumption rises at the same time, so short-run demand goes up.
     rubric:
       zh-cn:
         - "(a) 0 和 −150（写作 -150 或 −150 均可）。"
-        - "(b) 说明利率和投资在两种情况下的不同。"
+        - "(b) 指出 Ricardo 等价成立时减税不刺激需求，不成立时刺激需求但挤出私人投资。"
       en:
         - "(a) 0 and −150 (written -150 or −150)."
-        - "(b) Explains the difference for interest rates and investment."
+        - "(b) Points out that under Ricardian equivalence the cut does not stimulate demand, and that otherwise it stimulates demand but crowds out private investment."
 
   - id: Q5
     kind: exercise

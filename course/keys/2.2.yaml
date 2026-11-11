@@ -43,6 +43,11 @@ common_errors:
       认为提高储蓄率能使人均产出永久地更快增长。它只提高稳态的水平，过渡结束后人均产出的增长率回到由全要素生产率决定的水平。
     en: |-
       Thinking that a higher saving rate makes output per worker grow faster forever. It only raises the steady-state level; after the transition, growth of output per worker returns to the rate set by TFP.
+  - questions: [Q4]
+    zh-cn: |-
+      以为穷国一定比富国增长得更快。Solow 模型只说明储蓄率、技术和人口增长相同的国家会趋于相同的稳态（条件收敛）；这些条件不同时，穷国的稳态本身就更低，不一定增长得更快。
+    en: |-
+      Thinking poor countries must grow faster than rich ones. The Solow model only says that countries with the same saving rate, technology and population growth approach the same steady state (conditional convergence); when these differ, a poor country's steady state is lower and it need not grow faster.
   - questions: [Q3]
     zh-cn: |-
       认为储蓄越多越好。稳态消费 $(1 - s)y^*$ 先随储蓄率上升、后下降；储蓄过多时，大部分产出用于维持过大的资本存量。
@@ -60,77 +65,89 @@ questions:
     kind: check
     section: growth-accounting
     concepts: [growth-accounting, total-factor-productivity]
-    expected: { ga: "0.83", deep: "0.67" }
     question:
       zh-cn: |-
-        某国 $\alpha = \frac13$。一年中资本增长 3%，劳动增长 1%，实际 GDP 增长 2.5%。全要素生产率增长多少？人均产出增长 1.5%，其中多少来自每个工人拥有更多资本？
+        一个国家的资本份额 $\alpha = \frac13$。如果一年中只有资本增长了 3%，劳动和全要素生产率都不变，实际 GDP 大约增长：
       en: |-
-        A country has $\alpha = \frac13$. In one year capital grows 3%, labor 1% and real GDP 2.5%. How much does TFP grow? Output per worker grows 1.5%; how much of that comes from each worker having more capital?
+        A country's capital share is $\alpha = \frac13$. If in a year only capital grows by 3%, with labor and total factor productivity unchanged, real GDP grows by about:
+    choices:
+      - zh-cn: 1%
+        en: 1%
+      - zh-cn: 3%
+        en: 3%
+        why:
+          zh-cn: 只有一种投入增加时，产出会和它同比例增长吗？增长核算公式中，$g_K$ 前面乘的是什么？
+          en: When only one input grows, does output grow in the same proportion? In the growth accounting formula, what multiplies $g_K$?
+      - zh-cn: 约 0.33%
+        en: About 0.33%
+        why:
+          zh-cn: $\alpha$ 是资本的份额，资本增长 3% 时，产出增长是 $\alpha$ 乘以什么？
+          en: $\alpha$ is capital's share. When capital grows 3%, output growth is $\alpha$ times what?
+      - zh-cn: 2%，即劳动份额乘以 3%
+        en: 2%, that is, labor's share times 3%
+        why:
+          zh-cn: 资本的增长应该乘以资本的份额还是劳动的份额？
+          en: Should capital's growth be multiplied by capital's share or labor's share?
+    correct: A
     answer:
       zh-cn: |-
-        $g_A = 2.5\% - \frac13 \times 3\% - \frac23 \times 1\% \approx 0.83\%$。
-        由 $g_y = g_A + \alpha(g_K - g_L)$：资本深化贡献 $\frac13 \times (3\% - 1\%) \approx 0.67$ 个百分点，其余约 0.83 个百分点来自全要素生产率。
+        (A)。由 $g_Y = g_A + \alpha g_K + (1 - \alpha) g_L$，产出增长 $\frac13 \times 3\% = 1\%$。资本的边际产量递减，只增加资本时，产出增长得比资本慢；各投入的增长要乘以各自的份额。
       en: |-
-        $g_A = 2.5\% - \frac13 \times 3\% - \frac23 \times 1\% \approx 0.83\%$.
-        From $g_y = g_A + \alpha(g_K - g_L)$: capital deepening contributes $\frac13 \times (3\% - 1\%) \approx 0.67$ percentage points, and the remaining 0.83 comes from TFP.
-    rubric:
-      zh-cn:
-        - "全要素生产率约 0.83%。"
-        - "资本深化约 0.67。"
-      en:
-        - "TFP about 0.83%."
-        - "Capital deepening about 0.67."
+        (A). From $g_Y = g_A + \alpha g_K + (1 - \alpha) g_L$, output grows $\frac13 \times 3\% = 1\%$. Capital has diminishing marginal product, so when only capital grows, output grows more slowly than capital; each input's growth is weighted by its share.
 
   - id: C2
     kind: check
     section: solow
     concepts: [solow-model, steady-state]
     widget: { id: solow, set: { s: 0.3 } }
-    expected: { y1: "1.83", y2: "2.24" }
     question:
       zh-cn: |-
-        在 [[fig:4-1]] 中把储蓄率从 0.2 调到 0.3。稳态的人均产出从多少变为多少？到达新的稳态之后，人均产出的增长率是多少？
+        在 [[fig:4-1]] 中把储蓄率从 0.2 调到 0.3。到达新的稳态之后，人均产出：
       en: |-
-        In [[fig:4-1]], raise the saving rate from 0.2 to 0.3. From what to what does steady-state output per worker change? Once the new steady state is reached, what is the growth rate of output per worker?
+        In [[fig:4-1]], raise the saving rate from 0.2 to 0.3. Once the new steady state is reached, output per person:
+    choices:
+      - zh-cn: 比原来高，但不再增长
+        en: Is higher than before, but no longer grows
+      - zh-cn: 每年增长得比原来更快，而且一直如此
+        en: Grows faster every year than before, permanently
+        why:
+          zh-cn: 在稳态，人均资本还会变化吗？图中稳态是哪两条线的交点？
+          en: Does capital per person still change in the steady state? Which two lines cross at the steady state in the figure?
+      - zh-cn: 回到原来的水平，因为资本会折旧
+        en: Returns to its old level, because capital depreciates
+        why:
+          zh-cn: 储蓄率更高时，每年的投资更多。新的交点在原来的左边还是右边？
+          en: With a higher saving rate, investment each year is higher. Is the new crossing point left or right of the old one?
+      - zh-cn: 先升高，然后下降到比原来还低
+        en: First rises and then falls below its old level
+        why:
+          zh-cn: 在新的稳态，人均产出由新的交点决定。它比原来的交点高还是低？
+          en: In the new steady state, output per person is set by the new crossing point. Is it higher or lower than the old one?
+    correct: A
     answer:
       zh-cn: |-
-        人均产出从约 1.83 变为约 2.24。储蓄率提高后，资本逐渐积累，人均产出逐渐增加，越接近新稳态增长越慢。
-        到达新稳态后，人均资本和人均产出都不再变化，增长率为 0（在这个模型中全要素生产率不变）。储蓄率的提高带来的是更高的水平，而不是永久更快的增长。
+        (A)。储蓄率提高后，资本逐渐积累，人均产出从约 1.83 升到约 2.24，越接近新稳态增长越慢。到达新稳态后，投资正好维持人均资本，人均产出不再变化（这个模型中全要素生产率不变）。提高储蓄率带来的是更高的水平，而不是永久更快的增长；持续的增长要靠全要素生产率的提高。
       en: |-
-        Output per worker goes from about 1.83 to about 2.24. After the saving rate rises, capital builds up and output per worker rises gradually, more slowly as it nears the new steady state.
-        At the new steady state capital and output per worker stop changing, so the growth rate is 0 (TFP is constant in this model). A higher saving rate brings a higher level, not permanently faster growth.
-    rubric:
-      zh-cn:
-        - "约 1.83 → 2.24。"
-        - "到稳态后增长率为 0。"
-      en:
-        - "About 1.83 → 2.24."
-        - "Zero growth at the steady state."
+        (A). With a higher saving rate, capital builds up and output per person rises from about 1.83 to about 2.24, more slowly as it nears the new steady state. There, investment just maintains capital per person, so output per person stops changing (total factor productivity is constant in this model). A higher saving rate raises the level, not the long-run growth rate; lasting growth needs rising total factor productivity.
 
   - id: C3
     kind: check
     section: growth-and-stocks
     concepts: [growing-perpetuity]
-    expected: { pa: "50", pb: "16.67" }
     question:
       zh-cn: |-
-        两个股票市场的投资者都要求 8% 的年收益。明年两个市场的股息都是每股 1 美元。投资者预期 A 国的股息每年永远增长 6%，B 国增长 2%。用增长永续年金（[[0.1]]）求两个市场的股价。如果股息正如预期增长，为什么 A 国增长更快，投资者的收益却没有更高？
+        两个股票市场的投资者都要求 8% 的年收益。投资者预期 A 国的股息每年增长 6%，B 国增长 2%。如果股息正如预期增长，投资 A 国股票的收益比 B 国高。
       en: |-
-        Investors in two stock markets both require 8% a year. Next year's dividend is 1 dollar per share in both. Investors expect dividends in country A to grow 6% a year forever and in B 2%. Use the growing perpetuity ([[0.1]]) to find the share prices. If dividends grow as expected, why does faster growth in A not give investors a higher return?
+        Investors in two stock markets both require an 8% annual return. They expect dividends to grow 6% a year in country A and 2% in country B. If dividends grow as expected, stocks in A earn more than stocks in B.
+    correct: false
+    hint:
+      zh-cn: 预期的增长会怎样影响今天的股价和股息率？收益等于股息率加上什么？
+      en: How does expected growth affect today's price and dividend yield? The return equals the dividend yield plus what?
     answer:
       zh-cn: |-
-        A：$\frac{1}{0.08 - 0.06} = 50$；B：$\frac{1}{0.08 - 0.02} \approx 16.67$。
-        预期中更快的增长已经使 A 的股价更高、股息率更低。年收益 = 股息率 + 增长率：A 为 $2\% + 6\%$，B 为 $6\% + 2\%$，都是 8%。只有增长超出预期，投资者才能得到更高的收益。
+        错。预期中更快的增长已经体现在价格里：明年股息都是 1 美元时，A 的股价为 $\frac{1}{0.08 - 0.06} = 50$，B 为 $\frac{1}{0.08 - 0.02} \approx 16.67$。A 的股息率只有 2%，B 为 6%。年收益 = 股息率 + 增长率，两者都是 8%。只有增长超出预期，投资者才能得到更高的收益。
       en: |-
-        A: $\frac{1}{0.08 - 0.06} = 50$; B: $\frac{1}{0.08 - 0.02} \approx 16.67$.
-        The faster expected growth has already made A's price higher and its dividend yield lower. Yearly return = dividend yield + growth: $2\% + 6\%$ for A and $6\% + 2\%$ for B, 8% in both. Investors earn more only if growth beats expectations.
-    rubric:
-      zh-cn:
-        - "股价 50 和约 16.67。"
-        - "说明预期的增长已经反映在价格中，两地收益都是 8%。"
-      en:
-        - "Prices 50 and about 16.67."
-        - "Explains that expected growth is in the price, so both return 8%."
+        False. The faster expected growth is already in the price: with a dividend of 1 dollar next year, A trades at $\frac{1}{0.08 - 0.06} = 50$ and B at $\frac{1}{0.08 - 0.02} \approx 16.67$. A's dividend yield is only 2% and B's 6%. The annual return is the dividend yield plus growth, 8% for both. Investors earn more only if growth beats expectations.
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1

@@ -54,6 +54,9 @@ def results():
     # Values that the questions now give or no longer ask for.
     for k in ['C1.d2', 'C4.r1', 'Q4.a', 'Q5.share']:
         del r[k]
+    # Values that the questions now give or no longer ask for.
+    for k in ['C1.m1', 'C1.m2', 'C2.loss', 'C2.eq', 'C3.pi1', 'C3.pi2', 'C4.r2']:
+        del r[k]
     return r
 
 
