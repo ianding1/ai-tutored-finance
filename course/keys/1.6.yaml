@@ -43,6 +43,26 @@ common_errors:
       对线性需求 $P = a - bQ$，把 MR 的斜率写成 $-b$ 而不是 $-2b$；或者需求写成 $Q = \ldots - kP$ 时没有先改写成 $P$ 的形式。
     en: |-
       For linear demand $P = a - bQ$, writing the slope of MR as $-b$ instead of $-2b$, or not first rewriting demand of the form $Q = \ldots - kP$ in terms of $P$.
+  - questions: [Q2]
+    zh-cn: |-
+      求古诺均衡时把其他厂商的产量也当作自己的选择变量，或者在求导之前就代入对称条件，得到的是合谋的结果。
+    en: |-
+      Treating the other firms' output as one's own choice when solving for the Cournot equilibrium, or imposing symmetry before differentiating, which gives the collusive outcome.
+  - questions: [Q3]
+    zh-cn: |-
+      以为合谋对每个厂商都更好，所以一定能维持。对方遵守约定时，自己多生产能赚得更多，每个厂商都有违约的动机。
+    en: |-
+      Thinking collusion is better for each firm and therefore sustainable. When the other side keeps the agreement, producing more pays even better, so each firm is tempted to cheat.
+  - questions: [Q5]
+    zh-cn: |-
+      以为企业的加价率由成本决定。利润最大的加价率由需求弹性决定；竞争者增多、顾客更容易比较价格时，需求变得更有弹性，加价率下降。
+    en: |-
+      Thinking a firm's markup is set by its costs. The profit-maximizing markup is set by the elasticity of demand; more rivals or easier price comparison make demand more elastic and lower the markup.
+  - questions: [Q6]
+    zh-cn: |-
+      对自然垄断要求价格等于边际成本，忽略这时收入覆盖不了固定成本，企业长期会亏损退出。
+    en: |-
+      Requiring a natural monopoly to price at marginal cost, ignoring that revenue then does not cover the fixed cost and the firm would lose money and leave in the long run.
   - questions: [Q4]
     zh-cn: |-
       统一定价时把两个市场的需求直接相加，忽略了价格超过 30 时市场 B 的需求为 0（总需求曲线有折点）。
@@ -55,102 +75,123 @@ questions:
     kind: check
     section: monopoly
     concepts: [monopoly, lerner-index]
-    expected: { p: "80", lerner: "0.5" }
     question:
       zh-cn: |-
-        垄断者面对需求 $P = 120 - 2Q$，边际成本恒为 40。利润最大的价格和这时的勒纳指数是多少？用这一点的需求弹性验证 $\frac{P - MC}{P} = \frac{1}{|\varepsilon|}$。
+        垄断者由 $MR = MC$ 求出利润最大的产量后，应该把价格定在：
       en: |-
-        A monopolist faces demand $P = 120 - 2Q$ with a constant marginal cost of 40. What are the profit-maximizing price and the Lerner index there? Check $\frac{P - MC}{P} = \frac{1}{|\varepsilon|}$ with the demand elasticity at that point.
+        After finding the profit-maximizing output from $MR = MC$, a monopolist should set the price at:
+    choices:
+      - zh-cn: 需求曲线上这一产量对应的价格
+        en: The price on the demand curve at that output
+      - zh-cn: 边际成本
+        en: Marginal cost
+        why:
+          zh-cn: 价格等于边际成本是哪种市场的结果？垄断者在这个价格下能卖出多少？会损失多少利润？
+          en: Price equal to marginal cost is the outcome of which kind of market? How much would the monopolist sell at that price, and how much profit would it give up?
+      - zh-cn: 这一产量处的边际收入
+        en: Marginal revenue at that output
+        why:
+          zh-cn: 边际收入是多卖一单位增加的收入，不是买方愿意付的价格。在这一产量处，买方愿意付多少？
+          en: Marginal revenue is the extra revenue from one more unit, not what buyers will pay. At that output, how much are buyers willing to pay?
+      - zh-cn: 平均成本加上一个固定的利润率
+        en: Average cost plus a fixed profit margin
+        why:
+          zh-cn: 利润最大化看的是需求和边际成本。固定的利润率和需求有什么关系？
+          en: Profit maximization depends on demand and marginal cost. How is a fixed margin related to demand?
+    correct: A
     answer:
       zh-cn: |-
-        $MR = 120 - 4Q = 40$，$Q = 20$，$P = 80$。勒纳指数 $\frac{80 - 40}{80} = 0.5$。
-        $Q = 60 - \frac{P}{2}$，$|\varepsilon| = \frac12 \times \frac{80}{20} = 2$，$\frac{1}{|\varepsilon|} = 0.5$，相符。
+        (A)。$MR = MC$ 决定产量，价格是买方为这个产量愿意付的最高价格，由需求曲线给出。因为垄断者要降价才能多卖，$MR$ 低于价格，所以垄断价格高于边际成本，加价率为 $\frac{1}{|\varepsilon|}$。
       en: |-
-        $MR = 120 - 4Q = 40$ gives $Q = 20$ and $P = 80$. The Lerner index is $\frac{80 - 40}{80} = 0.5$.
-        $Q = 60 - \frac{P}{2}$, so $|\varepsilon| = \frac12 \times \frac{80}{20} = 2$ and $\frac{1}{|\varepsilon|} = 0.5$, which matches.
-    rubric:
-      zh-cn:
-        - "价格 80、勒纳指数 0.5。"
-        - "弹性 2，验证相符。"
-      en:
-        - "Price 80, Lerner index 0.5."
-        - "Elasticity 2; the check matches."
+        (A). $MR = MC$ sets the output, and the price is the most buyers will pay for that output, read from the demand curve. Because the monopolist must cut the price to sell more, $MR$ is below the price, so the monopoly price is above marginal cost, with a markup of $\frac{1}{|\varepsilon|}$.
 
   - id: C2
     kind: check
     section: price-discrimination
     concepts: [price-discrimination, lerner-index]
-    expected: { pa: "55", pb: "20" }
     question:
       zh-cn: |-
-        一个厂商能把买者分成两组并防止转卖，边际成本恒为 10。A 组需求 $Q_A = 100 - P_A$，B 组需求 $Q_B = 60 - 2P_B$。两组的价格各是多少？为什么 A 组的价格更高？
+        一个能把买者分组、防止转卖的厂商，会对需求更缺乏弹性的那组收更高的价格。
       en: |-
-        A firm can split buyers into two groups and prevent resale; marginal cost is a constant 10. Group A has demand $Q_A = 100 - P_A$ and group B $Q_B = 60 - 2P_B$. What price does each group pay? Why is group A's price higher?
+        A firm that can split buyers into groups and prevent resale charges the higher price to the group whose demand is less elastic.
+    correct: true
+    hint:
+      zh-cn: 利润最大时的加价率 $\frac{P - MC}{P}$ 与需求弹性是什么关系？
+      en: How is the profit-maximizing markup $\frac{P - MC}{P}$ related to the elasticity of demand?
     answer:
       zh-cn: |-
-        A 组：$MR_A = 100 - 2Q_A = 10$，$Q_A = 45$，$P_A = 55$。B 组：$P_B = 30 - \frac{Q_B}{2}$，$MR_B = 30 - Q_B = 10$，$Q_B = 20$，$P_B = 20$。
-        在各自的价格处，A 组的需求弹性约 $1 \times \frac{55}{45} \approx 1.22$，B 组为 $2 \times \frac{20}{20} = 2$。A 组更缺乏弹性，按勒纳指数 $\frac{1}{|\varepsilon|}$ 加价更多。
+        对。每组都按 $MR = MC$ 定价，加价率等于 $\frac{1}{|\varepsilon|}$。需求越缺乏弹性，买者对价格越不敏感，加价越多。例如学生和老人的需求通常更有弹性，所以常有折扣；出差的商务旅客对价格不敏感，机票更贵。
       en: |-
-        Group A: $MR_A = 100 - 2Q_A = 10$ gives $Q_A = 45$ and $P_A = 55$. Group B: $P_B = 30 - \frac{Q_B}{2}$, $MR_B = 30 - Q_B = 10$ gives $Q_B = 20$ and $P_B = 20$.
-        At these prices, group A's elasticity is about $1 \times \frac{55}{45} \approx 1.22$ and group B's $2 \times \frac{20}{20} = 2$. Group A is less elastic, so by the Lerner index $\frac{1}{|\varepsilon|}$ it gets a higher markup.
-    rubric:
-      zh-cn:
-        - "$P_A = 55$、$P_B = 20$。"
-        - "用弹性和勒纳指数解释。"
-      en:
-        - "$P_A = 55$, $P_B = 20$."
-        - "Explains with elasticity and the Lerner index."
+        True. Each group is priced where $MR = MC$, with a markup of $\frac{1}{|\varepsilon|}$. The less elastic the demand, the less sensitive buyers are to price and the higher the markup. Students and seniors usually have more elastic demand and get discounts; business travelers care little about price and pay more for flights.
 
   - id: C3
     kind: check
     section: cournot
     concepts: [cournot-model, oligopoly, monopoly]
     widget: { id: cournot, set: { n: 10 } }
-    expected: { p1: "60", p10: "27.27" }
     question:
       zh-cn: |-
-        在 [[fig:3-1]] 中，厂商数目为 1 和 10 时，价格各是多少？厂商越来越多时，价格和总产量趋向什么？
+        在 [[fig:3-1]] 中，从 1 个厂商开始逐渐增加厂商数目。
       en: |-
-        In [[fig:3-1]], what is the price with 1 firm and with 10 firms? As the number of firms grows, what do the price and total output approach?
+        In [[fig:3-1]], increase the number of firms step by step from 1.
+    choices:
+      - zh-cn: 价格不断下降，趋向边际成本 20，行业总利润趋向 0
+        en: The price keeps falling toward the marginal cost of 20, and industry profit toward 0
+      - zh-cn: 价格不变，每个厂商的产量变少
+        en: The price stays the same and each firm produces less
+        why:
+          zh-cn: 看图中的读数：厂商增多时，总产量怎样变化？总产量变化时，需求曲线上的价格会不变吗？
+          en: 'Look at the readout: how does total output change as firms are added? Can the price on the demand curve stay the same when total output changes?'
+      - zh-cn: 行业总利润增加，因为有更多厂商在赚钱
+        en: Industry profit rises, because more firms are earning it
+        why:
+          zh-cn: 看图中的阴影。每个厂商扩大产量时，会考虑它压低价格对其他厂商利润的影响吗？
+          en: Look at the shaded area. When a firm expands output, does it consider how the lower price hurts the other firms' profit?
+      - zh-cn: 价格最终降到边际成本以下
+        en: The price eventually falls below marginal cost
+        why:
+          zh-cn: 价格低于边际成本时，厂商多生产一单位是赚还是亏？它还会这样做吗？
+          en: Below marginal cost, does an extra unit earn or lose money? Would a firm still produce it?
+    correct: A
     answer:
       zh-cn: |-
-        1 家：价格 60，就是垄断。10 家：价格 27.27。
-        厂商越多，价格越低、总产量越高，趋向完全竞争的结果：价格等于边际成本 20，总产量 80，行业总利润趋向 0。
+        (A)。1 家时价格为 60，就是垄断；10 家时约 27.27。每个厂商只考虑扩大产量对自己利润的影响，而不考虑压低价格对其他厂商的影响，厂商越多，这种“外部性”越大，总产量越高、价格越低。厂商数目趋于无穷时，结果趋向完全竞争：价格等于边际成本，行业总利润趋向 0。
       en: |-
-        1 firm: price 60, the monopoly outcome. 10 firms: price 27.27.
-        The more firms, the lower the price and the higher total output, approaching the perfectly competitive outcome: price equal to marginal cost, 20, total output 80, and industry profit near 0.
-    rubric:
-      zh-cn:
-        - "价格 60 和 27.27。"
-        - "趋向价格 20、产量 80。"
-      en:
-        - "Prices 60 and 27.27."
-        - "Approaches price 20 and output 80."
+        (A). With 1 firm the price is 60, the monopoly outcome; with 10 firms it is about 27.27. Each firm weighs only how more output affects its own profit, not how the lower price hurts the others; the more firms, the larger this neglected effect, so total output rises and the price falls. As the number of firms grows without limit, the outcome approaches perfect competition: the price equals marginal cost and industry profit goes to 0.
 
   - id: C4
     kind: check
     section: bertrand
     concepts: [bertrand-model]
-    expected: { price: "120" }
     question:
       zh-cn: |-
-        两家航空公司在同一条航线上按伯特兰模型竞争，服务相同。甲公司每位乘客的边际成本是 100 美元，乙公司是 120 美元。均衡价格大约是多少？谁得到乘客？各自的利润如何？
+        两家航空公司在同一条航线上按伯特兰模型竞争，服务相同。甲每位乘客的边际成本是 100 美元，乙是 120 美元。均衡时：
       en: |-
-        Two airlines compete on the same route as in the Bertrand model, with identical service. Airline A's marginal cost per passenger is 100 dollars and airline B's is 120 dollars. About what is the equilibrium price? Who gets the passengers? What are their profits?
+        Two airlines compete on the same route as in the Bertrand model, with identical service. Airline A's marginal cost per passenger is 100 dollars and B's is 120 dollars. In equilibrium:
+    choices:
+      - zh-cn: 价格约为 120 美元，甲得到全部乘客
+        en: The price is about 120 dollars, and A gets all the passengers
+      - zh-cn: 价格为 100 美元，两家平分乘客
+        en: The price is 100 dollars, and the airlines share the passengers
+        why:
+          zh-cn: 价格为 100 美元时，乙每位乘客亏损多少？它还愿意飞吗？甲有必要把价格压到 100 吗？
+          en: At 100 dollars, how much does B lose per passenger? Would it still fly? Does A need to go down to 100?
+      - zh-cn: 价格是垄断价格，因为只有两家
+        en: The price is the monopoly price, because there are only two airlines
+        why:
+          zh-cn: 伯特兰竞争中，只要价格高于对手的成本，对手会怎样做？
+          en: In Bertrand competition, what does a rival do whenever the price is above its cost?
+      - zh-cn: 价格为两家成本的平均 110 美元
+        en: The price is 110 dollars, the average of the two costs
+        why:
+          zh-cn: 价格为 110 美元时，乙会愿意以这个价格飞吗？甲把价格提高到接近 120 会失去乘客吗？
+          en: At 110 dollars, would B fly at that price? Would A lose passengers by raising its price close to 120?
+    correct: A
     answer:
       zh-cn: |-
-        价格约为 120 美元（略低于乙的成本）。乙不会把价格定在 120 以下，否则每位乘客都亏损；甲只要定价略低于 120，就能得到全部乘客，而定得更低只会减少利润。所以甲得到全部乘客，每位乘客赚约 20 美元；乙没有乘客，利润为 0。
-        成本较低的一方赚到的是成本差，而不是垄断利润：乙的存在限制了甲的定价。
+        (A)。乙不会把价格定在 120 美元以下，否则每位乘客都亏损。甲只要定价略低于 120 美元，就能得到全部乘客，定得更低只会减少利润。所以甲每位乘客赚约 20 美元，乙没有乘客。成本较低的一方赚到的是成本差，而不是垄断利润：乙的存在限制了甲的定价。
       en: |-
-        The price is about 120 dollars (just below B's cost). B will not price below 120, since it would lose money on every passenger; A gets all the passengers by pricing just below 120, and pricing any lower would only reduce its profit. So A gets all the passengers and earns about 20 dollars per passenger; B has no passengers and zero profit.
-        The lower-cost firm earns the cost difference, not a monopoly profit: B's presence limits A's price.
-    rubric:
-      zh-cn:
-        - "价格约 120（略低于高成本方的成本）。"
-        - "甲得到全部乘客，每人赚约 20；乙利润为 0。"
-      en:
-        - "Price about 120 (just below the higher cost)."
-        - "A gets all passengers and earns about 20 each; B earns 0."
+        (A). B will not price below 120 dollars, or it loses money on every passenger. A gets all passengers by pricing just below 120 dollars, and pricing lower would only cut its profit. So A earns about 20 dollars per passenger and B gets none. The lower-cost airline earns the cost difference, not a monopoly profit: B's presence limits A's price.
 
   - id: C5
     kind: check
@@ -158,31 +199,28 @@ questions:
     concepts: [barriers-to-entry, economic-moat, monopolistic-competition]
     question:
       zh-cn: |-
-        下面三家企业目前都有正的经济利润。分别判断它们主要依靠哪种进入壁垒，或者没有明显的壁垒；哪一家的利润最可能被竞争消除？
-        (a) 一个支付网络：商户接受它，是因为很多消费者使用它；消费者使用它，是因为很多商户接受它。
-        (b) 一家为大企业提供财务核算软件的公司，客户更换系统需要迁移多年的数据并重新培训员工。
-        (c) 一家很受欢迎的新式茶饮店，所在城市有数百家茶饮店，开一家新店的成本不高。
+        下面三家企业目前都有正的经济利润。哪一家的利润最可能被竞争消除？
       en: |-
-        Each of the three firms below currently earns a positive economic profit. For each, decide which barrier to entry it mainly relies on, or whether it has no clear barrier. Whose profit is most likely to be competed away?
-        (a) A payment network: merchants accept it because many consumers use it, and consumers use it because many merchants accept it.
-        (b) A company that sells accounting software to large firms; a customer that changes systems must migrate years of data and retrain its staff.
-        (c) A very popular new-style tea shop in a city with hundreds of tea shops, where opening a new shop is not expensive.
+        These three firms all have positive economic profits today. Whose profit is most likely to be competed away?
+    choices:
+      - zh-cn: 一个支付网络：商户接受它，是因为很多消费者使用它；消费者使用它，是因为很多商户接受它
+        en: 'A payment network: merchants accept it because many consumers use it, and consumers use it because many merchants accept it'
+        why:
+          zh-cn: 一个新的支付网络起步时，既没有商户也没有消费者。它容易吸引第一批用户吗？
+          en: A new payment network starts with neither merchants nor consumers. Is it easy for it to attract its first users?
+      - zh-cn: 一家为大企业提供财务核算软件的公司，客户更换系统需要迁移多年的数据并重新培训员工
+        en: A company selling accounting software to large firms, whose customers must move years of data and retrain staff to switch
+        why:
+          zh-cn: 即使竞争者的软件更便宜，客户换用要付出什么代价？
+          en: Even if a rival's software is cheaper, what does a customer have to pay to switch?
+      - zh-cn: 一家很受欢迎的新式茶饮店，所在城市有数百家茶饮店，开一家新店的成本不高
+        en: A popular new tea shop in a city with hundreds of tea shops, where opening a new one costs little
+    correct: C
     answer:
       zh-cn: |-
-        (a) 网络效应：新的支付网络既没有商户也没有消费者，很难起步。
-        (b) 转换成本：即使竞争者的软件更便宜，客户换用的代价也很高。
-        (c) 没有明显的壁垒，属于垄断竞争：产品有特色，但别人很容易模仿配方和风格开新店。它的利润最可能被竞争消除，长期趋向 0。
+        (C)。支付网络有网络效应，新网络很难起步；财务软件有转换成本，客户即使看到更便宜的产品也不愿意换。茶饮店没有明显的进入壁垒，属于垄断竞争：产品有特色，但别人很容易模仿配方和风格开新店，进入会把它的利润压低，长期趋向 0。
       en: |-
-        (a) Network effects: a new payment network has neither merchants nor consumers and finds it hard to get started.
-        (b) Switching costs: even if a competitor's software is cheaper, changing is expensive for the customer.
-        (c) No clear barrier; this is monopolistic competition: the product is distinctive, but others can easily copy the recipes and style and open new shops. Its profit is the most likely to be competed away, toward 0 in the long run.
-    rubric:
-      zh-cn:
-        - "(a) 网络效应；(b) 转换成本。"
-        - "(c) 没有明显壁垒（垄断竞争），利润最可能消失。"
-      en:
-        - "(a) Network effects; (b) switching costs."
-        - "(c) No clear barrier (monopolistic competition); its profit is the most likely to disappear."
+        (C). The payment network has network effects, so a new network struggles to start; the accounting software has switching costs, so customers do not switch even to cheaper products. The tea shop has no clear barrier to entry and is in monopolistic competition: its products are distinctive, but others can easily copy the recipes and style and open new shops, and entry pushes its profit toward 0 in the long run.
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1
@@ -272,11 +310,11 @@ questions:
     expected: { pu: "55", piu: "2025", pid: "2225" }
     question:
       zh-cn: |-
-        沿用 [[check:C2]] 的两组买者（$Q_A = 100 - P_A$，$Q_B = 60 - 2P_B$，边际成本 10）。
+        一个厂商能把买者分成两组并防止转卖：A 组需求 $Q_A = 100 - P_A$，B 组需求 $Q_B = 60 - 2P_B$，边际成本 10。价格歧视时，两组的价格分别为 55 和 20。
         (a) 如果法律禁止价格歧视，厂商只能对两组收同一个价格。利润最大的价格和利润是多少？与价格歧视时相比如何？（注意：价格高于某个水平时，B 组不再购买。）
         (b) 禁止价格歧视对 B 组买者是好是坏？对总销量呢？
       en: |-
-        Use the two groups of [[check:C2]] ($Q_A = 100 - P_A$, $Q_B = 60 - 2P_B$, marginal cost 10).
+        A firm can split buyers into two groups and prevent resale: group A has demand $Q_A = 100 - P_A$ and group B $Q_B = 60 - 2P_B$, with marginal cost 10. With price discrimination, the two groups pay 55 and 20.
         (a) If the law forbids price discrimination and the firm must charge both groups the same price, what are the profit-maximizing price and profit? How do they compare with price discrimination? (Note: above some price, group B stops buying.)
         (b) Is the ban good or bad for group B? For total sales?
     answer:

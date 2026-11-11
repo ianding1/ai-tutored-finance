@@ -38,6 +38,21 @@ context:
       The lesson defines the income elasticity (normal goods, luxuries $> 1$, necessities between $0$ and $1$, inferior goods $< 0$) and the cross-price elasticity (substitutes $> 0$, complements $< 0$), and mentions that companies selling necessities see their revenue affected less by recessions and that pricing power is related to inelastic demand.
 
 common_errors:
+  - questions: [Q2]
+    zh-cn: |-
+      以为利润最大化的公司会把价格定在需求缺乏弹性的区间。在那里提价既增加收入，又减少产量和成本，利润一定还能提高。
+    en: |-
+      Thinking a profit-maximizing firm may set its price where demand is inelastic. There a price rise both raises revenue and lowers output and cost, so profit can always be increased.
+  - questions: [Q4]
+    zh-cn: |-
+      把整个市场的结果套到单个生产者身上。需求缺乏弹性时，全体歉收使价格大涨、总收入增加；只有自己一家歉收时价格几乎不变，收入随产量下降。
+    en: |-
+      Applying the result for the whole market to a single producer. With inelastic demand, a general poor harvest raises the price a lot and total revenue rises; when only one farm has a poor harvest the price hardly changes, and its revenue falls with its output.
+  - questions: [Q6]
+    zh-cn: |-
+      只用自身的价格弹性分析提价，忽略竞争对手同时涨价时，交叉价格弹性使需求向自己这边移动。
+    en: |-
+      Analyzing a price rise with the own-price elasticity only, ignoring that when competitors raise prices at the same time, the cross-price elasticity shifts demand toward the firm.
   - questions: [C1]
     zh-cn: |-
       把短缺和过剩弄反：价格低于均衡时需求量大于供给量，是短缺。
@@ -60,102 +75,123 @@ questions:
     kind: check
     section: equilibrium
     concepts: [market-equilibrium, demand, supply]
-    expected: { p: "26", q: "42", gap: "30" }
     question:
       zh-cn: |-
-        某商品的需求为 $Q_d = 120 - 3P$，供给为 $Q_s = 2P - 10$。求均衡价格和均衡数量。如果价格被固定在 20，会出现过剩还是短缺？数量是多少？
+        政府规定一种商品的价格不得超过某个水平，而这个上限低于均衡价格。市场上会出现：
       en: |-
-        A good has demand $Q_d = 120 - 3P$ and supply $Q_s = 2P - 10$. Find the equilibrium price and quantity. If the price is fixed at 20, is there a surplus or a shortage, and how large is it?
+        The government caps a good's price at a level below the equilibrium price. The market will have:
+    choices:
+      - zh-cn: 短缺：买方想买的数量多于卖方愿意卖的数量
+        en: 'A shortage: buyers want more than sellers are willing to sell'
+      - zh-cn: 过剩：卖方卖不出去
+        en: 'A surplus: sellers cannot sell all they offer'
+        why:
+          zh-cn: 价格低于均衡时，沿着需求曲线需求量是增加还是减少？沿着供给曲线供给量呢？
+          en: Below the equilibrium price, does the quantity demanded rise or fall along the demand curve? And the quantity supplied along the supply curve?
+      - zh-cn: 仍然是均衡，只是价格更低
+        en: Still an equilibrium, only at a lower price
+        why:
+          zh-cn: 均衡要求需求量等于供给量。在这个上限价格下，两者相等吗？
+          en: Equilibrium requires the quantity demanded to equal the quantity supplied. Are they equal at the capped price?
+      - zh-cn: 供给曲线向左移动
+        en: A shift of the supply curve to the left
+        why:
+          zh-cn: 价格的变化会使整条供给曲线移动，还是沿着供给曲线移动？
+          en: Does a change in price shift the whole supply curve, or move along it?
+    correct: A
     answer:
       zh-cn: |-
-        $120 - 3P = 2P - 10$，$P^* = 26$，$Q^* = 120 - 78 = 42$。
-        价格为 20 时，需求量 $120 - 60 = 60$，供给量 $40 - 10 = 30$，需求量大于供给量，短缺 30。
+        (A)。价格低于均衡时，需求量大于均衡数量，供给量小于均衡数量，出现短缺。价格不能上升来消除短缺，于是会出现排队、配给或黑市。供给曲线本身没有移动，只是沿着它移动到了较少的供给量。
       en: |-
-        $120 - 3P = 2P - 10$ gives $P^* = 26$ and $Q^* = 120 - 78 = 42$.
-        At a price of 20, the quantity demanded is $120 - 60 = 60$ and the quantity supplied is $40 - 10 = 30$. Demand exceeds supply: a shortage of 30.
-    rubric:
-      zh-cn:
-        - "均衡价格 26、数量 42。"
-        - "价格 20 时为短缺，数量 30。"
-      en:
-        - "Equilibrium price 26 and quantity 42."
-        - "At a price of 20 there is a shortage of 30."
+        (A). Below the equilibrium price, the quantity demanded exceeds the equilibrium quantity and the quantity supplied falls short of it, so there is a shortage. The price cannot rise to remove it, so queues, rationing or black markets appear. The supply curve itself does not shift; the market only moves along it to a smaller quantity supplied.
 
   - id: C2
     kind: check
     section: comparative-statics
     concepts: [comparative-statics, supply]
     widget: { id: supply-demand, set: { dS: -30 } }
-    expected: { p: "25", q: "50" }
     question:
       zh-cn: |-
-        在 [[fig:4-1]] 中保持 $\Delta D = 0$，把 $\Delta S$ 调到 −30（例如产区歉收）。新的均衡价格和数量是多少？和讲义中收入上升的例子相比，价格和数量的变化方向有什么不同？
+        在 [[fig:4-1]] 中保持 $\Delta D = 0$，把 $\Delta S$ 调到 −30（例如产区歉收），与讲义中收入上升的例子比较：
       en: |-
-        In [[fig:4-1]], keep $\Delta D = 0$ and set $\Delta S$ to −30 (for example, a poor harvest). What are the new equilibrium price and quantity? Compared with the example of higher income in the lesson, how do the directions of the changes in price and quantity differ?
+        In [[fig:4-1]], keep $\Delta D = 0$ and set $\Delta S$ to −30 (for example, a poor harvest). Compared with the lesson's example of rising incomes:
+    choices:
+      - zh-cn: 两个例子中价格都上升，但数量的变化方向相反
+        en: The price rises in both examples, but the quantity moves in opposite directions
+      - zh-cn: 两个例子中价格和数量都上升
+        en: Both the price and the quantity rise in both examples
+        why:
+          zh-cn: 看图中的读数：供给减少时，均衡数量比 60 多还是少？
+          en: 'Look at the readout: when supply falls, is the equilibrium quantity above or below 60?'
+      - zh-cn: 歉收时价格下降，数量也下降
+        en: With the poor harvest, both the price and the quantity fall
+        why:
+          zh-cn: 供给曲线向左移动后，在原来的价格 20 美元下，是过剩还是短缺？价格会向哪个方向调整？
+          en: After the supply curve shifts left, is there a surplus or a shortage at the old price of 20 dollars? Which way does the price adjust?
+      - zh-cn: 歉收时价格上升，数量不变
+        en: With the poor harvest, the price rises and the quantity stays the same
+        why:
+          zh-cn: 价格上升时，买方会沿着需求曲线减少购买吗？
+          en: When the price rises, do buyers move along the demand curve and buy less?
+    correct: A
     answer:
       zh-cn: |-
-        供给变为 $Q_s = -50 + 4P$。$100 - 2P = -50 + 4P$，$P^* = 25$，$Q^* = 50$。
-        两个例子中价格都上升了，但数量的方向相反：需求增加时数量增加（60 到 80），供给减少时数量减少（60 到 50）。所以只看到价格上涨，不能判断是需求还是供给变了，要同时看数量。
+        (A)。供给减少后，均衡价格升到 25 美元，数量降到 50；收入上升时价格升到 25 美元，数量增加到 80。只看到价格上涨，不能判断是需求还是供给变了，要同时看数量。
       en: |-
-        Supply becomes $Q_s = -50 + 4P$. $100 - 2P = -50 + 4P$ gives $P^* = 25$ and $Q^* = 50$.
-        In both examples the price rises, but the quantity moves in opposite directions: it rises when demand increases (60 to 80) and falls when supply decreases (60 to 50). So a price rise alone does not tell whether demand or supply changed; one must also look at the quantity.
-    rubric:
-      zh-cn:
-        - "新均衡价格 25、数量 50。"
-        - "指出价格都上升、数量方向相反。"
-      en:
-        - "New equilibrium price 25 and quantity 50."
-        - "Notes that the price rises in both cases while the quantity moves in opposite directions."
+        (A). After supply falls, the equilibrium price rises to 25 dollars and the quantity falls to 50; with rising incomes the price rises to 25 dollars and the quantity grows to 80. A price rise alone does not tell whether demand or supply changed; the quantity must be looked at as well.
 
   - id: C3
     kind: check
     section: price-elasticity
     concepts: [price-elasticity]
-    expected: { e: "-1.5", dq: "3" }
     question:
       zh-cn: |-
-        需求为 $Q = 100 - 2P$。在 $P = 30$ 处，需求的价格弹性是多少？如果价格从 30 上升 2%，需求量大约变化多少？
+        下面哪种商品的需求最可能富有弹性？
       en: |-
-        Demand is $Q = 100 - 2P$. What is the price elasticity of demand at $P = 30$? If the price rises 2% from 30, by about how much does the quantity demanded change?
+        Which good's demand is most likely to be elastic?
+    choices:
+      - zh-cn: 某一个品牌的瓶装水
+        en: One particular brand of bottled water
+      - zh-cn: 糖尿病患者需要的胰岛素
+        en: Insulin for people with diabetes
+        why:
+          zh-cn: 病人有没有相近的替代品？它是必需品吗？
+          en: Do patients have close substitutes? Is it a necessity?
+      - zh-cn: 食盐
+        en: Table salt
+        why:
+          zh-cn: 食盐占家庭支出的比例有多大？涨价一倍，人们会少吃很多盐吗？
+          en: How large a share of household spending is salt? If its price doubled, would people use much less?
+      - zh-cn: 一周之内的汽油
+        en: Gasoline over one week
+        why:
+          zh-cn: 一周之内，开车的人有多少办法换车、搬家或改变通勤方式？
+          en: Within a week, how many ways do drivers have to change cars, move or commute differently?
+    correct: A
     answer:
       zh-cn: |-
-        $Q = 100 - 60 = 40$，$\varepsilon = -2 \times \frac{30}{40} = -1.5$。绝对值大于 1，富有弹性。
-        价格上升 2%，需求量约减少 $1.5 \times 2\% = 3$%，减少的比例大于价格上升的比例。
+        (A)。一个品牌的瓶装水有很多几乎相同的替代品（其他品牌），涨价后买方很容易转向别的品牌，需求富有弹性。胰岛素是没有替代品的必需品；食盐占支出的比例很小；汽油在一周之内很难找到替代，需求都缺乏弹性。注意：“瓶装水”整体的需求比某一个品牌的需求缺乏弹性得多。
       en: |-
-        $Q = 100 - 60 = 40$, so $\varepsilon = -2 \times \frac{30}{40} = -1.5$. The absolute value is above 1: demand is elastic.
-        A 2% price rise lowers the quantity demanded by about $1.5 \times 2\% = 3$%, a larger percentage than the price rise.
-    rubric:
-      zh-cn:
-        - "弹性 −1.5（写成绝对值 1.5 并说明方向也可）。"
-        - "需求量约减少 3%。"
-      en:
-        - "Elasticity −1.5 (or 1.5 in absolute value with the direction stated)."
-        - "The quantity demanded falls about 3%."
+        (A). One brand of bottled water has many nearly identical substitutes (other brands), so after a price rise buyers easily switch, and demand is elastic. Insulin is a necessity with no substitute; salt is a tiny share of spending; gasoline is hard to replace within a week; all of these have inelastic demand. Note that demand for bottled water as a whole is much less elastic than demand for one brand.
 
   - id: C4
     kind: check
     section: other-elasticities
     concepts: [income-elasticity, cross-price-elasticity]
-    expected: { ei: "-0.3" }
     question:
       zh-cn: |-
-        某地居民收入上升 10% 后，一种速冻食品的销量下降了 3%（其他条件不变）。它的收入弹性是多少？经济衰退、收入下降时，这类商品的销量会怎样变化？
+        经济衰退、收入下降时，收入弹性为负的商品，销量会下降。
       en: |-
-        After incomes in an area rise 10%, sales of a frozen food fall 3% (other things equal). What is its income elasticity? When incomes fall in a recession, how do sales of such a good change?
+        In a recession, when incomes fall, sales of goods with a negative income elasticity fall.
+    correct: false
+    hint:
+      zh-cn: 收入弹性为负，表示收入和需求量向同一方向还是相反方向变化？
+      en: Does a negative income elasticity mean income and the quantity demanded move in the same or opposite directions?
     answer:
       zh-cn: |-
-        $\varepsilon_I = \frac{-3\%}{10\%} = -0.3$，小于 0，是劣等品。
-        收入下降时，人们会多买这类较便宜的替代品，销量反而上升。
+        错。收入弹性为负的是劣等品，收入和需求量反向变化：收入下降时，人们会多买这类较便宜的替代品，销量反而上升。例如收入下降时，人们少坐飞机、多乘长途大巴。
       en: |-
-        $\varepsilon_I = \frac{-3\%}{10\%} = -0.3$, below 0: an inferior good.
-        When incomes fall, people buy more of such cheaper substitutes, so its sales rise.
-    rubric:
-      zh-cn:
-        - "收入弹性 −0.3，劣等品。"
-        - "衰退时销量上升。"
-      en:
-        - "Income elasticity −0.3, an inferior good."
-        - "Sales rise in a recession."
+        False. Goods with a negative income elasticity are inferior goods: income and the quantity demanded move in opposite directions. When incomes fall, people buy more of these cheaper substitutes, so sales rise. For example, with lower incomes people fly less and take long-distance buses more.
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1

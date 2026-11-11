@@ -53,6 +53,11 @@ common_errors:
       只比较两种策略的期望收益（都是 5%），没有注意到业绩报酬只分享收益、不承担损失，使经理偏好波动大的策略。
     en: |-
       Comparing only the expected returns of the two strategies (both 5%), without noticing that a performance fee shares gains but not losses, which makes the manager prefer the volatile strategy.
+  - questions: [Q5]
+    zh-cn: |-
+      以为 5% 的佣金和每年不到 1 个百分点的费用差别只是小钱。佣金一次性减少了投入的本金，费用每年都从收益中扣除并复利，20 年后差距很大；顾问得到的只是佣金，客户付出的却远不止这些。
+    en: |-
+      Thinking a 5% commission and a fee difference under 1 percentage point a year are small change. The commission cuts the money invested at once, and fees are taken from returns every year and compound, so after 20 years the gap is large; the adviser receives only the commission, while the client loses far more.
   - questions: [Q4]
     zh-cn: |-
       认为委托人应该把全部利润都给代理人（努力最高），或者一点都不给。委托人关心的是自己的那一份，要在努力和分成之间权衡。
@@ -66,117 +71,107 @@ questions:
     section: adverse-selection
     concepts: [adverse-selection, expected-value]
     widget: { id: lemons, set: { q: 0.7 } }
-    expected: { q: "0.67", wtp: "8200" }
     question:
       zh-cn: |-
-        在 [[fig:2-1]] 中逐渐提高好车的比例，找出好车车主开始愿意留在市场里的大致比例，再精确计算。如果待售车中 70% 是好车，买方最多愿意付多少？哪些车会成交？
+        在 [[fig:2-1]] 中逐渐降低好车的比例。当买方最多愿意付的价格低于好车车主的最低要价时：
       en: |-
-        In [[fig:2-1]], raise the share of good cars step by step and find roughly the share at which owners of good cars start to be willing to stay in the market; then compute it exactly. If 70% of the cars for sale are good, what is the most buyers will pay, and which cars are traded?
+        In [[fig:2-1]], lower the share of good cars step by step. When the most buyers will pay falls below the good-car owners' lowest acceptable price:
+    choices:
+      - zh-cn: 好车车主退出，市场上只剩柠檬
+        en: Good-car owners leave, and only lemons remain
+      - zh-cn: 好车车主降价，按买方愿意付的价格出售
+        en: Good-car owners cut their price and sell at what buyers will pay
+        why:
+          zh-cn: 买方愿意付的价格低于好车车主的最低要价。车主会以低于自己估价的价格卖车吗？
+          en: Buyers will pay less than the good-car owners' lowest price. Would an owner sell below his own valuation?
+      - zh-cn: 买方提高出价，因为他们想要好车
+        en: Buyers raise their offers, because they want good cars
+        why:
+          zh-cn: 买方分不清好车和柠檬。他们愿意付的最高价格由什么决定？
+          en: Buyers cannot tell good cars from lemons. What decides the most they will pay?
+      - zh-cn: 没有变化，好车和柠檬照样成交
+        en: Nothing changes; good cars and lemons still trade
+        why:
+          zh-cn: 在这个价格下，好车车主卖车得到的比他自己对车的估价多还是少？
+          en: At this price, does a good-car owner get more or less than his own valuation by selling?
+    correct: A
     answer:
       zh-cn: |-
-        需要 $10{,}000\,q + 4{,}000\,(1 - q) \ge 8{,}000$，即 $6{,}000\,q \ge 4{,}000$，$q \ge \frac23 \approx 0.67$。图中 0.65 时低于 8,000，0.70 时高于 8,000。
-        70% 是好车时，买方最多付 $0.7 \times 10{,}000 + 0.3 \times 4{,}000 = 8{,}200$，高于 8,000，好车车主愿意卖，好车和柠檬都按同一个价格成交。
+        (A)。买方分不清好车和柠檬，只愿意按平均价值付钱。好车比例低时，平均价值低于好车车主的最低要价，他们宁可不卖。好车退出后，待售车的平均质量更低，买方愿意付的更少：市场上只剩柠檬，本来对双方都有利的好车交易没有发生。
       en: |-
-        We need $10{,}000\,q + 4{,}000\,(1 - q) \ge 8{,}000$, that is, $6{,}000\,q \ge 4{,}000$ and $q \ge \frac23 \approx 0.67$. In the figure, 0.65 is below 8,000 and 0.70 is above.
-        With 70% good cars, buyers pay at most $0.7 \times 10{,}000 + 0.3 \times 4{,}000 = 8{,}200$, above 8,000, so owners of good cars are willing to sell, and both good cars and lemons trade at the same price.
-    rubric:
-      zh-cn:
-        - "列出不等式，得到 $q \\ge \\frac23$（约 0.67）。"
-        - "70% 时买方最多付 8,200，好车和柠檬都成交。"
-      en:
-        - "Sets up the inequality and gets $q \\ge \\frac23$ (about 0.67)."
-        - "At 70%, buyers pay at most 8,200, and both good cars and lemons trade."
+        (A). Buyers cannot tell good cars from lemons and will pay only the average value. With few good cars, the average falls below what good-car owners will accept, so they keep their cars. Once they leave, the average quality is even lower and buyers pay even less: only lemons remain, and the good-car trades that would benefit both sides do not happen.
 
   - id: C2
     kind: check
     section: adverse-selection
     concepts: [adverse-selection, risk-aversion]
-    expected: { p1: "500", p2: "800" }
     question:
       zh-cn: |-
-        一种健康保险的潜在投保人中，一半是低风险的人，每年的预期理赔 200 美元；一半是高风险的人，预期理赔 800 美元。因为风险厌恶，低风险的人最多愿意付 300 美元的保费，高风险的人最多愿意付 1,000 美元。保险公司分不清两类人，只能对所有投保人收同一个保费，并按投保人的平均预期理赔定价（不赚不赔）。
-        (a) 如果两类人都投保，保费是多少？低风险的人会买吗？
-        (b) 最后谁会投保？保费是多少？这个结果为什么没有效率？
+        一种健康保险的潜在投保人一半是低风险的人（预期理赔 200 美元，最多愿意付 300 美元），一半是高风险的人（预期理赔 800 美元，最多愿意付 1,000 美元）。保险公司分不清两类人，只能对所有投保人收同一个保费，并按投保人的平均预期理赔定价（不赚不赔）。最后：
       en: |-
-        Half of the potential buyers of a health insurance policy are low-risk people with expected claims of 200 dollars a year; half are high-risk people with expected claims of 800 dollars. Because they are risk averse, low-risk people would pay a premium of at most 300 dollars, and high-risk people at most 1,000 dollars. The insurer cannot tell the two groups apart, must charge all buyers the same premium, and sets it equal to the average expected claim of the buyers (breaking even).
-        (a) If both groups buy, what is the premium? Will low-risk people buy?
-        (b) In the end, who buys insurance, and at what premium? Why is this outcome inefficient?
+        Half of the potential buyers of a health insurance policy are low risk (expected claims 200 dollars, willing to pay at most 300) and half are high risk (expected claims 800 dollars, willing to pay at most 1,000). The insurer cannot tell them apart, must charge everyone the same premium, and sets it at the average expected claim of those who buy (breaking even). In the end:
+    choices:
+      - zh-cn: 只有高风险的人投保，保费 800 美元
+        en: Only high-risk people buy, at a premium of 800 dollars
+      - zh-cn: 两类人都投保，保费 500 美元
+        en: Both types buy, at a premium of 500 dollars
+        why:
+          zh-cn: 保费为 500 美元时，低风险的人愿意买吗？
+          en: At a premium of 500 dollars, will low-risk people buy?
+      - zh-cn: 没有人投保
+        en: No one buys
+        why:
+          zh-cn: 只剩高风险的人时，保费要多高才能不赔？高风险的人愿意付这么多吗？
+          en: With only high-risk people left, what premium breaks even? Are they willing to pay that much?
+      - zh-cn: 只有低风险的人投保
+        en: Only low-risk people buy
+        why:
+          zh-cn: 统一保费下，谁觉得保险更划算：预期理赔高的人，还是预期理赔低的人？
+          en: 'With one premium for all, who finds the insurance a better deal: those with high expected claims or those with low ones?'
+    correct: A
     answer:
       zh-cn: |-
-        (a) 平均预期理赔 $0.5 \times 200 + 0.5 \times 800 = 500$，保费 500。低风险的人最多付 300，不买。
-        (b) 只剩高风险的人，保费要涨到 800；他们最多愿意付 1,000，所以会买。结果只有高风险的人投保，保费 800。
-        没有效率：低风险的人愿意付 300，而为他们提供保险的预期成本只有 200，这笔交易本来对双方都有好处，却因为保险公司分不清风险高低而没有发生。
+        (A)。两类人都投保时保费为 500，低风险的人最多付 300，不买。只剩高风险的人，保费涨到 800；他们最多愿意付 1,000，所以会买。结果没有效率：为低风险的人提供保险的预期成本只有 200，他们愿意付 300，这笔交易本来对双方都有好处，却因为保险公司分不清风险高低而没有发生。
       en: |-
-        (a) The average expected claim is $0.5 \times 200 + 0.5 \times 800 = 500$, so the premium is 500. Low-risk people would pay at most 300, so they do not buy.
-        (b) Only high-risk people remain, so the premium must rise to 800; they would pay up to 1,000, so they buy. In the end only high-risk people are insured, at a premium of 800.
-        It is inefficient: low-risk people would pay 300, while the expected cost of insuring them is only 200; this trade would benefit both sides, but it does not happen because the insurer cannot tell the risks apart.
-    rubric:
-      zh-cn:
-        - "(a) 保费 500，低风险的人不买。"
-        - "(b) 只有高风险的人投保，保费 800。"
-        - "指出低风险的人愿意付的高于为他们提供保险的成本，交易没有发生，所以没有效率。"
-      en:
-        - "(a) Premium 500; low-risk people do not buy."
-        - "(b) Only high-risk people buy, at 800."
-        - "Points out that low-risk people would pay more than the cost of insuring them, so a beneficial trade is lost."
+        (A). With both types the premium is 500, which low-risk people (at most 300) will not pay. With only high-risk people left, the premium rises to 800, which they will pay (at most 1,000). The outcome is inefficient: covering low-risk people costs 200 in expectation and they would pay 300, a trade good for both sides that does not happen because the insurer cannot tell the risks apart.
 
   - id: C3
     kind: check
     section: signaling-screening
     concepts: [signaling, adverse-selection]
-    expected: { good: "9800", lemon: "3000", lemon2: "5000" }
     question:
       zh-cn: |-
-        沿用讲义的二手车市场（好车对买方 10,000、车主最低要价 8,000；柠檬对买方 4,000）。卖方可以为车提供一年保修。一年内的预期修理费：好车 200 美元，柠檬 7,000 美元。如果买方相信提供保修的都是好车，就愿意为有保修的车付 10,000；没有保修的车被当作柠檬，只值 4,000。
-        (a) 好车车主会提供保修吗？柠檬车主会模仿吗？保修能区分两种车吗？
-        (b) 如果柠檬一年的预期修理费只有 5,000 美元，结果会怎样？
+        在二手车市场中，好车车主愿意提供一年保修，因为好车一年内的预期修理费很低。所以提供保修一定能让买方区分好车和柠檬。
       en: |-
-        Use the lesson's used-car market (a good car is worth 10,000 to buyers and its owner's lowest price is 8,000; a lemon is worth 4,000 to buyers). Sellers can offer a one-year warranty. Expected repair costs within a year: 200 dollars for a good car and 7,000 dollars for a lemon. If buyers believe that only good cars come with a warranty, they will pay 10,000 for a car with a warranty; a car without one is treated as a lemon and is worth only 4,000.
-        (a) Will owners of good cars offer the warranty? Will owners of lemons copy them? Does the warranty separate the two kinds of car?
-        (b) What happens if a lemon's expected repair cost for a year is only 5,000 dollars?
+        In a used-car market, good-car owners are willing to offer a one-year warranty, because a good car's expected repairs within a year are low. So offering a warranty must let buyers tell good cars from lemons.
+    correct: false
+    hint:
+      zh-cn: 只检查好车车主愿意提供保修还不够。柠檬车主模仿、也提供保修，划算吗？
+      en: Checking that good-car owners are willing is not enough. Would it pay lemon owners to copy them and offer a warranty too?
     answer:
       zh-cn: |-
-        (a) 好车车主提供保修，得到 $10{,}000 - 200 = 9{,}800$，高于自己的最低要价 8,000，会提供。柠檬车主如果模仿，得到 $10{,}000 - 7{,}000 = 3{,}000$，低于不提供保修时的 4,000，不会模仿。保修能区分两种车：有保修的是好车，按 10,000 成交；没有保修的是柠檬，按 4,000 成交。
-        (b) 柠檬车主模仿得到 $10{,}000 - 5{,}000 = 5{,}000$，高于 4,000，会模仿。于是有保修的车里也有柠檬，买方不会再为有保修的车付 10,000，保修不再能区分两种车。信号要起作用，对差的类型必须足够昂贵。
+        错。信号要起作用，还需要差的类型模仿不划算。如果柠檬的预期修理费不够高，柠檬车主也提供保修、被当作好车卖出能得到更多，他们就会模仿；有保修的车里也有柠檬，买方不再相信保修，它就不能区分两种车。只有当信号对差的类型足够昂贵时，它才有信息含量。
       en: |-
-        (a) An owner of a good car who offers the warranty gets $10{,}000 - 200 = 9{,}800$, above the owner's lowest price of 8,000, so the owner offers it. An owner of a lemon who copies gets $10{,}000 - 7{,}000 = 3{,}000$, less than the 4,000 without a warranty, so the owner does not copy. The warranty separates the two kinds of car: cars with a warranty are good and sell for 10,000; cars without one are lemons and sell for 4,000.
-        (b) An owner of a lemon who copies now gets $10{,}000 - 5{,}000 = 5{,}000$, more than 4,000, so the owner copies. Then some cars with a warranty are lemons, buyers will no longer pay 10,000 for them, and the warranty no longer separates the two kinds. For a signal to work, it must be expensive enough for the bad type.
-    rubric:
-      zh-cn:
-        - "(a) 好车 9,800 > 8,000 会提供；柠檬 3,000 < 4,000 不模仿；能区分。"
-        - "(b) 柠檬 5,000 > 4,000 会模仿，信号失效；说明信号对差的类型必须足够昂贵。"
-      en:
-        - "(a) Good car: 9,800 > 8,000, so it offers the warranty; lemon: 3,000 < 4,000, so it does not copy; the cars are separated."
-        - "(b) Lemon: 5,000 > 4,000, so it copies and the signal fails; explains that the signal must be expensive enough for the bad type."
+        False. A signal works only if copying it does not pay for the bad type. If a lemon's expected repairs are not high enough, lemon owners also gain by offering a warranty and being sold as good cars, so they copy; then cars with warranties include lemons, buyers stop trusting warranties, and the warranty no longer separates the two. A signal carries information only if it is costly enough for the bad type.
 
   - id: C4
     kind: check
     section: moral-hazard
     concepts: [moral-hazard]
-    expected: { gain: "100", d: "500" }
     question:
       zh-cn: |-
-        一位租客可以花 50 美元买防火用品并更加小心。这样做时，一年内发生 1,000 美元损失的概率是 10%；不这样做时是 20%。
-        (a) 没有保险时和有全额保险时，租客各会小心吗？
-        (b) 保险公司设置免赔额 $D$（每次损失中前 $D$ 美元由租客自己承担）。$D$ 至少要多大，租客才会小心？（不考虑风险厌恶。）
+        全额保险会让投保人不那么小心，而设置免赔额（每次损失的前一部分由投保人自己承担）能减轻这个问题。
       en: |-
-        A renter can spend 50 dollars on fire safety equipment and be more careful. If she does, the probability of a 1,000-dollar loss within a year is 10%; if not, 20%.
-        (a) Will she be careful without insurance, and with full insurance?
-        (b) The insurer sets a deductible $D$ (she bears the first $D$ dollars of each loss). How large must $D$ be for her to be careful? (Ignore risk aversion.)
+        Full insurance makes policyholders less careful, and a deductible (the policyholder bears the first part of each loss) can reduce this problem.
+    correct: true
+    hint:
+      zh-cn: 全额保险时，投保人小心带来的好处归谁？有免赔额时呢？
+      en: With full insurance, who gets the benefit of the policyholder's care? With a deductible?
     answer:
       zh-cn: |-
-        (a) 没有保险：小心使预期损失减少 $(0.2 - 0.1) \times 1{,}000 = 100$，大于成本 50，会小心。全额保险：损失由保险公司承担，小心对她没有好处，只有 50 的成本，不会小心。这就是道德风险。
-        (b) 她自己承担的预期损失减少 $0.1D$，需要 $0.1D \ge 50$，即 $D \ge 500$。
+        对。全额保险时损失由保险公司承担，小心只有成本、对投保人没有好处，所以他不会小心，这是道德风险。有免赔额时，投保人自己承担每次损失的一部分，小心降低了他自己的预期损失；免赔额足够大时，小心带来的好处超过成本，他就会小心。代价是投保人要承担一部分风险。
       en: |-
-        (a) Without insurance: care lowers the expected loss by $(0.2 - 0.1) \times 1{,}000 = 100$, more than the cost of 50, so she is careful. With full insurance: the insurer bears the loss, so care brings her no benefit, only the cost of 50, and she is not careful. This is moral hazard.
-        (b) Care lowers her own expected loss by $0.1D$, so she needs $0.1D \ge 50$, that is, $D \ge 500$.
-    rubric:
-      zh-cn:
-        - "(a) 无保险时小心，全额保险时不小心。"
-        - "(b) $D \\ge 500$。"
-      en:
-        - "(a) Careful without insurance, not careful with full insurance."
-        - "(b) $D \\ge 500$."
+        True. With full insurance the insurer bears the loss, so care only costs the policyholder and brings him nothing, and he is not careful: moral hazard. With a deductible he bears part of each loss, so care lowers his own expected loss; with a large enough deductible the gain exceeds the cost and he takes care. The price is that he bears some of the risk.
 
   - id: C5
     kind: check
@@ -184,23 +179,33 @@ questions:
     concepts: [principal-agent-problem, moral-hazard]
     question:
       zh-cn: |-
-        一位理财顾问不向客户收费，收入全部来自他推荐的基金支付的销售佣金。(a) 谁是委托人，谁是代理人？两者的利益在哪里不一致？(b) 给出两种可以减轻这个问题的办法。
+        一位理财顾问不向客户收费，收入全部来自他推荐的基金支付的销售佣金。下面哪种办法最直接地减轻他和客户之间的利益冲突？
       en: |-
-        A financial adviser charges clients nothing; all his income comes from sales commissions paid by the funds he recommends. (a) Who is the principal and who is the agent? Where do their interests differ? (b) Give two ways to reduce the problem.
+        A financial adviser charges clients nothing and earns all his income from sales commissions paid by the funds he recommends. Which measure most directly reduces the conflict of interest between him and his clients?
+    choices:
+      - zh-cn: 改为客户直接向顾问付固定的费用，顾问不收产品佣金
+        en: Clients pay the adviser a fixed fee directly, and he takes no product commissions
+      - zh-cn: 让顾问每次推荐更多只基金供客户选择
+        en: Have the adviser recommend more funds each time for clients to choose from
+        why:
+          zh-cn: 推荐的基金多了，顾问的收入仍然取决于哪只基金的佣金高吗？
+          en: With more funds recommended, does his income still depend on which fund pays the highest commission?
+      - zh-cn: 提高所有基金的佣金率
+        en: Raise the commission rate on all funds
+        why:
+          zh-cn: 佣金更高，顾问推荐高佣金产品的动机是变弱还是变强？
+          en: With higher commissions, is his incentive to push high-commission products weaker or stronger?
+      - zh-cn: 客户更信任顾问
+        en: Clients trust the adviser more
+        why:
+          zh-cn: 信任改变了顾问的激励吗？客户能看到顾问为什么推荐某只基金吗？
+          en: Does trust change the adviser's incentives? Can clients see why he recommends a fund?
+    correct: A
     answer:
       zh-cn: |-
-        (a) 客户是委托人，顾问是代理人。客户要的是适合自己、费用低的投资；顾问的收入取决于佣金，有动机推荐佣金高的基金，而佣金高的基金往往费用也高。客户通常不了解费用和佣金，也难以判断业绩差是运气还是建议不好。
-        (b) 例如：改为客户直接付费（固定费用或按资产比例）、不收产品佣金；选择对客户负有受托责任的顾问；要求书面披露所有佣金和利益冲突；客户自己比较产品费用。
+        (A)。客户是委托人，顾问是代理人。顾问的收入取决于佣金，有动机推荐佣金高、往往费用也高的基金，而客户难以判断。改为客户直接付固定费用后，顾问的收入不再取决于推荐哪只基金，利益冲突的来源消失。其他办法还包括选择负有受托责任的顾问、要求披露佣金。
       en: |-
-        (a) The client is the principal and the adviser the agent. The client wants suitable, low-cost investments; the adviser's income depends on commissions, so he has reason to recommend high-commission funds, which tend to have high costs. Clients often do not know the fees and commissions and cannot tell whether poor results are bad luck or bad advice.
-        (b) For example: have the client pay directly (a flat fee or a share of assets) with no product commissions; choose an adviser with a fiduciary duty to the client; require written disclosure of all commissions and conflicts of interest; have the client compare product costs.
-    rubric:
-      zh-cn:
-        - "(a) 正确识别委托人、代理人和利益冲突。"
-        - "(b) 两种合理的办法。"
-      en:
-        - "(a) Correctly identifies principal, agent and the conflict."
-        - "(b) Two reasonable remedies."
+        (A). The client is the principal and the adviser the agent. His income depends on commissions, so he is tempted to recommend high-commission funds, which often also have high fees, and the client finds this hard to judge. With a fixed fee paid by the client, his income no longer depends on which fund he recommends, and the source of the conflict goes away. Other measures include choosing advisers with a fiduciary duty and requiring disclosure of commissions.
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1

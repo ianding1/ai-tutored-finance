@@ -63,6 +63,11 @@ common_errors:
       只比较一期的收益（降价得 15 > 10，所以一定降价），忽略了以后各期的损失；或者把未来的收益直接相加而不折现。
     en: |-
       Comparing only one period (cutting the price gives 15 > 10, so always cut), ignoring the losses in later periods; or adding future payoffs without discounting them.
+  - questions: [Q3]
+    zh-cn: |-
+      以为存款保险要靠经常赔付才起作用。它消除了“别人提前取款时我也要提前取款”的理由，挤兑不再是均衡，所以在均衡中保险机构不需要赔付。
+    en: |-
+      Thinking deposit insurance works by paying out often. It removes the reason to withdraw early when others do, so a run is no longer an equilibrium, and in equilibrium the insurer pays nothing.
   - questions: [Q4]
     zh-cn: |-
       认为有限次重复时，前面几期仍然可以靠“以后会被惩罚”维持合作。最后一期没有以后，倒推下去每一期都没有。
@@ -77,23 +82,33 @@ questions:
     concepts: [dominant-strategy, prisoners-dilemma]
     question:
       zh-cn: |-
-        大型连锁店 A 和小店 B 各自决定是否投放广告。收益（A，B）如下：两家都不投放 (50, 20)；A 不投放、B 投放 (40, 25)；A 投放、B 不投放 (55, 18)；两家都投放 (45, 15)。预测两家会怎样选择，并说明理由。这个博弈是囚徒困境吗？
+        大型连锁店 A 和小店 B 各自决定是否投放广告。收益（A，B）如下：两家都不投放 (50, 20)；A 不投放、B 投放 (40, 25)；A 投放、B 不投放 (55, 18)；两家都投放 (45, 15)。最可能的结果是：
       en: |-
-        A large chain A and a small shop B each decide whether to advertise. Payoffs (A, B): neither advertises (50, 20); A does not, B does (40, 25); A does, B does not (55, 18); both advertise (45, 15). Predict what the two will choose, and explain. Is this a prisoners' dilemma?
+        A large chain A and a small shop B each decide whether to advertise. Payoffs (A, B): neither advertises (50, 20); A does not, B does (40, 25); A does, B does not (55, 18); both do (45, 15). The most likely outcome is:
+    choices:
+      - zh-cn: A 投放，B 不投放
+        en: A advertises and B does not
+      - zh-cn: 两家都投放
+        en: Both advertise
+        why:
+          zh-cn: 先看 A：不论 B 怎样选，A 投放都更好吗？再看 B：在 A 投放的情况下，B 投放和不投放各得多少？
+          en: 'Start with A: is advertising better for A whatever B does? Then B: given that A advertises, what does B get from advertising and from not advertising?'
+      - zh-cn: 两家都不投放，因为两家的总收益最高
+        en: Neither advertises, because total payoff is highest
+        why:
+          zh-cn: 每家只关心自己的收益。在“都不投放”时，A 单方面改为投放能多得吗？
+          en: Each firm cares only about its own payoff. When neither advertises, can A gain by advertising on its own?
+      - zh-cn: A 不投放，B 投放
+        en: A does not advertise and B does
+        why:
+          zh-cn: 在这个结果中，A 改为投放会得到多少？比 40 多吗？
+          en: In this outcome, what would A get by switching to advertising? More than 40?
+    correct: A
     answer:
       zh-cn: |-
-        A 有占优策略：投放（B 不投放时 55 > 50，B 投放时 45 > 40）。B 没有占优策略，但能预见 A 一定投放，于是选择对“A 投放”的最优反应：不投放（18 > 15）。结果是 A 投放、B 不投放，收益 (55, 18)。
-        不是囚徒困境：没有另一个结果对两家都更好（(50, 20) 对 B 更好，但对 A 更差），而且只有一方有占优策略。
+        (A)。A 有占优策略：投放（B 不投放时 55 > 50，B 投放时 45 > 40）。B 没有占优策略，但能预见 A 一定投放，于是选择对“A 投放”的最优反应：不投放（18 > 15）。这不是囚徒困境：只有一方有占优策略，而且没有另一个结果对两家都更好。
       en: |-
-        A has a dominant strategy: advertise (55 > 50 if B does not, 45 > 40 if B does). B has no dominant strategy but can foresee that A will advertise, so it picks its best response to that: not advertising (18 > 15). The outcome is A advertises and B does not, with payoffs (55, 18).
-        It is not a prisoners' dilemma: no other outcome is better for both ((50, 20) is better for B but worse for A), and only one player has a dominant strategy.
-    rubric:
-      zh-cn:
-        - "预测 A 投放、B 不投放，并用占优策略和最优反应说明。"
-        - "不是囚徒困境，理由正确。"
-      en:
-        - "Predicts A advertises and B does not, using the dominant strategy and best response."
-        - "Not a prisoners' dilemma, with a correct reason."
+        (A). A has a dominant strategy: advertise (55 > 50 if B does not, 45 > 40 if B does). B has no dominant strategy but foresees that A will advertise, so it picks its best response to that: not advertising (18 > 15). This is not a prisoner's dilemma: only one side has a dominant strategy, and no other outcome is better for both.
 
   - id: C2
     kind: check
@@ -101,78 +116,87 @@ questions:
     concepts: [nash-equilibrium, dominant-strategy]
     question:
       zh-cn: |-
-        两家公司各自为新产品选择技术标准 X 或 Y。都选 X 时收益（甲，乙）为 (30, 20)，都选 Y 时为 (20, 30)；选不同的标准时各得 5。找出所有纳什均衡。能预测会出现哪一个吗？
+        两家公司各自为新产品选择技术标准 X 或 Y。都选 X 时收益（甲，乙）为 (30, 20)，都选 Y 时为 (20, 30)；选不同的标准时各得 5。这个博弈的纳什均衡是：
       en: |-
-        Two companies each choose technical standard X or Y for a new product. Both choosing X gives payoffs (first, second) of (30, 20); both choosing Y gives (20, 30); choosing different standards gives 5 each. Find all the Nash equilibria. Can one predict which will occur?
+        Two firms each choose technical standard X or Y for a new product. If both choose X the payoffs (first, second) are (30, 20); if both choose Y, (20, 30); with different standards each gets 5. The Nash equilibria of this game are:
+    choices:
+      - zh-cn: (X, X) 和 (Y, Y)
+        en: (X, X) and (Y, Y)
+      - zh-cn: 只有 (X, X)
+        en: Only (X, X)
+        why:
+          zh-cn: 在 (Y, Y) 中，有没有一方能单方面改变标准而得到更多？
+          en: In (Y, Y), can either firm gain by switching its standard on its own?
+      - zh-cn: 没有纳什均衡，因为两家想要的标准不同
+        en: There is none, because the firms want different standards
+        why:
+          zh-cn: 纳什均衡只要求谁也不想单方面改变，不要求双方都得到最喜欢的结果。检查一下都选同一个标准的两种情况。
+          en: A Nash equilibrium only requires that no one wants to change alone, not that both get their favorite. Check the two cases where they choose the same standard.
+      - zh-cn: (X, Y) 和 (Y, X)
+        en: (X, Y) and (Y, X)
+        why:
+          zh-cn: 在 (X, Y) 中，乙改成 X 会得到多少？
+          en: In (X, Y), what would the second firm get by switching to X?
+    correct: A
     answer:
       zh-cn: |-
-        两个纳什均衡：(X, X) 和 (Y, Y)。在任何一个中，单方面改用另一个标准都会从 20 或 30 降到 5。(X, Y) 和 (Y, X) 不是均衡：任何一方改成和对方相同的标准都能从 5 提高。
-        只靠这张表不能预测：甲更喜欢 X、乙更喜欢 Y，两个均衡都可能出现，要看谁先行动、谁先建立了用户基础、行业惯例或谈判等表外的因素。
+        (A)。在 (X, X) 或 (Y, Y) 中，单方面改用另一个标准都会从 20 或 30 降到 5，所以两者都是纳什均衡；(X, Y) 和 (Y, X) 中任何一方改成和对方相同的标准都能从 5 提高。只靠这张表不能预测会出现哪一个，要看谁先行动、谁先建立了用户基础等表外的因素。
       en: |-
-        Two Nash equilibria: (X, X) and (Y, Y). In either, switching alone to the other standard drops a player from 20 or 30 to 5. (X, Y) and (Y, X) are not equilibria: either player gains by switching to match the other.
-        The table alone cannot predict which: the first company prefers X and the second Y, both equilibria are possible, and the outcome depends on factors outside the table, such as who moves first, who has built a user base, industry custom or bargaining.
-    rubric:
-      zh-cn:
-        - "两个均衡 (X, X) 和 (Y, Y)，并说明理由。"
-        - "说明不能只靠收益表预测。"
-      en:
-        - "Two equilibria, (X, X) and (Y, Y), with reasons."
-        - "Explains that the table alone cannot predict which."
+        (A). In (X, X) or (Y, Y), switching alone to the other standard drops a firm from 20 or 30 to 5, so both are Nash equilibria; in (X, Y) and (Y, X) either firm gains by matching the other. The table alone cannot predict which equilibrium occurs; that depends on factors outside it, such as who moves first or who has built a user base.
 
   - id: C3
     kind: check
     section: backward-induction
     concepts: [backward-induction, barriers-to-entry]
-    expected: { with: "90", without: "50" }
     question:
       zh-cn: |-
-        在 [[fig:4-1]] 的进入博弈之前，在位者可以先建一座大工厂。建了之后（已扣除工厂的成本），收益（进入者，在位者）变为：不进入 (0, 90)；进入后打价格战 (−10, 40)；进入后接纳 (20, 35)。
-        (a) 建厂后，如果新企业进入，在位者会怎么做？新企业会进入吗？
-        (b) 在位者应该建厂吗？比较建厂与不建厂时它最终的收益。
+        在位者事先宣布：“如果你进入，我就打价格战。”只要宣布得足够坚决，就能阻止新企业进入。
       en: |-
-        Before the entry game of [[fig:4-1]], the incumbent can first build a large plant. After building it (with the plant's cost already subtracted), the payoffs (entrant, incumbent) become: stay out (0, 90); enter and price war (−10, 40); enter and accommodate (20, 35).
-        (a) After building, if the new firm enters, what will the incumbent do? Will the new firm enter?
-        (b) Should the incumbent build the plant? Compare its final payoff with and without the plant.
+        The incumbent announces in advance: "If you enter, I will start a price war." As long as the announcement is firm enough, it will keep the entrant out.
+    correct: false
+    hint:
+      zh-cn: 新企业已经进入以后，打价格战和接纳，哪个对在位者更有利？新企业会预见到什么？
+      en: Once the entrant is in, is a price war or accommodation better for the incumbent? What will the entrant foresee?
     answer:
       zh-cn: |-
-        (a) 进入后，在位者打价格战得 40，接纳得 35，会打价格战：威胁现在可信。新企业预见到这一点，进入得 −10，不进入得 0，所以不进入。
-        (b) 建厂时结果是新企业不进入，在位者得 90。不建厂时（[[fig:4-1]]），新企业会进入、在位者接纳，在位者得 50。所以应该建厂：大工厂本身降低了在位者在没有竞争时的利润（100 降到 90），但它改变了在位者事后的选择，使威胁可信，从而阻止了进入。
+        错。新企业会用倒推法看：如果进入已经发生，在位者打价格战得到的比接纳少，到时候它会接纳，所以这个威胁不可信，宣布得再坚决也没有用。要让威胁可信，在位者必须改变自己事后的收益，例如先建一座大工厂，使它进入后打价格战比接纳更有利。
       en: |-
-        (a) After entry, the incumbent gets 40 from a price war and 35 from accommodating, so it fights: the threat is now credible. The new firm foresees this; entering gives −10 and staying out gives 0, so it stays out.
-        (b) With the plant, the new firm stays out and the incumbent gets 90. Without the plant ([[fig:4-1]]), the new firm enters and the incumbent accommodates, so the incumbent gets 50. So it should build: the large plant itself lowers the incumbent's profit when there is no competition (from 100 to 90), but it changes what the incumbent will do afterward, which makes the threat credible and keeps the entrant out.
-    rubric:
-      zh-cn:
-        - "(a) 在位者会打价格战（40 > 35），新企业不进入（0 > −10），按倒推的顺序说明。"
-        - "(b) 建厂得 90，不建厂得 50，应该建厂；说明建厂的作用是使威胁可信。"
-      en:
-        - "(a) The incumbent fights (40 > 35) and the new firm stays out (0 > −10), explained in backward order."
-        - "(b) 90 with the plant, 50 without, so build; explains that the plant makes the threat credible."
+        False. The entrant reasons backward: once entry has happened, the incumbent earns less from a price war than from accommodating, so it will accommodate; the threat is not credible, however firmly it is stated. To make it credible, the incumbent must change its own payoffs after entry, for example by first building a large plant so that a price war becomes better for it than accommodating.
 
   - id: C4
     kind: check
     section: repeated-game
     concepts: [repeated-game, discount-factor]
     widget: { id: repeated-game, set: { delta: 0.5 } }
-    expected: { delta: "0.5", rate: "100" }
     question:
       zh-cn: |-
-        在 [[fig:5-1]] 中，保持高价至少和现在降价一样好的最小 $\delta$ 是多少？用讲义中两个现值的表达式求出精确值。如果 $\delta$ 只反映利率（$\delta = \frac{1}{1+r}$），这相当于年利率最高是多少？
+        在 [[fig:5-1]] 中，从较小的 $\delta$ 开始逐渐调大。
       en: |-
-        In [[fig:5-1]], what is the smallest $\delta$ at which keeping the high price is at least as good as cutting the price now? Find the exact value from the lesson's two present-value expressions. If $\delta$ reflects only the interest rate ($\delta = \frac{1}{1+r}$), what is the highest yearly interest rate this allows?
+        In [[fig:5-1]], increase $\delta$ step by step from a small value.
+    choices:
+      - zh-cn: $\delta$ 足够大时，保持高价的累计现值超过现在降价
+        en: Once $\delta$ is large enough, the present value of keeping the high price exceeds that of cutting now
+      - zh-cn: 现在降价总是更好，因为第一期多赚
+        en: Cutting now is always better, because it earns more in the first period
+        why:
+          zh-cn: 降价之后，以后各期会怎样？看图中两条线在较大的 $\delta$ 下的位置。
+          en: What happens in the periods after a cut? Look at the two lines for larger $\delta$.
+      - zh-cn: 保持高价总是更好，不论 $\delta$ 多小
+        en: Keeping the high price is always better, however small $\delta$ is
+        why:
+          zh-cn: $\delta$ 很小时，以后各期的收益折现到今天还值多少？和第一期多赚的部分相比呢？
+          en: When $\delta$ is very small, what are later payoffs worth today, compared with the extra earned in the first period?
+      - zh-cn: $\delta$ 不影响比较，因为两种选择都要折现
+        en: $\delta$ does not matter, because both choices are discounted
+        why:
+          zh-cn: 两种选择的收益在时间上分布不同：一种前面多，一种后面多。折现对它们的影响一样吗？
+          en: 'The two choices spread payoffs differently over time: one earns more early, the other more later. Does discounting affect them equally?'
+    correct: A
     answer:
       zh-cn: |-
-        $\frac{10}{1-\delta} \ge 15 + \frac{5\delta}{1-\delta}$，两边乘以 $1 - \delta$ 得 $10 \ge 15 - 10\delta$，即 $\delta \ge 0.5$（图中 $\delta = 0.5$ 时两者都是 20）。
-        $\frac{1}{1+r} \ge 0.5$ 即 $r \le 1$：年利率不超过 100% 时合作都能维持。只要两家公司相信博弈会继续，合作很容易维持；如果博弈每年有较大的概率结束，有效的 $\delta$ 会小得多。
+        (A)。降价在第一期多赚，但以后各期都受惩罚；保持高价的好处在以后。$\delta$ 越大，未来越重要，惩罚的分量越重。在图中的数字下，$\frac{10}{1-\delta} \ge 15 + \frac{5\delta}{1-\delta}$ 当且仅当 $\delta \ge 0.5$。所以只要双方足够看重未来、相信博弈会继续，合作就能维持。
       en: |-
-        $\frac{10}{1-\delta} \ge 15 + \frac{5\delta}{1-\delta}$; multiplying by $1 - \delta$ gives $10 \ge 15 - 10\delta$, so $\delta \ge 0.5$ (in the figure both are 20 at $\delta = 0.5$).
-        $\frac{1}{1+r} \ge 0.5$ means $r \le 1$: cooperation can last at any yearly rate up to 100%. As long as both firms believe the game will continue, cooperation is easy to sustain; if the game has a sizeable chance of ending each year, the effective $\delta$ is much smaller.
-    rubric:
-      zh-cn:
-        - "$\\delta \\ge 0.5$，推导正确。"
-        - "年利率最高 100%。"
-      en:
-        - "$\\delta \\ge 0.5$ with a correct derivation."
-        - "A yearly rate of at most 100%."
+        (A). Cutting earns more in the first period but is punished in every later one; the gain from keeping the high price comes later. The larger $\delta$, the more the future matters and the heavier the punishment. With the figure's numbers, $\frac{10}{1-\delta} \ge 15 + \frac{5\delta}{1-\delta}$ exactly when $\delta \ge 0.5$. So cooperation can last as long as both sides care enough about the future and expect the game to continue.
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1

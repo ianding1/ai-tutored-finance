@@ -43,6 +43,21 @@ common_errors:
       把边际产量递减和规模报酬递减混为一谈：前者只增加一种投入，后者所有投入同比例增加。
     en: |-
       Confusing diminishing marginal product with decreasing returns to scale: the first increases one input only, the second increases all inputs in the same proportion.
+  - questions: [Q2]
+    zh-cn: |-
+      以为 MC 穿过 ATC 的地方是 MC 的最低点。MC 穿过的是 AVC 和 ATC 的最低点；MC 在它们下方时它们下降，在上方时上升。
+    en: |-
+      Thinking MC crosses ATC at the minimum of MC. MC crosses AVC and ATC at their minimums; they fall while MC is below them and rise while it is above.
+  - questions: [Q4]
+    zh-cn: |-
+      以为需求增加后价格会长期保持在较高水平。在可以自由进入、成本不变的行业，短期的高价和利润会吸引新厂商进入，长期价格回到 ATC 的最低点，增加的需求由更多厂商满足。
+    en: |-
+      Thinking a rise in demand keeps the price high in the long run. In an industry with free entry and constant costs, the short-run high price and profit attract entry, the long-run price returns to the minimum of ATC, and more firms meet the extra demand.
+  - questions: [Q6]
+    zh-cn: |-
+      在成本最低的条件中把工资和租金的位置弄反，或者以为规模报酬不变时平均成本会随产量下降。
+    en: |-
+      Swapping the wage and the rental rate in the cost-minimizing condition, or thinking average cost falls with output under constant returns to scale.
   - questions: [Q5]
     zh-cn: |-
       只扣除实际支付的成本，忽略店主自己的时间和资本的机会成本，把会计利润当作经济利润。
@@ -55,100 +70,123 @@ questions:
     kind: check
     section: production-function
     concepts: [marginal-product, short-run]
-    expected: { mp4: "1", mp16: "0.5", q16: "16" }
     question:
       zh-cn: |-
-        $Q = K^{0.5}L^{0.5}$，短期 $K = 16$。劳动从 $L = 4$ 增加到 $L = 16$ 时，产量和劳动的边际产量各怎样变化？这说明了什么？
+        资本固定时，劳动的边际产量递减。所以多雇一名工人会使总产量下降。
       en: |-
-        $Q = K^{0.5}L^{0.5}$, with $K = 16$ in the short run. When labor rises from $L = 4$ to $L = 16$, how do output and the marginal product of labor change? What does this show?
+        With capital fixed, the marginal product of labor diminishes. So hiring one more worker lowers total output.
+    correct: false
+    hint:
+      zh-cn: “边际产量递减”说的是边际产量变小，还是变成负数？
+      en: Does "diminishing marginal product" mean the marginal product gets smaller, or that it becomes negative?
     answer:
       zh-cn: |-
-        $Q = 4\sqrt{L}$，$MP_L = \frac{2}{\sqrt{L}}$。$L = 4$：$Q = 8$，$MP_L = 1$。$L = 16$：$Q = 16$，$MP_L = 0.5$。
-        劳动增加到 4 倍，产量只增加到 2 倍，边际产量减半：资本固定时，劳动的边际产量递减。
+        错。边际产量递减是说每多雇一名工人，增加的产量比前一名少，但只要边际产量仍为正，总产量仍在增加。例如 $Q = 4\sqrt{L}$ 时，劳动从 4 增加到 16，边际产量从 1 降到 0.5，总产量从 8 增加到 16。只有边际产量变为负数（例如工人太多、互相妨碍）时，总产量才下降。
       en: |-
-        $Q = 4\sqrt{L}$ and $MP_L = \frac{2}{\sqrt{L}}$. At $L = 4$: $Q = 8$, $MP_L = 1$. At $L = 16$: $Q = 16$, $MP_L = 0.5$.
-        Labor rises fourfold but output only doubles, and the marginal product halves: with capital fixed, the marginal product of labor diminishes.
-    rubric:
-      zh-cn:
-        - "产量 8 到 16，边际产量 1 到 0.5。"
-        - "指出边际产量递减。"
-      en:
-        - "Output 8 to 16, marginal product 1 to 0.5."
-        - "Identifies diminishing marginal product."
+        False. Diminishing marginal product means each extra worker adds less output than the one before, but as long as the marginal product is positive, total output still rises. With $Q = 4\sqrt{L}$, for example, raising labor from 4 to 16 lowers the marginal product from 1 to 0.5 while output rises from 8 to 16. Total output falls only if the marginal product turns negative (for example, workers getting in each other's way).
 
   - id: C2
     kind: check
     section: returns-to-scale
     concepts: [returns-to-scale]
-    expected: { a: "1.87", b: "2.83" }
     question:
       zh-cn: |-
-        两个生产函数：(a) $Q = K^{0.3}L^{0.6}$；(b) $Q = K\,L^{0.5}$。资本和劳动都翻倍时，产量各变为原来的多少倍？各是哪种规模报酬？
+        生产函数 $Q = K^{0.3}L^{0.6}$。资本和劳动都翻倍时，产量：
       en: |-
-        Two production functions: (a) $Q = K^{0.3}L^{0.6}$; (b) $Q = K\,L^{0.5}$. When capital and labor both double, by what factor does output change in each case? What kind of returns to scale does each have?
+        The production function is $Q = K^{0.3}L^{0.6}$. When capital and labor both double, output:
+    choices:
+      - zh-cn: 不到原来的 2 倍
+        en: Less than doubles
+      - zh-cn: 正好是原来的 2 倍，因为所有投入都翻倍了
+        en: Exactly doubles, because all inputs doubled
+        why:
+          zh-cn: 把 $2K$ 和 $2L$ 代入生产函数，产量乘以 2 的几次方？
+          en: Put $2K$ and $2L$ into the production function. Output is multiplied by 2 to what power?
+      - zh-cn: 超过原来的 2 倍
+        en: More than doubles
+        why:
+          zh-cn: 产量变为原来的 $2^{a + b}$ 倍。这里的 $a + b$ 比 1 大还是小？
+          en: Output is multiplied by $2^{a + b}$. Is $a + b$ here above or below 1?
+      - zh-cn: 无法判断，要看资本和劳动的价格
+        en: Cannot be determined without the prices of capital and labor
+        why:
+          zh-cn: 规模报酬只取决于生产函数本身，与投入的价格有关吗？
+          en: Returns to scale depend only on the production function. Do input prices matter?
+    correct: A
     answer:
       zh-cn: |-
-        (a) $2^{0.3 + 0.6} = 2^{0.9} \approx 1.87$ 倍，不到 2 倍，规模报酬递减。
-        (b) $2^{1 + 0.5} = 2^{1.5} \approx 2.83$ 倍，超过 2 倍，规模报酬递增。指数之和决定规模报酬。
+        (A)。产量变为原来的 $2^{0.3 + 0.6} = 2^{0.9} \approx 1.87$ 倍，不到 2 倍，是规模报酬递减。对这类生产函数，指数之和小于 1 时规模报酬递减，等于 1 时不变，大于 1 时递增。
       en: |-
-        (a) $2^{0.3 + 0.6} = 2^{0.9} \approx 1.87$ times, less than double: decreasing returns to scale.
-        (b) $2^{1 + 0.5} = 2^{1.5} \approx 2.83$ times, more than double: increasing returns to scale. The sum of the exponents decides.
-    rubric:
-      zh-cn:
-        - "约 1.87 倍、递减；约 2.83 倍、递增。"
-      en:
-        - "About 1.87, decreasing; about 2.83, increasing."
+        (A). Output is multiplied by $2^{0.3 + 0.6} = 2^{0.9} \approx 1.87$, less than 2: decreasing returns to scale. For production functions of this form, exponents summing to less than 1 give decreasing returns, to 1 constant returns, and to more than 1 increasing returns.
 
   - id: C3
     kind: check
     section: cost-curves
     concepts: [average-cost, marginal-cost]
-    expected: { mc: "8", avc: "16" }
     question:
       zh-cn: |-
-        对讲义的成本函数 $C(q) = 72 + q^3 - 10q^2 + 40q$，计算 $q = 4$ 时的 MC 和 AVC。这时再多生产一单位，AVC 会上升还是下降？为什么？
+        在某个产量处，边际成本低于平均可变成本。再多生产一单位，平均可变成本会：
       en: |-
-        For the lesson's cost function $C(q) = 72 + q^3 - 10q^2 + 40q$, compute MC and AVC at $q = 4$. If one more unit is produced, does AVC rise or fall? Why?
+        At some output, marginal cost is below average variable cost. If one more unit is produced, average variable cost:
+    choices:
+      - zh-cn: 下降
+        en: Falls
+      - zh-cn: 上升
+        en: Rises
+        why:
+          zh-cn: 新增的这一单位比现有的平均可变成本贵还是便宜？把它加进来，平均值会被拉高还是拉低？
+          en: Is the extra unit dearer or cheaper than the current average variable cost? Adding it pulls the average up or down?
+      - zh-cn: 不变
+        en: Stays the same
+        why:
+          zh-cn: 只有新增的一单位成本正好等于平均值时，平均值才不变。这里两者相等吗？
+          en: The average stays the same only if the extra unit costs exactly the average. Are they equal here?
+      - zh-cn: 取决于固定成本的大小
+        en: Depends on the size of the fixed cost
+        why:
+          zh-cn: 平均可变成本里包含固定成本吗？
+          en: Does average variable cost include the fixed cost?
+    correct: A
     answer:
       zh-cn: |-
-        $MC = 3 \times 16 - 80 + 40 = 8$，$\text{AVC} = 16 - 40 + 40 = 16$。
-        MC 小于 AVC：新增的一单位比现有的平均可变成本便宜，会把平均值拉低，所以 AVC 下降。
+        (A)。新增的一单位的成本（MC）低于现有的平均值，把它加进来会拉低平均值，就像考了一个低于平均分的成绩会拉低平均分。所以 MC 在 AVC 下方时 AVC 下降，在上方时 AVC 上升，MC 穿过 AVC 的最低点。
       en: |-
-        $MC = 3 \times 16 - 80 + 40 = 8$ and $\text{AVC} = 16 - 40 + 40 = 16$.
-        MC is below AVC: the extra unit costs less than the current average variable cost, so it pulls the average down and AVC falls.
-    rubric:
-      zh-cn:
-        - "MC 8、AVC 16。"
-        - "AVC 下降，用 MC 低于 AVC 解释。"
-      en:
-        - "MC 8, AVC 16."
-        - "AVC falls, explained by MC being below AVC."
+        (A). The cost of the extra unit (MC) is below the current average, so adding it pulls the average down, just as a score below your average pulls your average down. So AVC falls while MC is below it and rises while MC is above it, and MC crosses AVC at its minimum.
 
   - id: C4
     kind: check
     section: competitive-firm
     concepts: [shutdown-point, perfect-competition, average-cost]
     widget: { id: competitive-firm, set: { p: 20 } }
-    expected: { q: "5.44", profit: "-45.85" }
     question:
       zh-cn: |-
-        在 [[fig:4-1]] 中把价格调到 20。厂商的最优产量和利润是多少？它在亏损，为什么仍然应该生产，而不是停产？
+        在 [[fig:4-1]] 中把价格从 30 慢慢降低。厂商：
       en: |-
-        In [[fig:4-1]], set the price to 20. What are the firm's best output and profit? It is losing money; why should it still produce rather than shut down?
+        In [[fig:4-1]], lower the price slowly from 30. The firm:
+    choices:
+      - zh-cn: 先开始亏损但继续生产，价格再低一些才停产
+        en: First makes losses but keeps producing, and stops only at a lower price
+      - zh-cn: 一出现亏损就停产
+        en: Stops as soon as it makes a loss
+        why:
+          zh-cn: 短期内停产时，固定成本还要付吗？比较停产的亏损和生产的亏损。
+          en: In the short run, is the fixed cost still paid after stopping? Compare the loss from stopping with the loss from producing.
+      - zh-cn: 一直生产，直到价格降到 0
+        en: Keeps producing until the price reaches 0
+        why:
+          zh-cn: 价格低到连可变成本都收不回时，多生产的每一单位是在减少亏损还是增加亏损？
+          en: When the price cannot even cover variable cost, does each unit produced reduce the loss or add to it?
+      - zh-cn: 开始亏损的价格和停产的价格相同
+        en: Starts losing money and stops at the same price
+        why:
+          zh-cn: 开始亏损的价格对应哪条曲线的最低点？停产的价格对应哪条曲线的最低点？
+          en: The price at which losses start corresponds to the minimum of which curve? And the shutdown price?
+    correct: A
     answer:
       zh-cn: |-
-        $3q^2 - 20q + 40 = 20$，取 MC 上升部分的根 $q = \frac{20 + \sqrt{160}}{6} \approx 5.44$，利润 $20 \times 5.44 - C(5.44) \approx -45.85$。
-        停产时利润为 $-72$（固定成本照付）。生产时虽然亏损 45.85，但比停产少亏约 26：价格高于 AVC，收入覆盖了全部可变成本，还抵消了一部分固定成本。
+        (A)。价格低于 ATC 的最低点 28 时开始亏损，但只要价格高于 AVC 的最低点 15，收入就能覆盖可变成本，还能抵消一部分固定成本，生产比停产亏得少。价格低于 15 时，生产连可变成本都收不回，才应该停产。
       en: |-
-        $3q^2 - 20q + 40 = 20$; taking the root on the rising part of MC, $q = \frac{20 + \sqrt{160}}{6} \approx 5.44$, and profit is $20 \times 5.44 - C(5.44) \approx -45.85$.
-        Shutting down gives a profit of $-72$ (the fixed cost is still paid). Producing loses 45.85, about 26 less than shutting down: the price is above AVC, so revenue covers all variable costs and part of the fixed cost.
-    rubric:
-      zh-cn:
-        - "产量约 5.44，利润约 −45.85。"
-        - "与停产的 −72 比较，用价格高于 AVC 解释。"
-      en:
-        - "Output about 5.44, profit about −45.85."
-        - "Compares with −72 from shutting down, explained by the price being above AVC."
+        (A). Below 28, the minimum of ATC, the firm makes losses, but as long as the price is above 15, the minimum of AVC, revenue covers variable cost and part of the fixed cost, so producing loses less than stopping. Only below 15, when production cannot even cover variable cost, should it stop.
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1
@@ -209,27 +247,25 @@ questions:
     expected: { shut: "15", qs: "5", be: "28", qb: "6" }
     question:
       zh-cn: |-
-        对讲义的成本函数 $C(q) = 72 + q^3 - 10q^2 + 40q$：
-        (a) 求停产点（AVC 的最低点）和盈亏平衡点（ATC 的最低点）的产量和价格。
-        (b) 价格分别在停产点以下、两点之间、盈亏平衡点以上时，厂商的短期决策和利润各是怎样的？
+        (a) 对讲义的成本函数 $C(q) = 72 + q^3 - 10q^2 + 40q$，求停产点（AVC 的最低点）和盈亏平衡点（ATC 的最低点）的产量和价格。
+        (b) 一家航空公司在淡季继续飞一条航线，票价低于每位乘客分摊的全部成本（包括飞机的折旧和租金、机场的长期合同）。一位分析师说：“它在每位乘客身上都亏钱，继续飞是不理性的。”用 (a) 背后的逻辑评价这个说法。在什么情况下它应该停飞这条航线？长期呢？
       en: |-
-        For the lesson's cost function $C(q) = 72 + q^3 - 10q^2 + 40q$:
-        (a) Find the output and price at the shutdown point (the minimum of AVC) and the break-even point (the minimum of ATC).
-        (b) When the price is below the shutdown point, between the two points, and above the break-even point, what are the firm's short-run decision and profit?
+        (a) For the lesson's cost function $C(q) = 72 + q^3 - 10q^2 + 40q$, find the output and price at the shutdown point (the minimum of AVC) and the break-even point (the minimum of ATC).
+        (b) In the low season an airline keeps flying a route at fares below the full cost per passenger (including depreciation and leases of the aircraft and long-term airport contracts). An analyst says: "It loses money on every passenger, so flying is irrational." Evaluate the statement using the logic behind (a). When should it stop flying the route? What about the long run?
     answer:
       zh-cn: |-
         (a) $\text{AVC} = q^2 - 10q + 40$，$\text{AVC}' = 2q - 10 = 0$，$q = 5$，最低值 15。$\text{ATC}' = 2q - 10 - \frac{72}{q^2} = 0$，$q = 6$ 满足，最低值 28。（验证 $MC(5) = 15$，$MC(6) = 28$。）
-        (b) 价格低于 15：停产，亏损固定成本 72。15 到 28 之间：按 $P = MC$ 生产，有亏损，但亏得比停产少。高于 28：按 $P = MC$ 生产，有正的经济利润。
+        (b) 飞机的折旧和租金、长期合同在淡季不飞也要付，相当于固定成本。是否飞这条航线，应该比较票价收入和可以避免的成本（燃油、机组、起降费等，相当于可变成本）。只要收入高于这些成本，飞比不飞亏得少，分析师错在用平均总成本做短期决策。只有收入连可避免的成本都覆盖不了，或者飞机有更好的用途（机会成本）时，才应该停飞。长期内飞机和合同可以调整，如果这条航线全年的收入都覆盖不了全部成本，就应该放弃它。
       en: |-
         (a) $\text{AVC} = q^2 - 10q + 40$, $\text{AVC}' = 2q - 10 = 0$, so $q = 5$ with a minimum of 15. $\text{ATC}' = 2q - 10 - \frac{72}{q^2} = 0$ holds at $q = 6$, with a minimum of 28. (Check: $MC(5) = 15$, $MC(6) = 28$.)
-        (b) Below 15: shut down and lose the fixed cost of 72. Between 15 and 28: produce where $P = MC$, with a loss smaller than shutting down. Above 28: produce where $P = MC$, with a positive economic profit.
+        (b) Aircraft depreciation and leases and long-term contracts must be paid in the low season whether or not the route is flown, so they act as fixed costs. Whether to fly should compare fare revenue with the costs that can be avoided (fuel, crews, landing fees and so on, like variable costs). As long as revenue exceeds those, flying loses less than not flying; the analyst uses average total cost for a short-run decision. The airline should stop only if revenue does not cover even the avoidable costs, or if the aircraft has a better use (an opportunity cost). In the long run aircraft and contracts can be adjusted, and if the route's revenue over the whole year does not cover its full cost, it should be dropped.
     rubric:
       zh-cn:
         - "(a) 停产点 $q = 5$、价格 15；盈亏平衡点 $q = 6$、价格 28。"
-        - "(b) 三个区间的决策和利润正确。"
+        - "(b) 指出短期决策应比较收入和可以避免的成本，固定成本不影响是否飞；说明停飞和长期退出的条件。同意分析师的说法：需要订正。"
       en:
-        - "(a) Shutdown at $q = 5$, price 15; break-even at $q = 6$, price 28."
-        - "(b) Correct decisions and profits in the three ranges."
+        - "(a) Shutdown point $q = 5$ at a price of 15; break-even point $q = 6$ at a price of 28."
+        - "(b) Points out that the short-run decision compares revenue with avoidable costs and that fixed costs do not affect it; states the conditions for stopping and for leaving in the long run. Agreeing with the analyst: needs revision."
 
   - id: Q4
     kind: exercise

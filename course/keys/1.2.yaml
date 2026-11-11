@@ -38,6 +38,16 @@ context:
       The lesson splits a price change with Slutsky compensation (adjusting income so that the original bundle is just affordable at the new prices). Example: $U = xy$, $M = 40$, $p_y = 1$, $p_x$ falls from 2 to 1: A has $x = 10$, compensated income is 30, B has $x = 15$, C has $x = 20$; substitution effect 5, income effect 5. The lesson states the Slutsky equation $\frac{\partial x}{\partial p_x} = \frac{\partial x^s}{\partial p_x} - x\frac{\partial x}{\partial M}$ (the derivation is left to an exercise), explains that the substitution effect always moves the quantity demanded opposite to the price, that the income effect of an inferior good goes the other way, and that a Giffen good's income effect outweighs its substitution effect. In [[fig:5-1]] the slider for $p_x$ goes from 0.5 to 4 in steps of 0.25.
 
 common_errors:
+  - questions: [Q1]
+    zh-cn: |-
+      以为对效用函数做严格递增的变换会改变最优选择。边际效用会变，但两种商品的边际效用按同一个因子变化，边际替代率不变，最优选择也不变。
+    en: |-
+      Thinking a strictly increasing transformation of the utility function changes the optimal choice. Marginal utilities change, but both by the same factor, so the marginal rate of substitution and the optimal choice stay the same.
+  - questions: [Q4]
+    zh-cn: |-
+      以为吉芬商品只需要是劣等品。替代效应总是使需求量与价格反向变化，收入效应必须足够大才能超过它；收入效应的大小与这种商品的购买量 $x$ 成正比，所以它通常要占支出的很大比例。
+    en: |-
+      Thinking a Giffen good need only be inferior. The substitution effect always moves the quantity opposite to the price, and the income effect must be large enough to outweigh it; the income effect is proportional to the quantity bought, $x$, so the good usually takes a large share of spending.
   - questions: [C2, Q2]
     zh-cn: |-
       把边际替代率写反（$\frac{MU_y}{MU_x}$），或把它和价格比的比较方向弄反：$MRS > \frac{p_x}{p_y}$ 时应该多买 $x$。
@@ -62,99 +72,106 @@ questions:
     concepts: [utility-function, preferences]
     question:
       zh-cn: |-
-        三个组合：A $(2, 8)$、B $(4, 4)$、C $(3, 5)$。用 $U = xy$ 排序，A 与 B 一样好、都优于 C。分别用 $V = \ln x + \ln y$ 和 $W = x + y$ 给它们排序。$V$ 和 $W$ 中，哪一个与 $U$ 表示同一种偏好？为什么？
+        $U = xy$ 给组合 $(2, 8)$ 打 16 分，给 $(3, 5)$ 打 15 分。由此可知，消费者从 $(2, 8)$ 得到的满足比从 $(3, 5)$ 多约 7%。
       en: |-
-        Three bundles: A $(2, 8)$, B $(4, 4)$ and C $(3, 5)$. Ranked by $U = xy$, A and B are equally good and both better than C. Rank them with $V = \ln x + \ln y$ and with $W = x + y$. Which of $V$ and $W$ represents the same preferences as $U$? Why?
+        $U = xy$ gives the bundle $(2, 8)$ a score of 16 and $(3, 5)$ a score of 15. So the consumer gets about 7% more satisfaction from $(2, 8)$ than from $(3, 5)$.
+    correct: false
+    hint:
+      zh-cn: 用 $V = \ln(xy)$ 打分，表示的是不是同一种偏好？两个分数的比例还是 $\frac{16}{15}$ 吗？
+      en: Does scoring with $V = \ln(xy)$ represent the same preferences? Is the ratio of the two scores still $\frac{16}{15}$?
     answer:
       zh-cn: |-
-        $V = \ln(xy)$：$\ln 16$、$\ln 16$、$\ln 15$，排序与 $U$ 相同。$W$：A 为 10，B 为 8，C 为 8，A 最好，B 与 C 一样好，排序不同。
-        $V$ 是 $U$ 的严格递增变换，对任何组合的排序都与 $U$ 相同，表示同一种偏好；$W$ 不是 $U$ 的递增变换，表示的是另一种偏好。效用函数只用来排序，数值本身没有意义。
+        错。效用函数只用来排序：16 大于 15 只说明 $(2, 8)$ 更好，不说明好多少。对 $U$ 做严格递增的变换，例如 $V = \ln(xy)$，表示的是同一种偏好，但分数变成 $\ln 16 \approx 2.77$ 和 $\ln 15 \approx 2.71$，比例完全不同。分数的比例或差值没有意义，这就是序数效用。
       en: |-
-        $V = \ln(xy)$: $\ln 16$, $\ln 16$, $\ln 15$, the same ranking as $U$. $W$: A is 10, B is 8 and C is 8, so A is best and B and C are equally good: a different ranking.
-        $V$ is a strictly increasing transformation of $U$ and ranks every bundle the same way, so it represents the same preferences; $W$ is not an increasing transformation of $U$ and represents different preferences. A utility function only ranks; its numbers have no meaning in themselves.
-    rubric:
-      zh-cn:
-        - "两种排序正确。"
-        - "指出 $V$ 是 $U$ 的递增变换、表示同一种偏好，$W$ 不是。"
-      en:
-        - "Both rankings correct."
-        - "Identifies $V$ as an increasing transformation of $U$ representing the same preferences, and $W$ as not."
+        False. A utility function only ranks: 16 above 15 says only that $(2, 8)$ is better, not by how much. A strictly increasing transformation of $U$, such as $V = \ln(xy)$, represents the same preferences but gives scores $\ln 16 \approx 2.77$ and $\ln 15 \approx 2.71$, with a completely different ratio. Ratios or differences of the scores have no meaning; this is ordinal utility.
 
   - id: C2
     kind: check
     section: mrs
     concepts: [marginal-rate-of-substitution, marginal-utility]
-    expected: { mux: "24", muy: "9", mrs: "2.67" }
     question:
       zh-cn: |-
-        效用函数 $U = x^2 y$。在组合 $(3, 4)$ 处，两种商品的边际效用和边际替代率各是多少？如果 $\frac{p_x}{p_y} = 2$，这个消费者应该多买 $x$ 还是少买 $x$？
+        在消费者现在的组合处，边际替代率 $MRS = 3$，而价格比 $\frac{p_x}{p_y} = 2$。他应该：
       en: |-
-        The utility function is $U = x^2 y$. At the bundle $(3, 4)$, what are the marginal utilities of the two goods and the marginal rate of substitution? If $\frac{p_x}{p_y} = 2$, should this consumer buy more $x$ or less?
+        At the consumer's current bundle, the marginal rate of substitution is $MRS = 3$, while the price ratio is $\frac{p_x}{p_y} = 2$. He should:
+    choices:
+      - zh-cn: 多买 $x$，少买 $y$
+        en: Buy more $x$ and less $y$
+      - zh-cn: 少买 $x$，多买 $y$
+        en: Buy less $x$ and more $y$
+        why:
+          zh-cn: $MRS = 3$ 表示他愿意用几单位 $y$ 换 1 单位 $x$？市场上换 1 单位 $x$ 要放弃几单位 $y$？
+          en: $MRS = 3$ means he is willing to give up how many units of $y$ for one unit of $x$? How many units of $y$ does the market ask for one unit of $x$?
+      - zh-cn: 保持不变，因为他已经在预算线上
+        en: Keep the bundle, because he is already on the budget line
+        why:
+          zh-cn: 在预算线上只说明钱花完了。最优点还要满足什么条件？这里满足吗？
+          en: Being on the budget line only means the money is spent. What else must hold at the optimum? Does it hold here?
+      - zh-cn: 只买 $y$，因为 $y$ 相对便宜
+        en: Buy only $y$, because $y$ is relatively cheap
+        why:
+          zh-cn: 消费者对 $x$ 的评价和 $x$ 的市场代价相比，是高还是低？
+          en: Is the consumer's value of $x$ higher or lower than its cost in the market?
+    correct: A
     answer:
       zh-cn: |-
-        $MU_x = 2xy = 24$，$MU_y = x^2 = 9$，$MRS = \frac{24}{9} \approx 2.67$。
-        消费者愿意用约 2.67 单位 $y$ 换 1 单位 $x$，而市场上只需 2 单位 $y$ 就能换到 1 单位 $x$。$MRS > \frac{p_x}{p_y}$，应该多买 $x$、少买 $y$。
+        (A)。他愿意用 3 单位 $y$ 换 1 单位 $x$，而市场上只要 2 单位 $y$ 就能换到 1 单位 $x$：他对 $x$ 的评价高于它的代价。多买 $x$、少买 $y$ 能提高效用。随着 $x$ 增加、$y$ 减少，MRS 下降，直到等于价格比。
       en: |-
-        $MU_x = 2xy = 24$, $MU_y = x^2 = 9$ and $MRS = \frac{24}{9} \approx 2.67$.
-        The consumer is willing to give about 2.67 units of $y$ for 1 unit of $x$, while the market asks only 2 units of $y$. Since $MRS > \frac{p_x}{p_y}$, the consumer should buy more $x$ and less $y$.
-    rubric:
-      zh-cn:
-        - "两个边际效用 24 和 9，MRS 约 2.67。"
-        - "比较 MRS 与价格比，结论为多买 $x$。"
-      en:
-        - "Marginal utilities 24 and 9, MRS about 2.67."
-        - "Compares the MRS with the price ratio and concludes: buy more $x$."
+        (A). He is willing to give 3 units of $y$ for one unit of $x$, while the market asks only 2: he values $x$ above its cost. Buying more $x$ and less $y$ raises his utility. As $x$ rises and $y$ falls, the MRS falls until it equals the price ratio.
 
   - id: C3
     kind: check
     section: optimal-choice
     concepts: [budget-constraint, indifference-curve]
-    expected: { x: "20" }
     question:
       zh-cn: |-
-        一个人只在左鞋和右鞋成对时才得到效用：$U = \min(x, y)$，$x$ 是左鞋、$y$ 是右鞋的数量。假设左鞋每只 3 美元、右鞋每只 2 美元，预算 100 美元。他会各买多少只？为什么这里不能用 $MRS = \frac{p_x}{p_y}$？
+        一个人只在左鞋和右鞋成对时才得到效用：$U = \min(x, y)$。左鞋涨价，右鞋价格和预算不变。他会：
       en: |-
-        A person gets utility only from left and right shoes in pairs: $U = \min(x, y)$, where $x$ is the number of left shoes and $y$ the number of right shoes. Suppose a left shoe costs 3 dollars, a right shoe 2 dollars, and the budget is 100 dollars. How many of each does he buy? Why can't $MRS = \frac{p_x}{p_y}$ be used here?
+        A person gets utility only from pairs of left and right shoes: $U = \min(x, y)$. The price of left shoes rises; the price of right shoes and the budget do not change. He will:
+    choices:
+      - zh-cn: 左鞋和右鞋都少买，仍然成对
+        en: Buy fewer left and right shoes, still in pairs
+      - zh-cn: 只少买左鞋，右鞋的数量不变
+        en: Buy fewer left shoes only, keeping the number of right shoes
+        why:
+          zh-cn: 多出来的单只右鞋会增加他的效用吗？
+          en: Would unmatched right shoes add to his utility?
+      - zh-cn: 不改变购买，因为左右鞋不能互相替代
+        en: Not change his purchases, because left and right shoes cannot replace each other
+        why:
+          zh-cn: 涨价后，原来的组合还买得起吗？
+          en: After the price rise, can he still afford his old bundle?
+      - zh-cn: 多买右鞋，代替一部分左鞋
+        en: Buy more right shoes to replace some left shoes
+        why:
+          zh-cn: 对这个人来说，右鞋能代替左鞋吗？
+          en: For this person, can right shoes replace left shoes?
+    correct: A
     answer:
       zh-cn: |-
-        多出来的单只鞋不增加效用，所以最优时 $x = y$。代入预算 $3x + 2x = 100$，$x = y = 20$。
-        无差异曲线是直角，在拐角处没有确定的斜率，MRS 没有定义；最优点在拐角上，而不是在一个切点上。
+        (A)。多出来的单只鞋不增加效用，所以他总是成对购买：$x = y = \frac{M}{p_x + p_y}$。左鞋涨价使一双鞋变贵，他买的双数减少。这里没有替代效应，只有收入效应；无差异曲线是直角，最优点在拐角处，相切条件不适用。
       en: |-
-        An unmatched shoe adds no utility, so at the optimum $x = y$. The budget gives $3x + 2x = 100$, so $x = y = 20$.
-        The indifference curves are right angles; at the corner there is no single slope and the MRS is not defined. The optimum is at the kink, not at a point of tangency.
-    rubric:
-      zh-cn:
-        - "各买 20 只。"
-        - "指出无差异曲线是直角、最优点在拐角，MRS 没有定义或相切条件不适用。"
-      en:
-        - "20 of each."
-        - "Points out that the indifference curves are right angles and the optimum is at the kink, so the MRS is not defined or the tangency condition does not apply."
+        (A). Unmatched shoes add no utility, so he always buys pairs: $x = y = \frac{M}{p_x + p_y}$. A higher price of left shoes makes a pair more expensive, so he buys fewer pairs. There is no substitution effect here, only an income effect; the indifference curves are right angles, the optimum is at the corner, and the tangency condition does not apply.
 
   - id: C4
     kind: check
     section: slutsky
     concepts: [substitution-effect, income-effect]
     widget: { id: slutsky, set: { p: 0.5 } }
-    expected: { se: "15", ie: "15" }
     question:
       zh-cn: |-
-        在 [[fig:5-1]] 中把 $p_x$ 调到 0.5。替代效应和收入效应各是多少？在这个例子中，$x$ 是正常品还是劣等品？
+        一种商品降价时，替代效应使它的需求量增加，收入效应也总是使它的需求量增加。
       en: |-
-        In [[fig:5-1]], set $p_x$ to 0.5. What are the substitution effect and the income effect? In this example, is $x$ a normal good or an inferior good?
+        When a good's price falls, the substitution effect raises the quantity demanded, and so does the income effect, always.
+    correct: false
+    hint:
+      zh-cn: 收入效应的方向取决于收入增加时消费者会多买还是少买这种商品。有没有收入越高、买得越少的商品？
+      en: The direction of the income effect depends on whether the consumer buys more or less of the good when income rises. Are there goods that people buy less of as income rises?
     answer:
       zh-cn: |-
-        补偿收入 $M' = 0.5 \times 10 + 1 \times 20 = 25$，B 点 $x = \frac{25}{2 \times 0.5} = 25$，C 点 $x = \frac{40}{2 \times 0.5} = 40$。替代效应 $25 - 10 = 15$，收入效应 $40 - 25 = 15$。
-        收入效应与替代效应方向相同：降价使实际收入增加，$x$ 随之增加，$x$ 是正常品。
+        错。前半句对：替代效应总是使需求量与价格反向变化。收入效应的方向取决于商品的性质：正常品的收入效应也使需求量增加；劣等品的收入效应使需求量减少，与替代效应方向相反。只有劣等品的收入效应大到超过替代效应时，降价才会使需求量减少（吉芬商品）。
       en: |-
-        Compensated income is $M' = 0.5 \times 10 + 1 \times 20 = 25$; at B, $x = \frac{25}{2 \times 0.5} = 25$; at C, $x = \frac{40}{2 \times 0.5} = 40$. The substitution effect is $25 - 10 = 15$ and the income effect $40 - 25 = 15$.
-        The income effect goes the same way as the substitution effect: the lower price raises real income and $x$ rises with it, so $x$ is a normal good.
-    rubric:
-      zh-cn:
-        - "替代效应 15、收入效应 15。"
-        - "判断为正常品，并用收入效应的方向说明。"
-      en:
-        - "Substitution effect 15, income effect 15."
-        - "Normal good, explained by the direction of the income effect."
+        False. The first half is right: the substitution effect always moves the quantity demanded opposite to the price. The direction of the income effect depends on the good: for a normal good it also raises the quantity demanded; for an inferior good it lowers it, working against the substitution effect. Only when an inferior good's income effect outweighs the substitution effect does a price fall reduce the quantity demanded (a Giffen good).
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1

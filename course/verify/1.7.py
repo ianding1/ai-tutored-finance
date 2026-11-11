@@ -37,6 +37,9 @@ def results():
     # Values that the questions now give or no longer ask for.
     for k in ['Q2.d']:
         del r[k]
+    # Values that the questions now give or no longer ask for.
+    for k in ['C3.with', 'C3.without', 'C4.delta', 'C4.rate']:
+        del r[k]
     return r
 
 

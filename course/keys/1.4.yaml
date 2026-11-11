@@ -44,6 +44,21 @@ common_errors:
       把确定性等价算成效用的期望值本身（例如写 CE = 6），忘了用 $u^{-1}$ 换回金额。
     en: |-
       Reporting the expected utility itself as the certainty equivalent (for example, CE = 6), forgetting to convert back to money with $u^{-1}$.
+  - questions: [Q2]
+    zh-cn: |-
+      把 $u(\mu - \pi)$ 也展开到二阶，或者以为 $E[\varepsilon] = 0$ 时一阶项和二阶项都消失。一阶项因 $E[\varepsilon] = 0$ 而消失，风险溢价来自二阶项 $\frac{1}{2}u''\sigma^2$；$\pi$ 本身是 $\sigma^2$ 量级，它的二阶项可以忽略。
+    en: |-
+      Expanding $u(\mu - \pi)$ to second order too, or thinking both the first- and second-order terms vanish when $E[\varepsilon] = 0$. The first-order term vanishes because $E[\varepsilon] = 0$, and the risk premium comes from the second-order term $\frac{1}{2}u''\sigma^2$; $\pi$ itself is of order $\sigma^2$, so its second-order term can be ignored.
+  - questions: [Q3]
+    zh-cn: |-
+      以为越富有的人一定把越大比例的财富投入风险资产。CRRA 投资者按比例计算的风险溢价与财富无关，投入风险资产的比例也与财富无关。
+    en: |-
+      Thinking richer people must put a larger share of wealth into risky assets. For a CRRA investor the proportional risk premium does not depend on wealth, and neither does the share in risky assets.
+  - questions: [Q4]
+    zh-cn: |-
+      以为期望收益为正就应该全部投入。对数效用的投资者最大化 $E[\ln W]$，也就是长期中位数财富的增长率；全部投入时它可能为负，最优比例要权衡期望收益和波动。
+    en: |-
+      Thinking a positive expected return means investing everything. A log-utility investor maximizes $E[\ln W]$, the growth rate of long-run median wealth; investing everything can make it negative, and the best share balances expected return against volatility.
   - questions: [Q1]
     zh-cn: |-
       认为风险厌恶就是拒绝一切风险：对期望收益为正的小赌局，风险溢价（与方差成正比，是二阶小量）可能小于期望收益（一阶），风险厌恶的人也会接受。
@@ -61,104 +76,108 @@ questions:
     kind: check
     section: expected-utility
     concepts: [expected-utility, certainty-equivalent]
-    expected: { ce: "36", rp: "4" }
     question:
       zh-cn: |-
-        某人的效用函数为 $u(W) = \sqrt{W}$（$W$ 以千美元计）。赌局 L 使他的财富等概率为 64 或 16。L 的确定性等价和风险溢价各是多少？据此判断，他更喜欢 L，还是确定地得到 38？
+        效用函数是凹函数的人，面对一个赌局和一笔确定的财富，如果两者的期望财富相同，他总是更喜欢确定的财富。
       en: |-
-        Someone has utility $u(W) = \sqrt{W}$ ($W$ in thousands of dollars). Gamble L leaves his wealth at 64 or 16 with equal probability. What are the certainty equivalent and the risk premium of L? On that basis, does he prefer L or 38 for certain?
+        A person with a concave utility function, choosing between a lottery and a sure amount of wealth with the same expected value, always prefers the sure amount.
+    correct: true
+    hint:
+      zh-cn: 凹函数图像上两点的连线，在曲线的上方还是下方？连线中点的高度代表什么？
+      en: Does the chord between two points on a concave curve lie above or below the curve? What does the height of its midpoint represent?
     answer:
       zh-cn: |-
-        $E[u] = \frac{1}{2}\sqrt{64} + \frac{1}{2}\sqrt{16} = 6$，$\sqrt{\text{CE}} = 6$，$\text{CE} = 36$。$E[W] = 40$，风险溢价 $40 - 36 = 4$。
-        L 对他只相当于确定的 36，少于 38，所以他更喜欢确定的 38，尽管 L 的期望财富 40 更高。
+        对。凹函数上两点的连线在曲线下方，所以赌局的期望效用 $E[u(W)]$ 低于期望财富的效用 $u(E[W])$。确定性等价低于期望财富，差额就是风险溢价。这正是风险厌恶的定义。
       en: |-
-        $E[u] = \frac{1}{2}\sqrt{64} + \frac{1}{2}\sqrt{16} = 6$, so $\sqrt{\text{CE}} = 6$ and $\text{CE} = 36$. $E[W] = 40$, so the risk premium is $40 - 36 = 4$.
-        L is worth only 36 for certain to him, less than 38, so he prefers 38 for certain, even though L's expected wealth of 40 is higher.
-    rubric:
-      zh-cn:
-        - "CE 36、风险溢价 4。"
-        - "更喜欢确定的 38，用 CE 比较说明。"
-      en:
-        - "CE 36, risk premium 4."
-        - "Prefers 38 for certain, by comparing with the CE."
+        True. For a concave function the chord between two points lies below the curve, so the lottery's expected utility $E[u(W)]$ is below the utility of the expected wealth $u(E[W])$. The certainty equivalent is below the expected wealth, and the difference is the risk premium. This is exactly what risk aversion means.
 
   - id: C2
     kind: check
     section: risk-aversion
     concepts: [risk-aversion, absolute-risk-aversion, relative-risk-aversion]
-    expected: { r: "1" }
     question:
       zh-cn: |-
-        对效用函数 $u = \ln W$，求绝对风险厌恶系数 $A$ 和相对风险厌恶系数 $R$。财富增加时，这个人对一个“输赢各 1,000 美元”的赌局，以及对一个“输赢各为财富 10%”的赌局，态度分别怎样变化？
+        一个效用为 $u = \ln W$ 的人，财富从 10 万美元增加到 1,000 万美元。面对一个“等概率输或赢 1,000 美元”的赌局，他要求的风险溢价：
       en: |-
-        For the utility function $u = \ln W$, find the coefficient of absolute risk aversion $A$ and of relative risk aversion $R$. As wealth grows, how does this person's attitude change toward a gamble of "win or lose 1,000 dollars" and toward a gamble of "win or lose 10% of wealth"?
+        A person with utility $u = \ln W$ sees his wealth grow from 100 thousand to 10 million dollars. For a lottery that wins or loses 1,000 dollars with equal probability, the risk premium he requires:
+    choices:
+      - zh-cn: 变小
+        en: Becomes smaller
+      - zh-cn: 变大，因为他有更多的钱可以输
+        en: Becomes larger, because he has more money to lose
+        why:
+          zh-cn: 对数效用的绝对风险厌恶系数 $A = \frac{1}{W}$。财富增加时它怎样变化？
+          en: Log utility has absolute risk aversion $A = \frac{1}{W}$. How does it change as wealth grows?
+      - zh-cn: 不变，因为他的相对风险厌恶系数不变
+        en: Stays the same, because his relative risk aversion does not change
+        why:
+          zh-cn: 相对风险厌恶描述的是对按财富比例计算的赌局的态度。1,000 美元占他财富的比例变了吗？
+          en: Relative risk aversion describes attitudes to lotteries scaled to wealth. Does 1,000 dollars remain the same share of his wealth?
+      - zh-cn: 先变大后变小
+        en: First grows and then shrinks
+        why:
+          zh-cn: $A = \frac{1}{W}$ 随财富单调变化，还是先升后降？
+          en: Does $A = \frac{1}{W}$ change monotonically with wealth, or rise and then fall?
+    correct: A
     answer:
       zh-cn: |-
-        $u' = \frac{1}{W}$，$u'' = -\frac{1}{W^2}$，$A = -\frac{u''}{u'} = \frac{1}{W}$，$R = W \cdot A = 1$。
-        $A$ 随财富下降：越富有，对固定金额的赌局越不在乎（风险溢价变小）。$R$ 是常数：对按财富比例计算的赌局，态度不随财富变化。
+        (A)。小赌局的风险溢价约为 $\frac{1}{2}A\sigma^2$，对数效用的 $A = \frac{1}{W}$ 随财富下降。1,000 美元对 10 万美元的财富是 1%，对 1,000 万美元只是 0.01%，他越富有越不在乎这个固定金额的赌局。他的相对风险厌恶不变，说明的是对“输赢各为财富 1%”这类按比例的赌局态度不变。
       en: |-
-        $u' = \frac{1}{W}$, $u'' = -\frac{1}{W^2}$, so $A = -\frac{u''}{u'} = \frac{1}{W}$ and $R = W \cdot A = 1$.
-        $A$ falls with wealth: the richer he is, the less he minds a gamble of a fixed amount (its risk premium shrinks). $R$ is constant: his attitude toward gambles stated as a share of wealth does not change with wealth.
-    rubric:
-      zh-cn:
-        - "$A = \\frac{1}{W}$，$R = 1$。"
-        - "区分固定金额和按比例的赌局。"
-      en:
-        - "$A = \\frac{1}{W}$, $R = 1$."
-        - "Distinguishes fixed-amount and proportional gambles."
+        (A). For a small lottery the risk premium is about $\frac{1}{2}A\sigma^2$, and log utility has $A = \frac{1}{W}$, which falls with wealth. 1,000 dollars is 1% of 100 thousand but only 0.01% of 10 million, so the richer he is, the less he cares about a lottery of a fixed amount. His constant relative risk aversion means his attitude to lotteries scaled to wealth, such as winning or losing 1% of it, stays the same.
 
   - id: C3
     kind: check
     section: certainty-equivalent
     concepts: [certainty-equivalent, risk-premium, crra-utility]
     widget: { id: risk-premium, set: { g: 3 } }
-    expected: { rp: "32.92", approx: "37.5" }
     question:
       zh-cn: |-
-        在 [[fig:4-1]] 中保持 $h = 50$，把 $\gamma$ 调到 3。风险溢价是多少？用近似公式 $\frac{\pi}{W} \approx \frac{1}{2}\gamma\sigma^2$ 估算的风险溢价是多少，为什么和精确值差得较多？
+        在 [[fig:4-1]] 中保持 $\gamma$ 不变，把赌局的大小 $h$ 加倍（例如从 10 调到 20）。风险溢价：
       en: |-
-        In [[fig:4-1]], keep $h = 50$ and set $\gamma$ to 3. What is the risk premium? What does the approximation $\frac{\pi}{W} \approx \frac{1}{2}\gamma\sigma^2$ give, and why is it far from the exact value?
+        In [[fig:4-1]], keep $\gamma$ fixed and double the size of the lottery $h$ (for example, from 10 to 20). The risk premium:
+    choices:
+      - zh-cn: 大约变为原来的 4 倍
+        en: Becomes about 4 times as large
+      - zh-cn: 正好变为原来的 2 倍，与 $h$ 成正比
+        en: Becomes exactly twice as large, in proportion to $h$
+        why:
+          zh-cn: 风险溢价的近似公式 $\frac{1}{2}A\sigma^2$ 中，赌局的大小以什么形式出现？
+          en: In the approximation $\frac{1}{2}A\sigma^2$ for the risk premium, in what form does the size of the lottery appear?
+      - zh-cn: 不变，因为期望财富没有变
+        en: Stays the same, because the expected wealth has not changed
+        why:
+          zh-cn: 期望财富确实不变，但确定性等价呢？看图中连线中点的高度怎样变化。
+          en: The expected wealth is indeed unchanged, but what about the certainty equivalent? Watch how the height of the chord's midpoint changes.
+      - zh-cn: 变小，因为赢的部分也变大了
+        en: Becomes smaller, because the possible gain also grows
+        why:
+          zh-cn: 赢和输都加倍了，但效用函数是凹的：多赢 10 增加的效用和多输 10 减少的效用，哪个大？
+          en: 'Both the gain and the loss double, but utility is concave: is the utility added by winning 10 more larger or smaller than that lost by losing 10 more?'
+    correct: A
     answer:
       zh-cn: |-
-        $\text{CE} = \left(\frac{1}{2} \times 150^{-2} + \frac{1}{2} \times 50^{-2}\right)^{-1/2} \approx 67.08$，风险溢价约 32.92（$\gamma = 1$ 时只有 13.40）。
-        近似：$\sigma = 50\%$，$\frac{1}{2} \times 3 \times 0.25 = 0.375$，即约 37.5。这个公式来自小赌局的泰勒展开，而赌局是财富的 ±50%，远不算小，所以近似误差较大。
+        (A)。对较小的赌局，风险溢价约为 $\frac{1}{2}A\sigma^2$，与方差成正比，而方差随赌局大小的平方增长：$h$ 加倍，风险溢价约变为 4 倍。所以风险厌恶的人对小风险几乎不在乎，对大风险非常在乎。赌局很大时，近似不再准确。
       en: |-
-        $\text{CE} = \left(\frac{1}{2} \times 150^{-2} + \frac{1}{2} \times 50^{-2}\right)^{-1/2} \approx 67.08$, so the risk premium is about 32.92 (only 13.40 with $\gamma = 1$).
-        Approximation: $\sigma = 50\%$, $\frac{1}{2} \times 3 \times 0.25 = 0.375$, about 37.5. The formula comes from a Taylor expansion for small gambles, and a gamble of ±50% of wealth is far from small, so the error is large.
-    rubric:
-      zh-cn:
-        - "风险溢价约 32.92，近似值约 37.5。"
-        - "说明近似只适用于小赌局。"
-      en:
-        - "Risk premium about 32.92; approximation about 37.5."
-        - "Explains that the approximation is for small gambles."
+        (A). For moderate lotteries the risk premium is about $\frac{1}{2}A\sigma^2$, proportional to the variance, which grows with the square of the lottery's size: doubling $h$ roughly quadruples the risk premium. So a risk-averse person cares little about small risks and a lot about large ones. For very large lotteries the approximation becomes less accurate.
 
   - id: C4
     kind: check
     section: insurance
     concepts: [risk-premium, certainty-equivalent, risk-aversion]
-    expected: { loss: "1", ce: "48.74", pmax: "1.26" }
     question:
       zh-cn: |-
-        某人财富 50（千美元），其中汽车值 20。一年内汽车有 5% 的概率全损。$u = \ln W$。预期损失是多少？他愿意为全额保险付的最高保费是多少？
+        一份汽车保险的保费高于预期损失。对一个风险厌恶的人来说，买这份保险一定不划算。
       en: |-
-        Someone has wealth of 50 (thousand dollars), of which a car is worth 20. Within a year the car has a 5% chance of a total loss. $u = \ln W$. What is the expected loss? What is the highest premium he would pay for full insurance?
+        A car insurance policy has a premium above the expected loss. For a risk-averse person, buying it is certainly a bad deal.
+    correct: false
+    hint:
+      zh-cn: 风险厌恶的人愿意为消除风险付出多少？把保费和预期损失加上风险溢价比较。
+      en: How much is a risk-averse person willing to pay to remove a risk? Compare the premium with the expected loss plus the risk premium.
     answer:
       zh-cn: |-
-        预期损失 $0.05 \times 20 = 1$。
-        不保险：$E[u] = 0.95\ln 50 + 0.05\ln 30$，$\text{CE} = 50^{0.95} \times 30^{0.05} \approx 48.74$。
-        全额保险后财富为 $50 - P$，要 $50 - P \ge 48.74$，最高保费约 1.26，比预期损失多约 0.26（风险溢价）。
+        错。风险厌恶的人愿意付出比预期损失更多的钱来消除风险，多付的上限就是风险溢价。只要保费低于预期损失加上风险溢价，买保险就提高了他的期望效用。例如财富 50、汽车值 20、全损概率 5%、$u = \ln W$ 时，预期损失为 1，他愿意付的最高保费约为 1.26。
       en: |-
-        Expected loss $0.05 \times 20 = 1$.
-        Without insurance: $E[u] = 0.95\ln 50 + 0.05\ln 30$, so $\text{CE} = 50^{0.95} \times 30^{0.05} \approx 48.74$.
-        With full insurance, wealth is $50 - P$; he needs $50 - P \ge 48.74$, so the highest premium is about 1.26, about 0.26 above the expected loss (the risk premium).
-    rubric:
-      zh-cn:
-        - "预期损失 1。"
-        - "CE 约 48.74，最高保费约 1.26。"
-      en:
-        - "Expected loss 1."
-        - "CE about 48.74, highest premium about 1.26."
+        False. A risk-averse person is willing to pay more than the expected loss to remove a risk, up to the risk premium on top. As long as the premium is below the expected loss plus the risk premium, insurance raises his expected utility. For example, with wealth 50, a car worth 20, a 5% chance of total loss and $u = \ln W$, the expected loss is 1 and the most he will pay is about 1.26.
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1
@@ -278,11 +297,11 @@ questions:
     expected: { sdavg: "0.044", z: "2.29" }
     question:
       zh-cn: |-
-        保险公司承保 [[check:C4]] 那样的汽车保单：每份保单有 5% 的概率赔付 20（千美元），否则赔付 0；每份的期望赔付为 1，标准差约 4.36。
+        保险公司承保一种汽车保单：每份保单有 5% 的概率赔付 20（千美元），否则赔付 0；每份的期望赔付为 1，标准差约 4.36。
         (a) 公司承保 10,000 份相互独立的保单，每份收保费 1.1。平均每份保单赔付的标准差是多少？平均赔付超过保费是均值之上几个标准差的事件？这说明保险公司为什么可以近似看作风险中性？
         (b) 如果这些汽车都在同一个城市，主要风险是一场冰雹，(a) 的结论还成立吗？
       en: |-
-        An insurer writes car policies like the one in [[check:C4]]: each policy pays 20 (thousand dollars) with probability 5% and nothing otherwise; the expected payout per policy is 1 and the standard deviation about 4.36.
+        An insurer writes car policies: each policy pays 20 (thousand dollars) with probability 5% and nothing otherwise; the expected payout per policy is 1 and the standard deviation about 4.36.
         (a) The insurer writes 10,000 independent policies and charges a premium of 1.1 each. What is the standard deviation of the average payout per policy? How many standard deviations above the mean is an average payout above the premium? Why can the insurer be treated as roughly risk neutral?
         (b) If all the cars are in one city and the main risk is a hailstorm, does (a) still hold?
     answer:

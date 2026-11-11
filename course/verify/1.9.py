@@ -45,6 +45,9 @@ def results():
     r["Q5.x"] = 95000 * 1.06**20
     r["Q5.y"] = 100000 * 1.0695**20
     r["Q5.gap"] = r["Q5.y"] - r["Q5.x"]
+    # Values that the questions now give or no longer ask for.
+    for k in ['C1.q', 'C1.wtp', 'C2.p1', 'C2.p2', 'C3.good', 'C3.lemon', 'C3.lemon2', 'C4.gain', 'C4.d']:
+        del r[k]
     return r
 
 

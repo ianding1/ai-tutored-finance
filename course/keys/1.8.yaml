@@ -63,6 +63,11 @@ common_errors:
       用社会边际成本求市场的实际产量，或者用企业的边际成本求社会最优产量，把两者弄反。
     en: |-
       Using social marginal cost to find the market's actual output, or the firm's own marginal cost to find the social optimum, mixing the two up.
+  - questions: [Q4]
+    zh-cn: |-
+      以为只要装路灯对两户都有利，它就一定会被装上。每户都希望对方出钱，自己搭便车；不出钱是占优策略时，结果是谁也不出，和囚徒困境相同。
+    en: |-
+      Thinking the streetlight will be installed because it benefits both households. Each hopes the other will pay and free rides; when not paying is a dominant strategy, no one pays, as in the prisoner's dilemma.
   - questions: [C5]
     zh-cn: |-
       把“免费”当作公共品的标准，或者把公共资源（有竞争性）当作公共品。
@@ -75,100 +80,108 @@ questions:
     kind: check
     section: surplus
     concepts: [consumer-surplus, producer-surplus]
-    expected: { q: "32", p: "28", cs: "512", ps: "256" }
     question:
       zh-cn: |-
-        某市场的需求为 $P = 60 - Q$，供给为 $P = 12 + \frac{Q}{2}$。求均衡价格和数量、消费者剩余和生产者剩余。
+        在竞争市场中，如果成交量因为某种原因少于均衡数量，总剩余（消费者剩余加生产者剩余）会减少。
       en: |-
-        A market has demand $P = 60 - Q$ and supply $P = 12 + \frac{Q}{2}$. Find the equilibrium price and quantity, consumer surplus and producer surplus.
+        In a competitive market, if for some reason fewer units are traded than the equilibrium quantity, total surplus (consumer plus producer surplus) falls.
+    correct: true
+    hint:
+      zh-cn: 那些没有成交的单位，买方愿意付的价格和卖方的成本相比，是高还是低？
+      en: For the units that are no longer traded, is the buyers' willingness to pay above or below the sellers' cost?
     answer:
       zh-cn: |-
-        $60 - Q = 12 + \frac{Q}{2}$，$Q = 32$，$P = 28$。消费者剩余 $\tfrac12 \times 32 \times (60 - 28) = 512$，生产者剩余 $\tfrac12 \times 32 \times (28 - 12) = 256$。
+        对。在均衡数量以内，每一单位的支付意愿（需求曲线的高度）都高于卖方的成本（供给曲线的高度），每成交一单位都创造剩余。成交量少于均衡时，这些本来能创造剩余的交易没有发生，总剩余减少，减少的部分就是无谓损失。同理，成交量多于均衡时，多出的单位成本高于支付意愿，总剩余也减少。
       en: |-
-        $60 - Q = 12 + \frac{Q}{2}$ gives $Q = 32$ and $P = 28$. Consumer surplus is $\tfrac12 \times 32 \times (60 - 28) = 512$, and producer surplus is $\tfrac12 \times 32 \times (28 - 12) = 256$.
-    rubric:
-      zh-cn:
-        - "均衡 $Q = 32$，$P = 28$。"
-        - "消费者剩余 512，生产者剩余 256。"
-      en:
-        - "Equilibrium $Q = 32$, $P = 28$."
-        - "Consumer surplus 512, producer surplus 256."
+        True. Up to the equilibrium quantity, each unit's willingness to pay (the height of the demand curve) exceeds the seller's cost (the height of the supply curve), so each trade creates surplus. With fewer trades, these surplus-creating trades do not happen and total surplus falls; the loss is the deadweight loss. Likewise, trading more than the equilibrium quantity adds units whose cost exceeds the willingness to pay, which also lowers total surplus.
 
   - id: C2
     kind: check
     section: deadweight-loss
     concepts: [deadweight-loss, consumer-surplus, monopoly]
-    expected: { dwl: "400", profit: "800", cs: "400" }
     question:
       zh-cn: |-
-        沿用 [[1.6]] 随堂题中的垄断者：需求 $P = 120 - 2Q$，边际成本恒为 40。如果市场是完全竞争的，消费者剩余是 1600。垄断时，这 1600 分成了哪几部分，各是多少？
+        一个市场从完全竞争变为垄断。完全竞争时的消费者剩余在垄断时：
       en: |-
-        Take the monopolist from the [[1.6]] check questions: demand $P = 120 - 2Q$ and a constant marginal cost of 40. Under perfect competition, consumer surplus would be 1600. Under monopoly, into what parts is this 1600 divided, and how large is each?
+        A market changes from perfect competition to monopoly. The consumer surplus under perfect competition, under monopoly:
+    choices:
+      - zh-cn: 一部分仍是消费者剩余，一部分成为垄断利润，一部分成为无谓损失
+        en: Is partly still consumer surplus, partly monopoly profit and partly deadweight loss
+      - zh-cn: 全部成为垄断利润
+        en: Becomes entirely monopoly profit
+        why:
+          zh-cn: 垄断时仍在购买的消费者，付的价格比他们愿意付的最高价格低吗？
+          en: Do the consumers still buying under monopoly pay less than the most they are willing to pay?
+      - zh-cn: 一部分成为利润，其余仍是消费者剩余，总剩余不变
+        en: Partly becomes profit and the rest stays consumer surplus, so total surplus is unchanged
+        why:
+          zh-cn: 垄断时产量减少了。那些不再成交的单位，原来创造的剩余到了谁手里？
+          en: Output falls under monopoly. Where does the surplus of the units no longer traded go?
+      - zh-cn: 全部成为无谓损失
+        en: Becomes entirely deadweight loss
+        why:
+          zh-cn: 垄断者赚到的利润从哪里来？仍在购买的消费者还有剩余吗？
+          en: Where does the monopolist's profit come from? Do the consumers still buying keep any surplus?
+    correct: A
     answer:
       zh-cn: |-
-        垄断时 $Q = 20$，$P = 80$。仍是消费者剩余的：$\tfrac12 \times 20 \times (120 - 80) = 400$；转给垄断者的利润：$(80 - 40) \times 20 = 800$；无谓损失：$\tfrac12 \times (40 - 20) \times (80 - 40) = 400$，谁也没有得到。
+        (A)。垄断者提价、减产。仍在购买的消费者付更高的价格，他们的一部分剩余转给垄断者，成为利润；这是转移，总剩余不变。不再成交的那些单位，支付意愿高于边际成本，本来能创造剩余，现在谁也得不到，这是无谓损失。例如需求 $P = 120 - 2Q$、边际成本 40 时，1600 的消费者剩余分为 400 的消费者剩余、800 的利润和 400 的无谓损失。
       en: |-
-        Under monopoly $Q = 20$ and $P = 80$. Still consumer surplus: $\tfrac12 \times 20 \times (120 - 80) = 400$; transferred to the monopolist as profit: $(80 - 40) \times 20 = 800$; deadweight loss: $\tfrac12 \times (40 - 20) \times (80 - 40) = 400$, which nobody gets.
-    rubric:
-      zh-cn:
-        - "400、800、400 三部分正确。"
-      en:
-        - "The three parts, 400, 800 and 400, correct."
+        (A). The monopolist raises the price and cuts output. Consumers who still buy pay more, and part of their surplus goes to the monopolist as profit; this is a transfer and leaves total surplus unchanged. The units no longer traded had a willingness to pay above marginal cost and would have created surplus that now goes to no one: the deadweight loss. With demand $P = 120 - 2Q$ and marginal cost 40, for example, the consumer surplus of 1600 splits into 400 of consumer surplus, 800 of profit and 400 of deadweight loss.
 
   - id: C3
     kind: check
     section: tax-incidence
     concepts: [tax-incidence, deadweight-loss]
     widget: { id: surplus-tax, set: { t: 12 } }
-    expected: { pb: "28", ps: "16" }
     question:
       zh-cn: |-
-        在 [[fig:3-1]] 中把税额调到 12 美元。买方付多少、卖方得多少？买方和卖方各承担了每袋多少税？在这个市场中，价格每变化 1 美元，需求量变化 2 千袋、供给量变化 4 千袋。由此猜测：哪一方承担得多与什么有关？
+        在 [[fig:3-1]] 的咖啡豆市场中，价格每变化 1 美元，需求量变化 2 千袋，供给量变化 4 千袋。对卖方征税时，哪一方承担的税更多？
       en: |-
-        In [[fig:3-1]], set the tax to 12 dollars. What do buyers pay and sellers receive? How much of the tax per bag does each side bear? In this market, a 1-dollar price change moves the quantity demanded by 2 thousand bags and the quantity supplied by 4 thousand. From this, guess what determines which side bears more.
+        In the coffee-bean market of [[fig:3-1]], each 1-dollar change in price changes the quantity demanded by 2 thousand bags and the quantity supplied by 4 thousand bags. With a tax levied on sellers, which side bears more of it?
+    choices:
+      - zh-cn: 买方，因为需求对价格更不敏感
+        en: Buyers, because demand is less sensitive to price
+      - zh-cn: 卖方，因为税是向卖方征收的
+        en: Sellers, because the tax is levied on them
+        why:
+          zh-cn: 拖动税额，看买方付的价格和卖方得到的价格各变化了多少。谁交税和谁承担税是一回事吗？
+          en: Move the tax slider and see how much the buyers' price and the sellers' price each change. Is who pays the tax to the government the same as who bears it?
+      - zh-cn: 各承担一半
+        en: Each side bears half
+        why:
+          zh-cn: 读一下图中买方多付和卖方少得的金额，两者相等吗？
+          en: Read off how much more buyers pay and how much less sellers get. Are they equal?
+      - zh-cn: 卖方，因为供给对价格更敏感
+        en: Sellers, because supply is more sensitive to price
+        why:
+          zh-cn: 对价格更敏感的一方，能不能更容易地通过改变数量躲开税？
+          en: Can the side more sensitive to price more easily avoid the tax by changing quantity?
+    correct: A
     answer:
       zh-cn: |-
-        买方付 28，卖方得 16。买方每袋多付 8，卖方每袋少得 4，买方承担三分之二。
-        卖方对价格更敏感。猜测：对价格越不敏感的一方，越难通过改变数量躲开税，承担得越多。
+        (A)。卖方对价格更敏感：价格稍低，他们就大量减少供给，所以价格的调整主要落在买方身上。在这个市场中，买方承担三分之二（例如税额 12 美元时，买方多付 8，卖方少得 4）。对价格越不敏感的一方，越难通过改变数量躲开税，承担得越多；税由谁交给政府不影响这个结果。
       en: |-
-        Buyers pay 28 and sellers receive 16. Buyers pay 8 more per bag and sellers get 4 less, so buyers bear two thirds.
-        Sellers are more price sensitive. Guess: the less price sensitive side finds it harder to avoid the tax by changing quantity, so it bears more.
-    rubric:
-      zh-cn:
-        - "28 和 16，买方承担 8、卖方 4。"
-        - "猜测与价格敏感程度有关。"
-      en:
-        - "28 and 16; buyers bear 8, sellers 4."
-        - "Guesses that it depends on price sensitivity."
+        (A). Sellers are more sensitive to price: when the price they get falls a little, they cut supply a lot, so most of the price adjustment falls on buyers. In this market buyers bear two thirds (with a 12-dollar tax, for example, buyers pay 8 more and sellers get 4 less). The less price-sensitive side finds it harder to escape the tax by changing quantity and bears more of it; who hands the tax to the government does not change this.
 
   - id: C4
     kind: check
     section: externalities
     concepts: [externality, pigouvian-tax, deadweight-loss]
-    expected: { q: "40", qs: "35", tax: "10", dwl: "25" }
     question:
       zh-cn: |-
-        一种化工产品的需求为 $P = 100 - Q$，企业的边际成本为 $MC = 20 + Q$（竞争市场的供给曲线）。每生产一单位，污染给附近居民造成 10 美元的损失。
-        (a) 市场的均衡数量和社会最优的数量各是多少？
-        (b) 无谓损失是多少？多大的庇古税能使市场达到社会最优？
+        一种产品的生产会污染环境，污染的损失由附近居民承担，企业不承担。竞争市场的产量会高于社会最优的产量。
       en: |-
-        A chemical has demand $P = 100 - Q$, and firms' marginal cost is $MC = 20 + Q$ (the supply curve of a competitive market). Each unit produced causes 10 dollars of pollution damage to nearby residents.
-        (a) What are the market equilibrium quantity and the socially optimal quantity?
-        (b) What is the deadweight loss? What Pigouvian tax brings the market to the social optimum?
+        Producing a good pollutes the environment, and the damage falls on nearby residents rather than on the firms. The competitive market produces more than the socially optimal quantity.
+    correct: true
+    hint:
+      zh-cn: 企业按自己的边际成本决定产量。社会的边际成本比企业的边际成本高还是低？
+      en: Firms set output by their own marginal cost. Is the social marginal cost above or below it?
     answer:
       zh-cn: |-
-        (a) 市场：$100 - Q = 20 + Q$，$Q = 40$。社会边际成本 $30 + Q$：$100 - Q = 30 + Q$，$Q = 35$。
-        (b) 第 35 到第 40 单位的社会成本高于支付意愿，无谓损失 $\tfrac12 \times 10 \times (40 - 35) = 25$。每单位 10 美元的庇古税使企业面对的边际成本变为 $30 + Q$，市场产量变为 35。
+        对。企业只考虑自己的成本，不考虑污染的损失，所以市场的供给曲线是企业的边际成本，低于社会边际成本。市场产量在需求等于企业边际成本处，超过了需求等于社会边际成本的社会最优产量；多生产的那些单位，社会成本高于支付意愿，造成无谓损失。按每单位损失征收庇古税，可以让企业把外部成本算进自己的决策。
       en: |-
-        (a) Market: $100 - Q = 20 + Q$, so $Q = 40$. Social marginal cost is $30 + Q$: $100 - Q = 30 + Q$, so $Q = 35$.
-        (b) Units 35 to 40 cost society more than buyers are willing to pay; the deadweight loss is $\tfrac12 \times 10 \times (40 - 35) = 25$. A Pigouvian tax of 10 dollars per unit makes firms face marginal cost $30 + Q$, and output becomes 35.
-    rubric:
-      zh-cn:
-        - "(a) 40 和 35。"
-        - "(b) 无谓损失 25，税额 10。"
-      en:
-        - "(a) 40 and 35."
-        - "(b) Deadweight loss 25; a tax of 10."
+        True. Firms count only their own costs, not the pollution damage, so market supply follows the firms' marginal cost, which is below the social marginal cost. Market output is where demand equals the firms' marginal cost, above the social optimum where demand equals social marginal cost; the extra units cost society more than buyers are willing to pay, a deadweight loss. A Pigouvian tax equal to the damage per unit makes firms count the external cost.
 
   - id: C5
     kind: check
@@ -176,37 +189,33 @@ questions:
     concepts: [public-good]
     question:
       zh-cn: |-
-        判断下面每一种属于私人物品、俱乐部物品、公共资源还是公共品，并说明理由。如果完全交给市场，哪一种最可能提供得太少？
-        (a) 免费播出的天气预报
-        (b) 一家视频网站的会员
-        (c) 公海里的鱼
-        (d) 一份外卖午餐
+        如果完全交给市场，下面哪一种最可能提供得太少？
       en: |-
-        Classify each of the following as a private good, a club good, a common resource or a public good, and explain. If left entirely to the market, which one is most likely to be provided too little?
-        (a) A weather forecast broadcast free of charge
-        (b) A membership of a video-streaming site
-        (c) Fish in the open ocean
-        (d) A takeout lunch
+        Left entirely to the market, which of these is most likely to be underprovided?
+    choices:
+      - zh-cn: 免费播出的天气预报
+        en: A weather forecast broadcast for free
+      - zh-cn: 一家视频网站的会员
+        en: A membership of a video streaming site
+        why:
+          zh-cn: 不付费的人能看这家网站的视频吗？网站能向用户收费、收回成本吗？
+          en: Can people who do not pay watch the site's videos? Can the site charge users and recover its costs?
+      - zh-cn: 公海里的鱼
+        en: Fish in the open sea
+        why:
+          zh-cn: 公海里的鱼的问题，是没有人提供，还是被捕得太多？
+          en: Is the problem with fish in the open sea that no one provides them, or that too many are caught?
+      - zh-cn: 一份外卖午餐
+        en: A delivered lunch
+        why:
+          zh-cn: 一份午餐一个人吃了别人就不能吃，不付钱也拿不到。市场能提供它吗？
+          en: A lunch eaten by one person cannot be eaten by another, and cannot be had without paying. Can the market provide it?
+    correct: A
     answer:
       zh-cn: |-
-        (a) 公共品：一个人收听不减少别人可以收听的，也无法阻止不付钱的人收听。
-        (b) 俱乐部物品：一个人观看基本不影响别人，但不付费就不能看。
-        (c) 公共资源：一个人捕走的鱼别人就捕不到（有竞争性），但很难阻止别人捕鱼。
-        (d) 私人物品：有竞争性，也有排他性。
-        最可能提供得太少的是 (a)：没有人能向搭便车的人收费，私人提供者收不回成本。（(c) 的问题相反，是被过度使用。）
+        (A)。免费播出的天气预报是公共品：一个人收听不减少别人可以收听的，也无法阻止不付钱的人收听。没有人能向搭便车的人收费，私人提供者收不回成本，所以容易提供得太少。视频网站会员是俱乐部物品，外卖午餐是私人物品，市场都能提供；公海里的鱼是公共资源，问题相反，是被过度捕捞。
       en: |-
-        (a) Public good: one person listening does not reduce what others can hear, and those who do not pay cannot be kept from listening.
-        (b) Club good: one person watching hardly affects others, but non-payers cannot watch.
-        (c) Common resource: fish caught by one person cannot be caught by others (rival), but it is hard to keep others from fishing.
-        (d) Private good: rival and excludable.
-        The one most likely to be provided too little is (a): no one can charge the free riders, so a private provider cannot recover the cost. ((c) has the opposite problem: it is overused.)
-    rubric:
-      zh-cn:
-        - "四种分类正确，用竞争性和排他性说明理由。"
-        - "(a) 最可能提供不足，用搭便车解释；指出 (c) 是过度使用。"
-      en:
-        - "All four classifications correct, explained with rivalry and excludability."
-        - "(a) is most likely underprovided, explained by free riding; notes that (c) is overused."
+        (A). A free weather broadcast is a public good: one person listening does not reduce what others can hear, and non-payers cannot be stopped from listening. No one can charge the free riders, so private providers cannot recover their costs and it tends to be underprovided. A streaming membership is a club good and a lunch a private good, both provided by markets; fish in the open sea are a common resource, with the opposite problem of overfishing.
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1

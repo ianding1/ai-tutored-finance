@@ -34,6 +34,16 @@ context:
       The lesson gives the Fisher equation $1 + r = \frac{1+i}{1+\pi}$, $r \approx i - \pi$ (example: 5% and 3% give 1.94%); distinguishes ex ante and ex post real rates (borrowers gain when inflation is higher than expected); and states that nominal cash flows are discounted at nominal rates and real cash flows at real rates. The lesson notes that "nominal" here differs from the nominal annual rate (APR) of [[0.1]]. The lesson does not discuss taxes on interest.
 
 common_errors:
+  - questions: [Q2]
+    zh-cn: |-
+      以为利率上升一定使储蓄增加。对储蓄者，替代效应和收入效应方向相反；明天也有收入时，利率上升还会降低未来收入的现值。
+    en: |-
+      Thinking a higher interest rate must raise saving. For a saver the substitution and income effects conflict; when there is also income tomorrow, a higher rate also lowers the present value of that income.
+  - questions: [Q3]
+    zh-cn: |-
+      以为借钱要付利息，所以不借款总是更好。对未来收入高的人，借款能平滑消费、提高效用；能借款时原来的选择仍然可行。
+    en: |-
+      Thinking that because borrowing costs interest, not borrowing is always better. For someone with high future income, borrowing smooths consumption and raises utility, and the old choice remains available.
   - questions: [C1, Q1]
     zh-cn: |-
       把跨期预算约束写成 $c_1 + c_2 = y_1 + y_2$，忽略利息；或把明天的收入按 $(1 + r)$ 相乘而不是相除。
@@ -56,102 +66,108 @@ questions:
     kind: check
     section: two-period
     concepts: [intertemporal-budget-constraint]
-    expected: { w: "90", c2b: "22" }
     question:
       zh-cn: |-
-        $y_1 = 60$，$y_2 = 33$，$r = 10\%$。消费者的财富（收入的现值）是多少？如果他今天消费 70，明天能消费多少？他今天在储蓄还是借款？
+        利率上升时，跨期预算线变陡。所以利率上升让每个消费者能选择的消费组合都变多了。
       en: |-
-        $y_1 = 60$, $y_2 = 33$, $r = 10\%$. What is the consumer's wealth (the present value of income)? If he consumes 70 today, how much can he consume tomorrow? Is he saving or borrowing today?
+        When the interest rate rises, the intertemporal budget line gets steeper. So a higher interest rate gives every consumer more consumption bundles to choose from.
+    correct: false
+    hint:
+      zh-cn: 预算线绕哪一点转动？收入点左边（储蓄）和右边（借款）的部分各向哪个方向移动？
+      en: Around which point does the budget line turn? Which way do the parts to the left (saving) and to the right (borrowing) of the income point move?
     answer:
       zh-cn: |-
-        财富 $W = 60 + \frac{33}{1.1} = 90$。
-        今天消费 70 超过收入 60，他在借款 10，明天要还 11，只剩 $33 - 11 = 22$。也可以用预算约束 $c_1 + \frac{c_2}{1.1} = 90$：$c_2 = (90 - 70) \times 1.1 = 22$。
+        错。不论利率多高，消费者总能不借不存、消费自己的收入，所以预算线总是经过收入点 $(y_1, y_2)$，利率上升时绕这一点变陡。收入点左边（储蓄）的部分向外移，储蓄者能选的组合变多；右边（借款）的部分向内移，借款者能选的组合变少。
       en: |-
-        Wealth $W = 60 + \frac{33}{1.1} = 90$.
-        Consuming 70 today exceeds his income of 60, so he borrows 10 and must repay 11 tomorrow, leaving $33 - 11 = 22$. Equivalently, from the budget constraint $c_1 + \frac{c_2}{1.1} = 90$: $c_2 = (90 - 70) \times 1.1 = 22$.
-    rubric:
-      zh-cn:
-        - "财富 90。"
-        - "明天消费 22，今天在借款。"
-      en:
-        - "Wealth 90."
-        - "Tomorrow's consumption 22; borrowing today."
+        False. Whatever the rate, the consumer can neither borrow nor save and consume his income, so the budget line always passes through the income point $(y_1, y_2)$ and turns around it, getting steeper as the rate rises. The part to the left (saving) moves out, so savers have more choices; the part to the right (borrowing) moves in, so borrowers have fewer.
 
   - id: C2
     kind: check
     section: optimal-consumption
     concepts: [euler-equation, time-preference]
-    expected: { ratio: "0.945" }
     question:
       zh-cn: |-
-        $u(c) = \ln c$，$\beta = 0.9$，$r = 5\%$。用 Euler 方程求 $\frac{c_2}{c_1}$。为什么这个人明天的消费比今天少？
+        一个消费者的 $\beta\,(1 + r) = 1$，$u$ 是凹函数。他的最优消费：
       en: |-
-        $u(c) = \ln c$, $\beta = 0.9$, $r = 5\%$. Use the Euler equation to find $\frac{c_2}{c_1}$. Why does this person consume less tomorrow than today?
+        A consumer has $\beta\,(1 + r) = 1$, and $u$ is concave. His optimal consumption:
+    choices:
+      - zh-cn: 两期相同，不论收入在两期怎样分布
+        en: Is the same in both periods, however his income is spread over them
+      - zh-cn: 与两期的收入成比例
+        en: Is proportional to his income in each period
+        why:
+          zh-cn: Euler 方程在 $\beta\,(1 + r) = 1$ 时要求什么？它和收入的分布有关吗？
+          en: What does the Euler equation require when $\beta\,(1 + r) = 1$? Does that depend on how income is spread?
+      - zh-cn: 全部集中在今天，因为他更看重现在
+        en: Is all today, because he cares more about the present
+        why:
+          zh-cn: 他确实更看重现在，但利率对此有补偿。$u$ 是凹函数时，把消费集中在一期好吗？
+          en: He does care more about the present, but the interest rate compensates for it. With concave $u$, is it good to put all consumption in one period?
+      - zh-cn: 取决于收入在两期的分布：收入多的那一期消费也多
+        en: 'Depends on the spread of income: he consumes more in the period with more income'
+        why:
+          zh-cn: 收入的分布决定的是他储蓄还是借款。消费在两期之间的比例由什么决定？
+          en: The spread of income decides whether he saves or borrows. What decides the ratio of consumption in the two periods?
+    correct: A
     answer:
       zh-cn: |-
-        Euler 方程：$\frac{1}{c_1} = 0.9 \times 1.05 \times \frac{1}{c_2}$，$\frac{c_2}{c_1} = 0.945$。
-        $\beta\,(1 + r) = 0.945 < 1$：利率不足以补偿他对现在的偏好，所以他让消费随时间下降。
+        (A)。Euler 方程 $u'(c_1) = \beta\,(1 + r)\,u'(c_2)$ 在 $\beta\,(1 + r) = 1$ 时变为 $u'(c_1) = u'(c_2)$，$u$ 是凹函数，所以 $c_1 = c_2$：消费完全平滑。收入的分布只决定他靠储蓄还是借款来实现这一点，以及消费的水平（由财富决定）。
       en: |-
-        Euler equation: $\frac{1}{c_1} = 0.9 \times 1.05 \times \frac{1}{c_2}$, so $\frac{c_2}{c_1} = 0.945$.
-        $\beta\,(1 + r) = 0.945 < 1$: the interest rate does not make up for his preference for the present, so he lets consumption fall over time.
-    rubric:
-      zh-cn:
-        - "$\\frac{c_2}{c_1} = 0.945$。"
-        - "用 $\\beta(1 + r) < 1$ 解释。"
-      en:
-        - "$\\frac{c_2}{c_1} = 0.945$."
-        - "Explains with $\\beta(1 + r) < 1$."
+        (A). The Euler equation $u'(c_1) = \beta\,(1 + r)\,u'(c_2)$ becomes $u'(c_1) = u'(c_2)$ when $\beta\,(1 + r) = 1$, and with concave $u$ this means $c_1 = c_2$: consumption is fully smoothed. The spread of income only decides whether he gets there by saving or by borrowing, and the level of consumption (set by his wealth).
 
   - id: C3
     kind: check
     section: interest-rate
     concepts: [substitution-effect, income-effect, intertemporal-budget-constraint]
     widget: { id: fisher, set: { r: 20 } }
-    expected: { s: "29.57" }
     question:
       zh-cn: |-
-        在 [[fig:3-1]] 中保持 $y_2 = 22$，把利率从 10% 调到 20%。储蓄变为多少？比利率为 10% 时（28.72）多还是少？对这个储蓄者，替代效应和收入效应哪个更强？
+        利率上升时，下面哪种说法正确？
       en: |-
-        In [[fig:3-1]], keep $y_2 = 22$ and raise the interest rate from 10% to 20%. What does saving become? Is it more or less than at 10% (28.72)? For this saver, is the substitution effect or the income effect stronger?
+        When the interest rate rises, which statement is correct?
+    choices:
+      - zh-cn: 借款者一定少借；储蓄者可能多储蓄，也可能少储蓄
+        en: Borrowers certainly borrow less; savers may save more or less
+      - zh-cn: 所有人都会多储蓄，因为储蓄的回报更高
+        en: Everyone saves more, because saving pays more
+        why:
+          zh-cn: 对储蓄者，利率上升还使他变得更富有。变富时他想增加哪些时期的消费？
+          en: For a saver, a higher rate also makes him richer. When richer, in which periods does he want to consume more?
+      - zh-cn: 储蓄者一定多储蓄；借款者可能多借，也可能少借
+        en: Savers certainly save more; borrowers may borrow more or less
+        why:
+          zh-cn: 对借款者，利率上升使他变富还是变穷？替代效应和收入效应的方向是否相同？
+          en: Does a higher rate make a borrower richer or poorer? Do his substitution and income effects point the same way?
+      - zh-cn: 所有人今天的消费都会增加
+        en: Everyone's consumption today rises
+        why:
+          zh-cn: 利率上升时，今天消费的“价格” $1 + r$ 怎样变化？
+          en: When the rate rises, what happens to the "price" of consumption today, $1 + r$?
+    correct: A
     answer:
       zh-cn: |-
-        $W = 80 + \frac{22}{1.2} \approx 98.33$，$c_1 = \frac{98.33}{1.95} \approx 50.43$，储蓄 $80 - 50.43 \approx 29.57$，比 28.72 多。
-        利率上升使今天的消费相对变贵（替代效应，储蓄增加），同时使储蓄者更富有（收入效应，储蓄减少）；这里储蓄增加，说明替代效应更强。
+        (A)。替代效应对所有人都一样：今天的消费变贵，$c_1$ 下降。收入效应取决于身份：借款者要付更多利息，变得更穷，$c_1$ 也下降，两个效应同向，借款一定减少；储蓄者得到更多利息，变得更富有，想增加 $c_1$，两个效应反向，储蓄的变化取决于哪个更强。
       en: |-
-        $W = 80 + \frac{22}{1.2} \approx 98.33$, $c_1 = \frac{98.33}{1.95} \approx 50.43$, so saving is $80 - 50.43 \approx 29.57$, more than 28.72.
-        A higher rate makes consumption today relatively dearer (the substitution effect raises saving) and makes the saver richer (the income effect lowers saving); since saving rises, the substitution effect is stronger here.
-    rubric:
-      zh-cn:
-        - "储蓄约 29.57，比原来多。"
-        - "判断替代效应更强。"
-      en:
-        - "Saving about 29.57, more than before."
-        - "The substitution effect is stronger."
+        (A). The substitution effect is the same for everyone: consumption today becomes dearer and $c_1$ falls. The income effect depends on the position: a borrower pays more interest and is poorer, so $c_1$ also falls; both effects agree and borrowing must fall. A saver earns more interest and is richer, so he wants more $c_1$; the effects conflict, and saving changes according to which is stronger.
 
   - id: C4
     kind: check
     section: real-rate
     concepts: [fisher-equation, real-interest-rate, nominal-interest-rate, inflation]
-    expected: { ex_post: "-0.93" }
     question:
       zh-cn: |-
-        一年期贷款的名义利率是 6%，签约时双方预期通胀为 4%。一年后实际通胀是 7%。事后实际利率是多少（用精确公式）？借款者和贷款者谁受益？
+        一年期贷款的名义利率是 6%，签约时双方预期通胀为 4%。一年后实际通胀是 7%。贷款者从意外的通胀中受益。
       en: |-
-        A one-year loan has a nominal rate of 6%, and when it is signed both sides expect 4% inflation. A year later, actual inflation is 7%. What is the realized real rate (using the exact formula)? Who gains, the borrower or the lender?
+        A one-year loan has a nominal rate of 6%, and when it is signed both sides expect 4% inflation. Actual inflation turns out to be 7%. The lender benefits from the unexpected inflation.
+    correct: false
+    hint:
+      zh-cn: 名义还款额是固定的。通胀高于预期时，贷款者收回的钱能买到的东西比预期的多还是少？
+      en: The nominal repayment is fixed. When inflation is higher than expected, does the money the lender gets back buy more or less than expected?
     answer:
       zh-cn: |-
-        $\frac{1.06}{1.07} - 1 \approx -0.93$%（签约时预期的实际利率约为 $\frac{1.06}{1.04} - 1 \approx 1.92$%）。
-        借款者受益：他还的钱的购买力比预期的少，贷款者实际上亏损了购买力。
+        错。名义还款额在签约时已经固定。事前的实际利率约为 $\frac{1.06}{1.04} - 1 \approx 1.92\%$，事后的实际利率为 $\frac{1.06}{1.07} - 1 \approx -0.93\%$：贷款者收回的钱的购买力比借出时还少。意外的通胀使购买力从贷款者转移到借款者，借款者受益。
       en: |-
-        $\frac{1.06}{1.07} - 1 \approx -0.93$% (the real rate expected at signing was about $\frac{1.06}{1.04} - 1 \approx 1.92$%).
-        The borrower gains: the money he repays buys less than expected, and the lender actually loses purchasing power.
-    rubric:
-      zh-cn:
-        - "约 −0.93%（写作 -0.93 或 −0.93 均可）。"
-        - "借款者受益。"
-      en:
-        - "About −0.93% (written -0.93 or −0.93)."
-        - "The borrower gains."
+        False. The nominal repayment was fixed at signing. The ex ante real rate was about $\frac{1.06}{1.04} - 1 \approx 1.92\%$, and the ex post real rate is $\frac{1.06}{1.07} - 1 \approx -0.93\%$: the money the lender gets back buys less than what he lent. Unexpected inflation moves purchasing power from the lender to the borrower, who benefits.
 
   # ---------- Exercises (reviewed by the AI, not scored) ----------
   - id: Q1
@@ -217,23 +233,27 @@ questions:
     expected: { b10: "31.54", b20: "27.69" }
     question:
       zh-cn: |-
-        一个学生今天收入 $y_1 = 30$，毕业后收入 $y_2 = 99$，$u = \ln c$，$\beta = 0.95$。利率从 10% 升到 20% 时，他今天的借款从多少变为多少？为什么借款者对利率上升的反应方向是确定的，而储蓄者不是？
+        一个学生今天收入 $y_1 = 30$，毕业后收入 $y_2 = 99$，$u = \ln c$，$\beta = 0.95$。
+        (a) 利率从 10% 升到 20% 时，他今天的借款从多少变为多少？
+        (b) 如果他根本借不到钱，利率为 10% 时他两期各消费多少？与能按 10% 借款时相比，他的效用是更高还是更低？由此说明学生贷款为什么能提高学生的福利，即使他要付利息。
       en: |-
-        A student has income $y_1 = 30$ today and $y_2 = 99$ after graduating, with $u = \ln c$ and $\beta = 0.95$. When the interest rate rises from 10% to 20%, how does his borrowing today change? Why is a borrower's response to a higher rate certain in direction, while a saver's is not?
+        A student has income $y_1 = 30$ today and $y_2 = 99$ after graduating, with $u = \ln c$ and $\beta = 0.95$.
+        (a) When the interest rate rises from 10% to 20%, how does his borrowing today change?
+        (b) If he cannot borrow at all, how much does he consume in each period at a 10% rate? Is his utility higher or lower than when he can borrow at 10%? Use this to explain why student loans can make students better off even though they pay interest.
     answer:
       zh-cn: |-
-        10%：$W = 30 + \frac{99}{1.1} = 120$，$c_1 = \frac{120}{1.95} \approx 61.54$，借款约 31.54。20%：$W = 30 + \frac{99}{1.2} = 112.5$，$c_1 \approx 57.69$，借款约 27.69。
-        对借款者，替代效应（今天的消费变贵）和收入效应（要付更多利息，变得更穷）都使 $c_1$ 下降，方向相同，所以借款一定减少。对储蓄者，利率上升使他更富有，收入效应与替代效应方向相反，结果取决于哪个更强。
+        (a) 10%：$W = 30 + \frac{99}{1.1} = 120$，$c_1 = \frac{120}{1.95} \approx 61.54$，借款约 31.54。20%：$W = 30 + \frac{99}{1.2} = 112.5$，$c_1 \approx 57.69$，借款约 27.69。
+        (b) 借不到钱时只能 $c_1 = 30$，$c_2 = 99$，效用 $\ln 30 + 0.95 \ln 99 \approx 7.77$。能借款时 $c_1 \approx 61.54$，$c_2 = 1.045 \times 61.54 \approx 64.31$，效用 $\ln 61.54 + 0.95 \ln 64.31 \approx 8.08$，更高。借不到钱时，他今天消费很少、明天很多，$u$ 是凹的，这种大起大落的消费效用很低。借款让他把未来的收入挪到今天，平滑消费；只要利率不太高，付出的利息小于平滑消费带来的好处。原来的选择在能借款时仍然可行，所以能借款不会使他变差。
       en: |-
-        At 10%: $W = 30 + \frac{99}{1.1} = 120$, $c_1 = \frac{120}{1.95} \approx 61.54$, borrowing about 31.54. At 20%: $W = 30 + \frac{99}{1.2} = 112.5$, $c_1 \approx 57.69$, borrowing about 27.69.
-        For a borrower, the substitution effect (consumption today is dearer) and the income effect (more interest to pay, so poorer) both lower $c_1$, so borrowing must fall. For a saver, a higher rate makes him richer, so the income effect works against the substitution effect, and the result depends on which is stronger.
+        (a) At 10%: $W = 30 + \frac{99}{1.1} = 120$, $c_1 = \frac{120}{1.95} \approx 61.54$, borrowing about 31.54. At 20%: $W = 30 + \frac{99}{1.2} = 112.5$, $c_1 \approx 57.69$, borrowing about 27.69.
+        (b) Without borrowing he must consume $c_1 = 30$ and $c_2 = 99$, with utility $\ln 30 + 0.95 \ln 99 \approx 7.77$. With borrowing, $c_1 \approx 61.54$ and $c_2 = 1.045 \times 61.54 \approx 64.31$, with utility $\ln 61.54 + 0.95 \ln 64.31 \approx 8.08$, which is higher. Without borrowing he consumes little today and a lot tomorrow, and with concave $u$ such uneven consumption gives low utility. Borrowing moves future income to today and smooths consumption; as long as the rate is not too high, the interest paid is less than the gain from smoothing. The old choice is still available when he can borrow, so being able to borrow cannot make him worse off.
     rubric:
       zh-cn:
-        - "借款约 31.54 和 27.69。"
-        - "说明借款者两种效应同向、储蓄者反向。"
+        - "(a) 借款约 31.54 和 27.69。"
+        - "(b) 借不到钱时消费 30 和 99，效用更低；用消费平滑解释借款的好处。只说“借款要付利息，所以不借更好”：需要订正。"
       en:
-        - "Borrowing about 31.54 and 27.69."
-        - "Explains that the effects agree for a borrower and conflict for a saver."
+        - "(a) Borrowing about 31.54 and 27.69."
+        - "(b) Consumption of 30 and 99 without borrowing, with lower utility; explains the gain from borrowing through consumption smoothing. Saying only that borrowing costs interest so not borrowing is better: needs revision."
 
   - id: Q4
     kind: exercise
