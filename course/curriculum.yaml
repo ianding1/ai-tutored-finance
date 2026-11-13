@@ -454,7 +454,16 @@ stages:
         published: true
         introduces: [monte-carlo-simulation, bootstrap, backtest, look-ahead-bias, overfitting]
         uses: [volatility-drag, fat-tails, standard-error, multiple-testing, survivorship-bias, out-of-sample, error-maximization, sharpe-ratio, market-anomaly, fama-french-model]
-      - { id: "T2", slug: "t2-quiz", exam: true, title: { zh-cn: "综合测验二：金融市场、证券估值与投资理论", en: "Comprehensive Quiz 2: Financial Markets, Valuation and Investment Theory" } }
+      - id: "T2"
+        slug: "t2-quiz"
+        exam: true
+        title: { zh-cn: "综合测验二：金融市场、证券估值与投资理论", en: "Comprehensive Quiz 2: Financial Markets, Valuation and Investment Theory" }
+        summary:
+          zh-cn: "第 3–4 阶段的综合测验：在具体情境中认出适用的概念，建立简单的模型并得出结论。建议用时 150 分钟。"
+          en: "The comprehensive quiz for Stages 3–4: recognize the concepts that apply in a situation, build a simple model and draw the conclusion. About 150 minutes."
+        published: true
+        introduces: []
+        uses: [expectations-hypothesis, efficient-market-hypothesis, modified-duration, signaling, event-study, tips, real-interest-rate, volatility-drag, firm-specific-risk, beta, future-value, glide-path, dividend-discount-model, payout-ratio, building-block-approach, net-present-value, capm, expected-value, systematic-risk, yield-to-maturity, capital-allocation-line, diversification, tax-equivalent-yield, merton-share, equity-premium, mean-variance-utility, return-on-equity, cost-of-equity, principal-agent-problem, annuity, immunization, monte-carlo-simulation, gordon-growth-model, overconfidence, wacc]
 
   - id: "5"
     title: { zh-cn: "第 5 阶段：衍生品与另类资产", en: "Stage 5: Derivatives and Alternative Assets" }

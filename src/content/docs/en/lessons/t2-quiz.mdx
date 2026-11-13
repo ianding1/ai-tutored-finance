@@ -1,0 +1,45 @@
+---
+title: "Comprehensive Quiz 2: Financial Markets, Valuation and Investment Theory"
+description: "The comprehensive quiz for Stages 3–4: recognize the concepts that apply in a situation, build a simple model and draw the conclusion. About 150 minutes."
+lesson: "T2"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Quiz from '../../../../components/Quiz.astro';
+
+## Instructions [#instructions]
+
+- This quiz covers <Ref lesson="3.1" /> to <Ref lesson="4.13" />, and may also use tools from Stages 0–2. Most questions draw on more than one stage, and no question says which concept to use: first decide what matters in the situation, then build a model. None of the calculations is hard. Allow about 150 minutes.
+- You may use a calculator or code, but not the lessons. The formulas you need are in the formula sheet below, which also contains some you may not need.
+- Show your work in calculations. Grading looks at the work and the reasons: a part with only an answer and no work, and a true-or-false question with only "true" or "false" and no reason, need revision.
+- Write your answers on paper (or type them). When you are done, click "Copy grading prompt" at the bottom of the page and send it with your answers to your AI assistant; you may also submit in several parts.
+
+## Formula sheet [#formulas]
+
+**Present value and interest rates**
+
+- Annuity (payment $C$ at the end of each of $n$ periods): $PV = \frac{C}{r}\left[1 - (1 + r)^{-n}\right]$; growing perpetuity: $PV = \frac{C}{r - g}$
+- Fisher equation: $1 + r = \frac{1 + i}{1 + \pi}$
+
+**Bonds**
+
+- Price: $P = \sum_{t=1}^{T} \frac{\text{CF}_t}{(1 + y)^t}$
+- Modified duration and convexity: $\frac{\Delta P}{P} \approx -D^*\Delta y + \frac{1}{2}C(\Delta y)^2$, $D^* = \frac{D}{1 + y}$
+
+**Stocks and company valuation**
+
+- Gordon model: $P_0 = \frac{D_1}{r - g}$; forward P/E: $\frac{P_0}{E_1} = \frac{1 - b}{r - g}$ ($b$ is the retention ratio)
+- $\text{WACC} = \frac{E}{V}r_E + \frac{D}{V}r_D(1 - t)$
+- Building blocks: $E[R] \approx y + g + \pi + \Delta v$ (shareholder yield, real growth of earnings per share, inflation, valuation change)
+
+**Risk and portfolios**
+
+- Variance of a two-asset portfolio: $\sigma_p^2 = w^2\sigma_A^2 + (1 - w)^2\sigma_B^2 + 2w(1 - w)\rho\sigma_A\sigma_B$
+- CAPM: $E[R_i] = r_f + \beta_i(E[R_M] - r_f)$, $\beta_i = \frac{\text{Cov}(R_i, R_M)}{\text{Var}(R_M)}$
+- Sharpe ratio: $\frac{\mu - r_f}{\sigma}$; optimal risky share: $w^* = \frac{\mu - r_f}{\gamma\sigma^2}$
+- Long-run compound growth: $g \approx \mu - \frac{\sigma^2}{2}$
+- Standard error of a sample mean: $\frac{\sigma}{\sqrt{n}}$; t-value of alpha: $t \approx IR\sqrt{T}$
+
+## Questions [#questions]
+
+<Quiz />
