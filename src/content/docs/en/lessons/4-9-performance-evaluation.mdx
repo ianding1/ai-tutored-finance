@@ -1,0 +1,75 @@
+---
+title: 4.9 Performance Evaluation
+description: The Sharpe ratio, the Treynor ratio, Jensen's alpha and the information ratio; which measure to use when; benchmarks and factor exposures; luck and skill; survivorship bias.
+lesson: "4.9"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import SkillYears from '../../../../components/widgets/SkillYears.astro';
+
+## Risk-adjusted returns [#measures]
+
+One fund returned 15% last year and another 10%. Is the first one necessarily better? Not necessarily: the first may have taken far more risk. Evaluating performance means looking at risk-adjusted returns. Let the fund's average return be $\bar R_p$ and the risk-free rate $r_f$:
+
+- The Sharpe ratio (<Ref concept="sharpe-ratio" />, Sharpe, 1966): $S_p = \frac{\bar R_p - r_f}{\sigma_p}$, the excess return per unit of total risk.
+- The <Def id="treynor-ratio">Treynor ratio</Def> (Treynor, 1965): $T_p = \frac{\bar R_p - r_f}{\beta_p}$, the excess return per unit of systematic risk.
+- <Def id="jensens-alpha">Jensen's alpha</Def> (Jensen, 1968): $\alpha_p = \bar R_p - [r_f + \beta_p(\bar R_M - r_f)]$, the part of the actual return above the security market line (<Ref concept="alpha" />), usually estimated by the intercept of a regression.
+- The <Def id="information-ratio">information ratio</Def>: $IR_p = \frac{\alpha_p}{\sigma(e_p)}$, alpha divided by the standard deviation of the residual, that is, the alpha earned per unit of firm-specific risk. It is also often computed as the average return over a benchmark divided by the <Def id="tracking-error">tracking error</Def> (the standard deviation of the difference from the benchmark's return).
+
+To make the Sharpe ratio easier to read, Modigliani and Modigliani (1997) proposed M²: combine the fund with the risk-free asset in the proportion that gives it the market's volatility, then compare its return with the market's, $M^2 = r_f + S_p\,\sigma_M - \bar R_M$.
+
+<Check id="C1" />
+
+## Which measure to use [#which-measure]
+
+The measures count different risks. Which one to use depends on the fund's place in the investor's total wealth, that is, on which part of the fund's risk the investor actually bears.
+
+<Check id="C2" />
+
+If the fund is only a small part of a well-diversified portfolio, most of its firm-specific risk is diversified away in the whole portfolio, and what matters is its beta and alpha: look at the Treynor ratio or Jensen's alpha. If an active fund is added to a passive index portfolio, its alpha must be weighed against the firm-specific risk it adds: look at the information ratio. Treynor and Black (1973) showed that when the active fund is added in the best proportion, the portfolio's Sharpe ratio satisfies $S^2 = S_M^2 + IR^2$ (<Ref check="Q1" />).
+
+The choice of benchmark matters just as much. <Ref lesson="4.6" sec="fama-french" /> showed that a fund tilted toward small value stocks shows an alpha by the CAPM, which may disappear with a three- or four-factor model (adding momentum). A fund's benchmark should match its investment style; choosing a benchmark that is easy to beat makes performance look better than it is. Also, a manager's timing (changing beta) and style drift during the period distort measures computed with a fixed beta.
+
+## Luck or skill [#luck-skill]
+
+Even with the right measure, there is a harder question: is the performance luck or skill? The estimation error of alpha is large (<Ref lesson="4.5" sec="estimation" />). If a fund's true information ratio is $IR$ and alpha is estimated from $T$ years of annual data, its t-value (<Ref concept="t-statistic" />) is about
+
+$$
+t \approx IR \times \sqrt{T}
+$$
+
+<Figure id="2-1" title="Years of track record and the t-value of alpha. The solid line is the expected t-value $IR\sqrt{T}$, the shaded band is the 95% range of the t-value, and the dashed lines are the 95% range for a manager with no skill (±1.96)." observe="First, with an information ratio of 0.3, see how many years the expected t-value needs to rise above the upper dashed line, and how much the band overlaps the area between the dashed lines at 20 years; then raise the information ratio and see how the number of years changes.">
+	<SkillYears />
+</Figure>
+
+<Check id="C3" />
+
+An information ratio of 0.5 is already considered very good active management, yet even then the expected t-value takes about 15 years to reach 1.96. And there are thousands of funds, some of which will have outstanding long records by chance even with no skill at all (<Ref concept="multiple-testing" />).
+
+<Check id="C4" />
+
+The research findings: Carhart (1997) found that the funds with the best performance in one year are only slightly above average the next year, and the edge mostly disappears after fees and trading costs; the worst funds tend to stay bad, mainly because of high fees and high turnover. Fama and French (2010) used simulation to compare the distribution of alphas of US active stock funds with the distribution if none had skill, and found that after fees few funds have enough skill to cover their costs.
+
+## Survivorship bias [#survivorship]
+
+Funds that do badly are often closed or merged into other funds, disappearing from databases and from fund companies' advertising. Historical performance computed only from surviving funds overstates how active management actually did; this is called <Def id="survivorship-bias">survivorship bias</Def>. A similar problem is backfill bias: hedge funds join a database only after building a good record, and bring their earlier performance with them.
+
+Fund companies also make use of this: a company that runs many funds advertises only its best ones and quietly merges away those that do badly. When looking at a fund's record, ask how many funds it was picked from.
+
+<Check id="C5" />
+
+## Summary [#summary]
+
+- The Sharpe ratio counts total risk, the Treynor ratio and Jensen's alpha count systematic risk, and the information ratio relates alpha to firm-specific risk; M² turns the Sharpe ratio into a rate of return.
+- For a small part of a diversified portfolio use alpha or the Treynor ratio; for a fund added to an index portfolio use the information ratio, $S^2 = S_M^2 + IR^2$; the choice depends on which part of the risk the investor actually bears.
+- The benchmark should match the style; factor exposures can be mistaken for alpha.
+- The t-value of alpha is about $IR\sqrt{T}$, so telling luck from skill needs a long record; performance persists only weakly.
+- Survivorship bias and selective advertising overstate the performance of active management.
+
+## Exercises [#exercises]
+
+<Exercises />

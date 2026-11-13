@@ -1,0 +1,313 @@
+# Answer key for lesson 4.9. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[4.9#measures]] (section), [[concept:beta]], [[check:Q3]], [[fig:2-1]].
+# expected: values are recomputed by course/verify/4.9.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "4.9"
+
+context:
+  - zh-cn: |-
+      学习者学过标准误、t 值和多重检验（[[0.4]]）、回归（[[0.5]]）、夏普比率（[[4.1]]）、资本配置线（[[4.3]]）、CAPM、beta 和 alpha（[[4.4]]）、单指数模型与 alpha 的估计误差（[[4.5]]）、多因子模型（[[4.6]]）、有效市场假说（[[4.7]]）和行为金融（[[4.8]]）。百分数用百分点表示，方差用 %²。
+    en: |-
+      The learner has studied standard errors, t-values and multiple testing ([[0.4]]), regression ([[0.5]]), the Sharpe ratio ([[4.1]]), the capital allocation line ([[4.3]]), the CAPM, beta and alpha ([[4.4]]), the single-index model and the estimation error of alpha ([[4.5]]), multifactor models ([[4.6]]), the efficient market hypothesis ([[4.7]]) and behavioral finance ([[4.8]]). Percentages in percentage points; variance in %².
+  - concepts: [treynor-ratio, jensens-alpha, information-ratio, tracking-error, sharpe-ratio]
+    zh-cn: |-
+      讲义：夏普比率 $\frac{\bar R_p - r_f}{\sigma_p}$（Sharpe，1966）；Treynor 比率 $\frac{\bar R_p - r_f}{\beta_p}$（Treynor，1965）；Jensen alpha $\bar R_p - [r_f + \beta_p(\bar R_M - r_f)]$（Jensen，1968）；信息比率 $\frac{\alpha_p}{\sigma(e_p)}$，或相对基准的平均超额收益除以跟踪误差；M² $= r_f + S_p\sigma_M - \bar R_M$（Modigliani 和 Modigliani，1997）。选指标取决于投资者实际承担基金的哪部分风险（讲义没有直接说基金为全部投资时用哪个，留给随堂题）；分散组合的一小部分看 Treynor 或 alpha；加在指数组合上看信息比率，Treynor 和 Black（1973）：$S^2 = S_M^2 + IR^2$。基准要与风格一致；择时和风格漂移使固定 beta 的指标失真。
+    en: |-
+      The lesson: Sharpe ratio $\frac{\bar R_p - r_f}{\sigma_p}$ (Sharpe, 1966); Treynor ratio $\frac{\bar R_p - r_f}{\beta_p}$ (Treynor, 1965); Jensen's alpha $\bar R_p - [r_f + \beta_p(\bar R_M - r_f)]$ (Jensen, 1968); information ratio $\frac{\alpha_p}{\sigma(e_p)}$, or the average return over the benchmark divided by the tracking error; M² $= r_f + S_p\sigma_M - \bar R_M$ (Modigliani and Modigliani, 1997). The choice of measure depends on which part of the fund's risk the investor actually bears (the lesson does not say directly which to use when the fund is the whole investment; left to a check question); for a small part of a diversified portfolio, Treynor or alpha; added to an index portfolio, the information ratio, with Treynor and Black (1973): $S^2 = S_M^2 + IR^2$. The benchmark should match the style; timing and style drift distort fixed-beta measures.
+  - concepts: [information-ratio, survivorship-bias, jensens-alpha]
+    zh-cn: |-
+      讲义：alpha 的 t 值约为 $IR\sqrt{T}$；信息比率 0.5 已算很好，期望 t 值约 15 年才达到 1.96；数以千计的基金中有些会碰巧有出色记录。Carhart（1997）：最好的基金下一年只略好于平均，扣费后优势消失，最差的持续差（费用高、换手多）；Fama 和 French（2010）：扣费后很少有基金的能力足以覆盖成本。幸存者偏差：清盘或合并的基金从数据中消失；回填偏差；基金公司只宣传最好的几只。[[fig:2-1]]：滑块为真实信息比率 0.1 到 1（步长 0.05，默认 0.3）；实线 $IR\sqrt{T}$，阴影 ±1.96，虚线为 ±1.96。
+    en: |-
+      The lesson: the t-value of alpha is about $IR\sqrt{T}$; an information ratio of 0.5 is considered very good, and the expected t-value takes about 15 years to reach 1.96; among thousands of funds some will have outstanding records by chance. Carhart (1997): the best funds are only slightly above average the next year, and the edge disappears after fees, while the worst stay bad (high fees, high turnover); Fama and French (2010): after fees few funds have enough skill to cover their costs. Survivorship bias: closed or merged funds drop out of the data; backfill bias; fund companies advertise only their best funds. [[fig:2-1]]: slider for the true information ratio, 0.1 to 1 (in steps of 0.05, default 0.3); the line is $IR\sqrt{T}$, the band ±1.96 around it, the dashed lines ±1.96.
+
+common_errors:
+  - questions: [Q1]
+    zh-cn: |-
+      以为夏普比率不高于市场的基金加入指数组合也没有用；不区分基金作为全部投资与作为组合一部分时的风险。
+    en: |-
+      Thinking a fund whose Sharpe ratio is no higher than the market's is useless when added to an index portfolio; not separating the risk of a fund held alone from its risk as part of a portfolio.
+  - questions: [Q2]
+    zh-cn: |-
+      以为连续多年跑赢就证明了能力，忽略在很多基金中至少有一只碰巧连续跑赢的概率；以为跑赢的年数比超额收益的大小和波动更能说明问题。
+    en: |-
+      Thinking a long winning streak proves skill, ignoring the chance that at least one of many funds wins every year by luck; thinking the number of winning years says more than the size and volatility of the excess return.
+  - questions: [Q3]
+    zh-cn: |-
+      只用现存基金的业绩计算主动管理的平均表现，忽略被清盘或合并的基金。
+    en: |-
+      Computing the average performance of active management from surviving funds only, ignoring funds that were closed or merged.
+  - questions: [Q4]
+    zh-cn: |-
+      把低 beta 基金在熊市中跌得少当作能力，不按 beta 调整预期的收益；只看下跌市场、忽略上涨市场。
+    en: |-
+      Treating a low-beta fund's smaller fall in a bear market as skill, without adjusting the expected return for beta; looking only at falling markets and ignoring rising ones.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: measures
+    concepts: [sharpe-ratio]
+    question:
+      zh-cn: |-
+        一只基金按无风险利率借款，把仓位加到原来的 2 倍。它的夏普比率会翻倍。
+      en: |-
+        A fund borrows at the risk-free rate to double its position. Its Sharpe ratio doubles.
+    correct: false
+    hint:
+      zh-cn: 想一想：加 2 倍杠杆后，超额收益 $\bar R_p - r_f$ 和标准差 $\sigma_p$ 各变成原来的几倍？
+      en: 'Think: with 2 times leverage, by what factors do the excess return $\bar R_p - r_f$ and the standard deviation $\sigma_p$ change?'
+    answer:
+      zh-cn: |-
+        错。按无风险利率借款加杠杆，超额收益和标准差都变为原来的 2 倍，夏普比率不变：加杠杆只是沿着资本配置线移动（[[4.3]]）。这正是夏普比率的优点：它不受杠杆的影响，衡量的是风险和收益的交换比率。
+      en: |-
+        False. Leveraging by borrowing at the risk-free rate doubles both the excess return and the standard deviation, so the Sharpe ratio is unchanged: leverage only moves along the capital allocation line ([[4.3]]). This is the strength of the Sharpe ratio: it is unaffected by leverage and measures the rate at which risk is traded for return.
+
+  - id: C2
+    kind: check
+    section: which-measure
+    concepts: [sharpe-ratio, treynor-ratio]
+    question:
+      zh-cn: |-
+        一位投资者只持有一只股票基金和无风险资产。基金 A：夏普比率 0.45，Treynor 比率 6；基金 B：夏普比率 0.38，Treynor 比率 9。他选择时应该主要看：
+      en: |-
+        An investor holds only one stock fund plus the risk-free asset. Fund A: Sharpe ratio 0.45, Treynor ratio 6. Fund B: Sharpe ratio 0.38, Treynor ratio 9. In choosing, he should mainly look at:
+    choices:
+      - zh-cn: 夏普比率，选 A
+        en: The Sharpe ratio, choosing A
+      - zh-cn: Treynor 比率，选 B
+        en: The Treynor ratio, choosing B
+        why:
+          zh-cn: Treynor 比率只计入系统性风险。他还有别的风险资产来分散这只基金的特质风险吗？
+          en: The Treynor ratio counts only systematic risk. Does he hold other risky assets that would diversify the fund's firm-specific risk?
+      - zh-cn: 两个指标结论相反，无法决定
+        en: The two measures disagree, so he cannot decide
+        why:
+          zh-cn: 两个指标衡量的风险不同。哪一种风险是他实际承担的？
+          en: The two measures count different risks. Which risk does he actually bear?
+      - zh-cn: 平均收益，选收益更高的
+        en: The average return, choosing the higher one
+        why:
+          zh-cn: 平均收益没有考虑风险。他可以用无风险资产调整风险的大小，那么什么才决定他能得到的最好的风险与收益组合？
+          en: The average return ignores risk. He can adjust his risk with the risk-free asset; what then determines the best risk–return combination he can get?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。这只基金就是他全部的风险资产，他承担的是基金的全部波动，包括特质风险，所以应该看每单位总风险的超额收益，即夏普比率。他可以用无风险资产把 A 调到任何想要的风险水平，A 的资本配置线更陡（[[4.3]]）。B 的 Treynor 比率高，说明它的特质风险较大，这些风险在他的组合中没有被分散掉。
+      en: |-
+        (A). The fund is all of his risky assets, so he bears its whole volatility, including firm-specific risk, and should look at the excess return per unit of total risk, the Sharpe ratio. He can combine A with the risk-free asset to reach any risk level he wants, and A's capital allocation line is steeper ([[4.3]]). B's high Treynor ratio means it has more firm-specific risk, which is not diversified away in his portfolio.
+
+  - id: C3
+    kind: check
+    section: luck-skill
+    concepts: [information-ratio]
+    widget: { id: skill-years, set: { ir: 0.3 } }
+    question:
+      zh-cn: |-
+        在 [[fig:2-1]] 中，把真实的信息比率从 0.3 提高到 0.6。期望的 t 值达到 1.96 需要的年数会：
+      en: |-
+        In [[fig:2-1]], raise the true information ratio from 0.3 to 0.6. The number of years needed for the expected t-value to reach 1.96:
+    choices:
+      - zh-cn: 大约减少到原来的四分之一
+        en: Falls to about a quarter
+      - zh-cn: 减少一半
+        en: Falls by half
+        why:
+          zh-cn: t 值约为 $IR\sqrt{T}$。IR 翻倍时，要达到同样的 t 值，$\sqrt{T}$ 要变为原来的几分之几？T 呢？
+          en: The t-value is about $IR\sqrt{T}$. When IR doubles, by what fraction must $\sqrt{T}$ change to reach the same t-value? And T?
+      - zh-cn: 不变，因为显著性的标准没有变
+        en: Stays the same, because the significance threshold has not changed
+        why:
+          zh-cn: 标准仍是 1.96，但 t 值增长的速度变了。看图中实线的变化。
+          en: The threshold is still 1.96, but how fast the t-value grows has changed. Look at how the solid line changes.
+      - zh-cn: 增加，因为能力越强越难证明
+        en: Rises, because greater skill is harder to prove
+        why:
+          zh-cn: 能力越强，每年的 alpha 相对于噪声越大。这会让证明能力更容易还是更难？
+          en: Greater skill means a larger alpha relative to the noise each year. Does that make skill easier or harder to prove?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。$T = \left(\frac{1.96}{IR}\right)^2$，与 $IR^2$ 成反比：IR 为 0.3 时约 43 年，0.6 时约 11 年。即使是很好的经理，也要很长的记录才能与运气区分开。
+      en: |-
+        (A). $T = \left(\frac{1.96}{IR}\right)^2$ is inversely proportional to $IR^2$: about 43 years with an IR of 0.3 and about 11 years with 0.6. Even a very good manager needs a long record to be distinguished from luck.
+
+  - id: C4
+    kind: check
+    section: luck-skill
+    concepts: [information-ratio, jensens-alpha]
+    question:
+      zh-cn: |-
+        如果基金的业绩主要来自能力而不是运气，那么过去业绩好的基金，未来的业绩也应该倾向于比别的基金好。
+      en: |-
+        If fund performance comes mainly from skill rather than luck, funds that did well in the past should tend to do better than other funds in the future too.
+    correct: true
+    hint:
+      zh-cn: 想一想：能力和运气，哪一个会延续到下一期？
+      en: 'Think: which carries over to the next period, skill or luck?'
+    answer:
+      zh-cn: |-
+        对。能力是经理持续的特征，会延续；运气不会。所以业绩的持续性可以用来检验能力：如果过去的赢家未来只是平均水平，过去的好业绩大多是运气。研究发现扣除费用后，赢家的持续性很弱（Carhart，1997）。
+      en: |-
+        True. Skill is a lasting trait of the manager and carries over; luck does not. So persistence is a test of skill: if past winners are only average in the future, their good records were mostly luck. Research finds that after fees, winners persist only weakly (Carhart, 1997).
+
+  - id: C5
+    kind: check
+    section: survivorship
+    concepts: [survivorship-bias]
+    question:
+      zh-cn: |-
+        一个基金数据库只包括目前仍在运营的基金。用它计算主动基金过去 15 年的平均业绩，结果会：
+      en: |-
+        A fund database includes only funds that are still operating. Using it to compute the average performance of active funds over the past 15 years gives a result that is:
+    choices:
+      - zh-cn: 偏高
+        en: Too high
+      - zh-cn: 偏低
+        en: Too low
+        why:
+          zh-cn: 哪些基金更可能被清盘或合并：业绩好的，还是业绩差的？
+          en: Which funds are more likely to be closed or merged, those that did well or those that did badly?
+      - zh-cn: 没有偏差，因为被清盘的基金很少
+        en: Unbiased, because few funds are closed
+        why:
+          zh-cn: 15 年中有相当一部分基金会被清盘或合并。而且即使比例不大，它们的业绩与留下来的一样吗？
+          en: Over 15 years a substantial share of funds is closed or merged. And even if the share were small, is their performance the same as that of the survivors?
+      - zh-cn: 没有偏差，因为清盘的基金只是规模小
+        en: Unbiased, because closed funds are just small
+        why:
+          zh-cn: 基金为什么会变小、被清盘？业绩差和资金流出有关吗？
+          en: Why do funds shrink and close? Are poor performance and outflows related?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。业绩差的基金更可能资金流出、被清盘或并入其他基金，从数据库中消失。只看留下来的基金，等于去掉了业绩最差的一部分，平均业绩被高估，主动管理看起来比实际好。
+      en: |-
+        (A). Funds that do badly are more likely to suffer outflows and be closed or merged, dropping out of the database. Looking only at survivors removes the worst performers, so the average is overstated and active management looks better than it is.
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [information-ratio, sharpe-ratio, jensens-alpha]
+    expected: { sp: "0.375", alpha: "2.4", ir: "0.15", s: "0.403" }
+    question:
+      zh-cn: |-
+        市场的预期收益为 9%，标准差为 16%，无风险利率为 3%。主动基金 P 的预期收益为 12%，标准差为 24%，beta 为 1.1。
+        (a) P 的夏普比率和 Jensen alpha 各是多少？与市场的夏普比率比较。
+        (b) 一位同事说：“P 的夏普比率不比市场高，所以在指数基金之外再买一些 P 不会改善组合。”用 P 的信息比率和 Treynor–Black 的结果 $S^2 = S_M^2 + IR^2$ 评价这个说法。对于只持有 P 一只基金的投资者，结论有什么不同？
+      en: |-
+        The market's expected return is 9% with a standard deviation of 16%, and the risk-free rate is 3%. Active fund P has an expected return of 12%, a standard deviation of 24% and a beta of 1.1.
+        (a) What are P's Sharpe ratio and Jensen's alpha? Compare with the market's Sharpe ratio.
+        (b) A colleague says: "P's Sharpe ratio is no higher than the market's, so buying some P in addition to an index fund will not improve the portfolio." Use P's information ratio and the Treynor–Black result $S^2 = S_M^2 + IR^2$ to evaluate this statement. How does the conclusion differ for an investor who holds only P?
+    answer:
+      zh-cn: |-
+        (a) $S_P = \frac{12 - 3}{24} = 0.375$，市场 $S_M = \frac{9 - 3}{16} = 0.375$，两者相同。$\alpha_P = 12 - (3 + 1.1 \times 6) = 2.4$ 个百分点。
+        (b) P 的残差方差 $= 24^2 - 1.1^2 \times 16^2 = 576 - 309.76 = 266.24$，$\sigma(e) \approx 16.3\%$，$IR = \frac{2.4}{16.3} \approx 0.15$。按最优比例把 P 加入指数组合，$S = \sqrt{0.375^2 + 0.147^2} \approx 0.403$，高于 0.375。同事的说法不对：P 的夏普比率不高，是因为它的 alpha 伴随着很大的特质风险；但在指数组合中只放一小部分 P 时，特质风险大部分被分散掉，正的 alpha 仍能改善组合。只持有 P 的投资者承担 P 的全部特质风险，他的夏普比率就是 0.375，与持有市场一样，没有改善。
+      en: |-
+        (a) $S_P = \frac{12 - 3}{24} = 0.375$ and the market's $S_M = \frac{9 - 3}{16} = 0.375$: the same. $\alpha_P = 12 - (3 + 1.1 \times 6) = 2.4$ points.
+        (b) P's residual variance is $24^2 - 1.1^2 \times 16^2 = 576 - 309.76 = 266.24$, so $\sigma(e) \approx 16.3\%$ and $IR = \frac{2.4}{16.3} \approx 0.15$. Adding P to the index portfolio in the best proportion gives $S = \sqrt{0.375^2 + 0.147^2} \approx 0.403$, above 0.375. The colleague is wrong: P's Sharpe ratio is not high because its alpha comes with large firm-specific risk; but with only a small amount of P in an index portfolio, most of that risk is diversified away, and the positive alpha still improves the portfolio. An investor who holds only P bears all of P's firm-specific risk; his Sharpe ratio is 0.375, the same as holding the market, so there is no improvement.
+    rubric:
+      zh-cn:
+        - "(a) 通过：夏普比率 0.375（与市场相同），alpha 2.4 个百分点。"
+        - "(b) 通过：用 $\\sigma^2(e) = \\sigma^2 - \\beta^2\\sigma_M^2$ 求出信息比率约 0.15，组合夏普比率约 0.403，说明正 alpha 加入分散组合能改善结果，并指出只持有 P 时没有改善。同意同事，或不区分两种投资者，需要订正。"
+      en:
+        - "(a) OK: a Sharpe ratio of 0.375 (the same as the market's) and an alpha of 2.4 percentage points."
+        - "(b) OK: uses $\\sigma^2(e) = \\sigma^2 - \\beta^2\\sigma_M^2$ to get an information ratio of about 0.15 and a portfolio Sharpe ratio of about 0.403, explains that a positive alpha added to a diversified portfolio improves it, and says there is no improvement when holding only P. Agreeing with the colleague, or not separating the two investors, needs revision."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [information-ratio, survivorship-bias, multiple-testing]
+    expected: { n: "1.95", pa: "86", t: "1.58" }
+    question:
+      zh-cn: |-
+        一篇报道说：“这位基金经理连续 10 年跑赢基准。如果靠运气，每年跑赢的概率是一半，连续 10 年的概率不到千分之一，所以她一定有能力。”市场上有 2,000 只同类基金。
+        (a) 假设所有经理都没有能力，每年跑赢的概率都是 50%，各年、各基金之间独立。2,000 只基金中，预计有几只会连续 10 年跑赢？至少有一只的概率是多少？
+        (b) 这位经理 10 年中平均每年超出基准 2 个百分点，跟踪误差为 4 个百分点。她的超额收益的 t 值是多少？结合 (a) 评价报道的说法。
+      en: |-
+        A news story says: "This fund manager has beaten her benchmark 10 years in a row. If it were luck, the chance of beating it in any year would be one half, and the chance of 10 years in a row less than one in a thousand, so she must have skill." There are 2,000 funds of this kind.
+        (a) Suppose no manager has skill, each beats the benchmark with a 50% chance each year, independently across years and funds. How many of the 2,000 funds would you expect to beat the benchmark 10 years in a row? What is the probability that at least one does?
+        (b) Over the 10 years she beat the benchmark by 2 percentage points a year on average, with a tracking error of 4 percentage points. What is the t-value of her excess return? Using (a), evaluate the story.
+    answer:
+      zh-cn: |-
+        (a) 一只基金连续 10 年跑赢的概率 $0.5^{10} \approx 0.098\%$。预计 $2{,}000 \times 0.5^{10} \approx 1.95$ 只，约 2 只。至少一只的概率 $= 1 - (1 - 0.5^{10})^{2{,}000} \approx 86\%$。
+        (b) 信息比率 $\frac{2}{4} = 0.5$，$t \approx 0.5 \times \sqrt{10} \approx 1.58$，低于 1.96。报道算的是“事先指定的某一位经理”连续跑赢的概率，但她是从 2,000 只基金中事后挑出来的：即使全都没有能力，也很可能有一两位连续 10 年跑赢（多重检验）。而且“每年都跑赢”说明的是方向，不是幅度；按超额收益的大小和波动计算，t 值也不显著。她可能有能力，但这份记录不足以证明。还要注意，被报道的总是留下来的赢家，跑输的基金可能已经被合并（幸存者偏差）。
+      en: |-
+        (a) The chance of one fund winning 10 years in a row is $0.5^{10} \approx 0.098\%$. Expected $2{,}000 \times 0.5^{10} \approx 1.95$ funds, about 2. The probability that at least one does is $1 - (1 - 0.5^{10})^{2{,}000} \approx 86\%$.
+        (b) The information ratio is $\frac{2}{4} = 0.5$, so $t \approx 0.5 \times \sqrt{10} \approx 1.58$, below 1.96. The story computes the chance for one manager named in advance, but she was picked after the fact from 2,000 funds: even if none had skill, one or two would probably win 10 years in a row (multiple testing). And "winning every year" shows direction, not size; judged by the size and volatility of the excess return, the t-value is not significant either. She may have skill, but this record does not prove it. Also, the funds in the news are always surviving winners; losers may already have been merged (survivorship bias).
+    rubric:
+      zh-cn:
+        - "(a) 通过：预计约 1.95 只，至少一只的概率约 86%。"
+        - "(b) 通过：t 值约 1.58，指出她是从很多基金中事后挑出的，连续跑赢的次数不说明超额收益的大小，结论是记录不足以证明能力。只算数字不评价，或同意报道，需要订正。"
+      en:
+        - "(a) OK: about 1.95 funds expected; a probability of about 86% that at least one does."
+        - "(b) OK: a t-value of about 1.58, with the points that she was picked after the fact from many funds and that a streak says nothing about the size of the excess return, concluding the record does not prove skill. Computing without evaluating, or agreeing with the story, needs revision."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [survivorship-bias]
+    expected: { all: "5.7", bias: "1.8" }
+    question:
+      zh-cn: |-
+        一家研究机构说：“过去 15 年，美国主动股票基金平均每年收益 7.5%，同期指数基金为 6.5%，主动管理平均每年跑赢 1 个百分点。”它的数据只包括现存的基金。实际上 15 年前有 100 只这类基金，其中 40 只在这期间被清盘或合并，它们存续期间平均每年收益 3%。为简单起见，按基金数量等权平均，并假设每只基金对平均的权重相同。
+        (a) 包括所有基金在内，主动基金的平均年收益是多少？幸存者偏差使平均收益高估了多少个百分点？
+        (b) 评价研究机构的说法。如果投资者在 15 年前随机选一只主动基金，他的预期结果与研究机构的说法有什么不同？
+      en: |-
+        A research firm says: "Over the past 15 years, US active stock funds returned 7.5% a year on average, against 6.5% for index funds, so active management beat the index by 1 percentage point a year on average." Its data include only surviving funds. In fact there were 100 such funds 15 years ago, of which 40 were closed or merged during the period, having returned 3% a year on average while they existed. For simplicity, average across funds with equal weights, giving every fund the same weight.
+        (a) Including all funds, what is the average annual return of active funds? By how many percentage points does survivorship bias overstate the average?
+        (b) Evaluate the research firm's statement. If an investor had picked an active fund at random 15 years ago, how would his expected result differ from what the firm says?
+    answer:
+      zh-cn: |-
+        (a) $0.6 \times 7.5 + 0.4 \times 3 = 4.5 + 1.2 = 5.7\%$。高估了 $7.5 - 5.7 = 1.8$ 个百分点。
+        (b) 说法不成立。包括被清盘的基金后，主动基金平均每年 5.7%，比指数基金低 0.8 个百分点，而不是高 1 个百分点。只看幸存者，等于事后去掉了最差的 40%，而投资者在 15 年前无法知道哪些会留下来。随机选一只基金的投资者，有 40% 的可能选中后来被清盘的基金，他的预期结果是 5.7% 左右，跑输指数。（被合并时投资者的钱会转入其他基金，实际结果还取决于之后那只基金的表现，但原来那只基金的差业绩不会因为它消失而不算。）
+      en: |-
+        (a) $0.6 \times 7.5 + 0.4 \times 3 = 4.5 + 1.2 = 5.7\%$. The overstatement is $7.5 - 5.7 = 1.8$ percentage points.
+        (b) The statement does not hold. Including the closed funds, active funds averaged 5.7% a year, 0.8 points below index funds rather than 1 point above. Looking only at survivors removes the worst 40% after the fact, and an investor 15 years ago could not have known which funds would survive. An investor picking a fund at random had a 40% chance of picking one that was later closed, and his expected result is about 5.7%, below the index. (When a fund is merged, the investor's money moves to another fund, so the actual result also depends on that fund afterwards; but the original fund's poor record does not stop counting because it disappeared.)
+    rubric:
+      zh-cn:
+        - "(a) 通过：平均 5.7%，高估 1.8 个百分点。"
+        - "(b) 通过：指出包括所有基金后主动基金跑输指数，研究机构的结论来自幸存者偏差，事先无法知道哪些基金会留下来。只算数字不评价，需要订正。"
+      en:
+        - "(a) OK: an average of 5.7%, overstated by 1.8 percentage points."
+        - "(b) OK: says that including all funds, active funds lag the index, that the firm's conclusion comes from survivorship bias, and that survivors cannot be known in advance. Computing without evaluating needs revision."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [jensens-alpha, beta, treynor-ratio]
+    expected: { a1: "1", a2: "0.5" }
+    question:
+      zh-cn: |-
+        一只基金的 beta 为 0.7，宣传材料说：“去年市场下跌 30%，我们只下跌了 20%，证明了基金经理控制风险的能力。”为简单起见，假设无风险利率为 0。
+        (a) 按 CAPM，这只基金去年应该下跌多少？它的 Jensen alpha 是多少？
+        (b) 前年市场上涨 35%，这只基金上涨 25%。前年的 alpha 是多少？评价宣传材料的说法。“下跌时跌得少”在什么情况下才说明经理有能力？
+      en: |-
+        A fund has a beta of 0.7. Its marketing says: "Last year the market fell 30% but we fell only 20%, proof of the manager's skill at controlling risk." For simplicity, assume a risk-free rate of 0.
+        (a) By the CAPM, how much should the fund have fallen last year? What is its Jensen's alpha?
+        (b) The year before, the market rose 35% and the fund rose 25%. What was that year's alpha? Evaluate the marketing claim. When would "falling less in down markets" show skill?
+    answer:
+      zh-cn: |-
+        (a) 预期 $0.7 \times (-30\%) = -21\%$，实际 −20%，alpha $= -20 - (-21) = 1$ 个百分点。少跌的 10 个百分点中，9 个来自低 beta，只有 1 个是 alpha。
+        (b) 预期 $0.7 \times 35\% = 24.5\%$，实际 25%，alpha $= 25 - 24.5 = 0.5$ 个百分点。这只基金上涨时也比市场少涨 10 个百分点：它的表现主要就是 beta 为 0.7 的结果，任何人用 70% 的指数基金加 30% 的现金都能做到。宣传材料只挑了下跌的年份。“下跌时跌得少”要说明能力，必须是在按 beta 调整之后仍然少跌（alpha 为正、并且长期显著），或者经理能在下跌前降低 beta、上涨前提高 beta（择时），使下跌时的 beta 明显低于上涨时的 beta。
+      en: |-
+        (a) Expected $0.7 \times (-30\%) = -21\%$; actual −20%, so alpha is $-20 - (-21) = 1$ point. Of the 10 points it fell less, 9 come from its low beta and only 1 is alpha.
+        (b) Expected $0.7 \times 35\% = 24.5\%$; actual 25%, so alpha is $25 - 24.5 = 0.5$ points. The fund also rose 10 points less than the market: its performance is mostly the result of a beta of 0.7, which anyone could get with 70% in an index fund and 30% in cash. The marketing picked only the falling year. "Falling less in down markets" shows skill only if the fund still falls less after adjusting for beta (a positive alpha that is significant over a long period), or if the manager lowers beta before falls and raises it before rises (timing), so that its beta in down markets is clearly lower than in up markets.
+    rubric:
+      zh-cn:
+        - "(a) 通过：预期 −21%，alpha 1 个百分点，并指出少跌主要来自低 beta。"
+        - "(b) 通过：前年 alpha 0.5 个百分点，指出宣传只挑了下跌的年份、表现主要来自 beta，并说明按 beta 调整后仍为正的 alpha 或择时（下跌时 beta 更低）才说明能力。同意宣传材料，需要订正。"
+      en:
+        - "(a) OK: expected −21%, alpha 1 percentage point, with the point that falling less comes mostly from the low beta."
+        - "(b) OK: an alpha of 0.5 percentage points the year before, says the marketing picked only the falling year and that the performance comes mostly from beta, and explains that only a positive beta-adjusted alpha or timing (a lower beta in down markets) would show skill. Agreeing with the marketing needs revision."

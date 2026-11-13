@@ -409,7 +409,15 @@ stages:
         published: true
         introduces: [prospect-theory, loss-aversion, overconfidence, disposition-effect, mental-accounting, herding, limits-to-arbitrage, noise-trader-risk]
         uses: [expected-utility, risk-aversion, crra-utility, sunk-cost, efficient-market-hypothesis, market-anomaly, joint-hypothesis-problem, arbitrage, firm-specific-risk, short-selling]
-      - { id: "4.9", slug: "4-9-performance-evaluation", title: { zh-cn: "业绩评估", en: "Performance Evaluation" } }
+      - id: "4.9"
+        slug: "4-9-performance-evaluation"
+        title: { zh-cn: "业绩评估", en: "Performance Evaluation" }
+        summary:
+          zh-cn: "夏普比率、Treynor 比率、Jensen alpha 与信息比率；不同情形下用哪个指标；基准与因子暴露；运气与能力；幸存者偏差。"
+          en: "The Sharpe ratio, the Treynor ratio, Jensen's alpha and the information ratio; which measure to use when; benchmarks and factor exposures; luck and skill; survivorship bias."
+        published: true
+        introduces: [treynor-ratio, jensens-alpha, information-ratio, tracking-error, survivorship-bias]
+        uses: [sharpe-ratio, alpha, beta, capm, security-market-line, capital-allocation-line, single-index-model, firm-specific-risk, fama-french-model, momentum, t-statistic, multiple-testing, standard-error]
       - { id: "4.10", slug: "4-10-estimation-error", title: { zh-cn: "估计误差与稳健优化", en: "Estimation Error and Robust Optimization" } }
       - { id: "4.11", slug: "4-11-capital-market-assumptions", title: { zh-cn: "资本市场假设", en: "Capital Market Assumptions" } }
       - { id: "4.12", slug: "4-12-lifecycle-allocation", title: { zh-cn: "生命周期资产配置理论", en: "Life-Cycle Asset Allocation Theory" } }

@@ -1,0 +1,75 @@
+---
+title: 4.9 业绩评估
+description: 夏普比率、Treynor 比率、Jensen alpha 与信息比率；不同情形下用哪个指标；基准与因子暴露；运气与能力；幸存者偏差。
+lesson: "4.9"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import SkillYears from '../../../../components/widgets/SkillYears.astro';
+
+## 风险调整后的收益 [#measures]
+
+一只基金去年收益 15%，另一只 10%，前者一定更好吗？不一定：前者可能承担了多得多的风险。评估业绩要看风险调整后的收益。设基金的平均收益为 $\bar R_p$，无风险利率为 $r_f$：
+
+- 夏普比率（<Ref concept="sharpe-ratio" />，Sharpe，1966）：$S_p = \frac{\bar R_p - r_f}{\sigma_p}$，每单位总风险的超额收益。
+- <Def id="treynor-ratio">Treynor 比率</Def>（Treynor ratio，Treynor，1965）：$T_p = \frac{\bar R_p - r_f}{\beta_p}$，每单位系统性风险的超额收益。
+- <Def id="jensens-alpha">Jensen alpha</Def>（Jensen's alpha，Jensen，1968）：$\alpha_p = \bar R_p - [r_f + \beta_p(\bar R_M - r_f)]$，即实际收益超出证券市场线的部分（<Ref concept="alpha" />），通常用回归的截距估计。
+- <Def id="information-ratio">信息比率</Def>（information ratio）：$IR_p = \frac{\alpha_p}{\sigma(e_p)}$，alpha 除以残差的标准差，即每单位特质风险换来的 alpha。也常用相对基准的平均超额收益除以<Def id="tracking-error">跟踪误差</Def>（tracking error，相对基准收益之差的标准差）来计算。
+
+为了让夏普比率更直观，Modigliani 和 Modigliani（1997）提出 M²：把基金与无风险资产按比例组合，使波动率等于市场的波动率，再比较它与市场的收益之差，$M^2 = r_f + S_p\,\sigma_M - \bar R_M$。
+
+<Check id="C1" />
+
+## 用哪个指标 [#which-measure]
+
+几个指标衡量的风险不同。选哪个，取决于这只基金在投资者全部财富中的地位，也就是投资者实际承担的是基金的哪一部分风险。
+
+<Check id="C2" />
+
+如果基金只是一个很分散的组合中的一小部分，它的特质风险在整个组合中大部分被分散掉，重要的是它的 beta 和 alpha，看 Treynor 比率或 Jensen alpha。如果在被动的指数组合之外加一只主动基金，要权衡它的 alpha 和它增加的特质风险，看信息比率。Treynor 和 Black（1973）证明，按最优的比例加入主动基金后，组合的夏普比率满足 $S^2 = S_M^2 + IR^2$（<Ref check="Q1" />）。
+
+用什么基准同样重要。<Ref lesson="4.6" sec="fama-french" /> 说明，偏向小盘价值股的基金用 CAPM 衡量会显示出 alpha，用三因子或四因子（加动量）模型衡量，alpha 可能消失。基金的业绩基准应该与它的投资风格一致；选一个容易跑赢的基准，会让业绩看起来比实际好。另外，经理调整 beta 的择时、业绩期内的风格漂移，都会让用固定 beta 计算的指标失真。
+
+## 运气还是能力 [#luck-skill]
+
+即使指标选对了，还有一个更难的问题：业绩是运气还是能力？alpha 的估计误差很大（<Ref lesson="4.5" sec="estimation" />）。设基金真实的信息比率为 $IR$，用 $T$ 年的年度数据估计 alpha，它的 t 值（<Ref concept="t-statistic" />）约为
+
+$$
+t \approx IR \times \sqrt{T}
+$$
+
+<Figure id="2-1" title="业绩记录的年数与 alpha 的 t 值。实线是期望的 t 值 $IR\sqrt{T}$，阴影是 t 值 95% 的可能范围，虚线是没有能力的经理 t 值的 95% 范围（±1.96）。" observe="先看信息比率为 0.3 时，期望的 t 值要多少年才超过上面那条虚线，以及 20 年时阴影与虚线之间的区域重叠多少；再提高信息比率，看需要的年数怎样变化。">
+	<SkillYears />
+</Figure>
+
+<Check id="C3" />
+
+信息比率 0.5 已经被认为是很好的主动管理，但即使这样，期望的 t 值也要约 15 年才达到 1.96。而且市场上有数以千计的基金，其中一些即使毫无能力，也会碰巧有出色的长期记录（<Ref concept="multiple-testing" />）。
+
+<Check id="C4" />
+
+研究的结果是：Carhart（1997）发现，过去一年业绩最好的基金，下一年只略好于平均，扣除费用和交易成本后优势基本消失；业绩最差的基金则倾向于继续差，主要是因为费用高、换手多。Fama 和 French（2010）用模拟比较了美国主动股票基金的 alpha 分布与“全都没有能力”时的分布，发现扣除费用后，很少有基金的能力足以覆盖成本。
+
+## 幸存者偏差 [#survivorship]
+
+业绩差的基金常常被清盘或并入其他基金，从数据库和基金公司的宣传中消失。只用现存基金计算的历史业绩会高估主动管理的实际表现，这叫<Def id="survivorship-bias">幸存者偏差</Def>（survivorship bias）。类似的还有回填偏差：对冲基金在有了好的记录之后才加入数据库，并把之前的业绩一起补上。
+
+基金公司也会利用这一点：一家公司同时运营很多只基金，只宣传其中业绩最好的几只；表现差的悄悄合并掉。看一只基金的业绩时，要问它是从多少只基金中挑出来的。
+
+<Check id="C5" />
+
+## 小结 [#summary]
+
+- 夏普比率看总风险，Treynor 比率和 Jensen alpha 看系统性风险，信息比率看 alpha 与特质风险之比；M² 把夏普比率换成收益率。
+- 基金是分散组合的一小部分时用 alpha 或 Treynor 比率；加在指数组合之上时用信息比率，$S^2 = S_M^2 + IR^2$；选指标要看投资者实际承担哪部分风险。
+- 基准要与风格一致；因子暴露会被误认为 alpha。
+- alpha 的 t 值约为 $IR\sqrt{T}$，区分运气与能力需要很长的记录；业绩的持续性很弱。
+- 幸存者偏差和挑选出来的宣传会高估主动管理的业绩。
+
+## 练习题 [#exercises]
+
+<Exercises />

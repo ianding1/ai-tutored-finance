@@ -2429,3 +2429,43 @@ noise-trader-risk:
   short:
     zh-cn: "使价格偏离的投资者短期内可能更加偏执，偏差先扩大再缩小的风险。"
     en: "The risk that the investors pushing prices away from value become more extreme in the short run, so the gap widens before it narrows."
+
+treynor-ratio:
+  defined_in: "4.9"
+  zh-cn: Treynor 比率
+  en: Treynor ratio
+  short:
+    zh-cn: "超额收益除以 beta，每单位系统性风险的超额收益。"
+    en: "Excess return divided by beta: the excess return per unit of systematic risk."
+
+jensens-alpha:
+  defined_in: "4.9"
+  zh-cn: Jensen alpha
+  en: Jensen's alpha
+  short:
+    zh-cn: "实际平均收益超出证券市场线所要求的收益的部分，通常用回归截距估计。"
+    en: "The amount by which the actual average return exceeds the return the security market line requires, usually estimated by a regression intercept."
+
+information-ratio:
+  defined_in: "4.9"
+  zh-cn: 信息比率
+  en: information ratio
+  short:
+    zh-cn: "alpha 除以残差的标准差（或相对基准的平均超额收益除以跟踪误差）。"
+    en: "Alpha divided by the residual standard deviation (or the average return over a benchmark divided by the tracking error)."
+
+tracking-error:
+  defined_in: "4.9"
+  zh-cn: 跟踪误差
+  en: tracking error
+  short:
+    zh-cn: "组合收益与基准收益之差的标准差。"
+    en: "The standard deviation of the difference between a portfolio's return and its benchmark's."
+
+survivorship-bias:
+  defined_in: "4.9"
+  zh-cn: 幸存者偏差
+  en: survivorship bias
+  short:
+    zh-cn: "只用存续下来的基金（或公司）计算历史业绩，忽略被清盘或合并的，从而高估业绩。"
+    en: "Overstating performance by computing it only from funds (or companies) that survived, ignoring those that were closed or merged."

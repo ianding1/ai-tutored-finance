@@ -357,3 +357,8 @@ prospect-value:
   params:
     lambda: { min: 1, max: 3, step: 0.25, default: 2.25 }
     a: { min: 0.5, max: 1, step: 0.02, default: 0.88 }
+
+skill-years:
+  component: src/components/widgets/SkillYears.astro
+  params:
+    ir: { min: 0.1, max: 1, step: 0.05, default: 0.3 }
