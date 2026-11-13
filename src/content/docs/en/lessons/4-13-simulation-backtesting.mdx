@@ -1,0 +1,73 @@
+---
+title: 4.13 Simulation and Backtesting Methods
+description: Using Monte Carlo simulation to get the distribution of wealth; mean, median and the probability of reaching a goal; how model assumptions and parameter uncertainty matter; backtests and their common biases.
+lesson: "4.13"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import FanChart from '../../../../components/widgets/FanChart.astro';
+
+## Monte Carlo simulation [#monte-carlo]
+
+Planning questions are often about the distribution of outcomes rather than one expected value: what range might wealth fall in after 30 years? What is the probability of reaching the retirement goal? With saving and withdrawals, such questions are hard to answer with formulas. <Def id="monte-carlo-simulation">Monte Carlo simulation</Def> generates many (say 10,000) return paths at random from an assumed return distribution, computes how wealth evolves on each path, and then tallies the distribution of final wealth.
+
+The simplest assumption is that yearly log returns are independent and normal with mean $\mu - \frac{\sigma^2}{2}$ (<Ref lesson="4.1" />). Then wealth per dollar after $t$ years is lognormal, and its percentiles can be computed directly:
+
+$$
+W_t = \exp\!\left(\left(\mu - \frac{\sigma^2}{2}\right)t + z\,\sigma\sqrt{t}\right), \qquad E[W_t] = e^{\mu t}
+$$
+
+$z$ is a quantile of the standard normal distribution. <Ref fig="1-1" /> is drawn from this formula; once yearly saving or withdrawals are added, simulation is needed.
+
+<Figure id="1-1" title="The distribution of wealth per dollar invested over 30 years when yearly log returns are independent and normal. The solid line is the median, the dashed line the mean, and the dark and light areas the ranges between the 25% and 75% and between the 5% and 95% percentiles." observe="Keep the mean return fixed, raise the volatility from 18% to 30%, and compare how the median and the mean change.">
+	<FanChart />
+</Figure>
+
+<Check id="C1" />
+
+<Check id="C2" />
+
+<Ref lesson="0.4" sec="mean-median" /> showed that the mean of a lognormal distribution is above its median. Using the mean to describe the "typical" outcome in planning makes people too optimistic (<Ref check="Q1" />).
+
+## How the assumptions matter [#assumptions]
+
+A simulation's results depend entirely on the assumptions put in:
+
+- The distribution: the normal distribution understates how often extreme falls happen (<Ref lesson="0.4" sec="fat-tails" />). An alternative is the <Def id="bootstrap">bootstrap</Def>: draw returns at random, with replacement, from historical years, keeping the fat tails of historical data; drawing blocks of consecutive years (the block bootstrap) also keeps the correlation between returns.
+- The parameters: the expected return itself has a large estimation error (<Ref lesson="4.10" />). If the simulation treats $\mu$ as known, the distribution of outcomes is too narrow. Adding parameter uncertainty to the simulation (each path first draws a $\mu$) makes the range of long-run outcomes noticeably wider (<Ref check="Q2" />).
+- Correlations and inflation: the correlation between stocks and bonds changes (<Ref lesson="2.8" />), and nominal and real returns must be kept apart.
+
+<Check id="C3" />
+
+What a simulation can do is work out the implications of the assumptions, not remove uncertainty. When the inputs are unreliable, a success probability given to decimal places is false precision; it is more useful to compare whether the conclusion changes under different assumptions.
+
+## Backtesting [#backtesting]
+
+A <Def id="backtest">backtest</Def> tests an investment strategy on historical data: suppose one had traded by the strategy's rules in the past, and compute the result. Backtests easily produce results that are too optimistic. Common problems:
+
+- <Def id="look-ahead-bias">Look-ahead bias</Def>: using information that was not available at the time. For example, financial statements are published several months after the fiscal year ends, index members are known only afterwards, and data are later revised.
+- Survivorship bias (<Ref concept="survivorship-bias" />): using only stocks or funds that still exist, missing those that were delisted or closed.
+- <Def id="overfitting">Overfitting</Def>: trying many rules and parameters on the same data and picking the best. The chosen rule fits the noise in these data (<Ref lesson="4.7" sec="anomalies" />, <Ref lesson="4.10" sec="error-maximization" />).
+- Trading costs, taxes and market impact: backtests often ignore them, and high-turnover strategies suffer most.
+- Changing conditions: interest rates, market structure and participants change, and patterns that worked in the past may stop working.
+
+<Check id="C4" />
+
+Ways to reduce these problems: use only data available at the time (by publication date, not by accounting period), use databases that include delisted securities, deduct realistic costs; fix the rules in advance, choose parameters on one stretch of data and test on another stretch not used before (out-of-sample testing, <Ref concept="out-of-sample" />), or proceed on a rolling basis through time; and record how many rules were tried in all.
+
+<Check id="C5" />
+
+## Summary [#summary]
+
+- Monte Carlo simulation generates many paths from an assumed distribution to give the distribution of wealth, its percentiles and the probability of reaching a goal.
+- The mean of wealth $e^{\mu t}$ is above the median $e^{(\mu - \sigma^2/2)t}$, and the gap grows with volatility; planning should look at the median and low percentiles.
+- Results depend on the assumed distribution, parameters and correlations; the bootstrap keeps fat tails, and adding parameter uncertainty widens long-run ranges.
+- Common biases in backtests: look-ahead bias, survivorship bias, overfitting, ignoring costs, changing conditions; test out of sample.
+
+## Exercises [#exercises]
+
+<Exercises />

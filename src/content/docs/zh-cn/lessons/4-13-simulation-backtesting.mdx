@@ -1,0 +1,73 @@
+---
+title: 4.13 模拟与回测方法
+description: 用蒙特卡洛模拟得到财富的分布；平均值、中位数与达成目标的概率；模型假设与参数不确定性的影响；回测与它的常见偏差。
+lesson: "4.13"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import FanChart from '../../../../components/widgets/FanChart.astro';
+
+## 蒙特卡洛模拟 [#monte-carlo]
+
+规划问题关心的往往不是一个预期值，而是结果的分布：30 年后的财富可能在什么范围？达到退休目标的概率是多少？有储蓄和提取时，这些问题很难用公式回答。<Def id="monte-carlo-simulation">蒙特卡洛模拟</Def>（Monte Carlo simulation）的做法是：按假设的收益分布随机生成很多条（例如 10,000 条）收益路径，对每条路径计算财富的变化，再统计终值的分布。
+
+最简单的假设是每年的对数收益独立、服从正态分布，均值为 $\mu - \frac{\sigma^2}{2}$（<Ref lesson="4.1" />），这时 $t$ 年后每 1 元的财富服从对数正态分布，分位数可以直接算出：
+
+$$
+W_t = \exp\!\left(\left(\mu - \frac{\sigma^2}{2}\right)t + z\,\sigma\sqrt{t}\right), \qquad E[W_t] = e^{\mu t}
+$$
+
+$z$ 是标准正态分布的分位数。<Ref fig="1-1" /> 就是按这个公式画出的；加入每年的储蓄或提取后，就需要模拟。
+
+<Figure id="1-1" title="每年对数收益独立、服从正态分布时，每 1 元投入 30 年内的财富分布。实线是中位数，虚线是平均值，深色和浅色区域分别是 25%–75% 和 5%–95% 分位数之间的范围。" observe="保持平均收益不变，把波动率从 18% 调到 30%，比较中位数和平均值的变化。">
+	<FanChart />
+</Figure>
+
+<Check id="C1" />
+
+<Check id="C2" />
+
+<Ref lesson="0.4" sec="mean-median" /> 已经说明，对数正态分布的平均值高于中位数。规划时用平均值描述“典型”结果，会让人过于乐观（<Ref check="Q1" />）。
+
+## 模型假设的影响 [#assumptions]
+
+模拟的结果完全取决于输入的假设：
+
+- 分布：正态分布低估了极端下跌的频率（<Ref lesson="0.4" sec="fat-tails" />）。另一种做法是<Def id="bootstrap">自助法</Def>（bootstrap）：从历史年份中有放回地随机抽取收益，保留历史数据的肥尾；按连续的几年成块抽取（block bootstrap），还能保留收益之间的相关性。
+- 参数：预期收益本身有很大的估计误差（<Ref lesson="4.10" />）。如果模拟时把 $\mu$ 当作确定的数，结果的分布会太窄。把参数的不确定性也加入模拟（每条路径先抽一个 $\mu$），长期结果的范围会明显变宽（<Ref check="Q2" />）。
+- 相关性和通胀：股债的相关性会变（<Ref lesson="2.8" />），名义和实际收益要分清。
+
+<Check id="C3" />
+
+模拟能做的，是把假设的含义算清楚，而不是消除不确定性。输入不可靠时，精确到小数点的成功概率只是虚假的精确；更有用的是比较不同假设下结论是否改变。
+
+## 回测 [#backtesting]
+
+<Def id="backtest">回测</Def>（backtest）是用历史数据检验一个投资策略：假设过去按策略的规则交易，计算会得到什么结果。回测很容易得到过于乐观的结果，常见的问题有：
+
+- <Def id="look-ahead-bias">前视偏差</Def>（look-ahead bias）：使用了当时还无法得到的信息。例如财务报表在会计年度结束几个月后才公布，指数成分股是事后才知道的，数据后来被修订过。
+- 幸存者偏差（<Ref concept="survivorship-bias" />）：只用现在还存在的股票或基金，漏掉了退市和清盘的。
+- <Def id="overfitting">过度拟合</Def>（overfitting）：在同一段数据上尝试很多种规则和参数，挑出表现最好的。挑出的规则适应的是这段数据中的噪声（<Ref lesson="4.7" sec="anomalies" />、<Ref lesson="4.10" sec="error-maximization" />）。
+- 交易成本、税和冲击成本：回测常常忽略它们，高换手的策略受影响最大。
+- 环境变化：利率、市场结构、参与者都会变，过去有效的规律可能不再有效。
+
+<Check id="C4" />
+
+减少这些问题的办法：只用当时可以得到的数据（按公布日期，而不是会计期间），使用包括已退市证券的数据库，扣除现实的成本；事先确定规则，在一段数据上选择参数，在另一段没有用过的数据上检验（样本外检验，<Ref concept="out-of-sample" />），或者按时间滚动进行；并记录一共试了多少种规则。
+
+<Check id="C5" />
+
+## 小结 [#summary]
+
+- 蒙特卡洛模拟按假设的分布生成很多条路径，得到财富的分布、分位数和达成目标的概率。
+- 财富的平均值 $e^{\mu t}$ 高于中位数 $e^{(\mu - \sigma^2/2)t}$，波动越大差距越大；规划应看中位数和低分位数。
+- 结果取决于分布、参数和相关性的假设；自助法保留肥尾，加入参数不确定性会使长期结果的范围变宽。
+- 回测的常见偏差：前视偏差、幸存者偏差、过度拟合、忽略成本、环境变化；要用样本外数据检验。
+
+## 练习题 [#exercises]
+
+<Exercises />

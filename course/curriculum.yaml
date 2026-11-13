@@ -445,7 +445,15 @@ stages:
         published: true
         introduces: [merton-share, human-capital, target-date-fund, glide-path]
         uses: [crra-utility, relative-risk-aversion, mean-variance-utility, present-value, annuity, diversification, firm-specific-risk, cape, standard-error]
-      - { id: "4.13", slug: "4-13-simulation-backtesting", title: { zh-cn: "模拟与回测方法", en: "Simulation and Backtesting Methods" } }
+      - id: "4.13"
+        slug: "4-13-simulation-backtesting"
+        title: { zh-cn: "模拟与回测方法", en: "Simulation and Backtesting Methods" }
+        summary:
+          zh-cn: "用蒙特卡洛模拟得到财富的分布；平均值、中位数与达成目标的概率；模型假设与参数不确定性的影响；回测与它的常见偏差。"
+          en: "Using Monte Carlo simulation to get the distribution of wealth; mean, median and the probability of reaching a goal; how model assumptions and parameter uncertainty matter; backtests and their common biases."
+        published: true
+        introduces: [monte-carlo-simulation, bootstrap, backtest, look-ahead-bias, overfitting]
+        uses: [volatility-drag, fat-tails, standard-error, multiple-testing, survivorship-bias, out-of-sample, error-maximization, sharpe-ratio, market-anomaly, fama-french-model]
       - { id: "T2", slug: "t2-quiz", exam: true, title: { zh-cn: "综合测验二：金融市场、证券估值与投资理论", en: "Comprehensive Quiz 2: Financial Markets, Valuation and Investment Theory" } }
 
   - id: "5"

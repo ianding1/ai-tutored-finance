@@ -2565,3 +2565,43 @@ glide-path:
   short:
     zh-cn: "股票比例随年龄（或离退休的年数）变化的曲线。"
     en: "The curve of the stock share against age (or years to retirement)."
+
+monte-carlo-simulation:
+  defined_in: "4.13"
+  zh-cn: 蒙特卡洛模拟
+  en: Monte Carlo simulation
+  short:
+    zh-cn: "按假设的分布随机生成很多条路径，统计结果的分布的方法。"
+    en: "A method that generates many random paths from an assumed distribution and tallies the distribution of outcomes."
+
+bootstrap:
+  defined_in: "4.13"
+  zh-cn: 自助法
+  en: bootstrap
+  short:
+    zh-cn: "从历史数据中有放回地随机抽样来模拟，保留历史分布的形状（如肥尾）。"
+    en: "Simulating by drawing at random with replacement from historical data, keeping the shape of the historical distribution (such as fat tails)."
+
+backtest:
+  defined_in: "4.13"
+  zh-cn: 回测
+  en: backtest
+  short:
+    zh-cn: "假设过去按某个策略的规则交易，用历史数据计算它的结果。"
+    en: "Computing, on historical data, what a strategy's rules would have produced if followed in the past."
+
+look-ahead-bias:
+  defined_in: "4.13"
+  zh-cn: 前视偏差
+  en: look-ahead bias
+  short:
+    zh-cn: "回测中使用了当时还无法得到的信息而产生的偏差。"
+    en: "Bias from using, in a backtest, information that was not available at the time."
+
+overfitting:
+  defined_in: "4.13"
+  zh-cn: 过度拟合
+  en: overfitting
+  short:
+    zh-cn: "在同一段数据上尝试很多规则或参数并挑出最好的，使结果适应了数据中的噪声。"
+    en: "Trying many rules or parameters on the same data and picking the best, so the result fits the noise in the data."

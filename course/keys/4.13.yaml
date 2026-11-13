@@ -1,0 +1,313 @@
+# Answer key for lesson 4.13. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[4.13#backtesting]] (section), [[concept:beta]], [[check:Q3]], [[fig:1-1]].
+# expected: values are recomputed by course/verify/4.13.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "4.13"
+
+context:
+  - zh-cn: |-
+      学习者学过正态与对数正态分布、均值与中位数、肥尾、标准误、多重检验（[[0.4]]）、算术与几何平均收益、波动拖累（[[4.1]]）、有效市场与异象（[[4.7]]）、幸存者偏差（[[4.9]]）、估计误差与样本外（[[4.10]]）、资本市场假设（[[4.11]]）、生命周期配置（[[4.12]]）。百分数用百分点表示。
+    en: |-
+      The learner has studied normal and lognormal distributions, mean and median, fat tails, standard errors and multiple testing ([[0.4]]), arithmetic and geometric average returns and volatility drag ([[4.1]]), market efficiency and anomalies ([[4.7]]), survivorship bias ([[4.9]]), estimation error and out-of-sample testing ([[4.10]]), capital market assumptions ([[4.11]]) and life-cycle allocation ([[4.12]]). Percentages in percentage points.
+  - concepts: [monte-carlo-simulation, bootstrap]
+    zh-cn: |-
+      讲义：蒙特卡洛模拟按假设分布生成很多条路径，统计终值分布。对数收益独立正态、均值 $\mu - \frac{\sigma^2}{2}$ 时，$W_t = \exp\left(\left(\mu - \frac{\sigma^2}{2}\right)t + z\sigma\sqrt{t}\right)$，$E[W_t] = e^{\mu t}$；平均值高于中位数。假设的影响：正态低估极端下跌，自助法（有放回抽取历史年份，块自助法保留相关性）；参数不确定性使长期分布更宽（留给练习题 Q2）；相关性和通胀。精确的成功概率可能是虚假的精确。[[fig:1-1]]：滑块 μ 2%–10%（步长 0.5，默认 7），σ 5%–30%（步长 1，默认 18）；μ = 7%、σ = 18% 时 30 年后平均值 8.17、中位数 5.02、5% 分位数 0.99，低于投入的概率约 5.1%；σ = 30% 时中位数 2.12，平均值不变。
+    en: |-
+      The lesson: Monte Carlo simulation generates many paths from an assumed distribution and tallies the distribution of final wealth. With independent normal log returns of mean $\mu - \frac{\sigma^2}{2}$, $W_t = \exp\left(\left(\mu - \frac{\sigma^2}{2}\right)t + z\sigma\sqrt{t}\right)$ and $E[W_t] = e^{\mu t}$; the mean exceeds the median. Effects of assumptions: the normal distribution understates extreme falls; the bootstrap (drawing historical years with replacement; the block bootstrap keeps correlation); parameter uncertainty widens long-run distributions (left to exercise Q2); correlations and inflation. A precise success probability can be false precision. [[fig:1-1]]: sliders μ 2%–10% (steps of 0.5, default 7) and σ 5%–30% (steps of 1, default 18); with μ = 7% and σ = 18%, after 30 years the mean is 8.17, the median 5.02, the 5% percentile 0.99, and the chance of ending below the amount invested about 5.1%; with σ = 30% the median is 2.12 and the mean unchanged.
+  - concepts: [backtest, look-ahead-bias, overfitting]
+    zh-cn: |-
+      讲义：回测的偏差：前视偏差（报表公布滞后、事后才知道的成分股、修订过的数据）、幸存者偏差、过度拟合（同一段数据上试很多规则）、忽略交易成本和税、环境变化。对策：按公布日期使用数据、包括退市证券、扣除现实成本、事先确定规则、样本外或滚动检验、记录试过的规则数。
+    en: |-
+      The lesson: biases in backtests: look-ahead bias (statements published with a lag, index members known only later, revised data), survivorship bias, overfitting (many rules tried on the same data), ignoring trading costs and taxes, changing conditions. Remedies: use data by publication date, include delisted securities, deduct realistic costs, fix rules in advance, test out of sample or on a rolling basis, record how many rules were tried.
+
+common_errors:
+  - questions: [Q1]
+    zh-cn: |-
+      用平均值（按算术平均收益复利）描述典型的长期结果，忽略中位数低于平均值以及结果的分布。
+    en: |-
+      Describing the typical long-run outcome by the mean (compounding the arithmetic average return), ignoring that the median is below the mean and ignoring the distribution of outcomes.
+  - questions: [Q2]
+    zh-cn: |-
+      模拟时把预期收益当作确定的数，低估长期结果的不确定性；不知道参数不确定性随期限增加得比收益波动更快。
+    en: |-
+      Treating the expected return as known in a simulation, understating the uncertainty of long-run outcomes; not knowing that parameter uncertainty grows with the horizon faster than return volatility does.
+  - questions: [Q3]
+    zh-cn: |-
+      相信回测结果，看不出前视偏差、幸存者偏差和过度拟合，也不扣除交易成本。
+    en: |-
+      Believing a backtest without spotting look-ahead bias, survivorship bias and overfitting, and without deducting trading costs.
+  - questions: [Q4]
+    zh-cn: |-
+      根据一段较短的样本外结果就断定策略失效（或有效），不考虑夏普比率估计的误差；不检查结果是否合理。
+    en: |-
+      Concluding from a short out-of-sample period that a strategy has failed (or works), without considering the estimation error of the Sharpe ratio; not checking whether the results are plausible.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: monte-carlo
+    concepts: [monte-carlo-simulation, volatility-drag]
+    widget: { id: fan-chart, set: { mu: 7, sigma: 18 } }
+    question:
+      zh-cn: |-
+        在 [[fig:1-1]] 中，保持平均收益 μ = 7%，把波动率从 18% 提高到 30%。30 年后财富的中位数和平均值会：
+      en: |-
+        In [[fig:1-1]], keep the mean return at μ = 7% and raise the volatility from 18% to 30%. After 30 years, the median and the mean of wealth:
+    choices:
+      - zh-cn: 中位数大幅下降，平均值不变
+        en: The median falls sharply and the mean is unchanged
+      - zh-cn: 两者都不变，因为平均收益没有变
+        en: Neither changes, because the mean return has not changed
+        why:
+          zh-cn: 平均值 $e^{\mu t}$ 确实不变。中位数 $e^{(\mu - \sigma^2/2)t}$ 中有 $\sigma$ 吗？
+          en: The mean $e^{\mu t}$ indeed does not change. Does the median $e^{(\mu - \sigma^2/2)t}$ contain $\sigma$?
+      - zh-cn: 两者都下降
+        en: Both fall
+        why:
+          zh-cn: 看图中的虚线：平均值 $e^{\mu t}$ 与 $\sigma$ 有关吗？
+          en: 'Look at the dashed line in the figure: does the mean $e^{\mu t}$ depend on $\sigma$?'
+      - zh-cn: 中位数上升，因为好的结果更好了
+        en: The median rises, because good outcomes are better
+        why:
+          zh-cn: 好的结果更好，提高的是平均值还是中位数？中位数的公式中，$\sigma$ 前面是什么符号？
+          en: Do better good outcomes raise the mean or the median? In the median's formula, what sign is in front of $\sigma$?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。平均值 $e^{0.07 \times 30} \approx 8.17$ 不变；中位数 $e^{(0.07 - \sigma^2/2) \times 30}$ 从约 5.02 降到约 2.12。波动越大，少数极好的路径把平均值拉得越高，而典型路径（中位数）因为波动拖累（[[4.1]]）越差。
+      en: |-
+        (A). The mean $e^{0.07 \times 30} \approx 8.17$ is unchanged; the median $e^{(0.07 - \sigma^2/2) \times 30}$ falls from about 5.02 to about 2.12. The larger the volatility, the more a few excellent paths pull the mean up, while the typical path (the median) does worse because of volatility drag ([[4.1]]).
+
+  - id: C2
+    kind: check
+    section: monte-carlo
+    concepts: [monte-carlo-simulation]
+    question:
+      zh-cn: |-
+        在 10,000 条模拟路径中，大约有一半路径的 30 年终值高于所有路径终值的平均值。
+      en: |-
+        Of 10,000 simulated paths, about half have a 30-year final wealth above the average final wealth of all paths.
+    correct: false
+    hint:
+      zh-cn: 想一想：对数正态分布是对称的吗？平均值和中位数哪个更大？一半路径高于的是哪一个？
+      en: 'Think: is the lognormal distribution symmetric? Which is larger, the mean or the median? Half the paths lie above which one?'
+    answer:
+      zh-cn: |-
+        错。一半路径高于的是中位数。终值的分布右偏，平均值高于中位数，所以高于平均值的路径少于一半。[[fig:1-1]] 的默认参数下，平均值 8.17 对应约 69% 的分位数，只有约 31% 的路径高于平均值。
+      en: |-
+        False. Half the paths lie above the median. The distribution of final wealth is skewed to the right and the mean is above the median, so fewer than half the paths end above the mean. With the default values in [[fig:1-1]], the mean of 8.17 sits at about the 69th percentile, so only about 31% of paths end above it.
+
+  - id: C3
+    kind: check
+    section: assumptions
+    concepts: [bootstrap, fat-tails]
+    question:
+      zh-cn: |-
+        用正态分布模拟年收益，与从历史年份中重抽样（自助法）相比，即使两者的平均值和波动率相同，正态模拟最可能低估的是：
+      en: |-
+        Compared with resampling historical years (the bootstrap), simulating annual returns from a normal distribution, even with the same mean and volatility, is most likely to understate:
+    choices:
+      - zh-cn: 极端下跌的频率
+        en: How often extreme falls happen
+      - zh-cn: 平均收益
+        en: The average return
+        why:
+          zh-cn: 题目说两者的平均值相同。差别在分布的哪个部分？
+          en: The question says the means are the same. Which part of the distribution differs?
+      - zh-cn: 波动率
+        en: The volatility
+        why:
+          zh-cn: 题目说两者的波动率相同。同样的波动率下，分布的形状还能有什么不同？
+          en: The question says the volatilities are the same. With the same volatility, how else can the shape of the distribution differ?
+      - zh-cn: 收益为正的年份的比例
+        en: The share of years with positive returns
+        why:
+          zh-cn: 想一想肥尾（[[0.4#fat-tails]]）：历史收益与正态分布最明显的差别在哪里？
+          en: 'Think of fat tails ([[0.4#fat-tails]]): where do historical returns differ most clearly from the normal distribution?'
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。历史收益有肥尾：大跌（例如 2008 年）出现的频率比同样波动率的正态分布预测的高。自助法直接抽取历史年份，保留了这些极端值；正态模拟会低估组合在坏情形下的损失和失败的概率。
+      en: |-
+        (A). Historical returns have fat tails: large falls (2008, for example) happen more often than a normal distribution with the same volatility predicts. The bootstrap draws historical years directly and keeps these extremes; a normal simulation understates the portfolio's losses in bad cases and the chance of failure.
+
+  - id: C4
+    kind: check
+    section: backtesting
+    concepts: [look-ahead-bias, backtest]
+    question:
+      zh-cn: |-
+        一个回测在每年 12 月 31 日，按公司当年全年的盈利增长选出股票并当天买入。这个回测最主要的问题是：
+      en: |-
+        A backtest picks stocks every December 31 by the companies' earnings growth for that full year and buys them the same day. The main problem with this backtest is:
+    choices:
+      - zh-cn: 前视偏差：全年盈利要到次年年报公布时才知道
+        en: 'Look-ahead bias: full-year earnings are known only when the annual report comes out the next year'
+      - zh-cn: 幸存者偏差
+        en: Survivorship bias
+        why:
+          zh-cn: 题目没有说只用了现存的公司。这里用到的信息在 12 月 31 日能得到吗？
+          en: The question does not say only surviving companies were used. Is the information used here available on December 31?
+      - zh-cn: 换手率太低
+        en: Turnover is too low
+        why:
+          zh-cn: 换手率影响成本，但这里有更根本的问题：买入时用的数据当时存在吗？
+          en: 'Turnover affects costs, but there is a more basic problem here: did the data used to buy exist at the time?'
+      - zh-cn: 没有问题，盈利增长是公开信息
+        en: There is no problem; earnings growth is public information
+        why:
+          zh-cn: 盈利增长什么时候变成公开信息？12 月 31 日公司公布全年盈利了吗？
+          en: When does earnings growth become public? Have companies published full-year earnings on December 31?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。年报通常在次年 2 月到 3 月才公布，12 月 31 日没有人知道全年的盈利。回测用了当时无法得到的信息，而盈利增长高的公司在公布前后股价往往上涨，回测结果会被严重高估。正确的做法是按公布日期使用数据，例如在次年 4 月以后才用上一年的盈利。
+      en: |-
+        (A). Annual reports usually come out in February or March of the next year, so on December 31 no one knows full-year earnings. The backtest uses information that was not available, and companies with high earnings growth tend to rise around the announcement, so the results are badly overstated. The right approach uses data by publication date, for example using the previous year's earnings only from April onward.
+
+  - id: C5
+    kind: check
+    section: backtesting
+    concepts: [overfitting, out-of-sample]
+    question:
+      zh-cn: |-
+        把一个策略的参数在全部历史数据上调到最优，再用同一段数据计算它的夏普比率，这个夏普比率可以作为将来夏普比率的无偏估计。
+      en: |-
+        If a strategy's parameters are tuned to be optimal on all the historical data and its Sharpe ratio is then computed on the same data, that Sharpe ratio is an unbiased estimate of its future Sharpe ratio.
+    correct: false
+    hint:
+      zh-cn: 想一想：参数是怎样选出来的？在同一段数据上表现最好的参数，它的表现中有多少来自数据中的噪声？
+      en: 'Think: how were the parameters chosen? For the parameters that did best on these data, how much of their performance comes from noise in the data?'
+    answer:
+      zh-cn: |-
+        错。挑选参数时已经利用了这段数据中的噪声，挑出来的参数在样本内的表现被系统地高估（与 [[4.10#error-maximization]] 的道理相同）。要估计将来的表现，必须用选择参数时没有用过的数据检验。
+      en: |-
+        False. Choosing the parameters already exploited the noise in these data, so the chosen parameters' in-sample performance is systematically overstated (the same reason as in [[4.10#error-maximization]]). Estimating future performance requires testing on data not used to choose the parameters.
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [monte-carlo-simulation, volatility-drag]
+    expected: { med: "502", mean: "817", p: "41" }
+    question:
+      zh-cn: |-
+        一位顾问为 35 岁的客户做规划：“你现在投资 10 万美元，股票平均每年 7%，30 年后就有 $10 \times 1.07^{30} \approx 76$ 万美元，加上其他储蓄，退休目标 40 万美元的这部分肯定没问题。”假设对数收益每年独立、服从正态分布，平均年收益 μ = 7%，波动率 18%（用连续复利 $e^{\mu t}$ 计算平均值）。
+        (a) 30 年后财富的中位数和平均值各是多少（千美元）？
+        (b) 财富低于 40 万美元的概率是多少？评价顾问的说法。
+      en: |-
+        An adviser plans for a 35-year-old client: "You invest 100,000 dollars now; stocks average 7% a year, so in 30 years you'll have $100{,}000 \times 1.07^{30} \approx 761{,}000$ dollars; with your other savings, the 400,000-dollar part of your retirement goal is certainly covered." Assume yearly log returns are independent and normal, with a mean annual return μ = 7% and a volatility of 18% (compute the mean with continuous compounding, $e^{\mu t}$).
+        (a) What are the median and the mean of wealth after 30 years (in thousands of dollars)?
+        (b) What is the probability that wealth is below 400,000 dollars? Evaluate the adviser's statement.
+    answer:
+      zh-cn: |-
+        (a) 中位数 $100 \times e^{(0.07 - 0.0162) \times 30} = 100 \times e^{1.614} \approx 502$ 千美元；平均值 $100 \times e^{0.07 \times 30} \approx 817$ 千美元。
+        (b) $P\left(z < \frac{\ln 4 - 1.614}{0.18\sqrt{30}}\right) = P\left(z < \frac{1.386 - 1.614}{0.986}\right) = P(z < -0.23) \approx 41\%$。顾问用平均收益复利，算的大约是平均值（这里约 76 万到 82 万美元），而典型结果（中位数）只有约 50 万美元；更重要的是，有约 41% 的可能达不到 40 万美元，远不是“肯定没问题”。应该看分布：中位数、低分位数和达成目标的概率，并据此决定储蓄和配置。
+      en: |-
+        (a) Median: $100 \times e^{(0.07 - 0.0162) \times 30} = 100 \times e^{1.614} \approx 502$ thousand dollars; mean: $100 \times e^{0.07 \times 30} \approx 817$ thousand dollars.
+        (b) $P\left(z < \frac{\ln 4 - 1.614}{0.18\sqrt{30}}\right) = P\left(z < \frac{1.386 - 1.614}{0.986}\right) = P(z < -0.23) \approx 41\%$. Compounding the average return, the adviser computes roughly the mean (here about 760,000 to 820,000 dollars), while the typical outcome (the median) is only about 500,000 dollars; more importantly, there is about a 41% chance of falling short of 400,000 dollars, far from "certainly covered". One should look at the distribution: the median, low percentiles and the probability of reaching the goal, and set saving and allocation accordingly.
+    rubric:
+      zh-cn:
+        - "(a) 通过：中位数约 502 千美元，平均值约 817 千美元。"
+        - "(b) 通过：概率约 41%，指出顾问算的是平均值、典型结果更低、目标并不确定。只算数字不评价，需要订正。"
+      en:
+        - "(a) OK: a median of about 502 thousand dollars and a mean of about 817 thousand dollars."
+        - "(b) OK: a probability of about 41%, with the points that the adviser computed the mean, the typical outcome is lower, and the goal is far from certain. Computing without evaluating needs revision."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [monte-carlo-simulation, standard-error]
+    expected: { sd1: "1.15", q0: "0.99", q1: "0.75" }
+    question:
+      zh-cn: |-
+        用 [[fig:1-1]] 的假设（μ = 7%，σ = 18%）模拟 30 年。实际上 μ 是估计值，标准误为 2 个百分点。如果每条路径先从均值 7%、标准差 2% 的正态分布中抽一个 μ，再模拟收益，30 年对数财富的方差约为 $\sigma^2 T + (\text{SE} \times T)^2$。
+        (a) 不考虑和考虑参数不确定性时，30 年对数财富的标准差各约为多少？两种情况下，每 1 元投入的 5% 分位数各约为多少（中位数按 $e^{1.614}$）？
+        (b) 为什么参数不确定性对长期结果的影响特别大？这对 30 年的退休规划和 [[4.12]] 中“长期投资者应多持有股票”的说法有什么含义？
+      en: |-
+        Simulate 30 years with the assumptions of [[fig:1-1]] (μ = 7%, σ = 18%). In fact μ is an estimate with a standard error of 2 points. If each path first draws a μ from a normal distribution with mean 7% and standard deviation 2% and then simulates returns, the variance of 30-year log wealth is about $\sigma^2 T + (\text{SE} \times T)^2$.
+        (a) Without and with parameter uncertainty, what is the standard deviation of 30-year log wealth? In each case, what is the 5% percentile of wealth per dollar invested (with the median at $e^{1.614}$)?
+        (b) Why does parameter uncertainty matter so much for long-run outcomes? What does this imply for 30-year retirement planning, and for the claim in [[4.12]] that long-term investors should hold more stocks?
+    answer:
+      zh-cn: |-
+        (a) 不考虑：$0.18\sqrt{30} \approx 0.99$；考虑：$\sqrt{0.0324 \times 30 + (0.02 \times 30)^2} = \sqrt{0.972 + 0.36} \approx 1.15$。5% 分位数：$e^{1.614 - 1.645 \times 0.986} \approx 0.99$ 元；$e^{1.614 - 1.645 \times 1.154} \approx 0.75$ 元。
+        (b) 收益的随机波动累计后方差随 $T$ 增加，而 μ 的误差在每一年都相同、会累积，方差随 $T^2$ 增加：期限越长，“不知道真实的 μ”比“每年的运气”越重要。30 年时，坏情形下的财富从约 0.99 元降到约 0.75 元。所以长期规划应该加入参数不确定性（或用更宽的范围），否则会高估成功的概率。这也说明长期持有股票的风险可能比按已知参数计算的更大，与“长期风险更小、应多持有股票”的说法相反（Pástor 和 Stambaugh，2012）。
+      en: |-
+        (a) Without: $0.18\sqrt{30} \approx 0.99$; with: $\sqrt{0.0324 \times 30 + (0.02 \times 30)^2} = \sqrt{0.972 + 0.36} \approx 1.15$. The 5% percentiles: $e^{1.614 - 1.645 \times 0.986} \approx 0.99$ dollars and $e^{1.614 - 1.645 \times 1.154} \approx 0.75$ dollars.
+        (b) Random yearly swings add up to a variance that grows with $T$, but an error in μ is the same every year and accumulates, so its variance grows with $T^2$: the longer the horizon, the more "not knowing the true μ" matters relative to "each year's luck". At 30 years, wealth in a bad case falls from about 0.99 to about 0.75 dollars. So long-run plans should include parameter uncertainty (or use wider ranges), or they will overstate the chance of success. It also suggests that holding stocks for the long run may be riskier than calculations with known parameters show, against the claim that long-run risk is smaller and long-term investors should hold more stocks (Pástor and Stambaugh, 2012).
+    rubric:
+      zh-cn:
+        - "(a) 通过：标准差约 0.99 和 1.15，5% 分位数约 0.99 和 0.75。"
+        - "(b) 通过：说明参数误差的方差随 $T^2$ 增加、收益波动随 $T$ 增加，因此长期影响更大，并说明对规划（成功概率被高估）和长期持股说法的含义。"
+      en:
+        - "(a) OK: standard deviations of about 0.99 and 1.15, and 5% percentiles of about 0.99 and 0.75."
+        - "(b) OK: explains that the variance from parameter error grows with $T^2$ while return volatility grows with $T$, so the long-run effect is larger, and states what this means for planning (overstated success probabilities) and for the claim about holding stocks for the long run."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [backtest, look-ahead-bias, overfitting, survivorship-bias]
+    expected: { cost: "2.16" }
+    question:
+      zh-cn: |-
+        一家机构推销一个动量策略：“我们用现在的标普 500 成分股做了 20 年回测：每月买入过去 12 个月涨幅最大的 50 只股票，年化收益 18%，同期指数 10%，夏普比率 1.2。”说明材料中提到：12 个月、50 只、每月调仓这组参数是从 200 种组合中选出的；回测没有扣除交易成本；每月的换手率约为 60%。
+        (a) 如果每 1 单位换手（卖出并买入）的成本约为 0.3%，交易成本每年约多少个百分点？
+        (b) 找出这个回测中的偏差，逐一说明每种偏差使结果偏高还是偏低、为什么。评价机构的说法。
+      en: |-
+        A firm markets a momentum strategy: "We backtested 20 years using the current S&P 500 members: each month we buy the 50 stocks that rose most over the past 12 months. The annualized return was 18%, against 10% for the index, with a Sharpe ratio of 1.2." The material mentions that the parameters (12 months, 50 stocks, monthly rebalancing) were chosen from 200 combinations; the backtest deducts no trading costs; and monthly turnover is about 60%.
+        (a) If each unit of turnover (selling and buying) costs about 0.3%, about how many percentage points a year do trading costs come to?
+        (b) Identify the biases in this backtest, and for each say whether it pushes the result up or down, and why. Evaluate the firm's claim.
+    answer:
+      zh-cn: |-
+        (a) $0.6 \times 12 \times 0.3\% = 2.16$ 个百分点每年。
+        (b) 偏差：① 幸存者偏差与前视偏差：用现在的成分股回测，等于事先知道哪些公司 20 年后会成为（或仍是）大公司；后来跌出指数、退市的股票被排除，而它们中很多在下跌之前也曾是涨幅大的股票，结果偏高。② 过度拟合：参数从 200 种组合中挑出，样本内的表现包含噪声，样本外很可能更差，结果偏高。③ 没有扣除成本：每年约 2.16 个百分点，加上高换手在应税账户中的短期资本利得税，结果偏高。④ 环境变化和动量的大幅亏损（例如 2009 年，[[4.6#fama-french]]）不一定在这段回测中充分体现。所以 8 个百分点的超额收益和 1.2 的夏普比率都被高估；动量溢价本身有学术证据，但这个回测不能说明扣除成本后能得到多少。应该要求用当时的成分股（包括退市股票）、扣除成本、在样本外检验的结果。
+      en: |-
+        (a) $0.6 \times 12 \times 0.3\% = 2.16$ percentage points a year.
+        (b) Biases: ① Survivorship and look-ahead bias: backtesting on current members amounts to knowing in advance which companies would be (or still be) large 20 years later; stocks that later dropped out of the index or were delisted are excluded, and many of them were also big winners before they fell, so the result is pushed up. ② Overfitting: the parameters were picked from 200 combinations, so in-sample performance includes noise and out-of-sample results are likely worse; pushed up. ③ No costs: about 2.16 points a year, plus short-term capital gains tax on high turnover in taxable accounts; pushed up. ④ Changing conditions and momentum's large crashes (for example 2009, [[4.6#fama-french]]) may not be fully reflected in this period. So both the 8-point excess return and the Sharpe ratio of 1.2 are overstated; the momentum premium has academic support, but this backtest does not show how much would be earned after costs. One should ask for results using the members at each point in time (including delisted stocks), net of costs, and tested out of sample.
+    rubric:
+      zh-cn:
+        - "(a) 通过：每年约 2.16 个百分点。"
+        - "(b) 通过：至少指出幸存者或前视偏差（现在的成分股）、过度拟合（200 种组合）和未扣成本三种，说明方向都使结果偏高，并给出合理的结论。漏掉其中两种以上，或认为回测可信，需要订正。"
+      en:
+        - "(a) OK: about 2.16 percentage points a year."
+        - "(b) OK: identifies at least survivorship or look-ahead bias (current members), overfitting (200 combinations) and no costs, says each pushes the result up, and reaches a sound conclusion. Missing two or more of these, or finding the backtest credible, needs revision."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [out-of-sample, overfitting, sharpe-ratio]
+    expected: { se_in: "0.32", se_out: "0.45" }
+    question:
+      zh-cn: |-
+        一个策略在 10 年的样本内夏普比率为 1.2，之后 5 年的样本外夏普比率为 0.3。年夏普比率估计的标准误约为 $\frac{1}{\sqrt{T}}$（$T$ 为年数）。
+        (a) 样本内和样本外夏普比率的标准误各约为多少？两者之差的 t 值约是多少（两段数据独立）？
+        (b) 一位同事说：“样本外只有 0.3，策略已经失效了。”另一位说：“5 年太短，样本外的结果不说明问题，应该相信样本内的 1.2。”分别评价。再从合理性的角度看：一个简单策略的夏普比率为 1.2，与市场的夏普比率（约 0.3 到 0.4）相比说明什么？
+      en: |-
+        A strategy has an in-sample Sharpe ratio of 1.2 over 10 years and an out-of-sample Sharpe ratio of 0.3 over the next 5 years. The standard error of an estimated annual Sharpe ratio is about $\frac{1}{\sqrt{T}}$ ($T$ in years).
+        (a) What are the standard errors of the in-sample and out-of-sample Sharpe ratios? What is the t-value of their difference (the two periods are independent)?
+        (b) One colleague says: "Out of sample it's only 0.3, so the strategy has stopped working." Another says: "5 years is too short; the out-of-sample result says nothing, so trust the in-sample 1.2." Evaluate each. Then, on plausibility: what does a Sharpe ratio of 1.2 for a simple strategy suggest, compared with the market's Sharpe ratio (about 0.3 to 0.4)?
+    answer:
+      zh-cn: |-
+        (a) 样本内 $\frac{1}{\sqrt{10}} \approx 0.32$，样本外 $\frac{1}{\sqrt{5}} \approx 0.45$。差 0.9，标准误 $\sqrt{0.1 + 0.2} \approx 0.55$，t 值约 1.64。
+        (b) 两种说法都太绝对。样本外 0.3 的误差很大（±0.9 左右），不足以断定策略失效；但样本内的 1.2 很可能因为过度拟合而偏高，不能“相信”。两者之差的 t 值约 1.6，说明样本内和样本外的差距相当可观，与样本内被高估一致。合理性检查：一个简单的规则，夏普比率是市场的三到四倍，在竞争激烈的市场中很难持续（[[4.7]]）；这本身就提示样本内结果包含了噪声。比较合理的估计介于两者之间、更接近样本外，并且要扣除成本；同时要问这个策略是从多少种中选出来的。
+      en: |-
+        (a) In sample $\frac{1}{\sqrt{10}} \approx 0.32$; out of sample $\frac{1}{\sqrt{5}} \approx 0.45$. The difference is 0.9 with a standard error of $\sqrt{0.1 + 0.2} \approx 0.55$, a t-value of about 1.64.
+        (b) Both statements are too absolute. The out-of-sample 0.3 has a large error (about ±0.9), not enough to conclude the strategy has failed; but the in-sample 1.2 is probably inflated by overfitting and cannot simply be "trusted". A t-value of about 1.6 for the difference means the gap between in-sample and out-of-sample is sizable, consistent with an overstated in-sample result. Plausibility: a simple rule with three to four times the market's Sharpe ratio is hard to sustain in a competitive market ([[4.7]]), which itself suggests the in-sample result contains noise. A more reasonable estimate lies between the two, closer to the out-of-sample figure, and net of costs; one should also ask how many strategies it was chosen from.
+    rubric:
+      zh-cn:
+        - "(a) 通过：约 0.32 和 0.45，差的 t 值约 1.6。"
+        - "(b) 通过：指出样本外误差大、不能断定失效，样本内又因过度拟合偏高，并用夏普比率与市场的比较做合理性检查。只同意其中一位同事，需要订正。"
+      en:
+        - "(a) OK: about 0.32 and 0.45, and a t-value of about 1.6 for the difference."
+        - "(b) OK: says the out-of-sample error is too large to conclude failure, that the in-sample figure is inflated by overfitting, and uses the comparison with the market's Sharpe ratio as a plausibility check. Siding with only one colleague needs revision."
