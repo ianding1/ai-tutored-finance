@@ -297,22 +297,22 @@ questions:
       zh-cn: |-
         一份研究报告说：“我们用 1881 年到 2024 年的月度数据，回归 CAPE 与之后 10 年的年化收益，约 1,600 个观测值，R² 为 0.4。观测值这么多，结论非常可靠。根据这个关系，CAPE 超过 25 时应该减少股票，低于 15 时增加股票。”
         (a) 这段时期大约有多少个不重叠的 10 年时期？为什么重叠的观测会使结论看起来比实际更可靠？
-        (b) 美国的 CAPE 在 1990 年代以来大多高于 25。评价“CAPE 超过 25 就减少股票”的规则，并说明 CAPE 适合怎样使用。
+        (b) 1990 年代后期以来，美国的 CAPE 常常高于 25。评价“CAPE 超过 25 就减少股票”的规则，并说明 CAPE 适合怎样使用。
       en: |-
         A research report says: "Using monthly data from 1881 to 2024, we regress the annualized return over the next 10 years on CAPE: about 1,600 observations, with an R² of 0.4. With so many observations, the conclusion is very reliable. By this relation, investors should cut stocks when CAPE is above 25 and add stocks when it is below 15."
         (a) About how many non-overlapping 10-year periods are there in this span? Why do overlapping observations make the conclusion look more reliable than it is?
-        (b) US CAPE has mostly been above 25 since the 1990s. Evaluate the rule "cut stocks when CAPE is above 25", and explain how CAPE is better used.
+        (b) Since the late 1990s, US CAPE has often been above 25. Evaluate the rule "cut stocks when CAPE is above 25", and explain how CAPE is better used.
     answer:
       zh-cn: |-
         (a) 1881 年到 2024 年约 143 年，不重叠的 10 年时期约 14 个。相邻月份的 10 年收益有 119 个月相同，几乎是同一个观测；把 1,600 个观测当作独立的，会严重低估标准误、高估显著性。真正的信息量接近十几个观测，R² 0.4 在这么少的独立观测下误差很大，而且可能受少数几个时期（如 1929 年、2000 年）影响。
-        (b) 按这个规则，1990 年代以来大部分时间都会减少股票，错过了股市的大幅上涨，说明估值的“正常”水平可能已经变了（会计准则、回购、行业构成），或者回归需要的时间比想象的长得多，而且这种规则还要交易成本和税。CAPE 更适合用来形成长期预期收益的假设（估值变化这一块，取一个范围），影响储蓄和规划的数字，而不是用作择时的开关；如果要根据估值调整配置，也应是小幅、渐进的。
+        (b) 按这个规则，1990 年代后期以来的很多年份都会减少股票，错过了股市的大幅上涨，说明估值的“正常”水平可能已经变了（会计准则、回购、行业构成），或者回归需要的时间比想象的长得多，而且这种规则还要交易成本和税。CAPE 更适合用来形成长期预期收益的假设（估值变化这一块，取一个范围），影响储蓄和规划的数字，而不是用作择时的开关；如果要根据估值调整配置，也应是小幅、渐进的。
       en: |-
         (a) 1881 to 2024 is about 143 years, giving about 14 non-overlapping 10-year periods. The 10-year returns of neighboring months share 119 of their 120 months and are nearly the same observation; treating 1,600 observations as independent badly understates standard errors and overstates significance. The real amount of information is close to a dozen or so observations, so an R² of 0.4 is very uncertain and may be driven by a few periods (such as 1929 and 2000).
-        (b) Under this rule, an investor would have held fewer stocks for most of the time since the 1990s and missed large gains, which suggests that the "normal" level of valuations may have changed (accounting rules, buybacks, industry mix) or that reversion takes much longer than expected; the rule also incurs trading costs and taxes. CAPE is better used to form long-run expected-return assumptions (the valuation piece, as a range) that feed savings and planning numbers, not as an on–off switch for timing; any valuation-based change in allocation should be small and gradual.
+        (b) Under this rule, an investor would have held fewer stocks in many of the years since the late 1990s and missed large gains, which suggests that the "normal" level of valuations may have changed (accounting rules, buybacks, industry mix) or that reversion takes much longer than expected; the rule also incurs trading costs and taxes. CAPE is better used to form long-run expected-return assumptions (the valuation piece, as a range) that feed savings and planning numbers, not as an on–off switch for timing; any valuation-based change in allocation should be small and gradual.
     rubric:
       zh-cn:
         - "(a) 通过：约 14 个不重叠的时期，并说明重叠观测几乎相同，会低估标准误。只说“观测值多”或认为 1,600 个独立观测，需要订正。"
-        - "(b) 通过：指出规则在 1990 年代以来会长期低配股票，正常水平可能变化或回归很慢，CAPE 更适合用于长期假设而非择时。同意报告的规则，需要订正。"
+        - "(b) 通过：指出规则在 1990 年代后期以来会长期低配股票，正常水平可能变化或回归很慢，CAPE 更适合用于长期假设而非择时。同意报告的规则，需要订正。"
       en:
         - "(a) OK: about 14 non-overlapping periods, with the point that overlapping observations are nearly identical and make standard errors too small. Treating them as 1,600 independent observations needs revision."
-        - "(b) OK: says the rule would have kept stocks underweight for long stretches since the 1990s, that the normal level may have changed or reversion is slow, and that CAPE is better used for long-run assumptions than for timing. Agreeing with the report's rule needs revision."
+        - "(b) OK: says the rule would have kept stocks underweight for long stretches since the late 1990s, that the normal level may have changed or reversion is slow, and that CAPE is better used for long-run assumptions than for timing. Agreeing with the report's rule needs revision."

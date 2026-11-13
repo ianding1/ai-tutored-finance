@@ -29,7 +29,7 @@ import ShrinkageWeights from '../../../../components/widgets/ShrinkageWeights.as
 
 <Check id="C2" />
 
-不同输入的误差影响也不同。Chopra 和 Ziemba（1993）发现，对一个中等风险厌恶的投资者，预期收益的误差造成的损失约为方差误差的 10 倍，方差误差又约为协方差误差的 2 倍。DeMiguel、Garlappi 和 Uppal（2009）比较了多种优化方法在<Def id="out-of-sample">样本外</Def>（out-of-sample，即用估计时没有用过的数据）的表现，发现在常见的数据长度下，大多数方法都没有稳定地胜过简单的等权组合（每项资产 $\frac{1}{N}$）。
+不同输入的误差影响也不同。Chopra 和 Ziemba（1993）发现，对一个中等风险厌恶的投资者，预期收益的误差造成的损失约为方差误差的 11 倍，方差误差又约为协方差误差的 2 倍。这个比较后来受到质疑：资产很多时，协方差矩阵的误差会迅速增大，也可能成为主要问题（见下一节）。DeMiguel、Garlappi 和 Uppal（2009）比较了多种优化方法在<Def id="out-of-sample">样本外</Def>（out-of-sample，即用估计时没有用过的数据）的表现，发现在常见的数据长度下，大多数方法都没有稳定地胜过简单的等权组合（每项资产 $\frac{1}{N}$）。
 
 ## 协方差的估计 [#covariance]
 

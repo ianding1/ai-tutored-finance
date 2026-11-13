@@ -10660,8 +10660,8 @@
   "zh-cn": "49b28a3ea14eb3d5"
  },
  "course/keys/4.10.yaml#context[2]": {
-  "en": "1dd0a2a22d80650a",
-  "zh-cn": "c549c3baac44c4f3"
+  "en": "f418e67363c8636f",
+  "zh-cn": "d8903a30261c9fab"
  },
  "course/keys/4.10.yaml#context[3]": {
   "en": "dc8fae05b5876d86",
@@ -11048,16 +11048,16 @@
   "zh-cn": "e490632f30be8ece"
  },
  "course/keys/4.11.yaml#questions[Q4].answer": {
-  "en": "f231f79b03c294c3",
-  "zh-cn": "8ad7183a505c3053"
+  "en": "be54b622c48cd3dc",
+  "zh-cn": "b2f8141d64544773"
  },
  "course/keys/4.11.yaml#questions[Q4].question": {
-  "en": "57e3408c6dc53a79",
-  "zh-cn": "ec5eb1f90bb9e888"
+  "en": "adbee951d8d08639",
+  "zh-cn": "cd5222fe9123a9d7"
  },
  "course/keys/4.11.yaml#questions[Q4].rubric": {
-  "en": "28817d167746d895",
-  "zh-cn": "ec269b31d4929316"
+  "en": "ab1ef866319901c8",
+  "zh-cn": "cc44a8068c9fdc3d"
  },
  "course/keys/4.12.yaml#common_errors[0]": {
   "en": "0e8bfe7281f9cc11",
@@ -12148,8 +12148,8 @@
   "zh-cn": "91413006a644e4b3"
  },
  "course/keys/4.5.yaml#context[2]": {
-  "en": "0b4f73f875be6cf1",
-  "zh-cn": "35297339d8347c63"
+  "en": "bb09b4279aa3d19c",
+  "zh-cn": "ce34b1c718491406"
  },
  "course/keys/4.5.yaml#context[3]": {
   "en": "c4687012b40e1f15",
@@ -12392,8 +12392,8 @@
   "zh-cn": "986807df52a35c63"
  },
  "course/keys/4.6.yaml#context[3]": {
-  "en": "268f2e5fc82c3feb",
-  "zh-cn": "96515007689c523d"
+  "en": "a7fce8a3962cab0b",
+  "zh-cn": "4a3d3645959235d6"
  },
  "course/keys/4.6.yaml#context[4]": {
   "en": "a51d320d11efca90",
@@ -12636,8 +12636,8 @@
   "zh-cn": "a3425610da010e05"
  },
  "course/keys/4.7.yaml#context[4]": {
-  "en": "60a78a2e712d6eb2",
-  "zh-cn": "54e3d82e31e45bfe"
+  "en": "8039c7a1b7b88338",
+  "zh-cn": "d88a4ac23065e5fb"
  },
  "course/keys/4.7.yaml#questions[C1].answer": {
   "en": "aeed70c08c1932f6",
@@ -12848,8 +12848,8 @@
   "zh-cn": "ba1b63e000c2201f"
  },
  "course/keys/4.8.yaml#context[3]": {
-  "en": "08b68cd268dbb370",
-  "zh-cn": "d760246bb93bb9ec"
+  "en": "e59cfa284e4897b8",
+  "zh-cn": "3867c9ca4f72ba5e"
  },
  "course/keys/4.8.yaml#questions[C1].answer": {
   "en": "b3b0222df4cc982f",
@@ -13604,8 +13604,8 @@
   "zh-cn": "e9b869c5996f2deb"
  },
  "src/content/docs/<lang>/lessons/4-10-estimation-error.mdx": {
-  "en": "bcf8e134acfb75f7",
-  "zh-cn": "6d0fe5366efd7cc4"
+  "en": "528e187a2b848eff",
+  "zh-cn": "c1d5a4c360629462"
  },
  "src/content/docs/<lang>/lessons/4-11-capital-market-assumptions.mdx": {
   "en": "99f9eca831a4eab2",
@@ -13632,20 +13632,20 @@
   "zh-cn": "c22431323199b602"
  },
  "src/content/docs/<lang>/lessons/4-5-single-index-model.mdx": {
-  "en": "4f6812c671d13c89",
-  "zh-cn": "574d86b0bc46c321"
+  "en": "ffa9bbfe14e85261",
+  "zh-cn": "27797fa30a114d65"
  },
  "src/content/docs/<lang>/lessons/4-6-multifactor-models.mdx": {
-  "en": "3f26fb85b0010027",
-  "zh-cn": "8bb392cc711f5abc"
+  "en": "78a5e74ffae52ac0",
+  "zh-cn": "9d741a3cecdf963a"
  },
  "src/content/docs/<lang>/lessons/4-7-market-efficiency.mdx": {
-  "en": "c9d9d17da3608c94",
-  "zh-cn": "641f33c4fc234f6d"
+  "en": "85dd04d7045746ce",
+  "zh-cn": "256d7e420d9e82fb"
  },
  "src/content/docs/<lang>/lessons/4-8-behavioral-finance.mdx": {
-  "en": "e176c26b1b72de82",
-  "zh-cn": "91568e5aa8655e63"
+  "en": "3243677656cba2c2",
+  "zh-cn": "f6c1a041c870a124"
  },
  "src/content/docs/<lang>/lessons/4-9-performance-evaluation.mdx": {
   "en": "2515d67ebbe125f4",
