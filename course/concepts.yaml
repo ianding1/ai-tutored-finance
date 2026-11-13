@@ -2229,3 +2229,67 @@ adjusted-beta:
   short:
     zh-cn: "把回归估计的 beta 向 1（或其他参照值）收缩后的值，常用 (2/3)β̂ + 1/3，用来减少估计误差。"
     en: "A regression beta shrunk toward 1 (or another reference value), commonly (2/3)β̂ + 1/3, to reduce estimation error."
+
+multifactor-model:
+  defined_in: "4.6"
+  zh-cn: 多因子模型
+  en: multifactor model
+  short:
+    zh-cn: "用几个共同因子描述资产收益的模型：R_i − r_f = α_i + Σ β_ik F_k + e_i。"
+    en: "A model that describes asset returns with several common factors: R_i − r_f = α_i + Σ β_ik F_k + e_i."
+
+factor-loading:
+  defined_in: "4.6"
+  zh-cn: 因子暴露
+  en: factor loading
+  short:
+    zh-cn: "资产收益对某个因子的敏感度，即多因子模型中该因子的系数；也叫因子 beta。"
+    en: "How sensitive an asset's return is to a factor: the factor's coefficient in a multifactor model; also called a factor beta."
+
+arbitrage:
+  defined_in: "4.6"
+  zh-cn: 套利
+  en: arbitrage
+  short:
+    zh-cn: "不花钱、没有风险却有正收益的交易。"
+    en: "A trade that costs nothing, has no risk and has a positive return."
+
+arbitrage-pricing-theory:
+  defined_in: "4.6"
+  zh-cn: 套利定价理论
+  en: arbitrage pricing theory
+  short:
+    zh-cn: "在多因子模型和无套利的假设下，预期超额收益等于各因子暴露乘以因子风险溢价之和；APT。"
+    en: "Under a multifactor model and no arbitrage, the expected excess return equals the sum of the factor loadings times the factor risk premia; APT."
+
+factor-risk-premium:
+  defined_in: "4.6"
+  zh-cn: 因子风险溢价
+  en: factor risk premium
+  short:
+    zh-cn: "对某个因子暴露为 1、对其他因子暴露为 0 的组合的预期超额收益。"
+    en: "The expected excess return of a portfolio with a loading of 1 on one factor and 0 on the others."
+
+fama-french-model:
+  defined_in: "4.6"
+  zh-cn: Fama–French 三因子模型
+  en: Fama–French three-factor model
+  short:
+    zh-cn: "用市场、规模（SMB）和价值（HML）三个因子描述股票收益的模型；五因子模型再加盈利能力和投资因子。"
+    en: "A model that describes stock returns with three factors: the market, size (SMB) and value (HML); the five-factor model adds profitability and investment factors."
+
+momentum:
+  defined_in: "4.6"
+  zh-cn: 动量
+  en: momentum
+  short:
+    zh-cn: "过去 3 到 12 个月涨得多的股票接下来几个月平均继续跑赢跌得多的股票的现象。"
+    en: "The tendency of stocks that rose most over the past 3 to 12 months to keep beating those that fell most over the next few months."
+
+smart-beta:
+  defined_in: "4.6"
+  zh-cn: smart beta
+  en: smart beta
+  short:
+    zh-cn: "按规则构建、偏向某些因子（价值、小盘、动量等）的指数基金；也叫因子投资。"
+    en: "Rule-based index funds tilted toward some factors (value, small size, momentum and so on); also called factor investing."

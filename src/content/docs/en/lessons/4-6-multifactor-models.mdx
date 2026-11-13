@@ -1,0 +1,103 @@
+---
+title: 4.6 Multifactor Models
+description: Multifactor models and factor loadings; arbitrage pricing theory (APT); the Fama–French three- and five-factor models and momentum; factor investing (smart beta) and its problems.
+lesson: "4.6"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import FactorAlpha from '../../../../components/widgets/FactorAlpha.astro';
+
+## More than one common factor [#model]
+
+<Ref lesson="4.5" sec="uses" /> pointed out that the single-index model misses common moves other than the market's: companies in the same industry, small companies, and value stocks each rise and fall together. A <Def id="multifactor-model">multifactor model</Def> describes stock returns with several common factors:
+
+$$
+R_i - r_f = \alpha_i + \beta_{i1} F_1 + \beta_{i2} F_2 + \cdots + \beta_{iK} F_K + e_i
+$$
+
+$F_k$ is the return or surprise of the $k$-th factor, $\beta_{ik}$ is stock $i$'s <Def id="factor-loading">factor loading</Def> (also called its factor beta) on it, and $e_i$ is still the company's own part. Factors can be surprises in macroeconomic variables, such as industrial production, inflation, the spread between long and short rates, and the credit spread (Chen, Roll and Ross, 1986); or returns on portfolios built from some characteristic, such as the size and value factors below.
+
+Factor loadings are estimated by regressing the stock's return on several factors at once (multiple regression). Each coefficient measures how a change in that factor affects the return when the other factors are held fixed. In a regression on the market alone, if the omitted factors are correlated with the market, the estimate of the market beta picks up part of their effect (<Ref lesson="0.5" sec="omitted-variable" />).
+
+As in the single-index model, if the factors are uncorrelated with each other and the companies' residuals are uncorrelated, the covariance between two stocks comes only from the common factors:
+
+$$
+\sigma_{ij} = \sum_{k} \beta_{ik}\beta_{jk}\sigma^2_{F_k} \qquad (i \neq j)
+$$
+
+<Check id="C1" />
+
+## Arbitrage pricing theory [#apt]
+
+The CAPM derives expected returns from investors' preferences and the market portfolio. The <Def id="arbitrage-pricing-theory">arbitrage pricing theory</Def> (APT) of Ross (1976) takes another route: it assumes only that returns follow a multifactor model and that the market offers no opportunity for <Def id="arbitrage">arbitrage</Def>, that is, no portfolio that costs nothing, has no risk and has a positive return.
+
+A well-diversified portfolio has almost no firm-specific risk (<Ref lesson="4.5" sec="decomposition" />), so its risk is set entirely by its factor loadings. Two well-diversified portfolios with the same factor loadings must therefore have the same expected return; otherwise investors could build a portfolio that costs nothing, has no risk and has a positive return, and their trading would move prices until the difference disappeared.
+
+<Check id="C2" />
+
+Extending this argument to any factor loadings gives the APT pricing formula:
+
+$$
+E[R_i] - r_f = \beta_{i1}\lambda_1 + \beta_{i2}\lambda_2 + \cdots + \beta_{iK}\lambda_K
+$$
+
+$\lambda_k$ is the <Def id="factor-risk-premium">factor risk premium</Def> of the $k$-th factor: the expected excess return of a portfolio with a loading of 1 on that factor and 0 on the others. With a single factor that is the market, the formula is the security market line; but the APT derivation needs neither the market portfolio nor the assumption that investors care only about mean and variance. The price is that the APT does not say which factors there are or how large their premia are; these must be found in the data (<Ref check="Q1" />).
+
+## The Fama–French factors [#fama-french]
+
+<Ref lesson="4.4" sec="evidence" /> mentioned that beta does not explain the higher average returns of small companies' stocks and of stocks with low price-to-book ratios (<Ref concept="price-to-book" />). Fama and French (1993) therefore added two factors to the market, giving the <Def id="fama-french-model">Fama–French three-factor model</Def>:
+
+$$
+R_i - r_f = \alpha_i + b_i (R_M - r_f) + s_i\,\text{SMB} + h_i\,\text{HML} + e_i
+$$
+
+- SMB (small minus big): the return on a portfolio of small stocks minus that on a portfolio of large stocks, by market value.
+- HML (high minus low): the return on a portfolio with high book-to-market ratios (that is, low price-to-book: value stocks) minus that on a portfolio with low book-to-market ratios (high price-to-book: growth stocks).
+
+Both factors are zero-cost portfolios that buy one group and short another, so they measure the difference in returns between two kinds of stocks. Fama and French (2015) added a profitability factor RMW (robust minus weak profitability) and an investment factor CMA (conservative minus aggressive investment) to form a five-factor model.
+
+Another common factor is <Def id="momentum">momentum</Def>: stocks that rose most over the past 3 to 12 months go on, on average, to beat those that fell most over the next few months (Jegadeesh and Titman, 1993). Carhart (1997) added a momentum factor UMD (up minus down) to the three-factor model, and it is often used to evaluate funds.
+
+In the US data of Kenneth French's data library (since 1927), HML has averaged about 4 percentage points a year, SMB about 2 and momentum about 7. But these premia are very unstable: value stocks mostly lagged growth stocks from 2007 to 2020, and momentum can suddenly lose heavily; it lost more than 70% from March to May 2009 (Daniel and Moskowitz, 2016).
+
+Are these premia compensation for risk, or mispricing? One explanation holds that value stocks are often companies in difficulty that do especially badly in recessions, bearing a risk that beta does not measure; another holds that investors overreact to bad news and push value stocks too low. <Ref lesson="4.7" /> and <Ref lesson="4.8" /> discuss the two views.
+
+One direct use of factor models is to measure alpha again. A fund tilted toward small value stocks may have a positive alpha by the CAPM, but part of it may be just the return from its loadings on the size and value factors.
+
+<Figure id="3-1" title="Two ways of splitting the average excess return of a fund with a market beta of 1 and a three-factor alpha of 0. The average premia of the market, SMB and HML are assumed to be 6, 2 and 3 percentage points a year, and the factors are uncorrelated." observe="First set the value loading h to 0 and then to a negative value, and watch how the alpha in the CAPM row changes; then look at the three-factor row.">
+	<FactorAlpha />
+</Figure>
+
+<Check id="C3" />
+
+<Check id="C4" />
+
+## Factor investing [#smart-beta]
+
+If factor premia exist, investors need not pick fund managers; they can hold stocks with high factor loadings directly, following rules. Index funds built by rules and tilted toward some factors are called <Def id="smart-beta">smart beta</Def> (also factor investing): value, small size, momentum, quality (high profitability), low volatility and so on. Their fees are usually lower than those of actively managed funds and higher than those of cap-weighted index funds.
+
+Factor investing has several problems:
+
+- Premia may shrink after they are discovered. McLean and Pontiff (2016) studied 97 return anomalies from the academic literature and found that their returns were on average 26% lower after the original studies' sample periods and 58% lower after publication.
+- Researchers have tested hundreds of factors (Harvey, Liu and Zhu, 2016), and some of them are just luck (<Ref concept="multiple-testing" />).
+- Smart beta funds usually only buy, so they get only the "buy one group" half, while the factor return is a long-short difference.
+- Factors such as momentum have high turnover, and trading costs eat part of the return; when much money chases the same factor, its premium may also be pushed down.
+- A factor portfolio differs a great deal from the market and may lag the market index for years in a row.
+
+<Check id="C5" />
+
+## Summary [#summary]
+
+- Multifactor model: $R_i - r_f = \alpha_i + \sum_k \beta_{ik}F_k + e_i$; loadings are estimated by multiple regression, and covariances come from the common factors.
+- APT: under a multifactor model and no arbitrage, $E[R_i] - r_f = \sum_k \beta_{ik}\lambda_k$; it needs no market portfolio but does not name the factors.
+- Fama–French three factors: market, SMB, HML; five factors add RMW and CMA; Carhart adds momentum, UMD.
+- Returns from factor loadings show up as alpha in the CAPM; measured with a factor model, the alpha may disappear.
+- Smart beta captures factor loadings by rules; unstable premia that shrink after publication, long-only positions, costs and long stretches of lagging the market all need to be considered.
+
+## Exercises [#exercises]
+
+<Exercises />

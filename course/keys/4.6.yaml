@@ -1,0 +1,338 @@
+# Answer key for lesson 4.6. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[4.6#apt]] (section), [[concept:beta]], [[check:Q3]], [[fig:3-1]].
+# expected: values are recomputed by course/verify/4.6.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "4.6"
+
+context:
+  - zh-cn: |-
+      学习者学过协方差和组合方差（[[0.3]]）、标准误、置信区间和多重检验（[[0.4]]）、回归和遗漏变量偏差（[[0.5]]）、市净率（[[3.11]]）、卖空（[[4.2]]）、CAPM、beta 和 alpha（[[4.4]]）、单指数模型、系统性风险与特质风险（[[4.5]]）。讲义还没有讲有效市场假说（[[4.7]]）、行为金融（[[4.8]]）和业绩评估（[[4.9]]）。百分数用百分点表示，方差用 %²。
+    en: |-
+      The learner has studied covariance and portfolio variance ([[0.3]]), standard errors, confidence intervals and multiple testing ([[0.4]]), regression and omitted variable bias ([[0.5]]), the price-to-book ratio ([[3.11]]), short selling ([[4.2]]), the CAPM, beta and alpha ([[4.4]]), and the single-index model, systematic and firm-specific risk ([[4.5]]). The lesson has not yet covered the efficient market hypothesis ([[4.7]]), behavioral finance ([[4.8]]) or performance evaluation ([[4.9]]). Percentages in percentage points; variance in %².
+  - concepts: [multifactor-model, factor-loading]
+    zh-cn: |-
+      讲义：$R_i - r_f = \alpha_i + \sum_k \beta_{ik}F_k + e_i$；因子可以是宏观变量的意外变化（Chen、Roll 和 Ross，1986）或按特征构造的组合收益。因子暴露用多元回归估计，每个系数是其他因子不变时的影响；只对市场回归会有遗漏变量偏差。因子互不相关、残差两两不相关时 $\sigma_{ij} = \sum_k \beta_{ik}\beta_{jk}\sigma^2_{F_k}$。
+    en: |-
+      The lesson: $R_i - r_f = \alpha_i + \sum_k \beta_{ik}F_k + e_i$; factors can be surprises in macro variables (Chen, Roll and Ross, 1986) or returns on portfolios built from characteristics. Loadings are estimated by multiple regression, each coefficient being the effect with the other factors held fixed; a regression on the market alone suffers omitted variable bias. With uncorrelated factors and residuals, $\sigma_{ij} = \sum_k \beta_{ik}\beta_{jk}\sigma^2_{F_k}$.
+  - concepts: [arbitrage-pricing-theory, arbitrage, factor-risk-premium]
+    zh-cn: |-
+      讲义：APT（Ross，1976）只假设多因子模型和无套利（不存在不花钱、没有风险却有正收益的组合）。充分分散的组合的风险只由因子暴露决定，所以暴露相同的组合预期收益必须相同；讲义没有写出具体的套利交易（留给随堂题）。$E[R_i] - r_f = \sum_k \beta_{ik}\lambda_k$，$\lambda_k$ 是对该因子暴露为 1、对其他因子为 0 的组合的预期超额收益。只有市场一个因子时就是证券市场线。APT 不需要市场组合，但不指定因子和溢价。
+    en: |-
+      The lesson: the APT (Ross, 1976) assumes only a multifactor model and no arbitrage (no portfolio that costs nothing, has no risk and has a positive return). A well-diversified portfolio's risk depends only on its loadings, so portfolios with the same loadings must have the same expected return; the lesson does not spell out the arbitrage trade (left to a check question). $E[R_i] - r_f = \sum_k \beta_{ik}\lambda_k$, where $\lambda_k$ is the expected excess return of a portfolio with a loading of 1 on that factor and 0 on the others. With the market as the only factor this is the security market line. The APT does not need the market portfolio but does not name the factors or premia.
+  - concepts: [fama-french-model, momentum]
+    zh-cn: |-
+      讲义：三因子模型 $R_i - r_f = \alpha_i + b_i(R_M - r_f) + s_i\text{SMB} + h_i\text{HML} + e_i$；SMB 为小市值减大市值，HML 为高账面市值比（价值股）减低账面市值比（成长股），都是零成本的多空组合。五因子（Fama 和 French，2015）加 RMW、CMA；动量（Jegadeesh 和 Titman，1993），Carhart（1997）加入 UMD。Kenneth French 数据库的美国数据（1927 年以来）：HML 每年约 4 个百分点，SMB 约 2，动量约 7；价值股 2007–2020 年大多跑输；动量 2009 年 3–5 月亏损超过 70%（Daniel 和 Moskowitz，2016）。风险补偿与定价错误两种解释留到 [[4.7]]、[[4.8]]。[[fig:3-1]]：市场 beta 1、三因子 alpha 0 的基金；假设溢价市场 6、SMB 2、HML 3，因子互不相关；滑块 s 和 h 从 −0.4 到 1（步长 0.1，默认 0.5 和 0.6）；读数显示平均超额收益和 CAPM alpha（等于 $2s + 3h$）。
+    en: |-
+      The lesson: the three-factor model $R_i - r_f = \alpha_i + b_i(R_M - r_f) + s_i\text{SMB} + h_i\text{HML} + e_i$; SMB is small minus big market value, HML is high minus low book-to-market (value minus growth), both zero-cost long-short portfolios. Five factors (Fama and French, 2015) add RMW and CMA; momentum (Jegadeesh and Titman, 1993), and Carhart (1997) adds UMD. US data in Kenneth French's data library (since 1927): HML about 4 points a year, SMB about 2, momentum about 7; value mostly lagged growth in 2007–2020; momentum lost more than 70% in March–May 2009 (Daniel and Moskowitz, 2016). Risk versus mispricing explanations are left to [[4.7]] and [[4.8]]. [[fig:3-1]]: a fund with market beta 1 and three-factor alpha 0; assumed premia market 6, SMB 2, HML 3, factors uncorrelated; sliders s and h from −0.4 to 1 (in steps of 0.1, defaults 0.5 and 0.6); the readout shows the average excess return and the CAPM alpha (equal to $2s + 3h$).
+  - concepts: [smart-beta]
+    zh-cn: |-
+      讲义：smart beta 是按规则偏向某些因子的指数基金（价值、小盘、动量、质量、低波动），费用介于主动基金和市值加权指数基金之间。问题：McLean 和 Pontiff（2016）的 97 种异象在样本期后收益低 26%、发表后低 58%；数以百计的因子中有些只是运气（Harvey、Liu 和 Zhu，2016）；只做多只能得到一半；换手率与拥挤；可能连续多年跑输市场。
+    en: |-
+      The lesson: smart beta funds are rule-based index funds tilted toward factors (value, small size, momentum, quality, low volatility), with fees between active funds and cap-weighted index funds. Problems: the 97 anomalies of McLean and Pontiff (2016) earn 26% less after the sample period and 58% less after publication; some of the hundreds of factors are luck (Harvey, Liu and Zhu, 2016); long-only funds get only half; turnover and crowding; possibly lagging the market for years in a row.
+
+common_errors:
+  - questions: [Q1]
+    zh-cn: |-
+      直接比较两个组合的预期收益判断谁“便宜”，不先让风险暴露相同；或者以为实际中的 APT 套利完全没有风险，可以无限加杠杆。
+    en: |-
+      Comparing two portfolios' expected returns directly to decide which is "cheap" without first matching their risk exposures; or thinking real-world APT arbitrage is entirely riskless and can be leveraged without limit.
+  - questions: [Q2]
+    zh-cn: |-
+      把 CAPM 回归的 alpha 都当作基金经理的能力，忽略因子暴露带来的收益；或者不考虑能否用更便宜的办法得到同样的暴露。
+    en: |-
+      Treating the whole CAPM alpha as the manager's skill and ignoring returns from factor exposures; or not asking whether the same exposures can be had more cheaply.
+  - questions: [Q3]
+    zh-cn: |-
+      以为历史上显著的因子溢价意味着长期持有几乎一定跑赢；忽略十几年平均收益的波动，以及真实溢价本身的不确定性和发表后的缩小。
+    en: |-
+      Thinking a historically significant factor premium means a long holding period is almost sure to beat the market; ignoring how much a 15-year average varies, and the uncertainty in the true premium itself and its shrinkage after publication.
+  - questions: [Q4]
+    zh-cn: |-
+      以为市场 beta 为 1 的组合就与市场风险相同、走势接近；忽略其他因子暴露带来的额外波动和相对市场的跟踪误差。
+    en: |-
+      Thinking a portfolio with a market beta of 1 has the same risk as the market and moves closely with it; ignoring the extra volatility from other factor exposures and the tracking error relative to the market.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: model
+    concepts: [multifactor-model, factor-loading]
+    question:
+      zh-cn: |-
+        两只股票的市场 beta 都是 1。一只对利率因子的暴露为正，另一只为负。各因子互不相关，残差两两不相关。按多因子模型，它们之间的协方差：
+      en: |-
+        Two stocks both have a market beta of 1. One has a positive loading on an interest-rate factor and the other a negative one. The factors are uncorrelated and the residuals are uncorrelated. By the multifactor model, the covariance between them:
+    choices:
+      - zh-cn: 等于市场方差 $\sigma_M^2$，因为它们的市场 beta 相同
+        en: Equals the market variance $\sigma_M^2$, because their market betas are the same
+        why:
+          zh-cn: 协方差公式对每个因子都有一项。利率因子那一项为 0 吗？
+          en: The covariance formula has a term for every factor. Is the interest-rate term 0?
+      - zh-cn: 小于 $\sigma_M^2$
+        en: Is less than $\sigma_M^2$
+      - zh-cn: 大于 $\sigma_M^2$，因为多了一个共同因子
+        en: Is greater than $\sigma_M^2$, because there is one more common factor
+        why:
+          zh-cn: 利率因子那一项是两只股票的暴露之积乘以因子方差。两个暴露一正一负时，这一项是正还是负？
+          en: The interest-rate term is the product of the two loadings times the factor variance. With one loading positive and one negative, is the term positive or negative?
+      - zh-cn: 为 0，因为两者对利率的反应相反、相互抵消
+        en: Is 0, because their opposite reactions to interest rates cancel out
+        why:
+          zh-cn: 利率那一项为负，但市场那一项 $1 \times 1 \times \sigma_M^2$ 还在。两项相加一定为 0 吗？
+          en: The interest-rate term is negative, but the market term $1 \times 1 \times \sigma_M^2$ is still there. Must the sum be 0?
+    correct: B
+    answer:
+      zh-cn: |-
+        (B)。$\sigma_{ij} = 1 \times 1 \times \sigma_M^2 + \beta_{i,r}\beta_{j,r}\sigma_r^2$，第二项的两个暴露一正一负，乘积为负，所以协方差小于 $\sigma_M^2$。单指数模型只看市场 beta，会高估它们一起波动的程度；把两只股票放在一起，利率风险部分相互对冲。
+      en: |-
+        (B). $\sigma_{ij} = 1 \times 1 \times \sigma_M^2 + \beta_{i,r}\beta_{j,r}\sigma_r^2$; in the second term one loading is positive and one negative, so the product is negative and the covariance is less than $\sigma_M^2$. The single-index model, which looks only at market betas, would overstate how much they move together; held together, the two stocks partly hedge each other's interest-rate risk.
+
+  - id: C2
+    kind: check
+    section: apt
+    concepts: [arbitrage-pricing-theory, arbitrage]
+    question:
+      zh-cn: |-
+        只有一个因子。两个充分分散的组合 A 和 B 对它的 beta 都是 1，A 的预期收益比 B 高 1 个百分点。下面哪种做法是套利（不花钱、没有风险、有正的预期收益）？
+      en: |-
+        There is a single factor. Two well-diversified portfolios A and B both have a beta of 1 on it, and A's expected return is 1 point higher than B's. Which of the following is an arbitrage (costs nothing, has no risk, has a positive expected return)?
+    choices:
+      - zh-cn: 买入 A
+        en: Buy A
+        why:
+          zh-cn: 只买 A 要花钱，而且承担了 beta 为 1 的因子风险。怎样把这部分风险去掉，同时不花钱？
+          en: Buying only A costs money and carries a factor beta of 1. How could you remove that risk while spending nothing?
+      - zh-cn: 买入 A，同时按无风险利率借入同样多的钱
+        en: Buy A and borrow the same amount at the risk-free rate
+        why:
+          zh-cn: 这样确实不花钱，但组合对因子的 beta 是多少？借款能对冲因子风险吗？
+          en: This costs nothing, but what is the portfolio's factor beta? Can borrowing hedge factor risk?
+      - zh-cn: 买入 A，同时卖空同样金额的 B
+        en: Buy A and short the same amount of B
+      - zh-cn: 买入 B，同时卖空同样金额的 A
+        en: Buy B and short the same amount of A
+        why:
+          zh-cn: 这个组合不花钱，也没有因子风险。它的预期收益是正还是负？
+          en: This portfolio costs nothing and has no factor risk. Is its expected return positive or negative?
+    correct: C
+    answer:
+      zh-cn: |-
+        (C)。卖空 B 的所得正好用来买 A，不花钱；两个组合的因子 beta 相同，相互抵消，组合的 beta 为 0；两者都充分分散，几乎没有特质风险；每投入 1 元得到 1 分（1 个百分点）的确定收益。大家都这样做，A 的价格上升、B 的价格下降，直到预期收益相等。
+      en: |-
+        (C). The proceeds from shorting B pay exactly for A, so it costs nothing; the two portfolios have the same factor beta, which cancels, so the position's beta is 0; both are well diversified, so there is almost no firm-specific risk; each dollar earns a sure 1 point. As everyone does this, A's price rises and B's falls until their expected returns are equal.
+
+  - id: C3
+    kind: check
+    section: fama-french
+    concepts: [fama-french-model, alpha]
+    widget: { id: factor-alpha, set: { s: 0.5, h: 0.6 } }
+    question:
+      zh-cn: |-
+        在 [[fig:3-1]] 中，保持规模暴露 s = 0.5，把价值暴露 h 从 0.6 降到 −0.4（基金偏向成长股）。按 CAPM 计算的 alpha 会：
+      en: |-
+        In [[fig:3-1]], keep the size loading at s = 0.5 and lower the value loading h from 0.6 to −0.4 (a fund tilted toward growth stocks). The alpha measured by the CAPM:
+    choices:
+      - zh-cn: 下降，并变为负值
+        en: Falls and turns negative
+      - zh-cn: 不变，因为基金经理的选股能力没有变
+        en: Stays the same, because the manager's stock-picking skill has not changed
+        why:
+          zh-cn: CAPM 的 alpha 是平均超额收益减去市场部分。价值暴露变化后，平均超额收益变不变？
+          en: The CAPM alpha is the average excess return minus the market part. Does the average excess return change when the value loading changes?
+      - zh-cn: 上升，因为成长股的增长更快
+        en: Rises, because growth stocks grow faster
+        why:
+          zh-cn: 图中 HML 的溢价为正。对 HML 暴露为负时，这部分对平均收益的贡献是正还是负？
+          en: HML's premium in the figure is positive. With a negative HML loading, is this part's contribution to the average return positive or negative?
+      - zh-cn: 下降，三因子模型的 alpha 也同样下降
+        en: Falls, and the three-factor alpha falls by the same amount
+        why:
+          zh-cn: 看图中第二行：三因子模型把价值暴露带来的收益单独列出。它的 alpha 变了吗？
+          en: 'Look at the second row of the figure: the three-factor model lists the return from the value loading separately. Does its alpha change?'
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。CAPM 的 alpha 等于 $2s + 3h$，从 $1 + 1.8 = 2.8$ 降到 $1 - 1.2 = -0.2$ 个百分点。基金经理没有变，只是因子暴露变了：CAPM 把因子暴露带来的收益算进 alpha，于是同样没有选股能力的基金，偏向价值股时看起来“跑赢”，偏向成长股时看起来“跑输”。三因子模型的 alpha 始终为 0。
+      en: |-
+        (A). The CAPM alpha equals $2s + 3h$, falling from $1 + 1.8 = 2.8$ to $1 - 1.2 = -0.2$ points. The manager has not changed; only the factor loading has. The CAPM counts returns from factor loadings as alpha, so the same fund with no stock-picking skill looks like a winner when tilted to value and a loser when tilted to growth. The three-factor alpha stays at 0.
+
+  - id: C4
+    kind: check
+    section: fama-french
+    concepts: [fama-french-model, factor-loading]
+    question:
+      zh-cn: |-
+        一只基金的三因子回归中，HML 的系数显著为负。这说明它的持仓偏向高市净率的成长股。
+      en: |-
+        In a fund's three-factor regression, the HML coefficient is significantly negative. This means its holdings lean toward growth stocks with high price-to-book ratios.
+    correct: true
+    hint:
+      zh-cn: 想一想：HML 是哪类股票减哪类股票？HML 上涨时，系数为负的基金收益会怎样？
+      en: 'Think: HML is which kind of stock minus which? When HML rises, what happens to a fund with a negative coefficient?'
+    answer:
+      zh-cn: |-
+        对。HML 是价值股（低市净率）减成长股（高市净率）的收益。系数为负，说明价值股跑赢成长股时基金相对较差，成长股跑赢时相对较好，基金的收益像成长股，持仓偏向高市净率的股票。
+      en: |-
+        True. HML is the return on value stocks (low price-to-book) minus growth stocks (high price-to-book). A negative coefficient means the fund does relatively worse when value beats growth and better when growth wins, so its returns behave like growth stocks and its holdings lean toward high price-to-book stocks.
+
+  - id: C5
+    kind: check
+    section: smart-beta
+    concepts: [smart-beta, multiple-testing]
+    question:
+      zh-cn: |-
+        McLean 和 Pontiff（2016）发现，收益异象在论文发表后收益明显变小，但没有完全消失。下面哪种解释与这个发现最一致？
+      en: |-
+        McLean and Pontiff (2016) found that return anomalies earn much less after the papers documenting them are published, though they do not vanish completely. Which explanation fits this finding best?
+    choices:
+      - zh-cn: 发表后这些股票的风险变大了
+        en: The stocks became riskier after publication
+        why:
+          zh-cn: 如果溢价是风险补偿而风险变大，溢价应该变大还是变小？
+          en: If the premium compensates for risk and the risk grew, should the premium grow or shrink?
+      - zh-cn: 一部分异象是数据挖掘的结果，另一部分是定价错误，发表后被投资者交易而部分纠正
+        en: Some anomalies were the result of data mining, and others were mispricing that investors partly corrected by trading on them after publication
+      - zh-cn: 发表后整个股票市场的收益下降了
+        en: The whole stock market earned less after publication
+        why:
+          zh-cn: 异象的收益是多空之差，衡量的是两组股票的相对表现。市场整体收益的变化会体现在这里吗？
+          en: An anomaly's return is a long-short difference, the relative performance of two groups of stocks. Would a change in the market's overall return show up in it?
+      - zh-cn: 异象从来都不存在，原来的研究都是错的
+        en: The anomalies never existed and the original studies were all wrong
+        why:
+          zh-cn: 如果全部是错的，发表后的收益应该是多少？研究发现收益完全消失了吗？
+          en: If they were all wrong, what should the post-publication return be? Did the study find that the returns disappeared completely?
+    correct: B
+    answer:
+      zh-cn: |-
+        (B)。样本期之后（发表前）收益已经下降 26%，这部分与数据挖掘一致：在样本内偶然显著的规律，在样本外会变弱。发表后进一步下降到原来的 42%，说明投资者知道之后去交易，纠正了一部分定价错误。剩下的部分可能是风险补偿，也可能是套利有成本和限制（[[4.8]]）。
+      en: |-
+        (B). Returns are already 26% lower after the sample period but before publication, consistent with data mining: patterns that were significant by chance in the sample weaken outside it. After publication they fall to 42% of the original, which suggests that investors traded on them once they knew and corrected part of the mispricing. What remains may be risk compensation, or may persist because arbitrage is costly and limited ([[4.8]]).
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [arbitrage-pricing-theory, arbitrage, factor-risk-premium]
+    expected: { repl: "10", profit: "1" }
+    question:
+      zh-cn: |-
+        只有一个因子，无风险利率 3%。两个充分分散的组合：A 的因子 beta 为 1.2，预期收益 11%；B 的因子 beta 为 0.6，预期收益 6.5%。
+        (a) A 的预期收益比 B 高，这是否说明 A 更“便宜”？用 B 和无风险资产构造一个因子 beta 与 A 相同的组合，它的预期收益是多少？是否存在套利机会？如果存在，写出不花钱、没有因子风险的交易，以及每 100 元头寸的预期利润。
+        (b) 一位同事说：“APT 的套利没有风险，所以对冲基金发现这种机会时可以借尽可能多的钱去做。”实际中这个交易有哪些风险？
+      en: |-
+        There is a single factor and the risk-free rate is 3%. Two well-diversified portfolios: A has a factor beta of 1.2 and an expected return of 11%; B has a factor beta of 0.6 and an expected return of 6.5%.
+        (a) A's expected return is higher than B's. Does that mean A is "cheaper"? Build a portfolio from B and the risk-free asset with the same factor beta as A. What is its expected return? Is there an arbitrage opportunity? If so, give a trade that costs nothing and has no factor risk, and its expected profit per 100 dollars of position.
+        (b) A colleague says: "APT arbitrage is riskless, so a hedge fund that finds such an opportunity can borrow as much as it can to exploit it." What risks does this trade carry in practice?
+    answer:
+      zh-cn: |-
+        (a) 高的预期收益本身不说明便宜，A 的 beta 也更高，要在相同风险下比较。权重 2 放在 B、−1 放在无风险资产（借入）：beta $= 2 \times 0.6 = 1.2$，预期收益 $2 \times 6.5\% - 3\% = 10\%$，比 A 的 11% 低，存在套利。交易：买入 100 元 A，卖空 200 元 B，把所得中的 100 元投入无风险资产（即按 2:−1 卖空复制组合）。净投入 0，因子 beta $1.2 - 2 \times 0.6 = 0$，预期利润 $11 - 10 = 1$ 元。也可以比较每单位 beta 的溢价：A 为 $\frac{8}{1.2} \approx 6.67$，B 为 $\frac{3.5}{0.6} \approx 5.83$，不相等就有套利。
+        (b) 理论上的无风险依赖几个条件，实际中都只是近似：组合不可能完全分散，还有特质风险；因子 beta 是估计值（[[4.5#estimation]]），对冲不完全；可能还有模型没包括的其他因子；价格在收敛之前可能先朝不利方向变化，加了杠杆的头寸会被要求追加保证金，可能被迫在亏损时平仓；卖空需要借券，有成本，也可能被召回。所以杠杆越大，这些小风险被放得越大。
+      en: |-
+        (a) A higher expected return alone does not mean cheap; A also has a higher beta, so compare at equal risk. Put a weight of 2 in B and −1 in the risk-free asset (borrowing): beta $= 2 \times 0.6 = 1.2$, expected return $2 \times 6.5\% - 3\% = 10\%$, below A's 11%, so there is an arbitrage. Trade: buy 100 dollars of A, short 200 dollars of B and put 100 dollars of the proceeds in the risk-free asset (that is, short the 2 : −1 replicating portfolio). Net investment 0, factor beta $1.2 - 2 \times 0.6 = 0$, expected profit $11 - 10 = 1$ dollar. Alternatively compare the premium per unit of beta: $\frac{8}{1.2} \approx 6.67$ for A and $\frac{3.5}{0.6} \approx 5.83$ for B; if they differ, there is an arbitrage.
+        (b) The theoretical absence of risk rests on conditions that hold only approximately: no portfolio is perfectly diversified, so firm-specific risk remains; factor betas are estimates ([[4.5#estimation]]), so the hedge is imperfect; there may be other factors the model leaves out; prices may first move against the position before converging, and a leveraged position faces margin calls and may be forced to close at a loss; short selling requires borrowing shares, which costs money and can be recalled. The more leverage, the more these small risks are magnified.
+    rubric:
+      zh-cn:
+        - "(a) 通过：构造 beta 1.2 的复制组合，预期收益 10%，指出存在套利，给出买 A、卖空复制组合（或等价做法）的零成本、零 beta 交易和每 100 元约 1 元的利润（比较每单位 beta 的溢价同样算对）。只因为 A 的预期收益更高就说 A 便宜，或者交易仍有因子风险，需要订正。"
+        - "(b) 通过：至少说出两种实际风险（特质风险、beta 估计误差、遗漏因子、价格先背离加上杠杆和保证金、卖空成本），并说明杠杆会放大它们。认为确实没有风险，需要订正。"
+      en:
+        - "(a) OK: builds the beta-1.2 replicating portfolio with an expected return of 10%, says there is an arbitrage, and gives a zero-cost, zero-beta trade of buying A and shorting the replicating portfolio (or equivalent) with a profit of about 1 per 100 (comparing the premium per unit of beta is also correct). Calling A cheap only because its expected return is higher, or a trade that still has factor risk, needs revision."
+        - "(b) OK: names at least two practical risks (firm-specific risk, beta estimation error, omitted factors, prices diverging first combined with leverage and margin, shorting costs) and explains that leverage magnifies them. Holding that there really is no risk needs revision."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [fama-french-model, alpha, smart-beta, factor-loading]
+    expected: { tilt: "2.3", net: "-0.85" }
+    question:
+      zh-cn: |-
+        一只小盘价值基金的广告说：“过去 10 年，我们每年的 alpha 为 2.4%，证明了我们的选股能力。”这个 alpha 来自 CAPM 回归（市场 beta 为 1）。用同样的数据（扣除费用前的收益）做三因子回归：市场暴露 1.0，SMB 暴露 0.6，HML 暴露 0.5，alpha 0.1%。这 10 年 SMB 平均每年 1.5 个百分点，HML 平均每年 2.8 个百分点。
+        (a) 说明 2.4% 的 CAPM alpha 从哪里来，并评价广告的说法。
+        (b) 这只基金每年收费 1.2%。另一只按规则构建的 smart beta 基金有相同的因子暴露、alpha 为 0，每年收费 0.25%。如果未来的因子溢价和三因子 alpha 与过去相同，持有前一只基金每年比后一只多赚还是少赚多少？基金经理的选股能力值这么多费用吗？
+      en: |-
+        A small-cap value fund advertises: "Over the past 10 years our alpha has been 2.4% a year, proof of our stock-picking skill." The alpha comes from a CAPM regression (market beta 1). A three-factor regression on the same data (returns before fees) gives a market loading of 1.0, an SMB loading of 0.6, an HML loading of 0.5 and an alpha of 0.1%. Over these 10 years SMB averaged 1.5 points a year and HML 2.8 points a year.
+        (a) Explain where the 2.4% CAPM alpha comes from, and evaluate the advertisement.
+        (b) The fund charges 1.2% a year. A rule-based smart beta fund with the same factor loadings and an alpha of 0 charges 0.25% a year. If future factor premia and the three-factor alpha are the same as in the past, how much more or less a year does the first fund earn than the second? Is the manager's stock picking worth the fee?
+    answer:
+      zh-cn: |-
+        (a) 两个因子暴露带来的收益是 $0.6 \times 1.5 + 0.5 \times 2.8 = 0.9 + 1.4 = 2.3$ 个百分点，加上三因子 alpha 0.1，正好是 CAPM alpha 2.4。广告把小盘和价值暴露带来的收益都算成了选股能力；扣除这些暴露后，选股带来的超额收益只有每年 0.1%，在统计上很可能与 0 无法区分（[[4.5#estimation]] 的练习说明了 alpha 的误差有多大）。投资者通过任何偏向小盘价值股的组合都能得到那 2.3 个百分点。
+        (b) 扣费后两者的差别 $= 0.1 - 1.2 + 0.25 = -0.85$ 个百分点：前一只基金每年少赚约 0.85 个百分点。基金经理的选股能力（0.1%）远不够支付 0.95 个百分点的额外费用。这里假设因子溢价将来与过去相同；如果溢价变小，两只基金的收益都会变低，但费用的差别不会变。
+      en: |-
+        (a) The returns from the two factor loadings are $0.6 \times 1.5 + 0.5 \times 2.8 = 0.9 + 1.4 = 2.3$ points; with the three-factor alpha of 0.1 this gives exactly the CAPM alpha of 2.4. The advertisement counts the returns from the small-cap and value loadings as stock-picking skill; after removing them, stock picking adds only 0.1% a year, which is very likely statistically indistinguishable from 0 (the exercise in [[4.5#estimation]] shows how large the error of an alpha is). An investor can get those 2.3 points from any portfolio tilted toward small value stocks.
+        (b) After fees the difference is $0.1 - 1.2 + 0.25 = -0.85$ points: the first fund earns about 0.85 points a year less. The manager's stock picking (0.1%) is far from enough to pay the extra 0.95 points of fees. This assumes future factor premia equal past ones; if the premia shrink, both funds earn less, but the fee difference stays.
+    rubric:
+      zh-cn:
+        - "(a) 通过：算出因子暴露贡献 2.3 个百分点，加 0.1 等于 2.4，并指出广告把因子暴露的收益当成了选股能力。只说“三因子 alpha 只有 0.1”而不说明 2.4 的来源，或同意广告，需要订正。"
+        - "(b) 通过：每年少赚约 0.85 个百分点，结论是选股能力不值这个费用。忽略 smart beta 基金也能得到同样的因子收益（例如拿 2.4 与费用比较），需要订正。"
+      en:
+        - "(a) OK: finds that the loadings contribute 2.3 percentage points, which plus 0.1 gives 2.4, and says the advertisement counts factor returns as stock-picking skill. Saying only \"the three-factor alpha is just 0.1\" without explaining where 2.4 comes from, or agreeing with the advertisement, needs revision."
+        - "(b) OK: about 0.85 percentage points a year less, concluding the stock picking is not worth the fee. Ignoring that the smart beta fund earns the same factor returns (for example comparing 2.4 with the fee) needs revision."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [fama-french-model, smart-beta, standard-error]
+    expected: { se: "3.1", p: "10", p2: "26" }
+    question:
+      zh-cn: |-
+        一份价值因子 ETF 的宣传材料说：“价值股长期跑赢成长股是有近百年数据支持的事实。只要持有 15 年，几乎不会跑输。”假设 HML 每年的收益独立，标准差为 12 个百分点。
+        (a) 如果真实的价值溢价就是每年 4 个百分点，15 年的平均 HML 小于 0（价值股跑输）的概率约是多少（用正态分布近似）？
+        (b) 历史估计的溢价本身有误差，发表后也可能变小。如果真实溢价只有每年 2 个百分点，这个概率是多少？结合 2007–2020 年的经历，评价宣传材料的说法。
+      en: |-
+        A value-factor ETF's marketing material says: "That value stocks beat growth stocks over the long run is a fact backed by nearly a century of data. Hold for 15 years and you will almost never lag." Assume yearly HML returns are independent with a standard deviation of 12 points.
+        (a) If the true value premium is exactly 4 points a year, what is the probability (using a normal approximation) that the 15-year average HML is below 0 (value lags)?
+        (b) The historical estimate of the premium has its own error, and it may shrink after publication. If the true premium is only 2 points a year, what is the probability? With the experience of 2007–2020 in mind, evaluate the marketing claim.
+    answer:
+      zh-cn: |-
+        (a) 15 年平均值的标准差 $\frac{12}{\sqrt{15}} \approx 3.1$ 个百分点。平均值小于 0 的概率 $= P\left(z < -\frac{4}{3.1}\right) \approx P(z < -1.29) \approx 10\%$。即使溢价真实存在、大小不变，大约十次中也有一次 15 年的结果是跑输。
+        (b) $P\left(z < -\frac{2}{3.1}\right) \approx P(z < -0.65) \approx 26\%$，约四分之一。历史溢价约 4 个百分点也只是估计：近百年数据的标准误约为 $\frac{12}{\sqrt{97}} \approx 1.2$ 个百分点，加上发表后可能缩小（McLean 和 Pontiff），真实溢价是 2 还是 4 很难确定。2007–2020 年价值股大多跑输，正是这种长时间跑输的例子。宣传材料把“平均而言为正”说成了“几乎一定”：长期持有降低了跑输的概率，但没有消除它；而且只做多的 ETF 只得到 HML 的一部分，还要扣费用。
+      en: |-
+        (a) The standard deviation of the 15-year average is $\frac{12}{\sqrt{15}} \approx 3.1$ points. The probability that the average is below 0 is $P\left(z < -\frac{4}{3.1}\right) \approx P(z < -1.29) \approx 10\%$. Even if the premium is real and unchanged, about one 15-year period in ten ends with value lagging.
+        (b) $P\left(z < -\frac{2}{3.1}\right) \approx P(z < -0.65) \approx 26\%$, about one in four. The historical premium of about 4 points is itself only an estimate: with nearly a century of data its standard error is about $\frac{12}{\sqrt{97}} \approx 1.2$ points, and it may have shrunk after publication (McLean and Pontiff), so whether the true premium is 2 or 4 is hard to say. Value mostly lagged in 2007–2020, exactly such a long stretch. The material turns "positive on average" into "almost certain": a long holding period lowers the chance of lagging but does not remove it; and a long-only ETF captures only part of HML, before fees.
+    rubric:
+      zh-cn:
+        - "(a) 通过：平均值的标准差约 3.1，概率约 10%。用 12 而不是 $\\frac{12}{\\sqrt{15}}$，或者用 $\\frac{12}{15}$，需要订正。"
+        - "(b) 通过：约 26%，并指出溢价本身不确定（估计误差或发表后缩小），宣传材料把平均为正说成几乎一定。只算概率而不评价说法，需要订正。"
+      en:
+        - "(a) OK: the average's standard deviation is about 3.1 and the probability about 10%. Using 12 instead of $\\frac{12}{\\sqrt{15}}$, or using $\\frac{12}{15}$, needs revision."
+        - "(b) OK: about 26%, with the points that the premium itself is uncertain (estimation error or shrinkage after publication) and that the material turns positive-on-average into almost certain. Computing the probability without evaluating the claim needs revision."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [multifactor-model, factor-loading, systematic-risk]
+    expected: { vol: "19.07", te: "10.37" }
+    question:
+      zh-cn: |-
+        一个养老基金的委员会审查一个股票组合。基金经理说：“组合的市场 beta 为 1，所以它的风险和市场一样，每年的表现也会和市场指数很接近。”三因子回归显示：市场暴露 1，SMB 暴露 0.8，HML 暴露 0.6，组合足够分散，残差可以忽略。市场、SMB、HML 每年的标准差分别为 16、10、11 个百分点，三者互不相关。
+        (a) 组合的年波动率是多少？组合与市场指数的收益之差（跟踪误差）的标准差是多少？
+        (b) 评价基金经理的说法。在什么条件下它才成立？
+      en: |-
+        A pension fund's committee reviews a stock portfolio. The manager says: "The portfolio's market beta is 1, so its risk is the same as the market's and each year it will perform close to the market index." A three-factor regression shows a market loading of 1, an SMB loading of 0.8 and an HML loading of 0.6; the portfolio is well diversified and its residual can be ignored. The yearly standard deviations of the market, SMB and HML are 16, 10 and 11 points, and the three are uncorrelated.
+        (a) What is the portfolio's annual volatility? What is the standard deviation of the difference between the portfolio's and the market index's returns (the tracking error)?
+        (b) Evaluate the manager's statement. Under what conditions would it hold?
+    answer:
+      zh-cn: |-
+        (a) 方差 $= 1^2 \times 16^2 + 0.8^2 \times 10^2 + 0.6^2 \times 11^2 = 256 + 64 + 43.56 = 363.56$，波动率约 19.07%。与市场之差 $= 0.8\,\text{SMB} + 0.6\,\text{HML}$，标准差 $\sqrt{64 + 43.56} \approx 10.37$ 个百分点。
+        (b) 说法不对。beta 为 1 只说明组合对市场因子的暴露与市场相同，不说明总风险相同：两个额外的因子暴露使波动率从 16% 升到约 19%。每年与指数的差别的标准差约 10 个百分点，按正态分布，大约每六年就有一年比指数低 10 个百分点以上，这对需要向委员会解释业绩的基金很重要。只有当组合对其他因子的暴露都接近 0（并且充分分散）时，beta 为 1 才意味着走势接近市场；单指数模型的视角（[[4.5]]）在这里会漏掉这些风险。
+      en: |-
+        (a) The variance is $1^2 \times 16^2 + 0.8^2 \times 10^2 + 0.6^2 \times 11^2 = 256 + 64 + 43.56 = 363.56$, a volatility of about 19.07%. The difference from the market is $0.8\,\text{SMB} + 0.6\,\text{HML}$, with a standard deviation of $\sqrt{64 + 43.56} \approx 10.37$ points.
+        (b) The statement is wrong. A beta of 1 says only that the portfolio's exposure to the market factor equals the market's, not that its total risk is the same: the two extra loadings raise the volatility from 16% to about 19%. The yearly difference from the index has a standard deviation of about 10 points; with a normal distribution, about one year in six it trails the index by more than 10 points, which matters for a fund that must explain its performance to a committee. Only when the loadings on the other factors are near 0 (and the portfolio is well diversified) does a beta of 1 mean moving closely with the market; the single-index view ([[4.5]]) misses these risks here.
+    rubric:
+      zh-cn:
+        - "(a) 通过：波动率约 19.07%，跟踪误差约 10.37 个百分点。把各项标准差直接相加，或者漏掉平方，需要订正。"
+        - "(b) 通过：指出 beta 为 1 不等于总风险相同或走势接近市场，用跟踪误差说明可能大幅偏离指数，并给出其他因子暴露接近 0 的条件。同意基金经理的说法，需要订正。"
+      en:
+        - "(a) OK: volatility about 19.07%, tracking error about 10.37 percentage points. Adding the standard deviations directly, or leaving out the squares, needs revision."
+        - "(b) OK: says that a beta of 1 does not mean the same total risk or moving closely with the market, uses the tracking error to show large possible departures from the index, and gives the condition that the other loadings are near 0. Agreeing with the manager needs revision."

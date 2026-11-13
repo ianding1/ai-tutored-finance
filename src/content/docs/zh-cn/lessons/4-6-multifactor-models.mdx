@@ -1,0 +1,103 @@
+---
+title: 4.6 多因子模型
+description: 多因子模型与因子暴露；套利定价理论（APT）；Fama–French 三因子与五因子模型、动量；因子投资（smart beta）及其问题。
+lesson: "4.6"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import FactorAlpha from '../../../../components/widgets/FactorAlpha.astro';
+
+## 不止一个共同因素 [#model]
+
+<Ref lesson="4.5" sec="uses" /> 指出，单指数模型漏掉了市场之外的共同波动：同一行业的公司、小公司之间、价值股之间都会一起涨跌。<Def id="multifactor-model">多因子模型</Def>（multifactor model）用几个共同因素来描述股票收益：
+
+$$
+R_i - r_f = \alpha_i + \beta_{i1} F_1 + \beta_{i2} F_2 + \cdots + \beta_{iK} F_K + e_i
+$$
+
+$F_k$ 是第 $k$ 个因子（factor）的收益或意外变化，$\beta_{ik}$ 是股票 $i$ 对它的<Def id="factor-loading">因子暴露</Def>（factor loading，也叫因子 beta），$e_i$ 仍然是公司自身的部分。因子可以是宏观变量的意外变化，例如工业产出、通胀、长短期利差和信用利差（Chen、Roll 和 Ross，1986）；也可以是按某种特征构造的组合的收益，例如下文的规模和价值因子。
+
+因子暴露用股票收益对几个因子同时做回归来估计（多元回归）。每个系数衡量其他因子不变时，这个因子变化对收益的影响。只对市场回归时，遗漏的因子如果与市场相关，市场 beta 的估计就会混入它们的影响（<Ref lesson="0.5" sec="omitted-variable" />）。
+
+和单指数模型一样，如果各因子互不相关、各公司的残差也两两不相关，两只股票的协方差只来自共同的因子：
+
+$$
+\sigma_{ij} = \sum_{k} \beta_{ik}\beta_{jk}\sigma^2_{F_k} \qquad (i \neq j)
+$$
+
+<Check id="C1" />
+
+## 套利定价理论 [#apt]
+
+CAPM 从投资者的偏好和市场组合出发推出预期收益。Ross（1976）的<Def id="arbitrage-pricing-theory">套利定价理论</Def>（arbitrage pricing theory，APT）走另一条路：只假设收益服从多因子模型，并且市场上不存在<Def id="arbitrage">套利</Def>（arbitrage）机会，即不存在不花钱、没有风险却有正收益的组合。
+
+一个充分分散的组合，特质风险几乎为 0（<Ref lesson="4.5" sec="decomposition" />），它的风险完全由因子暴露决定。所以对同一个因子暴露相同的两个充分分散的组合，预期收益必须相同，否则投资者可以构造一个不花钱、没有风险却有正收益的组合，交易会推动价格直到差异消失。
+
+<Check id="C2" />
+
+把这个论证推广到任意的因子暴露，得到 APT 的定价公式：
+
+$$
+E[R_i] - r_f = \beta_{i1}\lambda_1 + \beta_{i2}\lambda_2 + \cdots + \beta_{iK}\lambda_K
+$$
+
+$\lambda_k$ 是第 $k$ 个因子的<Def id="factor-risk-premium">因子风险溢价</Def>（factor risk premium）：对这个因子暴露为 1、对其他因子暴露为 0 的组合的预期超额收益。只有一个因子、而且它就是市场时，这个公式就是证券市场线；但 APT 推导不需要市场组合，也不需要假设投资者只关心均值和方差。代价是 APT 没有说因子是哪些、溢价是多少，这些要从数据中找（<Ref check="Q1" />）。
+
+## Fama–French 因子 [#fama-french]
+
+<Ref lesson="4.4" sec="evidence" /> 提到，beta 解释不了小公司股票和低市净率（<Ref concept="price-to-book" />）股票较高的平均收益。Fama 和 French（1993）因此在市场之外加入两个因子，得到<Def id="fama-french-model">Fama–French 三因子模型</Def>（Fama–French three-factor model）：
+
+$$
+R_i - r_f = \alpha_i + b_i (R_M - r_f) + s_i\,\text{SMB} + h_i\,\text{HML} + e_i
+$$
+
+- SMB（small minus big）：小市值股票组合的收益减去大市值股票组合的收益。
+- HML（high minus low）：高账面市值比（即低市净率，价值股）组合的收益减去低账面市值比（高市净率，成长股）组合的收益。
+
+两个因子都是“买入一组、卖空另一组”的零成本组合，衡量的是两类股票之间的收益差。Fama 和 French（2015）又加入盈利能力因子 RMW（盈利能力强减弱）和投资因子 CMA（投资保守减激进），成为五因子模型。
+
+另一个常用的因子是<Def id="momentum">动量</Def>（momentum）：过去 3 到 12 个月涨得多的股票，接下来几个月平均继续跑赢跌得多的股票（Jegadeesh 和 Titman，1993）。Carhart（1997）把动量因子 UMD（up minus down）加入三因子模型，常用于评估基金。
+
+按 Kenneth French 数据库的美国数据（1927 年以来），HML 平均每年约 4 个百分点，SMB 约 2 个百分点，动量约 7 个百分点。但这些溢价很不稳定：价值股在 2007 到 2020 年间大多跑输成长股；动量策略会突然大幅亏损，2009 年 3 月到 5 月亏损超过 70%（Daniel 和 Moskowitz，2016）。
+
+这些溢价是对风险的补偿，还是定价错误？一种解释认为价值股多是经营困难的公司，在经济衰退时表现特别差，承担了 beta 没有衡量到的风险；另一种认为投资者对坏消息过度反应，把价值股压得过低。<Ref lesson="4.7" /> 和 <Ref lesson="4.8" /> 会讨论这两种观点。
+
+因子模型的一个直接用途是重新衡量 alpha。一只偏向小盘价值股的基金，用 CAPM 衡量可能有正的 alpha，但其中可能有一部分只是它对规模和价值因子的暴露带来的收益。
+
+<Figure id="3-1" title="一只市场 beta 为 1、三因子 alpha 为 0 的基金，平均超额收益的两种分解。假设市场、SMB、HML 的平均溢价分别为每年 6、2、3 个百分点，各因子互不相关。" observe="先把价值因子暴露 h 调到 0、再调到负值，看 CAPM 的那一行中 alpha 怎样变化；再看三因子的那一行。">
+	<FactorAlpha />
+</Figure>
+
+<Check id="C3" />
+
+<Check id="C4" />
+
+## 因子投资 [#smart-beta]
+
+如果因子溢价存在，投资者不需要挑选基金经理，可以直接按规则持有对因子暴露高的股票。这类按规则构建、偏向某些因子的指数基金叫<Def id="smart-beta">smart beta</Def>（也叫因子投资，factor investing）：价值、小盘、动量、质量（高盈利能力）、低波动等。它们的费用通常低于主动管理的基金，高于按市值加权的指数基金。
+
+因子投资有几个问题：
+
+- 溢价可能在被发现后变小。McLean 和 Pontiff（2016）研究了学术文献中的 97 种收益异象，发现它们在原始研究的样本期之后收益平均低 26%，在论文发表后平均低 58%。
+- 研究者检验了数以百计的因子（Harvey、Liu 和 Zhu，2016），其中一些只是运气（<Ref concept="multiple-testing" />）。
+- smart beta 基金通常只做多，只能得到“买入一组”的那一半，而因子收益是多空之差。
+- 动量等因子换手率高，交易成本会吃掉一部分收益；很多资金追逐同一个因子时，溢价也可能被压低。
+- 因子组合与市场的差别很大，可能连续多年跑输市场指数。
+
+<Check id="C5" />
+
+## 小结 [#summary]
+
+- 多因子模型：$R_i - r_f = \alpha_i + \sum_k \beta_{ik}F_k + e_i$；因子暴露用多元回归估计，协方差来自共同的因子。
+- APT：在多因子模型和无套利的假设下，$E[R_i] - r_f = \sum_k \beta_{ik}\lambda_k$；不需要市场组合，但没有指定因子。
+- Fama–French 三因子：市场、SMB、HML；五因子再加 RMW 和 CMA；Carhart 加入动量 UMD。
+- 因子暴露带来的收益在 CAPM 中会显示为 alpha；用因子模型衡量，alpha 可能消失。
+- smart beta 按规则获取因子暴露；溢价不稳定、发表后变小，只做多、成本和长期跑输都是要考虑的问题。
+
+## 练习题 [#exercises]
+
+<Exercises />

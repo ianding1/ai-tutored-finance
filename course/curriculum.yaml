@@ -382,7 +382,15 @@ stages:
         published: true
         introduces: [single-index-model, systematic-risk, firm-specific-risk, adjusted-beta]
         uses: [beta, alpha, capm, diversification, covariance, correlation, regression, r-squared, standard-error, confidence-interval, t-statistic, short-selling, cost-of-equity, net-present-value, market-portfolio, financial-leverage]
-      - { id: "4.6", slug: "4-6-multifactor-models", title: { zh-cn: "多因子模型", en: "Multifactor Models" } }
+      - id: "4.6"
+        slug: "4-6-multifactor-models"
+        title: { zh-cn: "多因子模型", en: "Multifactor Models" }
+        summary:
+          zh-cn: "多因子模型与因子暴露；套利定价理论（APT）；Fama–French 三因子与五因子模型、动量；因子投资（smart beta）及其问题。"
+          en: "Multifactor models and factor loadings; arbitrage pricing theory (APT); the Fama–French three- and five-factor models and momentum; factor investing (smart beta) and its problems."
+        published: true
+        introduces: [multifactor-model, factor-loading, arbitrage, arbitrage-pricing-theory, factor-risk-premium, fama-french-model, momentum, smart-beta]
+        uses: [single-index-model, systematic-risk, firm-specific-risk, beta, alpha, capm, security-market-line, regression, omitted-variable-bias, price-to-book, multiple-testing, standard-error, short-selling, covariance, diversification]
       - { id: "4.7", slug: "4-7-market-efficiency", title: { zh-cn: "有效市场假说", en: "The Efficient Market Hypothesis" } }
       - { id: "4.8", slug: "4-8-behavioral-finance", title: { zh-cn: "行为金融", en: "Behavioral Finance" } }
       - { id: "4.9", slug: "4-9-performance-evaluation", title: { zh-cn: "业绩评估", en: "Performance Evaluation" } }

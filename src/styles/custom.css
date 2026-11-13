@@ -1100,3 +1100,39 @@ a.lfwai-route-mark:focus-visible {
 		gap: 0.35rem;
 	}
 }
+/* Lesson 4.6 figure: factor decomposition */
+.viz-fac {
+	stroke: var(--sl-color-bg);
+	stroke-width: 1.5;
+}
+.viz-fac-mkt {
+	fill: color-mix(in srgb, var(--viz-a) 75%, transparent);
+}
+.viz-fac-smb {
+	fill: color-mix(in srgb, var(--viz-violet) 75%, transparent);
+}
+.viz-fac-hml {
+	fill: color-mix(in srgb, var(--viz-pos) 75%, transparent);
+}
+.viz-fac-alpha {
+	fill: color-mix(in srgb, var(--viz-b) 80%, transparent);
+}
+.lfwai-legend .sw.sw-fac-mkt,
+.lfwai-legend .sw.sw-fac-smb,
+.lfwai-legend .sw.sw-fac-hml,
+.lfwai-legend .sw.sw-fac-alpha {
+	height: 0.75rem;
+	border: none;
+}
+.lfwai-legend .sw.sw-fac-mkt {
+	background: color-mix(in srgb, var(--viz-a) 75%, transparent);
+}
+.lfwai-legend .sw.sw-fac-smb {
+	background: color-mix(in srgb, var(--viz-violet) 75%, transparent);
+}
+.lfwai-legend .sw.sw-fac-hml {
+	background: color-mix(in srgb, var(--viz-pos) 75%, transparent);
+}
+.lfwai-legend .sw.sw-fac-alpha {
+	background: color-mix(in srgb, var(--viz-b) 80%, transparent);
+}

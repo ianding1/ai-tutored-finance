@@ -1,0 +1,88 @@
+---
+// Figure 3-1 of lesson 4.6: a fund with market beta 1 and adjustable size (s) and value (h) loadings, true
+// three-factor alpha 0. Assumed average premia: market 6, SMB 2, HML 3 (percentage points a year).
+// Row 1 splits the fund's average excess return as the CAPM sees it (market part + alpha);
+// row 2 splits it as the three-factor model sees it (market + size + value + alpha 0).
+// Parameters are registered in course/widgets.yaml (id: factor-alpha). Same model as course/verify/4.6.py.
+import { toLang } from '../../i18n/ui';
+
+const lang = toLang(Astro.locals.starlightRoute.lang);
+const L = {
+	'zh-cn': {
+		s: '规模因子暴露 s',
+		h: '价值因子暴露 h',
+		x: '平均超额收益（百分点 / 年）',
+		capm: 'CAPM',
+		ff: '三因子',
+		mkt: '市场',
+		smb: '规模（SMB）',
+		hml: '价值（HML）',
+		alpha: 'alpha',
+		aria: '基金平均超额收益的两种分解',
+		readout: '基金的平均超额收益为 {r}%；按 CAPM，alpha 为 {a} 个百分点；按三因子模型，alpha 为 0。',
+	},
+	en: {
+		s: 'Size loading s',
+		h: 'Value loading h',
+		x: 'Average excess return (percentage points a year)',
+		capm: 'CAPM',
+		ff: 'Three-factor',
+		mkt: 'Market',
+		smb: 'Size (SMB)',
+		hml: 'Value (HML)',
+		alpha: 'Alpha',
+		aria: 'Two ways of splitting the fund’s average excess return',
+		readout: 'The fund’s average excess return is {r}%; by the CAPM its alpha is {a} percentage points; by the three-factor model its alpha is 0.',
+	},
+}[lang];
+
+const xr = [-4, 12];
+const xTicks = [-4, -2, 0, 2, 4, 6, 8, 10, 12];
+const layouts = [
+	{ cls: 'viz-wide', W: 640, H: 200, pad: { l: 96, r: 20, t: 16, b: 48 } },
+	{ cls: 'viz-narrow', W: 360, H: 200, pad: { l: 88, r: 12, t: 16, b: 48 } },
+].map((g) => ({
+	...g,
+	X: (v: number) => g.pad.l + ((v - xr[0]) / (xr[1] - xr[0])) * (g.W - g.pad.l - g.pad.r),
+	rows: [g.pad.t + 18, g.pad.t + 78],
+}));
+---
+
+<div class="lfwai-widget" data-widget="factor-alpha" data-readout={L.readout}>
+	<div class="lfwai-sliders">
+		<label>
+			<span>{L.s} = <output data-out="s">0.5</output></span>
+			<input type="range" min="-0.4" max="1" step="0.1" value="0.5" data-param="s" />
+		</label>
+		<label>
+			<span>{L.h} = <output data-out="h">0.6</output></span>
+			<input type="range" min="-0.4" max="1" step="0.1" value="0.6" data-param="h" />
+		</label>
+	</div>
+	{layouts.map(({ cls, W, H, pad, X, rows }) => (
+		<svg class={`lfwai-viz ${cls}`} viewBox={`0 0 ${W} ${H}`} role="img" aria-label={L.aria} data-geom={JSON.stringify({ W, H, pad, xr, rows })}>
+			{xTicks.map((v) => (
+				<g>
+					<line class={v === 0 ? 'viz-axis' : 'viz-grid'} x1={X(v)} x2={X(v)} y1={pad.t} y2={H - pad.b} />
+					<text class="viz-tick" x={X(v)} y={H - pad.b + 18} text-anchor="middle">{v}</text>
+				</g>
+			))}
+			<text class="viz-tick" x={(pad.l + W - pad.r) / 2} y={H - 8} text-anchor="middle">{L.x}</text>
+			<text class="viz-tick" x={pad.l - 8} y={rows[0] + 22} text-anchor="end">{L.capm}</text>
+			<text class="viz-tick" x={pad.l - 8} y={rows[1] + 22} text-anchor="end">{L.ff}</text>
+			<g data-el="bars"></g>
+		</svg>
+	))}
+	<ul class="lfwai-legend">
+		<li><span class="sw sw-fac-mkt"></span>{L.mkt}</li>
+		<li><span class="sw sw-fac-smb"></span>{L.smb}</li>
+		<li><span class="sw sw-fac-hml"></span>{L.hml}</li>
+		<li><span class="sw sw-fac-alpha"></span>{L.alpha}</li>
+	</ul>
+	<p class="lfwai-readout" data-el="readout" aria-live="polite"></p>
+</div>
+
+<script>
+	import { initFactorAlpha } from '../../scripts/widgets/factor-alpha';
+	initFactorAlpha();
+</script>
