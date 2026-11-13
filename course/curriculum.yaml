@@ -400,7 +400,15 @@ stages:
         published: true
         introduces: [efficient-market-hypothesis, random-walk, weak-form-efficiency, semi-strong-form-efficiency, strong-form-efficiency, joint-hypothesis-problem, event-study, abnormal-return, market-anomaly]
         uses: [capm, alpha, beta, single-index-model, firm-specific-risk, multifactor-model, fama-french-model, momentum, smart-beta, multiple-testing, hypothesis-test, t-statistic, standard-error, net-present-value, risk-aversion]
-      - { id: "4.8", slug: "4-8-behavioral-finance", title: { zh-cn: "行为金融", en: "Behavioral Finance" } }
+      - id: "4.8"
+        slug: "4-8-behavioral-finance"
+        title: { zh-cn: "行为金融", en: "Behavioral Finance" }
+        summary:
+          zh-cn: "前景理论与损失厌恶；过度自信、处置效应、心理账户与羊群效应；套利的限制；对投资者的含义。"
+          en: "Prospect theory and loss aversion; overconfidence, the disposition effect, mental accounting and herding; limits to arbitrage; what this means for investors."
+        published: true
+        introduces: [prospect-theory, loss-aversion, overconfidence, disposition-effect, mental-accounting, herding, limits-to-arbitrage, noise-trader-risk]
+        uses: [expected-utility, risk-aversion, crra-utility, sunk-cost, efficient-market-hypothesis, market-anomaly, joint-hypothesis-problem, arbitrage, firm-specific-risk, short-selling]
       - { id: "4.9", slug: "4-9-performance-evaluation", title: { zh-cn: "业绩评估", en: "Performance Evaluation" } }
       - { id: "4.10", slug: "4-10-estimation-error", title: { zh-cn: "估计误差与稳健优化", en: "Estimation Error and Robust Optimization" } }
       - { id: "4.11", slug: "4-11-capital-market-assumptions", title: { zh-cn: "资本市场假设", en: "Capital Market Assumptions" } }

@@ -1,0 +1,86 @@
+---
+title: 4.8 行为金融
+description: 前景理论与损失厌恶；过度自信、处置效应、心理账户与羊群效应；套利的限制；对投资者的含义。
+lesson: "4.8"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import ProspectValue from '../../../../components/widgets/ProspectValue.astro';
+
+## 前景理论 [#prospect-theory]
+
+<Ref lesson="1.4" /> 的期望效用理论假设人们按最终财富的效用做决策，风险厌恶来自效用函数的凹性。实验和实际行为中有一些规律与它不符。Kahneman 和 Tversky（1979）提出的<Def id="prospect-theory">前景理论</Def>（prospect theory）用三个特点来描述人们实际怎样在风险中选择：
+
+- 参照点：人们评价的是相对某个参照点（例如买入价、现状、预期）的得失，而不是最终的财富水平。
+- <Def id="loss-aversion">损失厌恶</Def>（loss aversion）：同样大小的损失带来的痛苦，大约是收益带来的快乐的两倍多。
+- 敏感度递减：得失越大，每多一元的感受越弱。所以价值函数在收益一侧是凹的（面对收益时厌恶风险），在损失一侧是凸的（面对损失时愿意冒险）。
+
+Tversky 和 Kahneman（1992）估计的价值函数是
+
+$$
+v(x) = \begin{cases} x^{a}, & x \ge 0 \\ -\lambda(-x)^{a}, & x < 0 \end{cases} \qquad a \approx 0.88,\ \lambda \approx 2.25
+$$
+
+此外，人们会高估小概率事件的权重：这可以解释为什么人们同时买彩票和保险，以及为什么像彩票一样“小概率暴涨”的股票价格往往偏高、平均收益偏低。
+
+<Figure id="1-1" title="前景理论的价值函数。虚线是 $v(x) = x$。读数给出一个 50% 赢 100 元、50% 输 100 元的赌局的价值。" observe="先把 λ 调到 1、a 调到 1，再逐个调回默认值，看价值函数和赌局的价值怎样变化。">
+	<ProspectValue />
+</Figure>
+
+<Check id="C1" />
+
+损失一侧的凸性有一个直接的推论：已经处在亏损中的人，面对“确定的损失”和“可能扳回、也可能亏更多”的选择时，会怎样选？
+
+<Check id="C2" />
+
+期望效用理论很难解释人们拒绝小额的有利赌局：对财富几十万的人来说，赌几百元时效用函数几乎是直线，按期望效用应该接近风险中性（Rabin，2000）。前景理论用参照点附近的损失厌恶解释这种行为（<Ref check="Q1" />）。
+
+## 常见的偏差 [#biases]
+
+- <Def id="overconfidence">过度自信</Def>（overconfidence）：高估自己的知识和判断的准确性。Barber 和 Odean（2000）研究了一家美国折扣券商 1991–1996 年约 66,000 个家庭账户，交易最频繁的五分之一家庭年净收益约 11.4%，同期市场约 17.9%。
+- <Def id="disposition-effect">处置效应</Def>（disposition effect）：倾向于过早卖出盈利的股票、长期持有亏损的股票（Shefrin 和 Statman，1985）。Odean（1998）发现，投资者卖出的盈利股在接下来一年平均比他们继续持有的亏损股表现更好。买入价是一个参照点，卖出亏损股就要“承认”损失。
+- <Def id="mental-accounting">心理账户</Def>（mental accounting）：把钱分到不同的“账户”中分别看待（Thaler，1985），例如把股息当作可以花的“收入”而不愿卖出股票，或者用赢来的钱更大胆地冒险。钱是可以互换的，按账户分别决策会忽略整体。
+- <Def id="herding">羊群效应</Def>（herding）：跟随别人的行为，而不是根据自己的信息判断。别人的行为本身可能包含信息，但大家都跟随时，价格可能偏离基本面越来越远。
+
+此外还有锚定（估计时过度依赖一个初始数字）、有限注意（对不显眼的信息反应不足）和对过去趋势的外推。这些偏差可以解释 <Ref lesson="4.7" sec="anomalies" /> 中的一些异象：有限注意和保守与盈余公告后的漂移一致，外推和过度反应与长期反转一致。
+
+<Check id="C3" />
+
+<Check id="C4" />
+
+## 套利的限制 [#limits-to-arbitrage]
+
+有效市场的支持者认为，即使很多投资者有偏差，理性的套利者也会买入被低估的、卖空被高估的资产，把价格推回去。行为金融的回答是：套利有风险和成本，偏差可能长期存在。这叫<Def id="limits-to-arbitrage">套利的限制</Def>（limits to arbitrage）：
+
+- 基本面风险：被低估的股票没有完全相同的替代品，用来对冲的资产不能消除全部风险（<Ref lesson="4.5" sec="decomposition" />）。
+- <Def id="noise-trader-risk">噪声交易者风险</Def>（noise trader risk）：让价格偏离的投资者可能在短期内变得更加偏执，偏差先扩大再缩小（De Long、Shleifer、Summers 和 Waldmann，1990）。
+- 实施成本：卖空要借券、付费，可能被召回；有些资产很难卖空。
+- 资金来源：套利者大多管理别人的钱。偏差扩大时套利头寸亏损，出资人可能赎回，套利者被迫在最不利的时候平仓（Shleifer 和 Vishny，1997）。
+
+一个经典的例子是荷兰皇家石油和壳牌运输（Royal Dutch 和 Shell Transport）。两家公司按 60:40 的固定比例分享同一组现金流，股价比例理论上应该恒定，实际却长期偏离，偏离幅度有时超过 30%（Froot 和 Dabora，1999）。
+
+<Check id="C5" />
+
+## 对投资者的含义 [#implications]
+
+行为金融对个人投资者最直接的用处，往往不是寻找别人的错误，而是避免自己的错误：
+
+- 交易越频繁，过度自信的代价越大；低换手的分散组合可以减少这类损失。
+- 根据未来的前景而不是买入价决定是否卖出，在应税账户中还要考虑税（<Ref check="Q2" />，<Ref lesson="6.5" />）。
+- 事先写好投资计划和再平衡规则（<Ref lesson="6.7" />），减少在市场大涨大跌时凭情绪行事。
+- 从整体组合看风险，而不是一只股票、一个账户分别看；频繁查看账户会让人感到更多的损失。
+
+## 小结 [#summary]
+
+- 前景理论：相对参照点评价得失；损失厌恶（λ 约 2.25）；收益一侧凹、损失一侧凸；高估小概率。
+- 常见偏差：过度自信、处置效应、心理账户、羊群效应、锚定、有限注意、外推；它们可以解释部分异象。
+- 套利的限制：基本面风险、噪声交易者风险、实施成本和资金来源，使偏差可以长期存在。
+- 对个人投资者：用规则和分散来减少自己的偏差，比利用别人的偏差更现实。
+
+## 练习题 [#exercises]
+
+<Exercises />

@@ -1,0 +1,333 @@
+# Answer key for lesson 4.8. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[4.8#biases]] (section), [[concept:beta]], [[check:Q3]], [[fig:1-1]].
+# expected: values are recomputed by course/verify/4.8.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "4.8"
+
+context:
+  - zh-cn: |-
+      学习者学过期望效用、风险厌恶和 CRRA 效用（[[1.4]]）、沉没成本（[[1.5]]、[[3.2]]）、Gordon 增长模型和市盈率（[[3.9]]、[[3.11]]）、单指数模型（[[4.5]]）、多因子模型（[[4.6]]）、有效市场假说、异象和联合假设问题（[[4.7]]）。讲义还没有讲业绩评估（[[4.9]]）和账户税务（[[6.5]]）。百分数用百分点表示。
+    en: |-
+      The learner has studied expected utility, risk aversion and CRRA utility ([[1.4]]), sunk costs ([[1.5]], [[3.2]]), the Gordon growth model and the price-earnings ratio ([[3.9]], [[3.11]]), the single-index model ([[4.5]]), multifactor models ([[4.6]]), and the efficient market hypothesis, anomalies and the joint hypothesis problem ([[4.7]]). The lesson has not yet covered performance evaluation ([[4.9]]) or account taxation ([[6.5]]). Percentages in percentage points.
+  - concepts: [prospect-theory, loss-aversion]
+    zh-cn: |-
+      讲义：前景理论（Kahneman 和 Tversky，1979）：相对参照点评价得失；损失厌恶；敏感度递减（收益一侧凹、损失一侧凸）；高估小概率（彩票与保险、彩票型股票）。$v(x) = x^a$（$x \ge 0$），$-\lambda(-x)^a$（$x < 0$），$a \approx 0.88$，$\lambda \approx 2.25$（Tversky 和 Kahneman，1992）。期望效用难以解释拒绝小额有利赌局（Rabin，2000）。[[fig:1-1]]：滑块 λ 从 1 到 3（步长 0.25，默认 2.25），a 从 0.5 到 1（步长 0.02，默认 0.88）；读数为 50% 赢 100、50% 输 100 的赌局的价值，以及输 100 时接受所需的最小赢额 $100\lambda^{1/a}$。
+    en: |-
+      The lesson: prospect theory (Kahneman and Tversky, 1979): gains and losses are judged relative to a reference point; loss aversion; diminishing sensitivity (concave for gains, convex for losses); overweighting of small probabilities (lotteries and insurance, lottery-like stocks). $v(x) = x^a$ ($x \ge 0$), $-\lambda(-x)^a$ ($x < 0$), $a \approx 0.88$, $\lambda \approx 2.25$ (Tversky and Kahneman, 1992). Expected utility can hardly explain rejecting small favorable gambles (Rabin, 2000). [[fig:1-1]]: sliders λ from 1 to 3 (in steps of 0.25, default 2.25) and a from 0.5 to 1 (in steps of 0.02, default 0.88); the readout shows the value of a 50/50 gamble of +100 / −100 and the smallest win, with a loss of 100, that makes it acceptable, $100\lambda^{1/a}$.
+  - concepts: [overconfidence, disposition-effect, mental-accounting, herding]
+    zh-cn: |-
+      讲义：过度自信：Barber 和 Odean（2000），一家美国折扣券商 1991–1996 年约 66,000 个家庭，交易最频繁的五分之一年净收益约 11.4%，市场约 17.9%（讲义没有说原因）。处置效应（Shefrin 和 Statman，1985）：卖出的盈利股之后表现好于继续持有的亏损股（Odean，1998）；买入价是参照点。心理账户（Thaler，1985）；羊群效应；锚定、有限注意、外推；可以解释盈余公告后漂移和长期反转。讲义没有讲处置效应与税的关系（留给练习题 Q2）。
+    en: |-
+      The lesson: overconfidence: Barber and Odean (2000), about 66,000 households at a US discount broker in 1991–1996; the fifth that traded most earned about 11.4% net a year against about 17.9% for the market (the lesson does not give the reason). The disposition effect (Shefrin and Statman, 1985): winners sold later beat losers kept (Odean, 1998); the purchase price is a reference point. Mental accounting (Thaler, 1985); herding; anchoring, limited attention, extrapolation; these can explain post-earnings-announcement drift and long-run reversal. The lesson does not cover how the disposition effect relates to taxes (left to exercise Q2).
+  - concepts: [limits-to-arbitrage, noise-trader-risk]
+    zh-cn: |-
+      讲义：套利的限制：基本面风险（没有完全相同的替代品）、噪声交易者风险（偏差先扩大，De Long 等，1990）、实施成本（借券、费用、召回）、资金来源（亏损时出资人赎回，Shleifer 和 Vishny，1997）。荷兰皇家与壳牌按 60:40 分享现金流，价格比例长期偏离，有时超过 30%（Froot 和 Dabora，1999）。含义：少交易、按前景而非买入价卖出、事先写好计划和再平衡规则、从整体组合看风险。
+    en: |-
+      The lesson: limits to arbitrage: fundamental risk (no perfect substitute), noise trader risk (gaps widen first; De Long and others, 1990), implementation costs (borrowing shares, fees, recalls), funding (investors withdraw after losses; Shleifer and Vishny, 1997). Royal Dutch and Shell shared cash flows 60:40, but their price ratio departed from parity for long periods, at times by more than 30% (Froot and Dabora, 1999). Implications: trade less, sell on prospects rather than purchase price, write plans and rebalancing rules in advance, judge risk at the level of the whole portfolio.
+
+common_errors:
+  - questions: [Q1]
+    zh-cn: |-
+      把拒绝小额有利赌局解释为很高的风险厌恶（按最终财富的效用），推出这个人应该很少持有股票；忽略损失厌恶和只看单个赌局（狭窄框架）。
+    en: |-
+      Explaining the rejection of a small favorable gamble as very high risk aversion (over final wealth) and concluding the person should hold few stocks; ignoring loss aversion and looking at one gamble in isolation (narrow framing).
+  - questions: [Q2]
+    zh-cn: |-
+      按买入价决定卖出哪只股票（“等回本”），把买入价这个沉没成本当作决策依据；忽略卖出盈利股要交税、卖出亏损股可以抵税。
+    en: |-
+      Deciding which stock to sell by the purchase price ("wait to break even"), treating the sunk purchase price as a reason; ignoring that selling a winner triggers tax while selling a loser saves tax.
+  - questions: [Q3]
+    zh-cn: |-
+      以为错误定价一定会被套利很快消除，套利者只要看对方向就一定赚钱；忽略偏差扩大时的亏损、杠杆和出资人赎回。
+    en: |-
+      Thinking mispricing must be quickly removed by arbitrage, so an arbitrageur who is right about the direction must make money; ignoring losses while the gap widens, leverage and investor withdrawals.
+  - questions: [Q4]
+    zh-cn: |-
+      不检查价格隐含的假设是否合理；以为只要比别人早卖出就能从泡沫中获利，忽略时机无法预测。
+    en: |-
+      Not checking whether the assumptions implied by a price are reasonable; thinking one can profit from a bubble simply by selling before others, ignoring that the timing cannot be predicted.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: prospect-theory
+    concepts: [prospect-theory, loss-aversion]
+    widget: { id: prospect-value, set: { lambda: 1, a: 0.88 } }
+    question:
+      zh-cn: |-
+        在 [[fig:1-1]] 中，保持 a = 0.88，把损失厌恶系数 λ 从 1 提高到 2.25。50% 赢 100 元、50% 输 100 元的赌局的价值会：
+      en: |-
+        In [[fig:1-1]], keep a = 0.88 and raise the loss aversion λ from 1 to 2.25. The value of a gamble with a 50% chance to win 100 dollars and a 50% chance to lose 100:
+    choices:
+      - zh-cn: 从 0 变为负值
+        en: Goes from 0 to negative
+      - zh-cn: 从 0 变为正值，因为赌局的期望值为 0
+        en: Goes from 0 to positive, because the gamble's expected value is 0
+        why:
+          zh-cn: λ 放大的是损失一侧还是收益一侧的价值？
+          en: Does λ magnify the value on the loss side or the gain side?
+      - zh-cn: 不变，因为 λ 只影响很大的损失
+        en: Stays the same, because λ affects only large losses
+        why:
+          zh-cn: 看价值函数的公式：λ 乘的是所有的损失，还是只有大的损失？
+          en: 'Look at the formula: does λ multiply all losses or only large ones?'
+      - zh-cn: 一直是负值，大小不变
+        en: Is negative throughout, with the same size
+        why:
+          zh-cn: λ = 1、a 在收益和损失两侧相同时，赢 100 与输 100 的价值大小相同。这时赌局的价值是多少？
+          en: With λ = 1 and the same a on both sides, winning 100 and losing 100 have values of the same size. What is the gamble's value then?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。λ = 1 时 $v(100) = 100^{0.88}$、$v(-100) = -100^{0.88}$，赌局价值为 0；λ = 2.25 时损失的价值放大 2.25 倍，赌局价值约为 $0.5 \times 57.5 - 0.5 \times 129.5 \approx -36$，变为负值，人们会拒绝期望值为 0 的对称赌局。这只来自损失厌恶，与财富水平无关。
+      en: |-
+        (A). With λ = 1, $v(100) = 100^{0.88}$ and $v(-100) = -100^{0.88}$, so the gamble's value is 0; with λ = 2.25 the value of the loss is magnified 2.25 times, and the gamble's value is about $0.5 \times 57.5 - 0.5 \times 129.5 \approx -36$, negative, so people reject a symmetric gamble with an expected value of 0. This comes from loss aversion alone, not from the level of wealth.
+
+  - id: C2
+    kind: check
+    section: prospect-theory
+    concepts: [prospect-theory]
+    question:
+      zh-cn: |-
+        按前景理论，一位已经亏损的投资者面对两个选择：确定再亏 50 元；或者 50% 再亏 100 元、50% 不再亏损。他更可能：
+      en: |-
+        By prospect theory, an investor who is already losing faces two choices: a sure further loss of 50 dollars, or a 50% chance of losing 100 more and a 50% chance of losing nothing more. He is more likely to:
+    choices:
+      - zh-cn: 选择赌一把
+        en: Choose the gamble
+      - zh-cn: 选择确定的损失，因为他厌恶风险
+        en: Choose the sure loss, because he is risk averse
+        why:
+          zh-cn: 前景理论中，价值函数在损失一侧是凹的还是凸的？凸函数意味着面对风险时怎样选择？
+          en: In prospect theory, is the value function concave or convex on the loss side? What does convexity imply about choices under risk?
+      - zh-cn: 两者无差异，因为期望损失都是 50 元
+        en: Be indifferent, because both have an expected loss of 50 dollars
+        why:
+          zh-cn: 期望值相同，但价值函数不是直线。$v(-50)$ 与 $0.5\,v(-100)$ 哪个更小？
+          en: The expected values are equal, but the value function is not a straight line. Which is smaller, $v(-50)$ or $0.5\,v(-100)$?
+      - zh-cn: 取决于他的总财富
+        en: It depends on his total wealth
+        why:
+          zh-cn: 前景理论按什么评价得失：最终财富，还是相对参照点的变化？
+          en: What does prospect theory judge, final wealth or changes relative to a reference point?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。损失一侧的价值函数是凸的：$v(-50) = -\lambda \cdot 50^{0.88}$ 比 $0.5\,v(-100) = -0.5\lambda \cdot 100^{0.88}$ 更低（$50^{0.88} \approx 31.3 > 0.5 \times 57.5$），所以确定的损失感觉更糟，人们宁愿冒险。这就是亏损的人“想扳回来”而加大风险的原因，也与持有亏损股、等待回本的处置效应一致。
+      en: |-
+        (A). The value function is convex on the loss side: $v(-50) = -\lambda \cdot 50^{0.88}$ is lower than $0.5\,v(-100) = -0.5\lambda \cdot 100^{0.88}$ (since $50^{0.88} \approx 31.3 > 0.5 \times 57.5$), so the sure loss feels worse and people prefer to take the risk. This is why people who are losing take more risk to "win it back", and it fits the disposition effect of holding losers until they break even.
+
+  - id: C3
+    kind: check
+    section: biases
+    concepts: [disposition-effect]
+    question:
+      zh-cn: |-
+        在应税账户中，处置效应（倾向于卖出盈利的股票、继续持有亏损的股票）通常对投资者的税负有利。
+      en: |-
+        In a taxable account, the disposition effect (a tendency to sell winning stocks and keep losing ones) usually helps the investor's tax bill.
+    correct: false
+    hint:
+      zh-cn: 想一想：卖出盈利的股票，会实现资本利得还是资本损失？实现的资本损失对税有什么作用？
+      en: 'Think: does selling a winner realize a capital gain or a capital loss? What does a realized capital loss do to taxes?'
+    answer:
+      zh-cn: |-
+        错。卖出盈利股实现资本利得，要交税；继续持有亏损股，放弃了实现损失、抵扣其他利得的机会。从税的角度看，正确的做法往往相反：推迟实现利得，及时实现损失。处置效应既不利于税负，也与卖出的盈利股之后表现更好的证据不符。
+      en: |-
+        False. Selling a winner realizes a capital gain, which is taxed; keeping a loser gives up the chance to realize the loss and offset other gains. For taxes, the right approach is often the opposite: defer gains and realize losses promptly. The disposition effect hurts the tax bill and also goes against the evidence that sold winners go on to do better.
+
+  - id: C4
+    kind: check
+    section: biases
+    concepts: [overconfidence]
+    question:
+      zh-cn: |-
+        Barber 和 Odean（2000）发现，交易最频繁的家庭净收益最低。最主要的原因是：
+      en: |-
+        Barber and Odean (2000) found that the households that traded most had the lowest net returns. The main reason is:
+    choices:
+      - zh-cn: 他们买入的股票风险更高，而这段时间高风险股票表现差
+        en: They bought riskier stocks, and risky stocks did badly in that period
+        why:
+          zh-cn: 1991–1996 年市场整体上涨很多。如果他们只是承担了更高的风险，收益应该更高还是更低？
+          en: The market rose a lot in 1991–1996. If they had simply taken more risk, should their returns have been higher or lower?
+      - zh-cn: 他们以为自己的信息和判断有优势而频繁交易，但交易带来的收益不够弥补交易成本
+        en: They traded often because they thought their information and judgment gave them an edge, but the trades did not earn enough to cover their costs
+      - zh-cn: 他们交易的都是非法的内幕消息
+        en: They all traded on illegal inside information
+        why:
+          zh-cn: 如果利用了内幕消息，收益应该更高还是更低？
+          en: If they had used inside information, should their returns have been higher or lower?
+      - zh-cn: 券商故意让交易频繁的客户亏损
+        en: The broker deliberately made frequent traders lose money
+        why:
+          zh-cn: 研究发现的主要差别来自哪里：交易成本和选股的结果，还是券商的操纵？
+          en: Where did the main difference come from, trading costs and the results of stock picking, or manipulation by the broker?
+    correct: B
+    answer:
+      zh-cn: |-
+        (B)。频繁交易的家庭在扣除成本前与其他家庭差别不大，差别主要来自佣金和买卖价差：他们卖出的股票和买入的股票表现差不多，却付出了大量交易成本。过度自信使人高估自己信息的价值，于是交易过多。
+      en: |-
+        (B). Before costs, the frequent traders did about as well as others; the gap came mainly from commissions and bid–ask spreads: the stocks they sold and the stocks they bought performed about the same, but they paid large trading costs. Overconfidence makes people overrate the value of their information, so they trade too much.
+
+  - id: C5
+    kind: check
+    section: limits-to-arbitrage
+    concepts: [limits-to-arbitrage, noise-trader-risk]
+    question:
+      zh-cn: |-
+        两只股票代表对同一组现金流的固定比例的权利，它们的价格比例偏离了理论值 10%。下面哪一项最能解释为什么套利者没有马上把偏差消除？
+      en: |-
+        Two stocks represent fixed shares of the same cash flows, and their price ratio has moved 10% away from its theoretical value. Which best explains why arbitrageurs do not remove the gap at once?
+    choices:
+      - zh-cn: 偏差可能先扩大，套利者可能在价格收敛之前因亏损被迫平仓
+        en: The gap may widen first, and arbitrageurs may be forced to close their positions at a loss before prices converge
+      - zh-cn: 两只股票的现金流其实不同，偏差有合理的原因
+        en: The two stocks' cash flows are actually different, so the gap has a sound reason
+        why:
+          zh-cn: 题目说它们代表同一组现金流的固定比例的权利。
+          en: The question says they represent fixed shares of the same cash flows.
+      - zh-cn: 这个交易没有利润，因为最终的收益正好被风险抵消
+        en: The trade has no profit, because its eventual return is exactly offset by its risk
+        why:
+          zh-cn: 如果比例最终回到理论值，买入便宜的、卖空贵的，最终会赚钱吗？
+          en: If the ratio eventually returns to its theoretical value, does buying the cheap one and shorting the dear one make money in the end?
+      - zh-cn: 市场是有效的，所以偏差实际上不存在
+        en: The market is efficient, so the gap does not really exist
+        why:
+          zh-cn: 偏差可以直接从两个价格观察到。它不存在吗？
+          en: The gap can be observed directly from the two prices. Does it not exist?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。偏差最终会收敛，但时间不确定，期间可能继续扩大（噪声交易者风险）。套利者用杠杆、管理别人的钱，偏差扩大时会亏损、被追加保证金、被出资人赎回，可能在最不利的时候被迫平仓。所以即使方向正确，套利也有风险，偏差可以长期存在，荷兰皇家与壳牌的例子就是这样。
+      en: |-
+        (A). The gap will close eventually, but when is uncertain, and it may widen in the meantime (noise trader risk). Arbitrageurs use leverage and manage other people's money, so as the gap widens they lose money, face margin calls and investor withdrawals, and may be forced to close at the worst moment. So even when they are right about the direction, arbitrage is risky and gaps can persist, as in the Royal Dutch and Shell example.
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [prospect-theory, loss-aversion, risk-aversion, crra-utility]
+    expected: { v: "-33.4", w: "251" }
+    question:
+      zh-cn: |-
+        一个人的财富为 10 万美元。有人提供一个赌局：50% 赢 110 美元，50% 输 100 美元。他拒绝了。
+        (a) 用 Tversky 和 Kahneman 的价值函数（$a = 0.88$，$\lambda = 2.25$，参照点是现状）计算这个赌局的价值。输的仍是 100 美元时，赢的金额至少多大他才会接受？
+        (b) 一位同事说：“他拒绝了期望值为正的赌局，说明他的相对风险厌恶系数非常高（按 [[1.4]] 的 CRRA 效用），所以他应该几乎不持有股票。”用对数效用 $u(W) = \ln W$（相对风险厌恶系数为 1）检查他是否会接受这个赌局，并评价同事的说法。
+      en: |-
+        A person has wealth of 100,000 dollars. He is offered a gamble with a 50% chance to win 110 dollars and a 50% chance to lose 100 dollars. He turns it down.
+        (a) Using the Tversky–Kahneman value function ($a = 0.88$, $\lambda = 2.25$, with the status quo as the reference point), compute the value of the gamble. With the loss still 100 dollars, how large must the win be for him to accept?
+        (b) A colleague says: "He turned down a gamble with a positive expected value, so his relative risk aversion must be very high (by the CRRA utility of [[1.4]]), and he should hold almost no stocks." Check with log utility $u(W) = \ln W$ (relative risk aversion 1) whether he would accept the gamble, and evaluate the colleague's statement.
+    answer:
+      zh-cn: |-
+        (a) $v = 0.5 \times 110^{0.88} - 0.5 \times 2.25 \times 100^{0.88} \approx 0.5 \times 62.6 - 0.5 \times 129.5 \approx -33.4$，为负，拒绝。接受需要 $W^{0.88} \ge 2.25 \times 100^{0.88}$，$W \ge 100 \times 2.25^{1/0.88} \approx 251$ 美元：赢的要比输的多一倍半，他才愿意赌。
+        (b) 对数效用下，期望效用的变化 $= 0.5\ln(100{,}110) + 0.5\ln(99{,}900) - \ln(100{,}000) \approx +0.00005 > 0$，会接受。对 10 万美元的财富来说，100 美元的得失很小，任何合理的 CRRA 效用在这个范围内都几乎是直线，应接近风险中性。要用期望效用解释拒绝这样的小赌局，风险厌恶系数必须高到荒谬的程度，那样他对大额赌局的选择会极不合理（Rabin，2000）。更合理的解释是损失厌恶：他把这个赌局单独看待（狭窄框架），相对现状评价输赢。这不能推出他应该几乎不持有股票：持有分散的股票组合是一个长期、整体的决策，与对一次小赌局的反应不同；不过损失厌恶的人如果频繁查看账户，会觉得股票更难承受，这正是要从整体、长期看风险的原因。
+      en: |-
+        (a) $v = 0.5 \times 110^{0.88} - 0.5 \times 2.25 \times 100^{0.88} \approx 0.5 \times 62.6 - 0.5 \times 129.5 \approx -33.4$, negative, so he rejects. Accepting needs $W^{0.88} \ge 2.25 \times 100^{0.88}$, so $W \ge 100 \times 2.25^{1/0.88} \approx 251$ dollars: the win must be about two and a half times the loss before he will gamble.
+        (b) With log utility the change in expected utility is $0.5\ln(100{,}110) + 0.5\ln(99{,}900) - \ln(100{,}000) \approx +0.00005 > 0$, so he would accept. With wealth of 100,000 dollars, gains and losses of about 100 dollars are tiny, and any reasonable CRRA utility is almost a straight line over this range, so he should be nearly risk neutral. To explain rejecting such a small gamble with expected utility, risk aversion would have to be absurdly high, which would make his choices over large gambles wildly unreasonable (Rabin, 2000). A better explanation is loss aversion: he looks at this gamble on its own (narrow framing) and judges the outcomes relative to the status quo. It does not follow that he should hold almost no stocks: holding a diversified stock portfolio is a long-term decision about the whole portfolio, unlike a reaction to one small gamble; though a loss-averse person who checks his account often will find stocks harder to bear, which is why risk should be judged for the whole portfolio and over the long run.
+    rubric:
+      zh-cn:
+        - "(a) 通过：价值约 −33.4（为负），最小赢额约 251 美元。"
+        - "(b) 通过：算出对数效用下期望效用增加（会接受），说明小额赌局下期望效用接近风险中性，拒绝应该用损失厌恶（或狭窄框架）解释，不能推出风险厌恶系数很高、应几乎不持有股票。同意同事的说法，需要订正。"
+      en:
+        - "(a) OK: a value of about −33.4 (negative) and a smallest win of about 251 dollars."
+        - "(b) OK: finds that expected utility rises under log utility (he would accept), explains that expected utility is nearly risk neutral for small gambles so the rejection is better explained by loss aversion (or narrow framing), and that it does not imply high risk aversion or holding almost no stocks. Agreeing with the colleague needs revision."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [disposition-effect, mental-accounting, sunk-cost]
+    expected: { taxa: "346", taxb: "643" }
+    question:
+      zh-cn: |-
+        一位投资者两年前各用 5 万美元买入股票 A 和 B。现在 A 值 6.5 万美元，B 值 3.5 万美元。他需要 1 万美元现金，打算卖出 1 万美元的 A：“A 赚了钱，先锁定利润；B 等它涨回成本价再卖。”他对两只股票未来的看法相同。假设长期资本利得税率为 15%，实现的资本损失可以抵扣他今年其他的资本利得。
+        (a) 卖出 1 万美元的 A，要为实现的利得交多少税？如果改为卖出 1 万美元的 B，实现的损失能少交多少税？
+        (b) 评价他的理由。“等它涨回成本价”有什么问题？
+      en: |-
+        Two years ago an investor bought 50,000 dollars each of stocks A and B. A is now worth 65,000 dollars and B 35,000 dollars. He needs 10,000 dollars in cash and plans to sell 10,000 dollars of A: "A made money, so I'll lock in the profit; I'll sell B once it climbs back to what I paid." His views on the two stocks' futures are the same. Assume a long-term capital gains tax rate of 15%, and that realized capital losses can offset his other capital gains this year.
+        (a) Selling 10,000 dollars of A, how much tax does he pay on the realized gain? If he sold 10,000 dollars of B instead, how much tax would the realized loss save?
+        (b) Evaluate his reasoning. What is wrong with "waiting for it to climb back to what I paid"?
+    answer:
+      zh-cn: |-
+        (a) A 的成本是市值的 $\frac{50}{65}$，卖出 1 万美元实现利得 $10{,}000 \times \frac{15}{65} \approx 2{,}308$ 美元，税约 $2{,}308 \times 15\% \approx 346$ 美元。B 的成本是市值的 $\frac{50}{35}$，卖出 1 万美元实现损失 $10{,}000 \times \frac{15}{35} \approx 4{,}286$ 美元，抵扣其他利得后少交约 $4{,}286 \times 15\% \approx 643$ 美元。两种做法的税差约 989 美元。
+        (b) 这是处置效应。买入价是沉没成本（[[3.2]]），与两只股票未来的收益无关；市场不知道也不在乎他的成本价。既然他对两只股票的看法相同，应该比较的是卖出后的税和组合的风险：卖出 B 少交税（而且把 A 的利得推迟实现），也可以借此调整两只股票的比例。“等回本”是以买入价为参照点、不愿承认损失的心理，可能让他长期持有一只本来不会买入的股票；证据也显示投资者卖出的盈利股之后表现好于继续持有的亏损股（Odean，1998）。把 A 的利润当作“已经赚到的”、把 B 当作“还没亏”的，也是心理账户：两只股票的现值都是他的财富。
+      en: |-
+        (a) A's cost is $\frac{50}{65}$ of its market value, so selling 10,000 dollars realizes a gain of $10{,}000 \times \frac{15}{65} \approx 2{,}308$ dollars, with tax of about $2{,}308 \times 15\% \approx 346$ dollars. B's cost is $\frac{50}{35}$ of its market value, so selling 10,000 dollars realizes a loss of $10{,}000 \times \frac{15}{35} \approx 4{,}286$ dollars, which offsets other gains and saves about $4{,}286 \times 15\% \approx 643$ dollars. The tax difference between the two is about 989 dollars.
+        (b) This is the disposition effect. The purchase price is a sunk cost ([[3.2]]) and has nothing to do with the two stocks' future returns; the market neither knows nor cares what he paid. Since his views on the two stocks are the same, what he should compare is the tax on the sale and the portfolio's risk: selling B saves tax (and defers realizing A's gain), and can also be used to adjust the two stocks' weights. "Waiting to break even" uses the purchase price as a reference point and reflects reluctance to admit a loss; it may keep him holding a stock he would not buy today. The evidence also shows that the winners investors sell go on to beat the losers they keep (Odean, 1998). Treating A's profit as "already made" and B as "not yet lost" is also mental accounting: the current values of both stocks are his wealth.
+    rubric:
+      zh-cn:
+        - "(a) 通过：卖 A 的税约 346 美元，卖 B 少交约 643 美元。把整个 1 万美元当作利得或损失，需要订正。"
+        - "(b) 通过：指出买入价是沉没成本、与未来收益无关，这是处置效应，并说明卖出 B 在税上更有利。只讨论税而不指出“等回本”的错误，或只讨论心理而不提税，需要订正。"
+      en:
+        - "(a) OK: tax of about 346 dollars for selling A, and about 643 dollars saved for selling B. Treating the whole 10,000 dollars as gain or loss needs revision."
+        - "(b) OK: says the purchase price is a sunk cost unrelated to future returns, names the disposition effect, and explains that selling B is better for taxes. Discussing only taxes without pointing out what is wrong with waiting to break even, or only the psychology without taxes, needs revision."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [limits-to-arbitrage, noise-trader-risk, arbitrage]
+    expected: { loss: "5", ret: "50" }
+    question:
+      zh-cn: |-
+        股票 X 和 Y 代表对同一组现金流的相同权利，理论上价格应该相等，现在 X 比 Y 贵 10%。一个套利基金有 1,000 万美元资本，买入 5,000 万美元的 Y，卖空 5,000 万美元的 X。为简单起见，价差每变化 1 个百分点，头寸的盈亏约为 5,000 万美元的 1%。
+        (a) 如果价差最终回到 0，基金的资本收益率是多少？如果价差先扩大到 20%，基金会亏损多少（百万美元），占资本的百分之几？
+        (b) 一位分析师说：“错误定价必然会被套利消除，套利者只要方向看对，就一定赚钱。”结合 (a) 评价这个说法。如果基金只用 1 倍杠杆（买入和卖空各 1,000 万美元），情况有什么变化？
+      en: |-
+        Stocks X and Y represent identical claims on the same cash flows, so in theory their prices should be equal; X is now 10% more expensive than Y. An arbitrage fund with 10 million dollars of capital buys 50 million dollars of Y and shorts 50 million dollars of X. For simplicity, each percentage point of change in the gap changes the position's value by about 1% of 50 million dollars.
+        (a) If the gap eventually returns to 0, what is the fund's return on capital? If the gap first widens to 20%, how much does the fund lose (in millions of dollars), and what share of its capital is that?
+        (b) An analyst says: "Mispricing must be removed by arbitrage, and an arbitrageur who is right about the direction is sure to make money." Using (a), evaluate this statement. What changes if the fund uses only 1 times leverage (10 million dollars long and 10 million short)?
+    answer:
+      zh-cn: |-
+        (a) 价差缩小 10 个百分点，盈利约 $5{,}000 \times 10\% = 500$ 万美元，资本收益率 $\frac{500}{1{,}000} = 50\%$。价差扩大 10 个百分点，亏损约 5 百万美元，占资本的一半。
+        (b) 说法忽略了时间和资金。方向正确只保证最终收敛时赚钱，但收敛之前价差可能扩大（噪声交易者风险）。亏损一半资本时，经纪商会要求追加保证金，出资人看到亏损可能赎回，基金可能被迫在价差最大时平仓，把账面亏损变成实际亏损，根本等不到收敛（Shleifer 和 Vishny）。而且套利者被迫平仓（买回 X、卖出 Y）还会进一步推大价差。用 1 倍杠杆时，价差扩大到 20% 只亏 100 万美元（资本的 10%），能撑得更久，但收敛时也只赚 10%。杠杆越低越安全，收益也越低，所以套利资本有限，偏差可以长期存在。
+      en: |-
+        (a) The gap narrows by 10 points, a profit of about $50 \times 10\% = 5$ million dollars, a return on capital of $\frac{5}{10} = 50\%$. If the gap widens by 10 points, the loss is about 5 million dollars, half the capital.
+        (b) The statement ignores time and funding. Being right about the direction guarantees a profit only when prices finally converge, but before then the gap may widen (noise trader risk). With half its capital lost, the broker demands more margin and investors who see the loss may withdraw, so the fund may be forced to close at the widest gap, turning a paper loss into a real one before convergence ever comes (Shleifer and Vishny). Forced closing (buying back X, selling Y) also pushes the gap wider. With 1 times leverage, widening to 20% loses only 1 million dollars (10% of capital), so the fund can hold on longer, but convergence earns only 10%. Lower leverage is safer but earns less, so arbitrage capital is limited and gaps can persist.
+    rubric:
+      zh-cn:
+        - "(a) 通过：收敛时收益率 50%；价差扩大到 20% 时亏损约 5 百万美元，即资本的 50%。"
+        - "(b) 通过：说明收敛前偏差可能扩大，杠杆、保证金和出资人赎回可能迫使基金在亏损时平仓，并比较 1 倍杠杆下风险和收益都变小。同意分析师的说法，需要订正。"
+      en:
+        - "(a) OK: a 50% return at convergence; a loss of about 5 million dollars, 50% of capital, if the gap widens to 20%."
+        - "(b) OK: explains that the gap may widen before converging, that leverage, margin calls and withdrawals may force the fund to close at a loss, and compares the smaller risk and smaller return with 1 times leverage. Agreeing with the analyst needs revision."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [herding, limits-to-arbitrage, overconfidence]
+    expected: { g: "8.75" }
+    question:
+      zh-cn: |-
+        一只热门股票的价格是下一年预期盈利的 200 倍。公司预计把 50% 的盈利作为股息发放，投资者要求的收益率为 9%。
+        (a) 按 Gordon 增长模型（[[3.9]]），这个价格隐含的永久股息增长率是多少？与长期的名义经济增长率（约 4% 到 5%）比较，这个假设合理吗？
+        (b) 一位朋友说：“我知道它贵，但大家都在买，价格还会涨。我只要比别人早一点卖出就行。”评价这个说法。为什么看出它贵的投资者也不一定会卖空它？
+      en: |-
+        A popular stock trades at 200 times next year's expected earnings. The company expects to pay out 50% of its earnings as dividends, and investors require a return of 9%.
+        (a) By the Gordon growth model ([[3.9]]), what permanent dividend growth rate does this price imply? Compared with long-run nominal economic growth (about 4% to 5%), is this assumption reasonable?
+        (b) A friend says: "I know it's expensive, but everyone is buying, so the price will keep rising. I just need to sell a little earlier than everyone else." Evaluate this statement. Why might investors who see that it is expensive still not short it?
+    answer:
+      zh-cn: |-
+        (a) $\frac{P}{E_1} = \frac{\text{派息率}}{r - g}$，$200 = \frac{0.5}{0.09 - g}$，$g = 9\% - 0.25\% = 8.75\%$。永久每年 8.75% 的增长远高于经济的长期名义增长率：一家公司的增长率永远高于整个经济，最终会大于整个经济，不可能。价格隐含的假设不合理，除非投资者要求的收益率远低于 9%。
+        (b) 这是羊群效应加上过度自信。价格上涨只靠后来的买家愿意出更高的价格，没有基本面支撑；“比别人早卖出”要求准确判断转折点，但转折的时间无法预测，而每个人都以为自己会比别人早。看出它贵的投资者也可能不卖空，因为这是套利的限制：价格可能在回落之前继续大涨（噪声交易者风险），卖空的亏损理论上没有上限，要付借券费、可能被召回，资金管理人还要面对短期跑输和赎回。2000 年前后的互联网泡沫中，很多认为股价过高的人就是因为过早卖空而亏损或放弃的。
+      en: |-
+        (a) $\frac{P}{E_1} = \frac{\text{payout}}{r - g}$, so $200 = \frac{0.5}{0.09 - g}$ and $g = 9\% - 0.25\% = 8.75\%$. Permanent growth of 8.75% a year is far above the economy's long-run nominal growth: a company growing faster than the whole economy forever would eventually be larger than the economy, which is impossible. The price's implied assumption is unreasonable, unless investors' required return is far below 9%.
+        (b) This is herding plus overconfidence. The price rises only because later buyers are willing to pay more, with no support from fundamentals; "selling earlier than everyone else" requires judging the turning point accurately, but its timing cannot be predicted, and everyone thinks they will be earlier than the rest. Investors who see that it is expensive may still not short it because of limits to arbitrage: the price may keep rising sharply before it falls (noise trader risk), a short's losses have no upper limit in principle, borrowing shares costs fees and may be recalled, and fund managers face lagging in the short run and withdrawals. In the internet bubble around 2000, many who thought prices were too high lost money or gave up because they shorted too early.
+    rubric:
+      zh-cn:
+        - "(a) 通过：隐含增长率 8.75%，指出永久高于经济增长率不合理。"
+        - "(b) 通过：指出转折时机无法预测（羊群效应、过度自信），并用套利的限制（价格可能继续上涨、卖空成本和风险、资金压力）解释为什么不卖空。认为朋友的策略可行，或者只说“泡沫会破”而不讨论时机和卖空的限制，需要订正。"
+      en:
+        - "(a) OK: an implied growth rate of 8.75%, with the point that permanently exceeding economic growth is unreasonable."
+        - "(b) OK: says the turning point cannot be timed (herding, overconfidence) and uses limits to arbitrage (prices may keep rising, the costs and risks of shorting, funding pressure) to explain why people do not short. Thinking the friend's plan works, or saying only \"the bubble will burst\" without discussing timing and the limits on shorting, needs revision."

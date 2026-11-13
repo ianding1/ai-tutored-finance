@@ -1,0 +1,86 @@
+---
+title: 4.8 Behavioral Finance
+description: Prospect theory and loss aversion; overconfidence, the disposition effect, mental accounting and herding; limits to arbitrage; what this means for investors.
+lesson: "4.8"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import ProspectValue from '../../../../components/widgets/ProspectValue.astro';
+
+## Prospect theory [#prospect-theory]
+
+The expected utility theory of <Ref lesson="1.4" /> assumes that people decide by the utility of final wealth, and that risk aversion comes from the concavity of the utility function. Some patterns in experiments and in actual behavior do not fit it. The <Def id="prospect-theory">prospect theory</Def> of Kahneman and Tversky (1979) describes how people actually choose under risk with three features:
+
+- Reference point: people judge gains and losses relative to some reference point (the purchase price, the status quo, an expectation), not the level of final wealth.
+- <Def id="loss-aversion">Loss aversion</Def>: a loss hurts a little more than twice as much as a gain of the same size pleases.
+- Diminishing sensitivity: the larger the gain or loss, the weaker the feeling of each extra dollar. So the value function is concave for gains (risk averse when facing gains) and convex for losses (willing to take risks when facing losses).
+
+The value function estimated by Tversky and Kahneman (1992) is
+
+$$
+v(x) = \begin{cases} x^{a}, & x \ge 0 \\ -\lambda(-x)^{a}, & x < 0 \end{cases} \qquad a \approx 0.88,\ \lambda \approx 2.25
+$$
+
+In addition, people give too much weight to events with small probabilities: this can explain why people buy both lottery tickets and insurance, and why stocks that, like lotteries, have a small chance of a huge gain tend to be overpriced and to earn low average returns.
+
+<Figure id="1-1" title="The prospect-theory value function. The dashed line is $v(x) = x$. The readout gives the value of a gamble with a 50% chance to win 100 dollars and a 50% chance to lose 100." observe="First set λ to 1 and a to 1, then move them back to the defaults one at a time, and watch how the value function and the gamble's value change.">
+	<ProspectValue />
+</Figure>
+
+<Check id="C1" />
+
+Convexity on the loss side has a direct consequence: when someone who is already losing must choose between "a sure loss" and "a chance to win it back or to lose more", which do they choose?
+
+<Check id="C2" />
+
+Expected utility theory has trouble explaining why people turn down small favorable gambles: for someone with wealth of a few hundred thousand dollars, the utility function is almost a straight line over a few hundred dollars, so by expected utility they should be close to risk neutral (Rabin, 2000). Prospect theory explains this behavior by loss aversion around the reference point (<Ref check="Q1" />).
+
+## Common biases [#biases]
+
+- <Def id="overconfidence">Overconfidence</Def>: overrating the accuracy of one's own knowledge and judgment. Barber and Odean (2000) studied about 66,000 household accounts at a US discount broker in 1991–1996; the fifth of households that traded most earned about 11.4% a year net, while the market earned about 17.9%.
+- <Def id="disposition-effect">Disposition effect</Def>: a tendency to sell winning stocks too early and to hold losing stocks too long (Shefrin and Statman, 1985). Odean (1998) found that the winners investors sold went on, over the next year, to do better on average than the losers they kept. The purchase price is a reference point, and selling a loser means "admitting" the loss.
+- <Def id="mental-accounting">Mental accounting</Def>: putting money into separate "accounts" and treating each on its own (Thaler, 1985), for example treating dividends as "income" that can be spent while being unwilling to sell shares, or taking bolder risks with money that was won. Money is interchangeable, and deciding account by account ignores the whole.
+- <Def id="herding">Herding</Def>: following what others do instead of judging from one's own information. Others' actions may contain information, but when everyone follows, prices can drift further and further from fundamentals.
+
+There are also anchoring (relying too much on an initial number when estimating), limited attention (underreacting to information that is not prominent) and extrapolating past trends. These biases can explain some of the anomalies in <Ref lesson="4.7" sec="anomalies" />: limited attention and conservatism fit post-earnings-announcement drift, and extrapolation and overreaction fit long-run reversal.
+
+<Check id="C3" />
+
+<Check id="C4" />
+
+## Limits to arbitrage [#limits-to-arbitrage]
+
+Supporters of efficient markets argue that even if many investors are biased, rational arbitrageurs will buy undervalued assets and short overvalued ones, pushing prices back. Behavioral finance answers that arbitrage is risky and costly, so mispricing can last a long time. These are the <Def id="limits-to-arbitrage">limits to arbitrage</Def>:
+
+- Fundamental risk: an undervalued stock has no perfect substitute, and the assets used to hedge cannot remove all the risk (<Ref lesson="4.5" sec="decomposition" />).
+- <Def id="noise-trader-risk">Noise trader risk</Def>: the investors who push prices away from value may become even more extreme in the short run, so the gap widens before it narrows (De Long, Shleifer, Summers and Waldmann, 1990).
+- Implementation costs: shorting requires borrowing shares and paying fees, and the shares may be recalled; some assets are very hard to short.
+- Funding: most arbitrageurs manage other people's money. When the gap widens, the arbitrage position loses money, investors may withdraw, and arbitrageurs are forced to close at the worst moment (Shleifer and Vishny, 1997).
+
+A classic example is Royal Dutch and Shell Transport. The two companies shared the same cash flows in a fixed ratio of 60:40, so their price ratio should in theory have been constant; in fact it departed from parity for long periods, at times by more than 30% (Froot and Dabora, 1999).
+
+<Check id="C5" />
+
+## What it means for investors [#implications]
+
+For individual investors, the most direct use of behavioral finance is often not finding other people's mistakes but avoiding one's own:
+
+- The more often one trades, the more overconfidence costs; a diversified portfolio with low turnover reduces such losses.
+- Decide whether to sell by future prospects, not by the purchase price, and in a taxable account consider taxes as well (<Ref check="Q2" />, <Ref lesson="6.5" />).
+- Write an investment plan and rebalancing rules in advance (<Ref lesson="6.7" />), so as to act less on emotion when markets rise or fall sharply.
+- Judge risk at the level of the whole portfolio, not one stock or one account at a time; checking the account often makes one feel more losses.
+
+## Summary [#summary]
+
+- Prospect theory: gains and losses relative to a reference point; loss aversion (λ about 2.25); concave for gains and convex for losses; overweighting of small probabilities.
+- Common biases: overconfidence, the disposition effect, mental accounting, herding, anchoring, limited attention, extrapolation; they can explain some anomalies.
+- Limits to arbitrage: fundamental risk, noise trader risk, implementation costs and funding allow mispricing to last.
+- For individual investors, using rules and diversification to reduce one's own biases is more realistic than exploiting others' biases.
+
+## Exercises [#exercises]
+
+<Exercises />

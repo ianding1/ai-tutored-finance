@@ -1,0 +1,90 @@
+---
+// Figure 1-1 of lesson 4.8: the prospect-theory value function v(x) = x^a for gains and -lambda (-x)^a for
+// losses (Tversky and Kahneman, 1992: a = 0.88, lambda = 2.25). Dashed: v(x) = x, the risk-neutral line.
+// Readout: the value of a 50/50 gamble of +100 / -100, and the smallest win that makes the gamble acceptable.
+// Parameters are registered in course/widgets.yaml (id: prospect-value). Same model as course/verify/4.8.py.
+import { toLang } from '../../i18n/ui';
+
+const lang = toLang(Astro.locals.starlightRoute.lang);
+const L = {
+	'zh-cn': {
+		lambda: '损失厌恶系数 λ',
+		a: '敏感度递减参数 a',
+		x: '相对参照点的收益或损失（元）',
+		y: '价值 v(x)',
+		v: '价值函数',
+		lin: 'v(x) = x',
+		aria: '前景理论的价值函数',
+		readout: '50% 赢 100 元、50% 输 100 元的赌局，价值为 {v}；输的仍是 100 元时，赢的金额至少要 {w} 元才会接受。',
+	},
+	en: {
+		lambda: 'Loss aversion λ',
+		a: 'Diminishing sensitivity a',
+		x: 'Gain or loss relative to the reference point (dollars)',
+		y: 'Value v(x)',
+		v: 'Value function',
+		lin: 'v(x) = x',
+		aria: 'The prospect-theory value function',
+		readout: 'A gamble with a 50% chance to win 100 dollars and a 50% chance to lose 100 has a value of {v}; with the loss still 100 dollars, the win must be at least {w} dollars for the gamble to be accepted.',
+	},
+}[lang];
+
+const xr = [-200, 200];
+const yr = [-300, 150];
+const xTicks = [-200, -100, 0, 100, 200];
+const yTicks = [-300, -200, -100, 0, 100];
+const layouts = [
+	{ cls: 'viz-wide', W: 640, H: 320, pad: { l: 52, r: 20, t: 14, b: 48 } },
+	{ cls: 'viz-narrow', W: 360, H: 320, pad: { l: 48, r: 12, t: 14, b: 48 } },
+].map((g) => ({
+	...g,
+	X: (v: number) => g.pad.l + ((v - xr[0]) / (xr[1] - xr[0])) * (g.W - g.pad.l - g.pad.r),
+	Y: (v: number) => g.pad.t + ((yr[1] - v) / (yr[1] - yr[0])) * (g.H - g.pad.t - g.pad.b),
+}));
+---
+
+<div class="lfwai-widget" data-widget="prospect-value" data-readout={L.readout}>
+	<div class="lfwai-sliders">
+		<label>
+			<span>{L.lambda} = <output data-out="lambda">2.25</output></span>
+			<input type="range" min="1" max="3" step="0.25" value="2.25" data-param="lambda" />
+		</label>
+		<label>
+			<span>{L.a} = <output data-out="a">0.88</output></span>
+			<input type="range" min="0.5" max="1" step="0.02" value="0.88" data-param="a" />
+		</label>
+	</div>
+	{layouts.map(({ cls, W, H, pad, X, Y }) => (
+		<svg class={`lfwai-viz ${cls}`} viewBox={`0 0 ${W} ${H}`} role="img" aria-label={L.aria} data-geom={JSON.stringify({ W, H, pad, xr, yr })}>
+			<defs>
+				<clipPath id={`pv-clip-${cls}`}><rect x={pad.l} y={pad.t} width={W - pad.l - pad.r} height={H - pad.t - pad.b} /></clipPath>
+			</defs>
+			{yTicks.map((v) => (
+				<g>
+					<line class={v === 0 ? 'viz-axis' : 'viz-grid'} x1={pad.l} x2={W - pad.r} y1={Y(v)} y2={Y(v)} />
+					<text class="viz-tick" x={pad.l - 8} y={Y(v) + 4} text-anchor="end">{v}</text>
+				</g>
+			))}
+			{xTicks.map((v) => (
+				<text class="viz-tick" x={X(v)} y={H - pad.b + 18} text-anchor="middle">{v}</text>
+			))}
+			<line class="viz-axis" x1={X(0)} x2={X(0)} y1={pad.t} y2={H - pad.b} />
+			<text class="viz-tick" x={(pad.l + W - pad.r) / 2} y={H - 8} text-anchor="middle">{L.x}</text>
+			<text class="viz-tick" transform={`translate(12 ${(pad.t + H - pad.b) / 2}) rotate(-90)`} text-anchor="middle">{L.y}</text>
+			<g clip-path={`url(#pv-clip-${cls})`}>
+				<line class="viz-ols" x1={X(-200)} y1={Y(-200)} x2={X(200)} y2={Y(200)} />
+				<path class="viz-fit" fill="none" data-el="v" d="" />
+			</g>
+		</svg>
+	))}
+	<ul class="lfwai-legend">
+		<li><span class="sw sw-fit"></span>{L.v}</li>
+		<li><span class="sw sw-ols"></span>{L.lin}</li>
+	</ul>
+	<p class="lfwai-readout" data-el="readout" aria-live="polite"></p>
+</div>
+
+<script>
+	import { initProspectValue } from '../../scripts/widgets/prospect-value';
+	initProspectValue();
+</script>

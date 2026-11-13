@@ -2365,3 +2365,67 @@ market-anomaly:
   short:
     zh-cn: "可以用公开信息预测、与资产定价模型不符的收益规律。"
     en: "A pattern in returns that can be predicted from public information and does not fit the asset pricing model."
+
+prospect-theory:
+  defined_in: "4.8"
+  zh-cn: 前景理论
+  en: prospect theory
+  short:
+    zh-cn: "描述人们实际怎样在风险中选择的理论：相对参照点评价得失、损失厌恶、敏感度递减、高估小概率。"
+    en: "A theory of how people actually choose under risk: gains and losses judged relative to a reference point, loss aversion, diminishing sensitivity and overweighting of small probabilities."
+
+loss-aversion:
+  defined_in: "4.8"
+  zh-cn: 损失厌恶
+  en: loss aversion
+  short:
+    zh-cn: "同样大小的损失带来的痛苦大于收益带来的快乐，约为两倍多。"
+    en: "A loss hurts more than a gain of the same size pleases, by a factor of a little more than two."
+
+overconfidence:
+  defined_in: "4.8"
+  zh-cn: 过度自信
+  en: overconfidence
+  short:
+    zh-cn: "高估自己的知识和判断的准确性，常导致交易过多。"
+    en: "Overrating the accuracy of one's own knowledge and judgment, which often leads to trading too much."
+
+disposition-effect:
+  defined_in: "4.8"
+  zh-cn: 处置效应
+  en: disposition effect
+  short:
+    zh-cn: "倾向于过早卖出盈利的股票、长期持有亏损的股票。"
+    en: "A tendency to sell winning stocks too early and hold losing stocks too long."
+
+mental-accounting:
+  defined_in: "4.8"
+  zh-cn: 心理账户
+  en: mental accounting
+  short:
+    zh-cn: "把钱分到不同的“账户”中分别看待，忽略钱可以互换。"
+    en: "Putting money into separate \"accounts\" and treating each on its own, ignoring that money is interchangeable."
+
+herding:
+  defined_in: "4.8"
+  zh-cn: 羊群效应
+  en: herding
+  short:
+    zh-cn: "跟随别人的行为，而不是根据自己的信息判断。"
+    en: "Following what others do instead of judging from one's own information."
+
+limits-to-arbitrage:
+  defined_in: "4.8"
+  zh-cn: 套利的限制
+  en: limits to arbitrage
+  short:
+    zh-cn: "基本面风险、噪声交易者风险、实施成本和资金来源使套利有风险和成本，错误定价可以长期存在。"
+    en: "Fundamental risk, noise trader risk, implementation costs and funding make arbitrage risky and costly, so mispricing can persist."
+
+noise-trader-risk:
+  defined_in: "4.8"
+  zh-cn: 噪声交易者风险
+  en: noise trader risk
+  short:
+    zh-cn: "使价格偏离的投资者短期内可能更加偏执，偏差先扩大再缩小的风险。"
+    en: "The risk that the investors pushing prices away from value become more extreme in the short run, so the gap widens before it narrows."
