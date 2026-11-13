@@ -1,0 +1,120 @@
+---
+title: 4.5 The Single-Index Model and Estimating Beta
+description: The single-index model and how it simplifies covariances; systematic and firm-specific risk; the risk left after diversification; estimating beta by regression and its error; the adjusted beta; uses and limits of the model.
+lesson: "4.5"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import BetaEstimate from '../../../../components/widgets/BetaEstimate.astro';
+
+## One common factor [#model]
+
+<Ref lesson="4.2" sec="limits" /> pointed out that mean–variance optimization needs many inputs. For $n$ assets it needs $n$ expected returns, $n$ variances and $\frac{n(n-1)}{2}$ covariances. For 500 stocks there are 124,750 covariances alone, each estimated from data, and the optimizer magnifies the estimation errors.
+
+Stocks rise and fall together largely because they are all affected by the economy as a whole. The <Def id="single-index-model">single-index model</Def> assumes that this is the only link between stocks:
+
+$$
+R_i - r_f = \alpha_i + \beta_i (R_M - r_f) + e_i
+$$
+
+Here $R_M$ is the return on a market index and $e_i$ is the part that concerns only company $i$ (a new product, a lawsuit, a change of management and so on); it averages 0 and is unrelated to the market return. The key assumption is that the $e_i$ of different companies are uncorrelated.
+
+Then the covariance between two stocks comes only from the market moves they share:
+
+$$
+\sigma_{ij} = \beta_i \beta_j \sigma_M^2 \qquad (i \neq j)
+$$
+
+The only numbers to estimate are each stock's $\alpha_i$, $\beta_i$ and $\sigma^2(e_i)$, plus the market's expected return and variance: $3n + 2$ numbers in all. For 500 stocks that is 1,502 instead of 125,750.
+
+The price of this simplification is that if two companies share a common factor other than the market, the model misses part of their covariance (<Ref check="Q1" />).
+
+<Check id="C1" />
+
+## Systematic and firm-specific risk [#decomposition]
+
+Because $e_i$ is unrelated to the market return, the variance of a stock's return splits into two parts:
+
+$$
+\sigma_i^2 = \beta_i^2 \sigma_M^2 + \sigma^2(e_i)
+$$
+
+The first part moves with the market and is called <Def id="systematic-risk">systematic risk</Def>, or market risk; the second concerns only the company itself and is called <Def id="firm-specific-risk">firm-specific risk</Def> (also idiosyncratic risk). The share of systematic risk in the total variance is the R² of the stock's regression on the market (<Ref concept="r-squared" />):
+
+$$
+R^2 = \frac{\beta_i^2 \sigma_M^2}{\sigma_i^2}
+$$
+
+For a single US stock, R² is usually only 0.2 to 0.4: most of the swings are firm-specific risk.
+
+<Check id="C2" />
+
+What about a portfolio? A portfolio with weights $w_i$ follows the same model. Its beta is the weighted average of the stocks' betas, $\beta_p = \sum_i w_i \beta_i$, and its residual is $e_p = \sum_i w_i e_i$. Because the companies' residuals are uncorrelated,
+
+$$
+\sigma_p^2 = \beta_p^2 \sigma_M^2 + \sum_i w_i^2 \sigma^2(e_i)
+$$
+
+With equal weights on $n$ stocks, the second term equals the average firm-specific variance of the stocks divided by $n$. This has the same structure as the variance of an equally weighted portfolio in <Ref lesson="0.3" sec="diversification" />, $\frac{\sigma^2}{n} + \left(1 - \frac{1}{n}\right)c$; the single-index model explains where the common covariance $c$ comes from. As the number of stocks grows, what is left of the portfolio's risk?
+
+<Check id="C3" />
+
+This calculation is also the reason behind <Ref lesson="4.4" sec="which-risk" />: only the risk measured by beta is rewarded.
+
+## Estimating beta by regression [#estimation]
+
+Beta cannot be observed directly; it is estimated from past data by regressing the stock's excess return on the market's excess return (<Ref concept="regression" />). The slope is the estimate of beta, and the intercept is the alpha actually realized over the period. A common choice is the last 60 monthly returns, with a broad stock index standing in for the market.
+
+The estimate has an error. By the formula of <Ref lesson="0.5" sec="inference" />, with $\sum_t (x_t - \bar x)^2 \approx T\sigma_M^2$, the standard error of the slope is about
+
+$$
+\text{SE}(\hat\beta) \approx \frac{\sigma(e_i)}{\sigma_M \sqrt{T}}
+$$
+
+where $T$ is the number of months and $\sigma(e_i)$ and $\sigma_M$ are both monthly. For example, with a monthly market volatility of 4.5%, a monthly firm-specific volatility of 7% and 60 months, $\text{SE} \approx \frac{7}{4.5 \times \sqrt{60}} \approx 0.20$, and the 95% confidence interval is the estimate plus or minus about 0.39. A stock with an estimated beta of 1.2 may have a true beta anywhere from 0.8 to 1.6.
+
+<Figure id="3-1" title="Estimating beta from monthly excess returns. Each point is one month; the dashed line is the true line (alpha 0) and the solid line is the least-squares line. The sample is fixed simulated data." observe="First raise the number of months from 24 to 120 and watch how the estimate and the confidence interval change; then change the firm-specific volatility and watch how the spread of the points and R² change.">
+	<BetaEstimate />
+</Figure>
+
+<Check id="C4" />
+
+A longer sample lowers the error, but the company itself changes: changes in its business, size and debt ratio (<Ref lesson="3.8" />) all change its beta, and data from long ago describe a different company. Daily data give more observations, but shares of small companies trade infrequently and their prices react to the market with a delay, so betas computed from daily data tend to be too low. Different market indexes also give different estimates.
+
+## The adjusted beta [#adjusted-beta]
+
+Blume (1971) found that when betas estimated in one period are compared with those estimated in the next, the extreme values move toward 1: the stocks with the highest betas in the first period have lower betas on average in the next, and the lowest have higher ones. The <Def id="adjusted-beta">adjusted beta</Def> common in practice shrinks the estimate toward 1:
+
+$$
+\beta_{\text{adj}} = \frac{2}{3}\hat\beta + \frac{1}{3} \times 1
+$$
+
+The weights $\frac{2}{3}$ and $\frac{1}{3}$ are empirical. A more general method (Vasicek, 1973) sets the weights by precision: the larger the standard error of the estimate, the more it is shrunk toward a reference value (the average beta of all stocks or of companies in the same industry). When estimating a company's cost of capital, the average beta of several companies in the same industry is also often used instead of the company's own estimate (<Ref lesson="3.9" />).
+
+<Check id="C5" />
+
+## Uses and limits [#uses]
+
+The single-index model has three main uses:
+
+- Inputs for portfolio optimization. Only $3n + 2$ numbers need to be estimated, and the simple structure makes them more stable than estimating every covariance directly. <Ref lesson="4.10" /> returns to the problem of estimation error.
+- Estimating the cost of capital. The beta the CAPM needs comes from such a regression (<Ref lesson="4.4" />).
+- Separating alpha from beta. A portfolio's return splits into the part from the market, $\beta_p(R_M - r_f)$, and the rest. An investor can remove the market part by short selling a market index (<Ref concept="short-selling" />), keeping only the alpha and the firm-specific risk.
+
+Its main limit is that it has only one common factor. Companies in the same industry are affected by the same raw material prices, regulation and changes in demand, so their residuals are not uncorrelated; small companies, and value stocks, also move together. The multifactor models of <Ref lesson="4.6" /> add more factors to describe these common moves.
+
+## Summary [#summary]
+
+- The single-index model: $R_i - r_f = \alpha_i + \beta_i(R_M - r_f) + e_i$, with residuals uncorrelated across companies, so $\sigma_{ij} = \beta_i\beta_j\sigma_M^2$ and only $3n + 2$ numbers are needed.
+- Total variance = systematic risk $\beta_i^2\sigma_M^2$ + firm-specific risk $\sigma^2(e_i)$; R² is the share of systematic risk.
+- Portfolios: $\sigma_p^2 = \beta_p^2\sigma_M^2 + \sum_i w_i^2\sigma^2(e_i)$; diversification removes the second term.
+- Beta is estimated by a regression of excess returns, with a standard error of about $\frac{\sigma(e_i)}{\sigma_M\sqrt{T}}$; the sample length, the data frequency and the index all affect the estimate.
+- Extreme beta estimates tend to regress toward 1; the adjusted beta and industry-average betas are used to reduce estimation error.
+
+## Exercises [#exercises]
+
+<Exercises />

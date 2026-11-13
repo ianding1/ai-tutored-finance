@@ -2198,7 +2198,34 @@ alpha:
     zh-cn: "资产的预期（或实际）收益超过证券市场线所要求的收益的部分。"
     en: "The amount by which an asset's expected (or realized) return exceeds the return the security market line requires."
 
+single-index-model:
+  defined_in: "4.5"
+  zh-cn: 单指数模型
+  en: single-index model
+  short:
+    zh-cn: "假设股票收益之间唯一的联系是共同的市场指数：R_i − r_f = α_i + β_i(R_M − r_f) + e_i，各公司的残差两两不相关。"
+    en: "Assumes that the only link between stock returns is a common market index: R_i − r_f = α_i + β_i(R_M − r_f) + e_i, with residuals uncorrelated across companies."
+
 systematic-risk:
   defined_in: "4.5"
   zh-cn: 系统性风险
   en: systematic risk
+  short:
+    zh-cn: "随市场一起波动、无法通过分散化消除的风险；在单指数模型中为 β_i²σ_M²。"
+    en: "Risk that moves with the market and cannot be removed by diversification; β_i²σ_M² in the single-index model."
+
+firm-specific-risk:
+  defined_in: "4.5"
+  zh-cn: 特质风险
+  en: firm-specific risk
+  short:
+    zh-cn: "只与公司自身有关、与市场无关的风险，可以通过分散化消除；在单指数模型中为 σ²(e_i)。"
+    en: "Risk that concerns only the company itself and is unrelated to the market; it can be diversified away; σ²(e_i) in the single-index model."
+
+adjusted-beta:
+  defined_in: "4.5"
+  zh-cn: 调整 beta
+  en: adjusted beta
+  short:
+    zh-cn: "把回归估计的 beta 向 1（或其他参照值）收缩后的值，常用 (2/3)β̂ + 1/3，用来减少估计误差。"
+    en: "A regression beta shrunk toward 1 (or another reference value), commonly (2/3)β̂ + 1/3, to reduce estimation error."

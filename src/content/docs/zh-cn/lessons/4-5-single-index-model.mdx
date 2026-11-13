@@ -1,0 +1,120 @@
+---
+title: 4.5 单指数模型与 beta 估计
+description: 单指数模型及其对协方差的简化；系统性风险与特质风险；分散化后剩下的风险；用回归估计 beta 及其误差；调整 beta；模型的用途与局限。
+lesson: "4.5"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import BetaEstimate from '../../../../components/widgets/BetaEstimate.astro';
+
+## 一个共同因素 [#model]
+
+<Ref lesson="4.2" sec="limits" /> 指出，均值–方差优化需要大量输入。$n$ 项资产需要 $n$ 个预期收益、$n$ 个方差和 $\frac{n(n-1)}{2}$ 个协方差。对 500 只股票，协方差就有 124,750 个，每一个都要从数据中估计，而且估计误差会被优化器放大。
+
+股票之所以一起涨跌，很大程度上是因为它们都受整体经济的影响。<Def id="single-index-model">单指数模型</Def>（single-index model）假设这是股票之间唯一的联系：
+
+$$
+R_i - r_f = \alpha_i + \beta_i (R_M - r_f) + e_i
+$$
+
+其中 $R_M$ 是市场指数的收益，$e_i$ 是只与公司 $i$ 有关的部分（新产品、诉讼、管理层变动等），平均为 0，与市场收益无关。关键的假设是：不同公司的 $e_i$ 两两不相关。
+
+这样，两只股票之间的协方差只来自它们共同承受的市场波动：
+
+$$
+\sigma_{ij} = \beta_i \beta_j \sigma_M^2 \qquad (i \neq j)
+$$
+
+需要估计的只有每只股票的 $\alpha_i$、$\beta_i$ 和 $\sigma^2(e_i)$，加上市场的预期收益和方差，共 $3n + 2$ 个数。500 只股票只需要 1,502 个，而不是 125,750 个。
+
+这个简化的代价是：如果两家公司除了市场之外还有别的共同因素，模型就会漏掉它们之间的一部分协方差（<Ref check="Q1" />）。
+
+<Check id="C1" />
+
+## 系统性风险与特质风险 [#decomposition]
+
+因为 $e_i$ 与市场收益无关，股票收益的方差可以分成两部分：
+
+$$
+\sigma_i^2 = \beta_i^2 \sigma_M^2 + \sigma^2(e_i)
+$$
+
+第一部分随市场一起波动，叫<Def id="systematic-risk">系统性风险</Def>（systematic risk），也叫市场风险；第二部分只与公司自身有关，叫<Def id="firm-specific-risk">特质风险</Def>（firm-specific risk，也叫 idiosyncratic risk）。系统性风险在总方差中的比例就是这只股票对市场回归的 R²（<Ref concept="r-squared" />）：
+
+$$
+R^2 = \frac{\beta_i^2 \sigma_M^2}{\sigma_i^2}
+$$
+
+美国单只股票的 R² 通常只有 0.2 到 0.4：大部分波动是特质风险。
+
+<Check id="C2" />
+
+组合的情况怎样？权重为 $w_i$ 的组合仍然满足同样的模型，组合的 beta 是各只股票 beta 的加权平均 $\beta_p = \sum_i w_i \beta_i$，残差是 $e_p = \sum_i w_i e_i$。因为各公司的残差两两不相关，
+
+$$
+\sigma_p^2 = \beta_p^2 \sigma_M^2 + \sum_i w_i^2 \sigma^2(e_i)
+$$
+
+等权持有 $n$ 只股票时，第二项等于各只股票特质方差的平均值除以 $n$。这与 <Ref lesson="0.3" sec="diversification" /> 中等权组合的方差 $\frac{\sigma^2}{n} + \left(1 - \frac{1}{n}\right)c$ 是同一个结构，单指数模型说明了那个共同的协方差 $c$ 从哪里来。股票越来越多时，组合的风险剩下什么？
+
+<Check id="C3" />
+
+这个计算也说明了 <Ref lesson="4.4" sec="which-risk" /> 中只有 beta 衡量的风险得到补偿的原因。
+
+## 用回归估计 beta [#estimation]
+
+beta 不能直接观察，要从历史数据估计：用股票的超额收益对市场的超额收益做回归（<Ref concept="regression" />），斜率就是 beta 的估计值，截距是这段时间实际实现的 alpha。常见的做法是用最近 60 个月的月收益，以一个宽基股票指数代表市场。
+
+估计值有误差。按 <Ref lesson="0.5" sec="inference" /> 的公式，$\sum_t (x_t - \bar x)^2 \approx T\sigma_M^2$，所以斜率的标准误约为
+
+$$
+\text{SE}(\hat\beta) \approx \frac{\sigma(e_i)}{\sigma_M \sqrt{T}}
+$$
+
+其中 $T$ 是月数，$\sigma(e_i)$ 和 $\sigma_M$ 都是月度的。例如市场月波动率为 4.5%，股票的特质月波动率为 7%，用 60 个月：$\text{SE} \approx \frac{7}{4.5 \times \sqrt{60}} \approx 0.20$，95% 置信区间是估计值加减约 0.39。一只估计 beta 为 1.2 的股票，真实的 beta 可能在 0.8 到 1.6 之间。
+
+<Figure id="3-1" title="用月超额收益估计 beta。每个点是一个月；虚线是真实的直线（alpha 为 0），实线是最小二乘直线。样本是固定的模拟数据。" observe="先把月数从 24 加到 120，看估计值和置信区间怎样变化；再改变特质波动率，看点的分散程度和 R² 怎样变化。">
+	<BetaEstimate />
+</Figure>
+
+<Check id="C4" />
+
+延长样本可以降低误差，但公司本身会变：业务、规模和负债率（<Ref lesson="3.8" />）的变化都会改变 beta，太早的数据反映的是另一家公司。用日数据可以增加观测值，但小公司的股票交易不活跃，价格对市场的反应会滞后，日数据算出的 beta 往往偏低。所用的市场指数不同，估计结果也不同。
+
+## 调整 beta [#adjusted-beta]
+
+Blume（1971）发现，一段时期估计的 beta 与下一段时期估计的 beta 相比，极端值会向 1 靠拢：第一段 beta 最高的那些股票，下一段的 beta 平均更低；最低的那些平均更高。实践中常用的<Def id="adjusted-beta">调整 beta</Def>（adjusted beta）把估计值向 1 收缩：
+
+$$
+\beta_{\text{adj}} = \frac{2}{3}\hat\beta + \frac{1}{3} \times 1
+$$
+
+$\frac{2}{3}$ 和 $\frac{1}{3}$ 是经验权重。更一般的做法（Vasicek，1973）按精确程度确定权重：估计值的标准误越大，越向一个参照值（所有股票或同行业公司的平均 beta）收缩。估计一家公司的资本成本时，也常常用同行业多家公司的平均 beta 代替它自己的估计值（<Ref lesson="3.9" />）。
+
+<Check id="C5" />
+
+## 用途与局限 [#uses]
+
+单指数模型有三个主要用途：
+
+- 为组合优化提供输入。只需估计 $3n + 2$ 个数，而且结构简单，比直接估计全部协方差稳定。<Ref lesson="4.10" /> 会回到估计误差的问题。
+- 估计资本成本。CAPM 需要的 beta 就来自这样的回归（<Ref lesson="4.4" />）。
+- 区分 alpha 与 beta。一个组合的收益可以分成市场带来的部分 $\beta_p(R_M - r_f)$ 和其余部分。投资者可以通过卖空市场指数（<Ref concept="short-selling" />）去掉市场部分，只保留 alpha 和特质风险。
+
+它的主要局限是只有一个共同因素。同一行业的公司受同样的原材料价格、监管和需求变化的影响，残差并非两两不相关；小公司之间、价值股之间也有共同的波动。<Ref lesson="4.6" /> 的多因子模型加入更多因素来描述这些共同波动。
+
+## 小结 [#summary]
+
+- 单指数模型：$R_i - r_f = \alpha_i + \beta_i(R_M - r_f) + e_i$，各公司的残差两两不相关，所以 $\sigma_{ij} = \beta_i\beta_j\sigma_M^2$，只需估计 $3n + 2$ 个数。
+- 总方差 = 系统性风险 $\beta_i^2\sigma_M^2$ + 特质风险 $\sigma^2(e_i)$；R² 是系统性风险所占的比例。
+- 组合：$\sigma_p^2 = \beta_p^2\sigma_M^2 + \sum_i w_i^2\sigma^2(e_i)$，分散化消除的是第二项。
+- beta 用超额收益的回归估计，标准误约为 $\frac{\sigma(e_i)}{\sigma_M\sqrt{T}}$；样本长度、数据频率和指数都影响估计。
+- 极端的 beta 估计值往往向 1 回归；调整 beta 和行业平均 beta 用来减少估计误差。
+
+## 练习题 [#exercises]
+
+<Exercises />

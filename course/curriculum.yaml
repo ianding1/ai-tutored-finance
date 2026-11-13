@@ -373,7 +373,15 @@ stages:
         published: true
         introduces: [capm, beta, security-market-line, alpha]
         uses: [market-portfolio, capital-market-line, tangency-portfolio, sharpe-ratio, covariance, correlation, equity-premium, cost-of-equity, wacc, cost-of-capital, net-present-value, diversification, financial-leverage, regression-coefficient]
-      - { id: "4.5", slug: "4-5-single-index-model", title: { zh-cn: "单指数模型与 beta 估计", en: "The Single-Index Model and Estimating Beta" } }
+      - id: "4.5"
+        slug: "4-5-single-index-model"
+        title: { zh-cn: "单指数模型与 beta 估计", en: "The Single-Index Model and Estimating Beta" }
+        summary:
+          zh-cn: "单指数模型及其对协方差的简化；系统性风险与特质风险；分散化后剩下的风险；用回归估计 beta 及其误差；调整 beta；模型的用途与局限。"
+          en: "The single-index model and how it simplifies covariances; systematic and firm-specific risk; the risk left after diversification; estimating beta by regression and its error; the adjusted beta; uses and limits of the model."
+        published: true
+        introduces: [single-index-model, systematic-risk, firm-specific-risk, adjusted-beta]
+        uses: [beta, alpha, capm, diversification, covariance, correlation, regression, r-squared, standard-error, confidence-interval, t-statistic, short-selling, cost-of-equity, net-present-value, market-portfolio, financial-leverage]
       - { id: "4.6", slug: "4-6-multifactor-models", title: { zh-cn: "多因子模型", en: "Multifactor Models" } }
       - { id: "4.7", slug: "4-7-market-efficiency", title: { zh-cn: "有效市场假说", en: "The Efficient Market Hypothesis" } }
       - { id: "4.8", slug: "4-8-behavioral-finance", title: { zh-cn: "行为金融", en: "Behavioral Finance" } }

@@ -1,0 +1,336 @@
+# Answer key for lesson 4.5. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[4.5#estimation]] (section), [[concept:beta]], [[check:Q3]], [[fig:3-1]].
+# expected: values are recomputed by course/verify/4.5.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "4.5"
+
+context:
+  - zh-cn: |-
+      学习者学过协方差、相关系数和等权组合的方差（[[0.3]]）、标准误和置信区间（[[0.4]]）、回归、R² 和斜率的标准误（[[0.5]]）、NPV 和资本成本（[[3.2]]、[[3.9]]）、财务杠杆（[[3.8]]）、组合方差和卖空（[[4.2]]）、市场组合（[[4.3]]）、CAPM、beta 和 alpha（[[4.4]]）。讲义还没有讲多因子模型（[[4.6]]）和业绩评估（[[4.9]]）。百分数用百分点表示，方差用 %²。
+    en: |-
+      The learner has studied covariance, correlation and the variance of an equally weighted portfolio ([[0.3]]), standard errors and confidence intervals ([[0.4]]), regression, R² and the standard error of the slope ([[0.5]]), NPV and the cost of capital ([[3.2]], [[3.9]]), financial leverage ([[3.8]]), portfolio variance and short selling ([[4.2]]), the market portfolio ([[4.3]]), and the CAPM, beta and alpha ([[4.4]]). The lesson has not yet covered multifactor models ([[4.6]]) or performance evaluation ([[4.9]]). Percentages in percentage points; variance in %².
+  - concepts: [single-index-model]
+    zh-cn: |-
+      讲义：$R_i - r_f = \alpha_i + \beta_i(R_M - r_f) + e_i$，$e_i$ 平均为 0、与市场收益无关，不同公司的 $e_i$ 两两不相关，所以 $\sigma_{ij} = \beta_i\beta_j\sigma_M^2$；只需估计 $3n + 2$ 个数（500 只股票 1,502 个，而直接估计需要 125,750 个）。局限：同行业公司等还有市场之外的共同因素，引出多因子模型。讲义没有推导两只股票之间的相关系数（留给练习题 Q1）。
+    en: |-
+      The lesson: $R_i - r_f = \alpha_i + \beta_i(R_M - r_f) + e_i$, where $e_i$ averages 0, is unrelated to the market return, and is uncorrelated across companies, so $\sigma_{ij} = \beta_i\beta_j\sigma_M^2$; only $3n + 2$ numbers are needed (1,502 for 500 stocks instead of 125,750). Limitation: companies in the same industry and others share common factors besides the market, which leads to multifactor models. The lesson does not derive the correlation between two stocks (left to exercise Q1).
+  - concepts: [systematic-risk, firm-specific-risk]
+    zh-cn: |-
+      讲义：$\sigma_i^2 = \beta_i^2\sigma_M^2 + \sigma^2(e_i)$，前者是系统性风险，后者是特质风险；R² $= \frac{\beta_i^2\sigma_M^2}{\sigma_i^2}$，美国单只股票通常为 0.2 到 0.4。组合：$\beta_p = \sum_i w_i\beta_i$，$\sigma_p^2 = \beta_p^2\sigma_M^2 + \sum_i w_i^2\sigma^2(e_i)$；等权时第二项是平均特质方差除以 $n$；与 [[0.3]] 的 $\frac{\sigma^2}{n} + (1 - \frac{1}{n})c$ 结构相同。
+    en: |-
+      The lesson: $\sigma_i^2 = \beta_i^2\sigma_M^2 + \sigma^2(e_i)$, the first part systematic risk, the second firm-specific risk; R² $= \frac{\beta_i^2\sigma_M^2}{\sigma_i^2}$, usually 0.2 to 0.4 for a single US stock. Portfolios: $\beta_p = \sum_i w_i\beta_i$ and $\sigma_p^2 = \beta_p^2\sigma_M^2 + \sum_i w_i^2\sigma^2(e_i)$; with equal weights the second term is the average firm-specific variance divided by $n$; the same structure as $\frac{\sigma^2}{n} + (1 - \frac{1}{n})c$ in [[0.3]].
+  - concepts: [beta, adjusted-beta]
+    zh-cn: |-
+      讲义：用超额收益回归估计 beta，截距是这段时间实现的 alpha；常用 60 个月的月数据。$\text{SE}(\hat\beta) \approx \frac{\sigma(e_i)}{\sigma_M\sqrt{T}}$，例：$\sigma_M = 4.5\%$、$\sigma(e) = 7\%$、60 个月时约 0.20。公司会变，样本不能太长；小公司日数据的 beta 往往偏低；指数不同结果不同。Blume（1971）：极端的估计值向 1 靠拢；$\beta_{\text{adj}} = \frac{2}{3}\hat\beta + \frac{1}{3}$；Vasicek（1973）按精确程度向参照值收缩；也常用同行业平均 beta。讲义没有讲截距的标准误（留给练习题 Q2）。[[fig:3-1]]：固定的模拟样本；滑块：真实 beta 0.5 到 2（步长 0.1，默认 1.2）、特质月波动率 2% 到 12%（步长 1，默认 6）、月数 24 到 120（步长 12，默认 60）；读数显示估计的 beta、标准误、置信区间和 R²。
+    en: |-
+      The lesson: beta is estimated by regressing excess returns, and the intercept is the alpha realized over the period; 60 months of monthly data is common. $\text{SE}(\hat\beta) \approx \frac{\sigma(e_i)}{\sigma_M\sqrt{T}}$; example: about 0.20 with $\sigma_M = 4.5\%$, $\sigma(e) = 7\%$ and 60 months. Companies change, so the sample cannot be too long; daily data give low betas for small companies; different indexes give different results. Blume (1971): extreme estimates move toward 1; $\beta_{\text{adj}} = \frac{2}{3}\hat\beta + \frac{1}{3}$; Vasicek (1973) shrinks toward a reference value according to precision; an industry-average beta is also common. The lesson does not cover the standard error of the intercept (left to exercise Q2). [[fig:3-1]]: a fixed simulated sample; sliders: true beta 0.5 to 2 (in steps of 0.1, default 1.2), monthly firm-specific volatility 2% to 12% (in steps of 1, default 6), months 24 to 120 (in steps of 12, default 60); the readout shows the estimated beta, its standard error, the confidence interval and R².
+  - concepts: [single-index-model, alpha]
+    zh-cn: |-
+      讲义：用途是为组合优化提供输入、估计资本成本、区分 alpha 与 beta（卖空市场指数去掉市场部分，只保留 alpha 和特质风险）。
+    en: |-
+      The lesson: the uses are inputs for portfolio optimization, estimating the cost of capital, and separating alpha from beta (short the market index to remove the market part, keeping alpha and firm-specific risk).
+
+common_errors:
+  - questions: [Q1]
+    zh-cn: |-
+      以为持有的股票数量多就一定充分分散了，不管它们是否来自同一行业；或者把单指数模型给出的协方差当作同行业公司的实际协方差。
+    en: |-
+      Thinking that holding many stocks is enough to be well diversified, whether or not they come from the same industry; or taking the covariance the single-index model gives as the actual covariance of companies in the same industry.
+  - questions: [Q2]
+    zh-cn: |-
+      把一段样本中回归的截距当作可靠的 alpha，只看年化后数字的大小，不看它的标准误；以为截距和 beta 一样能用几年数据估计得比较准。
+    en: |-
+      Taking the regression intercept from one sample as a reliable alpha, looking only at the size of the annualized number and not at its standard error; thinking the intercept can be estimated about as precisely as beta from a few years of data.
+  - questions: [Q3]
+    zh-cn: |-
+      以为公司自己的回归估计一定更准，因为它是针对这家公司的；或者以为把资本成本估高是“保守”的，没有代价。
+    en: |-
+      Thinking a company's own regression estimate must be more accurate because it is specific to that company; or thinking that overestimating the cost of capital is "conservative" and costs nothing.
+  - questions: [Q4]
+    zh-cn: |-
+      以为对冲掉 beta 之后组合就没有风险，收益确定；忽略 25 只股票时特质风险仍然很大，以及 beta 估计误差留下的市场敞口。
+    en: |-
+      Thinking a portfolio has no risk and a certain return once its beta is hedged; ignoring that firm-specific risk is still large with 25 stocks, and the market exposure that an error in the beta estimate leaves.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: model
+    concepts: [single-index-model]
+    question:
+      zh-cn: |-
+        单指数模型假设不同公司的残差 $e_i$ 两两不相关。下面哪种情况与这个假设最不相符？
+      en: |-
+        The single-index model assumes that the residuals $e_i$ of different companies are uncorrelated. Which of the following is least consistent with this assumption?
+    choices:
+      - zh-cn: 一只股票的 beta 为 2
+        en: A stock has a beta of 2
+        why:
+          zh-cn: beta 描述的是股票对市场的反应，属于模型中的 $\beta_i(R_M - r_f)$ 一项。假设说的是哪一项之间的关系？
+          en: Beta describes how the stock reacts to the market, the $\beta_i(R_M - r_f)$ term of the model. Which term is the assumption about?
+      - zh-cn: 一只股票的特质风险很大
+        en: A stock has a large firm-specific risk
+        why:
+          zh-cn: 假设说的是不同公司的残差之间的关系，而不是一只股票残差的大小。
+          en: The assumption is about the relation between the residuals of different companies, not the size of one stock's residual.
+      - zh-cn: 燃油价格上涨的那天，市场整体没有变化，几家航空公司的股价却都下跌
+        en: On a day when fuel prices rise, the market as a whole does not move, but several airline stocks all fall
+      - zh-cn: 市场大跌的那天，几乎所有股票都下跌
+        en: On a day when the market falls sharply, almost all stocks fall
+        why:
+          zh-cn: 这种共同下跌来自模型中的哪一项？市场的波动已经由 $\beta_i(R_M - r_f)$ 描述了。
+          en: Which term of the model does this common fall come from? Market moves are already described by $\beta_i(R_M - r_f)$.
+    correct: C
+    answer:
+      zh-cn: |-
+        (C)。市场没有变化，航空公司股价的下跌全部在残差中；它们同时下跌，说明残差之间正相关，来自市场之外的共同因素（燃油价格）。(D) 的共同下跌由 beta 项描述，与假设一致。
+      en: |-
+        (C). The market did not move, so the airlines' falls are entirely in their residuals; their falling together means the residuals are positively correlated, driven by a common factor other than the market (fuel prices). The common fall in (D) is described by the beta term and is consistent with the assumption.
+
+  - id: C2
+    kind: check
+    section: decomposition
+    concepts: [systematic-risk, firm-specific-risk]
+    question:
+      zh-cn: |-
+        一只股票对市场回归的 R² 很低，说明它的 beta 一定很小。
+      en: |-
+        A stock with a low R² in its regression on the market must have a small beta.
+    correct: false
+    hint:
+      zh-cn: 想一想：$R^2 = \frac{\beta_i^2\sigma_M^2}{\beta_i^2\sigma_M^2 + \sigma^2(e_i)}$。除了 beta，还有什么会使 R² 变低？
+      en: 'Think: $R^2 = \frac{\beta_i^2\sigma_M^2}{\beta_i^2\sigma_M^2 + \sigma^2(e_i)}$. Besides beta, what else can make R² low?'
+    answer:
+      zh-cn: |-
+        错。R² 是系统性风险在总方差中的比例。beta 为 1 甚至更高的股票，如果特质风险很大（例如一家结果取决于临床试验的生物技术公司），R² 也会很低。R² 低说明特质风险占主导，不说明 beta 小。
+      en: |-
+        False. R² is the share of systematic risk in the total variance. A stock with a beta of 1 or more has a low R² if its firm-specific risk is large (a biotech company whose fate depends on a clinical trial, for example). A low R² means firm-specific risk dominates, not that beta is small.
+
+  - id: C3
+    kind: check
+    section: decomposition
+    concepts: [systematic-risk, firm-specific-risk, diversification]
+    question:
+      zh-cn: |-
+        一位投资者等权持有很多只股票。每只股票的特质波动率都在 30% 以上，它们的 beta 平均为 0.9，市场的波动率为 18%。按单指数模型，股票越来越多时，组合的波动率接近：
+      en: |-
+        An investor holds many stocks with equal weights. Each stock's firm-specific volatility is above 30%, their betas average 0.9, and the market's volatility is 18%. By the single-index model, as the number of stocks grows, the portfolio's volatility approaches:
+    choices:
+      - zh-cn: "0"
+        en: "0"
+        why:
+          zh-cn: 增加股票数量能消除哪一部分风险？$\beta_p^2\sigma_M^2$ 会随股票数量变小吗？
+          en: Which part of the risk can more stocks remove? Does $\beta_p^2\sigma_M^2$ shrink as the number of stocks grows?
+      - zh-cn: 18%，因为足够分散的组合就相当于市场组合
+        en: 18%, because a well-diversified portfolio is in effect the market portfolio
+        why:
+          zh-cn: 这个组合的 beta 是多少？只有 beta 为 1 的组合，系统性风险才和市场一样大。
+          en: What is this portfolio's beta? Only a portfolio with a beta of 1 has as much systematic risk as the market.
+      - zh-cn: 约 16.2%
+        en: About 16.2%
+      - zh-cn: 30% 以上，因为每只股票的特质波动率都这么高
+        en: Above 30%, because every stock's firm-specific volatility is that high
+        why:
+          zh-cn: 等权组合的特质方差是平均特质方差除以股票数量。股票越来越多时，它怎样变化？
+          en: The firm-specific variance of an equally weighted portfolio is the average firm-specific variance divided by the number of stocks. How does it change as the number grows?
+    correct: C
+    answer:
+      zh-cn: |-
+        (C)。$\sigma_p^2 = \beta_p^2\sigma_M^2 + \frac{\overline{\sigma^2(e)}}{n} \to \beta_p^2\sigma_M^2$，$\beta_p = 0.9$，所以 $\sigma_p \to 0.9 \times 18\% = 16.2\%$。特质风险被分散掉，剩下的是组合的 beta 决定的系统性风险；它比市场的波动率低，尽管每只股票的总波动率都远高于市场。
+      en: |-
+        (C). $\sigma_p^2 = \beta_p^2\sigma_M^2 + \frac{\overline{\sigma^2(e)}}{n} \to \beta_p^2\sigma_M^2$ with $\beta_p = 0.9$, so $\sigma_p \to 0.9 \times 18\% = 16.2\%$. Firm-specific risk is diversified away, leaving the systematic risk set by the portfolio's beta; it is below the market's volatility, even though every stock's total volatility is far above the market's.
+
+  - id: C4
+    kind: check
+    section: estimation
+    concepts: [beta, systematic-risk, firm-specific-risk]
+    widget: { id: beta-estimate, set: { beta: 1.2, sig: 6, months: 60 } }
+    question:
+      zh-cn: |-
+        在 [[fig:3-1]] 中，保持真实的 beta 和月数不变，把特质波动率从 6% 提高到 12%。beta 估计值的标准误会：
+      en: |-
+        In [[fig:3-1]], keep the true beta and the number of months fixed and raise the firm-specific volatility from 6% to 12%. The standard error of the beta estimate:
+    choices:
+      - zh-cn: 大约变为原来的两倍
+        en: Roughly doubles
+      - zh-cn: 不变，因为真实的 beta 没有变
+        en: Stays the same, because the true beta has not changed
+        why:
+          zh-cn: 标准误衡量的是估计值围绕真实值的波动。点离真实直线越远，从同样多的月份中能把斜率确定得多准？
+          en: The standard error measures how much the estimate varies around the true value. The farther the points lie from the true line, how precisely can the same number of months pin down the slope?
+      - zh-cn: 变小，因为点更分散，回归得到的信息更多
+        en: Falls, because the points are more spread out and the regression gets more information
+        why:
+          zh-cn: 点在哪个方向上更分散了？对估计斜率有帮助的是市场收益（横轴）的分散，还是残差（纵向偏离直线）的分散？
+          en: In which direction are the points more spread out? What helps estimate the slope, spread in the market return (horizontal) or spread in the residuals (vertical distance from the line)?
+      - zh-cn: 只有 R² 变化，标准误不变
+        en: Only R² changes; the standard error stays the same
+        why:
+          zh-cn: 看一看图中的读数，或者看标准误的公式中有没有 $\sigma(e_i)$。
+          en: Look at the readout in the figure, or check whether $\sigma(e_i)$ appears in the formula for the standard error.
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。$\text{SE}(\hat\beta) \approx \frac{\sigma(e_i)}{\sigma_M\sqrt{T}}$ 与特质波动率成正比；图中标准误从约 0.18 升到约 0.36，R² 同时下降。特质风险大的股票，beta 更难估计准。
+      en: |-
+        (A). $\text{SE}(\hat\beta) \approx \frac{\sigma(e_i)}{\sigma_M\sqrt{T}}$ is proportional to the firm-specific volatility; in the figure the standard error rises from about 0.18 to about 0.36, while R² falls. The beta of a stock with large firm-specific risk is harder to estimate precisely.
+
+  - id: C5
+    kind: check
+    section: adjusted-beta
+    concepts: [adjusted-beta, beta]
+    question:
+      zh-cn: |-
+        调整 beta 把回归得到的估计值向 1 收缩。主要原因是：
+      en: |-
+        The adjusted beta shrinks the regression estimate toward 1. The main reason is:
+    choices:
+      - zh-cn: CAPM 认为所有股票的 beta 都应该等于 1
+        en: The CAPM says every stock's beta should equal 1
+        why:
+          zh-cn: CAPM 允许各只股票的 beta 不同。beta 一定为 1 的是什么？
+          en: The CAPM allows stocks to have different betas. What must have a beta of 1?
+      - zh-cn: 极端的估计值部分来自估计误差，而且公司的 beta 往往随时间向平均水平靠拢
+        en: Extreme estimates partly come from estimation error, and companies' betas tend to move toward the average over time
+      - zh-cn: 收缩后资本成本更低，项目更容易通过
+        en: Shrinking gives a lower cost of capital, so projects pass more easily
+        why:
+          zh-cn: 对估计 beta 低于 1 的股票，向 1 收缩会使资本成本变高还是变低？
+          en: For a stock with an estimated beta below 1, does shrinking toward 1 raise or lower the cost of capital?
+      - zh-cn: 回归的斜率总是系统地高估 beta
+        en: The regression slope always overestimates beta
+        why:
+          zh-cn: 如果斜率总是高估，估计 beta 低的股票调整后应该怎样变化？Blume 观察到的是这样吗？
+          en: If the slope always overestimated, what should happen to stocks with low estimated betas? Is that what Blume observed?
+    correct: B
+    answer:
+      zh-cn: |-
+        (B)。估计 beta 最高的股票中，有不少是因为样本中的随机误差恰好偏高；最低的也一样。再估计一次时，误差不会重复，极端值向平均水平回归。此外，公司的业务和负债率会变，beta 本身也向平均靠拢。收缩用平均水平的信息弥补单个估计的误差。
+      en: |-
+        (B). Among the stocks with the highest estimated betas, many are there because the random error in their sample happened to be high, and likewise for the lowest. In the next estimate the error does not repeat, so extreme values regress toward the average. Also, companies' businesses and debt ratios change, so betas themselves drift toward the average. Shrinking uses information about the average to offset the error of a single estimate.
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [single-index-model, systematic-risk, diversification, correlation]
+    expected: { rho: "0.25", lim: "0.6", mod: "0.25" }
+    question:
+      zh-cn: |-
+        (a) 证明在单指数模型中，两只股票收益的相关系数等于它们各自与市场的相关系数之积：$\rho_{ij} = \rho_{iM}\rho_{jM}$。两家石油公司对市场回归的 R² 都是 0.25，模型给出的它们之间的相关系数是多少？实际数据中，这两只股票的相关系数约为 0.6。差距说明了什么？
+        (b) 一位投资者只买石油股，买了 40 只，认为“持有这么多只股票，风险已经分散掉了”。假设这些石油股的波动率都是 $\sigma$，两两之间的相关系数都约为 0.6，与市场的 R² 都是 0.25。股票越来越多时，等权组合的方差趋于多少（用 $\sigma^2$ 表示）？单指数模型会预测多少？评价他的看法。
+      en: |-
+        (a) Show that in the single-index model the correlation between two stocks' returns equals the product of their correlations with the market: $\rho_{ij} = \rho_{iM}\rho_{jM}$. Two oil companies each have an R² of 0.25 in their regressions on the market. What correlation between them does the model give? In the data, the correlation between the two stocks is about 0.6. What does the gap tell you?
+        (b) An investor buys only oil stocks, 40 of them, and thinks: "With this many stocks, my risk is diversified away." Assume these oil stocks all have volatility $\sigma$, a correlation of about 0.6 between any two, and an R² of 0.25 with the market. As the number of stocks grows, what does the variance of the equally weighted portfolio approach (in terms of $\sigma^2$)? What would the single-index model predict? Evaluate his view.
+    answer:
+      zh-cn: |-
+        (a) $\rho_{ij} = \frac{\sigma_{ij}}{\sigma_i\sigma_j} = \frac{\beta_i\beta_j\sigma_M^2}{\sigma_i\sigma_j} = \frac{\beta_i\sigma_M}{\sigma_i}\cdot\frac{\beta_j\sigma_M}{\sigma_j}$，而 $\rho_{iM} = \frac{\beta_i\sigma_M^2}{\sigma_i\sigma_M} = \frac{\beta_i\sigma_M}{\sigma_i}$，所以 $\rho_{ij} = \rho_{iM}\rho_{jM}$。R² 为 0.25 时 $\rho_{iM} = 0.5$，模型给出的相关系数为 $0.5 \times 0.5 = 0.25$。实际的 0.6 远高于此，说明两家公司的残差正相关：除了市场，它们还共同受油价等行业因素的影响，单指数模型的假设在同一行业内不成立，模型低估了它们的协方差。
+        (b) 按 [[0.3]] 的结果，两两协方差都是 $c = 0.6\sigma^2$ 时，等权组合的方差 $\frac{\sigma^2}{n} + (1 - \frac{1}{n})c \to 0.6\sigma^2$。单指数模型认为残差可以分散掉，只剩系统性风险 $\beta^2\sigma_M^2 = R^2\sigma^2 = 0.25\sigma^2$。实际分散不掉的风险是模型预测的两倍多：40 只股票几乎分散了公司各自的风险，但分散不了整个行业共同的风险（$0.6\sigma^2 - 0.25\sigma^2 = 0.35\sigma^2$ 来自油价等行业因素）。股票的数量不等于分散的程度；要分散行业风险，必须持有不同行业的股票。
+      en: |-
+        (a) $\rho_{ij} = \frac{\sigma_{ij}}{\sigma_i\sigma_j} = \frac{\beta_i\beta_j\sigma_M^2}{\sigma_i\sigma_j} = \frac{\beta_i\sigma_M}{\sigma_i}\cdot\frac{\beta_j\sigma_M}{\sigma_j}$, and $\rho_{iM} = \frac{\beta_i\sigma_M^2}{\sigma_i\sigma_M} = \frac{\beta_i\sigma_M}{\sigma_i}$, so $\rho_{ij} = \rho_{iM}\rho_{jM}$. With an R² of 0.25, $\rho_{iM} = 0.5$, so the model gives a correlation of $0.5 \times 0.5 = 0.25$. The actual 0.6 is far higher, which means the two companies' residuals are positively correlated: besides the market, both are affected by industry factors such as the oil price. The model's assumption fails within an industry, and the model underestimates their covariance.
+        (b) By the result of [[0.3]], when every pairwise covariance is $c = 0.6\sigma^2$, the variance of the equally weighted portfolio is $\frac{\sigma^2}{n} + (1 - \frac{1}{n})c \to 0.6\sigma^2$. The single-index model treats the residuals as diversifiable and leaves only the systematic risk $\beta^2\sigma_M^2 = R^2\sigma^2 = 0.25\sigma^2$. The risk that actually cannot be diversified away is more than twice the model's prediction: 40 stocks remove almost all the companies' own risks but not the risk shared by the whole industry ($0.6\sigma^2 - 0.25\sigma^2 = 0.35\sigma^2$ comes from industry factors such as the oil price). The number of stocks is not the degree of diversification; to diversify industry risk, one must hold stocks from different industries.
+    rubric:
+      zh-cn:
+        - "(a) 通过：用 $\\sigma_{ij} = \\beta_i\\beta_j\\sigma_M^2$ 和 $\\rho_{iM} = \\frac{\\beta_i\\sigma_M}{\\sigma_i}$ 完成证明，得到 0.25，并指出差距来自残差相关（行业的共同因素），模型的假设在同一行业内不成立。只算出 0.25、没有解释差距的含义，需要订正。"
+        - "(b) 通过：得到实际的极限约 $0.6\\sigma^2$ 和模型预测的 $0.25\\sigma^2$，并说明股票数量多不等于分散了行业风险。同意投资者“风险已经分散掉”的看法，或者认为 40 只股票的组合风险接近 0，需要订正。"
+      en:
+        - "(a) OK: completes the proof with $\\sigma_{ij} = \\beta_i\\beta_j\\sigma_M^2$ and $\\rho_{iM} = \\frac{\\beta_i\\sigma_M}{\\sigma_i}$, gets 0.25, and says the gap comes from correlated residuals (common industry factors), so the model's assumption fails within an industry. Getting 0.25 without explaining what the gap means needs revision."
+        - "(b) OK: gets an actual limit of about $0.6\\sigma^2$ and a model prediction of $0.25\\sigma^2$, and explains that many stocks do not diversify industry risk. Agreeing that the risk is \"diversified away\", or thinking the 40-stock portfolio's risk is close to 0, needs revision."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [alpha, single-index-model, beta]
+    expected: { se: "0.77", t: "1.03", months: "216" }
+    question:
+      zh-cn: |-
+        一位分析师说：“过去 60 个月，股票 K 的超额收益对市场超额收益回归的截距是每月 0.8%，相当于每年约 10% 的 alpha。它持续跑赢了风险所要求的收益，这种超额收益还会持续。”回归的残差标准差为每月 6%。截距的标准误约为 $\frac{s_e}{\sqrt{T}}$（市场的平均超额收益远小于它的波动率时）。
+        (a) 估计的 alpha 在统计上能和 0 区分开吗？评价分析师的说法。
+        (b) 如果 K 真实的 alpha 就是每月 0.8%，残差标准差不变，要多少个月的数据，估计值才能达到 1.96 的 t 值？这个结果意味着什么？
+      en: |-
+        An analyst says: "Over the past 60 months, the intercept of the regression of stock K's excess returns on the market's excess returns is 0.8% a month, an alpha of about 10% a year. It has consistently beaten the return its risk requires, and this excess return will continue." The regression's residual standard deviation is 6% a month. The standard error of the intercept is about $\frac{s_e}{\sqrt{T}}$ (when the market's average excess return is much smaller than its volatility).
+        (a) Can the estimated alpha be statistically distinguished from 0? Evaluate the analyst's statement.
+        (b) If K's true alpha really is 0.8% a month and the residual standard deviation stays the same, how many months of data are needed for the estimate to reach a t-value of 1.96? What does this result mean?
+    answer:
+      zh-cn: |-
+        (a) 标准误 $\frac{6}{\sqrt{60}} \approx 0.77$（%/月），t 值 $\frac{0.8}{0.77} \approx 1.03$，远低于 1.96。95% 置信区间约为 $0.8 \pm 1.52$，即每月 −0.72% 到 2.32%，包括 0 和负值。分析师看到的“每年 10%”完全可能是运气：60 个月的数据不足以说明 K 跑赢了要求的收益，更不能说明会持续。CAPM 还说明，均衡中 alpha 的期望为 0，持续的大幅正 alpha 会吸引买入、抬高价格而消失。
+        (b) 需要 $\frac{0.8}{6/\sqrt{T}} = 1.96$，$T = \left(\frac{1.96 \times 6}{0.8}\right)^2 \approx 216$ 个月，即 18 年。这么长的时间里，公司的业务、管理层和 beta 都会变，早期的数据描述的几乎是另一家公司。所以即使 alpha 真实存在，用一只股票的历史收益也很难证明它；相比之下，beta 用 60 个月的数据就能估计得比较准，因为斜率的标准误中有 $\sigma_M$，靠市场收益的大幅波动来识别，而截距只能靠平均收益来识别。
+      en: |-
+        (a) The standard error is $\frac{6}{\sqrt{60}} \approx 0.77$ (% a month), and the t-value is $\frac{0.8}{0.77} \approx 1.03$, far below 1.96. The 95% confidence interval is about $0.8 \pm 1.52$, from −0.72% to 2.32% a month, which includes 0 and negative values. The "10% a year" the analyst sees may well be luck: 60 months of data do not show that K beat its required return, let alone that it will continue to. The CAPM also says that in equilibrium the expected alpha is 0; a lasting large positive alpha would attract buyers, push up the price and disappear.
+        (b) We need $\frac{0.8}{6/\sqrt{T}} = 1.96$, so $T = \left(\frac{1.96 \times 6}{0.8}\right)^2 \approx 216$ months, or 18 years. Over such a long time the company's business, management and beta all change, and the early data describe almost a different company. So even if the alpha is real, it is very hard to prove from one stock's past returns. Beta, by contrast, can be estimated fairly precisely from 60 months, because the slope's standard error has $\sigma_M$ in it: the slope is identified by the large swings in the market return, while the intercept can only be identified from the average return.
+    rubric:
+      zh-cn:
+        - "(a) 通过：标准误约 0.77，t 值约 1.03，结论是不能与 0 区分，分析师的说法没有依据（可以提到 alpha 的期望为 0 或竞争会消除 alpha）。只看到 0.8% 或 10% 很大就同意分析师，或者没有算标准误就下结论，需要订正。"
+        - "(b) 通过：约 216 个月（18 年），并说明这么长的样本中公司已经变了，所以单只股票的 alpha 很难用历史数据证明。只算出月数、不讨论它意味着什么，需要订正。"
+      en:
+        - "(a) OK: standard error about 0.77, t-value about 1.03, concluding the alpha cannot be distinguished from 0 and the statement has no basis (may mention that the expected alpha is 0, or that competition removes alpha). Agreeing with the analyst because 0.8% or 10% looks large, or concluding without computing the standard error, needs revision."
+        - "(b) OK: about 216 months (18 years), with the point that the company changes over such a long sample, so one stock's alpha is very hard to prove from past data. Computing the months without discussing what they mean needs revision."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [adjusted-beta, beta, capm, cost-of-equity, net-present-value]
+    expected: { beta: "1.23", diff: "3.34" }
+    question:
+      zh-cn: |-
+        一家上市不久的小公司，用 60 个月的数据回归得到 beta 1.9，标准误 0.45。业务和负债率与它相近的 12 家同行业公司，平均 beta 为 1.2，可以看作一个标准误为 0.1 的估计。无风险利率 3%，市场风险溢价 5%。
+        (a) 把两个估计按精确程度加权平均（提示：权重与标准误的平方成反比），这家公司 beta 的估计值是多少？与只用它自己的回归相比，CAPM 股权成本相差多少个百分点？为什么它自己的估计得到的权重这么小？
+        (b) 财务部的一位同事说：“用 1.9 更保守。资本成本宁可估高，不会出错。”评价这个说法。
+      en: |-
+        A small company that listed recently gets a beta of 1.9 with a standard error of 0.45 from a regression on 60 months of data. Twelve companies in the same industry with similar businesses and debt ratios have an average beta of 1.2, which can be treated as an estimate with a standard error of 0.1. The risk-free rate is 3% and the market risk premium is 5%.
+        (a) Average the two estimates with weights set by their precision (hint: the weights are inversely proportional to the squared standard errors). What is the estimate of the company's beta? Compared with using only its own regression, how many percentage points lower is the CAPM cost of equity? Why does its own estimate get so little weight?
+        (b) A colleague in the finance department says: "Using 1.9 is more conservative. It is better to overestimate the cost of capital; you can't go wrong." Evaluate this statement.
+    answer:
+      zh-cn: |-
+        (a) 权重与 $\frac{1}{0.45^2} \approx 4.94$ 和 $\frac{1}{0.1^2} = 100$ 成正比，自己的估计权重约 4.7%。$\beta \approx 0.047 \times 1.9 + 0.953 \times 1.2 \approx 1.23$。股权成本从 $3\% + 1.9 \times 5\% = 12.5\%$ 降到约 $3\% + 1.23 \times 5\% \approx 9.16\%$，低约 3.34 个百分点。自己的估计权重小，是因为它的标准误大：小公司的特质风险大，样本只有 60 个月，$\frac{\sigma(e)}{\sigma_M\sqrt{T}}$ 很大；12 家公司的平均值中，各自的估计误差相互抵消了一大部分。1.9 这样的极端值，本来就很可能部分来自误差（[[4.5#adjusted-beta]]）。
+        (b) 这个说法不对。资本成本是项目必须达到的收益，估高了会错：NPV 实际为正的项目会被算成负的而被放弃，公司的价值因此减少；这和估低了接受 NPV 为负的项目一样是损失，只是不那么显眼。高 3 个多百分点的折现率对长期项目的影响很大。“保守”应该是用最准确的估计，并在敏感性分析中看结论对 beta 的依赖，而不是故意偏向一边。
+      en: |-
+        (a) The weights are proportional to $\frac{1}{0.45^2} \approx 4.94$ and $\frac{1}{0.1^2} = 100$, so the company's own estimate gets about 4.7%. $\beta \approx 0.047 \times 1.9 + 0.953 \times 1.2 \approx 1.23$. The cost of equity falls from $3\% + 1.9 \times 5\% = 12.5\%$ to about $3\% + 1.23 \times 5\% \approx 9.16\%$, about 3.34 percentage points lower. Its own estimate gets little weight because its standard error is large: a small company has large firm-specific risk and the sample is only 60 months, so $\frac{\sigma(e)}{\sigma_M\sqrt{T}}$ is large; in the average of 12 companies, much of each estimate's error cancels out. An extreme value such as 1.9 is likely to come partly from error in the first place ([[4.5#adjusted-beta]]).
+        (b) The statement is wrong. The cost of capital is the return a project must reach, and overestimating it is a mistake: projects with an actually positive NPV are computed as negative and turned down, which lowers the company's value. That is as much a loss as accepting negative-NPV projects when the rate is too low, only less visible. A discount rate more than 3 points higher matters a great deal for long-lived projects. Being "conservative" means using the most accurate estimate and checking in a sensitivity analysis how much the conclusion depends on beta, not deliberately leaning one way.
+    rubric:
+      zh-cn:
+        - "(a) 通过：beta 约 1.23，股权成本低约 3.34 个百分点，并用标准误大（特质风险大、样本短）解释权重小。只算数字、不解释权重，或者认为公司自己的估计“更有针对性”所以应该更可信，需要订正。"
+        - "(b) 通过：指出估高资本成本会放弃 NPV 为正的项目，同样有代价。同意“估高不会出错”，需要订正。"
+      en:
+        - "(a) OK: beta about 1.23, a cost of equity about 3.34 percentage points lower, and the small weight explained by the large standard error (large firm-specific risk, short sample). Only computing the numbers without explaining the weight, or arguing the company's own estimate is \"more specific\" and so more reliable, needs revision."
+        - "(b) OK: says that overestimating the cost of capital turns down positive-NPV projects and so also has a cost. Agreeing that \"you can't go wrong\" needs revision."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [single-index-model, alpha, beta, firm-specific-risk, short-selling]
+    expected: { short: "1.2", vol: "7", mexp: "2.7" }
+    question:
+      zh-cn: |-
+        一位基金经理用 1 亿元等权持有 25 只股票。每只股票的 beta 约为 1.2，特质波动率为每年 35%，残差两两不相关；市场的年波动率为 18%。他认为这些股票平均每年有 3% 的 alpha，希望只赚 alpha，不承担市场风险，办法是卖空市场指数基金（假设没有成本）。
+        (a) 他要卖空多少市场指数基金，组合的 beta 才为 0？这时组合的年波动率约为多少？
+        (b) 他对投资者说：“对冲之后组合没有市场风险，每年的收益就是无风险利率加 3%，几乎没有风险。”另外，组合的 beta 1.2 是一个估计值，标准误约为 0.15。评价他的说法，并说明在什么条件下它才接近成立。
+      en: |-
+        A fund manager holds 25 stocks with equal weights, worth 100 million yuan in total. Each stock's beta is about 1.2, its firm-specific volatility is 35% a year, and the residuals are uncorrelated; the market's annual volatility is 18%. He believes these stocks have an average alpha of 3% a year and wants to earn only the alpha without market risk, by short selling a market index fund (assume no costs).
+        (a) How much of the market index fund must he short for the portfolio's beta to be 0? What is the portfolio's annual volatility then?
+        (b) He tells investors: "After hedging, the portfolio has no market risk, so each year's return is the risk-free rate plus 3%, with almost no risk." Also, the portfolio's beta of 1.2 is an estimate with a standard error of about 0.15. Evaluate his statement and say under what conditions it would come close to holding.
+    answer:
+      zh-cn: |-
+        (a) 卖空 $1.2 \times 1 = 1.2$ 亿元的指数基金，组合的 beta 为 $1.2 - 1.2 = 0$。剩下的只有特质风险：$\sigma(e_p) = \frac{35\%}{\sqrt{25}} = 7\%$。
+        (b) 说法不对，有三个问题。第一，7% 的特质风险还在：收益是“无风险利率 + 3% + 一个标准差为 7% 的随机项”，比 alpha 还大得多，按正态分布，大约每六年就有一年比预期低 7 个百分点以上，亏损很常见。第二，beta 是估计值：如果真实的 beta 比 1.2 高或低 0.15，对冲后还剩 ±0.15 的市场敞口，带来约 $0.15 \times 18\% = 2.7\%$ 的市场波动。第三，3% 的 alpha 本身是估计值，可能并不存在（误差往往比 alpha 本身还大）。只有在股票很多（特质风险趋于 0）、beta 估计得很准、alpha 确实存在时，他的说法才接近成立；25 只股票远不够。
+      en: |-
+        (a) Short $1.2 \times 1 = 1.2$ hundred million yuan (120 million yuan) of the index fund; the portfolio's beta becomes $1.2 - 1.2 = 0$. Only firm-specific risk remains: $\sigma(e_p) = \frac{35\%}{\sqrt{25}} = 7\%$.
+        (b) The statement is wrong, for three reasons. First, the 7% firm-specific risk remains: the return is "the risk-free rate + 3% + a random term with a standard deviation of 7%", much larger than the alpha, so with a normal distribution roughly one year in six comes in more than 7 points below expectation, and losses are common. Second, beta is an estimate: if the true beta is 0.15 higher or lower than 1.2, a market exposure of ±0.15 remains after hedging, adding about $0.15 \times 18\% = 2.7\%$ of market volatility. Third, the 3% alpha is itself an estimate and may not exist (its error is often larger than the alpha itself). His statement comes close to holding only with many stocks (firm-specific risk near 0), a precisely estimated beta and a real alpha; 25 stocks are far from enough.
+    rubric:
+      zh-cn:
+        - "(a) 通过：卖空 1.2 亿元，年波动率约 7%。"
+        - "(b) 通过：指出特质风险 7% 仍在、远大于 alpha，并说明 beta 估计误差会留下约 2.7% 的市场波动（或 alpha 本身不确定），给出接近成立的条件。只说“还有风险”而不说明来源，或者同意他的说法，需要订正。"
+      en:
+        - "(a) OK: short 120 million yuan; annual volatility about 7%."
+        - "(b) OK: says the 7% firm-specific risk remains and is much larger than the alpha, explains that the error in beta leaves about 2.7% of market volatility (or that the alpha itself is uncertain), and gives the conditions under which the statement comes close to holding. Saying only \"there is still risk\" without naming its sources, or agreeing with him, needs revision."

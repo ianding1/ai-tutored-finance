@@ -1,0 +1,99 @@
+---
+// Figure 3-1 of lesson 4.5: estimating beta from monthly excess returns. A fixed pseudo-random sample of
+// 120 months is generated in the browser (market excess return 0.5 + 4.5 z, stock = beta x market + sigE u).
+// Sliders: the true beta, the monthly firm-specific volatility and the number of months used.
+// Dashed: the true line; solid: the least-squares line. Same model as course/verify/4.5.py.
+// Parameters are registered in course/widgets.yaml (id: beta-estimate).
+import { toLang } from '../../i18n/ui';
+
+const lang = toLang(Astro.locals.starlightRoute.lang);
+const L = {
+	'zh-cn': {
+		beta: '真实的 beta',
+		sig: '特质波动率（每月，%）',
+		months: '月数',
+		x: '市场月超额收益（%）',
+		y: '股票月超额收益（%）',
+		est: '回归直线（估计）',
+		truth: '真实的直线',
+		aria: '用月收益估计 beta',
+		readout: '估计的 beta 为 {b}，标准误 {se}，95% 置信区间 [{lo}, {hi}]；R² 为 {r2}。',
+	},
+	en: {
+		beta: 'True beta',
+		sig: 'Firm-specific volatility (monthly, %)',
+		months: 'Months',
+		x: 'Market monthly excess return (%)',
+		y: 'Stock monthly excess return (%)',
+		est: 'Regression line (estimate)',
+		truth: 'True line',
+		aria: 'Estimating beta from monthly returns',
+		readout: 'Estimated beta {b}, standard error {se}, 95% confidence interval [{lo}, {hi}]; R² {r2}.',
+	},
+}[lang];
+
+const xr = [-15, 15];
+const yr = [-45, 45];
+const xTicks = [-15, -10, -5, 0, 5, 10, 15];
+const yTicks = [-45, -30, -15, 0, 15, 30, 45];
+const layouts = [
+	{ cls: 'viz-wide', W: 640, H: 340, pad: { l: 56, r: 20, t: 14, b: 48 } },
+	{ cls: 'viz-narrow', W: 360, H: 340, pad: { l: 48, r: 12, t: 14, b: 48 } },
+].map((g) => ({
+	...g,
+	X: (v: number) => g.pad.l + ((v - xr[0]) / (xr[1] - xr[0])) * (g.W - g.pad.l - g.pad.r),
+	Y: (v: number) => g.pad.t + ((yr[1] - v) / (yr[1] - yr[0])) * (g.H - g.pad.t - g.pad.b),
+}));
+---
+
+<div class="lfwai-widget" data-widget="beta-estimate" data-readout={L.readout}>
+	<div class="lfwai-sliders">
+		<label>
+			<span>{L.beta} = <output data-out="beta">1.2</output></span>
+			<input type="range" min="0.5" max="2" step="0.1" value="1.2" data-param="beta" />
+		</label>
+		<label>
+			<span>{L.sig} = <output data-out="sig">6</output></span>
+			<input type="range" min="2" max="12" step="1" value="6" data-param="sig" />
+		</label>
+		<label>
+			<span>{L.months} = <output data-out="months">60</output></span>
+			<input type="range" min="24" max="120" step="12" value="60" data-param="months" />
+		</label>
+	</div>
+	{layouts.map(({ cls, W, H, pad, X, Y }) => (
+		<svg class={`lfwai-viz ${cls}`} viewBox={`0 0 ${W} ${H}`} role="img" aria-label={L.aria} data-geom={JSON.stringify({ W, H, pad, xr, yr })}>
+			<defs>
+				<clipPath id={`beta-clip-${cls}`}><rect x={pad.l} y={pad.t} width={W - pad.l - pad.r} height={H - pad.t - pad.b} /></clipPath>
+			</defs>
+			{yTicks.map((v) => (
+				<g>
+					<line class="viz-grid" x1={pad.l} x2={W - pad.r} y1={Y(v)} y2={Y(v)} />
+					<text class="viz-tick" x={pad.l - 8} y={Y(v) + 4} text-anchor="end">{v}</text>
+				</g>
+			))}
+			{xTicks.map((v) => (
+				<text class="viz-tick" x={X(v)} y={H - pad.b + 18} text-anchor="middle">{v}</text>
+			))}
+			<line class="viz-axis" x1={X(0)} x2={X(0)} y1={pad.t} y2={H - pad.b} />
+			<line class="viz-axis" x1={pad.l} x2={W - pad.r} y1={Y(0)} y2={Y(0)} />
+			<text class="viz-tick" x={(pad.l + W - pad.r) / 2} y={H - 8} text-anchor="middle">{L.x}</text>
+			<text class="viz-tick" transform={`translate(14 ${(pad.t + H - pad.b) / 2}) rotate(-90)`} text-anchor="middle">{L.y}</text>
+			<g clip-path={`url(#beta-clip-${cls})`}>
+				<g data-el="points"></g>
+				<line class="viz-ols" data-el="truth" x1="0" y1="0" x2="0" y2="0" />
+				<line class="viz-fit" data-el="est" x1="0" y1="0" x2="0" y2="0" />
+			</g>
+		</svg>
+	))}
+	<ul class="lfwai-legend">
+		<li><span class="sw sw-fit"></span>{L.est}</li>
+		<li><span class="sw sw-ols"></span>{L.truth}</li>
+	</ul>
+	<p class="lfwai-readout" data-el="readout" aria-live="polite"></p>
+</div>
+
+<script>
+	import { initBetaEstimate } from '../../scripts/widgets/beta-estimate';
+	initBetaEstimate();
+</script>
