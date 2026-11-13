@@ -2293,3 +2293,75 @@ smart-beta:
   short:
     zh-cn: "按规则构建、偏向某些因子（价值、小盘、动量等）的指数基金；也叫因子投资。"
     en: "Rule-based index funds tilted toward some factors (value, small size, momentum and so on); also called factor investing."
+
+efficient-market-hypothesis:
+  defined_in: "4.7"
+  zh-cn: 有效市场假说
+  en: efficient market hypothesis
+  short:
+    zh-cn: "价格充分反映了可以得到的信息，因此除了风险要求的平均收益之外，价格变化无法预测；EMH。"
+    en: "Prices fully reflect available information, so apart from the average return risk requires, price changes cannot be predicted; EMH."
+
+random-walk:
+  defined_in: "4.7"
+  zh-cn: 随机游走
+  en: random walk
+  short:
+    zh-cn: "价格的变化不可预测，过去的变化不能预测未来的变化。"
+    en: "Price changes are unpredictable; past changes do not predict future ones."
+
+weak-form-efficiency:
+  defined_in: "4.7"
+  zh-cn: 弱式有效
+  en: weak-form efficiency
+  short:
+    zh-cn: "价格反映了过去的价格和成交量，技术分析不能获得超额收益。"
+    en: "Prices reflect past prices and trading volume, so technical analysis cannot earn excess returns."
+
+semi-strong-form-efficiency:
+  defined_in: "4.7"
+  zh-cn: 半强式有效
+  en: semi-strong-form efficiency
+  short:
+    zh-cn: "价格反映了所有公开信息，分析公开信息不能获得超额收益。"
+    en: "Prices reflect all public information, so analyzing public information cannot earn excess returns."
+
+strong-form-efficiency:
+  defined_in: "4.7"
+  zh-cn: 强式有效
+  en: strong-form efficiency
+  short:
+    zh-cn: "价格反映了所有信息，包括未公开的内部信息。"
+    en: "Prices reflect all information, including nonpublic inside information."
+
+joint-hypothesis-problem:
+  defined_in: "4.7"
+  zh-cn: 联合假设问题
+  en: joint hypothesis problem
+  short:
+    zh-cn: "检验市场有效性必须同时假设一个预期收益模型，所以跑赢模型可能是市场无效，也可能是模型错了。"
+    en: "Testing market efficiency requires assuming a model of expected returns as well, so beating the model may mean either inefficiency or a wrong model."
+
+event-study:
+  defined_in: "4.7"
+  zh-cn: 事件研究
+  en: event study
+  short:
+    zh-cn: "用事件前后的超常收益和累计超常收益，检验价格对某类消息的反应的方法。"
+    en: "A method that uses abnormal and cumulative abnormal returns around events to test how prices react to a kind of news."
+
+abnormal-return:
+  defined_in: "4.7"
+  zh-cn: 超常收益
+  en: abnormal return
+  short:
+    zh-cn: "实际收益减去按模型（如单指数模型）计算的正常收益。"
+    en: "The actual return minus the normal return given by a model such as the single-index model."
+
+market-anomaly:
+  defined_in: "4.7"
+  zh-cn: 市场异象
+  en: market anomaly
+  short:
+    zh-cn: "可以用公开信息预测、与资产定价模型不符的收益规律。"
+    en: "A pattern in returns that can be predicted from public information and does not fit the asset pricing model."

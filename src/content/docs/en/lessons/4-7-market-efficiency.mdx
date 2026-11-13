@@ -1,0 +1,95 @@
+---
+title: 4.7 The Efficient Market Hypothesis
+description: Why prices reflect information; the three forms of market efficiency; the joint hypothesis problem; tests and event studies; market anomalies and their explanations; what efficiency means for investors.
+lesson: "4.7"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import EventStudy from '../../../../components/widgets/EventStudy.astro';
+
+## Prices reflect information [#idea]
+
+If everyone knew that a stock would rise 10% next month, what would happen today? Those who want to buy would buy at once, and the price would rise today until the stock's expected return was only what its risk deserves. As long as many investors compete to find and use information, known information is quickly reflected in prices.
+
+The <Def id="efficient-market-hypothesis">efficient market hypothesis</Def> (EMH) says exactly this: prices fully reflect the information that is available. It follows that prices change only because of new information; and new information is by definition unpredictable (what can be predicted is not new), so apart from the average return that risk requires, price changes cannot be predicted. This property is often called a <Def id="random-walk">random walk</Def>; Samuelson (1965) gave the formal argument.
+
+An efficient market does not mean that prices are always "right"; it means that with the information at hand one cannot systematically tell whether a price is too high or too low. Nor does it mean that all stocks have the same expected return: different risks require different returns (<Ref lesson="4.4" />).
+
+<Check id="C1" />
+
+## Three forms [#forms]
+
+According to how much "available information" includes, Fama (1970) divided market efficiency into three forms:
+
+- <Def id="weak-form-efficiency">Weak-form efficiency</Def>: prices reflect past prices and trading volume. Predicting the future from past price patterns (technical analysis) cannot earn excess returns.
+- <Def id="semi-strong-form-efficiency">Semi-strong-form efficiency</Def>: prices reflect all public information, including financial statements, announcements, news and macroeconomic data. Analyzing public information (fundamental analysis) cannot earn excess returns.
+- <Def id="strong-form-efficiency">Strong-form efficiency</Def>: prices reflect all information, including information insiders hold that has not been made public.
+
+Each form includes the one before it. Almost no one believes the strong form holds: studies find that company insiders earn abnormal returns on average when they trade their own company's shares (Seyhun, 1986), and trading on material nonpublic information is illegal in the United States. The debate is mostly about the weak and semi-strong forms.
+
+<Check id="C2" />
+
+Testing efficiency faces a basic difficulty: to judge whether a strategy earned an "excess" return, one must first know what it "should" earn, that is, one needs a model of expected returns (the CAPM, the three-factor model and so on). When a strategy beats the model, either the market is inefficient or the model is wrong and misses some risk. This is the <Def id="joint-hypothesis-problem">joint hypothesis problem</Def>: efficiency can only be tested together with an asset pricing model.
+
+## Tests [#tests]
+
+Tests of the weak form ask whether past returns predict future returns, for example through the autocorrelation of returns, or whether technical trading rules beat buying and holding after trading costs.
+
+The most common test of the semi-strong form is the <Def id="event-study">event study</Def>, first used for stock splits by Fama, Fisher, Jensen and Roll (1969). The method:
+
+1. Estimate the stock's normal return with data from before the event, for example with the single-index model (<Ref lesson="4.5" />), $\hat\alpha_i + \hat\beta_i R_{M,t}$.
+2. Compute the <Def id="abnormal-return">abnormal return</Def> on each day around the event: the actual return minus the normal return, $AR_t = R_{i,t} - (\hat\alpha_i + \hat\beta_i R_{M,t})$.
+3. Add up the abnormal returns to get the cumulative abnormal return (CAR), and average it over many companies' events of the same kind.
+
+Averaging is needed because a single company's daily abnormal return contains large firm-specific swings (<Ref lesson="4.5" sec="decomposition" />); only after averaging does the typical reaction of prices to such news become clear. If the market is semi-strong-form efficient, the price should adjust on the announcement day, and the cumulative abnormal return should stay flat afterwards.
+
+<Figure id="3-1" title="The cumulative abnormal return around an announcement of good news worth 5% of the share price. The slider sets the day-0 reaction as a share of the full reaction; afterwards the price closes 30% of the remaining gap each day. The dashed line is the efficient-market path." observe="Set the day-0 reaction below 1 and then above 1, and compare the direction of the curve after the announcement.">
+	<EventStudy />
+</Figure>
+
+<Check id="C3" />
+
+In actual event studies, prices usually react quickly on the announcement day, often within minutes to hours, which broadly supports the semi-strong form; if the price starts moving before the announcement, the news may have leaked or insiders may have traded. But there are some regular departures, covered in the next section.
+
+## Market anomalies [#anomalies]
+
+A <Def id="market-anomaly">market anomaly</Def> is a pattern in returns that can be predicted from public information and does not fit the asset pricing model. Besides size, value and momentum from <Ref lesson="4.6" />, often-cited examples are:
+
+- Post-earnings-announcement drift: companies whose earnings beat expectations keep rising for weeks to months after the announcement, and those that miss keep falling (Ball and Brown, 1968; Bernard and Thomas, 1989).
+- Long-run reversal: the stocks that fell most over the past 3 to 5 years beat, on average, those that rose most over the next few years (De Bondt and Thaler, 1985).
+- The January effect: small companies' stocks earn especially high returns in January. This pattern weakened markedly after it was widely reported.
+
+There are three kinds of explanation for anomalies:
+
+- Risk compensation: the anomaly reflects a risk the model does not measure (the joint hypothesis problem).
+- Data mining: researchers have tested a great many patterns, and some are significant by chance (<Ref concept="multiple-testing" />). Harvey, Liu and Zhu (2016) suggest that a new factor's t-value should exceed at least 3, not the usual 1.96.
+- Behavioral biases and limits to arbitrage: systematic mistakes by investors push prices away from value, and the trades that would correct them carry risk and cost (<Ref lesson="4.8" />).
+
+<Check id="C4" />
+
+## What it means for investors [#implications]
+
+Even if the market is not fully efficient, exploiting anomalies is not easy: trading costs, taxes and fees eat a large part of the excess return, and anomalies may weaken after they are discovered (<Ref lesson="4.6" sec="smart-beta" />). The long-run record of actively managed funds is consistent with this: according to the SPIVA U.S. report of S&P Dow Jones Indices (year-end 2023), about nine in ten US large-cap active funds lagged the S&P 500 index over the past 15 years. <Ref lesson="4.9" /> discusses how to measure fund performance and how to tell luck from skill.
+
+Nor can the market be perfectly efficient. Grossman and Stiglitz (1980) pointed out that if prices already reflected all information, no one would pay to collect and analyze information; but if no one analyzed it, how would prices come to reflect it? In equilibrium, prices keep a small gap from value, just enough for the return to collecting information to pay for its cost (<Ref check="Q3" />).
+
+For ordinary investors, a broadly efficient market means that it is hard to earn excess returns by picking stocks or timing the market, but how the portfolio is built still matters a great deal, including how much risk to take, how to diversify, fees and taxes (<Ref lesson="6.3" />).
+
+<Check id="C5" />
+
+## Summary [#summary]
+
+- Competition puts information into prices quickly; in an efficient market, prices change only because of unpredictable new information.
+- The weak, semi-strong and strong forms correspond to past prices, all public information and all information; the strong form fails, and the debate is about the first two.
+- The joint hypothesis problem: efficiency can only be tested together with an asset pricing model.
+- Event studies use abnormal returns and cumulative abnormal returns to test how fast prices react to news.
+- Anomalies may be risk compensation, data mining, or behavioral biases plus limits to arbitrage; after costs, most active funds lag the index.
+- The market cannot be perfectly efficient: information is costly, so prices must keep a gap that pays for it.
+
+## Exercises [#exercises]
+
+<Exercises />

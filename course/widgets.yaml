@@ -346,3 +346,8 @@ factor-alpha:
   params:
     s: { min: -0.4, max: 1, step: 0.1, default: 0.5 }
     h: { min: -0.4, max: 1, step: 0.1, default: 0.6 }
+
+event-study:
+  component: src/components/widgets/EventStudy.astro
+  params:
+    k: { min: 0.4, max: 1.4, step: 0.1, default: 1 }

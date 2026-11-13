@@ -1,0 +1,340 @@
+# Answer key for lesson 4.7. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[4.7#tests]] (section), [[concept:beta]], [[check:Q3]], [[fig:3-1]].
+# expected: values are recomputed by course/verify/4.7.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "4.7"
+
+context:
+  - zh-cn: |-
+      学习者学过标准误、假设检验和多重检验（[[0.4]]）、回归（[[0.5]]）、NPV（[[3.2]]）、CAPM 和 alpha（[[4.4]]）、单指数模型与特质风险（[[4.5]]）、多因子模型、规模、价值、动量和 smart beta（[[4.6]]）。讲义还没有讲行为金融（[[4.8]]）和业绩评估（[[4.9]]）。百分数用百分点表示。
+    en: |-
+      The learner has studied standard errors, hypothesis tests and multiple testing ([[0.4]]), regression ([[0.5]]), NPV ([[3.2]]), the CAPM and alpha ([[4.4]]), the single-index model and firm-specific risk ([[4.5]]), and multifactor models, size, value, momentum and smart beta ([[4.6]]). The lesson has not yet covered behavioral finance ([[4.8]]) or performance evaluation ([[4.9]]). Percentages in percentage points.
+  - concepts: [efficient-market-hypothesis, random-walk]
+    zh-cn: |-
+      讲义：竞争使已知信息迅速进入价格；EMH：价格充分反映可以得到的信息，只因新信息而变化，除风险要求的平均收益外不可预测（随机游走，Samuelson，1965）。有效不等于价格总是正确，也不等于所有股票预期收益相同。
+    en: |-
+      The lesson: competition puts known information into prices quickly; the EMH: prices fully reflect available information and change only with new information, unpredictable apart from the average return risk requires (a random walk, Samuelson, 1965). Efficiency does not mean prices are always right, nor that all stocks have the same expected return.
+  - concepts: [weak-form-efficiency, semi-strong-form-efficiency, strong-form-efficiency, joint-hypothesis-problem]
+    zh-cn: |-
+      讲义：Fama（1970）：弱式（过去的价格和成交量）、半强式（所有公开信息）、强式（所有信息）；内部人交易有超额收益（Seyhun，1986），强式不成立。联合假设问题：判断“超额”需要预期收益模型，跑赢模型可能是市场无效，也可能是模型漏掉了风险。
+    en: |-
+      The lesson: Fama (1970): weak form (past prices and volume), semi-strong form (all public information), strong form (all information); insiders earn abnormal returns (Seyhun, 1986), so the strong form fails. Joint hypothesis problem: judging "abnormal" needs a model of expected returns; beating the model may mean inefficiency or a model that misses a risk.
+  - concepts: [event-study, abnormal-return]
+    zh-cn: |-
+      讲义：弱式检验：自相关、技术规则扣成本后能否跑赢。事件研究（Fama、Fisher、Jensen 和 Roll，1969）：用事件前数据估计正常收益 $\hat\alpha_i + \hat\beta_i R_{M,t}$，$AR_t = R_{i,t} - (\hat\alpha_i + \hat\beta_i R_{M,t})$，累加得 CAR，对很多公司取平均（单个公司的特质波动大）；半强式有效时价格在公告日完成调整，之后 CAR 平坦。实际中反应很快；公告前变化可能是泄露或内幕交易。[[fig:3-1]]：价值 5% 的好消息；滑块为公告日反应占应有反应的比例，0.4 到 1.4（步长 0.1，默认 1）；之后每天缩小剩余差距的 30%。
+    en: |-
+      The lesson: weak-form tests: autocorrelation, whether technical rules beat buy-and-hold after costs. Event study (Fama, Fisher, Jensen and Roll, 1969): estimate normal returns $\hat\alpha_i + \hat\beta_i R_{M,t}$ from pre-event data, $AR_t = R_{i,t} - (\hat\alpha_i + \hat\beta_i R_{M,t})$, sum into a CAR, and average over many companies (one company's firm-specific swings are large); with semi-strong efficiency the price adjusts on the announcement day and the CAR is flat afterwards. In practice reactions are fast; moves before the announcement may be leaks or insider trading. [[fig:3-1]]: good news worth 5%; slider: the day-0 reaction as a share of the full reaction, 0.4 to 1.4 (in steps of 0.1, default 1); afterwards 30% of the remaining gap closes each day.
+  - concepts: [market-anomaly]
+    zh-cn: |-
+      讲义：异象：规模、价值、动量（[[4.6]]）、盈余公告后漂移（Ball 和 Brown，1968；Bernard 和 Thomas，1989）、长期反转（De Bondt 和 Thaler，1985）、一月效应（报道后变弱）。三类解释：风险补偿（联合假设）、数据挖掘（Harvey、Liu 和 Zhu，2016 建议 t > 3）、行为偏差与套利的限制（[[4.8]]）。含义：成本、税和费用；SPIVA 美国 2023 年末报告，15 年中约九成美国大盘股主动基金跑输标普 500；Grossman 和 Stiglitz（1980）：信息有成本，价格中留有补偿成本的偏差；组合构建（风险、分散、费用、税）仍重要。
+    en: |-
+      The lesson: anomalies: size, value, momentum ([[4.6]]), post-earnings-announcement drift (Ball and Brown, 1968; Bernard and Thomas, 1989), long-run reversal (De Bondt and Thaler, 1985), the January effect (weaker after publicity). Three explanations: risk compensation (joint hypothesis), data mining (Harvey, Liu and Zhu, 2016 suggest t > 3), behavioral biases plus limits to arbitrage ([[4.8]]). Implications: costs, taxes and fees; SPIVA U.S. year-end 2023: over 15 years about nine in ten US large-cap active funds lagged the S&P 500; Grossman and Stiglitz (1980): information is costly, so prices keep a gap that pays for it; portfolio construction (risk, diversification, fees, taxes) still matters.
+
+common_errors:
+  - questions: [Q1]
+    zh-cn: |-
+      用原始收益而不是超常收益判断消息的影响，忽略了市场当天的变化和股票的 beta；或者根据单个公司一天的小幅超常收益就下结论，不考虑特质波动和联合假设问题。
+    en: |-
+      Judging the effect of news by raw returns instead of abnormal returns, ignoring the market's move that day and the stock's beta; or drawing a conclusion from one company's small abnormal return on one day, ignoring firm-specific swings and the joint hypothesis problem.
+  - questions: [Q2]
+    zh-cn: |-
+      把从很多规则中挑出的回测结果当作真实的超额收益，忽略多重检验；忽略交易成本和税。
+    en: |-
+      Treating a backtest chosen from many rules as a real excess return, ignoring multiple testing; ignoring trading costs and taxes.
+  - questions: [Q3]
+    zh-cn: |-
+      以为有效市场意味着分析信息没有任何价值、分析师都应该消失；不理解正是分析师的竞争使市场有效。
+    en: |-
+      Thinking an efficient market means analyzing information has no value at all and analysts should all disappear; not seeing that competition among analysts is what makes the market efficient.
+  - questions: [Q4]
+    zh-cn: |-
+      以为一种策略过去收益高就证明了市场无效，不考虑它可能是风险补偿；或者不知道怎样用证据区分风险补偿和定价错误。
+    en: |-
+      Thinking a strategy's high past return proves the market is inefficient, without considering that it may be risk compensation; or not knowing how evidence can separate risk compensation from mispricing.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: idea
+    concepts: [efficient-market-hypothesis, random-walk]
+    question:
+      zh-cn: |-
+        如果市场是有效的，股票价格应该很少变动。
+      en: |-
+        If the market is efficient, stock prices should rarely move.
+    correct: false
+    hint:
+      zh-cn: 想一想：在有效市场中，什么会使价格变化？这种东西多久出现一次？
+      en: 'Think: in an efficient market, what makes prices change? How often does that arrive?'
+    answer:
+      zh-cn: |-
+        错。有效市场中价格因为新信息而变化，而关于公司、行业和经济的新消息每天都在出现，所以价格会频繁波动。有效性说的是这些变化不可预测，不是说变化少。价格对新闻没有反应，反而说明市场无效。
+      en: |-
+        False. In an efficient market prices change with new information, and news about companies, industries and the economy arrives every day, so prices move often. Efficiency says these changes are unpredictable, not that they are rare. A price that did not react to news would be a sign of inefficiency.
+
+  - id: C2
+    kind: check
+    section: forms
+    concepts: [weak-form-efficiency, semi-strong-form-efficiency, strong-form-efficiency]
+    question:
+      zh-cn: |-
+        下面哪个发现与半强式有效最不相符？
+      en: |-
+        Which finding is least consistent with semi-strong-form efficiency?
+    choices:
+      - zh-cn: 公司高管买卖自家股票，平均获得超额收益
+        en: Company executives earn abnormal returns on average when they trade their own company's shares
+        why:
+          zh-cn: 高管交易时用的信息是公开的吗？半强式有效涉及的是哪类信息？
+          en: Is the information executives trade on public? Which information does the semi-strong form concern?
+      - zh-cn: 盈利公告后，股价连续几周朝消息的方向继续变化
+        en: After earnings announcements, prices keep moving in the direction of the news for several weeks
+      - zh-cn: 股价每天的变化之间几乎不相关
+        en: Daily price changes are almost uncorrelated with each other
+        why:
+          zh-cn: 过去的价格变化不能预测未来的变化，这支持还是违背有效市场？
+          en: If past price changes cannot predict future ones, does that support or contradict efficiency?
+      - zh-cn: 小公司股票的平均收益高于 CAPM 的预测
+        en: Small companies' stocks earn more on average than the CAPM predicts
+        why:
+          zh-cn: 想一想联合假设问题：跑赢 CAPM 一定说明市场无效吗？还有什么可能？
+          en: 'Think of the joint hypothesis problem: does beating the CAPM necessarily mean inefficiency? What else could it be?'
+    correct: B
+    answer:
+      zh-cn: |-
+        (B)。盈利公告是公开信息，公告后价格还能预测地继续变化，说明价格没有在公告时充分反映它，投资者可以在公告后买入获利，直接违背半强式有效。(A) 违背的是强式；(C) 支持弱式；(D) 可能是 CAPM 漏掉了某种风险。
+      en: |-
+        (B). An earnings announcement is public information; if prices keep moving predictably after it, they did not fully reflect it when it was announced, and investors could profit by buying afterwards, which contradicts the semi-strong form directly. (A) contradicts the strong form; (C) supports the weak form; (D) may mean the CAPM misses some risk.
+
+  - id: C3
+    kind: check
+    section: tests
+    concepts: [event-study, abnormal-return, semi-strong-form-efficiency]
+    widget: { id: event-study, set: { k: 0.6 } }
+    question:
+      zh-cn: |-
+        在 [[fig:3-1]] 中，把公告日的反应调到 0.6。如果很多公司的同类公告都呈现这种模式，说明什么？
+      en: |-
+        In [[fig:3-1]], set the day-0 reaction to 0.6. If many companies' announcements of this kind show this pattern, what does it mean?
+    choices:
+      - zh-cn: 公告后买入可以获得超常收益，与半强式有效不符
+        en: Buying after the announcement earns abnormal returns, which is inconsistent with semi-strong-form efficiency
+      - zh-cn: 市场是有效的，因为价格最终完全反映了这条消息
+        en: The market is efficient, because the price eventually reflects the news fully
+        why:
+          zh-cn: 有效市场要求价格什么时候反映消息？公告之后还能预测的价格变化意味着什么？
+          en: When does an efficient market require the price to reflect the news? What does a predictable price change after the announcement mean?
+      - zh-cn: 只与弱式有效不符
+        en: It is inconsistent with the weak form only
+        why:
+          zh-cn: 这里用来预测之后收益的信息是什么：过去的价格，还是公开的公告？
+          en: What information predicts the later returns here, past prices or a public announcement?
+      - zh-cn: 说明存在内幕交易
+        en: It shows insider trading
+        why:
+          zh-cn: 内幕交易会使价格在公告之前还是之后变化？
+          en: Does insider trading move the price before or after the announcement?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。公告日只反应了 60%，之后 10 天累计超常收益又上升约 2 个百分点。公告是公开信息，投资者可以在公告后买入，获得这部分可以预测的超常收益，这与半强式有效不符。这就是“反应不足”，盈余公告后的漂移就是这种模式。
+      en: |-
+        (A). Only 60% of the reaction happens on day 0, and the cumulative abnormal return rises about 2 more points over the next 10 days. The announcement is public, so investors could buy after it and earn this predictable abnormal return, which is inconsistent with the semi-strong form. This is underreaction; post-earnings-announcement drift follows this pattern.
+
+  - id: C4
+    kind: check
+    section: anomalies
+    concepts: [market-anomaly, multiple-testing]
+    question:
+      zh-cn: |-
+        研究者用同一段数据检验了 200 个交易规则，在 5% 的显著性水平下，有 12 个“显著”跑赢市场。最合理的结论是：
+      en: |-
+        Researchers test 200 trading rules on the same data, and 12 of them "significantly" beat the market at the 5% significance level. The most reasonable conclusion is:
+    choices:
+      - zh-cn: 这 12 个规则都能战胜市场
+        en: All 12 rules can beat the market
+        why:
+          zh-cn: 如果 200 个规则全都没有用，在 5% 的水平下，预计有多少个会碰巧显著？
+          en: If none of the 200 rules worked, how many would you expect to be significant by chance at the 5% level?
+      - zh-cn: 这个数量与全都无效时碰巧得到的差不多，需要用新的数据检验
+        en: This is about as many as you would get by chance if none worked, so they need testing on new data
+      - zh-cn: 市场不是弱式有效的
+        en: The market is not weak-form efficient
+        why:
+          zh-cn: 12 个显著的结果，比纯粹由运气产生的数量多很多吗？
+          en: Are 12 significant results many more than luck alone would produce?
+      - zh-cn: 应该把这 12 个规则组合起来使用，风险更分散
+        en: The 12 rules should be combined, to spread the risk
+        why:
+          zh-cn: 如果它们的显著只是运气，组合起来会有超额收益吗？
+          en: If their significance is just luck, will combining them produce an excess return?
+    correct: B
+    answer:
+      zh-cn: |-
+        (B)。即使 200 个规则都无效，在 5% 的水平下也预计有约 $200 \times 5\% = 10$ 个碰巧显著。12 个与 10 个相差不大，数据不足以说明其中任何一个真的有效。要用样本外的数据检验，或者提高显著性的标准。
+      en: |-
+        (B). Even if none of the 200 rules worked, about $200 \times 5\% = 10$ would be significant by chance at the 5% level. Twelve is not much more than 10, so the data do not show that any of them really works. They need testing on out-of-sample data, or a stricter significance threshold.
+
+  - id: C5
+    kind: check
+    section: implications
+    concepts: [efficient-market-hypothesis, semi-strong-form-efficiency]
+    question:
+      zh-cn: |-
+        过去 15 年约九成美国大盘股主动基金跑输标普 500 指数，这证明这些基金经理都没有任何选股能力。
+      en: |-
+        About nine in ten US large-cap active funds lagged the S&P 500 over the past 15 years, which proves that none of these managers has any stock-picking skill.
+    correct: false
+    hint:
+      zh-cn: 想一想：基金跑输的是扣除什么之后的收益？费用和交易成本每年大约多少？另外，“约九成跑输”能说明“每一个都没有能力”吗？
+      en: 'Think: the funds lag after deducting what? About how much are fees and trading costs each year? And does "about nine in ten lagged" show that "every one has no skill"?'
+    answer:
+      zh-cn: |-
+        错。基金的收益是扣除费用和交易成本之后的。所有主动投资者合起来大体持有市场，扣费前他们的平均收益约等于市场，扣费后平均必然跑输；所以多数基金跑输与一些经理有能力并不矛盾，只是能力不足以覆盖费用。这个结果说明能力稀少、难以事先识别，扣费后普通投资者很难从中获益，但不能证明没有人有能力（[[4.9]] 讨论怎样区分运气和能力）。
+      en: |-
+        False. Fund returns are after fees and trading costs. All active investors together hold roughly the market, so before fees their average return is about the market's, and after fees they must lag on average; most funds lagging is therefore consistent with some managers having skill that is not enough to cover the fees. The result shows that skill is rare and hard to identify in advance, so ordinary investors find it hard to benefit after fees, but it does not prove that nobody has skill ([[4.9]] discusses telling luck from skill).
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [event-study, abnormal-return, joint-hypothesis-problem]
+    expected: { ar0: "7.5", car: "8.05" }
+    question:
+      zh-cn: |-
+        一家公司在第 0 天宣布被收购。用公告前一年的数据估计的单指数模型为 $\hat\alpha = 0$，$\hat\beta = 1.3$，残差每天的标准差为 2%。公告前后几天的收益（%）：
+
+        第 −1、0、+1、+2 天，市场收益依次为 0.5、−1.0、0.8、0.2；股票收益依次为 0.9、6.2、1.5、0.1。
+
+        (a) 第 0 天的超常收益是多少？为什么它比股票当天的收益 6.2% 还高？四天的累计超常收益是多少？
+        (b) 一位同事看到第 +1 天的超常收益为正，说：“消息公布后价格还在涨，市场反应不足，不是半强式有效的。”评价这个说法。要得出这样的结论，需要什么样的证据？
+      en: |-
+        A company announces on day 0 that it is being acquired. A single-index model estimated from the year before the announcement gives $\hat\alpha = 0$ and $\hat\beta = 1.3$, with a daily residual standard deviation of 2%. Returns (%) around the announcement:
+
+        On days −1, 0, +1 and +2, the market returned 0.5, −1.0, 0.8 and 0.2, and the stock returned 0.9, 6.2, 1.5 and 0.1.
+
+        (a) What is the abnormal return on day 0? Why is it higher than the stock's return of 6.2% that day? What is the cumulative abnormal return over the four days?
+        (b) A colleague sees that the abnormal return on day +1 is positive and says: "The price kept rising after the news, so the market underreacted and is not semi-strong-form efficient." Evaluate this statement. What evidence would be needed to reach such a conclusion?
+    answer:
+      zh-cn: |-
+        (a) $AR_0 = 6.2 - 1.3 \times (-1.0) = 7.5$（%）。当天市场下跌 1%，按 beta 1.3 这只股票本应下跌 1.3%，实际却涨了 6.2%，所以消息带来的超常收益是 7.5 个百分点，比原始收益更高。其他几天：$AR_{-1} = 0.9 - 0.65 = 0.25$，$AR_{+1} = 1.5 - 1.04 = 0.46$，$AR_{+2} = 0.1 - 0.26 = -0.16$。四天的累计超常收益 $= 0.25 + 7.5 + 0.46 - 0.16 = 8.05$（%）。
+        (b) 证据不足。第 +1 天的超常收益 0.46%，只有残差标准差 2% 的四分之一左右，完全在一家公司每天正常的特质波动范围内，第 +2 天又是负的。一家公司一次事件说明不了规律。要说明反应不足，需要很多家公司同类公告的平均累计超常收益在公告后持续、显著地朝同一方向变化，并扣除交易成本后仍可获利；而且结论依赖于正常收益的模型（联合假设问题），beta 估计有误差时，超常收益本身也有误差。
+      en: |-
+        (a) $AR_0 = 6.2 - 1.3 \times (-1.0) = 7.5$ (%). The market fell 1% that day, so with a beta of 1.3 the stock should have fallen 1.3%; it rose 6.2% instead, so the abnormal return from the news is 7.5 points, higher than the raw return. The other days: $AR_{-1} = 0.9 - 0.65 = 0.25$, $AR_{+1} = 1.5 - 1.04 = 0.46$, $AR_{+2} = 0.1 - 0.26 = -0.16$. The cumulative abnormal return over the four days is $0.25 + 7.5 + 0.46 - 0.16 = 8.05$ (%).
+        (b) The evidence is not enough. The day +1 abnormal return of 0.46% is only about a quarter of the 2% residual standard deviation, well within one company's normal daily firm-specific swings, and day +2 is negative. One event at one company shows no pattern. Showing underreaction needs the average cumulative abnormal return across many companies' announcements of this kind to keep moving, significantly, in one direction after the announcement, profitably after trading costs; and the conclusion depends on the model of normal returns (the joint hypothesis problem), since an error in beta makes the abnormal returns themselves wrong.
+    rubric:
+      zh-cn:
+        - "(a) 通过：第 0 天超常收益 7.5%，用市场下跌和 beta 解释为什么高于 6.2%，四天累计 8.05%。用原始收益计算，或者只减去市场收益而不乘 beta，需要订正。"
+        - "(b) 通过：指出 0.46% 远小于每天的特质波动，单个事件不能下结论，需要很多事件的平均（并提到成本或联合假设问题之一）。同意同事的结论，需要订正。"
+      en:
+        - "(a) OK: day-0 abnormal return 7.5%, explaining with the market's fall and beta why it exceeds 6.2%, and a four-day total of 8.05%. Using raw returns, or subtracting the market return without multiplying by beta, needs revision."
+        - "(b) OK: says 0.46% is far smaller than the daily firm-specific swings, that one event cannot settle it, and that an average over many events is needed (mentioning costs or the joint hypothesis problem). Agreeing with the colleague needs revision."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [weak-form-efficiency, multiple-testing, market-anomaly]
+    expected: { exp: "1.25", p: "72" }
+    question:
+      zh-cn: |-
+        一份投资通讯说：“我们的均线交易规则在过去 20 年的回测中每年跑赢市场 3 个百分点，t 值 2.2，统计上显著。这说明市场不是弱式有效的，按这个规则交易可以稳定地获得超额收益。”通讯在附录中说明，这个规则是从 50 种参数组合中选出的回测结果最好的一个。
+        (a) 假设 50 种规则都没有真正的超额收益，而且相互独立。预计有几种的 t 值会碰巧超过 1.96（只算跑赢的方向，概率约 2.5%）？至少有一种超过 1.96 的概率是多少？
+        (b) 这个规则平均每年交易 20 次，每次买卖的成本（佣金、买卖价差）合计约 0.15%。评价通讯的说法。
+      en: |-
+        An investment newsletter says: "In a 20-year backtest, our moving-average trading rule beat the market by 3 percentage points a year, with a t-value of 2.2, statistically significant. This shows the market is not weak-form efficient, and trading by this rule earns steady excess returns." An appendix says the rule is the one with the best backtest among 50 parameter combinations.
+        (a) Suppose none of the 50 rules has a true excess return and they are independent. How many would you expect to have a t-value above 1.96 by chance (counting only the beating direction, a probability of about 2.5%)? What is the probability that at least one is above 1.96?
+        (b) The rule trades about 20 times a year, and each round trip costs about 0.15% in total (commissions and bid–ask spreads). Evaluate the newsletter's claim.
+    answer:
+      zh-cn: |-
+        (a) 预计 $50 \times 2.5\% = 1.25$ 种。至少一种超过 1.96 的概率 $= 1 - 0.975^{50} \approx 72\%$。也就是说，即使所有规则都无效，从 50 种中挑出一个“显著跑赢”的结果的可能性也很大，t 值 2.2 并不令人意外。
+        (b) 说法不可信。第一，结果是从 50 种中挑出来的最好的一个，经过多重检验，单个检验的 t 值 2.2 已经没有通常的意义；按 Harvey、Liu 和 Zhu 的建议，t 值至少要超过 3，并在没用过的数据上检验。第二，即使回测结果真实，每年交易成本约 $20 \times 0.15\% = 3\%$，正好吃掉 3 个百分点的超额收益（回测是否已扣除成本必须问清楚），频繁交易在应税账户中还会产生短期资本利得税。第三，即使过去有效，公开后也可能消失。所以这不能说明市场不是弱式有效的，更不能说明可以“稳定地”获得超额收益。
+      en: |-
+        (a) Expected $50 \times 2.5\% = 1.25$ rules. The probability that at least one exceeds 1.96 is $1 - 0.975^{50} \approx 72\%$. So even if every rule is useless, picking a "significant winner" out of 50 is likely, and a t-value of 2.2 is no surprise.
+        (b) The claim is not credible. First, the result is the best of 50, chosen after multiple testing, so the single-test t-value of 2.2 has lost its usual meaning; following Harvey, Liu and Zhu, the t-value should exceed 3 and the rule should be tested on unused data. Second, even if the backtest were real, trading costs of about $20 \times 0.15\% = 3\%$ a year eat exactly the 3 points of excess return (one must ask whether the backtest already deducts costs), and frequent trading in a taxable account also creates short-term capital gains tax. Third, even if it worked in the past, it may vanish once published. So it shows neither that the market is not weak-form efficient nor that excess returns can be earned "steadily".
+    rubric:
+      zh-cn:
+        - "(a) 通过：预计 1.25 种，至少一种的概率约 72%，并说明挑出显著结果并不意外。用 $50 \\times 0.975$ 等错误方法计算概率，需要订正。"
+        - "(b) 通过：指出多重检验使 t 值 2.2 失去意义，并算出交易成本约每年 3%，抵消了超额收益；结论是不能说明市场无效。只讨论其中一个方面，需要订正。"
+      en:
+        - "(a) OK: 1.25 expected, a probability of about 72% for at least one, with the point that picking a significant result is no surprise. Computing the probability wrongly (for example as $50 \\times 0.975$) needs revision."
+        - "(b) OK: says multiple testing strips the t-value of 2.2 of its meaning, and computes trading costs of about 3% a year that offset the excess return; concludes it does not show inefficiency. Discussing only one of these needs revision."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [efficient-market-hypothesis, net-present-value]
+    expected: { gain: "1.5", size: "667" }
+    question:
+      zh-cn: |-
+        一位评论员说：“如果市场是有效的，研究公司、分析信息就毫无价值，所有证券分析师都应该失业。”
+        (a) 一家基金公司考虑建立一个研究团队，每年成本 200 万美元，预计能使所管理基金的年收益提高 0.3 个百分点。如果基金规模为 5 亿美元，研究团队每年带来多少收益（百万美元）？规模至少要多大，这项投入才值得？
+        (b) 评价评论员的说法。结合 (a) 的结果说明：分析师和有效市场是什么关系？如果更多基金都建立同样的团队，0.3 个百分点会怎样变化？
+      en: |-
+        A commentator says: "If the market is efficient, researching companies and analyzing information has no value at all, and all securities analysts should be out of work."
+        (a) A fund company is considering a research team that costs 2 million dollars a year and is expected to raise the annual return of the funds it manages by 0.3 percentage points. With 500 million dollars under management, how much does the team add each year (in millions of dollars)? How large must the funds be for the team to be worth it?
+        (b) Evaluate the commentator's statement. Using the result of (a), explain how analysts relate to market efficiency. If many more funds set up the same kind of team, what happens to the 0.3 points?
+    answer:
+      zh-cn: |-
+        (a) $500 \times 0.3\% = 1.5$ 百万美元，低于 200 万美元的成本，不值得。盈亏平衡的规模 $= \frac{2}{0.003} \approx 667$ 百万美元，即约 6.67 亿美元。研究有规模经济：成本固定，收益与资产规模成正比。
+        (b) 说法不对。市场之所以有效，正是因为很多分析师在竞争着分析信息、交易，把信息推进价格。如果分析师都消失，价格就不再反映信息，分析又会变得有利可图（Grossman 和 Stiglitz）。均衡时，分析的毛收益（0.3 个百分点）大体只够补偿它的成本，对边际上的基金接近盈亏平衡。更多基金建立同样的团队，竞争会使价格更快反映信息，0.3 个百分点会缩小，直到研究的回报再次只够覆盖成本。有效市场并不说明分析没有价值，而是说明扣除成本后，分析带来的超额收益很少。
+      en: |-
+        (a) $500 \times 0.3\% = 1.5$ million dollars, less than the 2 million cost, so it is not worth it. The break-even size is $\frac{2}{0.003} \approx 667$ million dollars. Research has economies of scale: its cost is fixed and its gain is proportional to assets.
+        (b) The statement is wrong. The market is efficient precisely because many analysts compete to analyze information and trade on it, pushing the information into prices. If analysts disappeared, prices would stop reflecting information and analysis would become profitable again (Grossman and Stiglitz). In equilibrium the gross return to analysis (the 0.3 points) roughly just covers its cost, close to break-even for the marginal fund. If more funds set up the same team, competition makes prices reflect information faster, and the 0.3 points shrink until research again only just covers its cost. An efficient market does not mean analysis has no value; it means analysis earns little excess return after its costs.
+    rubric:
+      zh-cn:
+        - "(a) 通过：每年 1.5 百万美元，盈亏平衡规模约 667 百万美元。"
+        - "(b) 通过：说明分析师的竞争使市场有效，均衡时分析的收益只够补偿成本，团队增加时超额收益缩小。同意评论员，或者只说“市场不完全有效”而不说明分析师与有效性的关系，需要订正。"
+      en:
+        - "(a) OK: 1.5 million dollars a year; a break-even size of about 667 million dollars."
+        - "(b) OK: explains that competition among analysts makes the market efficient, that in equilibrium analysis only covers its cost, and that the excess return shrinks as teams are added. Agreeing with the commentator, or saying only \"the market is not fully efficient\" without explaining how analysts relate to efficiency, needs revision."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [joint-hypothesis-problem, market-anomaly, fama-french-model]
+    question:
+      zh-cn: |-
+        一位投资者说：“低市净率股票几十年来平均每年跑赢高市净率股票约 4 个百分点，这证明市场是无效的。”
+        (a) 为什么这个事实本身不能证明市场无效？
+        (b) 研究者用下面的证据来区分“风险补偿”和“定价错误”两种解释。分别说明每条证据更支持哪种解释，为什么。
+        (i) 价值股的超额收益有相当一部分集中在盈利公告的几天里：公告时它们的盈利平均好于市场的预期（La Porta 等，1997）。
+        (ii) 价值股在经济衰退、经营困难的公司大量增加的时期，表现比成长股差得多。
+        (iii) 价值溢价在规模小、交易少、卖空困难的股票中特别大。
+      en: |-
+        An investor says: "Stocks with low price-to-book ratios have beaten stocks with high price-to-book ratios by about 4 percentage points a year for decades, which proves the market is inefficient."
+        (a) Why does this fact alone not prove the market is inefficient?
+        (b) Researchers use the evidence below to tell "risk compensation" from "mispricing". For each piece of evidence, say which explanation it supports more, and why.
+        (i) A large part of value stocks' excess return comes in the few days around earnings announcements: at those times their earnings beat the market's expectations on average (La Porta and others, 1997).
+        (ii) Value stocks do much worse than growth stocks in recessions, when the number of companies in difficulty rises sharply.
+        (iii) The value premium is especially large among small, thinly traded stocks that are hard to short.
+    answer:
+      zh-cn: |-
+        (a) 联合假设问题：“跑赢”是相对于某个预期收益模型说的。如果价值股承担了 beta 没有衡量到的风险，它们的高平均收益就是对这种风险的补偿，市场仍可以是有效的。仅凭平均收益高，无法区分“模型漏掉了风险”和“价格错了”。
+        (b) (i) 支持定价错误。如果高收益只是风险补偿，它应该均匀地分布在各个时间；集中在盈利公告时，说明市场对这些公司的前景过于悲观，公告时被事实纠正，这是可以预测的预期错误。
+        (ii) 支持风险补偿。价值股恰好在投资者最难过的时候（衰退、财富和收入下降）表现差，投资者自然要求更高的平均收益来承担这种风险，这正是风险溢价的含义（[[1.4]] 的风险厌恶）。
+        (iii) 支持定价错误（加上套利的限制）。如果是风险补偿，溢价不应取决于交易是否方便；溢价在难以套利的股票中最大，说明偏差持续存在是因为纠正它的成本和风险高（[[4.8]]）。
+        几种证据并存，说明价值溢价可能部分是风险补偿、部分是定价错误。
+      en: |-
+        (a) The joint hypothesis problem: "beating" is relative to some model of expected returns. If value stocks bear a risk that beta does not measure, their high average return is compensation for it and the market can still be efficient. A high average return alone cannot separate "the model misses a risk" from "prices are wrong".
+        (b) (i) Supports mispricing. If the high return were only risk compensation, it should be spread evenly over time; concentrated around earnings announcements, it suggests the market was too pessimistic about these companies and was corrected by the facts at announcements, a predictable error in expectations.
+        (ii) Supports risk compensation. Value stocks do badly exactly when investors feel worst (recessions, falling wealth and income), so investors naturally require a higher average return to bear this risk; that is what a risk premium means (risk aversion in [[1.4]]).
+        (iii) Supports mispricing (plus limits to arbitrage). If it were risk compensation, the premium should not depend on how easy the stocks are to trade; a premium that is largest where arbitrage is hardest suggests the gap persists because correcting it is costly and risky ([[4.8]]).
+        With evidence on both sides, the value premium may be partly risk compensation and partly mispricing.
+    rubric:
+      zh-cn:
+        - "(a) 通过：用联合假设问题说明，高平均收益可能是模型漏掉的风险的补偿。只说“可能是运气”而不提风险补偿，需要订正。"
+        - "(b) 通过：(i) 定价错误、(ii) 风险补偿、(iii) 定价错误（套利的限制），每条都给出理由。归类错误，或者只有归类没有理由，需要订正。"
+      en:
+        - "(a) OK: uses the joint hypothesis problem to explain that a high average return may compensate for a risk the model misses. Saying only \"it may be luck\" without mentioning risk compensation needs revision."
+        - "(b) OK: (i) mispricing, (ii) risk compensation, (iii) mispricing (limits to arbitrage), each with a reason. Wrong classifications, or classifications without reasons, need revision."

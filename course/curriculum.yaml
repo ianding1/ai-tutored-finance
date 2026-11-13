@@ -391,7 +391,15 @@ stages:
         published: true
         introduces: [multifactor-model, factor-loading, arbitrage, arbitrage-pricing-theory, factor-risk-premium, fama-french-model, momentum, smart-beta]
         uses: [single-index-model, systematic-risk, firm-specific-risk, beta, alpha, capm, security-market-line, regression, omitted-variable-bias, price-to-book, multiple-testing, standard-error, short-selling, covariance, diversification]
-      - { id: "4.7", slug: "4-7-market-efficiency", title: { zh-cn: "有效市场假说", en: "The Efficient Market Hypothesis" } }
+      - id: "4.7"
+        slug: "4-7-market-efficiency"
+        title: { zh-cn: "有效市场假说", en: "The Efficient Market Hypothesis" }
+        summary:
+          zh-cn: "价格为什么会反映信息；有效市场的三种形式；联合假设问题；检验方法与事件研究；市场异象及其解释；对投资者的含义。"
+          en: "Why prices reflect information; the three forms of market efficiency; the joint hypothesis problem; tests and event studies; market anomalies and their explanations; what efficiency means for investors."
+        published: true
+        introduces: [efficient-market-hypothesis, random-walk, weak-form-efficiency, semi-strong-form-efficiency, strong-form-efficiency, joint-hypothesis-problem, event-study, abnormal-return, market-anomaly]
+        uses: [capm, alpha, beta, single-index-model, firm-specific-risk, multifactor-model, fama-french-model, momentum, smart-beta, multiple-testing, hypothesis-test, t-statistic, standard-error, net-present-value, risk-aversion]
       - { id: "4.8", slug: "4-8-behavioral-finance", title: { zh-cn: "行为金融", en: "Behavioral Finance" } }
       - { id: "4.9", slug: "4-9-performance-evaluation", title: { zh-cn: "业绩评估", en: "Performance Evaluation" } }
       - { id: "4.10", slug: "4-10-estimation-error", title: { zh-cn: "估计误差与稳健优化", en: "Estimation Error and Robust Optimization" } }

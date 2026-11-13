@@ -1,0 +1,81 @@
+---
+// Figure 3-1 of lesson 4.7: cumulative abnormal return (CAR) around a good-news announcement worth 5% of the
+// share price. The slider sets the share of the full reaction that happens on day 0; afterwards the price
+// closes 30% of the remaining gap each day. Dashed: the efficient path (full reaction on day 0).
+// Parameters are registered in course/widgets.yaml (id: event-study). Same model as course/verify/4.7.py.
+import { toLang } from '../../i18n/ui';
+
+const lang = toLang(Astro.locals.starlightRoute.lang);
+const L = {
+	'zh-cn': {
+		k: '公告日的反应占应有反应的比例',
+		x: '相对公告日的交易日',
+		y: '累计超常收益（%）',
+		car: '累计超常收益',
+		eff: '有效市场的路径',
+		aria: '公告前后的累计超常收益',
+		readout: '公告日的超常收益为 {d0}%；公告后 10 个交易日累计超常收益又变化了 {post} 个百分点。',
+	},
+	en: {
+		k: 'Day-0 reaction as a share of the full reaction',
+		x: 'Trading days relative to the announcement',
+		y: 'Cumulative abnormal return (%)',
+		car: 'Cumulative abnormal return',
+		eff: 'Efficient-market path',
+		aria: 'Cumulative abnormal return around an announcement',
+		readout: 'The abnormal return on day 0 is {d0}%; over the 10 trading days after the announcement the cumulative abnormal return changes by another {post} percentage points.',
+	},
+}[lang];
+
+const xr = [-10, 10];
+const yr = [-1, 8];
+const xTicks = [-10, -5, 0, 5, 10];
+const yTicks = [0, 2, 4, 6, 8];
+const layouts = [
+	{ cls: 'viz-wide', W: 640, H: 300, pad: { l: 48, r: 20, t: 14, b: 48 } },
+	{ cls: 'viz-narrow', W: 360, H: 300, pad: { l: 44, r: 12, t: 14, b: 48 } },
+].map((g) => ({
+	...g,
+	X: (v: number) => g.pad.l + ((v - xr[0]) / (xr[1] - xr[0])) * (g.W - g.pad.l - g.pad.r),
+	Y: (v: number) => g.pad.t + ((yr[1] - v) / (yr[1] - yr[0])) * (g.H - g.pad.t - g.pad.b),
+}));
+const effPath = (X: (v: number) => number, Y: (v: number) => number) =>
+	`M ${X(-10)} ${Y(0)} L ${X(-1)} ${Y(0)} L ${X(0)} ${Y(5)} L ${X(10)} ${Y(5)}`;
+---
+
+<div class="lfwai-widget" data-widget="event-study" data-readout={L.readout}>
+	<div class="lfwai-sliders">
+		<label>
+			<span>{L.k} = <output data-out="k">1.0</output></span>
+			<input type="range" min="0.4" max="1.4" step="0.1" value="1" data-param="k" />
+		</label>
+	</div>
+	{layouts.map(({ cls, W, H, pad, X, Y }) => (
+		<svg class={`lfwai-viz ${cls}`} viewBox={`0 0 ${W} ${H}`} role="img" aria-label={L.aria} data-geom={JSON.stringify({ W, H, pad, xr, yr })}>
+			{yTicks.map((v) => (
+				<g>
+					<line class={v === 0 ? 'viz-axis' : 'viz-grid'} x1={pad.l} x2={W - pad.r} y1={Y(v)} y2={Y(v)} />
+					<text class="viz-tick" x={pad.l - 8} y={Y(v) + 4} text-anchor="end">{v}</text>
+				</g>
+			))}
+			{xTicks.map((v) => (
+				<text class="viz-tick" x={X(v)} y={H - pad.b + 18} text-anchor="middle">{v}</text>
+			))}
+			<line class="viz-axis" x1={X(0)} x2={X(0)} y1={pad.t} y2={H - pad.b} />
+			<text class="viz-tick" x={(pad.l + W - pad.r) / 2} y={H - 8} text-anchor="middle">{L.x}</text>
+			<text class="viz-tick" transform={`translate(12 ${(pad.t + H - pad.b) / 2}) rotate(-90)`} text-anchor="middle">{L.y}</text>
+			<path class="viz-ols" fill="none" d={effPath(X, Y)} />
+			<path class="viz-fit" fill="none" data-el="car" d="" />
+		</svg>
+	))}
+	<ul class="lfwai-legend">
+		<li><span class="sw sw-fit"></span>{L.car}</li>
+		<li><span class="sw sw-ols"></span>{L.eff}</li>
+	</ul>
+	<p class="lfwai-readout" data-el="readout" aria-live="polite"></p>
+</div>
+
+<script>
+	import { initEventStudy } from '../../scripts/widgets/event-study';
+	initEventStudy();
+</script>
