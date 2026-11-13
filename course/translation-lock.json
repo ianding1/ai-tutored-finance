@@ -13652,16 +13652,16 @@
   "zh-cn": "bb13e13c6d3c5b95"
  },
  "course/keys/T2.yaml#questions[Q9].answer": {
-  "en": "6ea5b0c208d29bdf",
-  "zh-cn": "dcf69707d8bd227d"
+  "en": "6e11861f53517ab0",
+  "zh-cn": "32dc030c69d7b5a5"
  },
  "course/keys/T2.yaml#questions[Q9].question": {
-  "en": "9a6f43a67239d17d",
-  "zh-cn": "c8c067b22028bba3"
+  "en": "1ce129967a6e29a5",
+  "zh-cn": "84e80ead0587cf63"
  },
  "course/keys/T2.yaml#questions[Q9].rubric": {
-  "en": "a84c78b02c052da8",
-  "zh-cn": "39215e66d7d60ce8"
+  "en": "39e2cdd5d4609c3a",
+  "zh-cn": "1b6b98ad9df1cb9e"
  },
  "src/content/docs/<lang>/index.mdx": {
   "en": "e39870cee555044b",
