@@ -13476,8 +13476,8 @@
   "zh-cn": "d4538abe4411bdd2"
  },
  "course/keys/T2.yaml#common_errors[11]": {
-  "en": "1f1dfe93030add3d",
-  "zh-cn": "cd4000ef93c1edae"
+  "en": "202aaf8694d9637a",
+  "zh-cn": "34fc609a1031ee0a"
  },
  "course/keys/T2.yaml#common_errors[1]": {
   "en": "baf8c24bda496f78",
@@ -13496,8 +13496,8 @@
   "zh-cn": "6c5d4af01ac003f1"
  },
  "course/keys/T2.yaml#common_errors[5]": {
-  "en": "c08e09e6691bc289",
-  "zh-cn": "4a9116ea9a7ea82a"
+  "en": "cd36a10e93c33ff4",
+  "zh-cn": "076b74c2ebee842a"
  },
  "course/keys/T2.yaml#common_errors[6]": {
   "en": "a274502a8f1129b0",
@@ -13532,48 +13532,48 @@
   "zh-cn": "e4c06a15c9c9f85e"
  },
  "course/keys/T2.yaml#questions[Q11].answer": {
-  "en": "dc8ba84735c03711",
-  "zh-cn": "e79fe1d6e877422a"
+  "en": "3242a2d68a5df84d",
+  "zh-cn": "0d8b4e9dac1442e1"
  },
  "course/keys/T2.yaml#questions[Q11].question": {
-  "en": "1ad306419a337069",
-  "zh-cn": "e04d766ee52ddc95"
+  "en": "eb426ab6d45b2252",
+  "zh-cn": "c774fd71732ba8e0"
  },
  "course/keys/T2.yaml#questions[Q11].rubric": {
-  "en": "69128730cff8992b",
-  "zh-cn": "7d6cfda006d0e0ce"
+  "en": "6bb4db54175c3349",
+  "zh-cn": "5d4d55792026a691"
  },
  "course/keys/T2.yaml#questions[Q12].answer": {
-  "en": "66221fad49195472",
-  "zh-cn": "ed682296bb212665"
+  "en": "40ddf1a3d429b106",
+  "zh-cn": "db3998f6e420219c"
  },
  "course/keys/T2.yaml#questions[Q12].question": {
   "en": "27f5ac5fd6ed768e",
   "zh-cn": "9f2f53ae33863538"
  },
  "course/keys/T2.yaml#questions[Q12].rubric": {
-  "en": "6689d2d0cad04a94",
-  "zh-cn": "534176925a0d8d15"
+  "en": "ef27619719bedaed",
+  "zh-cn": "dfb941c2b3193595"
  },
  "course/keys/T2.yaml#questions[Q1].answer": {
-  "en": "e69852954c53834a",
-  "zh-cn": "91c5af05a9bc19d5"
+  "en": "3534e754c8a652c4",
+  "zh-cn": "15762b01c11673b3"
  },
  "course/keys/T2.yaml#questions[Q1].question": {
-  "en": "8b8a7686080281d8",
-  "zh-cn": "039e48610612f653"
+  "en": "c6d324701ce3b591",
+  "zh-cn": "edb012880be38bde"
  },
  "course/keys/T2.yaml#questions[Q1].rubric": {
-  "en": "bd57d6056a5d18c3",
-  "zh-cn": "907e5812c91134ac"
+  "en": "caa1ca896db40e2f",
+  "zh-cn": "4f2f8825092d4c1a"
  },
  "course/keys/T2.yaml#questions[Q2].answer": {
   "en": "88c564d0f7bda710",
   "zh-cn": "19c38ab97dfaf77a"
  },
  "course/keys/T2.yaml#questions[Q2].question": {
-  "en": "e56693589ef79cb3",
-  "zh-cn": "0c99834d8d5d7d29"
+  "en": "9fee70d2ee31c339",
+  "zh-cn": "eb8d20e5e638576b"
  },
  "course/keys/T2.yaml#questions[Q2].rubric": {
   "en": "f61365ebf0966c6b",
@@ -13592,12 +13592,12 @@
   "zh-cn": "7f42aca049da4d24"
  },
  "course/keys/T2.yaml#questions[Q4].answer": {
-  "en": "3303170e5781ee97",
-  "zh-cn": "0c4aebcc06f69a44"
+  "en": "c5030ff1df605ee5",
+  "zh-cn": "59b3b6cb3e841411"
  },
  "course/keys/T2.yaml#questions[Q4].question": {
-  "en": "68067d460c6ea9db",
-  "zh-cn": "cb86c76e31bbe04a"
+  "en": "725b68aa750e9a7d",
+  "zh-cn": "df60e57f9204fbfc"
  },
  "course/keys/T2.yaml#questions[Q4].rubric": {
   "en": "cf71df854d4b1f17",
@@ -13608,36 +13608,36 @@
   "zh-cn": "8f71e6026cf7da24"
  },
  "course/keys/T2.yaml#questions[Q5].question": {
-  "en": "d1d296190debb8d1",
-  "zh-cn": "bf53da0545f763c0"
+  "en": "b08981e90a4ba2a8",
+  "zh-cn": "1fc06bad6a45f93a"
  },
  "course/keys/T2.yaml#questions[Q5].rubric": {
   "en": "ba8b69fe50ad1e9e",
   "zh-cn": "e2fa90b1da19deca"
  },
  "course/keys/T2.yaml#questions[Q6].answer": {
-  "en": "c43f8738f53fcb42",
-  "zh-cn": "3b61a2e1db68506d"
+  "en": "4ce2c8d84f0ce288",
+  "zh-cn": "f41660bfa43f9fe4"
  },
  "course/keys/T2.yaml#questions[Q6].question": {
-  "en": "427897326d4e3720",
-  "zh-cn": "67c9f1493f09d9c0"
+  "en": "9ab324417315b3c8",
+  "zh-cn": "a1ea44f279677d91"
  },
  "course/keys/T2.yaml#questions[Q6].rubric": {
-  "en": "92f9fc241ca1cef2",
-  "zh-cn": "9694b8f124d0b508"
+  "en": "9ea53fd0a1f44da1",
+  "zh-cn": "dd6162c2b84deee2"
  },
  "course/keys/T2.yaml#questions[Q7].answer": {
-  "en": "f1f3547c418dc8ef",
-  "zh-cn": "a34945fa27b9bc0a"
+  "en": "fb8e19f07f8b4829",
+  "zh-cn": "3d51fc276264e06c"
  },
  "course/keys/T2.yaml#questions[Q7].question": {
-  "en": "312f34fb299a9fa9",
-  "zh-cn": "4e3bf9157626f06b"
+  "en": "88b300b8c6a3fa53",
+  "zh-cn": "9916af081676577d"
  },
  "course/keys/T2.yaml#questions[Q7].rubric": {
-  "en": "ede1a94677516e7e",
-  "zh-cn": "e886fc8f7a2a06fc"
+  "en": "e6aec1487f3ca942",
+  "zh-cn": "b63492abbad87560"
  },
  "course/keys/T2.yaml#questions[Q8].answer": {
   "en": "a69fa9c91412a97e",
@@ -13652,16 +13652,16 @@
   "zh-cn": "bb13e13c6d3c5b95"
  },
  "course/keys/T2.yaml#questions[Q9].answer": {
-  "en": "8d30d5ccfcae858f",
-  "zh-cn": "d95a1e5d469dd6db"
+  "en": "6ea5b0c208d29bdf",
+  "zh-cn": "dcf69707d8bd227d"
  },
  "course/keys/T2.yaml#questions[Q9].question": {
-  "en": "ae385a5f37572625",
-  "zh-cn": "d9847460f88a5dc7"
+  "en": "9a6f43a67239d17d",
+  "zh-cn": "c8c067b22028bba3"
  },
  "course/keys/T2.yaml#questions[Q9].rubric": {
-  "en": "3b603846676cfff5",
-  "zh-cn": "652636e1d37701ee"
+  "en": "a84c78b02c052da8",
+  "zh-cn": "39215e66d7d60ce8"
  },
  "src/content/docs/<lang>/index.mdx": {
   "en": "e39870cee555044b",

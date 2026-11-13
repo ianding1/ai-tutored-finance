@@ -41,9 +41,9 @@ common_errors:
       Carrying sequence-of-returns risk from the withdrawal phase mechanically into the saving phase and thinking an early crash is always worse; not seeing that with regular contributions an early crash hits while little has been invested, and later contributions buy at low prices.
   - questions: [Q6]
     zh-cn: |-
-      以为不发股息的股票按股利贴现模型价值下降；忽略回购同样是把现金交给股东，股数减少使每股的未来股息和价值增长更快。
+      把回购当作派现的同时，又用回购后加快的每股增长率，重复计算了回购；或者以为不发股息的股票按股利贴现模型价值下降。
     en: |-
-      Thinking a stock that stops paying dividends must lose value under the dividend discount model; ignoring that buybacks also return cash to shareholders and that fewer shares make future per-share dividends and value grow faster.
+      Treating buybacks as payouts while also using the faster post-buyback per-share growth, counting the buyback twice; or thinking a stock that stops paying dividends must lose value under the dividend discount model.
   - questions: [Q7]
     zh-cn: |-
       因为项目失败的概率高、总风险大就用很高的折现率；混淆总风险与系统性风险，或者用成功时的现金流代替期望现金流。
@@ -71,31 +71,30 @@ common_errors:
       Computing how much can be withdrawn from the expected return of risky assets, treating an expectation as a guarantee; not knowing that maturity-matched inflation-protected bonds can lock in a riskless real income.
   - questions: [Q12]
     zh-cn: |-
-      把自己的估值与价格之差当作确定的超额收益；不知道永续增长模型对增长率和折现率极其敏感，也不问市场价格隐含了什么样的假设。
+      把自己的估值与价格之差当作确定的超额收益；不知道永续增长模型对增长率和折现率极其敏感，也不问市场价格隐含了什么样的假设。把一次性的价值差距当作每年的 alpha。
     en: |-
-      Treating the gap between one's own valuation and the price as a sure excess return; not knowing that perpetual-growth models are extremely sensitive to the growth and discount rates, and not asking what assumptions the market price implies.
+      Treating the gap between one's own valuation and the price as a sure excess return; not knowing that perpetual-growth models are extremely sensitive to the growth and discount rates, and not asking what assumptions the market price implies. Treating a one-time valuation gap as an annual alpha.
 
 questions:
-  # ---------- Part 1: true or false, with reasons ----------
   - id: Q1
     kind: quiz
     part: judge
     concepts: [expectations-hypothesis, efficient-market-hypothesis, modified-duration]
     question:
       zh-cn: |-
-        市场普遍预计联储明年会降息 1 个百分点。因为长期国债的价格会在降息时上涨，所以现在买入长期国债，预期收益会高于持有短期国债。
+        市场普遍预计联储明年会降息 1 个百分点。一位投资者说：“降息时长期国债价格会上涨，所以我现在买入长期国债，只要降息如期发生，我持有一年的收益就会因为这次降息而高于持有短期国债。”
       en: |-
-        The market widely expects the Fed to cut rates by 1 percentage point next year. Because long-term Treasury prices rise when rates are cut, buying long-term Treasuries now gives a higher expected return than holding short-term Treasuries.
+        The market widely expects the Fed to cut rates by 1 percentage point next year. An investor says: "Long-term Treasury prices rise when rates are cut, so if I buy long-term Treasuries now, then as long as the cut happens as expected, my one-year return will be higher than holding short-term Treasuries because of the cut."
     answer:
       zh-cn: |-
-        假。大家都预计的降息已经反映在今天的收益率曲线中：长期收益率已经按预期的利率路径下降（曲线可能平坦甚至倒挂），远期利率体现了预期的降息。如果降息正如预期，长期国债价格不会因此再上涨，持有长期国债的预期收益与滚动持有短期国债大致相同（只相差期限溢价，而期限溢价与“预计降息”无关）。只有降息比预期多，长期国债才会额外上涨；比预期少则会下跌。
+        假。大家都预计的降息已经反映在今天的收益率曲线中：长期收益率已经按预期的利率路径定价（曲线可能平坦甚至倒挂），远期利率体现了预期的降息。降息如期发生时，长期利率不会因此再下降，长期国债价格也不会因此再上涨；按预期假说，持有一年的收益与持有短期国债相同。即使长期国债多赚一些，那也是期限溢价，与“预计降息”无关。只有降息比预期多，长期国债才会额外上涨；比预期少则会下跌。
       en: |-
-        False. A rate cut that everyone expects is already reflected in today's yield curve: long-term yields have already fallen according to the expected rate path (the curve may be flat or inverted), and forward rates embody the expected cuts. If the cuts happen as expected, long-term Treasury prices do not rise further because of them, and the expected return of holding long-term Treasuries is about the same as rolling short-term ones (differing only by the term premium, which has nothing to do with "expecting a cut"). Long-term Treasuries gain extra only if cuts exceed expectations, and fall if cuts fall short.
+        False. A cut that everyone expects is already reflected in today's yield curve: long-term yields are already priced on the expected rate path (the curve may be flat or inverted), and forward rates embody the expected cut. When the cut happens as expected, long-term rates do not fall further because of it, and long-term Treasury prices do not rise further because of it; by the expectations hypothesis, the one-year holding return equals that of short-term Treasuries. If long-term Treasuries earn somewhat more, that is the term premium, which has nothing to do with "expecting a cut". Long-term Treasuries gain extra only if the cut exceeds expectations, and lose if it falls short.
     rubric:
       zh-cn:
-        - "通过：判断为假，并说明预期的降息已经反映在当前的长期收益率（或远期利率）中，只有超出预期的部分才影响收益。只说“利率难以预测”或只写“假”，需要订正。"
+        - "通过：判断为假，并说明预期的降息已经反映在当前的长期收益率（或远期利率）中，如期降息不会带来额外的价格上涨，只有超出预期的部分才影响收益（提到期限溢价与降息无关更好）。只说“利率难以预测”或只写“假”，需要订正。"
       en:
-        - "OK: false, explaining that the expected cuts are already in current long-term yields (or forward rates), and that only the unexpected part affects returns. Saying only \"rates are hard to predict\", or only \"false\", needs revision."
+        - "OK: false, explaining that the expected cut is already in current long-term yields (or forward rates), that a cut as expected brings no extra price gain, and that only the unexpected part affects returns (noting that any term premium has nothing to do with the cut is a plus). Saying only \"rates are hard to predict\", or only \"false\", needs revision."
 
   - id: Q2
     kind: quiz
@@ -103,9 +102,9 @@ questions:
     concepts: [efficient-market-hypothesis, signaling, event-study]
     question:
       zh-cn: |-
-        一家公司宣布把每 1 股拆分为 2 股。拆分不改变公司的任何现金流，但宣布当天股价相对市场上涨了 3%，此后没有回落。这与半强式有效市场并不矛盾。
+        一家公司宣布把每 1 股拆分为 2 股。拆分不改变公司的任何现金流，但宣布当天股票的超常收益（按 beta 调整后）为 3%，此后没有回落。这与半强式有效市场并不矛盾。
       en: |-
-        A company announces a 2-for-1 stock split. The split changes none of the company's cash flows, yet on the announcement day the share price rises 3% relative to the market and does not fall back afterwards. This is not inconsistent with a semi-strong-form efficient market.
+        A company announces a 2-for-1 stock split. The split changes none of the company's cash flows, yet on the announcement day the stock's abnormal return (adjusted for beta) is 3%, and it does not fall back afterwards. This is not inconsistent with a semi-strong-form efficient market.
     answer:
       zh-cn: |-
         真。拆分本身不改变价值，但宣布拆分的决定可能传递了信息：管理层通常在对未来盈利有信心、预计股价会保持在高位时才拆分，而这是外部投资者原本不知道的（信号）。有效市场中，价格在宣布时对这条新信息立即作出反应、之后不再继续变化，正是这里看到的模式。如果价格之后还能预测地继续上涨或回落，才与半强式有效矛盾。（早期的事件研究正是用股票拆分做的，结果与此一致。）
@@ -143,14 +142,14 @@ questions:
     concepts: [volatility-drag, firm-specific-risk, beta]
     question:
       zh-cn: |-
-        两只股票基金的 beta 相同，算术平均年收益也相同；A 只持有 15 只股票，特质风险较大，B 很分散。长期持有，A 的财富增长会低于 B。
+        两只股票基金的 beta 相同，算术平均年收益也相同；A 只持有 15 只股票，特质风险较大，B 很分散。长期持有，A 的复合增长率（也就是财富的中位数的增长）会低于 B。
       en: |-
-        Two stock funds have the same beta and the same arithmetic average annual return; A holds only 15 stocks and has more firm-specific risk, while B is well diversified. Over the long run, wealth in A grows more slowly than in B.
+        Two stock funds have the same beta and the same arithmetic average annual return; A holds only 15 stocks and has more firm-specific risk, while B is well diversified. Over the long run, A's compound growth rate (that is, the growth of median wealth) is lower than B's.
     answer:
       zh-cn: |-
-        真。长期复合增长率约为 $\mu - \frac{\sigma^2}{2}$，而 $\sigma^2 = \beta^2\sigma_M^2 + \sigma^2(e)$。两只基金的 $\mu$ 和 beta 相同，A 的特质方差更大，总方差更大，波动拖累更大，复合增长率更低。特质风险得不到补偿（算术平均收益没有更高），却同样拖累长期财富，所以不分散在长期是有代价的，即使平均收益相同。
+        真。长期复合增长率约为 $\mu - \frac{\sigma^2}{2}$，而 $\sigma^2 = \beta^2\sigma_M^2 + \sigma^2(e)$。两只基金的 $\mu$ 和 beta 相同，A 的特质方差更大，总方差更大，波动拖累更大，复合增长率更低。特质风险得不到补偿（算术平均收益没有更高），却同样拖累长期财富，所以不分散在长期是有代价的，即使平均收益相同。（两者财富的平均值按算术平均增长，是相同的；不同的是典型结果。）
       en: |-
-        True. Long-run compound growth is about $\mu - \frac{\sigma^2}{2}$, and $\sigma^2 = \beta^2\sigma_M^2 + \sigma^2(e)$. With the same $\mu$ and beta, A has larger firm-specific variance, larger total variance, more volatility drag and lower compound growth. Firm-specific risk is not rewarded (the arithmetic average is no higher), yet it drags down long-run wealth all the same, so lack of diversification has a long-run cost even with the same average return.
+        True. Long-run compound growth is about $\mu - \frac{\sigma^2}{2}$, and $\sigma^2 = \beta^2\sigma_M^2 + \sigma^2(e)$. With the same $\mu$ and beta, A has larger firm-specific variance, larger total variance, more volatility drag and lower compound growth. Firm-specific risk is not rewarded (the arithmetic average is no higher), yet it drags down long-run wealth all the same, so lack of diversification has a long-run cost even with the same average return. (Mean wealth grows at the arithmetic average and is the same for both; what differs is the typical outcome.)
     rubric:
       zh-cn:
         - "通过：判断为真，用复合增长率约为 $\\mu - \\frac{\\sigma^2}{2}$ 和总方差包括特质方差说明。认为 beta 相同、平均收益相同所以结果相同，需要订正。"
@@ -163,9 +162,9 @@ questions:
     concepts: [future-value, glide-path]
     question:
       zh-cn: |-
-        一位年轻人每年年初向退休账户投入相同的金额，持续 20 年。如果 20 年中各年的收益率只是顺序不同（其中有一年下跌 30%），那么这次大跌出现在第 1 年，比出现在第 20 年对他更有利。
+        一位年轻人每年年初向退休账户投入相同的金额，持续 20 年。20 年中有一年下跌 30%，这是最差的一年，其余各年的收益率都已确定。比较两种情形：这次大跌出现在第 1 年，或者出现在第 20 年（只交换这两年的收益，其余各年不变）。大跌出现在第 1 年时，他在第 20 年年末的财富更高。
       en: |-
-        A young person puts the same amount into a retirement account at the start of each year for 20 years. If the yearly returns over the 20 years differ only in their order (one of the years has a 30% fall), then the crash coming in year 1 is better for him than the crash coming in year 20.
+        A young person puts the same amount into a retirement account at the start of each year for 20 years. In one of the 20 years the account falls 30%, the worst year, and the other years' returns are fixed. Compare two cases: the crash comes in year 1, or in year 20 (only the returns of these two years are swapped; the other years are unchanged). With the crash in year 1, his wealth at the end of year 20 is higher.
     answer:
       zh-cn: |-
         真。持续投入时，第 1 年账户里只有第一笔钱，大跌只影响这一笔，之后的投入还会在低价时买入；第 20 年账户里已经有 20 笔投入和它们的收益，大跌影响的是全部积累。例如其余各年都是 7%、每年投入 1 元，大跌在第 1 年时最终约 42.5 元，在第 20 年时约 28.7 元。这与退休后提取时相反：提取时早期大跌更糟。收益顺序的影响取决于钱是在流入还是流出，以及大跌时账户有多大。
@@ -183,21 +182,20 @@ questions:
     concepts: [dividend-discount-model, payout-ratio, building-block-approach]
     question:
       zh-cn: |-
-        一家公司过去每年把利润的一半作为股息发放。它宣布今后把同样多的现金全部用于按市价回购股票，不再发股息。按股利贴现模型，股东今后收到的股息变少了，所以股价应该下降（不考虑税和信号）。
+        一家公司过去每年把利润的一半作为股息发放。它宣布今后把同样多的现金全部用于按市价回购股票，不再发股息。一位分析师说：“回购也是把现金交给股东，所以我把每股回购的金额当作‘股息’代入 Gordon 模型；同时，股数减少会使每股利润增长更快，所以我把增长率也提高到回购后每股利润的增长率。这样算出的价值比原来高，说明改为回购为股东创造了价值。”（不考虑税和信号。）
       en: |-
-        A company has paid out half its profits as dividends each year. It announces that from now on it will use the same amount of cash to buy back shares at the market price and pay no dividends. By the dividend discount model, shareholders will receive less in dividends, so the share price should fall (ignoring taxes and signals).
+        A company has paid out half its profits as dividends each year. It announces that from now on it will use the same amount of cash to buy back shares at the market price and pay no dividends. An analyst says: "Buybacks also return cash to shareholders, so I put the buyback amount per share into the Gordon model as the 'dividend'; and since fewer shares make earnings per share grow faster, I also raise the growth rate to the post-buyback growth of earnings per share. The value comes out higher than before, which shows that switching to buybacks creates value for shareholders." (Ignore taxes and signals.)
     answer:
       zh-cn: |-
-        假。回购同样是把现金交给股东，只是交给了卖出股票的那部分股东；公司的现金流和交给股东的总金额都没有变。按市价回购后股数减少，留下的每股对应的利润、未来能分配的现金和价值增长得更快。股利贴现模型要按全部交给股东的现金（股息加回购）来理解：股息率下降，但每股价值的增长率等量上升，总收益不变（积木法中的股东收益率包括回购）。在不考虑税和信号时，股价不应因为把股息换成回购而下降。
+        假。分析师重复计算了回购。要么按全部交给股东的现金估值：总派现金额与原来的股息总额相同，总额的增长率也不变，价值不变；要么按每股估值：留下的股东每股不再收到股息，但股数减少使每股价值增长更快。把每股回购金额当作股息，相当于已经计入了卖出股票的股东拿到的现金；再把增长率提高到每股的增长率，又把股数减少的好处算了一次。按市价回购只是把现金交给一部分股东，公司的现金流和股东的总收益都没有变（积木法中，股息率下降多少，每股增长就提高多少）。所以在不考虑税和信号时，改为回购不创造价值。
       en: |-
-        False. A buyback also returns cash to shareholders, just to those who sell; neither the company's cash flows nor the total paid to shareholders changes. Buying back at the market price reduces the share count, so each remaining share's profits, future distributable cash and value grow faster. The dividend discount model should be read with all cash returned to shareholders (dividends plus buybacks): the dividend yield falls, but per-share growth rises by the same amount and the total return is unchanged (the shareholder yield of the building blocks includes buybacks). Ignoring taxes and signals, the price should not fall because dividends are replaced by buybacks.
+        False. The analyst counts the buyback twice. One can value the total cash paid to shareholders: the total payout equals the old total dividends and grows at the same rate, so the value is unchanged; or one can value per share: the remaining shareholders receive no dividends, but the shrinking share count makes per-share value grow faster. Treating the buyback amount per share as a dividend already counts the cash that selling shareholders receive; raising the growth rate to the per-share growth counts the benefit of fewer shares a second time. Buying back at the market price only hands cash to some shareholders; neither the company's cash flows nor shareholders' total return changes (in the building blocks, the dividend yield falls by as much as per-share growth rises). So, ignoring taxes and signals, switching to buybacks creates no value.
     rubric:
       zh-cn:
-        - "通过：判断为假，说明回购也是把现金交给股东，股数减少使每股的增长加快，总的股东收益不变。只说“回购会提高每股收益”而不说明总收益不变，或判为真，需要订正。"
+        - "通过：判断为假，指出分析师重复计算（把回购当作派现，又用回购后的每股增长率），并说明按市价回购不改变公司的现金流和股东的总收益。只说“回购不创造价值”而没有指出分析师错在哪里，需要订正。"
       en:
-        - "OK: false, explaining that buybacks also return cash, that fewer shares speed up per-share growth, and that the total return to shareholders is unchanged. Saying only \"buybacks raise EPS\" without explaining that the total return is unchanged, or judging true, needs revision."
+        - "OK: false, pointing out the double counting (treating buybacks as payouts and also using the post-buyback per-share growth rate), and explaining that buying back at the market price changes neither the company's cash flows nor shareholders' total return. Saying only \"buybacks create no value\" without identifying the analyst's mistake needs revision."
 
-  # ---------- Part 2: problems ----------
   - id: Q7
     kind: quiz
     part: problem
@@ -205,27 +203,27 @@ questions:
     expected: { pv: "149.45", npv: "99.45", wrong: "-12.81" }
     question:
       zh-cn: |-
-        一家大型制药公司考虑今天花 5,000 万美元收购一家小型生物技术公司。这家公司只有一种在研的药物：5 年后，有 20% 的可能临床试验成功，届时这种药物的权利可以卖得 10 亿美元；否则一文不值。试验能否成功只取决于药物本身，与经济形势无关；类似的生物技术资产的 beta 约为 0.4。无风险利率为 4%，市场风险溢价为 5%。
+        一家大型制药公司考虑今天花 5,000 万美元收购一家小型生物技术公司。这家公司只有一种在研的药物：5 年后，有 20% 的可能临床试验成功，届时这种药物的权利预计可以卖得 10 亿美元（实际售价随届时医药股的估值而变）；否则一文不值。类似的生物技术资产的 beta 约为 0.4。无风险利率为 4%，市场风险溢价为 5%。
         (a) 这次收购的 NPV 是多少（百万美元）？
-        (b) 一位董事说：“成功率只有 20%，风险极大，应该用 40% 的折现率。”按他的方法，NPV 是多少？评价这个说法。对这家生物技术公司的创始人（他的大部分财富都在这家公司），风险的含义有什么不同？
+        (b) 一位董事说：“成功率只有 20%，风险极大，应该用 40% 的折现率。”他把 40% 用在 (a) 中的期望现金流上。按他的方法，NPV 是多少？评价这个说法。
       en: |-
-        A large drug company is considering paying 50 million dollars today for a small biotech company. The biotech has a single drug in development: in 5 years there is a 20% chance its clinical trial succeeds, in which case the rights to the drug can be sold for 1 billion dollars; otherwise it is worth nothing. Whether the trial succeeds depends only on the drug, not on the economy; similar biotech assets have a beta of about 0.4. The risk-free rate is 4% and the market risk premium 5%.
+        A large drug company is considering paying 50 million dollars today for a small biotech company. The biotech has a single drug in development: in 5 years there is a 20% chance its clinical trial succeeds, in which case the rights to the drug are expected to sell for 1 billion dollars (the actual price will vary with the valuation of drug stocks at the time); otherwise it is worth nothing. Similar biotech assets have a beta of about 0.4. The risk-free rate is 4% and the market risk premium 5%.
         (a) What is the NPV of the acquisition (in millions of dollars)?
-        (b) A board member says: "With only a 20% chance of success, the risk is huge, so we should use a 40% discount rate." By his method, what is the NPV? Evaluate his statement. For the biotech's founder, who has most of his wealth in the company, how does the meaning of risk differ?
+        (b) A board member says: "With only a 20% chance of success, the risk is huge, so we should use a 40% discount rate." He applies 40% to the expected cash flow of (a). By his method, what is the NPV? Evaluate his statement.
     answer:
       zh-cn: |-
         (a) 期望的现金流 $= 20\% \times 1{,}000 = 200$ 百万美元。按 CAPM，折现率 $= 4\% + 0.4 \times 5\% = 6\%$。现值 $= \frac{200}{1.06^5} \approx 149.45$，NPV $\approx 149.45 - 50 = 99.45$ 百万美元，应该收购。
-        (b) 按 40% 折现：$\frac{200}{1.4^5} - 50 \approx -12.81$ 百万美元，会放弃一个 NPV 约为 1 亿美元的项目。他的错误是把总风险当作折现率的依据：试验失败的风险很大，但它与市场无关，对一家持有很多在研药物的大公司（以及它分散持股的股东）来说可以分散掉；失败的可能已经体现在期望现金流（乘以 20%）中，再提高折现率就是重复计算。折现率只应反映系统性风险。（有些投资者用成功时的 10 亿美元加很高的折现率，两种做法在某些情况下数字相近，但那是两个错误相互抵消。）对创始人来说情况不同：他的财富集中在这一种药物上，无法分散，承担的是全部风险；对风险厌恶的他，这项资产的确定性等价远低于按市场折现的价值，所以他可能很愿意以低于 1 亿美元的价格卖给分散化的大公司，双方都觉得划算。
+        (b) 按 40% 折现：$\frac{200}{1.4^5} - 50 \approx -12.81$ 百万美元，会放弃一个 NPV 约为 1 亿美元的项目。他的错误是把总风险当作折现率的依据：试验成败取决于药物本身，与市场无关（售价随行情变化的部分才是系统性风险，已经由 beta 0.4 反映），对一家持有很多在研药物的大公司（以及它分散持股的股东）来说可以分散掉；失败的可能已经体现在期望现金流（乘以 20%）中，再提高折现率就是重复计算。折现率只应反映系统性风险。（有些投资者用成功时的 10 亿美元加很高的折现率，两种做法在某些情况下数字相近，但那是两个错误相互抵消。）
       en: |-
         (a) The expected cash flow is $20\% \times 1{,}000 = 200$ million dollars. By the CAPM, the discount rate is $4\% + 0.4 \times 5\% = 6\%$. The present value is $\frac{200}{1.06^5} \approx 149.45$, and NPV $\approx 149.45 - 50 = 99.45$ million dollars, so it should buy.
-        (b) At 40%: $\frac{200}{1.4^5} - 50 \approx -12.81$ million dollars, which would turn down a project with an NPV of about 100 million. His mistake is basing the discount rate on total risk: the risk that the trial fails is large, but it is unrelated to the market, and for a large company holding many drugs in development (and its diversified shareholders) it diversifies away; the chance of failure is already in the expected cash flow (times 20%), and raising the discount rate counts it twice. The discount rate should reflect only systematic risk. (Some investors combine the 1-billion success value with a very high discount rate; the numbers sometimes come out close, but only because two errors offset.) For the founder it is different: his wealth is concentrated in this one drug, cannot be diversified, and he bears the whole risk; being risk averse, his certainty equivalent for the asset is far below the market-discounted value, so he may be glad to sell to a diversified large company for less than 100 million, and both sides gain.
+        (b) At 40%: $\frac{200}{1.4^5} - 50 \approx -12.81$ million dollars, which would turn down a project with an NPV of about 100 million. His mistake is basing the discount rate on total risk: whether the trial succeeds depends on the drug, not on the market (the part of the sale price that moves with the market is the systematic risk, already reflected in the beta of 0.4), and for a large company holding many drugs in development (and its diversified shareholders) it diversifies away; the chance of failure is already in the expected cash flow (times 20%), and raising the discount rate counts it twice. The discount rate should reflect only systematic risk. (Some investors combine the 1-billion success value with a very high discount rate; the numbers sometimes come out close, but only because two errors offset.)
     rubric:
       zh-cn:
         - "(a) 通过：用期望现金流 200 和 CAPM 折现率 6%，现值约 149.45，NPV 约 99.45 百万美元。用成功时的 1,000 折现，或用很高的折现率，需要订正。"
-        - "(b) 通过：NPV 约 −12.81，指出试验风险是可分散的特质风险、失败概率已在期望现金流中，高折现率重复计算；并说明创始人无法分散，承担全部风险。只说“40% 太高”而不说明原因，需要订正。"
+        - "(b) 通过：NPV 约 −12.81，指出试验成败是可分散的特质风险、失败概率已在期望现金流中，高折现率重复计算，折现率只应反映系统性风险。只说“40% 太高”而不说明原因，需要订正。（另外指出对无法分散的创始人风险含义不同，是加分的讨论。）"
       en:
         - "(a) OK: uses the expected cash flow of 200 and the CAPM rate of 6%, a present value of about 149.45 and an NPV of about 99.45 million dollars. Discounting the success value of 1,000, or using a very high rate, needs revision."
-        - "(b) OK: an NPV of about −12.81, explaining that trial risk is diversifiable firm-specific risk, that failure is already in the expected cash flow, and that a high rate counts it twice; and that the founder cannot diversify and bears the whole risk. Saying only \"40% is too high\" without the reason needs revision."
+        - "(b) OK: an NPV of about −12.81, explaining that trial success is diversifiable firm-specific risk, that failure is already in the expected cash flow, that a high rate counts it twice, and that the rate should reflect only systematic risk. Saying only \"40% is too high\" without the reason needs revision. (Noting that risk means something different for an undiversified founder is a welcome extra.)"
 
   - id: Q8
     kind: quiz
@@ -255,19 +253,21 @@ questions:
     expected: { erp: "2", w: "20.6", wh: "67.9" }
     question:
       zh-cn: |-
-        一个自动理财平台按 $w^* = \frac{\mu - r_f}{\gamma\sigma^2}$ 为客户确定股票比例，用的是美国股票近百年的历史超额收益 6.6%、波动率 18%。对一位 $\gamma = 3$ 的客户，平台建议约 68% 的股票。现在：标普 500 的股息率 1.5%，净回购率 0.5%，市场普遍预计每股盈利的长期实际增长率约 1.8%、通胀约 2.4%；短期国债收益率 4.2%。评价平台的做法，并给出你认为更合理的股票比例范围和理由。
+        一个自动理财平台按 $w^* = \frac{\mu - r_f}{\gamma\sigma^2}$ 为客户确定股票比例。它用美国股票近百年相对短期国债的算术平均超额收益 6.6% 和波动率 18%，对一位 $\gamma = 3$ 的客户建议约 68% 的股票。现在的市场数据：10 年期国债收益率 4.4%，短期国债 4.2%；标普 500 的 CAPE 约为 35，过去 10 年股票年均收益约 13%；股息率 1.5%，净回购率 0.5%；预期通胀约 2.4%；市场普遍预计每股盈利的长期实际增长率约 1.8%。
+        评价平台的做法，并给出你认为更合理的股票比例范围和理由。
       en: |-
-        An automated advisory platform sets clients' stock shares by $w^* = \frac{\mu - r_f}{\gamma\sigma^2}$, using the US stock market's excess return of 6.6% over nearly a century and a volatility of 18%. For a client with $\gamma = 3$, it recommends about 68% in stocks. Today: the S&P 500 has a dividend yield of 1.5% and a net buyback yield of 0.5%; long-run real growth of earnings per share is widely expected to be about 1.8%, and inflation about 2.4%; short-term Treasuries yield 4.2%. Evaluate the platform's approach, and give the range of stock shares you consider more reasonable, with reasons.
+        An automated advisory platform sets clients' stock shares by $w^* = \frac{\mu - r_f}{\gamma\sigma^2}$. Using the US stock market's arithmetic average excess return over short-term Treasuries of 6.6% over nearly a century and a volatility of 18%, it recommends about 68% in stocks for a client with $\gamma = 3$. Today's market data: the 10-year Treasury yields 4.4% and short-term Treasuries 4.2%; the S&P 500's CAPE is about 35, and stocks have returned about 13% a year over the past 10 years; the dividend yield is 1.5% and the net buyback yield 0.5%; expected inflation is about 2.4%; long-run real growth of earnings per share is widely expected to be about 1.8%.
+        Evaluate the platform's approach, and give the range of stock shares you consider more reasonable, with reasons.
     answer:
       zh-cn: |-
-        历史超额收益 6.6% 包括了过去估值的上升和当时更低的利率，不一定代表今天的预期。按积木法（假设估值不变），股票的名义预期收益约为 $1.5 + 0.5 + 1.8 + 2.4 = 6.2\%$，减去短期国债的 4.2%，前瞻的风险溢价只有约 2 个百分点。代入公式：$w^* = \frac{0.02}{3 \times 0.18^2} \approx 20.6\%$，而按历史溢价是 $\frac{0.066}{3 \times 0.0324} \approx 67.9\%$。风险溢价从 2% 变到 6.6%，最优比例从约 21% 变到约 68%：比例与风险溢价成正比，对这个最难估计的输入极其敏感。两个溢价都不准确：历史平均的标准误约 2 个百分点，前瞻估计也依赖增长和估值的假设。合理的做法是不机械地用任何一个点估计，而是取一个范围（例如溢价 2% 到 5%，对应约 20% 到 50%），参考机构的长期预期，并考虑客户的其他情况（人力资本、期限、所需的收入）；配置也不应随每年的估计大幅调整。平台的问题不在公式，而在把一个误差很大、而且可能已经过时的历史平均当作确定的输入。
+        历史超额收益 6.6% 包括了过去估值的上升和当时更低的利率，不一定代表今天的预期。按积木法（假设估值不变），股票的名义预期收益约为 $1.5 + 0.5 + 1.8 + 2.4 = 6.2\%$，减去短期国债的 4.2%，前瞻的风险溢价只有约 2 个百分点。代入公式：$w^* = \frac{0.02}{3 \times 0.18^2} \approx 20.6\%$，而按历史溢价是 $\frac{0.066}{3 \times 0.0324} \approx 67.9\%$。（积木法给出的大致是复合收益；如果加上约 $\frac{\sigma^2}{2} \approx 1.6$ 个百分点换算成算术平均，溢价约 3.6%，比例约 37%。CAPE 约 35 说明估值很高，如果估值回落，前瞻溢价还会更低；过去 10 年的 13% 正好是不能外推的估值上升的一部分。）风险溢价从 2% 变到 6.6%，最优比例从约 21% 变到约 68%：比例与风险溢价成正比，对这个最难估计的输入极其敏感。两个溢价都不准确：历史平均的标准误约 2 个百分点，前瞻估计也依赖增长和估值的假设。合理的做法是不机械地用任何一个点估计，而是取一个范围（例如溢价 2% 到 5%，对应约 20% 到 50%），参考机构的长期预期，并考虑客户的其他情况（人力资本、期限、所需的收入）；配置也不应随每年的估计大幅调整。平台的问题不在公式，而在把一个误差很大、而且可能已经过时的历史平均当作确定的输入。
       en: |-
-        The 6.6% historical excess return includes past valuation gains and lower interest rates at the time, and need not represent today's expectation. By the building blocks (assuming unchanged valuation), the nominal expected stock return is about $1.5 + 0.5 + 1.8 + 2.4 = 6.2\%$; minus the 4.2% on short-term Treasuries, the forward-looking premium is only about 2 percentage points. In the formula: $w^* = \frac{0.02}{3 \times 0.18^2} \approx 20.6\%$, against $\frac{0.066}{3 \times 0.0324} \approx 67.9\%$ with the historical premium. Moving the premium from 2% to 6.6% moves the optimal share from about 21% to about 68%: the share is proportional to the premium and extremely sensitive to this hardest-to-estimate input. Neither premium is precise: the historical average has a standard error of about 2 points, and the forward estimate depends on assumptions about growth and valuation. The sensible approach is not to apply any single point estimate mechanically but to use a range (for example a premium of 2% to 5%, giving about 20% to 50%), compare with institutions' long-run forecasts, and consider the client's other circumstances (human capital, horizon, income needs); nor should the allocation swing with each year's estimate. The platform's problem is not the formula but treating a very uncertain, possibly outdated historical average as a certain input.
+        The 6.6% historical excess return includes past valuation gains and lower interest rates at the time, and need not represent today's expectation. By the building blocks (assuming unchanged valuation), the nominal expected stock return is about $1.5 + 0.5 + 1.8 + 2.4 = 6.2\%$; minus the 4.2% on short-term Treasuries, the forward-looking premium is only about 2 percentage points. In the formula: $w^* = \frac{0.02}{3 \times 0.18^2} \approx 20.6\%$, against $\frac{0.066}{3 \times 0.0324} \approx 67.9\%$ with the historical premium. (The building blocks give roughly a compound return; adding about $\frac{\sigma^2}{2} \approx 1.6$ points to convert to an arithmetic average gives a premium of about 3.6% and a share of about 37%. A CAPE of about 35 signals high valuations; if valuations fall, the forward premium is lower still; the 13% of the past 10 years is partly the valuation rise that cannot be extrapolated.) Moving the premium from 2% to 6.6% moves the optimal share from about 21% to about 68%: the share is proportional to the premium and extremely sensitive to this hardest-to-estimate input. Neither premium is precise: the historical average has a standard error of about 2 points, and the forward estimate depends on assumptions about growth and valuation. The sensible approach is not to apply any single point estimate mechanically but to use a range (for example a premium of 2% to 5%, giving about 20% to 50%), compare with institutions' long-run forecasts, and consider the client's other circumstances (human capital, horizon, income needs); nor should the allocation swing with each year's estimate. The platform's problem is not the formula but treating a very uncertain, possibly outdated historical average as a certain input.
     rubric:
       zh-cn:
-        - "通过：用当前的收益率和增长估计出前瞻溢价约 2%（对应约 20.6%），与历史溢价得到的约 67.9% 比较，指出最优比例对溢价极为敏感、两种估计都有很大误差，给出一个有理由的范围或稳健的做法。直接接受 68%，或者只换成 20.6% 而不讨论估计的不确定性，需要订正。"
+        - "通过：用当前的股东收益率、增长和通胀估计前瞻溢价约 2%（对应约 20.6%；换算成算术平均得到约 3.6%、约 37% 同样算对），与历史溢价得到的约 67.9% 比较，指出最优比例对溢价极为敏感、两种估计都有很大误差，给出一个有理由的范围或稳健的做法。直接接受 68%，用过去 10 年的 13% 作预期，或者只换成一个新的点估计而不讨论不确定性，需要订正。"
       en:
-        - "OK: estimates a forward premium of about 2% from current yields and growth (giving about 20.6%), compares with about 67.9% from the historical premium, points out that the optimal share is extremely sensitive to the premium and that both estimates are very uncertain, and gives a reasoned range or robust approach. Accepting 68% directly, or simply switching to 20.6% without discussing the uncertainty of the estimate, needs revision."
+        - "OK: estimates a forward premium of about 2% from current shareholder yield, growth and inflation (giving about 20.6%; converting to an arithmetic average for about 3.6% and about 37% is also correct), compares with about 67.9% from the historical premium, points out that the optimal share is extremely sensitive to the premium and that both estimates are very uncertain, and gives a reasoned range or robust approach. Accepting 68% directly, using the past 10 years' 13% as the expectation, or simply switching to a new point estimate without discussing uncertainty, needs revision."
 
   - id: Q10
     kind: quiz
@@ -301,27 +301,27 @@ questions:
     expected: { inc: "40.02", w: "48.54" }
     question:
       zh-cn: |-
-        一位 65 岁的退休者有 80 万美元，希望在今后 25 年每年年末得到按今天的购买力计算相同的收入。各期限的通胀保值国债（TIPS）的实际收益率都是 1.8%。他的理财顾问说：“股债 60/40 组合的预期实际收益约为 3.5%，按这个收益率，你每年可以提取约 4.85 万美元，比买债券多得多。”
-        (a) 如果他按到期年份买入一组 TIPS（每年到期一部分），每年能确定得到多少实际收入（千美元）？顾问的 4.85 万美元是怎么算出来的？
+        一位 65 岁的退休者在退休账户中有 80 万美元（不考虑税），希望在今后 25 年每年年末得到按今天的购买力计算相同的收入。各期限的通胀保值国债（TIPS）的实际收益率都是 1.8%。他的理财顾问说：“股债 60/40 组合的预期实际收益约为 3.5%，按这个收益率，你每年可以提取约 4.85 万美元，比买债券多得多。”
+        (a) 如果他按到期年份买入一组 TIPS（每年到期一部分），每年能确定得到多少实际收入（千美元）？
         (b) 评价顾问的说法。你会怎样建议他安排这 80 万美元？
       en: |-
-        A 65-year-old retiree has 800,000 dollars and wants the same income, in today's purchasing power, at the end of each year for the next 25 years. Treasury inflation-protected securities (TIPS) of all maturities have a real yield of 1.8%. His financial adviser says: "A 60/40 stock–bond portfolio has an expected real return of about 3.5%; at that rate you can withdraw about 48,500 dollars a year, much more than with bonds."
-        (a) If he buys a set of TIPS maturing year by year (a ladder), how much real income can he receive for certain each year (in thousands of dollars)? How did the adviser get 48,500 dollars?
+        A 65-year-old retiree has 800,000 dollars in a retirement account (ignore taxes) and wants the same income, in today's purchasing power, at the end of each year for the next 25 years. Treasury inflation-protected securities (TIPS) of all maturities have a real yield of 1.8%. His financial adviser says: "A 60/40 stock–bond portfolio has an expected real return of about 3.5%; at that rate you can withdraw about 48,500 dollars a year, much more than with bonds."
+        (a) If he buys a set of TIPS maturing year by year (a ladder), how much real income can he receive for certain each year (in thousands of dollars)?
         (b) Evaluate the adviser's statement. How would you advise him to arrange the 800,000 dollars?
     answer:
       zh-cn: |-
-        (a) 每年的收入 $C$ 满足 $800 = C \times \frac{1 - 1.018^{-25}}{0.018}$，$C \approx 40.02$ 千美元：每年到期的 TIPS 本金加利息正好支付当年的实际收入，没有利率风险和通胀风险（久期与每笔支出匹配）。顾问用的是 3.5% 的年金：$\frac{800}{(1 - 1.035^{-25}) / 0.035} \approx 48.54$ 千美元。
-        (b) 4.85 万美元是按预期收益算的，只有组合每年都恰好得到 3.5% 的实际收益才能维持 25 年。实际收益有波动：按中位数而不是平均值计算，长期复合收益低于 3.5%（波动拖累）；如果退休初期遇到大跌，持续提取会使账户提前耗尽（收益顺序风险）。所以“多得多”的 8,500 美元是用承担钱提前用完的风险换来的，并不是免费的。TIPS 阶梯给出的 4 万美元是确定的。合理的建议是先用 TIPS 阶梯（或年金、Social Security 等）覆盖必需的支出，形成一个无风险的底线，再把其余的钱投入风险资产，用于可以调整的支出；或者如果全部投资 60/40，就要准备在市场下跌时减少提取。还要考虑活过 90 岁的可能（终身年金可以对冲长寿风险）。
+        (a) 每年的收入 $C$ 满足 $800 = C \times \frac{1 - 1.018^{-25}}{0.018}$，$C \approx 40.02$ 千美元：每年到期的 TIPS 本金加利息正好支付当年的实际收入，没有利率风险和通胀风险（久期与每笔支出匹配）。
+        (b) 顾问的数字是按 3.5% 的年金算的：$\frac{800}{(1 - 1.035^{-25}) / 0.035} \approx 48.54$ 千美元，也就是按预期收益算的，只有组合每年都恰好得到 3.5% 的实际收益才能维持 25 年。实际收益有波动：按中位数而不是平均值计算，长期复合收益低于 3.5%（波动拖累）；如果退休初期遇到大跌，持续提取会使账户提前耗尽（收益顺序风险）。所以“多得多”的 8,500 美元是用承担钱提前用完的风险换来的，并不是免费的。TIPS 阶梯给出的 4 万美元是确定的。合理的建议是先用 TIPS 阶梯（或年金、Social Security 等）覆盖必需的支出，形成一个无风险的底线，再把其余的钱投入风险资产，用于可以调整的支出；或者如果全部投资 60/40，就要准备在市场下跌时减少提取。还要考虑活过 90 岁的可能（终身年金可以对冲长寿风险）。
       en: |-
-        (a) The yearly income $C$ satisfies $800 = C \times \frac{1 - 1.018^{-25}}{0.018}$, so $C \approx 40.02$ thousand dollars: each year's maturing TIPS principal plus interest pays exactly that year's real income, with no interest-rate or inflation risk (the duration of each piece matches each payment). The adviser used a 3.5% annuity: $\frac{800}{(1 - 1.035^{-25}) / 0.035} \approx 48.54$ thousand dollars.
-        (b) The 48,500 dollars is based on the expected return; it lasts 25 years only if the portfolio earns exactly 3.5% real every year. Actual returns vary: judged by the median rather than the mean, long-run compound returns fall short of 3.5% (volatility drag); and a crash early in retirement, with ongoing withdrawals, can empty the account early (sequence-of-returns risk). So the "much more", 8,500 dollars a year, is bought with the risk of running out of money; it is not free. The TIPS ladder's 40,000 dollars is certain. Sensible advice: first cover essential spending with a TIPS ladder (or annuities, Social Security and so on) to form a riskless floor, then invest the rest in risky assets for spending that can be adjusted; or, if he holds 60/40 entirely, be ready to withdraw less after market falls. He should also consider living past 90 (a lifetime annuity can hedge longevity risk).
+        (a) The yearly income $C$ satisfies $800 = C \times \frac{1 - 1.018^{-25}}{0.018}$, so $C \approx 40.02$ thousand dollars: each year's maturing TIPS principal plus interest pays exactly that year's real income, with no interest-rate or inflation risk (the duration of each piece matches each payment).
+        (b) The adviser's number is a 3.5% annuity: $\frac{800}{(1 - 1.035^{-25}) / 0.035} \approx 48.54$ thousand dollars, based on the expected return; it lasts 25 years only if the portfolio earns exactly 3.5% real every year. Actual returns vary: judged by the median rather than the mean, long-run compound returns fall short of 3.5% (volatility drag); and a crash early in retirement, with ongoing withdrawals, can empty the account early (sequence-of-returns risk). So the "much more", 8,500 dollars a year, is bought with the risk of running out of money; it is not free. The TIPS ladder's 40,000 dollars is certain. Sensible advice: first cover essential spending with a TIPS ladder (or annuities, Social Security and so on) to form a riskless floor, then invest the rest in risky assets for spending that can be adjusted; or, if he holds 60/40 entirely, be ready to withdraw less after market falls. He should also consider living past 90 (a lifetime annuity can hedge longevity risk).
     rubric:
       zh-cn:
-        - "(a) 通过：TIPS 阶梯每年约 40.02 千美元，并认出顾问的 48.54 是按 3.5% 的年金算的。"
-        - "(b) 通过：指出 3.5% 是预期而非保证，波动与收益顺序风险可能使钱提前用完，额外的提取是用风险换来的；并给出有底线思想的建议（必需支出用无风险资产匹配）或说明需要灵活调整提取。只说“股票有风险”而不说明对这个计划意味着什么，需要订正。"
+        - "(a) 通过：TIPS 阶梯每年约 40.02 千美元。"
+        - "(b) 通过：认出顾问的约 48.54 是按 3.5% 的预期收益算的年金，指出预期不是保证，波动与收益顺序风险可能使钱提前用完，额外的提取是用风险换来的；并给出有底线思想的建议（必需支出用无风险资产匹配）或说明需要灵活调整提取。只说“股票有风险”而不说明对这个计划意味着什么，需要订正。"
       en:
-        - "(a) OK: about 40.02 thousand dollars a year from the TIPS ladder, recognizing that the adviser's 48.54 comes from a 3.5% annuity."
-        - "(b) OK: says 3.5% is an expectation, not a guarantee, that volatility and sequence risk can exhaust the money early, so the extra withdrawal is bought with risk; and gives advice built on a floor (matching essential spending with riskless assets) or explains the need for flexible withdrawals. Saying only \"stocks are risky\" without what it means for this plan needs revision."
+        - "(a) OK: about 40.02 thousand dollars a year from the TIPS ladder."
+        - "(b) OK: recognizes that the adviser's about 48.54 is an annuity at the expected 3.5%, says an expectation is not a guarantee, that volatility and sequence risk can exhaust the money early, so the extra withdrawal is bought with risk; and gives advice built on a floor (matching essential spending with riskless assets) or explains the need for flexible withdrawals. Saying only \"stocks are risky\" without what it means for this plan needs revision."
 
   - id: Q12
     kind: quiz
@@ -337,11 +337,11 @@ questions:
         Evaluate her conclusion.
     answer:
       zh-cn: |-
-        她的价值是 $\frac{5}{0.08 - 0.045} \approx 142.86$ 美元，计算没错，但结论不可靠。首先要问价格隐含了什么：$100 = \frac{5}{0.08 - g}$，$g = 3\%$。市场与她的分歧只是永续增长率 3% 和 4.5% 之差，而且 4.5% 的永续名义增长对一家成熟公司并不保守（接近整个经济的名义增长）。其次，永续增长模型对 $r - g$ 极其敏感：只要股权成本从 8% 改为 9%，价值就变成 $\frac{5}{0.045} \approx 111$；改为 7%，就变成 200。这么宽的范围说明 43% 的差距完全在估计误差之内。第三，“43% 的 alpha”混淆了概念：即使她是对的，这也是价格最终向价值收敛时的一次性收益，分摊到收敛所需的年数上才是每年的 alpha，而收敛的时间不确定。最后，市场上很多分析师都能做同样的计算，一个简单模型给出的大幅低估，更可能来自她的假设（过度自信），而不是市场看不到的信息。合理的做法是做敏感性分析，找出自己的假设与市场隐含假设的差别，并问自己有什么市场没有的信息；在有充分理由之前，不应重仓。
+        她的价值是 $\frac{5}{0.08 - 0.045} \approx 142.86$ 美元，计算没错，但结论不可靠。首先要问价格隐含了什么：$100 = \frac{5}{0.08 - g}$，$g = 3\%$。市场与她的分歧只是永续增长率 3% 和 4.5% 之差，而且 4.5% 的永续名义增长对一家成熟公司并不保守（接近整个经济的名义增长）。其次，永续增长模型对 $r - g$ 极其敏感：只要股权成本从 8% 改为 9%，价值就变成 $\frac{5}{0.045} \approx 111$；改为 7%，就变成 200。这么宽的范围说明 43% 的差距完全在估计误差之内。第三，“43% 的 alpha”混淆了概念：即使她是对的，这也是价格最终向价值收敛时的一次性收益，分摊到收敛所需的年数上才是每年的 alpha，而收敛的时间不确定；如果价格永远不收敛，她每年多得的只是隐含收益率与 8% 之差（按市价，$\frac{5}{100} + 4.5\% = 9.5\%$，约多 1.5 个百分点）。最后，市场上很多分析师都能做同样的计算，一个简单模型给出的大幅低估，更可能来自她的假设（过度自信），而不是市场看不到的信息。合理的做法是做敏感性分析，找出自己的假设与市场隐含假设的差别，并问自己有什么市场没有的信息；在有充分理由之前，不应重仓。
       en: |-
-        Her value is $\frac{5}{0.08 - 0.045} \approx 142.86$ dollars, and the arithmetic is fine, but the conclusion is not reliable. First, ask what the price implies: $100 = \frac{5}{0.08 - g}$ gives $g = 3\%$. Her disagreement with the market is only perpetual growth of 3% versus 4.5%, and 4.5% nominal growth forever is not conservative for a mature company (close to the whole economy's nominal growth). Second, the perpetual-growth model is extremely sensitive to $r - g$: a cost of equity of 9% instead of 8% gives $\frac{5}{0.045} \approx 111$; 7% gives 200. So wide a range means the 43% gap is well within estimation error. Third, "a 43% alpha" mixes up concepts: even if she is right, it is a one-time gain as the price converges to value, which must be spread over the years convergence takes to give an annual alpha, and that time is uncertain. Finally, many analysts can do the same calculation, so a large undervaluation from a simple model more likely comes from her assumptions (overconfidence) than from information the market cannot see. The sensible approach is to run a sensitivity analysis, identify how her assumptions differ from those the market implies, and ask what information she has that the market lacks; without good reasons, she should not buy heavily.
+        Her value is $\frac{5}{0.08 - 0.045} \approx 142.86$ dollars, and the arithmetic is fine, but the conclusion is not reliable. First, ask what the price implies: $100 = \frac{5}{0.08 - g}$ gives $g = 3\%$. Her disagreement with the market is only perpetual growth of 3% versus 4.5%, and 4.5% nominal growth forever is not conservative for a mature company (close to the whole economy's nominal growth). Second, the perpetual-growth model is extremely sensitive to $r - g$: a cost of equity of 9% instead of 8% gives $\frac{5}{0.045} \approx 111$; 7% gives 200. So wide a range means the 43% gap is well within estimation error. Third, "a 43% alpha" mixes up concepts: even if she is right, it is a one-time gain as the price converges to value, which must be spread over the years convergence takes to give an annual alpha, and that time is uncertain; if the price never converges, she earns only the gap between the implied return and 8% each year (at the market price, $\frac{5}{100} + 4.5\% = 9.5\%$, about 1.5 points more). Finally, many analysts can do the same calculation, so a large undervaluation from a simple model more likely comes from her assumptions (overconfidence) than from information the market cannot see. The sensible approach is to run a sensitivity analysis, identify how her assumptions differ from those the market implies, and ask what information she has that the market lacks; without good reasons, she should not buy heavily.
     rubric:
       zh-cn:
-        - "通过：算出价格隐含的增长率约 3%（或等价地说明分歧只在增长率上），指出模型对 $r - g$ 极其敏感（可以举出折现率变化 1 个百分点的影响），并从市场效率或过度自信的角度说明 43% 不是可靠的 alpha。只复算 142.86 而同意她，或只说“模型有不确定性”而不量化或不说明隐含的假设，需要订正。"
+        - "通过：算出价格隐含的增长率约 3%（或等价地说明分歧只在增长率上），指出模型对 $r - g$ 极其敏感（可以举出折现率变化 1 个百分点的影响），并说明价值差距不等于每年的 alpha，从市场效率或过度自信的角度说明 43% 不可靠。只复算 142.86 而同意她，或只说“模型有不确定性”而不量化或不说明隐含的假设，需要订正。"
       en:
-        - "OK: finds that the price implies growth of about 3% (or equivalently explains that the disagreement is only about growth), points out the model's extreme sensitivity to $r - g$ (for example the effect of a 1-point change in the discount rate), and argues from market efficiency or overconfidence that the 43% is not a reliable alpha. Recomputing 142.86 and agreeing with her, or saying only \"the model is uncertain\" without quantifying it or discussing the implied assumptions, needs revision."
+        - "OK: finds that the price implies growth of about 3% (or equivalently explains that the disagreement is only about growth), points out the model's extreme sensitivity to $r - g$ (for example the effect of a 1-point change in the discount rate), and explains that a valuation gap is not an annual alpha and, from market efficiency or overconfidence, why the 43% is unreliable. Recomputing 142.86 and agreeing with her, or saying only \"the model is uncertain\" without quantifying it or discussing the implied assumptions, needs revision."
