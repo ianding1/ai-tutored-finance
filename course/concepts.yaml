@@ -2469,3 +2469,35 @@ survivorship-bias:
   short:
     zh-cn: "只用存续下来的基金（或公司）计算历史业绩，忽略被清盘或合并的，从而高估业绩。"
     en: "Overstating performance by computing it only from funds (or companies) that survived, ignoring those that were closed or merged."
+
+error-maximization:
+  defined_in: "4.10"
+  zh-cn: 误差最大化
+  en: error maximization
+  short:
+    zh-cn: "均值–方差优化器偏向估计误差有利的资产，从而放大估计误差的现象。"
+    en: "The tendency of a mean–variance optimizer to favor assets with favorable estimation errors, magnifying those errors."
+
+out-of-sample:
+  defined_in: "4.10"
+  zh-cn: 样本外
+  en: out of sample
+  short:
+    zh-cn: "用估计或选择模型时没有用过的数据检验结果。"
+    en: "Testing results on data that were not used to estimate or choose the model."
+
+shrinkage-estimator:
+  defined_in: "4.10"
+  zh-cn: 收缩估计
+  en: shrinkage estimator
+  short:
+    zh-cn: "把各项估计值向一个共同的参照值拉近，用一部分偏差换取更小的误差波动。"
+    en: "An estimator that pulls individual estimates toward a common reference value, accepting some bias for less variable errors."
+
+resampling:
+  defined_in: "4.10"
+  zh-cn: 重抽样
+  en: resampling
+  short:
+    zh-cn: "按估计误差随机生成很多组输入，分别优化后取平均权重的方法。"
+    en: "A method that generates many sets of inputs according to the estimation errors, optimizes each and averages the weights."

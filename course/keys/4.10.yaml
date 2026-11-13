@@ -1,0 +1,318 @@
+# Answer key for lesson 4.10. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[4.10#remedies]] (section), [[concept:beta]], [[check:Q3]], [[fig:4-1]].
+# expected: values are recomputed by course/verify/4.10.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "4.10"
+
+context:
+  - zh-cn: |-
+      学习者学过方差与组合方差（[[0.3]]）、正态分布、肥尾、标准误（[[0.4]]）、波动率与股权溢价（[[4.1]]）、均值–方差优化、最小方差组合与卖空（[[4.2]]）、切点组合（[[4.3]]）、单指数模型（[[4.5]]）、多因子模型（[[4.6]]）、业绩评估（[[4.9]]）。讲义还没有讲资本市场假设和 Black–Litterman（[[4.11]]）。百分数用百分点表示，方差用 %²。
+    en: |-
+      The learner has studied variance and portfolio variance ([[0.3]]), the normal distribution, fat tails and standard errors ([[0.4]]), volatility and the equity premium ([[4.1]]), mean–variance optimization, the minimum-variance portfolio and short selling ([[4.2]]), the tangency portfolio ([[4.3]]), the single-index model ([[4.5]]), multifactor models ([[4.6]]) and performance evaluation ([[4.9]]). The lesson has not yet covered capital market assumptions or Black–Litterman ([[4.11]]). Percentages in percentage points; variance in %².
+  - questions: [C1, Q1]
+    zh-cn: |-
+      讲义：样本均值的标准误 $\frac{\sigma}{\sqrt{n}}$；年波动率 16%–20%、20 年数据时平均收益的标准误约 3.6–4.5 个百分点。讲义只给出分成 $k$ 个区间的设定（每区间均值 $\frac{\mu}{k}$、标准差 $\frac{\sigma}{\sqrt{k}}$、共 $kT$ 个观测），没有推导结果（留给随堂题和练习题 Q1）。标准差估计的相对误差约 $\frac{1}{\sqrt{2n}}$（Merton，1980）。
+    en: |-
+      The lesson: the standard error of a sample mean is $\frac{\sigma}{\sqrt{n}}$; with an annual volatility of 16%–20% and 20 years of data, the standard error of the average return is about 3.6–4.5 points. The lesson only sets up splitting each year into $k$ intervals (each with mean $\frac{\mu}{k}$ and standard deviation $\frac{\sigma}{\sqrt{k}}$, $kT$ observations in all) without deriving the result (left to a check question and exercise Q1). The relative error of an estimated standard deviation is about $\frac{1}{\sqrt{2n}}$ (Merton, 1980).
+  - concepts: [error-maximization, out-of-sample]
+    zh-cn: |-
+      讲义：优化器偏向估计误差有利的资产，“误差最大化”（Michaud，1989）；权重极端、敏感；按估计值算出的业绩系统地好于将来的实际业绩（讲义没有直接说明方向的原因，留给随堂题）。Chopra 和 Ziemba（1993）：均值误差的损失约为方差误差的 10 倍，方差约为协方差的 2 倍。DeMiguel、Garlappi 和 Uppal（2009）：样本外，多数优化方法没有稳定胜过 $\frac{1}{N}$。
+    en: |-
+      The lesson: the optimizer favors assets with favorable estimation errors, "error maximization" (Michaud, 1989); weights are extreme and sensitive; performance computed from the estimates is systematically better than actual future performance (the lesson does not spell out why, left to a check question). Chopra and Ziemba (1993): errors in means cost about 10 times as much as errors in variances, and variances about 2 times as much as covariances. DeMiguel, Garlappi and Uppal (2009): out of sample, most optimization methods do not reliably beat $\frac{1}{N}$.
+  - concepts: [shrinkage-estimator, resampling]
+    zh-cn: |-
+      讲义：$\frac{n(n-1)}{2}$ 个协方差；观测期数少于资产数时样本协方差矩阵不可逆。改进：单指数或多因子结构；向结构化矩阵收缩（Ledoit 和 Wolf，2003）。危机中相关系数上升。收缩估计 $\tilde\mu_i = (1 - w)\hat\mu_i + w\bar\mu$；权重约束（Jagannathan 和 Ma，2003：禁止卖空相当于收缩协方差）；重抽样（Michaud，1998）；最小方差组合；等权组合。[[fig:4-1]]：四项互不相关、波动率 20% 的资产，真实预期超额收益 3、4、6、7，估计值 1、8、3、10；权重与收缩后的估计值成正比；滑块 w 从 0 到 1（步长 0.1，默认 0）；按真实收益的夏普比率从 0.466 升到 w = 0.7 时的约 0.508，再降到 w = 1 时的 0.500；按估计值的夏普比率从 0.660 降到 0.550；真实最优 0.524。
+    en: |-
+      The lesson: $\frac{n(n-1)}{2}$ covariances; with fewer periods than assets the sample covariance matrix cannot be inverted. Improvements: single-index or multifactor structure; shrinking toward a structured matrix (Ledoit and Wolf, 2003). Correlations rise in crises. Shrinkage estimator $\tilde\mu_i = (1 - w)\hat\mu_i + w\bar\mu$; weight constraints (Jagannathan and Ma, 2003: no short selling acts like shrinking the covariance matrix); resampling (Michaud, 1998); the minimum-variance portfolio; equal weights. [[fig:4-1]]: four uncorrelated assets with 20% volatility, true expected excess returns 3, 4, 6, 7, estimates 1, 8, 3, 10; weights proportional to the shrunk estimates; slider w from 0 to 1 (in steps of 0.1, default 0); the Sharpe ratio under the true returns rises from 0.466 to about 0.508 at w = 0.7 and falls to 0.500 at w = 1; the Sharpe ratio from the estimates falls from 0.660 to 0.550; the true optimum is 0.524.
+
+common_errors:
+  - questions: [Q1]
+    zh-cn: |-
+      以为用更高频率的数据（月、日）就能把平均收益估计得更准，混淆观测值的个数与数据覆盖的时间长度。
+    en: |-
+      Thinking higher-frequency data (monthly, daily) estimate the average return more precisely, confusing the number of observations with the length of time the data cover.
+  - questions: [Q2]
+    zh-cn: |-
+      把从很多资产中挑出的历史收益最高的那一项的估计值当作它的真实预期收益，忽略挑选造成的偏差（赢家的诅咒）。
+    en: |-
+      Taking the estimate for the asset with the highest past return, chosen from many, as its true expected return, ignoring the bias created by the selection (the winner's curse).
+  - questions: [Q3]
+    zh-cn: |-
+      以为不使用预期收益的方法一定更差，因为“忽略了信息”；不考虑这部分信息的噪声有多大。
+    en: |-
+      Thinking a method that does not use expected returns must be worse because it "ignores information", without considering how noisy that information is.
+  - questions: [Q4]
+    zh-cn: |-
+      用平静时期估计的相关系数计算危机中的组合风险，以为分散化的效果在任何时候都一样。
+    en: |-
+      Computing a portfolio's risk in a crisis with correlations estimated in calm periods, thinking diversification works the same at all times.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: means-vs-variances
+    concepts: [standard-error]
+    question:
+      zh-cn: |-
+        同样是 20 年的数据，用日收益（约 5,000 个观测值）代替年收益（20 个观测值）估计股票的年平均收益，可以大幅降低估计的标准误。
+      en: |-
+        With the same 20 years of data, using daily returns (about 5,000 observations) instead of annual returns (20 observations) to estimate a stock's average annual return greatly reduces the standard error of the estimate.
+    correct: false
+    hint:
+      zh-cn: 想一想：日收益的标准差比年收益小多少？把日均值换算成年度时要乘以多少？两者的影响会不会抵消？
+      en: 'Think: how much smaller is the standard deviation of daily returns than that of annual returns? What must the daily mean be multiplied by to make it annual? Do the two effects cancel?'
+    answer:
+      zh-cn: |-
+        错。每年 $k$ 个区间时，区间均值的标准误为 $\frac{\sigma/\sqrt{k}}{\sqrt{kT}} = \frac{\sigma}{k\sqrt{T}}$，乘以 $k$ 换算成年度后为 $\frac{\sigma}{\sqrt{T}}$，与 $k$ 无关。平均收益的精确程度只取决于数据覆盖的年数：年平均收益等于总的累计收益除以年数，而总的累计收益只取决于起点和终点，中间分得多细并不增加信息。
+      en: |-
+        False. With $k$ intervals a year, the standard error of the interval mean is $\frac{\sigma/\sqrt{k}}{\sqrt{kT}} = \frac{\sigma}{k\sqrt{T}}$; multiplying by $k$ to make it annual gives $\frac{\sigma}{\sqrt{T}}$, independent of $k$. The precision of the average return depends only on the number of years covered: the average annual return is the total cumulative return divided by the number of years, and the total depends only on the start and end points; slicing the period more finely adds no information.
+
+  - id: C2
+    kind: check
+    section: error-maximization
+    concepts: [error-maximization, out-of-sample]
+    question:
+      zh-cn: |-
+        每项资产预期收益的估计都是无偏的（误差平均为 0）。优化器据此选出最优组合，按同一组估计值算出这个组合的夏普比率。与组合将来实际的夏普比率相比，它通常：
+      en: |-
+        Every asset's expected-return estimate is unbiased (its error averages 0). The optimizer picks the optimal portfolio from these estimates, and its Sharpe ratio is computed with the same estimates. Compared with the portfolio's actual future Sharpe ratio, this number is usually:
+    choices:
+      - zh-cn: 偏高
+        en: Too high
+      - zh-cn: 偏低
+        en: Too low
+        why:
+          zh-cn: 优化器会多买估计收益高的资产。这些资产的估计误差更可能是正的还是负的？
+          en: The optimizer buys more of the assets with high estimated returns. Are their estimation errors more likely positive or negative?
+      - zh-cn: 没有偏差，因为每个估计都是无偏的
+        en: Unbiased, because every estimate is unbiased
+        why:
+          zh-cn: 每个估计单独看是无偏的，但优化器不是随机地选择资产。按估计值挑选出来的资产，它们的误差平均还是 0 吗？
+          en: Each estimate is unbiased on its own, but the optimizer does not choose assets at random. For assets picked by their estimates, do the errors still average 0?
+      - zh-cn: 无法判断偏高还是偏低
+        en: Cannot tell whether it is too high or too low
+        why:
+          zh-cn: 想一想挑选的方向：优化器总是偏向估计值好的那一边。
+          en: 'Think about the direction of selection: the optimizer always leans toward the side where the estimates look good.'
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。优化器给估计收益高的资产更大的权重，而估计收益高往往是因为估计误差为正；所以按估计值计算，组合的收益被系统地高估。选出来的组合在“估计值”中看起来最好，正是因为它利用了误差，将来误差不会重复，实际业绩更差。这和从很多基金中挑出业绩最好的一只一样（[[4.9]]）。
+      en: |-
+        (A). The optimizer gives larger weights to assets with high estimated returns, and estimates are often high because their errors are positive; so the portfolio's return computed from the estimates is systematically overstated. The chosen portfolio looks best "on the estimates" precisely because it exploits the errors; they do not repeat, so actual performance is worse. It is like picking the best of many funds ([[4.9]]).
+
+  - id: C3
+    kind: check
+    section: covariance
+    concepts: [covariance]
+    question:
+      zh-cn: |-
+        用 60 个月的数据估计 500 只股票的样本协方差矩阵，再做均值–方差优化。主要问题是：
+      en: |-
+        A sample covariance matrix of 500 stocks is estimated from 60 months of data and used in mean–variance optimization. The main problem is:
+    choices:
+      - zh-cn: 要估计的协方差（约 12.5 万个）远多于数据能可靠支持的，矩阵不可逆，优化器会找到虚假的“零风险”组合
+        en: There are far more covariances to estimate (about 125,000) than the data can reliably support, so the matrix cannot be inverted and the optimizer finds spurious "riskless" portfolios
+      - zh-cn: 协方差比预期收益更难估计
+        en: Covariances are harder to estimate than expected returns
+        why:
+          zh-cn: 单个协方差可以用高频数据估计得较准。问题出在单个协方差的精度，还是要估计的个数与数据量的比例？
+          en: A single covariance can be estimated fairly well from high-frequency data. Is the problem the precision of one covariance, or the number to estimate relative to the amount of data?
+      - zh-cn: 月数据的频率太低，换成年数据就好了
+        en: Monthly data are too infrequent; switching to annual data would fix it
+        why:
+          zh-cn: 换成年数据，观测值的个数会变多还是变少？
+          en: With annual data, would there be more observations or fewer?
+      - zh-cn: 没有问题，因为每个协方差都是无偏估计
+        en: There is no problem, because each covariance is estimated without bias
+        why:
+          zh-cn: 只有 60 个观测值时，500 只股票的组合能有 500 个自由选择的权重。优化器能不能找到一个在这 60 个月里恰好几乎不波动的组合？
+          en: With only 60 observations, a portfolio of 500 stocks has 500 weights to choose. Can the optimizer find a portfolio that happens to barely move over those 60 months?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。$\frac{500 \times 499}{2} = 124{,}750$ 个协方差只用 60 个月的数据估计；观测期数少于资产数时，可以找到一组权重使 60 个月的组合收益几乎完全相同，样本方差为 0，矩阵不可逆。优化器会把这种碰巧形成的组合当作零风险，样本外它当然有风险。所以要用因子结构或收缩来估计协方差。
+      en: |-
+        (A). $\frac{500 \times 499}{2} = 124{,}750$ covariances are estimated from 60 months; with fewer periods than assets, some set of weights makes the portfolio's return almost the same in all 60 months, so the sample variance is 0 and the matrix cannot be inverted. The optimizer treats such an accidental portfolio as riskless, but out of sample it is of course risky. So covariances should be estimated with a factor structure or shrinkage.
+
+  - id: C4
+    kind: check
+    section: remedies
+    concepts: [shrinkage-estimator, error-maximization]
+    widget: { id: shrinkage, set: { w: 0 } }
+    question:
+      zh-cn: |-
+        在 [[fig:4-1]] 中，把收缩程度 w 从 0 逐步调到 1。按真实预期收益计算的夏普比率会：
+      en: |-
+        In [[fig:4-1]], move the shrinkage w step by step from 0 to 1. The Sharpe ratio under the true expected returns:
+    choices:
+      - zh-cn: 先上升，后略有下降
+        en: Rises first, then falls slightly
+      - zh-cn: 一直上升，完全收缩（等权）最好
+        en: Keeps rising, so full shrinkage (equal weights) is best
+        why:
+          zh-cn: 完全收缩时，所有资产的权重相同，但真实的预期收益并不相同。看 w 接近 1 时读数的变化。
+          en: With full shrinkage every asset gets the same weight, but the true expected returns are not the same. Watch the readout as w approaches 1.
+      - zh-cn: 一直下降，因为收缩丢掉了信息
+        en: Keeps falling, because shrinkage throws away information
+        why:
+          zh-cn: 一直下降的是按估计值计算的夏普比率。按真实收益计算的那一个呢？
+          en: The Sharpe ratio computed from the estimates is the one that keeps falling. What about the one under the true returns?
+      - zh-cn: 不变，因为真实的预期收益没有变
+        en: Stays the same, because the true expected returns have not changed
+        why:
+          zh-cn: 真实收益没有变，但组合的权重变了。权重变化会影响真实的夏普比率吗？
+          en: The true returns have not changed, but the weights have. Do the weights affect the true Sharpe ratio?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。按真实收益计算的夏普比率从 0.466 升到 w = 0.7 时的约 0.508，再降到 w = 1 时的 0.500。收缩减少了对误差的押注（B 和 D 的估计值偏高、C 偏低），所以先改善；但收缩过度也抹掉了真实的差别，所以最后略有下降。同时按估计值算的夏普比率从 0.660 一直降到 0.550：它在 w = 0 时最高，正是因为它利用了误差。
+      en: |-
+        (A). The Sharpe ratio under the true returns rises from 0.466 to about 0.508 at w = 0.7, then falls to 0.500 at w = 1. Shrinkage reduces the bets on errors (the estimates of B and D are too high and C's too low), so it helps at first; but too much shrinkage also erases real differences, so it ends slightly lower. Meanwhile the Sharpe ratio computed from the estimates falls steadily from 0.660 to 0.550: it is highest at w = 0 precisely because it exploits the errors.
+
+  - id: C5
+    kind: check
+    section: remedies
+    concepts: [out-of-sample, short-selling]
+    question:
+      zh-cn: |-
+        禁止卖空限制了优化器的选择，所以一定会降低组合在样本外的实际表现。
+      en: |-
+        Banning short sales restricts the optimizer's choices, so it must lower the portfolio's actual out-of-sample performance.
+    correct: false
+    hint:
+      zh-cn: 想一想：约束一定会降低按估计值计算的业绩。但样本外的业绩取决于真实的参数。优化器最大的空头头寸往往押注在什么上？
+      en: 'Think: a constraint must lower performance computed from the estimates. But out-of-sample performance depends on the true parameters. What are the optimizer''s largest short positions usually bets on?'
+    answer:
+      zh-cn: |-
+        错。约束一定会降低按估计值计算的业绩，但样本外不一定：优化器的大额空头和极端权重往往是在押注估计误差，禁止卖空防止了这些押注，常常提高样本外的表现。Jagannathan 和 Ma（2003）证明，禁止卖空的效果相当于对协方差矩阵做了收缩。
+      en: |-
+        False. A constraint must lower performance computed from the estimates, but not necessarily out of sample: the optimizer's large shorts and extreme weights are often bets on estimation errors, and banning shorts prevents them, which often improves out-of-sample performance. Jagannathan and Ma (2003) showed that banning short sales acts like shrinking the covariance matrix.
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [standard-error]
+    expected: { se: "5.69", sesd: "0.25", years: "324" }
+    question:
+      zh-cn: |-
+        一位分析师说：“我用过去 10 年的日数据（约 2,520 个观测值）估计这个股票指数的预期收益和波动率。观测值这么多，两个估计都很准。”指数的年波动率约为 18%。
+        (a) 用 [[4.10#means-vs-variances]] 的设定，证明把每年分成 $k$ 个区间估计、再换算成年度时，平均收益的标准误与 $k$ 无关。这位分析师对年平均收益估计的标准误是多少？
+        (b) 波动率估计的标准误约为多少个百分点（相对误差约 $\frac{1}{\sqrt{2n}}$）？要使年平均收益的标准误降到 1 个百分点，需要多少年的数据？评价分析师的说法。
+      en: |-
+        An analyst says: "I estimated this stock index's expected return and volatility from the last 10 years of daily data (about 2,520 observations). With so many observations, both estimates are very precise." The index's annual volatility is about 18%.
+        (a) Using the setup of [[4.10#means-vs-variances]], show that when each year is split into $k$ intervals and the estimate is converted back to annual terms, the standard error of the average return does not depend on $k$. What is the standard error of the analyst's estimate of the average annual return?
+        (b) About how many percentage points is the standard error of the volatility estimate (relative error about $\frac{1}{\sqrt{2n}}$)? How many years of data would be needed to bring the standard error of the average annual return down to 1 percentage point? Evaluate the analyst's statement.
+    answer:
+      zh-cn: |-
+        (a) 区间均值的标准误 $= \frac{\sigma/\sqrt{k}}{\sqrt{kT}} = \frac{\sigma}{k\sqrt{T}}$，乘以 $k$ 换算成年度：$\frac{\sigma}{\sqrt{T}}$，与 $k$ 无关。分析师的标准误 $= \frac{18}{\sqrt{10}} \approx 5.69$ 个百分点：95% 置信区间宽达约 ±11 个百分点。
+        (b) 相对误差 $\frac{1}{\sqrt{2 \times 2{,}520}} \approx 1.4\%$，波动率的标准误约 $18 \times 1.4\% \approx 0.25$ 个百分点，很准。要使均值的标准误为 1，需要 $T = 18^2 = 324$ 年，远远超过任何市场的历史，而且这么长时间里经济和市场早已变了。分析师的说法只对一半：波动率确实估计得很准，预期收益却几乎不能从 10 年数据中得到，观测值的个数不改变这一点。所以预期收益需要用其他方法（[[4.11]]）或收缩来估计。
+      en: |-
+        (a) The standard error of the interval mean is $\frac{\sigma/\sqrt{k}}{\sqrt{kT}} = \frac{\sigma}{k\sqrt{T}}$; multiplying by $k$ to make it annual gives $\frac{\sigma}{\sqrt{T}}$, independent of $k$. The analyst's standard error is $\frac{18}{\sqrt{10}} \approx 5.69$ points: a 95% confidence interval as wide as about ±11 points.
+        (b) The relative error is $\frac{1}{\sqrt{2 \times 2{,}520}} \approx 1.4\%$, so the volatility's standard error is about $18 \times 1.4\% \approx 0.25$ points, quite precise. A standard error of 1 for the mean needs $T = 18^2 = 324$ years, far longer than any market's history, and over such a time the economy and markets would have changed. The analyst is only half right: volatility is indeed estimated precisely, but the expected return can hardly be learned from 10 years of data, and the number of observations does not change that. So expected returns need other methods ([[4.11]]) or shrinkage.
+    rubric:
+      zh-cn:
+        - "(a) 通过：推出年度标准误为 $\\frac{\\sigma}{\\sqrt{T}}$、与 $k$ 无关，分析师的标准误约 5.69 个百分点。用 $\\frac{18}{\\sqrt{2520}}$ 计算，需要订正。"
+        - "(b) 通过：波动率的标准误约 0.25 个百分点，需要约 324 年，并指出波动率准而均值不准。只说两个都准或都不准，需要订正。"
+      en:
+        - "(a) OK: derives that the annual standard error is $\\frac{\\sigma}{\\sqrt{T}}$, independent of $k$, and gets about 5.69 percentage points for the analyst. Using $\\frac{18}{\\sqrt{2520}}$ needs revision."
+        - "(b) OK: about 0.25 percentage points for the volatility, about 324 years needed, and the point that volatility is precise while the mean is not. Saying both are precise, or both imprecise, needs revision."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [error-maximization, shrinkage-estimator, standard-error]
+    expected: { exp: "12.2", bias: "6.2" }
+    question:
+      zh-cn: |-
+        有 10 个行业的股票指数，假设它们真实的预期收益都是 6%。每个行业历史平均收益的估计误差都服从均值为 0、标准差为 4 个百分点的正态分布，相互独立。一位投资者说：“过去 20 年，资产 X 的平均收益是 10 个行业中最高的，我按它的历史平均收益作为预期收益，把大部分钱放在 X 上。”
+        (a) 10 个行业中历史平均收益最高的那一个，它的估计值的期望是多少（提示：10 个独立标准正态变量中最大值的期望约为 1.54）？用它作为预期收益，平均高估多少个百分点？
+        (b) 评价投资者的做法。如果 10 个行业真实的预期收益确实不同，但差别比估计误差小得多，应该怎样使用这些历史估计？
+      en: |-
+        There are stock indexes for 10 industries, and suppose all of them have a true expected return of 6%. The estimation error of each industry's historical average return is normal with mean 0 and a standard deviation of 4 points, independently. An investor says: "Over the past 20 years, industry X had the highest average return of the 10, so I use its historical average as its expected return and put most of my money in X."
+        (a) For the industry with the highest historical average among the 10, what is the expected value of its estimate (hint: the expected maximum of 10 independent standard normal variables is about 1.54)? Using it as the expected return overstates by how many points on average?
+        (b) Evaluate the investor's approach. If the 10 industries' true expected returns do differ, but by much less than the estimation error, how should the historical estimates be used?
+    answer:
+      zh-cn: |-
+        (a) 最高的估计值的期望 $= 6 + 1.54 \times 4 \approx 12.2\%$，平均高估约 6.2 个百分点。即使所有行业完全相同，挑出的“最好”的那个看起来也比平均高 6 个多百分点。
+        (b) 这是挑选造成的偏差，也是优化器“误差最大化”的简化版：按估计值挑选，挑出的往往是误差最大的那个。投资者既高估了 X 的预期收益，又因为集中持有承担了大量可以分散的风险。如果真实差别远小于估计误差，历史估计中的差别大部分是噪声，应该把估计值大幅向共同的平均值收缩（$w$ 接近 1），或者从其他来源（均衡模型、估值）得到预期收益，并保持分散。
+      en: |-
+        (a) The expected highest estimate is $6 + 1.54 \times 4 \approx 12.2\%$, an average overstatement of about 6.2 points. Even if all industries are identical, the "best" one picked looks more than 6 points above average.
+        (b) This is selection bias, a simple version of the optimizer's "error maximization": choosing by the estimates tends to pick the one with the largest error. The investor overstates X's expected return and, by concentrating, takes on a lot of diversifiable risk. If the true differences are much smaller than the estimation errors, most of the differences in the historical estimates are noise, so the estimates should be shrunk heavily toward their common average ($w$ near 1), or expected returns taken from other sources (equilibrium models, valuations), while staying diversified.
+    rubric:
+      zh-cn:
+        - "(a) 通过：期望约 12.2%，高估约 6.2 个百分点。"
+        - "(b) 通过：指出按估计值挑选会挑出误差最大的（挑选偏差或误差最大化），集中持有还增加了可分散风险，并提出大幅收缩或用其他来源的估计。同意投资者，或只说“历史不代表未来”而不说明挑选偏差，需要订正。"
+      en:
+        - "(a) OK: an expected value of about 12.2% and an overstatement of about 6.2 percentage points."
+        - "(b) OK: says that choosing by the estimates picks the largest error (selection bias or error maximization), that concentrating adds diversifiable risk, and proposes heavy shrinkage or estimates from other sources. Agreeing with the investor, or saying only \"the past does not predict the future\" without explaining the selection bias, needs revision."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [minimum-variance-portfolio, error-maximization, out-of-sample]
+    expected: { wa: "0.786", sd: "13.89" }
+    question:
+      zh-cn: |-
+        两项资产：A 的波动率为 15%，B 为 25%，相关系数为 0.2。
+        (a) 只用协方差求最小方差组合：A 的权重是多少？组合的波动率是多少？
+        (b) 一位同事说：“最小方差组合完全不用预期收益，等于扔掉了一半的信息，它一定比用预期收益做出的均值–方差最优组合差。”评价这个说法。什么情况下最小方差组合在样本外反而可能更好？
+      en: |-
+        Two assets: A has a volatility of 15% and B 25%, with a correlation of 0.2.
+        (a) Using only the covariances, find the minimum-variance portfolio: what is A's weight, and what is the portfolio's volatility?
+        (b) A colleague says: "The minimum-variance portfolio uses no expected returns at all, which throws away half the information, so it must be worse than the mean–variance optimal portfolio that uses expected returns." Evaluate this statement. When might the minimum-variance portfolio do better out of sample?
+    answer:
+      zh-cn: |-
+        (a) 协方差 $= 0.2 \times 15 \times 25 = 75$。$w_A = \frac{25^2 - 75}{15^2 + 25^2 - 2 \times 75} = \frac{550}{700} \approx 0.786$。方差 $= 0.786^2 \times 225 + 0.214^2 \times 625 + 2 \times 0.786 \times 0.214 \times 75 \approx 192.9$，波动率约 13.89%，低于 A 的 15%。
+        (b) 如果预期收益已知，均值–方差最优组合当然更好；但预期收益要估计，而它的误差最大（[[4.10#error-maximization]]），对权重的影响也最大。“扔掉的信息”大部分是噪声时，不用它反而避免了误差最大化。协方差可以估计得较准，所以只依赖协方差的最小方差组合更稳定。当估计的预期收益之间的差别主要是噪声（数据短、资产相似）时，最小方差组合在样本外可能更好；当对预期收益有可靠、独立于历史均值的信息时，使用它（或收缩后使用）才有价值。另外，最小方差组合往往集中在低波动的资产上，这本身也是一种风险暴露。
+      en: |-
+        (a) The covariance is $0.2 \times 15 \times 25 = 75$. $w_A = \frac{25^2 - 75}{15^2 + 25^2 - 2 \times 75} = \frac{550}{700} \approx 0.786$. The variance is $0.786^2 \times 225 + 0.214^2 \times 625 + 2 \times 0.786 \times 0.214 \times 75 \approx 192.9$, a volatility of about 13.89%, below A's 15%.
+        (b) If expected returns were known, the mean–variance optimal portfolio would of course be better; but they must be estimated, their errors are the largest ([[4.10#error-maximization]]), and they affect the weights the most. When most of the "thrown-away information" is noise, not using it avoids error maximization. Covariances can be estimated fairly precisely, so the minimum-variance portfolio, which relies only on them, is more stable. When differences between the estimated expected returns are mainly noise (short data, similar assets), the minimum-variance portfolio may do better out of sample; using expected returns (or shrunk versions) pays only when there is reliable information about them that does not come from historical averages. Also, the minimum-variance portfolio tends to concentrate in low-volatility assets, which is itself an exposure.
+    rubric:
+      zh-cn:
+        - "(a) 通过：A 的权重约 0.786，波动率约 13.89%。"
+        - "(b) 通过：指出预期收益的估计误差最大，误差大时不用它可以避免误差最大化，并说明最小方差组合更好的条件（预期收益的差别主要是噪声）。同意同事，或者说最小方差组合总是更好，需要订正。"
+      en:
+        - "(a) OK: A's weight about 0.786 and a volatility of about 13.89%."
+        - "(b) OK: says expected-return estimates have the largest errors, that ignoring them avoids error maximization when they are noisy, and states when the minimum-variance portfolio does better (differences in expected returns mainly noise). Agreeing with the colleague, or saying the minimum-variance portfolio is always better, needs revision."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [covariance, diversification]
+    expected: { n: "17.32", c: "19.49" }
+    question:
+      zh-cn: |-
+        一位投资者把钱平均分在两个国家的股票指数上，两个指数的波动率都是 20%。他用过去 10 年的数据估计两者的相关系数为 0.5，于是说：“我的组合波动率约 17%，比单个指数低 3 个百分点左右，这就是分散化。”过去几次金融危机中，两个指数的相关系数升到了约 0.9。
+        (a) 按相关系数 0.5 和 0.9，组合的波动率各是多少？
+        (b) 评价他的说法。他应该怎样考虑组合在危机中的风险？
+      en: |-
+        An investor splits his money equally between two countries' stock indexes, each with a volatility of 20%. From the last 10 years of data he estimates their correlation at 0.5 and says: "My portfolio's volatility is about 17%, about 3 points below either index; that is diversification." In past financial crises, the correlation between the two indexes rose to about 0.9.
+        (a) What is the portfolio's volatility with a correlation of 0.5, and with 0.9?
+        (b) Evaluate his statement. How should he think about the portfolio's risk in a crisis?
+    answer:
+      zh-cn: |-
+        (a) 等权时 $\sigma_p = 20\sqrt{\frac{1 + \rho}{2}}$。$\rho = 0.5$：约 17.32%；$\rho = 0.9$：约 19.49%。
+        (b) 平时的计算没错，但分散化的好处在危机中从约 2.7 个百分点缩小到约 0.5 个百分点，几乎消失，而危机正是最需要分散化的时候。用平静时期估计的相关系数会低估组合在大跌时的风险；再加上收益分布的肥尾（[[0.4#fat-tails]]），实际的下跌可能比正态分布和平均相关系数推算的大得多。他应该用危机时期的相关系数做压力测试，看组合在相关系数接近 1 时会怎样，并考虑与股票相关性更低的资产（例如高质量债券，虽然它们的相关性也会变化，[[2.8]]）。
+      en: |-
+        (a) With equal weights, $\sigma_p = 20\sqrt{\frac{1 + \rho}{2}}$. With $\rho = 0.5$: about 17.32%; with $\rho = 0.9$: about 19.49%.
+        (b) His calculation is right for normal times, but in a crisis the benefit of diversification shrinks from about 2.7 points to about 0.5, almost vanishing, exactly when diversification is needed most. Correlations estimated in calm periods understate the portfolio's risk in a crash; with fat tails in returns ([[0.4#fat-tails]]), actual falls can be much larger than the normal distribution and average correlations suggest. He should stress-test with crisis correlations, see what happens when the correlation is near 1, and consider assets less correlated with stocks (for example high-quality bonds, though their correlation can change too, [[2.8]]).
+    rubric:
+      zh-cn:
+        - "(a) 通过：约 17.32% 和 19.49%。"
+        - "(b) 通过：指出危机中分散化的好处几乎消失，平静时期的相关系数低估了危机中的风险，并提出压力测试或其他应对。只说“相关系数会变”而不说明对风险估计的影响，需要订正。"
+      en:
+        - "(a) OK: about 17.32% and 19.49%."
+        - "(b) OK: says the diversification benefit nearly disappears in a crisis, that calm-period correlations understate crisis risk, and proposes stress tests or other responses. Saying only \"correlations change\" without explaining what it does to the risk estimate needs revision."

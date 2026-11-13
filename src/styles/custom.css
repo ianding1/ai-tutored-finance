@@ -1136,3 +1136,11 @@ a.lfwai-route-mark:focus-visible {
 .lfwai-legend .sw.sw-fac-alpha {
 	background: color-mix(in srgb, var(--viz-b) 80%, transparent);
 }
+/* Lesson 4.10 figure: target weights */
+.viz-target {
+	stroke: var(--viz-b);
+	stroke-width: 3;
+}
+.lfwai-legend .sw.sw-target {
+	border-top: 3px solid var(--viz-b);
+}

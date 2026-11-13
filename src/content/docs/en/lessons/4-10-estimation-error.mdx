@@ -1,0 +1,85 @@
+---
+title: 4.10 Estimation Error and Robust Optimization
+description: Why expected returns are much harder to estimate than variances; how the optimizer magnifies estimation errors; estimating the covariance matrix; shrinkage estimators, weight constraints, resampling and the minimum-variance portfolio.
+lesson: "4.10"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import ShrinkageWeights from '../../../../components/widgets/ShrinkageWeights.astro';
+
+## Means are hard to estimate, volatility less so [#means-vs-variances]
+
+The mean–variance optimization of <Ref lesson="4.2" /> needs expected returns, variances and covariances, and all of them can only be estimated from data. <Ref lesson="0.4" sec="standard-error" /> showed that the standard error of a sample mean is $\frac{\sigma}{\sqrt{n}}$. With annual returns, $n$ is the number of years: stocks have an annual volatility of about 16% to 20%, so with 20 years of data the standard error of the average return is about 3.6 to 4.5 percentage points, about as large as the equity premium itself.
+
+With monthly or daily data there are many times more observations. Can the average return be estimated more precisely? Split each year into $k$ intervals ($k = 12$ for monthly data); each interval's return has a mean of $\frac{\mu}{k}$ and a standard deviation of $\frac{\sigma}{\sqrt{k}}$, and $T$ years give $kT$ observations (<Ref check="Q1" />).
+
+<Check id="C1" />
+
+For volatility, the situation is this: it can be estimated from the swings within each short interval, and more observations make it more precise. The relative error of an estimated standard deviation is about $\frac{1}{\sqrt{2n}}$, where $n$ is the number of observations (Merton, 1980).
+
+## The optimizer magnifies errors [#error-maximization]
+
+A mean–variance optimizer treats the estimates as true values. It buys more of the assets with the highest estimated returns, the lowest estimated risks and the most favorable estimated correlations, and these are often exactly the assets whose estimation errors are most favorable. Michaud (1989) therefore called mean–variance optimization <Def id="error-maximization">error maximization</Def>.
+
+There are two results: the weights are extreme and very sensitive to the inputs (<Ref lesson="4.2" sec="limits" />); and the performance of the optimal portfolio computed from the same estimates is systematically better than its actual future performance.
+
+<Check id="C2" />
+
+Errors in different inputs also matter differently. Chopra and Ziemba (1993) found that for an investor with moderate risk aversion, errors in expected returns cost about 10 times as much as errors in variances, and errors in variances about twice as much as errors in covariances. DeMiguel, Garlappi and Uppal (2009) compared many optimization methods <Def id="out-of-sample">out of sample</Def> (that is, on data not used in the estimation) and found that with common data lengths, most of them did not reliably beat a simple equally weighted portfolio ($\frac{1}{N}$ in each asset).
+
+## Estimating covariances [#covariance]
+
+With $n$ assets there are $\frac{n(n-1)}{2}$ covariances. The more assets relative to observations, the larger the errors of the sample covariance matrix; with fewer periods than assets the matrix cannot even be inverted, and the optimizer finds a portfolio whose variance in the sample is 0, which is clearly an illusion.
+
+<Check id="C3" />
+
+There are two common improvements:
+
+- Simplify the covariances with structure: the single-index model (<Ref lesson="4.5" />) or a multifactor model (<Ref lesson="4.6" />) needs far fewer parameters.
+- Shrinkage: take a weighted average of the sample covariance matrix and a simply structured matrix (for example the one the single-index model gives) (Ledoit and Wolf, 2003).
+
+Another problem is that covariances change: in turbulent markets, correlations between assets tend to rise, so diversification works less well exactly when it is needed most (<Ref check="Q4" />). Covariances estimated in calm periods understate portfolio risk in a crisis; together with the fat tails of <Ref lesson="0.4" sec="fat-tails" />, this makes a portfolio's actual risk larger than the model's numbers.
+
+## Robust methods [#remedies]
+
+Since errors cannot be avoided, several methods are common in practice to make the results more robust:
+
+A <Def id="shrinkage-estimator">shrinkage estimator</Def> pulls each asset's estimate toward a common reference value, such as the average of all assets' estimates or the expected returns implied by an equilibrium model (<Ref lesson="4.11" />):
+
+$$
+\tilde\mu_i = (1 - w)\,\hat\mu_i + w\,\bar\mu, \qquad 0 \le w \le 1
+$$
+
+Shrinkage introduces a bias (assets whose true returns really differ are also pulled together) but reduces the variability of the errors. How much to shrink, $w$, depends on how much of the difference between the estimates is real and how much is noise.
+
+<Figure id="4-1" title="Four uncorrelated assets, each with a volatility of 20%. The true expected excess returns are 3%, 4%, 6% and 7%; the estimates are 1%, 8%, 3% and 10%. The optimizer uses estimates shrunk toward their average (5.5%), with weights proportional to them." observe="Move the shrinkage step by step from 0 to 1, and watch how far the bars are from the truly optimal weights and how the two Sharpe ratios in the readout change.">
+	<ShrinkageWeights />
+</Figure>
+
+<Check id="C4" />
+
+Other methods:
+
+- Weight constraints: banning short sales and capping each asset's weight. Constraints keep the optimizer from betting heavily on estimation errors; Jagannathan and Ma (2003) showed that banning short sales acts like a form of shrinkage of the covariance matrix.
+- <Def id="resampling">Resampling</Def> (Michaud, 1998): generate many plausible sets of inputs at random, according to the size of the estimation errors, find the optimal weights for each, and average them. The result is more diversified and more stable than a single optimization.
+- The minimum-variance portfolio: use none of the hardest-to-estimate expected returns, only the covariances, to find the portfolio with the smallest variance.
+- Equal weights: estimate no parameters at all. It is not optimal, but it has no estimation error.
+
+<Check id="C5" />
+
+What these methods share is that they give up part of what "looks best on the estimates" in exchange for being less sensitive to estimation error. The result of an optimization should be treated as a reference that calls for judgment, not as a precise answer.
+
+## Summary [#summary]
+
+- The standard error of the average return is $\frac{\sigma}{\sqrt{T}}$ and depends only on the number of years; volatility can be estimated fairly precisely from high-frequency data.
+- The optimizer leans toward assets with favorable estimation errors, giving extreme weights; performance computed from the estimates exceeds actual out-of-sample performance.
+- Errors in expected returns matter most; the covariance matrix has large errors when there are many assets and little data, and correlations rise in crises.
+- Shrinkage, weight constraints, resampling, the minimum-variance portfolio and equal weights all accept some bias in exchange for less variable errors.
+
+## Exercises [#exercises]
+
+<Exercises />

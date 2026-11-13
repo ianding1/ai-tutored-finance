@@ -418,7 +418,15 @@ stages:
         published: true
         introduces: [treynor-ratio, jensens-alpha, information-ratio, tracking-error, survivorship-bias]
         uses: [sharpe-ratio, alpha, beta, capm, security-market-line, capital-allocation-line, single-index-model, firm-specific-risk, fama-french-model, momentum, t-statistic, multiple-testing, standard-error]
-      - { id: "4.10", slug: "4-10-estimation-error", title: { zh-cn: "估计误差与稳健优化", en: "Estimation Error and Robust Optimization" } }
+      - id: "4.10"
+        slug: "4-10-estimation-error"
+        title: { zh-cn: "估计误差与稳健优化", en: "Estimation Error and Robust Optimization" }
+        summary:
+          zh-cn: "为什么预期收益比方差难估计得多；优化器怎样放大估计误差；协方差矩阵的估计；收缩估计、权重约束、重抽样与最小方差组合。"
+          en: "Why expected returns are much harder to estimate than variances; how the optimizer magnifies estimation errors; estimating the covariance matrix; shrinkage estimators, weight constraints, resampling and the minimum-variance portfolio."
+        published: true
+        introduces: [error-maximization, out-of-sample, shrinkage-estimator, resampling]
+        uses: [standard-error, covariance, diversification, mean-variance-optimization, minimum-variance-portfolio, short-selling, sharpe-ratio, single-index-model, multifactor-model, fat-tails]
       - { id: "4.11", slug: "4-11-capital-market-assumptions", title: { zh-cn: "资本市场假设", en: "Capital Market Assumptions" } }
       - { id: "4.12", slug: "4-12-lifecycle-allocation", title: { zh-cn: "生命周期资产配置理论", en: "Life-Cycle Asset Allocation Theory" } }
       - { id: "4.13", slug: "4-13-simulation-backtesting", title: { zh-cn: "模拟与回测方法", en: "Simulation and Backtesting Methods" } }
