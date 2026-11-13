@@ -2501,3 +2501,35 @@ resampling:
   short:
     zh-cn: "按估计误差随机生成很多组输入，分别优化后取平均权重的方法。"
     en: "A method that generates many sets of inputs according to the estimation errors, optimizes each and averages the weights."
+
+capital-market-assumptions:
+  defined_in: "4.11"
+  zh-cn: 资本市场假设
+  en: capital market assumptions
+  short:
+    zh-cn: "对各类资产未来预期收益、波动率和相关性的一组假设，用于资产配置和规划。"
+    en: "A set of assumptions about asset classes' future expected returns, volatilities and correlations, used for asset allocation and planning."
+
+building-block-approach:
+  defined_in: "4.11"
+  zh-cn: 积木法
+  en: building-block approach
+  short:
+    zh-cn: "把股票预期收益拆成股东收益率、实际盈利增长、通胀和估值变化来估计；债券用起始收益率。"
+    en: "Estimating expected stock returns as shareholder yield plus real earnings growth plus inflation plus valuation change; bonds by their starting yield."
+
+reverse-optimization:
+  defined_in: "4.11"
+  zh-cn: 反向优化
+  en: reverse optimization
+  short:
+    zh-cn: "假设市场组合最优，从市值权重和协方差反推隐含预期收益：Π = δΣw。"
+    en: "Assuming the market portfolio is optimal, working back from market weights and covariances to implied expected returns: Π = δΣw."
+
+black-litterman:
+  defined_in: "4.11"
+  zh-cn: Black–Litterman 模型
+  en: Black–Litterman model
+  short:
+    zh-cn: "以反向优化的均衡收益为起点，按信心加入投资者观点，得到加权平均的预期收益。"
+    en: "A model that starts from equilibrium returns from reverse optimization and adds investor views according to confidence, giving weighted-average expected returns."

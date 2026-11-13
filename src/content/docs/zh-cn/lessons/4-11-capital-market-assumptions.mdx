@@ -1,0 +1,95 @@
+---
+title: 4.11 资本市场假设
+description: 为什么不能直接用历史平均收益；积木法估计股票和债券的预期收益；估值与未来收益；反向优化与 Black–Litterman；与机构的长期预期对照。
+lesson: "4.11"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import BuildingBlocks from '../../../../components/widgets/BuildingBlocks.astro';
+
+## 为什么不能只看历史 [#why]
+
+做资产配置和长期规划时，需要对各类资产未来的预期收益、波动率和相关性做出假设，这组数字叫<Def id="capital-market-assumptions">资本市场假设</Def>（capital market assumptions）。最简单的做法是用历史平均收益，但 <Ref lesson="4.10" /> 说明它的误差很大：几十年的数据，平均收益的标准误仍有几个百分点。
+
+历史平均还有一个问题：它包含了估值的变化。如果一段时期里市盈率从 10 倍升到 25 倍，这段时期的股票收益中有一部分来自投资者愿意为同样的盈利付出更高的价格。这部分收益不能指望重复：它要求市盈率继续以同样的速度上升。
+
+<Check id="C1" />
+
+所以实践中通常用前瞻的方法：从现在的价格、收益率和经济增长出发估计未来的收益，再用历史数据估计波动率和相关性（它们估计得准得多）。
+
+## 积木法 [#building-blocks]
+
+<Def id="building-block-approach">积木法</Def>（building-block approach）把股票的预期收益拆成几块（Grinold 和 Kroner，2002）：
+
+$$
+E[R] \approx y + g + \pi + \Delta v
+$$
+
+- $y$，股东收益率：股息率加上净回购率（回购减去新发行的股票）。
+- $g$，每股盈利的实际增长率：长期受经济实际增长的约束（<Ref lesson="2.2" />），而且新公司和增发会使每股增长低于整体经济的增长。
+- $\pi$，通胀率：盈利和股息大体随物价上升。去掉这一项就是实际预期收益（<Ref concept="fisher-equation" />）。
+- $\Delta v$，估值变化：如果预计 $n$ 年后市盈率从 $PE_0$ 变为 $PE_n$，每年的贡献约为 $\left(\frac{PE_n}{PE_0}\right)^{1/n} - 1$。
+
+债券的估计简单得多：持有期接近久期时，债券组合的收益大约等于起始的到期收益率（<Ref lesson="3.4" sec="immunization" />），所以起始收益率就是很好的预期收益估计；对公司债还要减去预期的违约损失（<Ref lesson="3.6" />）。
+
+<Figure id="2-1" title="积木法估计股票未来 10 年的预期年收益。估值变化按 $\left(\frac{PE_{10}}{PE_0}\right)^{1/10} - 1$ 计算。默认参数只是示例。" observe="先把 10 年后的市盈率调到等于现在的市盈率，再调回去，看估值变化的贡献；然后改变通胀率，比较名义和实际预期收益的变化。">
+	<BuildingBlocks />
+</Figure>
+
+<Check id="C2" />
+
+## 估值与未来收益 [#cape]
+
+积木法中最难估计的是估值变化。<Ref lesson="3.11" sec="cape" /> 的周期调整市盈率（CAPE）提供了一些线索：历史上，CAPE 高时之后 10 年的平均收益往往较低，CAPE 低时往往较高（Campbell 和 Shiller，1998）。按美国的数据，CAPE 对之后 10 年收益的解释力明显，但对之后 1 年收益几乎没有解释力。
+
+这个关系有几点需要注意：
+
+- 观测值少。按月计算的 10 年收益相互重叠，1881 年以来不重叠的 10 年时期只有十几个（<Ref check="Q4" />）。
+- “正常”的 CAPE 可能变了：会计准则、回购代替股息、行业构成（科技公司更多）都可能改变 CAPE 的长期水平。1990 年代以来美国的 CAPE 大多高于它的长期平均。
+- 估值回到平均要多久，无法确定。
+
+<Check id="C3" />
+
+## 均衡法 [#equilibrium]
+
+另一种思路不预测，而是问：市场现在的价格隐含着怎样的预期收益？如果市场组合是均值–方差意义上的最优组合（<Ref lesson="4.3" />），可以反推出使它成为最优的预期收益，这叫<Def id="reverse-optimization">反向优化</Def>（reverse optimization，Sharpe，1974）：
+
+$$
+\Pi = \delta\,\Sigma\,w_{\text{mkt}}
+$$
+
+$w_{\text{mkt}}$ 是各资产的市值权重，$\Sigma$ 是协方差矩阵，$\delta$ 是市场的风险厌恶系数（可以用市场风险溢价除以市场方差估计），$\Pi$ 是隐含的预期超额收益。资产 $i$ 的隐含收益等于 $\delta$ 乘以它与市场组合的协方差，与 CAPM 一致（<Ref lesson="4.4" />）。
+
+<Check id="C4" />
+
+隐含收益本身就是一组合理的、彼此一致的预期：用它们做优化，得到的就是市场组合，不会出现 <Ref lesson="4.10" /> 中的极端权重。<Def id="black-litterman">Black–Litterman 模型</Def>（Black 和 Litterman，1992）在此基础上加入投资者自己的观点：结果是均衡收益和观点的加权平均，权重取决于对观点的信心。只有一项资产时，
+
+$$
+\mu_{\text{BL}} = \frac{\Pi / \tau\sigma^2 + Q / \omega}{1 / \tau\sigma^2 + 1 / \omega}
+$$
+
+$Q$ 是观点，$\omega$ 是观点的不确定性（方差），$\tau\sigma^2$ 是均衡收益的不确定性。这与 <Ref lesson="4.10" sec="remedies" /> 的收缩估计是同一个思想：均衡收益是收缩的参照值。
+
+<Check id="C5" />
+
+## 与机构预期对照 [#institutions]
+
+很多资产管理机构每年公布它们的长期资本市场假设，例如 J.P. Morgan 的《长期资本市场假设》（Long-Term Capital Market Assumptions）和 Vanguard 的经济与市场展望。它们大多结合积木法、估值和均衡法，给出未来 10 到 15 年各类资产的预期收益和波动率。
+
+使用这些预期时要注意：不同机构对同一类资产的预期可能相差几个百分点；它们是点估计，背后的不确定性很大（Vanguard 等会给出一个范围）；而且它们会随市场估值每年变化。合理的做法是把它们当作参考，与自己用积木法得到的估计比较，弄清差别来自哪一块；规划时用一个范围而不是一个数字，并检查结论对假设的敏感程度。
+
+## 小结 [#summary]
+
+- 历史平均误差大，而且包含不能重复的估值变化；预期收益要用前瞻的方法估计，波动率和相关性可以用历史数据。
+- 积木法：$E[R] \approx y + g + \pi + \Delta v$（股东收益率、实际盈利增长、通胀、估值变化）；债券的预期收益约等于起始收益率。
+- CAPE 对 10 年收益有一定解释力，对 1 年几乎没有；观测值少、“正常”水平可能变化。
+- 反向优化 $\Pi = \delta\Sigma w_{\text{mkt}}$ 给出与市场一致的隐含收益；Black–Litterman 按信心把观点与均衡收益加权平均。
+- 机构的预期相差可观，规划时应使用范围并做敏感性分析。
+
+## 练习题 [#exercises]
+
+<Exercises />

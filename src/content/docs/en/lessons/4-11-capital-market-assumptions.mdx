@@ -1,0 +1,95 @@
+---
+title: 4.11 Capital Market Assumptions
+description: Why historical average returns cannot be used directly; building-block estimates of stock and bond returns; valuation and future returns; reverse optimization and Black–Litterman; comparing with institutions' long-run forecasts.
+lesson: "4.11"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import BuildingBlocks from '../../../../components/widgets/BuildingBlocks.astro';
+
+## Why history is not enough [#why]
+
+Asset allocation and long-term planning need assumptions about the future expected returns, volatilities and correlations of asset classes; this set of numbers is called <Def id="capital-market-assumptions">capital market assumptions</Def>. The simplest approach is to use historical average returns, but <Ref lesson="4.10" /> showed that their errors are large: even with decades of data, the standard error of the average return is several percentage points.
+
+Historical averages have another problem: they include changes in valuation. If P/E ratios rose from 10 to 25 over a period, part of that period's stock return came from investors being willing to pay more for the same earnings. That part cannot be expected to repeat: it requires P/E ratios to keep rising at the same pace.
+
+<Check id="C1" />
+
+So in practice forward-looking methods are common: estimate future returns from today's prices, yields and economic growth, and use historical data for volatilities and correlations (which are estimated far more precisely).
+
+## Building blocks [#building-blocks]
+
+The <Def id="building-block-approach">building-block approach</Def> splits the expected stock return into pieces (Grinold and Kroner, 2002):
+
+$$
+E[R] \approx y + g + \pi + \Delta v
+$$
+
+- $y$, the shareholder yield: the dividend yield plus the net buyback yield (buybacks minus newly issued shares).
+- $g$, the real growth of earnings per share: bounded in the long run by real economic growth (<Ref lesson="2.2" />), and new companies and new share issues make per-share growth lower than the growth of the whole economy.
+- $\pi$, inflation: earnings and dividends broadly rise with prices. Leaving out this piece gives the real expected return (<Ref concept="fisher-equation" />).
+- $\Delta v$, the valuation change: if the P/E ratio is expected to go from $PE_0$ to $PE_n$ over $n$ years, the yearly contribution is about $\left(\frac{PE_n}{PE_0}\right)^{1/n} - 1$.
+
+Bonds are much simpler: over a holding period close to the duration, a bond portfolio's return is about its starting yield to maturity (<Ref lesson="3.4" sec="immunization" />), so the starting yield is a good estimate of the expected return; for corporate bonds, expected default losses must also be subtracted (<Ref lesson="3.6" />).
+
+<Figure id="2-1" title="A building-block estimate of the expected annual stock return over the next 10 years. The valuation change is $\left(\frac{PE_{10}}{PE_0}\right)^{1/10} - 1$. The default values are only an example." observe="First set the P/E in 10 years equal to today's P/E and then back again, and watch the valuation contribution; then change inflation and compare how the nominal and real expected returns change.">
+	<BuildingBlocks />
+</Figure>
+
+<Check id="C2" />
+
+## Valuation and future returns [#cape]
+
+The hardest block to estimate is the valuation change. The cyclically adjusted P/E (CAPE) of <Ref lesson="3.11" sec="cape" /> gives some clues: historically, when CAPE was high, average returns over the next 10 years tended to be low, and when it was low they tended to be high (Campbell and Shiller, 1998). In US data, CAPE clearly helps explain returns over the next 10 years but explains almost nothing about returns over the next year.
+
+This relation needs care:
+
+- There are few observations. Monthly 10-year returns overlap, and since 1881 there have been only a dozen or so non-overlapping 10-year periods (<Ref check="Q4" />).
+- The "normal" CAPE may have changed: accounting rules, buybacks replacing dividends and the industry mix (more technology companies) can all change CAPE's long-run level. Since the 1990s, US CAPE has mostly been above its long-run average.
+- How long it takes valuations to return to average cannot be known.
+
+<Check id="C3" />
+
+## The equilibrium approach [#equilibrium]
+
+Another approach does not forecast but asks: what expected returns do today's market prices imply? If the market portfolio is optimal in the mean–variance sense (<Ref lesson="4.3" />), one can work back to the expected returns that make it optimal; this is called <Def id="reverse-optimization">reverse optimization</Def> (Sharpe, 1974):
+
+$$
+\Pi = \delta\,\Sigma\,w_{\text{mkt}}
+$$
+
+$w_{\text{mkt}}$ is the vector of market-value weights, $\Sigma$ the covariance matrix, $\delta$ the market's risk aversion (which can be estimated as the market risk premium divided by the market variance), and $\Pi$ the implied expected excess returns. Asset $i$'s implied return equals $\delta$ times its covariance with the market portfolio, consistent with the CAPM (<Ref lesson="4.4" />).
+
+<Check id="C4" />
+
+The implied returns are themselves a reasonable, mutually consistent set of expectations: optimizing with them gives the market portfolio, without the extreme weights of <Ref lesson="4.10" />. The <Def id="black-litterman">Black–Litterman model</Def> (Black and Litterman, 1992) builds on this by adding the investor's own views: the result is a weighted average of equilibrium returns and views, with weights set by confidence in the views. With a single asset,
+
+$$
+\mu_{\text{BL}} = \frac{\Pi / \tau\sigma^2 + Q / \omega}{1 / \tau\sigma^2 + 1 / \omega}
+$$
+
+$Q$ is the view, $\omega$ the uncertainty (variance) of the view, and $\tau\sigma^2$ the uncertainty of the equilibrium return. This is the same idea as the shrinkage estimator of <Ref lesson="4.10" sec="remedies" />: equilibrium returns are the reference value toward which estimates are shrunk.
+
+<Check id="C5" />
+
+## Comparing with institutions [#institutions]
+
+Many asset managers publish their long-term capital market assumptions every year, for example J.P. Morgan's Long-Term Capital Market Assumptions and Vanguard's economic and market outlook. Most combine building blocks, valuation and the equilibrium approach to give expected returns and volatilities for asset classes over the next 10 to 15 years.
+
+When using these forecasts, note that different institutions' expectations for the same asset class can differ by several percentage points; they are point estimates with large uncertainty behind them (Vanguard and others give a range); and they change every year with market valuations. A sensible approach is to treat them as references, compare them with one's own building-block estimates and find out which block the differences come from; to plan with a range rather than a single number; and to check how sensitive the conclusions are to the assumptions.
+
+## Summary [#summary]
+
+- Historical averages have large errors and include valuation changes that cannot repeat; expected returns need forward-looking methods, while volatilities and correlations can come from historical data.
+- Building blocks: $E[R] \approx y + g + \pi + \Delta v$ (shareholder yield, real earnings growth, inflation, valuation change); a bond's expected return is about its starting yield.
+- CAPE has some power to explain 10-year returns and almost none for 1 year; observations are few, and the "normal" level may change.
+- Reverse optimization $\Pi = \delta\Sigma w_{\text{mkt}}$ gives implied returns consistent with the market; Black–Litterman averages views with equilibrium returns according to confidence.
+- Institutional forecasts differ considerably; planning should use ranges and sensitivity analysis.
+
+## Exercises [#exercises]
+
+<Exercises />

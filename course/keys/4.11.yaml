@@ -1,0 +1,318 @@
+# Answer key for lesson 4.11. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[4.11#cape]] (section), [[concept:beta]], [[check:Q3]], [[fig:2-1]].
+# expected: values are recomputed by course/verify/4.11.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "4.11"
+
+context:
+  - zh-cn: |-
+      学习者学过实际与名义利率和 Fisher 方程（[[1.3]]）、长期增长（[[2.2]]）、久期与免疫（[[3.4]]）、信用风险（[[3.6]]）、Gordon 模型（[[3.9]]）、市盈率与 CAPE（[[3.11]]）、均值–方差优化（[[4.2]]）、市场组合（[[4.3]]）、CAPM（[[4.4]]）、估计误差与收缩估计（[[4.10]]）。百分数用百分点表示，方差用 %² 或小数。
+    en: |-
+      The learner has studied real and nominal rates and the Fisher equation ([[1.3]]), long-run growth ([[2.2]]), duration and immunization ([[3.4]]), credit risk ([[3.6]]), the Gordon model ([[3.9]]), the P/E ratio and CAPE ([[3.11]]), mean–variance optimization ([[4.2]]), the market portfolio ([[4.3]]), the CAPM ([[4.4]]), and estimation error and shrinkage ([[4.10]]). Percentages in percentage points; variance in %² or decimals.
+  - concepts: [capital-market-assumptions, building-block-approach]
+    zh-cn: |-
+      讲义：历史平均误差大，且包含不能重复的估值变化；预期收益用前瞻方法，波动率和相关性可用历史。积木法（Grinold 和 Kroner，2002）$E[R] \approx y + g + \pi + \Delta v$：股东收益率（股息 + 净回购）、每股盈利实际增长（受经济增长约束，增发使每股增长更低）、通胀、估值变化 $\left(\frac{PE_n}{PE_0}\right)^{1/n} - 1$。债券：持有期接近久期时收益约等于起始到期收益率；公司债减预期违约损失。[[fig:2-1]]：滑块 y 0.5–5（步长 0.25，默认 2）、g 0–4（0.25，默认 1.5）、通胀 0–6（0.5，默认 2.5）、现在的市盈率 10–40（1，默认 30）、10 年后的市盈率 10–40（1，默认 22）；读数为名义和实际预期收益及估值变化的贡献。
+    en: |-
+      The lesson: historical averages have large errors and include valuation changes that cannot repeat; expected returns need forward-looking methods, while volatilities and correlations can come from history. Building blocks (Grinold and Kroner, 2002) $E[R] \approx y + g + \pi + \Delta v$: shareholder yield (dividends + net buybacks), real growth of earnings per share (bounded by economic growth, lowered per share by new issues), inflation, and the valuation change $\left(\frac{PE_n}{PE_0}\right)^{1/n} - 1$. Bonds: over a holding period near the duration, the return is about the starting yield to maturity; subtract expected default losses for corporate bonds. [[fig:2-1]]: sliders y 0.5–5 (steps 0.25, default 2), g 0–4 (0.25, default 1.5), inflation 0–6 (0.5, default 2.5), P/E now 10–40 (1, default 30), P/E in 10 years 10–40 (1, default 22); the readout shows nominal and real expected returns and the valuation contribution.
+  - concepts: [cape]
+    zh-cn: |-
+      讲义：CAPE 高时之后 10 年平均收益往往较低（Campbell 和 Shiller，1998）；对 10 年收益有明显解释力，对 1 年几乎没有。注意：重叠的观测，1881 年以来不重叠的 10 年时期只有十几个；“正常”CAPE 可能变化（会计、回购、行业构成），1990 年代以来美国 CAPE 大多高于长期平均；回归平均的时间不确定。
+    en: |-
+      The lesson: when CAPE is high, average returns over the next 10 years tend to be low (Campbell and Shiller, 1998); clear explanatory power for 10-year returns, almost none for 1-year returns. Caveats: overlapping observations, only a dozen or so non-overlapping 10-year periods since 1881; the "normal" CAPE may change (accounting, buybacks, industry mix), and US CAPE has mostly been above its long-run average since the 1990s; how long reversion takes is uncertain.
+  - concepts: [reverse-optimization, black-litterman]
+    zh-cn: |-
+      讲义：反向优化（Sharpe，1974）$\Pi = \delta\Sigma w_{\text{mkt}}$，$\delta$ 可用市场风险溢价除以市场方差估计；资产的隐含收益等于 $\delta$ 乘以它与市场的协方差，与 CAPM 一致；用隐含收益优化得到市场组合。Black–Litterman（1992）：均衡收益与观点按信心加权平均，单一资产时 $\mu_{\text{BL}} = \frac{\Pi/\tau\sigma^2 + Q/\omega}{1/\tau\sigma^2 + 1/\omega}$；与收缩估计同一思想。机构预期（J.P. Morgan 长期资本市场假设、Vanguard 展望）相差几个百分点、不确定性大、每年变化；规划用范围并做敏感性分析。
+    en: |-
+      The lesson: reverse optimization (Sharpe, 1974) $\Pi = \delta\Sigma w_{\text{mkt}}$, where $\delta$ can be estimated as the market risk premium divided by the market variance; an asset's implied return is $\delta$ times its covariance with the market, consistent with the CAPM; optimizing with implied returns gives the market portfolio. Black–Litterman (1992): equilibrium returns and views averaged by confidence; for one asset $\mu_{\text{BL}} = \frac{\Pi/\tau\sigma^2 + Q/\omega}{1/\tau\sigma^2 + 1/\omega}$; the same idea as shrinkage. Institutional forecasts (J.P. Morgan's Long-Term Capital Market Assumptions, Vanguard's outlook) differ by several points, are very uncertain and change every year; planning should use ranges and sensitivity analysis.
+
+common_errors:
+  - questions: [Q1]
+    zh-cn: |-
+      用长期历史平均收益作为未来预期，不考虑历史收益中包含的估值上升，也不考虑现在的估值水平。
+    en: |-
+      Using the long-run historical average return as the forecast, without considering the valuation rise contained in past returns or today's valuation level.
+  - questions: [Q2]
+    zh-cn: |-
+      以为利率上升、债券亏损之后，债券的未来收益会更差；不理解更高的起始收益率意味着更高的未来预期收益。
+    en: |-
+      Thinking that after rates rise and bonds lose money, future bond returns will be worse; not seeing that a higher starting yield means a higher expected future return.
+  - questions: [Q3]
+    zh-cn: |-
+      直接把历史平均收益代入优化器并相信得到的权重；不理解隐含收益的作用是提供一个与市场一致的起点。
+    en: |-
+      Plugging historical averages straight into the optimizer and trusting the weights; not seeing that implied returns provide a starting point consistent with the market.
+  - questions: [Q4]
+    zh-cn: |-
+      把重叠的 10 年收益的月度观测当作上千个独立观测，高估 CAPE 预测的可靠性；以为可以用 CAPE 精确择时。
+    en: |-
+      Treating monthly observations of overlapping 10-year returns as over a thousand independent observations, overstating how reliable CAPE forecasts are; thinking CAPE allows precise market timing.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: why
+    concepts: [capital-market-assumptions]
+    question:
+      zh-cn: |-
+        过去 40 年美国股票的平均收益很高，其中一部分来自市盈率的大幅上升。直接用这 40 年的平均收益作为未来的预期收益，等于假设市盈率还会以同样的速度继续上升。
+      en: |-
+        US stocks earned a high average return over the past 40 years, part of which came from a large rise in P/E ratios. Using this 40-year average directly as the expected future return amounts to assuming that P/E ratios will keep rising at the same pace.
+    correct: true
+    hint:
+      zh-cn: 想一想：历史收益可以拆成哪几块？如果未来市盈率不再上升，哪一块会消失？
+      en: 'Think: what pieces can the historical return be split into? If P/E ratios stop rising, which piece disappears?'
+    answer:
+      zh-cn: |-
+        对。历史收益 = 股东收益率 + 盈利增长 + 估值变化。估值变化这一块只有在市盈率继续上升时才会重复；市盈率不能无限上升，所以用包含它的历史平均作预期会高估未来收益。如果起始估值已经很高，未来估值还可能下降，变成负的贡献。
+      en: |-
+        True. The historical return = shareholder yield + earnings growth + valuation change. The valuation piece repeats only if P/E ratios keep rising; they cannot rise forever, so a historical average that includes it overstates future returns. If the starting valuation is already high, valuations may even fall, making the contribution negative.
+
+  - id: C2
+    kind: check
+    section: building-blocks
+    concepts: [building-block-approach, fisher-equation]
+    widget: { id: building-blocks, set: { y: 2, g: 1.5, i: 2.5, pe0: 30, pe1: 30 } }
+    question:
+      zh-cn: |-
+        在 [[fig:2-1]] 中，把 10 年后的市盈率设为与现在相同（30），再把通胀率从 2.5% 提高到 4.5%，其他不变。按积木法：
+      en: |-
+        In [[fig:2-1]], set the P/E in 10 years equal to today's (30), then raise inflation from 2.5% to 4.5%, keeping everything else the same. By the building-block approach:
+    choices:
+      - zh-cn: 名义预期收益上升约 2 个百分点，实际预期收益不变
+        en: The nominal expected return rises about 2 points and the real expected return is unchanged
+      - zh-cn: 名义和实际预期收益都上升约 2 个百分点
+        en: Both the nominal and real expected returns rise about 2 points
+        why:
+          zh-cn: 实际收益是名义收益减去通胀。通胀上升 2 个百分点、名义收益也上升 2 个百分点时，实际收益怎样变化？
+          en: The real return is the nominal return minus inflation. If inflation and the nominal return both rise 2 points, what happens to the real return?
+      - zh-cn: 名义预期收益不变，实际预期收益下降 2 个百分点
+        en: The nominal expected return is unchanged and the real expected return falls 2 points
+        why:
+          zh-cn: 积木法假设盈利和股息随物价上升。通胀这一块进入名义收益吗？
+          en: The building-block approach assumes earnings and dividends rise with prices. Does the inflation piece enter the nominal return?
+      - zh-cn: 两者都不变
+        en: Neither changes
+        why:
+          zh-cn: 看读数：通胀这一块是加在名义收益上的。
+          en: 'Look at the readout: the inflation piece is added to the nominal return.'
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。名义预期收益从 6% 升到 8%，实际预期收益保持 3.5%。积木法假设盈利随物价同步上升，所以通胀只影响名义收益。现实中这个假设不一定成立：高通胀时期利率上升、估值往往下降，短期内股票的实际收益可能变差（[[2.8]]）。
+      en: |-
+        (A). The nominal expected return rises from 6% to 8% while the real expected return stays at 3.5%. The building-block approach assumes earnings rise in step with prices, so inflation affects only the nominal return. In reality the assumption may not hold: in high-inflation periods rates rise and valuations tend to fall, so real stock returns can suffer in the short run ([[2.8]]).
+
+  - id: C3
+    kind: check
+    section: cape
+    concepts: [cape]
+    question:
+      zh-cn: |-
+        CAPE 对之后 10 年收益有明显的解释力，对之后 1 年收益几乎没有。这最合理的含义是：
+      en: |-
+        CAPE has clear explanatory power for returns over the next 10 years and almost none for the next year. The most reasonable implication is:
+    choices:
+      - zh-cn: 估值对长期预期收益有参考价值，但对短期择时帮助很小
+        en: Valuation is useful for long-run expected returns but helps little with short-run timing
+      - zh-cn: 应该根据 CAPE 每年调整股票仓位
+        en: Stock holdings should be adjusted every year according to CAPE
+        why:
+          zh-cn: CAPE 对之后 1 年的收益几乎没有解释力。每年根据它调整仓位，能获得什么？
+          en: CAPE explains almost none of the next year's return. What would adjusting holdings every year by it achieve?
+      - zh-cn: 10 年的预测非常可靠，因为有上千个月度观测
+        en: The 10-year forecasts are very reliable, because there are over a thousand monthly observations
+        why:
+          zh-cn: 相邻月份的 10 年收益几乎完全重叠。真正独立的 10 年时期有多少个？
+          en: The 10-year returns of neighboring months overlap almost completely. How many truly independent 10-year periods are there?
+      - zh-cn: 市场在短期有效、在长期无效
+        en: The market is efficient in the short run and inefficient in the long run
+        why:
+          zh-cn: 想一想联合假设问题（[[4.7]]）：可以预测的长期收益一定是定价错误吗？还有什么可能？
+          en: 'Think of the joint hypothesis problem ([[4.7]]): must predictable long-run returns be mispricing? What else could they be?'
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。短期收益主要由不可预测的消息和情绪决定，估值的影响要很多年才累积显现。所以 CAPE 可以帮助形成长期的预期收益假设（例如估值变化这一块），但不适合用来判断明年涨跌。可预测性也可能部分反映风险溢价随时间变化，而不一定是定价错误。
+      en: |-
+        (A). Short-run returns are driven mostly by unpredictable news and sentiment, and the effect of valuation builds up only over many years. So CAPE can help form long-run return assumptions (such as the valuation piece), but it is not suited to judging next year's direction. The predictability may also partly reflect risk premia that vary over time, not necessarily mispricing.
+
+  - id: C4
+    kind: check
+    section: equilibrium
+    concepts: [reverse-optimization]
+    question:
+      zh-cn: |-
+        反向优化得到的隐含预期收益是对未来收益的预测，它一定比历史平均收益更准确。
+      en: |-
+        The implied expected returns from reverse optimization are forecasts of future returns and must be more accurate than historical averages.
+    correct: false
+    hint:
+      zh-cn: 想一想：隐含收益是在什么假设下推出来的？如果市场组合并不是最优组合，或者 CAPM 不成立，它还是对未来的准确预测吗？
+      en: 'Think: under what assumptions are implied returns derived? If the market portfolio is not optimal, or the CAPM does not hold, are they still accurate forecasts?'
+    answer:
+      zh-cn: |-
+        错。隐含收益是“假设市场组合是最优组合”时，与当前价格和协方差一致的预期收益。它的价值在于提供一个中性、彼此一致、不会导致极端权重的起点，而不在于预测准确。如果市场存在定价错误，或者 CAPM 的假设不成立，它也会偏离真实的预期收益；而且它依赖于 $\delta$ 和协方差的估计。
+      en: |-
+        False. Implied returns are the expected returns consistent with current prices and covariances "if the market portfolio is optimal". Their value is a neutral, mutually consistent starting point that does not produce extreme weights, not forecasting accuracy. If the market is mispriced, or the CAPM's assumptions fail, they too depart from true expected returns; and they depend on the estimates of $\delta$ and the covariances.
+
+  - id: C5
+    kind: check
+    section: equilibrium
+    concepts: [black-litterman, error-maximization]
+    question:
+      zh-cn: |-
+        为什么 Black–Litterman 模型的结果，通常比直接把投资者自己估计的预期收益代入优化器更稳定？
+      en: |-
+        Why are the results of the Black–Litterman model usually more stable than plugging the investor's own expected-return estimates straight into the optimizer?
+    choices:
+      - zh-cn: 没有观点的资产保持均衡收益，有观点的资产也只按信心偏离均衡收益，权重不会因为少数估计而走向极端
+        en: Assets without views keep their equilibrium returns, and assets with views move away from them only according to confidence, so the weights do not become extreme because of a few estimates
+      - zh-cn: 它不使用协方差矩阵
+        en: It does not use the covariance matrix
+        why:
+          zh-cn: 均衡收益 $\Pi = \delta\Sigma w_{\text{mkt}}$ 中有协方差矩阵吗？
+          en: Does the equilibrium return $\Pi = \delta\Sigma w_{\text{mkt}}$ contain the covariance matrix?
+      - zh-cn: 它总是得到市场组合
+        en: It always gives the market portfolio
+        why:
+          zh-cn: 只有在没有任何观点时才得到市场组合。加入观点后，结果会怎样？
+          en: It gives the market portfolio only when there are no views. What happens when views are added?
+      - zh-cn: 它保证投资者的观点是正确的
+        en: It guarantees that the investor's views are right
+        why:
+          zh-cn: 模型只决定观点的权重，并不判断观点的对错。稳定性来自哪里？
+          en: The model only sets how much weight views get; it does not judge whether they are right. Where does the stability come from?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。Black–Litterman 以均衡收益为参照值，只在有观点的地方、按信心偏离它，这就是一种收缩（[[4.10#remedies]]）。直接代入估计值时，每项资产的估计误差都会被优化器利用；而以均衡收益为起点时，没有把握的地方保持市场的结果，权重变化有节制。
+      en: |-
+        (A). Black–Litterman uses equilibrium returns as the reference value and departs from them only where there are views, according to confidence; this is a form of shrinkage ([[4.10#remedies]]). Plugging in raw estimates lets the optimizer exploit every asset's estimation error; starting from equilibrium returns keeps the market's answer where there is no conviction, so the weights change in a measured way.
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [building-block-approach, capital-market-assumptions, cape]
+    expected: { val: "-3.05", r1: "3.25", r2: "6.3" }
+    question:
+      zh-cn: |-
+        一位理财顾问在为客户做退休规划时说：“美国股票过去 100 年平均每年约 10%，我们按 10% 计算。”假设现在：股息率 1.4%，净回购率 0.6%，每股盈利的实际增长率 1.8%，预期通胀 2.5%，CAPE 为 30。
+        (a) 如果 CAPE 在未来 10 年回到 22，估值变化每年贡献多少？按积木法，名义预期年收益是多少？如果 CAPE 保持在 30 呢？
+        (b) 评价顾问的做法。规划时应该怎样使用这些估计？
+      en: |-
+        A financial adviser doing retirement planning for a client says: "US stocks have returned about 10% a year on average over the past 100 years, so we'll use 10%." Suppose today: dividend yield 1.4%, net buyback yield 0.6%, real growth of earnings per share 1.8%, expected inflation 2.5%, and CAPE at 30.
+        (a) If CAPE returns to 22 over the next 10 years, how much does the valuation change contribute each year? By the building-block approach, what is the nominal expected annual return? What if CAPE stays at 30?
+        (b) Evaluate the adviser's approach. How should these estimates be used in planning?
+    answer:
+      zh-cn: |-
+        (a) 估值变化 $\left(\frac{22}{30}\right)^{1/10} - 1 \approx -3.05\%$ 每年。名义预期收益 $\approx 1.4 + 0.6 + 1.8 + 2.5 - 3.05 \approx 3.25\%$。CAPE 保持 30 时为 $1.4 + 0.6 + 1.8 + 2.5 = 6.3\%$。
+        (b) 10% 的历史平均包含了过去估值的上升和当时更高的股息率，而现在的起点（高 CAPE、低股息率）不同。按积木法，未来 10 年的名义预期收益大约在 3% 到 6% 多之间，取决于估值是否回归，远低于 10%。按 10% 规划会高估退休时的财富，可能导致储蓄不足。更好的做法是：用积木法给出一个范围，参考机构的预期，以较保守的数字为基准，并做敏感性分析（例如收益率低 2 个百分点时还能否达到目标）。同时要记住，即使预期正确，实际的 10 年收益也会有很大波动。
+      en: |-
+        (a) The valuation change is $\left(\frac{22}{30}\right)^{1/10} - 1 \approx -3.05\%$ a year. The nominal expected return is about $1.4 + 0.6 + 1.8 + 2.5 - 3.05 \approx 3.25\%$. With CAPE staying at 30 it is $1.4 + 0.6 + 1.8 + 2.5 = 6.3\%$.
+        (b) The 10% historical average includes past valuation rises and higher dividend yields at the time, and today's starting point (high CAPE, low dividend yield) is different. By building blocks, the nominal expected return over the next 10 years is roughly between 3% and a little over 6%, depending on whether valuations revert, far below 10%. Planning at 10% overstates wealth at retirement and may lead to saving too little. Better: use building blocks to give a range, compare with institutional forecasts, base the plan on a fairly conservative number, and run sensitivity analysis (for example, whether the goal is still reached with returns 2 points lower). And remember that even if the expectation is right, actual 10-year returns will vary a lot.
+    rubric:
+      zh-cn:
+        - "(a) 通过：估值变化约 −3.05% 每年，名义预期收益约 3.25%；CAPE 不变时 6.3%。"
+        - "(b) 通过：指出历史 10% 包含估值上升、现在的起点不同，规划应使用范围并做敏感性分析。只说“历史不代表未来”而不用积木法说明原因，需要订正。"
+      en:
+        - "(a) OK: a valuation change of about −3.05% a year and a nominal expected return of about 3.25%; 6.3% if CAPE is unchanged."
+        - "(b) OK: says the historical 10% includes valuation rises, that today's starting point differs, and that planning should use a range and sensitivity analysis. Saying only \"the past does not predict the future\" without using building blocks to explain why needs revision."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [building-block-approach, modified-duration, immunization]
+    expected: { loss: "-6", years: "6" }
+    question:
+      zh-cn: |-
+        一只债券基金的修正久期约为 6，原来的到期收益率为 3.2%。利率突然上升 1 个百分点，基金的到期收益率变为 4.2%。一位投资者说：“债券刚亏了不少钱，看来未来几年债券的收益会很差，我要卖出。”
+        (a) 利率上升时基金的价格大约变化多少？此后如果利率不再变化，基金未来每年的预期收益约为多少？大约多少年后，基金的累计收益会追上利率不变时的路径？
+        (b) 评价投资者的说法。
+      en: |-
+        A bond fund has a modified duration of about 6 and a yield to maturity of 3.2%. Rates suddenly rise 1 percentage point, and the fund's yield to maturity becomes 4.2%. An investor says: "Bonds just lost a lot of money, so bond returns look bad for the next few years; I'm selling."
+        (a) About how much does the fund's price change when rates rise? If rates stay put afterwards, about what is the fund's expected return each year from then on? After roughly how many years does the fund's cumulative return catch up with the path it would have followed if rates had not changed?
+        (b) Evaluate the investor's statement.
+    answer:
+      zh-cn: |-
+        (a) 价格变化 $\approx -6 \times 1\% = -6\%$。之后预期收益约为新的到期收益率 4.2%，每年比原来多约 1 个百分点。损失约 6 个百分点，每年多 1 个百分点，大约 6 年追上，约等于久期，这正是免疫的原理（[[3.4#immunization]]）。
+        (b) 说法正好反了。亏损已经发生，是过去的事；对未来来说，更高的起始收益率意味着更高的预期收益。按积木法，债券的预期收益约等于现在的到期收益率，4.2% 比原来的 3.2% 更高。在亏损之后卖出，锁定了价格下跌，却放弃了更高的未来收益；如果投资者的期限比久期长，利率上升对他反而有利。
+      en: |-
+        (a) The price change is about $-6 \times 1\% = -6\%$. Afterwards the expected return is about the new yield to maturity, 4.2%, about 1 point a year more than before. A loss of about 6 points made up at 1 extra point a year takes about 6 years, roughly the duration; this is the principle of immunization ([[3.4#immunization]]).
+        (b) The statement is backwards. The loss has happened and is in the past; for the future, a higher starting yield means a higher expected return. By building blocks, a bond's expected return is about its current yield to maturity, and 4.2% is higher than the earlier 3.2%. Selling after the loss locks in the price fall and gives up the higher future return; for an investor whose horizon is longer than the duration, the rise in rates is actually good.
+    rubric:
+      zh-cn:
+        - "(a) 通过：价格约 −6%，之后预期收益约 4.2%，约 6 年（约等于久期）追上。"
+        - "(b) 通过：指出更高的起始收益率意味着更高的未来预期收益，亏损后卖出放弃了更高的收益。同意投资者，需要订正。"
+      en:
+        - "(a) OK: a price change of about −6%, an expected return of about 4.2% afterwards, and catching up in about 6 years (about the duration)."
+        - "(b) OK: says a higher starting yield means a higher expected future return and that selling after the loss gives it up. Agreeing with the investor needs revision."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [reverse-optimization, black-litterman, error-maximization]
+    expected: { ps: "4.84", pb: "0.78" }
+    question:
+      zh-cn: |-
+        市场只有股票和债券两类资产，市值权重分别为 60% 和 40%。股票的波动率为 16%，债券为 6%，相关系数为 0.2，风险厌恶系数 $\delta = 3$。
+        (a) 用 $\Pi = \delta\Sigma w_{\text{mkt}}$ 求两类资产的隐含预期超额收益（用小数计算方差和协方差）。
+        (b) 另一位分析师直接用历史平均超额收益（股票 7%、债券 3%）做均值–方差优化（同样的协方差和 $\delta$），得到股票 73%、债券 239%（需要借款）。为什么结果这么极端？Black–Litterman 怎样处理分析师认为债券会有较高收益的观点？
+      en: |-
+        The market has only two asset classes, stocks and bonds, with market weights of 60% and 40%. Stocks have a volatility of 16% and bonds 6%, with a correlation of 0.2, and the risk aversion is $\delta = 3$.
+        (a) Use $\Pi = \delta\Sigma w_{\text{mkt}}$ to find the two asset classes' implied expected excess returns (use decimals for the variances and covariance).
+        (b) Another analyst plugs historical average excess returns (7% for stocks, 3% for bonds) straight into mean–variance optimization (with the same covariances and $\delta$) and gets 73% in stocks and 239% in bonds (requiring borrowing). Why is the result so extreme? How does Black–Litterman handle the analyst's view that bonds will earn a fairly high return?
+    answer:
+      zh-cn: |-
+        (a) 协方差 $= 0.2 \times 0.16 \times 0.06 = 0.00192$。股票：$3 \times (0.6 \times 0.0256 + 0.4 \times 0.00192) = 3 \times 0.016128 \approx 4.84\%$。债券：$3 \times (0.6 \times 0.00192 + 0.4 \times 0.0036) = 3 \times 0.002592 \approx 0.78\%$。
+        (b) 按历史数据，债券每单位风险的超额收益（$\frac{3}{6} = 0.5$）高于股票（$\frac{7}{16} \approx 0.44$），而且与股票相关性低，优化器就大量借款买债券。可是 3% 的历史超额收益很可能包含了 1980 年以来利率持续下降带来的价格上涨，不会重复，而且这样的估计误差很大（[[4.10]]）；优化器把这些误差放大成了极端权重。Black–Litterman 以隐含收益（债券约 0.78%）为起点，把“债券超额收益会更高”作为一个观点，按信心的大小把债券的预期收益从 0.78% 往 3% 方向调整；信心不大时只调整一点，权重从 60/40 适度偏向债券，而不会出现 239% 的债券。
+      en: |-
+        (a) The covariance is $0.2 \times 0.16 \times 0.06 = 0.00192$. Stocks: $3 \times (0.6 \times 0.0256 + 0.4 \times 0.00192) = 3 \times 0.016128 \approx 4.84\%$. Bonds: $3 \times (0.6 \times 0.00192 + 0.4 \times 0.0036) = 3 \times 0.002592 \approx 0.78\%$.
+        (b) On the historical numbers, bonds earn more excess return per unit of risk ($\frac{3}{6} = 0.5$) than stocks ($\frac{7}{16} \approx 0.44$) and have a low correlation with stocks, so the optimizer borrows heavily to buy bonds. But the 3% historical excess return probably includes price gains from the fall in rates since 1980, which will not repeat, and such estimates have large errors ([[4.10]]); the optimizer magnifies these errors into extreme weights. Black–Litterman starts from the implied returns (about 0.78% for bonds), treats "bonds will earn a higher excess return" as a view, and moves bonds' expected return from 0.78% toward 3% according to confidence; with modest confidence it moves only a little, and the weights tilt moderately from 60/40 toward bonds instead of reaching 239% in bonds.
+    rubric:
+      zh-cn:
+        - "(a) 通过：股票约 4.84%，债券约 0.78%。"
+        - "(b) 通过：解释极端权重来自债券按历史数据每单位风险收益更高、相关性低，以及历史估计包含不可重复的部分和误差；说明 Black–Litterman 以隐含收益为起点、按信心向观点调整。只说“历史数据不可靠”而不说明 Black–Litterman 的做法，需要订正。"
+      en:
+        - "(a) OK: about 4.84% for stocks and about 0.78% for bonds."
+        - "(b) OK: explains that the extreme weights come from bonds' higher historical return per unit of risk and low correlation, plus non-repeatable parts and errors in the historical estimates; and that Black–Litterman starts from implied returns and moves toward the view according to confidence. Saying only \"historical data are unreliable\" without explaining what Black–Litterman does needs revision."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [cape, standard-error, out-of-sample]
+    expected: { n: "14" }
+    question:
+      zh-cn: |-
+        一份研究报告说：“我们用 1881 年到 2024 年的月度数据，回归 CAPE 与之后 10 年的年化收益，约 1,600 个观测值，R² 为 0.4。观测值这么多，结论非常可靠。根据这个关系，CAPE 超过 25 时应该减少股票，低于 15 时增加股票。”
+        (a) 这段时期大约有多少个不重叠的 10 年时期？为什么重叠的观测会使结论看起来比实际更可靠？
+        (b) 美国的 CAPE 在 1990 年代以来大多高于 25。评价“CAPE 超过 25 就减少股票”的规则，并说明 CAPE 适合怎样使用。
+      en: |-
+        A research report says: "Using monthly data from 1881 to 2024, we regress the annualized return over the next 10 years on CAPE: about 1,600 observations, with an R² of 0.4. With so many observations, the conclusion is very reliable. By this relation, investors should cut stocks when CAPE is above 25 and add stocks when it is below 15."
+        (a) About how many non-overlapping 10-year periods are there in this span? Why do overlapping observations make the conclusion look more reliable than it is?
+        (b) US CAPE has mostly been above 25 since the 1990s. Evaluate the rule "cut stocks when CAPE is above 25", and explain how CAPE is better used.
+    answer:
+      zh-cn: |-
+        (a) 1881 年到 2024 年约 143 年，不重叠的 10 年时期约 14 个。相邻月份的 10 年收益有 119 个月相同，几乎是同一个观测；把 1,600 个观测当作独立的，会严重低估标准误、高估显著性。真正的信息量接近十几个观测，R² 0.4 在这么少的独立观测下误差很大，而且可能受少数几个时期（如 1929 年、2000 年）影响。
+        (b) 按这个规则，1990 年代以来大部分时间都会减少股票，错过了股市的大幅上涨，说明估值的“正常”水平可能已经变了（会计准则、回购、行业构成），或者回归需要的时间比想象的长得多，而且这种规则还要交易成本和税。CAPE 更适合用来形成长期预期收益的假设（估值变化这一块，取一个范围），影响储蓄和规划的数字，而不是用作择时的开关；如果要根据估值调整配置，也应是小幅、渐进的。
+      en: |-
+        (a) 1881 to 2024 is about 143 years, giving about 14 non-overlapping 10-year periods. The 10-year returns of neighboring months share 119 of their 120 months and are nearly the same observation; treating 1,600 observations as independent badly understates standard errors and overstates significance. The real amount of information is close to a dozen or so observations, so an R² of 0.4 is very uncertain and may be driven by a few periods (such as 1929 and 2000).
+        (b) Under this rule, an investor would have held fewer stocks for most of the time since the 1990s and missed large gains, which suggests that the "normal" level of valuations may have changed (accounting rules, buybacks, industry mix) or that reversion takes much longer than expected; the rule also incurs trading costs and taxes. CAPE is better used to form long-run expected-return assumptions (the valuation piece, as a range) that feed savings and planning numbers, not as an on–off switch for timing; any valuation-based change in allocation should be small and gradual.
+    rubric:
+      zh-cn:
+        - "(a) 通过：约 14 个不重叠的时期，并说明重叠观测几乎相同，会低估标准误。只说“观测值多”或认为 1,600 个独立观测，需要订正。"
+        - "(b) 通过：指出规则在 1990 年代以来会长期低配股票，正常水平可能变化或回归很慢，CAPE 更适合用于长期假设而非择时。同意报告的规则，需要订正。"
+      en:
+        - "(a) OK: about 14 non-overlapping periods, with the point that overlapping observations are nearly identical and make standard errors too small. Treating them as 1,600 independent observations needs revision."
+        - "(b) OK: says the rule would have kept stocks underweight for long stretches since the 1990s, that the normal level may have changed or reversion is slow, and that CAPE is better used for long-run assumptions than for timing. Agreeing with the report's rule needs revision."

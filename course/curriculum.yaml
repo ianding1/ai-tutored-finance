@@ -427,7 +427,15 @@ stages:
         published: true
         introduces: [error-maximization, out-of-sample, shrinkage-estimator, resampling]
         uses: [standard-error, covariance, diversification, mean-variance-optimization, minimum-variance-portfolio, short-selling, sharpe-ratio, single-index-model, multifactor-model, fat-tails]
-      - { id: "4.11", slug: "4-11-capital-market-assumptions", title: { zh-cn: "资本市场假设", en: "Capital Market Assumptions" } }
+      - id: "4.11"
+        slug: "4-11-capital-market-assumptions"
+        title: { zh-cn: "资本市场假设", en: "Capital Market Assumptions" }
+        summary:
+          zh-cn: "为什么不能直接用历史平均收益；积木法估计股票和债券的预期收益；估值与未来收益；反向优化与 Black–Litterman；与机构的长期预期对照。"
+          en: "Why historical average returns cannot be used directly; building-block estimates of stock and bond returns; valuation and future returns; reverse optimization and Black–Litterman; comparing with institutions' long-run forecasts."
+        published: true
+        introduces: [capital-market-assumptions, building-block-approach, reverse-optimization, black-litterman]
+        uses: [fisher-equation, cape, modified-duration, immunization, market-portfolio, capm, mean-variance-optimization, error-maximization, shrinkage-estimator, standard-error, out-of-sample]
       - { id: "4.12", slug: "4-12-lifecycle-allocation", title: { zh-cn: "生命周期资产配置理论", en: "Life-Cycle Asset Allocation Theory" } }
       - { id: "4.13", slug: "4-13-simulation-backtesting", title: { zh-cn: "模拟与回测方法", en: "Simulation and Backtesting Methods" } }
       - { id: "T2", slug: "t2-quiz", exam: true, title: { zh-cn: "综合测验二：金融市场、证券估值与投资理论", en: "Comprehensive Quiz 2: Financial Markets, Valuation and Investment Theory" } }

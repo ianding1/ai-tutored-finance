@@ -1,0 +1,101 @@
+---
+// Figure 2-1 of lesson 4.11: the building-block estimate of the expected annual stock return over 10 years:
+// shareholder yield + real earnings growth + inflation + valuation change, where the valuation change is
+// (P/E in 10 years / P/E now)^(1/10) - 1. Positive parts stack right of 0, negative parts left.
+// Parameters are registered in course/widgets.yaml (id: building-blocks). Same model as course/verify/4.11.py.
+import { toLang } from '../../i18n/ui';
+
+const lang = toLang(Astro.locals.starlightRoute.lang);
+const L = {
+	'zh-cn': {
+		y: '股东收益率（股息 + 净回购，%）',
+		g: '每股盈利的实际增长率（%）',
+		i: '通胀率（%）',
+		pe0: '现在的市盈率',
+		pe1: '10 年后的市盈率',
+		x: '每年的贡献（百分点）',
+		yl: '股东收益率',
+		gl: '实际盈利增长',
+		il: '通胀',
+		vl: '估值变化',
+		row: '预期收益',
+		aria: '积木法估计股票的预期收益',
+		readout: '名义预期年收益约 {n}%，实际约 {r}%；其中估值变化每年贡献 {v} 个百分点。',
+	},
+	en: {
+		y: 'Shareholder yield (dividends + net buybacks, %)',
+		g: 'Real growth of earnings per share (%)',
+		i: 'Inflation (%)',
+		pe0: 'P/E now',
+		pe1: 'P/E in 10 years',
+		x: 'Contribution per year (percentage points)',
+		yl: 'Shareholder yield',
+		gl: 'Real earnings growth',
+		il: 'Inflation',
+		vl: 'Valuation change',
+		row: 'Expected return',
+		aria: 'Building-block estimate of the expected stock return',
+		readout: 'Nominal expected return about {n}% a year, real about {r}%; the valuation change contributes {v} percentage points a year.',
+	},
+}[lang];
+
+const xr = [-8, 16];
+const xTicks = [-8, -4, 0, 4, 8, 12, 16];
+const layouts = [
+	{ cls: 'viz-wide', W: 640, H: 140, pad: { l: 20, r: 20, t: 16, b: 48 } },
+	{ cls: 'viz-narrow', W: 360, H: 140, pad: { l: 12, r: 12, t: 16, b: 48 } },
+].map((g) => ({
+	...g,
+	X: (v: number) => g.pad.l + ((v - xr[0]) / (xr[1] - xr[0])) * (g.W - g.pad.l - g.pad.r),
+	row: g.pad.t + 16,
+}));
+---
+
+<div class="lfwai-widget" data-widget="building-blocks" data-readout={L.readout}>
+	<div class="lfwai-sliders">
+		<label>
+			<span>{L.y} = <output data-out="y">2</output></span>
+			<input type="range" min="0.5" max="5" step="0.25" value="2" data-param="y" />
+		</label>
+		<label>
+			<span>{L.g} = <output data-out="g">1.5</output></span>
+			<input type="range" min="0" max="4" step="0.25" value="1.5" data-param="g" />
+		</label>
+		<label>
+			<span>{L.i} = <output data-out="i">2.5</output></span>
+			<input type="range" min="0" max="6" step="0.5" value="2.5" data-param="i" />
+		</label>
+		<label>
+			<span>{L.pe0} = <output data-out="pe0">30</output></span>
+			<input type="range" min="10" max="40" step="1" value="30" data-param="pe0" />
+		</label>
+		<label>
+			<span>{L.pe1} = <output data-out="pe1">22</output></span>
+			<input type="range" min="10" max="40" step="1" value="22" data-param="pe1" />
+		</label>
+	</div>
+	{layouts.map(({ cls, W, H, pad, X, row }) => (
+		<svg class={`lfwai-viz ${cls}`} viewBox={`0 0 ${W} ${H}`} role="img" aria-label={L.aria} data-geom={JSON.stringify({ W, H, pad, xr, row })}>
+			{xTicks.map((v) => (
+				<g>
+					<line class={v === 0 ? 'viz-axis' : 'viz-grid'} x1={X(v)} x2={X(v)} y1={pad.t} y2={H - pad.b} />
+					<text class="viz-tick" x={X(v)} y={H - pad.b + 18} text-anchor="middle">{v}</text>
+				</g>
+			))}
+			<text class="viz-tick" x={(pad.l + W - pad.r) / 2} y={H - 8} text-anchor="middle">{L.x}</text>
+			<g data-el="bars"></g>
+		</svg>
+	))}
+	<ul class="lfwai-legend">
+		<li><span class="sw sw-fac-mkt"></span>{L.yl}</li>
+		<li><span class="sw sw-fac-smb"></span>{L.gl}</li>
+		<li><span class="sw sw-fac-hml"></span>{L.il}</li>
+		<li><span class="sw sw-fac-alpha"></span>{L.vl}</li>
+	</ul>
+	<p class="lfwai-readout" data-el="readout" aria-live="polite"></p>
+</div>
+
+<script>
+	import { initBuildingBlocks } from '../../scripts/widgets/building-blocks';
+	initBuildingBlocks();
+</script>
