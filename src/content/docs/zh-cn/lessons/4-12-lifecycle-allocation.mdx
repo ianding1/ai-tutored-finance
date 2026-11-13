@@ -1,0 +1,75 @@
+---
+title: 4.12 生命周期资产配置
+description: Merton 比例与期限无关的结论；时间分散化的误区；人力资本与生命周期的股票比例；目标日期基金与下滑路径；退休前后的风险。
+lesson: "4.12"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import GlidePath from '../../../../components/widgets/GlidePath.astro';
+
+## Merton 比例 [#merton]
+
+<Ref lesson="4.3" sec="allocation" /> 推出，均值–方差效用的投资者把 $y^* = \frac{\mu_P - r_f}{\gamma\sigma_P^2}$ 的财富放在风险组合中。Merton（1969）和 Samuelson（1969）在更一般的多期模型中得到了同样的结论：如果投资者有 CRRA 效用（<Ref lesson="1.4" sec="crra" />），只有金融财富，而且投资机会（预期收益、波动率、利率）不随时间变化，最优的风险资产比例就是这个常数，叫 <Def id="merton-share">Merton 比例</Def>（Merton share）：
+
+$$
+w^* = \frac{\mu - r_f}{\gamma\,\sigma^2}
+$$
+
+例如风险溢价 5%、波动率 18%、相对风险厌恶系数 $\gamma = 4$ 时，$w^* = \frac{0.05}{4 \times 0.0324} \approx 39\%$。
+
+<Check id="C1" />
+
+## 时间分散化的误区 [#time-diversification]
+
+常听到的一种说法是：持有股票的时间越长，风险越小，因为好年份和坏年份会相互抵消。以对数收益计算，$T$ 年的平均年超额收益的标准差为 $\frac{\sigma}{\sqrt{T}}$，随 $T$ 减小；$T$ 年累计超额收益的标准差为 $\sigma\sqrt{T}$，随 $T$ 增加。决定最终财富的是哪一个（Samuelson，1963；<Ref check="Q1" />）？
+
+<Check id="C2" />
+
+随期限下降的是跑输的概率，随期限增加的是一旦跑输时损失的大小，所以“期限长”本身不是多持有股票的理由。真正让年龄影响配置的，是下面要讲的人力资本，以及收益是否存在均值回归这样的投资机会变化。
+
+## 人力资本 [#human-capital]
+
+一个人的财富不只是金融资产，还有<Def id="human-capital">人力资本</Def>（human capital）：未来劳动收入的现值。对一个 25 岁的人，人力资本通常远大于金融资产；到退休时，人力资本降为 0（Social Security 等养老金是类似的未来收入，<Ref lesson="6.9" />）。
+
+如果劳动收入很稳定、与股市关系不大，人力资本就像一大笔债券。按总财富（金融资产 $F$ 加人力资本 $H$）来配置时，要使总财富中股票的比例为 $w^*$，金融资产中的股票比例应为
+
+$$
+s = \frac{w^*(F + H) - \theta H}{F}
+$$
+
+$\theta$ 是人力资本中类似股票的部分（收入与股市同涨同跌的程度），稳定收入时 $\theta = 0$。年轻时 $H$ 远大于 $F$，金融资产应该大部分甚至全部是股票；随着年龄增长，$H$ 减少、$F$ 增加，股票比例逐渐下降（Bodie、Merton 和 Samuelson，1992）。
+
+<Figure id="3-1" title="计入人力资本后，金融资产中的股票比例。假设实际年薪为 1，25 岁到 65 岁工作；人力资本按 2% 的实际利率折现；每年储蓄年薪的 15%，实际收益 4%。比例限制在 0 到 100% 之间。" observe="先看 θ = 0 时股票比例在哪个年龄开始下降；再提高 θ，看曲线怎样变化。">
+	<GlidePath />
+</Figure>
+
+<Check id="C3" />
+
+<Check id="C4" />
+
+收入与股市相关的人，例如收入取决于市场行情的金融从业者、拿大量公司股票的员工，人力资本本身就像股票，金融资产应该少持有股票，尤其要避免再集中持有本公司的股票。
+
+## 目标日期基金 [#target-date]
+
+<Def id="target-date-fund">目标日期基金</Def>（target-date fund）按预定的退休年份自动调整配置：离退休越远，股票比例越高，随后逐年降低，这条随年龄变化的比例曲线叫<Def id="glide-path">下滑路径</Def>（glide path）。常见的下滑路径在年轻时约有 90% 的股票，退休时降到 40% 到 50% 左右。它们大体符合人力资本的思路，是美国很多 401(k) 计划的默认选项（<Ref lesson="6.5" />）。
+
+下滑路径在接近退休时降低风险还有一个理由：退休前后的几年，组合规模最大，又开始提取，此时的大跌对能否维持退休生活影响最大，这叫收益顺序风险（<Ref check="Q3" />）。
+
+目标日期基金是对“平均的人”的设计。收入的稳定性、其他财富（房产、养老金）、风险厌恶和健康状况不同的人，适合的配置可能相差很大。
+
+<Check id="C5" />
+
+## 小结 [#summary]
+
+- Merton 比例 $w^* = \frac{\mu - r_f}{\gamma\sigma^2}$：在 CRRA 效用、只有金融财富、投资机会不变的条件下，不随财富和期限变化。
+- 时间分散化的误区：长期跑输的概率下降，但累计收益的波动随期限增加；期限本身不是多持有股票的理由。
+- 人力资本是未来劳动收入的现值；稳定的收入像债券，使年轻人的金融资产应多持有股票；收入与股市相关时则相反。
+- 目标日期基金的下滑路径随年龄降低股票比例；接近退休时还要考虑收益顺序风险；个人情况不同，配置应不同。
+
+## 练习题 [#exercises]
+
+<Exercises />

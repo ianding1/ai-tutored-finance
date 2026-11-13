@@ -1,0 +1,87 @@
+---
+// Figure 3-1 of lesson 4.12: the stock share of financial wealth over the working life, counting human
+// capital. Salary is 1 a year (real) from age 25 to 65; human capital H(a) is its present value at a 2% real
+// rate; financial wealth F(a) accumulates savings of 15% of salary at a 4% real return. The target stock
+// exposure is w*(F + H); a share theta of human capital counts as stocks. Financial stock share
+// = (w*(F + H) - theta H) / F, kept between 0 and 100%.
+// Parameters are registered in course/widgets.yaml (id: glide-path). Same model as course/verify/4.12.py.
+import { toLang } from '../../i18n/ui';
+
+const lang = toLang(Astro.locals.starlightRoute.lang);
+const L = {
+	'zh-cn': {
+		w: '总财富中股票的目标比例 w*（%）',
+		theta: '人力资本中类似股票的比例 θ',
+		x: '年龄',
+		y: '金融资产中的股票比例（%）',
+		line: '金融资产中的股票比例',
+		ref: '目标比例 w*',
+		aria: '计入人力资本后的股票比例',
+		readout: '金融资产中的股票比例：35 岁 {a35}%，50 岁 {a50}%，65 岁 {a65}%。',
+	},
+	en: {
+		w: 'Target stock share of total wealth w* (%)',
+		theta: 'Stock-like share of human capital θ',
+		x: 'Age',
+		y: 'Stock share of financial wealth (%)',
+		line: 'Stock share of financial wealth',
+		ref: 'Target share w*',
+		aria: 'Stock share once human capital is counted',
+		readout: 'Stock share of financial wealth: {a35}% at 35, {a50}% at 50, {a65}% at 65.',
+	},
+}[lang];
+
+const xr = [25, 65];
+const yr = [0, 100];
+const xTicks = [25, 35, 45, 55, 65];
+const yTicks = [0, 20, 40, 60, 80, 100];
+const layouts = [
+	{ cls: 'viz-wide', W: 640, H: 280, pad: { l: 48, r: 20, t: 14, b: 48 } },
+	{ cls: 'viz-narrow', W: 360, H: 280, pad: { l: 44, r: 12, t: 14, b: 48 } },
+].map((g) => ({
+	...g,
+	X: (v: number) => g.pad.l + ((v - xr[0]) / (xr[1] - xr[0])) * (g.W - g.pad.l - g.pad.r),
+	Y: (v: number) => g.pad.t + ((yr[1] - v) / (yr[1] - yr[0])) * (g.H - g.pad.t - g.pad.b),
+}));
+---
+
+<div class="lfwai-widget" data-widget="glide-path" data-readout={L.readout}>
+	<div class="lfwai-sliders">
+		<label>
+			<span>{L.w} = <output data-out="w">40</output></span>
+			<input type="range" min="20" max="80" step="5" value="40" data-param="w" />
+		</label>
+		<label>
+			<span>{L.theta} = <output data-out="theta">0.0</output></span>
+			<input type="range" min="0" max="0.6" step="0.1" value="0" data-param="theta" />
+		</label>
+	</div>
+	{layouts.map(({ cls, W, H, pad, X, Y }) => (
+		<svg class={`lfwai-viz ${cls}`} viewBox={`0 0 ${W} ${H}`} role="img" aria-label={L.aria} data-geom={JSON.stringify({ W, H, pad, xr, yr })}>
+			{yTicks.map((v) => (
+				<g>
+					<line class={v === 0 ? 'viz-axis' : 'viz-grid'} x1={pad.l} x2={W - pad.r} y1={Y(v)} y2={Y(v)} />
+					<text class="viz-tick" x={pad.l - 8} y={Y(v) + 4} text-anchor="end">{v}</text>
+				</g>
+			))}
+			{xTicks.map((v) => (
+				<text class="viz-tick" x={X(v)} y={H - pad.b + 18} text-anchor="middle">{v}</text>
+			))}
+			<line class="viz-axis" x1={pad.l} x2={pad.l} y1={pad.t} y2={H - pad.b} />
+			<text class="viz-tick" x={(pad.l + W - pad.r) / 2} y={H - 8} text-anchor="middle">{L.x}</text>
+			<text class="viz-tick" transform={`translate(12 ${(pad.t + H - pad.b) / 2}) rotate(-90)`} text-anchor="middle">{L.y}</text>
+			<line class="viz-ols" data-el="ref" x1={X(25)} x2={X(65)} y1="0" y2="0" />
+			<path class="viz-fit" fill="none" data-el="path" d="" />
+		</svg>
+	))}
+	<ul class="lfwai-legend">
+		<li><span class="sw sw-fit"></span>{L.line}</li>
+		<li><span class="sw sw-ols"></span>{L.ref}</li>
+	</ul>
+	<p class="lfwai-readout" data-el="readout" aria-live="polite"></p>
+</div>
+
+<script>
+	import { initGlidePath } from '../../scripts/widgets/glide-path';
+	initGlidePath();
+</script>

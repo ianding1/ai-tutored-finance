@@ -1,0 +1,75 @@
+---
+title: 4.12 Life-Cycle Asset Allocation
+description: The Merton share and why it does not depend on the horizon; the time-diversification fallacy; human capital and the stock share over the life cycle; target-date funds and glide paths; risks around retirement.
+lesson: "4.12"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import GlidePath from '../../../../components/widgets/GlidePath.astro';
+
+## The Merton share [#merton]
+
+<Ref lesson="4.3" sec="allocation" /> showed that an investor with mean–variance utility puts a share $y^* = \frac{\mu_P - r_f}{\gamma\sigma_P^2}$ of wealth in the risky portfolio. Merton (1969) and Samuelson (1969) reached the same conclusion in more general multiperiod models: if the investor has CRRA utility (<Ref lesson="1.4" sec="crra" />), has only financial wealth, and faces investment opportunities (expected returns, volatility, interest rates) that do not change over time, the optimal risky share is this constant, called the <Def id="merton-share">Merton share</Def>:
+
+$$
+w^* = \frac{\mu - r_f}{\gamma\,\sigma^2}
+$$
+
+For example, with a risk premium of 5%, a volatility of 18% and relative risk aversion $\gamma = 4$, $w^* = \frac{0.05}{4 \times 0.0324} \approx 39\%$.
+
+<Check id="C1" />
+
+## The time-diversification fallacy [#time-diversification]
+
+A common claim is that the longer stocks are held, the less risky they are, because good and bad years cancel out. With log returns, the standard deviation of the average annual excess return over $T$ years is $\frac{\sigma}{\sqrt{T}}$, which falls with $T$; the standard deviation of the cumulative excess return over $T$ years is $\sigma\sqrt{T}$, which rises with $T$. Which one determines final wealth (Samuelson, 1963; <Ref check="Q1" />)?
+
+<Check id="C2" />
+
+What falls with the horizon is the chance of lagging; what rises is the size of the loss when lagging happens, so "a long horizon" alone is no reason to hold more stocks. What really makes age matter for allocation is human capital, covered next, and changes in investment opportunities such as mean reversion in returns.
+
+## Human capital [#human-capital]
+
+A person's wealth is not only financial assets but also <Def id="human-capital">human capital</Def>: the present value of future labor income. For a 25-year-old, human capital is usually far larger than financial assets; at retirement it falls to 0 (pensions such as Social Security are similar future income, <Ref lesson="6.9" />).
+
+If labor income is stable and largely unrelated to the stock market, human capital is like a large holding of bonds. Allocating total wealth (financial assets $F$ plus human capital $H$) so that stocks are a share $w^*$ of it, the stock share of financial assets should be
+
+$$
+s = \frac{w^*(F + H) - \theta H}{F}
+$$
+
+$\theta$ is the stock-like part of human capital (how much the income rises and falls with the stock market), with $\theta = 0$ for stable income. When young, $H$ is far larger than $F$, so financial assets should be mostly or entirely stocks; with age, $H$ shrinks and $F$ grows, and the stock share gradually falls (Bodie, Merton and Samuelson, 1992).
+
+<Figure id="3-1" title="The stock share of financial assets once human capital is counted. Assumptions: a real salary of 1 a year, working from age 25 to 65; human capital discounted at a 2% real rate; saving 15% of salary each year at a 4% real return. The share is kept between 0 and 100%." observe="First see at what age the stock share starts to fall when θ = 0; then raise θ and watch how the curve changes.">
+	<GlidePath />
+</Figure>
+
+<Check id="C3" />
+
+<Check id="C4" />
+
+People whose income is tied to the stock market, such as finance workers whose pay depends on market conditions or employees paid largely in company stock, have human capital that is itself like stocks; their financial assets should hold fewer stocks, and above all they should avoid concentrating further in their employer's stock.
+
+## Target-date funds [#target-date]
+
+A <Def id="target-date-fund">target-date fund</Def> adjusts its allocation automatically toward a planned retirement year: the further away retirement is, the higher the stock share, which then falls year by year; this curve of the share against age is called a <Def id="glide-path">glide path</Def>. Common glide paths hold about 90% stocks when young and come down to around 40% to 50% at retirement. They broadly follow the human-capital idea and are the default option in many US 401(k) plans (<Ref lesson="6.5" />).
+
+There is another reason for a glide path to lower risk near retirement: in the years around retirement the portfolio is largest and withdrawals begin, so a crash then has the greatest effect on whether retirement can be sustained; this is called sequence-of-returns risk (<Ref check="Q3" />).
+
+Target-date funds are designed for the "average person". People who differ in income stability, other wealth (a home, a pension), risk aversion and health may need quite different allocations.
+
+<Check id="C5" />
+
+## Summary [#summary]
+
+- The Merton share $w^* = \frac{\mu - r_f}{\gamma\sigma^2}$: with CRRA utility, only financial wealth and constant investment opportunities, it does not change with wealth or horizon.
+- The time-diversification fallacy: the chance of lagging falls over the long run, but the variability of cumulative returns grows with the horizon; the horizon alone is no reason to hold more stocks.
+- Human capital is the present value of future labor income; stable income is like bonds, so young people's financial assets should hold more stocks; income tied to the stock market works the other way.
+- A target-date fund's glide path lowers the stock share with age; near retirement, sequence-of-returns risk also matters; different circumstances call for different allocations.
+
+## Exercises [#exercises]
+
+<Exercises />

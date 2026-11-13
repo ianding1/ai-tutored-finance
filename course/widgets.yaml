@@ -376,3 +376,9 @@ building-blocks:
     i: { min: 0, max: 6, step: 0.5, default: 2.5 }
     pe0: { min: 10, max: 40, step: 1, default: 30 }
     pe1: { min: 10, max: 40, step: 1, default: 22 }
+
+glide-path:
+  component: src/components/widgets/GlidePath.astro
+  params:
+    w: { min: 20, max: 80, step: 5, default: 40 }
+    theta: { min: 0, max: 0.6, step: 0.1, default: 0 }

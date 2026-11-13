@@ -1,0 +1,324 @@
+# Answer key for lesson 4.12. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[4.12#merton]] (section), [[concept:beta]], [[check:Q3]], [[fig:3-1]].
+# expected: values are recomputed by course/verify/4.12.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "4.12"
+
+context:
+  - zh-cn: |-
+      学习者学过现值和年金（[[0.1]]）、正态分布与对数收益（[[0.4]]、[[4.1]]）、CRRA 效用和相对风险厌恶（[[1.4]]）、最优风险资产比例 $y^*$（[[4.3]]）、多因子模型（[[4.6]]）、估计误差（[[4.10]]）、CAPE 与重叠观测（[[4.11]]）。讲义还没有讲账户税务（[[6.5]]）和退休规划（[[6.9]]）。百分数用百分点表示。
+    en: |-
+      The learner has studied present values and annuities ([[0.1]]), the normal distribution and log returns ([[0.4]], [[4.1]]), CRRA utility and relative risk aversion ([[1.4]]), the optimal risky share $y^*$ ([[4.3]]), multifactor models ([[4.6]]), estimation error ([[4.10]]), and CAPE and overlapping observations ([[4.11]]). The lesson has not yet covered account taxation ([[6.5]]) or retirement planning ([[6.9]]). Percentages in percentage points.
+  - concepts: [merton-share]
+    zh-cn: |-
+      讲义：Merton（1969）、Samuelson（1969）：CRRA 效用、只有金融财富、投资机会不变时，$w^* = \frac{\mu - r_f}{\gamma\sigma^2}$，与 [[4.3]] 的 $y^*$ 相同；例：风险溢价 5%、波动率 18%、$\gamma = 4$ 时约 39%。讲义没有直接说明它与财富和期限的关系（留给随堂题）。时间分散化：$T$ 年平均年超额收益的标准差 $\frac{\sigma}{\sqrt{T}}$，累计的标准差 $\sigma\sqrt{T}$（Samuelson，1963）；跑输的概率下降，一旦跑输损失更大；期限本身不是多持有股票的理由。
+    en: |-
+      The lesson: Merton (1969), Samuelson (1969): with CRRA utility, only financial wealth and constant investment opportunities, $w^* = \frac{\mu - r_f}{\gamma\sigma^2}$, the same as $y^*$ in [[4.3]]; example: about 39% with a 5% risk premium, 18% volatility and $\gamma = 4$. The lesson does not state directly how it depends on wealth and horizon (left to check questions). Time diversification: the standard deviation of the average annual excess return over $T$ years is $\frac{\sigma}{\sqrt{T}}$, of the cumulative return $\sigma\sqrt{T}$ (Samuelson, 1963); the chance of lagging falls, but losses when lagging are larger; horizon alone is no reason to hold more stocks.
+  - concepts: [human-capital]
+    zh-cn: |-
+      讲义：人力资本是未来劳动收入的现值；年轻时远大于金融资产，退休时为 0；养老金类似。$s = \frac{w^*(F + H) - \theta H}{F}$，$\theta$ 为人力资本中类似股票的部分（Bodie、Merton 和 Samuelson，1992）。收入与股市相关（金融从业者、持有大量公司股票的员工）时应少持股票，避免集中于本公司股票。[[fig:3-1]]：年薪 1，25–65 岁工作，按 2% 实际利率折现，储蓄 15%、实际收益 4%；滑块 $w^*$ 20–80%（步长 5，默认 40），$\theta$ 0–0.6（步长 0.1，默认 0）；比例限制在 0–100%。$w^* = 40\%$、$\theta = 0$ 时 50 岁 100%、55 岁约 83%、65 岁 40%；$\theta = 0.3$ 时 50 岁约 61%。
+    en: |-
+      The lesson: human capital is the present value of future labor income; it is far larger than financial assets when young and 0 at retirement; pensions are similar. $s = \frac{w^*(F + H) - \theta H}{F}$, with $\theta$ the stock-like part of human capital (Bodie, Merton and Samuelson, 1992). When income is tied to the stock market (finance workers, employees holding much company stock), hold fewer stocks and avoid concentrating in the employer's stock. [[fig:3-1]]: salary 1, work from 25 to 65, discounted at a 2% real rate, saving 15% with a 4% real return; sliders $w^*$ 20–80% (steps of 5, default 40) and $\theta$ 0–0.6 (steps of 0.1, default 0); the share is kept between 0 and 100%. With $w^* = 40\%$ and $\theta = 0$: 100% at 50, about 83% at 55, 40% at 65; with $\theta = 0.3$: about 61% at 50.
+  - concepts: [target-date-fund, glide-path]
+    zh-cn: |-
+      讲义：目标日期基金按退休年份自动降低股票比例（下滑路径），常见约 90% 降到退休时 40%–50%，是很多 401(k) 的默认选项；接近退休降低风险的另一个理由是收益顺序风险（留给练习题 Q3）；它是为“平均的人”设计的，个人情况不同配置应不同。
+    en: |-
+      The lesson: target-date funds lower the stock share automatically toward the retirement year (the glide path), commonly from about 90% to 40%–50% at retirement, and are the default option in many 401(k) plans; another reason to reduce risk near retirement is sequence-of-returns risk (left to exercise Q3); they are designed for the "average person", and different circumstances call for different allocations.
+
+common_errors:
+  - questions: [Q1]
+    zh-cn: |-
+      以为长期持有股票的风险会随时间消失（时间分散化），只看跑输的概率，不看跑输时损失的大小。
+    en: |-
+      Thinking the risk of holding stocks disappears over a long horizon (time diversification), looking only at the chance of lagging and not at the size of the loss when lagging.
+  - questions: [Q2]
+    zh-cn: |-
+      只看金融资产决定配置，忽略人力资本；或者不区分稳定的收入（像债券）和与股市相关的收入（像股票）。
+    en: |-
+      Setting the allocation from financial assets alone, ignoring human capital; or not separating stable income (bond-like) from income tied to the stock market (stock-like).
+  - questions: [Q3]
+    zh-cn: |-
+      以为只要平均收益相同，收益的顺序不影响结果；忽略持续提取时早期亏损的影响。
+    en: |-
+      Thinking that with the same average return, the order of returns does not matter; ignoring the effect of early losses while withdrawals continue.
+  - questions: [Q4]
+    zh-cn: |-
+      把可能存在的均值回归当作确定的事实，推出长期投资者应大量持有股票；忽略长期收益统计证据的不确定性。
+    en: |-
+      Treating possible mean reversion as an established fact and concluding long-term investors should hold many more stocks; ignoring how uncertain the statistical evidence on long-run returns is.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: merton
+    concepts: [merton-share, crra-utility]
+    question:
+      zh-cn: |-
+        一位有 CRRA 效用的投资者，投资机会不变，他只有金融财富。他的财富翻倍后，按 Merton 比例，他放在股票中的财富比例应该：
+      en: |-
+        An investor with CRRA utility faces constant investment opportunities and has only financial wealth. After his wealth doubles, by the Merton share, the fraction of his wealth in stocks should:
+    choices:
+      - zh-cn: 不变
+        en: Stay the same
+      - zh-cn: 上升，因为更富的人能承受更多风险
+        en: Rise, because a richer person can bear more risk
+        why:
+          zh-cn: 看 $w^* = \frac{\mu - r_f}{\gamma\sigma^2}$：公式里有财富吗？CRRA 的相对风险厌恶系数会随财富变化吗？
+          en: 'Look at $w^* = \frac{\mu - r_f}{\gamma\sigma^2}$: does wealth appear in it? Does CRRA relative risk aversion change with wealth?'
+      - zh-cn: 下降，因为已经有足够的钱，不需要冒险
+        en: Fall, because he already has enough and need not take risks
+        why:
+          zh-cn: CRRA 效用的相对风险厌恶系数是常数。比例会因为财富变化吗？
+          en: CRRA utility has constant relative risk aversion. Does the fraction change with wealth?
+      - zh-cn: 取决于他离用钱还有多少年
+        en: Depend on how many years remain until he needs the money
+        why:
+          zh-cn: 在投资机会不变、只有金融财富的条件下，公式里有期限吗？
+          en: With constant investment opportunities and only financial wealth, does the horizon appear in the formula?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。CRRA 效用的相对风险厌恶系数不随财富变化，所以风险资产的比例不变，放在股票中的金额随财富同比例增加。在这些条件下，比例也与期限无关。现实中比例随年龄变化，来自这些条件不成立（人力资本、投资机会变化等）。
+      en: |-
+        (A). CRRA utility has relative risk aversion that does not change with wealth, so the risky share stays the same, and the amount in stocks grows in proportion to wealth. Under these conditions the share is also independent of the horizon. In reality the share changes with age because these conditions fail (human capital, changing investment opportunities and so on).
+
+  - id: C2
+    kind: check
+    section: time-diversification
+    concepts: [merton-share]
+    question:
+      zh-cn: |-
+        持有股票的时间越长，股票跑输无风险资产的概率越低，所以长期投资者持有股票的风险更小，应该持有更多股票。
+      en: |-
+        The longer stocks are held, the lower the chance that they lag the risk-free asset, so stocks are less risky for long-term investors, who should hold more of them.
+    correct: false
+    hint:
+      zh-cn: 想一想：跑输的概率下降了，那么一旦跑输，损失的大小随期限怎样变化？最终财富的波动由 $\frac{\sigma}{\sqrt{T}}$ 还是 $\sigma\sqrt{T}$ 决定？
+      en: 'Think: the chance of lagging falls, but how does the size of the loss when lagging change with the horizon? Is final wealth''s variability governed by $\frac{\sigma}{\sqrt{T}}$ or by $\sigma\sqrt{T}$?'
+    answer:
+      zh-cn: |-
+        错。跑输的概率确实下降，但最终财富取决于累计收益，它的标准差 $\sigma\sqrt{T}$ 随期限增加：坏结果更少见，但出现时损失更大。对 CRRA 投资者，在投资机会不变时这两者恰好抵消，最优比例与期限无关。所以期限本身不是多持有股票的理由。
+      en: |-
+        False. The chance of lagging does fall, but final wealth depends on the cumulative return, whose standard deviation $\sigma\sqrt{T}$ grows with the horizon: bad outcomes are rarer, but larger when they occur. For a CRRA investor with constant investment opportunities, the two exactly offset, and the optimal share does not depend on the horizon. So horizon alone is no reason to hold more stocks.
+
+  - id: C3
+    kind: check
+    section: human-capital
+    concepts: [human-capital]
+    widget: { id: glide-path, set: { w: 40, theta: 0 } }
+    question:
+      zh-cn: |-
+        在 [[fig:3-1]] 中，保持 w* = 40%，把人力资本中类似股票的比例 θ 从 0 提高到 0.3（例如收入随市场行情波动的人）。50 岁时金融资产中的股票比例会：
+      en: |-
+        In [[fig:3-1]], keep w* = 40% and raise the stock-like share of human capital θ from 0 to 0.3 (for example, someone whose income moves with the market). At age 50, the stock share of financial wealth:
+    choices:
+      - zh-cn: 明显下降
+        en: Falls markedly
+      - zh-cn: 上升，因为这个人更习惯市场的波动
+        en: Rises, because this person is more used to market swings
+        why:
+          zh-cn: θ 增加意味着他已经通过工作承担了更多股票风险。要保持总财富中的股票比例不变，金融资产中的股票应该增加还是减少？
+          en: A higher θ means he already bears more stock risk through his job. To keep the stock share of total wealth unchanged, should the stocks in his financial assets rise or fall?
+      - zh-cn: 不变，因为金融资产没有变
+        en: Stays the same, because his financial assets have not changed
+        why:
+          zh-cn: 配置要看总财富。人力资本中类似股票的部分，会不会算进总的股票暴露？
+          en: The allocation is based on total wealth. Does the stock-like part of human capital count toward total stock exposure?
+      - zh-cn: 只在 65 岁时才会变化
+        en: It changes only at 65
+        why:
+          zh-cn: 65 岁时人力资本为 0，θ 还有影响吗？人力资本最大的时候，θ 的影响应该最大还是最小？
+          en: At 65 human capital is 0; does θ still matter then? When human capital is largest, should θ matter most or least?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。图中 50 岁时的比例从 100% 降到约 61%。θ 越大，人力资本本身包含的股票暴露越多，金融资产就应该少持有股票，才能使总财富中的股票比例保持在 w*。人力资本越大（越年轻），θ 的影响越大；到 65 岁人力资本为 0，比例回到 w*。
+      en: |-
+        (A). In the figure the share at 50 falls from 100% to about 61%. The larger θ, the more stock exposure human capital already contains, so financial assets should hold fewer stocks to keep the stock share of total wealth at w*. The larger the human capital (the younger the person), the more θ matters; at 65 human capital is 0 and the share returns to w*.
+
+  - id: C4
+    kind: check
+    section: human-capital
+    concepts: [human-capital, diversification]
+    question:
+      zh-cn: |-
+        一位员工的工资和奖金高度依赖所在公司的业绩，他的 401(k) 中还有一半是本公司的股票。按人力资本的观点：
+      en: |-
+        An employee's salary and bonus depend heavily on his company's results, and half of his 401(k) is in his company's stock. From the human-capital point of view:
+    choices:
+      - zh-cn: 他的工作收入和金融资产都押在同一家公司上，应该减少本公司股票
+        en: Both his job income and his financial assets are bet on the same company, so he should hold less company stock
+      - zh-cn: 他最了解自己的公司，持有本公司股票的风险较小
+        en: He knows his company best, so holding its stock is less risky
+        why:
+          zh-cn: 熟悉不等于风险小。公司出问题时，他的工作和这部分储蓄会同时受损吗？
+          en: Familiarity does not mean low risk. If the company runs into trouble, are his job and these savings hit at the same time?
+      - zh-cn: 只要公司的 beta 不高，就没有问题
+        en: As long as the company's beta is not high, there is no problem
+        why:
+          zh-cn: 单只股票的特质风险很大，而且正好与他的收入风险相关。只看 beta 够吗？
+          en: A single stock has large firm-specific risk, and here it is tied to his income risk. Is beta enough?
+      - zh-cn: 人力资本与配置无关，只看金融资产
+        en: Human capital is irrelevant to allocation; only financial assets matter
+        why:
+          zh-cn: 人力资本是他财富中最大的一部分。忽略它会怎样？
+          en: Human capital is the largest part of his wealth. What happens if it is ignored?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。他的人力资本已经高度依赖这家公司，再把大量储蓄放在同一只股票上，就是双重集中：公司出问题时可能同时失去工作和储蓄。这部分风险大多是特质风险，得不到补偿（[[4.5]]）。按人力资本的观点，他的金融资产应该避开、甚至对冲与自己收入相关的风险。
+      en: |-
+        (A). His human capital already depends heavily on the company, so putting much of his savings in the same stock doubles the concentration: if the company runs into trouble he may lose his job and his savings together. Most of this risk is firm-specific and unrewarded ([[4.5]]). From the human-capital point of view, his financial assets should avoid, or even hedge, risks tied to his own income.
+
+  - id: C5
+    kind: check
+    section: target-date
+    concepts: [target-date-fund, glide-path, human-capital]
+    question:
+      zh-cn: |-
+        目标日期基金按年龄自动降低股票比例，所以对同一年退休的所有人都是合适的配置。
+      en: |-
+        A target-date fund lowers the stock share automatically with age, so it is a suitable allocation for everyone retiring in the same year.
+    correct: false
+    hint:
+      zh-cn: 想一想：同一年退休的人，收入的稳定性、养老金、房产和风险厌恶都一样吗？这些因素在人力资本的观点中有什么作用？
+      en: 'Think: do people retiring in the same year have the same income stability, pensions, homes and risk aversion? What role do these play in the human-capital view?'
+    answer:
+      zh-cn: |-
+        错。下滑路径是按“平均的人”设计的，只用年龄一个变量。收入稳定的公务员（人力资本像债券）可以持有更多股票；收入随市场波动的金融从业者应该更少；有固定养老金的人，养老金像债券，可以多持有股票；风险厌恶不同，$w^*$ 也不同。目标日期基金是合理的默认选项，但不一定适合每个人。
+      en: |-
+        False. A glide path is designed for the "average person" and uses age alone. A civil servant with stable income (bond-like human capital) can hold more stocks; a finance worker whose income moves with the market should hold fewer; someone with a fixed pension, which is bond-like, can hold more stocks; and different risk aversion means a different $w^*$. A target-date fund is a reasonable default, but not necessarily right for everyone.
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [merton-share, human-capital]
+    expected: { p1: "42.6", p35: "13.3", w1: "23", w35: "43" }
+    question:
+      zh-cn: |-
+        一位 30 岁的投资者说：“我的投资期有 35 年，时间会抹平股市的波动，长期看股票几乎不会输，所以我 100% 投资股票。”假设股票的对数超额收益每年独立、服从正态分布，均值 3.38%，标准差 18%。
+        (a) 1 年和 35 年中，股票累计跑输无风险资产的概率各是多少？
+        (b) 最差 5% 的情形（对数累计超额收益的 5% 分位数，$z = -1.645$）下，1 年和 35 年结束时，股票组合的财富比全部投资无风险资产少百分之几？
+        (c) 评价他的理由。他的结论（年轻人多持有股票）有没有其他更好的理由？
+      en: |-
+        A 30-year-old investor says: "My horizon is 35 years, and time will smooth out market swings; in the long run stocks almost never lose, so I'm putting 100% in stocks." Assume stocks' log excess returns are independent each year and normal, with a mean of 3.38% and a standard deviation of 18%.
+        (a) What is the probability that stocks lag the risk-free asset cumulatively over 1 year, and over 35 years?
+        (b) In the worst 5% of cases (the 5% quantile of the cumulative log excess return, $z = -1.645$), by what percentage is the stock portfolio's wealth below that of an all risk-free investment at the end of 1 year, and of 35 years?
+        (c) Evaluate his reasoning. Is there a better reason for his conclusion (young people holding more stocks)?
+    answer:
+      zh-cn: |-
+        (a) 1 年：$P\left(z < -\frac{3.38}{18}\right) = P(z < -0.19) \approx 42.6\%$。35 年：累计均值 $3.38 \times 35$，标准差 $18\sqrt{35}$，$P\left(z < -\frac{3.38\sqrt{35}}{18}\right) = P(z < -1.11) \approx 13.3\%$。
+        (b) 1 年：$3.38 - 1.645 \times 18 \approx -26.2$（对数百分点），财富比无风险少 $1 - e^{-0.262} \approx 23\%$。35 年：$3.38 \times 35 - 1.645 \times 18\sqrt{35} \approx 118.3 - 175.2 = -56.9$，财富少 $1 - e^{-0.569} \approx 43\%$。
+        (c) 理由不对。跑输的概率从约 43% 降到约 13%，但最差情形下的损失从约 23% 扩大到约 43%：时间没有消除风险，只是让坏结果更少、更严重（时间分散化的误区）。不过他的结论可能是对的，理由是人力资本：30 岁的人未来收入的现值很大，如果收入稳定，就像持有一大笔债券，金融资产多持有股票可以使总财富的配置合理。如果他的收入与股市高度相关，这个理由就不成立。
+      en: |-
+        (a) 1 year: $P\left(z < -\frac{3.38}{18}\right) = P(z < -0.19) \approx 42.6\%$. 35 years: cumulative mean $3.38 \times 35$, standard deviation $18\sqrt{35}$, so $P\left(z < -\frac{3.38\sqrt{35}}{18}\right) = P(z < -1.11) \approx 13.3\%$.
+        (b) 1 year: $3.38 - 1.645 \times 18 \approx -26.2$ (log percentage points), so wealth is $1 - e^{-0.262} \approx 23\%$ below the risk-free investment. 35 years: $3.38 \times 35 - 1.645 \times 18\sqrt{35} \approx 118.3 - 175.2 = -56.9$, so wealth is $1 - e^{-0.569} \approx 43\%$ lower.
+        (c) The reasoning is wrong. The chance of lagging falls from about 43% to about 13%, but the loss in the worst cases grows from about 23% to about 43%: time does not remove the risk; it makes bad outcomes rarer and more severe (the time-diversification fallacy). Still, his conclusion may be right for another reason, human capital: a 30-year-old's future income has a large present value, and if it is stable it is like holding a large amount of bonds, so holding mostly stocks in financial assets can make the allocation of total wealth reasonable. If his income is closely tied to the stock market, this reason fails.
+    rubric:
+      zh-cn:
+        - "(a) 通过：约 42.6% 和 13.3%。用 $\\frac{\\sigma}{T}$ 或把均值与标准差都乘以 $T$，需要订正。"
+        - "(b) 通过：约 23% 和 43%，看出最差情形的损失随期限增加。"
+        - "(c) 通过：指出跑输概率下降但损失扩大，期限本身不是理由，并用人力资本（稳定收入像债券）给出更好的理由及其条件。只同意或只否定他的结论而不区分理由，需要订正。"
+      en:
+        - "(a) OK: about 42.6% and 13.3%. Using $\\frac{\\sigma}{T}$, or multiplying both the mean and the standard deviation by $T$, needs revision."
+        - "(b) OK: about 23% and 43%, seeing that the worst-case loss grows with the horizon."
+        - "(c) OK: says the chance of lagging falls but the losses grow, so horizon alone is no reason, and gives human capital (stable income is bond-like) as a better reason, with its condition. Only agreeing or only disagreeing with his conclusion without separating the reasons needs revision."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [human-capital, merton-share]
+    expected: { s30: "840", s60: "46.7", b60: "38.3" }
+    question:
+      zh-cn: |-
+        一个人希望总财富（金融资产加人力资本）中有 40% 是股票。30 岁时他的金融资产为 6 万美元，人力资本为 120 万美元；60 岁时金融资产为 90 万美元，人力资本为 15 万美元。
+        (a) 如果他的收入很稳定（人力资本像债券），30 岁和 60 岁时金融资产中的股票比例各应是多少？30 岁的结果说明什么？
+        (b) 如果他是证券经纪人，收入随股市波动，人力资本的一半可以看作股票。60 岁时比例应是多少？30 岁时呢？与 (a) 比较，说明人力资本的性质怎样影响配置。
+      en: |-
+        A person wants 40% of total wealth (financial assets plus human capital) in stocks. At 30 his financial assets are 60,000 dollars and his human capital 1.2 million dollars; at 60 his financial assets are 900,000 dollars and his human capital 150,000 dollars.
+        (a) If his income is very stable (human capital is bond-like), what should the stock share of his financial assets be at 30, and at 60? What does the result at 30 mean?
+        (b) If he is a stockbroker whose income moves with the stock market, half of his human capital can be treated as stocks. What should the share be at 60? At 30? Compared with (a), explain how the nature of human capital affects the allocation.
+    answer:
+      zh-cn: |-
+        (a) 30 岁：目标股票 $0.4 \times (6 + 120) = 50.4$ 万美元，是金融资产的 $\frac{50.4}{6} = 840\%$。这意味着即使全部金融资产都买股票（100%），总财富中的股票比例仍低于目标；不能或不宜借款时，100% 股票就是最接近目标的做法。60 岁：$0.4 \times (90 + 15) = 42$ 万美元，占金融资产的 $\frac{42}{90} \approx 46.7\%$。
+        (b) 60 岁：人力资本中的股票为 7.5 万美元，金融资产中还需要 $42 - 7.5 = 34.5$ 万美元股票，比例 $\frac{34.5}{90} \approx 38.3\%$。30 岁：人力资本中的股票为 60 万美元，已经超过目标 50.4 万美元，金融资产中的股票应为 0，甚至应该多持有债券。同样的年龄和财富，收入像债券的人年轻时应几乎全部持有股票，收入像股票的人反而应持有债券：人力资本越像股票，金融资产越应保守，影响在年轻、人力资本大的时候最大。
+      en: |-
+        (a) At 30: the target in stocks is $0.4 \times (60{,}000 + 1{,}200{,}000) = 504{,}000$ dollars, which is $\frac{504{,}000}{60{,}000} = 840\%$ of financial assets. This means that even with all financial assets in stocks (100%), the stock share of total wealth is still below target; if he cannot or should not borrow, 100% stocks is as close as he can get. At 60: $0.4 \times (900{,}000 + 150{,}000) = 420{,}000$ dollars, $\frac{420{,}000}{900{,}000} \approx 46.7\%$ of financial assets.
+        (b) At 60: stocks in human capital are 75,000 dollars, so financial assets still need $420{,}000 - 75{,}000 = 345{,}000$ dollars in stocks, a share of $\frac{345{,}000}{900{,}000} \approx 38.3\%$. At 30: stocks in human capital are 600,000 dollars, already above the 504,000-dollar target, so financial assets should hold no stocks and may even hold extra bonds. With the same age and wealth, a person whose income is bond-like should hold almost all stocks when young, while one whose income is stock-like should hold bonds: the more stock-like the human capital, the more conservative the financial assets, and the effect is largest when young, when human capital is large.
+    rubric:
+      zh-cn:
+        - "(a) 通过：30 岁 840%（实际上为 100%，受借款限制），60 岁约 46.7%。只用金融资产计算（直接给 40%），需要订正。"
+        - "(b) 通过：60 岁约 38.3%，30 岁为 0，并说明人力资本像股票时金融资产应更保守，年轻时影响最大。"
+      en:
+        - "(a) OK: 840% at 30 (in practice 100%, given the borrowing limit) and about 46.7% at 60. Using financial assets alone (simply 40%) needs revision."
+        - "(b) OK: about 38.3% at 60 and 0 at 30, explaining that stock-like human capital calls for more conservative financial assets, with the largest effect when young."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [glide-path, target-date-fund]
+    expected: { a: "825.6", b: "880.6" }
+    question:
+      zh-cn: |-
+        两位退休者都有 100 万美元，每年年初提取 5 万美元。三年的收益率：甲依次为 −30%、+20%、+20%；乙依次为 +20%、+20%、−30%。
+        (a) 如果都不提取，三年后两人的财富各是多少？如果每年年初提取 5 万美元，三年后各是多少（千美元）？
+        (b) 一位顾问说：“收益率的顺序不重要，只要长期平均收益一样，结果就一样。”评价这个说法，并说明它对退休前后的配置有什么含义。
+      en: |-
+        Two retirees each have 1 million dollars and withdraw 50,000 dollars at the start of each year. Their returns over three years: A gets −30%, +20%, +20%; B gets +20%, +20%, −30%.
+        (a) Without withdrawals, what is each one's wealth after three years? With 50,000 dollars withdrawn at the start of each year, what is each one's wealth after three years (in thousands of dollars)?
+        (b) An adviser says: "The order of returns doesn't matter; as long as the long-run average return is the same, the result is the same." Evaluate this statement, and explain what it implies for allocation around retirement.
+    answer:
+      zh-cn: |-
+        (a) 不提取：两人都是 $1{,}000 \times 0.7 \times 1.2 \times 1.2 = 1{,}008$ 千美元，顺序不影响结果（乘法可以交换）。提取时，甲：$(1{,}000 - 50) \times 0.7 = 665$，$(665 - 50) \times 1.2 = 738$，$(738 - 50) \times 1.2 = 825.6$ 千美元；乙：$950 \times 1.2 = 1{,}140$，$1{,}090 \times 1.2 = 1{,}308$，$1{,}258 \times 0.7 = 880.6$ 千美元。
+        (b) 说法只在不提取（也不追加）时成立。持续提取时，早期的亏损发生在组合规模大的时候，提取又迫使在低价时卖出，亏掉的部分没有机会恢复；同样的收益，早亏的甲比晚亏的乙少约 5.5 万美元，时间更长时差别会大得多。这就是收益顺序风险：退休前后几年组合最大、刚开始提取，这几年的大跌影响最大。所以下滑路径在接近退休时降低股票比例，或者准备几年的现金和债券用于提取，以免在大跌时被迫卖出股票。
+      en: |-
+        (a) Without withdrawals: both have $1{,}000 \times 0.7 \times 1.2 \times 1.2 = 1{,}008$ thousand dollars; the order does not matter (multiplication commutes). With withdrawals, A: $(1{,}000 - 50) \times 0.7 = 665$, $(665 - 50) \times 1.2 = 738$, $(738 - 50) \times 1.2 = 825.6$ thousand dollars; B: $950 \times 1.2 = 1{,}140$, $1{,}090 \times 1.2 = 1{,}308$, $1{,}258 \times 0.7 = 880.6$ thousand dollars.
+        (b) The statement holds only without withdrawals (or additions). With ongoing withdrawals, early losses hit when the portfolio is large, and withdrawals force sales at low prices, so the lost part has no chance to recover; with the same returns, A, who lost early, ends about 55,000 dollars below B, who lost late, and over longer periods the gap can be much larger. This is sequence-of-returns risk: around retirement the portfolio is largest and withdrawals have just begun, so large falls in those years matter most. That is why glide paths lower the stock share near retirement, or why retirees keep a few years of withdrawals in cash and bonds, so as not to be forced to sell stocks in a crash.
+    rubric:
+      zh-cn:
+        - "(a) 通过：不提取时都是 1,008 千美元；提取时甲 825.6、乙 880.6 千美元。"
+        - "(b) 通过：指出说法只在不提取时成立，提取时早期亏损的影响更大（收益顺序风险），并联系接近退休时降低风险或准备现金的做法。"
+      en:
+        - "(a) OK: 1,008 thousand dollars for both without withdrawals; 825.6 for A and 880.6 for B with withdrawals."
+        - "(b) OK: says the statement holds only without withdrawals, that early losses matter more with withdrawals (sequence-of-returns risk), and links this to reducing risk or holding cash near retirement."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [merton-share, cape, standard-error]
+    expected: { vol: "15.06", w: "73.5", w0: "51.4" }
+    question:
+      zh-cn: |-
+        有研究认为股票收益存在均值回归：大跌之后往往有较高的收益。如果这样，10 年累计收益的方差只有按每年独立计算的 70%。假设风险溢价 5%，年波动率 18%，相对风险厌恶系数 $\gamma = 3$。
+        (a) 每年独立时，Merton 比例是多少？如果存在上述均值回归，按 10 年计算的年化波动率是多少？用这个波动率代替 18%，Merton 比例是多少？
+        (b) 一篇文章据此建议：“长期投资者应该比短期投资者多持有约一半的股票。”评价这个建议。
+      en: |-
+        Some research suggests stock returns mean-revert: large falls tend to be followed by higher returns. If so, the variance of 10-year cumulative returns is only 70% of what independent years would give. Assume a risk premium of 5%, an annual volatility of 18% and relative risk aversion $\gamma = 3$.
+        (a) With independent years, what is the Merton share? With the mean reversion above, what is the annualized volatility over 10 years? Using it instead of 18%, what is the Merton share?
+        (b) An article concludes: "Long-term investors should hold about half again as many stocks as short-term investors." Evaluate this advice.
+    answer:
+      zh-cn: |-
+        (a) 每年独立：$w^* = \frac{0.05}{3 \times 0.18^2} \approx 51.4\%$。均值回归时年化波动率 $18\sqrt{0.7} \approx 15.06\%$，$w^* = \frac{0.05}{3 \times 0.1506^2} \approx 73.5\%$，约多 43%。
+        (b) 这个推理在逻辑上是对的：如果长期风险确实低于按年独立计算的风险，投资机会随时间变化，Merton 比例就会随期限变化，长期投资者应多持有股票（Campbell 和 Viceira，2002）。但前提很不确定：长期收益的证据来自很少的独立观测（[[4.11#cape]] 中不重叠的 10 年时期只有十几个），均值回归的程度在统计上很难确定；而且考虑到参数本身的不确定性（预期收益也不知道），长期的风险反而可能更大（Pástor 和 Stambaugh，2012）。所以这个建议把一个不确定的发现当作了事实，不能据此大幅提高股票比例；可以作为敏感性分析的一种情形。
+      en: |-
+        (a) With independent years: $w^* = \frac{0.05}{3 \times 0.18^2} \approx 51.4\%$. With mean reversion the annualized volatility is $18\sqrt{0.7} \approx 15.06\%$, so $w^* = \frac{0.05}{3 \times 0.1506^2} \approx 73.5\%$, about 43% more.
+        (b) The reasoning is logically sound: if long-run risk really is lower than independent years imply, investment opportunities change over time, the Merton share depends on the horizon, and long-term investors should hold more stocks (Campbell and Viceira, 2002). But the premise is very uncertain: the evidence on long-run returns comes from very few independent observations (only a dozen or so non-overlapping 10-year periods, [[4.11#cape]]), so the degree of mean reversion is statistically hard to pin down; and once uncertainty about the parameters themselves (the expected return is unknown too) is taken into account, long-run risk may even be larger (Pástor and Stambaugh, 2012). So the advice treats an uncertain finding as fact and does not justify a large increase in stocks; it can serve as one case in a sensitivity analysis.
+    rubric:
+      zh-cn:
+        - "(a) 通过：约 51.4%、15.06% 和 73.5%。"
+        - "(b) 通过：承认推理在均值回归成立时正确，但指出证据不确定（独立观测少），并说明不能据此大幅提高股票比例。完全同意或只说“均值回归不存在”，需要订正。"
+      en:
+        - "(a) OK: about 51.4%, 15.06% and 73.5%."
+        - "(b) OK: grants that the reasoning holds if mean reversion is real, but points out that the evidence is uncertain (few independent observations) and that it does not justify a large increase in stocks. Agreeing completely, or saying only \"mean reversion does not exist\", needs revision."

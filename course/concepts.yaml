@@ -2533,3 +2533,35 @@ black-litterman:
   short:
     zh-cn: "以反向优化的均衡收益为起点，按信心加入投资者观点，得到加权平均的预期收益。"
     en: "A model that starts from equilibrium returns from reverse optimization and adds investor views according to confidence, giving weighted-average expected returns."
+
+merton-share:
+  defined_in: "4.12"
+  zh-cn: Merton 比例
+  en: Merton share
+  short:
+    zh-cn: "CRRA 投资者在投资机会不变时的最优风险资产比例 (μ − r_f)/(γσ²)，不随财富和期限变化。"
+    en: "The optimal risky share of a CRRA investor with constant investment opportunities, (μ − r_f)/(γσ²), independent of wealth and horizon."
+
+human-capital:
+  defined_in: "4.12"
+  zh-cn: 人力资本
+  en: human capital
+  short:
+    zh-cn: "未来劳动收入的现值；稳定的收入像债券，与股市相关的收入像股票。"
+    en: "The present value of future labor income; stable income is bond-like, income tied to the stock market is stock-like."
+
+target-date-fund:
+  defined_in: "4.12"
+  zh-cn: 目标日期基金
+  en: target-date fund
+  short:
+    zh-cn: "按预定退休年份自动降低股票比例的基金。"
+    en: "A fund that lowers its stock share automatically toward a planned retirement year."
+
+glide-path:
+  defined_in: "4.12"
+  zh-cn: 下滑路径
+  en: glide path
+  short:
+    zh-cn: "股票比例随年龄（或离退休的年数）变化的曲线。"
+    en: "The curve of the stock share against age (or years to retirement)."

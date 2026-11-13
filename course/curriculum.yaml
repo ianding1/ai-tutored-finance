@@ -436,7 +436,15 @@ stages:
         published: true
         introduces: [capital-market-assumptions, building-block-approach, reverse-optimization, black-litterman]
         uses: [fisher-equation, cape, modified-duration, immunization, market-portfolio, capm, mean-variance-optimization, error-maximization, shrinkage-estimator, standard-error, out-of-sample]
-      - { id: "4.12", slug: "4-12-lifecycle-allocation", title: { zh-cn: "生命周期资产配置理论", en: "Life-Cycle Asset Allocation Theory" } }
+      - id: "4.12"
+        slug: "4-12-lifecycle-allocation"
+        title: { zh-cn: "生命周期资产配置理论", en: "Life-Cycle Asset Allocation Theory" }
+        summary:
+          zh-cn: "Merton 比例与期限无关的结论；时间分散化的误区；人力资本与生命周期的股票比例；目标日期基金与下滑路径；退休前后的风险。"
+          en: "The Merton share and why it does not depend on the horizon; the time-diversification fallacy; human capital and the stock share over the life cycle; target-date funds and glide paths; risks around retirement."
+        published: true
+        introduces: [merton-share, human-capital, target-date-fund, glide-path]
+        uses: [crra-utility, relative-risk-aversion, mean-variance-utility, present-value, annuity, diversification, firm-specific-risk, cape, standard-error]
       - { id: "4.13", slug: "4-13-simulation-backtesting", title: { zh-cn: "模拟与回测方法", en: "Simulation and Backtesting Methods" } }
       - { id: "T2", slug: "t2-quiz", exam: true, title: { zh-cn: "综合测验二：金融市场、证券估值与投资理论", en: "Comprehensive Quiz 2: Financial Markets, Valuation and Investment Theory" } }
 
