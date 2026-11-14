@@ -3912,44 +3912,56 @@
   "zh-cn": "3e5f21b8d9d65f5a"
  },
  "course/curriculum.yaml#stages[7].lessons[7.10].title": {
+  "en": "6ca96609916e9373",
+  "zh-cn": "13d0d1bc77047730"
+ },
+ "course/curriculum.yaml#stages[7].lessons[7.11].title": {
+  "en": "06b316c0b01195c9",
+  "zh-cn": "d234c127b5af7535"
+ },
+ "course/curriculum.yaml#stages[7].lessons[7.12].title": {
+  "en": "ab72b4947f32556e",
+  "zh-cn": "06710b886fc73ba2"
+ },
+ "course/curriculum.yaml#stages[7].lessons[7.13].title": {
   "en": "e53fcff89c62ac83",
   "zh-cn": "b48011b9e5f689ba"
  },
  "course/curriculum.yaml#stages[7].lessons[7.1].title": {
-  "en": "81304782a93b4fb0",
-  "zh-cn": "9fabf29a0dbf18b8"
+  "en": "3c3515c4ff27dbcd",
+  "zh-cn": "3806cd22fbbe0181"
  },
  "course/curriculum.yaml#stages[7].lessons[7.2].title": {
-  "en": "000c37a747551a44",
-  "zh-cn": "e12bb954ab8ee009"
+  "en": "bb611f8b786b9fe3",
+  "zh-cn": "1cf4d29438b6248f"
  },
  "course/curriculum.yaml#stages[7].lessons[7.3].title": {
-  "en": "8a3214ea330f0e2d",
-  "zh-cn": "a568a90de32cfb2e"
+  "en": "a110fb7e67c2a8ad",
+  "zh-cn": "5f2f9d4f436d3b4b"
  },
  "course/curriculum.yaml#stages[7].lessons[7.4].title": {
-  "en": "d7af0c780e52f37a",
-  "zh-cn": "fdaf508daeb05696"
+  "en": "64c5704c97cf8661",
+  "zh-cn": "3b47de6515b68b86"
  },
  "course/curriculum.yaml#stages[7].lessons[7.5].title": {
+  "en": "63aa32214897af19",
+  "zh-cn": "42e6201ff738771d"
+ },
+ "course/curriculum.yaml#stages[7].lessons[7.6].title": {
+  "en": "7cff5e465ba7c820",
+  "zh-cn": "7d1535ff49047886"
+ },
+ "course/curriculum.yaml#stages[7].lessons[7.7].title": {
   "en": "6640eefb29018a61",
   "zh-cn": "32f8fa3381d5be50"
  },
- "course/curriculum.yaml#stages[7].lessons[7.6].title": {
-  "en": "aec5b8eecb80b66a",
-  "zh-cn": "8677ded3d6f41977"
- },
- "course/curriculum.yaml#stages[7].lessons[7.7].title": {
-  "en": "fa4fbc1df809b39e",
-  "zh-cn": "ace78be4cbb4c333"
- },
  "course/curriculum.yaml#stages[7].lessons[7.8].title": {
-  "en": "06b316c0b01195c9",
-  "zh-cn": "d234c127b5af7535"
+  "en": "ddf4ebb39ff2d7d2",
+  "zh-cn": "5ae0999cc53ef93c"
  },
  "course/curriculum.yaml#stages[7].lessons[7.9].title": {
-  "en": "ab72b4947f32556e",
-  "zh-cn": "06710b886fc73ba2"
+  "en": "fa4fbc1df809b39e",
+  "zh-cn": "ace78be4cbb4c333"
  },
  "course/curriculum.yaml#stages[7].title": {
   "en": "1fb0b207994ab91a",

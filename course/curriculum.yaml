@@ -649,13 +649,16 @@ stages:
     title: { zh-cn: "第 7 阶段：毕业项目", en: "Stage 7: Capstone Project" }
     lessons:
       - { id: "7.0", slug: "7-0-project-guide", title: { zh-cn: "项目说明", en: "How the Project Works" } }
-      - { id: "7.1", slug: "7-1-fact-finding", title: { zh-cn: "信息整理与诊断", en: "Fact-Finding and Diagnosis" } }
-      - { id: "7.2", slug: "7-2-ips", title: { zh-cn: "关键判断、投资政策说明书与执行计划", en: "Key Judgments, the Investment Policy Statement and the Implementation Plan" } }
-      - { id: "7.3", slug: "7-3-household-model", title: { zh-cn: "家庭投资模型", en: "The Household Investment Model" } }
-      - { id: "7.4", slug: "7-4-own-cma", title: { zh-cn: "自行估计资本市场假设", en: "Estimating Your Own Capital Market Assumptions" } }
-      - { id: "7.5", slug: "7-5-three-years", title: { zh-cn: "三年中的事件与调整", en: "Three Years of Events and Adjustments" } }
-      - { id: "7.6", slug: "7-6-fund-report", title: { zh-cn: "基金尽调报告", en: "A Fund Due Diligence Report" } }
-      - { id: "7.7", slug: "7-7-macro-scenarios", title: { zh-cn: "宏观情景分析", en: "Macro Scenario Analysis" } }
-      - { id: "7.8", slug: "7-8-defense-transfer", title: { zh-cn: "答辩与迁移", en: "Defense and Transfer" } }
-      - { id: "7.9", slug: "7-9-stock-report", title: { zh-cn: "个股研究报告（选学）", en: "A Stock Research Report (Optional)" } }
-      - { id: "7.10", slug: "7-10-choosing-advisers", title: { zh-cn: "怎样选择与评估顾问", en: "How to Choose and Evaluate an Adviser" } }
+      - { id: "7.1", slug: "7-1-diagnosis", title: { zh-cn: "问题诊断与优先次序", en: "Diagnosis and Priorities" } }
+      - { id: "7.2", slug: "7-2-risk-and-goals", title: { zh-cn: "风险承受能力、配置与目标资金", en: "Risk Capacity, Allocation and Goal Funding" } }
+      - { id: "7.3", slug: "7-3-equity-tax-debt", title: { zh-cn: "雇主股票、税务账户与负债", en: "Employer Stock, Tax Accounts and Debt" } }
+      - { id: "7.4", slug: "7-4-insurance", title: { zh-cn: "保险与风险管理", en: "Insurance and Risk Management" } }
+      - { id: "7.5", slug: "7-5-ips", title: { zh-cn: "投资政策说明书与执行计划", en: "The Investment Policy Statement and the Implementation Plan" } }
+      - { id: "7.6", slug: "7-6-model-and-cma", title: { zh-cn: "家庭投资模型与资本市场假设", en: "The Household Model and Capital Market Assumptions" } }
+      - { id: "7.7", slug: "7-7-three-years", title: { zh-cn: "三年中的事件与调整", en: "Three Years of Events and Adjustments" } }
+      - { id: "7.8", slug: "7-8-fund-review", title: { zh-cn: "基金尽调", en: "Fund Due Diligence" } }
+      - { id: "7.9", slug: "7-9-macro-scenarios", title: { zh-cn: "宏观情景分析", en: "Macro Scenario Analysis" } }
+      - { id: "7.10", slug: "7-10-short-cases", title: { zh-cn: "短案例", en: "Short Cases" } }
+      - { id: "7.11", slug: "7-11-defense-transfer", title: { zh-cn: "答辩与迁移", en: "Defense and Transfer" } }
+      - { id: "7.12", slug: "7-12-stock-report", title: { zh-cn: "个股研究报告（选学）", en: "A Stock Research Report (Optional)" } }
+      - { id: "7.13", slug: "7-13-choosing-advisers", title: { zh-cn: "怎样选择与评估顾问", en: "How to Choose and Evaluate an Adviser" } }
