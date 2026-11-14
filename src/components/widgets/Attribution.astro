@@ -1,0 +1,86 @@
+---
+// Figure 3-1 of lesson 6.4: Brinson attribution with two sectors. Benchmark: sector A 30% (return 20%),
+// sector B 70% (return 5%), total 9.5%. The fund earns 5% in B like the benchmark; its weight in A and its
+// return in A are adjustable. Allocation = sum (w - wB)(RB_i - RB); selection = sum w (R_i - RB_i).
+// Parameters are registered in course/widgets.yaml (id: attribution). Same model as course/verify/6.4.py.
+import { toLang } from '../../i18n/ui';
+
+const lang = toLang(Astro.locals.starlightRoute.lang);
+const L = {
+	'zh-cn': {
+		w: '基金在 A 行业的权重（%）',
+		ra: '基金在 A 行业的收益率（%）',
+		alloc: '配置效应',
+		sel: '选择效应',
+		total: '总超额收益',
+		aria: '业绩归因：配置效应与选择效应',
+		readout: '基金收益 {r}%，基准 9.5%；配置效应 {a}，选择效应 {s}，合计 {t} 个百分点。',
+	},
+	en: {
+		w: 'Fund weight in sector A (%)',
+		ra: 'Fund return in sector A (%)',
+		alloc: 'Allocation',
+		sel: 'Selection',
+		total: 'Total excess return',
+		aria: 'Performance attribution: allocation and selection effects',
+		readout: 'Fund return {r}%, benchmark 9.5%; allocation {a}, selection {s}, total {t} percentage points.',
+	},
+}[lang];
+
+const xr = [-8, 8];
+const xTicks = [-8, -4, 0, 4, 8];
+const rows = [L.alloc, L.sel, L.total];
+const layouts = [
+	{ cls: 'viz-wide', W: 640, H: 200, pad: { l: 140, r: 24, t: 14, b: 40 } },
+	{ cls: 'viz-narrow', W: 360, H: 200, pad: { l: 104, r: 14, t: 14, b: 40 } },
+].map((g) => ({
+	...g,
+	X: (v: number) => g.pad.l + ((v - xr[0]) / (xr[1] - xr[0])) * (g.W - g.pad.l - g.pad.r),
+	rowY: (i: number) => g.pad.t + 8 + i * ((g.H - g.pad.t - g.pad.b) / 3),
+	barH: (g.H - g.pad.t - g.pad.b) / 3 - 16,
+}));
+---
+
+<div class="lfwai-widget" data-widget="attribution" data-readout={L.readout}>
+	<div class="lfwai-sliders">
+		<label>
+			<span>{L.w} = <output data-out="w">50</output></span>
+			<input type="range" min="0" max="60" step="10" value="50" data-param="w" />
+		</label>
+		<label>
+			<span>{L.ra} = <output data-out="ra">15</output></span>
+			<input type="range" min="10" max="30" step="5" value="15" data-param="ra" />
+		</label>
+	</div>
+	{layouts.map(({ cls, W, H, pad, X, rowY, barH }) => (
+		<svg class={`lfwai-viz ${cls}`} viewBox={`0 0 ${W} ${H}`} role="img" aria-label={L.aria} data-geom={JSON.stringify({ W, pad, xr })}>
+			{xTicks.map((v) => (
+				<g>
+					<line class={v === 0 ? 'viz-axis' : 'viz-grid'} x1={X(v)} x2={X(v)} y1={pad.t} y2={H - pad.b} />
+					<text class="viz-tick" x={X(v)} y={H - pad.b + 18} text-anchor="middle">{v}</text>
+				</g>
+			))}
+			{rows.map((name, i) => (
+				<g>
+					<text class="viz-tick" x={pad.l - 8} y={rowY(i) + barH / 2 + 4} text-anchor="end">{name}</text>
+					<rect class={i === 2 ? 'viz-bar-total' : 'viz-bar'} data-bar={i} x={X(0)} y={rowY(i)} width="0" height={barH} />
+				</g>
+			))}
+		</svg>
+	))}
+	<p class="lfwai-readout" data-el="readout" aria-live="polite"></p>
+</div>
+
+<style>
+	.viz-bar {
+		fill: var(--sl-color-accent);
+	}
+	.viz-bar-total {
+		fill: var(--sl-color-gray-3);
+	}
+</style>
+
+<script>
+	import { initAttribution } from '../../scripts/widgets/attribution';
+	initAttribution();
+</script>

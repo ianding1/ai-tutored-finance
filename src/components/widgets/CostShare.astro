@@ -1,0 +1,80 @@
+---
+// Figure 5-1 of lesson 6.2: the share of final wealth lost to a yearly fee, against the number of years,
+// for an adjustable fee and return before fees. Lost share = 1 - ((1 + r - f) / (1 + r))^T.
+// Parameters are registered in course/widgets.yaml (id: cost-share). Same model as course/verify/6.2.py.
+import { toLang } from '../../i18n/ui';
+
+const lang = toLang(Astro.locals.starlightRoute.lang);
+const L = {
+	'zh-cn': {
+		f: '每年的费用（%）',
+		r: '扣费前年收益率（%）',
+		x: '年',
+		y: '期末财富减少的比例（%）',
+		line: '与不收费相比，期末财富减少的比例',
+		aria: '费用使期末财富减少的比例',
+		readout: '10 年后减少 {l10}%，20 年后 {l20}%，30 年后 {l30}%，40 年后 {l40}%。',
+	},
+	en: {
+		f: 'Yearly fee (%)',
+		r: 'Return before fees (%)',
+		x: 'Year',
+		y: 'Share of final wealth lost (%)',
+		line: 'Share of final wealth lost compared with no fee',
+		aria: 'Share of final wealth lost to fees',
+		readout: 'Lost after 10 years: {l10}%; 20 years: {l20}%; 30 years: {l30}%; 40 years: {l40}%.',
+	},
+}[lang];
+
+const xr = [0, 40];
+const yr = [0, 60];
+const xTicks = [0, 10, 20, 30, 40];
+const yTicks = [0, 20, 40, 60];
+const layouts = [
+	{ cls: 'viz-wide', W: 640, H: 300, pad: { l: 44, r: 20, t: 14, b: 48 } },
+	{ cls: 'viz-narrow', W: 360, H: 300, pad: { l: 40, r: 12, t: 14, b: 48 } },
+].map((g) => ({
+	...g,
+	X: (v: number) => g.pad.l + ((v - xr[0]) / (xr[1] - xr[0])) * (g.W - g.pad.l - g.pad.r),
+	Y: (v: number) => g.pad.t + ((yr[1] - v) / (yr[1] - yr[0])) * (g.H - g.pad.t - g.pad.b),
+}));
+---
+
+<div class="lfwai-widget" data-widget="cost-share" data-readout={L.readout}>
+	<div class="lfwai-sliders">
+		<label>
+			<span>{L.f} = <output data-out="f">1.0</output></span>
+			<input type="range" min="0" max="2" step="0.1" value="1" data-param="f" />
+		</label>
+		<label>
+			<span>{L.r} = <output data-out="r">6</output></span>
+			<input type="range" min="2" max="10" step="1" value="6" data-param="r" />
+		</label>
+	</div>
+	{layouts.map(({ cls, W, H, pad, X, Y }) => (
+		<svg class={`lfwai-viz ${cls}`} viewBox={`0 0 ${W} ${H}`} role="img" aria-label={L.aria} data-geom={JSON.stringify({ W, H, pad, xr, yr })}>
+			{yTicks.map((v) => (
+				<g>
+					<line class={v === 0 ? 'viz-axis' : 'viz-grid'} x1={pad.l} x2={W - pad.r} y1={Y(v)} y2={Y(v)} />
+					<text class="viz-tick" x={pad.l - 8} y={Y(v) + 4} text-anchor="end">{v}</text>
+				</g>
+			))}
+			{xTicks.map((v) => (
+				<text class="viz-tick" x={X(v)} y={H - pad.b + 18} text-anchor="middle">{v}</text>
+			))}
+			<line class="viz-axis" x1={pad.l} x2={pad.l} y1={pad.t} y2={H - pad.b} />
+			<text class="viz-tick" x={(pad.l + W - pad.r) / 2} y={H - 8} text-anchor="middle">{L.x}</text>
+			<text class="viz-tick" transform={`translate(12 ${(pad.t + H - pad.b) / 2}) rotate(-90)`} text-anchor="middle">{L.y}</text>
+			<path class="viz-fit" fill="none" data-el="lost" d="" />
+		</svg>
+	))}
+	<ul class="lfwai-legend">
+		<li><span class="sw sw-fit"></span>{L.line}</li>
+	</ul>
+	<p class="lfwai-readout" data-el="readout" aria-live="polite"></p>
+</div>
+
+<script>
+	import { initCostShare } from '../../scripts/widgets/cost-share';
+	initCostShare();
+</script>

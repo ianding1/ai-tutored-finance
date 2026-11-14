@@ -517,10 +517,42 @@ stages:
   - id: "6"
     title: { zh-cn: "第 6 阶段：家庭投资实践", en: "Stage 6: Household Investing in Practice" }
     lessons:
-      - { id: "6.1", slug: "6-1-fund-types", title: { zh-cn: "基金的种类与结构", en: "Fund Types and Structures" } }
-      - { id: "6.2", slug: "6-2-fund-costs", title: { zh-cn: "基金成本", en: "Fund Costs" } }
-      - { id: "6.3", slug: "6-3-active-vs-passive", title: { zh-cn: "主动与被动投资", en: "Active vs. Passive Investing" } }
-      - { id: "6.4", slug: "6-4-fund-due-diligence", title: { zh-cn: "基金尽职调查框架", en: "A Framework for Fund Due Diligence" } }
+      - id: "6.1"
+        slug: "6-1-fund-types"
+        title: { zh-cn: "基金的种类与结构", en: "Fund Types and Structures" }
+        summary:
+          zh-cn: "开放式共同基金与净值；ETF 的申购赎回机制；资本利得分配与税务效率；指数基金与市值加权；封闭式基金、货币市场基金与基金中的基金。"
+          en: "Open-end mutual funds and net asset value; how ETF creation and redemption works; capital gains distributions and tax efficiency; index funds and market-cap weighting; closed-end funds, money market funds and funds of funds."
+        published: true
+        introduces: [mutual-fund, net-asset-value, exchange-traded-fund, creation-redemption, capital-gains-distribution, index-fund, closed-end-fund]
+        uses: [arbitrage, limits-to-arbitrage, market-portfolio, capital-market-line, smart-beta, money-market, target-date-fund, bid-ask-spread, market-maker, compound-interest]
+      - id: "6.2"
+        slug: "6-2-fund-costs"
+        title: { zh-cn: "基金成本", en: "Fund Costs" }
+        summary:
+          zh-cn: "费用率及其组成；销售费、12b-1 费与份额类别；交易成本、换手率与现金拖累；跟踪差异与跟踪误差；费用对长期财富的复利影响。"
+          en: "The expense ratio and what it contains; sales loads, 12b-1 fees and share classes; trading costs, turnover and cash drag; tracking difference and tracking error; how fees compound over the long run."
+        published: true
+        introduces: [expense-ratio, twelve-b-1-fee, turnover-ratio, tracking-difference]
+        uses: [net-asset-value, mutual-fund, index-fund, exchange-traded-fund, capital-gains-distribution, bid-ask-spread, tracking-error, principal-agent-problem, compound-interest, capital-market-assumptions]
+      - id: "6.3"
+        slug: "6-3-active-vs-passive"
+        title: { zh-cn: "主动与被动投资", en: "Active vs. Passive Investing" }
+        summary:
+          zh-cn: "主动管理的算术；SPIVA 报告的证据；期限越长跑输比例越高；业绩的持续性；怎样读基金资料：factsheet、招募说明书与主动份额。"
+          en: "The arithmetic of active management; the SPIVA evidence; why underperformance rises with the horizon; persistence of performance; how to read fund documents, factsheets, prospectuses and active share."
+        published: true
+        introduces: [passive-investing, active-management, active-share]
+        uses: [index-fund, market-portfolio, normal-distribution, tracking-error, beta, r-squared, expense-ratio, turnover-ratio, survivorship-bias, jensens-alpha, multiple-testing, credit-spread, efficient-market-hypothesis]
+      - id: "6.4"
+        slug: "6-4-fund-due-diligence"
+        title: { zh-cn: "基金尽职调查框架", en: "A Framework for Fund Due Diligence" }
+        summary:
+          zh-cn: "尽职调查要回答的问题；策略、流程与人员；业绩归因：配置效应与选择效应；规模、容量与费用；风险与流动性错配。"
+          en: "The questions due diligence must answer; strategy, process and people; performance attribution, allocation and selection effects; size, capacity and costs; risk and liquidity mismatch."
+        published: true
+        introduces: [due-diligence, performance-attribution, liquidity-mismatch]
+        uses: [principal-agent-problem, maximum-drawdown, factor-loading, multifactor-model, jensens-alpha, expense-ratio, turnover-ratio, net-asset-value, active-management, bank-run, closed-end-fund]
       - { id: "6.5", slug: "6-5-accounts-taxes", title: { zh-cn: "账户与税务（美国）", en: "Accounts and Taxes (US)" } }
       - { id: "6.6", slug: "6-6-household-balance-sheet", title: { zh-cn: "家庭资产负债表与风险保障", en: "The Household Balance Sheet and Insurance" } }
       - { id: "6.7", slug: "6-7-asset-allocation", title: { zh-cn: "资产配置", en: "Asset Allocation" } }

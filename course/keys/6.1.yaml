@@ -1,0 +1,312 @@
+# Answer key for lesson 6.1. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[5.2#strategies]] (section), [[concept:beta]], [[check:Q3]], [[fig:3-1]].
+# expected: values are recomputed by course/verify/6.1.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "6.1"
+
+context:
+  - zh-cn: |-
+      学习者学过无套利（[[5.1]]）、交易所与做市商、买卖价差（[[3.1]]）、资本市场线与市场组合（[[4.3]]）、因子投资（[[4.6]]）、套利的限制（[[4.7]]）、目标日期基金（[[4.12]]）。还没有学基金成本（[[6.2]]）和美国的账户与税务（[[6.5]]）；题目需要的税率直接给出。百分数用百分点表示。
+    en: |-
+      The learner has studied arbitrage ([[5.1]]), exchanges, market makers and bid–ask spreads ([[3.1]]), the capital market line and the market portfolio ([[4.3]]), factor investing ([[4.6]]), limits to arbitrage ([[4.7]]) and target-date funds ([[4.12]]). Fund costs ([[6.2]]) and US accounts and taxes ([[6.5]]) have not been covered; any tax rate a question needs is given. Percentages in percentage points.
+  - concepts: [mutual-fund, net-asset-value]
+    zh-cn: |-
+      讲义：开放式共同基金随时申购赎回，价格为净值 $\text{NAV} = \frac{A - L}{N}$；美国每个交易日按收盘价（东部时间下午 4 点）计算一次；收盘前提交的订单按当天收盘后的净值成交（远期定价），收盘后提交的按下一个交易日的净值；同一基金有多种份额类别。
+    en: |-
+      The lesson: open-end mutual funds are bought and redeemed at any time at NAV $= \frac{A - L}{N}$; in the US it is computed once each trading day at the close (4 p.m. Eastern); orders before the close get that day's post-close NAV (forward pricing), after the close the next day's; one fund can have several share classes.
+  - concepts: [exchange-traded-fund, creation-redemption]
+    zh-cn: |-
+      讲义：ETF 份额在交易所按市场价格交易；只有授权参与者（AP）能直接申购、赎回，通常以实物（一篮子股票换一大批份额，或反过来）；价格偏离一篮子的价值时 AP 可以套利。讲义没有说出价格低于净值时 AP 具体怎样操作（留给 [[check:C2]]）。
+    en: |-
+      The lesson: ETF shares trade on exchanges at market prices; only authorized participants (APs) create and redeem directly, usually in kind (a basket of stocks for a block of shares, or the reverse); APs can arbitrage when the price moves away from the basket's value. The lesson does not spell out what APs do when the price is below NAV (left to [[check:C2]]).
+  - concepts: [capital-gains-distribution]
+    zh-cn: |-
+      讲义：美国的共同基金要把当年实现的资本利得分配给持有人，持有人即使再投资也要交税；赎回常迫使基金卖出证券而实现利得。ETF 以实物赎回，按美国税法不算实现利得，并可交出成本最低的股票，所以很少分配资本利得，税推迟到卖出时。[[fig:3-1]]：100 以每年 7% 增长，比较每年分配一部分资本利得并交税（税后再投资）的基金与不分配的基金在各年末卖出的税后价值；滑块分配比例 0–8%（步长 1，默认 4），税率 0–25%（步长 5，默认 15）；默认时 30 年后约 662 对 601。讲义没有说明差距从哪里来（留给 [[check:C3]]）。
+    en: |-
+      The lesson: US mutual funds must pay out realized capital gains each year, and holders owe tax even if they reinvest; redemptions often force the fund to sell and realize gains. ETFs redeem in kind, which under US tax law does not realize gains, and can hand over the lowest-cost shares, so they rarely distribute capital gains and tax is deferred until sale. [[fig:3-1]]: 100 growing at 7% a year; the after-tax value if sold each year of a fund paying out part of its gains each year (tax paid, rest reinvested) versus one paying out nothing; sliders payout 0–8% (steps of 1, default 4) and tax rate 0–25% (steps of 5, default 15); by default about 662 versus 601 after 30 years. The lesson does not explain where the gap comes from (left to [[check:C3]]).
+  - concepts: [index-fund]
+    zh-cn: |-
+      讲义：指数基金按规则持有指数成分股，可以是共同基金或 ETF；理论基础是资本市场线；宽基指数多按市值加权（标普 500、CRSP 美国全市场指数）；成分股调整时需要买卖；也有等权、基本面、因子加权的指数。讲义没有说股价变化时市值加权基金是否需要交易（留给 [[check:C4]]）。
+    en: |-
+      The lesson: index funds hold an index's members by rule, as mutual funds or ETFs; their basis is the capital market line; broad indexes are mostly cap-weighted (S&P 500, CRSP US Total Market); they must trade when members change; there are also equal-weighted, fundamental and factor indexes. The lesson does not say whether a cap-weighted fund must trade when prices change (left to [[check:C4]]).
+  - concepts: [closed-end-fund]
+    zh-cn: |-
+      讲义：封闭式基金份额固定，只在交易所买卖，基金不申购赎回；货币市场基金投资短期高质量债务，替代现金；目标日期基金是基金中的基金。讲义没有讨论封闭式基金的折价（留给 [[check:C5]]）。
+    en: |-
+      The lesson: closed-end funds have a fixed number of shares traded only on exchanges, with no creation or redemption; money market funds hold short-term high-quality debt and substitute for cash; target-date funds are funds of funds. The lesson does not discuss closed-end fund discounts (left to [[check:C5]]).
+
+common_errors:
+  - questions: [Q1]
+    zh-cn: |-
+      以为只要税率相同、最终要交的税相同，什么时候交税就无所谓；忽略推迟交税等于获得一笔无息贷款，这部分钱可以继续复利增长。
+    en: |-
+      Thinking that with the same tax rate and the same total tax, when it is paid does not matter; ignoring that deferring tax is like an interest-free loan whose money keeps compounding.
+  - questions: [Q2]
+    zh-cn: |-
+      看到 ETF 的价格低于净值，就认为 ETF“坏了”或者有无风险的便宜可占；忽略在债券很少成交时，净值可能是过时的估价，ETF 的价格反而更接近真实的成交价格。
+    en: |-
+      Seeing an ETF priced below NAV and concluding that the ETF is "broken" or that there is a riskless bargain; ignoring that when bonds rarely trade the NAV can be a stale estimate, and the ETF price may be closer to real trading prices.
+  - questions: [Q3]
+    zh-cn: |-
+      以为以折价买入封闭式基金就锁定了折价那部分收益；忽略折价可能长期存在甚至扩大，以及费用会持续侵蚀资产。
+    en: |-
+      Thinking that buying a closed-end fund at a discount locks in the discount as profit; ignoring that the discount can last or widen, and that fees keep eating into the assets.
+  - questions: [Q4]
+    zh-cn: |-
+      认为等权重指数比市值加权更好，因为市值加权“买得贵”；忽略等权重需要频繁交易、偏向小公司，而且不可能所有人都持有等权重组合。
+    en: |-
+      Believing an equal-weighted index is better because cap weighting "buys high"; ignoring that equal weighting needs frequent trading, tilts toward small companies, and cannot be held by everyone.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: mutual-funds
+    concepts: [mutual-fund, net-asset-value]
+    question:
+      zh-cn: |-
+        一位投资者在美东时间下午 2 点提交申购一只美国开放式股票基金的订单，那时股市正在上涨。他的成交价格是下午 2 点时按市价计算的基金净值。
+      en: |-
+        An investor submits an order at 2 p.m. Eastern time to buy a US open-end stock fund, while the stock market is rising. His price is the fund's NAV computed at market prices as of 2 p.m.
+    correct: false
+    hint:
+      zh-cn: 共同基金一天计算几次净值？在什么时候？收盘前提交的订单按哪一次的净值成交？
+      en: How many times a day does a mutual fund compute its NAV, and when? Which NAV do orders submitted before the close get?
+    answer:
+      zh-cn: |-
+        错。共同基金每天只在收盘后按收盘价计算一次净值，收盘前提交的订单按当天收盘后的净值成交（远期定价）。下单时他不知道成交价格。如果允许按已经过时的价格成交，知道之后价格变化的人就可以从其他持有人那里获利。
+      en: |-
+        False. A mutual fund computes its NAV only once a day, after the close, at closing prices; orders submitted before the close get that post-close NAV (forward pricing). He does not know his price when he places the order. If trades were allowed at stale prices, people who know how prices moved afterwards could profit at the expense of the other shareholders.
+
+  - id: C2
+    kind: check
+    section: etfs
+    concepts: [exchange-traded-fund, creation-redemption, arbitrage]
+    question:
+      zh-cn: |-
+        一只股票 ETF 的市场价格比它持有的一篮子股票的价值低 1%。授权参与者怎样从中获利，结果会怎样？
+      en: |-
+        A stock ETF's market price is 1% below the value of the basket of stocks it holds. How can an authorized participant profit, and with what result?
+    choices:
+      - zh-cn: 在市场上买入 ETF 份额，交给基金赎回换回一篮子股票，再卖出这些股票；买入 ETF 的压力使价格回升
+        en: Buy ETF shares in the market, redeem them with the fund for the basket, and sell the stocks; buying the ETF pushes its price back up
+      - zh-cn: 买入一篮子股票交给基金申购新份额，再卖出这些份额
+        en: Buy the basket, create new shares with the fund, and sell those shares
+        why:
+          zh-cn: 申购时付出的是什么价值，得到的份额在市场上能卖多少？ETF 现在比一篮子贵还是便宜？
+          en: What value do you give up to create shares, and what do the shares sell for in the market? Is the ETF now dearer or cheaper than the basket?
+      - zh-cn: 要求基金按净值把份额现金赎回给他，基金必须卖出股票
+        en: Ask the fund to redeem his shares for cash at NAV, forcing the fund to sell stocks
+        why:
+          zh-cn: 讲义说 AP 的申购赎回通常以什么形式进行？以现金赎回会让基金卖出股票、实现利得，这对其他持有人有什么影响？
+          en: In what form does the lesson say APs usually create and redeem? A cash redemption would make the fund sell and realize gains; how would that affect other holders?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。ETF 便宜、一篮子贵，AP 就买便宜的、卖贵的：在市场上买入 ETF，赎回换回股票，卖出股票，赚取约 1% 减去交易成本。买入 ETF 推高它的价格，卖出股票压低股票的价格，直到两者的差距小于交易成本。价格高于净值时则反过来：申购新份额并卖出。
+      en: |-
+        (A). The ETF is cheap and the basket dear, so the AP buys the cheap one and sells the dear one: buy the ETF in the market, redeem it for the stocks, sell the stocks, earning about 1% minus trading costs. Buying the ETF lifts its price and selling the stocks lowers theirs, until the gap is smaller than the trading costs. When the price is above NAV it works the other way: create new shares and sell them.
+
+  - id: C3
+    kind: check
+    section: tax-efficiency
+    concepts: [capital-gains-distribution, compound-interest]
+    widget: { id: tax-drag, set: { d: 6, t: 15 } }
+    question:
+      zh-cn: |-
+        在 [[fig:3-1]] 中，两只基金对全部利得都按 15% 交税，但 30 年后每年分配资本利得的基金明显较少。主要原因是：
+      en: |-
+        In [[fig:3-1]], both funds pay 15% tax on all gains, yet after 30 years the fund paying out capital gains each year ends clearly lower. The main reason is:
+    choices:
+      - zh-cn: 提前交掉的税不能再随投资一起复利增长
+        en: Tax paid early can no longer compound along with the investment
+      - zh-cn: 同一笔利得被交了两次税
+        en: The same gain is taxed twice
+        why:
+          zh-cn: 分配的利得交税后，再投资的部分提高了成本基础。卖出时，这部分利得还会再交税吗？
+          en: After the payout is taxed, the reinvested part raises the cost basis. Is that gain taxed again at the sale?
+      - zh-cn: 分配的利得适用更高的税率
+        en: Distributed gains face a higher tax rate
+        why:
+          zh-cn: 图中两只基金使用的税率是否相同？
+          en: Do the two funds in the figure use the same tax rate?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。两只基金最终都对利得交 15% 的税，差别在于时间。不分配的基金推迟到卖出时才交税，应交的税在这期间一直留在投资中继续增长，相当于从政府得到一笔无息贷款；每年分配的基金每年把一部分钱交了税，这些钱以后的收益都没有了。分配越多、期限越长、税率越高，差距越大。
+      en: |-
+        (A). Both funds end up paying 15% on their gains; the difference is timing. The fund with no payouts pays only at the sale, and the tax it owes stays invested and keeps growing in the meantime, like an interest-free loan from the government; the fund paying out each year gives up some money to tax each year, and loses all future returns on it. The larger the payouts, the longer the horizon and the higher the tax rate, the larger the gap.
+
+  - id: C4
+    kind: check
+    section: index-funds
+    concepts: [index-fund, market-portfolio]
+    question:
+      zh-cn: |-
+        一只按市值加权的指数基金，每当成分股的价格变化时，都必须买卖股票，才能保持与指数相同的权重。
+      en: |-
+        A cap-weighted index fund must buy and sell stocks whenever the prices of the index members change, to keep the same weights as the index.
+    correct: false
+    hint:
+      zh-cn: 设基金持有每家公司固定比例的股份。一只股票涨价后，它在指数中的权重和在基金中的权重各怎样变化？
+      en: Suppose the fund holds a fixed fraction of each company's shares. When one stock rises, how do its weight in the index and its weight in the fund change?
+    answer:
+      zh-cn: |-
+        错。市值加权的基金持有每家公司相同比例的股份，股价变化时，基金中各股票的权重随市值自动变化，与指数保持一致，不需要交易。只有成分股调整、公司增发或回购，以及投资者申购赎回时才需要买卖。这是市值加权指数换手率低、成本低的原因；等权重指数则要定期卖出涨了的股票、买入跌了的股票。
+      en: |-
+        False. A cap-weighted fund holds the same fraction of each company's shares; when prices change, the weights in the fund move with market values automatically and stay equal to the index's, with no trading. Trading is needed only when members change, companies issue or buy back shares, or investors buy and redeem. This is why cap-weighted indexes have low turnover and low cost; an equal-weighted index must regularly sell stocks that have risen and buy those that have fallen.
+
+  - id: C5
+    kind: check
+    section: other-structures
+    concepts: [closed-end-fund, creation-redemption, limits-to-arbitrage]
+    question:
+      zh-cn: |-
+        一只封闭式基金的价格可以多年比净值低 10% 以上，而一只大型股票 ETF 的价格很少偏离净值超过零点几个百分点。主要原因是：
+      en: |-
+        A closed-end fund's price can stay more than 10% below its NAV for years, while a large stock ETF's price rarely strays from NAV by more than a few tenths of a percent. The main reason is:
+    choices:
+      - zh-cn: 封闭式基金没有申购赎回机制，没有人能按净值把份额换成基金持有的资产
+        en: A closed-end fund has no creation and redemption, so no one can exchange shares for the fund's assets at NAV
+      - zh-cn: 封闭式基金持有的资产风险更高
+        en: Closed-end funds hold riskier assets
+        why:
+          zh-cn: 资产风险高会影响净值本身的波动，但为什么会使价格长期低于这些资产的价值？
+          en: Riskier assets make the NAV itself swing more, but why would that keep the price below the value of those assets for years?
+      - zh-cn: 封闭式基金的投资者更理性
+        en: Closed-end fund investors are more rational
+        why:
+          zh-cn: 如果投资者理性、能以低于价值的价格买到资产，而又能把差价兑现，差价会长期存在吗？关键是能不能兑现。
+          en: If rational investors could buy assets below value and cash in the gap, would the gap last? The key is whether it can be cashed in.
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。ETF 的价格低于净值时，AP 可以买入份额、赎回换成股票再卖出，这种套利把价格拉回净值。封闭式基金的份额固定，不能赎回，以折价买入的人只能等别人以后愿意出更高的价格，或者等基金被清算、转为开放式；折价可能持续甚至扩大，套利有风险（[[4.7]]）。折价还可能反映基金收取的费用、税务问题和投资者情绪。
+      en: |-
+        (A). When an ETF trades below NAV, APs can buy shares, redeem them for stocks and sell the stocks; this arbitrage pulls the price back to NAV. A closed-end fund's shares are fixed and cannot be redeemed, so someone buying at a discount can only wait for others to pay more later, or for the fund to be liquidated or converted to open-end; the discount can persist or widen, so the arbitrage is risky ([[4.7]]). Discounts may also reflect the fund's fees, tax issues and investor sentiment.
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [capital-gains-distribution, exchange-traded-fund, compound-interest]
+    expected: { mf: "323.58", etf: "343.92" }
+    question:
+      zh-cn: |-
+        一位投资者在应税账户中投资 10 万美元，期限 20 年，有两只跟踪同一指数、费用相同的基金可选：一只共同基金每年把净值的 5% 作为长期资本利得分配，投资者交税后把剩余部分再投资；一只 ETF 不分配资本利得。两只基金的总收益都是每年 7%，长期资本利得税率为 15%，20 年后全部卖出。
+        (a) 20 年后卖出、交税后，两种选择各剩多少（千美元）？
+        (b) 他的朋友说：“两只基金的利得都按 15% 交税，只是一个早交、一个晚交，最后交的税差不多，选哪个都一样。”评价这个说法，并说明在什么情况下两者的差别会变小。
+      en: |-
+        An investor puts 100,000 dollars in a taxable account for 20 years and can choose between two funds tracking the same index with the same fees: a mutual fund that each year pays out 5% of its NAV as long-term capital gains, with the investor paying the tax and reinvesting the rest; and an ETF that pays out no capital gains. Both funds earn a total return of 7% a year, the long-term capital gains tax rate is 15%, and everything is sold after 20 years.
+        (a) After selling at the end of 20 years and paying tax, how much is left in each case (thousand dollars)?
+        (b) His friend says: "Both funds' gains are taxed at 15%; one pays earlier and the other later, the total tax is about the same, so it makes no difference." Evaluate this statement, and say when the difference between the two becomes smaller.
+    answer:
+      zh-cn: |-
+        (a) 共同基金：每年净值先增长 7%，分配 5%，交税 $0.15 \times 5\%$ 的净值，税后部分再投资并提高成本基础；20 年后卖出，对剩余的利得按 15% 交税，税后约 323.58（千美元）。ETF：$100 \times 1.07^{20} \approx 386.97$，卖出时交税 $0.15 \times (386.97 - 100) \approx 43.05$，税后约 343.92。ETF 多约 20.3，约 6%。
+        (b) 说法不对。税率相同，但交税的时间不同：ETF 推迟交的税在 20 年里一直留在投资中复利增长，相当于一笔无息贷款；共同基金每年交掉的税以后不再有收益。所以虽然名义税率相同，ETF 持有人得到的税后财富更多。差别在以下情况下变小：分配比例低（例如共同基金很少有赎回、换手率低），期限短，税率低，或者投资者在卖出前去世（美国税法下继承的资产成本基础会调高）。在不对资本利得征税的账户中，两者没有差别。
+      en: |-
+        (a) Mutual fund: each year the NAV grows 7%, 5% is paid out, tax of $0.15 \times 5\%$ of NAV is paid, and the rest is reinvested, raising the cost basis; at the sale after 20 years the remaining gain is taxed at 15%, leaving about 323.58 (thousand dollars). ETF: $100 \times 1.07^{20} \approx 386.97$, tax at the sale $0.15 \times (386.97 - 100) \approx 43.05$, leaving about 343.92. The ETF leaves about 20.3 more, about 6%.
+        (b) The statement is wrong. The rate is the same but the timing differs: the tax the ETF defers stays invested and compounds for 20 years, like an interest-free loan, while the tax the mutual fund pays each year earns nothing afterwards. So with the same nominal rate, the ETF holder ends with more after-tax wealth. The difference shrinks when payouts are small (for example a mutual fund with few redemptions and low turnover), the horizon is short, the tax rate is low, or the investor dies before selling (under US tax law the basis of inherited assets is stepped up). In an account where capital gains are not taxed, there is no difference.
+    rubric:
+      zh-cn:
+        - "(a) 通过：共同基金约 323.58，ETF 约 343.92（千美元）；逐年计算分配的税和成本基础的变化。忽略再投资提高成本基础、卖出时对全部增值重复征税，需要订正。"
+        - "(b) 通过：指出差别来自推迟交税带来的复利（无息贷款），并给出至少两个使差别变小的条件。同意“选哪个都一样”，需要订正。"
+      en:
+        - "(a) OK: mutual fund about 323.58, ETF about 343.92 (thousand dollars); tax on payouts and changes in cost basis computed year by year. Ignoring the basis increase from reinvestment and taxing the whole gain again at the sale needs revision."
+        - "(b) OK: says the difference comes from compounding on deferred tax (an interest-free loan), and gives at least two conditions that shrink it. Agreeing that it makes no difference needs revision."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [exchange-traded-fund, creation-redemption, net-asset-value, limits-to-arbitrage]
+    question:
+      zh-cn: |-
+        2020 年 3 月市场动荡时，一些大型公司债 ETF 的价格曾比公布的净值低约 5%。这类 ETF 的净值由定价服务商对每只债券的估价计算，而很多公司债在那几天几乎没有成交，买卖价差也比平时大了好几倍。
+        (a) 一位评论员说：“ETF 的价格比它持有的资产便宜了 5%，说明 ETF 这种结构在危机中坏掉了。”评价这个说法：在这几天，ETF 的价格和净值，哪一个可能更接近投资者实际能卖出这些债券的价格？
+        (b) 为什么授权参与者没有把这 5% 的差距很快消除？在什么条件下这个差距才是无风险的套利机会？
+      en: |-
+        During the market turmoil of March 2020, some large corporate bond ETFs traded about 5% below their published NAV. The NAV of such an ETF is computed from a pricing service's estimates of each bond, and many corporate bonds barely traded in those days, with bid–ask spreads several times wider than usual.
+        (a) A commentator says: "The ETF is 5% cheaper than the assets it holds, which shows the ETF structure broke down in the crisis." Evaluate this statement: in those days, which was likely closer to the price at which investors could actually sell the bonds, the ETF price or the NAV?
+        (b) Why did authorized participants not close the 5% gap quickly? Under what conditions would the gap be a riskless arbitrage?
+    answer:
+      zh-cn: |-
+        (a) 说法不对。净值是对很多几天没有成交的债券的估价，往往按买卖价的中间价或过去的成交价算出，跟不上市场；ETF 在交易所上持续成交，它的价格反映了投资者在当时真正愿意买卖的价格。所以 ETF 的价格可能更接近债券的实际卖出价，“折价”的很大一部分是净值过时。从这个角度看，ETF 反而在债券市场冻结时提供了价格发现和流动性。
+        (b) AP 要套利，需要买入 ETF、赎回换回债券，再在债券市场卖出。如果卖出这些债券时只能按比估价低 4%–5% 的买价成交，或者根本卖不出去，扣除成本后就几乎没有利润，还要承担持有债券期间价格继续下跌的风险，并占用交易商在危机中稀缺的资本（[[4.7]]）。只有当债券真的能按接近净值的价格卖出、交易成本小于差距、而且 AP 有足够的资本承担这些头寸时，这个差距才是无风险的套利机会。后来美联储宣布购买公司债 ETF，市场恢复后，折价很快消失。
+      en: |-
+        (a) The statement is wrong. The NAV was an estimate for many bonds that had not traded for days, often based on mid prices or past trades, and lagged the market; the ETF traded continuously on the exchange, and its price reflected what investors were really willing to pay at the time. So the ETF price was likely closer to what the bonds could actually be sold for, and much of the "discount" was a stale NAV. Seen this way, the ETF provided price discovery and liquidity while the bond market was frozen.
+        (b) To arbitrage, an AP must buy the ETF, redeem it for bonds and sell the bonds in the bond market. If the bonds could only be sold at bids 4%–5% below the estimates, or not at all, there was little profit after costs, plus the risk of further price falls while holding the bonds, and it tied up dealers' capital, which was scarce in the crisis ([[4.7]]). The gap is a riskless arbitrage only if the bonds can really be sold near NAV, trading costs are smaller than the gap, and APs have enough capital to carry the positions. After the Federal Reserve announced it would buy corporate bond ETFs and markets recovered, the discounts quickly disappeared.
+    rubric:
+      zh-cn:
+        - "(a) 通过：指出净值是对不成交债券的过时估价，ETF 的价格反映实际成交价格，因而可能更准确。同意“ETF 坏掉了”，需要订正。"
+        - "(b) 通过：说明套利需要卖出债券，而债券的实际卖出价低、交易成本高、要承担风险和占用资本；给出无风险套利的条件。只说“AP 会套利”而不解释为何差距持续，需要订正。"
+      en:
+        - "(a) OK: says the NAV was a stale estimate for untraded bonds and the ETF price reflected actual trading, so it may have been more accurate. Agreeing that the ETF broke down needs revision."
+        - "(b) OK: explains that the arbitrage requires selling the bonds, which could only be sold at low prices with high costs, risk and capital use; gives the conditions for a riskless arbitrage. Only saying \"APs will arbitrage\" without explaining why the gap lasted needs revision."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [closed-end-fund, net-asset-value, limits-to-arbitrage]
+    expected: { y: "7.06" }
+    question:
+      zh-cn: |-
+        一只封闭式债券基金的净值为每份 20 美元，市场价格为 17 美元。基金每年按净值的 6% 向持有人分配收入，每年的费用为净值的 1.2%（已从分配中扣除）。
+        (a) 按市场价格计算，买入者每年得到的分配率是多少？
+        (b) 一份投资通讯说：“以 85 美分买入价值 1 美元的资产，立刻就赚了 15%。”评价这个说法：买入者在什么情况下才能得到这 15%？如果折价一直保持在 15%，以折价买入有什么好处？
+      en: |-
+        A closed-end bond fund has a NAV of 20 dollars a share and a market price of 17 dollars. Each year it pays out 6% of NAV to shareholders, and its yearly expenses are 1.2% of NAV (already deducted before the payout).
+        (a) At the market price, what is the buyer's yearly payout rate?
+        (b) An investment newsletter says: "Buying a dollar of assets for 85 cents is an instant 15% gain." Evaluate this statement: when does the buyer actually get the 15%? If the discount stays at 15% forever, what is the benefit of buying at a discount?
+    answer:
+      zh-cn: |-
+        (a) $\frac{6\% \times 20}{17} = \frac{1.2}{17} \approx 7.06\%$。
+        (b) 说法不对。封闭式基金不能按净值赎回，这 15% 只有在折价收窄时才能实现：例如基金被清算、转为开放式、回购份额，或者市场情绪改变。折价也可能扩大，买入者可能以更大的折价卖出。如果折价一直保持在 15%，买入者的价格和净值同比例变化，没有资本利得上的好处，好处只是分配率从 6% 提高到约 7.06%：同样的分配，花的钱更少。这正好可以看作对费用的补偿：基金每年从资产中扣除 1.2%，持有人得不到这部分；折价在一定程度上反映了这些费用的现值，以及基金使用杠杆、分配可能包含返还本金等风险。
+      en: |-
+        (a) $\frac{6\% \times 20}{17} = \frac{1.2}{17} \approx 7.06\%$.
+        (b) The statement is wrong. A closed-end fund cannot be redeemed at NAV, so the 15% is earned only if the discount narrows: for example if the fund is liquidated, converted to open-end or buys back shares, or sentiment changes. The discount can also widen, and the buyer may have to sell at a larger one. If the discount stays at 15%, the buyer's price moves in proportion to NAV, with no capital gain from the discount; the only benefit is a payout rate of about 7.06% instead of 6%: the same payout for less money. This can be seen as compensation for fees: the fund takes 1.2% of assets each year, which holders never get; the discount partly reflects the present value of these fees, and risks such as leverage or payouts that include a return of capital.
+    rubric:
+      zh-cn:
+        - "(a) 通过：约 7.06%。"
+        - "(b) 通过：指出折价只有收窄时才变成收益，可能持续或扩大；折价不变时好处只是更高的分配率；提到费用或其他风险解释折价。同意“立刻赚 15%”，需要订正。"
+      en:
+        - "(a) OK: about 7.06%."
+        - "(b) OK: says the discount becomes a gain only if it narrows, and can persist or widen; with a constant discount the only benefit is the higher payout rate; mentions fees or other risks as reasons for the discount. Agreeing with an \"instant 15% gain\" needs revision."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [index-fund, market-portfolio, smart-beta]
+    expected: { sell: "9.52" }
+    question:
+      zh-cn: |-
+        一个只有三只股票 A、B、C 的市场，三家公司的市值相同。一年中 A 上涨 50%，B 和 C 不变。
+        (a) 一只市值加权的指数基金和一只每年再平衡到等权重的指数基金，年末各需要卖出多少 A（占基金资产的百分比）？
+        (b) 一位分析师说：“市值加权的指数让你把更多钱放在涨得最多、估值最贵的股票上，等权重指数显然更好。”评价这个说法。
+      en: |-
+        A market has only three stocks, A, B and C, with equal market values. Over a year A rises 50% and B and C are unchanged.
+        (a) At year end, how much of A (as a percentage of fund assets) must a cap-weighted index fund sell, and how much must a fund that rebalances to equal weights each year sell?
+        (b) An analyst says: "A cap-weighted index puts more of your money in the stocks that have risen most and are most expensive; an equal-weighted index is obviously better." Evaluate this statement.
+    answer:
+      zh-cn: |-
+        (a) 市值加权：A 的权重从 $\frac{1}{3}$ 自动升到 $\frac{1.5}{3.5} \approx 42.86\%$，与指数一致，不需要卖出。等权重：要把 A 从 42.86% 卖到 33.33%，卖出约 9.52% 的基金资产，并买入 B 和 C。
+        (b) 说法不对，至少不是“显然”。第一，市值加权的组合就是市场组合：所有投资者合起来只能持有市值加权的组合，不可能人人都持有等权重组合；有人超配小公司，就必须有人低配。第二，等权重相对市值加权是对小公司和反转的倾斜（[[4.6]]），它的历史超额收益可能来自承担这些因子的风险，并不是免费的。第三，等权重需要定期卖出涨了的股票、买入跌了的股票，换手率高，交易成本和税（应税账户中）也高，规模大时还会推动小公司的价格。第四，“涨得多就贵”不一定成立：股价上涨可能是因为公司的盈利前景变好了。如果投资者相信某个因子溢价，可以有意持有偏向它的基金，但要清楚这是主动的选择。
+      en: |-
+        (a) Cap-weighted: A's weight rises automatically from $\frac{1}{3}$ to $\frac{1.5}{3.5} \approx 42.86\%$, matching the index, so nothing is sold. Equal-weighted: A must be cut from 42.86% to 33.33%, selling about 9.52% of fund assets and buying B and C.
+        (b) The statement is wrong, or at least not "obvious". First, the cap-weighted portfolio is the market portfolio: all investors together can only hold the cap-weighted portfolio, and not everyone can hold equal weights; if some overweight small companies, others must underweight them. Second, relative to cap weighting, equal weighting tilts toward small companies and reversal ([[4.6]]); its past extra return may be pay for bearing those factor risks, not free. Third, equal weighting must regularly sell stocks that have risen and buy those that have fallen, so turnover is high, as are trading costs and (in taxable accounts) taxes, and at large size it pushes up the prices of small companies. Fourth, "risen a lot" does not mean "expensive": a stock may rise because the company's prospects improved. An investor who believes in a factor premium can deliberately hold a fund tilted toward it, but should know that this is an active choice.
+    rubric:
+      zh-cn:
+        - "(a) 通过：市值加权不需卖出；等权重卖出约 9.52%。"
+        - "(b) 通过：至少指出两点：市值加权是市场组合、不可能人人等权重；等权重是因子倾斜而非免费；换手和成本更高。同意“显然更好”，需要订正。"
+      en:
+        - "(a) OK: cap-weighted sells nothing; equal-weighted sells about 9.52%."
+        - "(b) OK: makes at least two points among: cap weighting is the market portfolio and not everyone can hold equal weights; equal weighting is a factor tilt, not free; turnover and costs are higher. Agreeing it is obviously better needs revision."

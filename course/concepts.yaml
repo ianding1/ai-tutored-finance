@@ -2917,3 +2917,139 @@ crypto-asset:
   short:
     zh-cn: "记录在区块链上的数字资产，例如比特币；价格波动很大。"
     en: "A digital asset recorded on a blockchain, such as bitcoin; its price is very volatile."
+
+mutual-fund:
+  defined_in: "6.1"
+  zh-cn: 共同基金
+  en: mutual fund
+  short:
+    zh-cn: "集合投资者资金、由经理按约定策略投资的基金；开放式基金按净值申购赎回。"
+    en: "A fund pooling investors' money, invested by a manager under a stated strategy; open-end funds are bought and redeemed at NAV."
+
+net-asset-value:
+  defined_in: "6.1"
+  zh-cn: 基金净值
+  en: net asset value
+  short:
+    zh-cn: "基金资产减负债后除以份额数，美国共同基金每天收盘后计算一次。"
+    en: "A fund's assets minus liabilities divided by shares; US mutual funds compute it once a day after the close."
+
+exchange-traded-fund:
+  defined_in: "6.1"
+  zh-cn: 交易所交易基金
+  en: exchange-traded fund
+  short:
+    zh-cn: "份额在交易所按市价交易的基金（ETF），通过授权参与者申购赎回。"
+    en: "A fund whose shares trade on an exchange at market prices (ETF), created and redeemed through authorized participants."
+
+creation-redemption:
+  defined_in: "6.1"
+  zh-cn: 申购赎回机制
+  en: creation and redemption
+  short:
+    zh-cn: "授权参与者以一篮子证券与 ETF 交换份额的机制，使价格接近净值。"
+    en: "The mechanism by which authorized participants exchange baskets of securities for ETF shares, keeping the price near NAV."
+
+capital-gains-distribution:
+  defined_in: "6.1"
+  zh-cn: 资本利得分配
+  en: capital gains distribution
+  short:
+    zh-cn: "基金把实现的资本利得分配给持有人，持有人当年须为此交税。"
+    en: "A fund's payout of realized capital gains, taxable to holders that year."
+
+index-fund:
+  defined_in: "6.1"
+  zh-cn: 指数基金
+  en: index fund
+  short:
+    zh-cn: "按规则持有指数成分股、追求与指数相同收益的基金。"
+    en: "A fund that holds an index's members by rule, aiming to match the index's return."
+
+closed-end-fund:
+  defined_in: "6.1"
+  zh-cn: 封闭式基金
+  en: closed-end fund
+  short:
+    zh-cn: "份额数量固定、只在交易所买卖、不申购赎回的基金。"
+    en: "A fund with a fixed number of shares that trade on an exchange, with no creation or redemption."
+
+expense-ratio:
+  defined_in: "6.2"
+  zh-cn: 费用率
+  en: expense ratio
+  short:
+    zh-cn: "基金每年运营费用占平均资产的比例，每天从资产中扣除。"
+    en: "A fund's yearly operating expenses as a share of average assets, deducted daily from assets."
+
+twelve-b-1-fee:
+  defined_in: "6.2"
+  zh-cn: 12b-1 费
+  en: 12b-1 fee
+  short:
+    zh-cn: "从基金资产中每年收取的营销和服务费用，含在费用率中，最多 1%。"
+    en: "A yearly marketing and service fee taken from fund assets, included in the expense ratio, at most 1%."
+
+turnover-ratio:
+  defined_in: "6.2"
+  zh-cn: 换手率
+  en: turnover ratio
+  short:
+    zh-cn: "一年中买入或卖出（取较小者）的金额占平均资产的比例。"
+    en: "The smaller of a year's purchases or sales as a share of average assets."
+
+tracking-difference:
+  defined_in: "6.2"
+  zh-cn: 跟踪差异
+  en: tracking difference
+  short:
+    zh-cn: "指数基金收益减指数收益的平均值，衡量平均落后指数多少。"
+    en: "The average of an index fund's return minus the index return; how much it lags on average."
+
+passive-investing:
+  defined_in: "6.3"
+  zh-cn: 被动投资
+  en: passive investing
+  short:
+    zh-cn: "按市值加权持有整个市场，不试图选股或择时。"
+    en: "Holding the whole market weighted by market capitalization, without trying to pick stocks or time the market."
+
+active-management:
+  defined_in: "6.3"
+  zh-cn: 主动管理
+  en: active management
+  short:
+    zh-cn: "通过选股或择时，试图获得高于市场的收益。"
+    en: "Trying to earn more than the market by picking stocks or timing the market."
+
+active-share:
+  defined_in: "6.3"
+  zh-cn: 主动份额
+  en: active share
+  short:
+    zh-cn: "基金与基准持仓权重之差的绝对值之和的一半，衡量持仓与基准的差别。"
+    en: "Half the sum of absolute differences between fund and benchmark weights; how different the holdings are from the benchmark."
+
+due-diligence:
+  defined_in: "6.4"
+  zh-cn: 尽职调查
+  en: due diligence
+  short:
+    zh-cn: "投资前和持有期间对基金的策略、人员、业绩、成本和风险的系统检查。"
+    en: "A systematic check of a fund's strategy, people, performance, costs and risks, before and while investing."
+
+performance-attribution:
+  defined_in: "6.4"
+  zh-cn: 业绩归因
+  en: performance attribution
+  short:
+    zh-cn: "把相对基准的超额收益分解为配置效应、选择效应等来源。"
+    en: "Splitting excess return over a benchmark into sources such as allocation and selection effects."
+
+liquidity-mismatch:
+  defined_in: "6.4"
+  zh-cn: 流动性错配
+  en: liquidity mismatch
+  short:
+    zh-cn: "基金允许频繁赎回，却持有难以按合理价格迅速出售的资产。"
+    en: "A fund allowing frequent redemptions while holding assets that cannot be sold quickly at reasonable prices."

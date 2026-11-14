@@ -1,0 +1,323 @@
+# Answer key for lesson 6.3. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[5.2#strategies]] (section), [[concept:beta]], [[check:Q3]], [[fig:3-1]].
+# expected: values are recomputed by course/verify/6.3.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "6.3"
+
+context:
+  - zh-cn: |-
+      学习者学过正态分布（[[0.4]]）、beta、$R^2$ 与单指数模型（[[4.4]]、[[4.5]]）、因子模型（[[4.6]]）、市场效率（[[4.7]]）、业绩评估、运气与能力、幸存者偏差（[[4.9]]）、信用利差（[[3.6]]）、基金的种类与成本（[[6.1]]、[[6.2]]）。百分数用百分点表示。
+    en: |-
+      The learner has studied the normal distribution ([[0.4]]), beta, $R^2$ and the single-index model ([[4.4]], [[4.5]]), factor models ([[4.6]]), market efficiency ([[4.7]]), performance evaluation, luck versus skill and survivorship bias ([[4.9]]), credit spreads ([[3.6]]) and fund types and costs ([[6.1]], [[6.2]]). Percentages in percentage points.
+  - concepts: [passive-investing, active-management]
+    zh-cn: |-
+      讲义：Sharpe（1991）的算术：被动投资者扣除成本前得到市场收益；所有投资者合起来持有市场组合，所以主动投资者整体扣除成本前也只能得到市场收益，$\bar{R}_A = R_M - c_A$（按资金加权）；主动之间零和；结论不依赖市场是否有效。讲义没有讨论被动投资比例变化时的情形（留给 [[check:Q1]]）。
+    en: |-
+      The lesson: Sharpe's (1991) arithmetic: passive investors earn the market return before costs; all investors together hold the market portfolio, so active investors as a group also earn only the market return before costs, $\bar{R}_A = R_M - c_A$ (money-weighted); active investing is zero-sum among active investors; the result does not depend on market efficiency. The lesson does not discuss a changing passive share (left to [[check:Q1]]).
+  - concepts: [active-management]
+    zh-cn: |-
+      讲义：SPIVA 美国报告（2024 年末），跑输比例：大盘股（标普 500）1/5/10/15/20 年 65.2%、76.3%、84.3%、89.5%、92.0%；中盘股 62.0%、80.0%、77.3%、87.5%、90.9%；小盘股 29.7%、60.4%、82.2%、90.7%、90.8%。清盘或合并的基金计入，算作没有跑赢；按风格对比指数。20 年前的美国股票基金约 36% 存续到 2024 年末。2025 年约 79% 的大盘股主动基金跑输标普 500（SPIVA 2025 年末）。
+    en: |-
+      The lesson: SPIVA U.S. Scorecard (year-end 2024), shares lagging: large-cap (S&P 500) over 1/5/10/15/20 years 65.2%, 76.3%, 84.3%, 89.5%, 92.0%; mid-cap 62.0%, 80.0%, 77.3%, 87.5%, 90.9%; small-cap 29.7%, 60.4%, 82.2%, 90.7%, 90.8%. Liquidated or merged funds are included as not beating; benchmarks match style. About 36% of US stock funds from 20 years earlier survived to end-2024. In 2025 about 79% of active large-cap funds lagged the S&P 500 (SPIVA year-end 2025).
+  - concepts: [active-management, tracking-error]
+    zh-cn: |-
+      讲义：没有能力的基金每年超额收益平均 $-f$、标准差 $\sigma$（跟踪误差），独立正态；$T$ 年累计跑赢的概率 $P = N\left(-\frac{f\sqrt{T}}{\sigma}\right)$。[[fig:3-1]]：横轴 1–30 年；滑块成本 0–2%（步长 0.25，默认 1），跟踪误差 2–10%（步长 1，默认 5）；默认时 1、10、20 年约 42.1%、26.4%、18.6%；跟踪误差 10% 时约 46.0%、37.6%、32.7%。
+    en: |-
+      The lesson: a fund with no skill has yearly excess returns averaging $-f$ with standard deviation $\sigma$ (tracking error), independent and normal; the probability of beating cumulatively over $T$ years is $P = N\left(-\frac{f\sqrt{T}}{\sigma}\right)$. [[fig:3-1]]: horizontal axis 1–30 years; sliders cost 0–2% (steps of 0.25, default 1) and tracking error 2–10% (steps of 1, default 5); by default about 42.1%, 26.4%, 18.6% at 1, 10, 20 years; with tracking error 10%, about 46.0%, 37.6%, 32.7%.
+  - concepts: [active-management]
+    zh-cn: |-
+      讲义：SPIVA 持续性报告（2025 年末）：2021 年 12 月排在前四分之一的 505 只美国股票基金，到 2025 年 12 月没有一只每年都保持在前四分之一；随机时约 $\left(\frac{1}{4}\right)^4 \approx 0.4\%$（约 2 只）；前一半的 1,010 只中 7.92% 连续 4 年保持在前一半，随机时 6.25%。讲义没有给出结论（留给 [[check:C4]]）。
+    en: |-
+      The lesson: SPIVA Persistence Scorecard (year-end 2025): of 505 US stock funds in the top quarter in December 2021, none stayed in the top quarter every year through December 2025; random would give about $\left(\frac{1}{4}\right)^4 \approx 0.4\%$ (about 2 funds); of 1,010 top-half funds, 7.92% stayed in the top half 4 years running, against 6.25% if random. The lesson draws no conclusion (left to [[check:C4]]).
+  - concepts: [active-share]
+    zh-cn: |-
+      讲义：factsheet 列出费用率、规模、成立日期、基准、前十大持仓、行业地区分布、风格箱、收益与基准比较、风险统计（标准差、beta、$R^2$、跟踪误差、夏普比率）；招募说明书概要写明目标、费用表、主要策略、主要风险、过去收益与指数对比、基金经理；SAI 有经纪佣金、经理在基金中的投资；年报和半年报有完整持仓、财务报表、换手率。主动份额 $AS = \frac{1}{2}\sum_i |w_i - w_i^B|$（Cremers 和 Petajisto，2009），0 表示与基准相同，100% 表示没有重叠。
+    en: |-
+      The lesson: factsheets list expense ratio, size, inception, benchmark, top ten holdings, sector and region breakdown, style box, returns against the benchmark and risk statistics (standard deviation, beta, $R^2$, tracking error, Sharpe ratio); the prospectus summary gives the objective, fee table, principal strategies and risks, past returns against an index and the managers; the SAI has brokerage commissions and managers' own investment; annual and semiannual reports give full holdings, financial statements and turnover. Active share $AS = \frac{1}{2}\sum_i |w_i - w_i^B|$ (Cremers and Petajisto, 2009): 0 means identical to the benchmark, 100% no overlap.
+
+common_errors:
+  - questions: [Q1]
+    zh-cn: |-
+      以为被动投资越多，市场越无效，主动投资者整体就一定能跑赢；忽略按定义，主动投资者整体扣除成本前的收益仍等于市场收益。
+    en: |-
+      Thinking that the more passive investing there is, the less efficient markets become, so active investors as a group must beat the market; ignoring that by definition active investors as a group still earn the market return before costs.
+  - questions: [Q2]
+    zh-cn: |-
+      把相对基准的超额收益直接当作经理的能力；忽略基金可能承担了基准中没有的风险（例如更多的信用风险），超额收益只是这些风险的补偿。
+    en: |-
+      Taking excess return over a benchmark as manager skill; ignoring that the fund may bear risks the benchmark does not (such as more credit risk), so the excess is pay for those risks.
+  - questions: [Q3]
+    zh-cn: |-
+      只看现存基金的业绩来判断主动管理的成功率；忽略被清盘、合并的基金（幸存者偏差）。
+    en: |-
+      Judging the success rate of active management from surviving funds only; ignoring liquidated and merged funds (survivorship bias).
+  - questions: [Q4]
+    zh-cn: |-
+      用收益率高于基准就判断基金跑赢；忽略基金的 beta 和风格与基准不同，应该按风险调整后比较，并选择合适的基准。
+    en: |-
+      Judging a fund to have won because its return beat the benchmark; ignoring that its beta and style differ from the benchmark, so the comparison should be risk-adjusted against a suitable benchmark.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: arithmetic
+    concepts: [active-management, passive-investing]
+    question:
+      zh-cn: |-
+        如果市场上的主动基金经理足够多、足够聪明，主动投资者作为一个整体，扣除成本后就能跑赢市场。
+      en: |-
+        If there are enough active managers and they are clever enough, active investors as a group can beat the market after costs.
+    correct: false
+    hint:
+      zh-cn: 主动投资者和被动投资者合起来持有什么？被动投资者扣除成本前的收益是多少？由此主动投资者整体扣除成本前的收益是多少？
+      en: What do active and passive investors hold together? What do passive investors earn before costs? What, then, do active investors as a group earn before costs?
+    answer:
+      zh-cn: |-
+        错。所有投资者合起来持有市场组合，被动投资者得到市场收益，所以主动投资者整体扣除成本前也只能得到市场收益；扣除更高的成本后，整体一定跑输。经理的聪明只能决定主动投资者之间谁赢谁输，不能改变整体的平均。
+      en: |-
+        False. All investors together hold the market portfolio and passive investors earn the market return, so active investors as a group can also earn only the market return before costs; after their higher costs, the group must lag. Cleverness only decides who wins and who loses among active investors; it cannot change the group's average.
+
+  - id: C2
+    kind: check
+    section: evidence
+    concepts: [active-management, multiple-testing]
+    question:
+      zh-cn: |-
+        2024 年只有约 30% 的美国小盘股主动基金跑输了标普小盘 600 指数，但 20 年期约 91% 跑输。对 2024 年的结果，最合理的解读是：
+      en: |-
+        In 2024 only about 30% of US active small-cap funds lagged the S&P SmallCap 600, but over 20 years about 91% lagged. The most reasonable reading of the 2024 result is:
+    choices:
+      - zh-cn: 一年的结果噪声很大，可能来自基金与指数在风格或规模上的差异在当年恰好有利，不能说明小盘股基金经理有持续的能力
+        en: One year's result is very noisy and may come from differences in style or size between funds and the index that happened to pay off that year; it does not show lasting skill among small-cap managers
+      - zh-cn: 小盘股市场效率低，投资者应该选主动管理的小盘股基金
+        en: The small-cap market is inefficient, so investors should choose actively managed small-cap funds
+        why:
+          zh-cn: 如果小盘股市场容易获得超额收益，为什么 10 年、15 年、20 年期跑输的比例都超过 80%？
+          en: If excess returns were easy in small caps, why do more than 80% lag over 10, 15 and 20 years?
+      - zh-cn: SPIVA 的统计方法在 2024 年改变了
+        en: SPIVA changed its method in 2024
+        why:
+          zh-cn: 题目中的 1 年期和 20 年期数字来自同一份报告、同一种方法。更可能的解释在基金和指数本身。
+          en: The 1-year and 20-year figures come from the same report and the same method. The likely explanation lies in the funds and the index themselves.
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。一年的超额收益主要由噪声和风格差异决定：例如很多“小盘股”基金持有比标普小盘 600 的成分股更大的公司，当这些股票在某一年表现好时，大部分基金就跑赢了指数。长期结果才更能反映成本和能力：20 年期约 91% 跑输。挑选一年的好结果来证明某类主动管理有效，是从很多可能的比较中挑出有利的一个（[[concept:multiple-testing]]）。
+      en: |-
+        (A). One year's excess return is driven mainly by noise and style differences: for example many "small-cap" funds hold larger companies than those in the S&P SmallCap 600, and when those stocks do well in a year, most funds beat the index. Long-run results say more about costs and skill: about 91% lag over 20 years. Picking one good year to prove that a kind of active management works is choosing the favorable one out of many possible comparisons ([[concept:multiple-testing]]).
+
+  - id: C3
+    kind: check
+    section: horizon
+    concepts: [active-management, tracking-error]
+    widget: { id: beat-prob, set: { f: 1, s: 10 } }
+    question:
+      zh-cn: |-
+        在 [[fig:3-1]] 中，成本保持 1%，把跟踪误差从 5% 提高到 10%。一只没有能力的基金在 20 年中跑赢指数的概率会：
+      en: |-
+        In [[fig:3-1]], keep the cost at 1% and raise the tracking error from 5% to 10%. The probability that a fund with no skill beats the index over 20 years:
+    choices:
+      - zh-cn: 上升，因为随机的偏离更大，更多没有能力的基金会碰巧跑赢
+        en: Rises, because larger random deviations let more funds with no skill win by chance
+      - zh-cn: 下降，因为风险更大的基金更难跑赢
+        en: Falls, because riskier funds find it harder to win
+        why:
+          zh-cn: 公式中 $\sigma$ 在分母上。$\sigma$ 变大时，$-\frac{f\sqrt{T}}{\sigma}$ 更接近 0 还是更远离 0？
+          en: In the formula $\sigma$ is in the denominator. When $\sigma$ grows, does $-\frac{f\sqrt{T}}{\sigma}$ move closer to 0 or further from it?
+      - zh-cn: 不变，因为基金没有能力，平均总是落后成本那么多
+        en: Stays the same, because a fund with no skill always lags by its cost on average
+        why:
+          zh-cn: 平均落后确实不变，但概率还取决于结果分散的程度。看图中的读数。
+          en: The average lag is indeed unchanged, but the probability also depends on how spread out the outcomes are. Look at the readout in the figure.
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。约从 18.6% 升到 32.7%。平均落后仍是每年 1%，但跟踪误差越大，结果越分散，落在“跑赢”一侧的概率越大。因此，偏离基准越多的基金，长期记录中出现幸运赢家的比例越高，单凭跑赢的记录更难判断能力（[[4.9]]）。
+      en: |-
+        (A). It rises from about 18.6% to 32.7%. The average lag is still 1% a year, but a larger tracking error spreads outcomes more, so more of them fall on the winning side. Funds that stray further from their benchmark therefore produce more lucky winners in their long-run records, making it harder to judge skill from a winning record alone ([[4.9]]).
+
+  - id: C4
+    kind: check
+    section: persistence
+    concepts: [active-management]
+    question:
+      zh-cn: |-
+        对 SPIVA 持续性报告的结果（前四分之一的 505 只基金无一连续 4 年保持在前四分之一，随机时约 2 只），最合理的结论是：
+      en: |-
+        For the SPIVA persistence result (none of 505 top-quarter funds stayed in the top quarter for 4 years in a row, against about 2 if random), the most reasonable conclusion is:
+    choices:
+      - zh-cn: 过去的好排名几乎不能预测将来的好排名，结果与运气占主导一致
+        en: Past high rankings barely predict future high rankings; the result is consistent with luck dominating
+      - zh-cn: 排名靠前的基金经理在成功后失去了能力
+        en: Top-ranked managers lose their skill after succeeding
+        why:
+          zh-cn: 如果排名主要由运气决定，不需要“失去能力”也会出现这样的结果。有什么证据能区分这两种解释？
+          en: If rankings are mostly luck, this result appears without anyone "losing skill". What evidence could tell the two explanations apart?
+      - zh-cn: 投资者应该每年换到上一年排名最高的基金
+        en: Investors should switch each year to the previous year's top-ranked fund
+        why:
+          zh-cn: 如果上一年的排名不能预测下一年，每年追逐排名最高的基金会得到什么？还会多付出什么成本？
+          en: If last year's ranking does not predict next year's, what does chasing the top fund each year achieve? What extra costs does it bring?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。如果排名完全随机，预期约有 2 只能连续保持；实际为 0，前一半的结果（7.92%）也只略高于随机的 6.25%。这说明过去的排名对将来几乎没有预测能力。结果甚至略低于随机，可能是因为风格轮动：某一年排名靠前的基金往往押中了某种风格，第二年风格变化时就落后。这并不证明没有任何经理有能力，但说明靠过去的排名挑基金几乎没有用。
+      en: |-
+        (A). With purely random rankings about 2 funds would be expected to stay on top; the actual number is 0, and the top-half result (7.92%) is only slightly above the random 6.25%. Past rankings have almost no power to predict future ones. The result is even slightly below random, perhaps because of style rotation: funds at the top in one year often bet on a style that then falls behind when styles change. This does not prove no manager has skill, but it shows that picking funds by past rankings is of little use.
+
+  - id: C5
+    kind: check
+    section: documents
+    concepts: [active-share, r-squared, expense-ratio]
+    question:
+      zh-cn: |-
+        一只大盘股主动基金的费用率为 0.90%，相对标普 500 的 $R^2$ 为 0.99，主动份额为 20%。对这只基金，最合理的判断是：
+      en: |-
+        An active large-cap fund has an expense ratio of 0.90%, an $R^2$ of 0.99 relative to the S&P 500 and an active share of 20%. The most reasonable judgment about this fund is:
+    choices:
+      - zh-cn: 它的持仓和收益都与指数非常接近，投资者为大部分与指数相同的组合付出了主动管理的费用
+        en: Its holdings and returns are very close to the index, so investors pay active fees for a portfolio that is mostly the index
+      - zh-cn: $R^2$ 高说明经理的选股很准确
+        en: The high $R^2$ shows the manager picks stocks accurately
+        why:
+          zh-cn: $R^2$ 衡量的是基金收益中能被指数解释的比例。0.99 说明基金的收益与指数有多不同？
+          en: $R^2$ measures the share of the fund's return explained by the index. What does 0.99 say about how different the fund's return is from the index?
+      - zh-cn: 主动份额 20% 说明基金每年能比指数多赚约 20%
+        en: An active share of 20% means the fund earns about 20% more than the index each year
+        why:
+          zh-cn: 主动份额是根据持仓权重计算的，衡量的是持仓与基准的差别，而不是收益。
+          en: Active share is computed from holdings weights; it measures how different the holdings are from the benchmark, not the return.
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。主动份额 20% 意味着约 80% 的持仓与指数重合，$R^2$ 0.99 说明收益几乎完全随指数变化。这类基金常被称为“伪指数基金”（closet indexer）：只有约 20% 的组合在做主动选择，却对全部资产收 0.90% 的费用。换算到真正主动的部分，费用相当于约 $\frac{0.90\% - 0.03\%}{20\%} \approx 4.4\%$ 每年，要靠这部分选股弥补非常困难。
+      en: |-
+        (A). An active share of 20% means about 80% of the holdings overlap the index, and an $R^2$ of 0.99 means the return moves almost entirely with the index. Such funds are often called closet indexers: only about 20% of the portfolio reflects active choices, yet 0.90% is charged on all assets. Charged against the truly active part, the fee is about $\frac{0.90\% - 0.03\%}{20\%} \approx 4.4\%$ a year, which that part's stock picking would find very hard to make up.
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [active-management, passive-investing]
+    expected: { gap: "-0.8" }
+    question:
+      zh-cn: |-
+        设股票市场 40% 的资产由指数基金持有，总成本为每年 0.05%；60% 由主动投资者持有，总成本（费用和交易成本）平均为每年 0.80%。
+        (a) 按资金加权，主动投资者扣除成本后的平均收益比市场收益高还是低，差多少？
+        (b) 一位基金经理说：“被动投资的比例越来越高，市场上发现价格错误的人越来越少，所以主动投资者整体跑赢的机会越来越大。”评价这个说法。在什么情况下，“被动投资者”扣除成本前的收益也可能不等于市场收益？
+      en: |-
+        Suppose 40% of the stock market's assets are held by index funds with a total cost of 0.05% a year, and 60% by active investors with an average total cost (fees and trading costs) of 0.80% a year.
+        (a) Weighted by money, do active investors earn more or less than the market after costs, and by how much?
+        (b) A fund manager says: "As passive investing grows, fewer people are looking for mispricing, so active investors as a group have a growing chance to beat the market." Evaluate this statement. Under what circumstances might "passive investors" earn something other than the market return even before costs?
+    answer:
+      zh-cn: |-
+        (a) 扣除成本前主动投资者整体得到市场收益，扣除成本后平均比市场低 0.8 个百分点（−0.8%），比指数基金投资者低 0.75 个百分点。这与被动投资占 40% 还是 90% 无关。
+        (b) 说法不对，至少就“整体”而言。只要被动投资者持有市场组合，主动投资者整体扣除成本前的收益就等于市场收益，不论被动的比例多高。被动投资增加也许让价格错误更多、单个能干的主动经理更容易获利，但他们的盈利来自其他主动投资者的亏损，主动投资者之间仍是零和，整体仍落后于成本。现实中“被动投资者”并不完全被动（Pedersen，2018）：指数成分股调整时，指数基金必须按公布的规则买卖，提前交易的主动投资者可以从中获利；新股发行、增发和回购也使市场组合不断变化，指数基金需要交易。在这些情况下，被动投资者扣除成本前的收益可能略低于真正的市场收益，主动投资者整体可以略高；但这种差额很小，远小于主动管理的平均成本。
+      en: |-
+        (a) Before costs active investors as a group earn the market return, so after costs they lag the market by 0.8 percentage points on average (−0.8%), and index investors by 0.75 percentage points. This holds whether passive investing is 40% or 90%.
+        (b) The statement is wrong, at least for the group. As long as passive investors hold the market portfolio, active investors as a group earn the market return before costs, however large the passive share. More passive investing may leave more mispricing and make it easier for an individual capable manager to profit, but those profits come from other active investors' losses; active investing is still zero-sum among active investors, and the group still lags by its costs. In reality "passive investors" are not fully passive (Pedersen, 2018): when an index changes its members, index funds must trade according to published rules, and active investors trading ahead can profit; new issues, secondary offerings and buybacks keep changing the market portfolio, so index funds must trade. In such cases passive investors may earn slightly less than the true market return before costs and active investors as a group slightly more; but the amount is small, far smaller than the average cost of active management.
+    rubric:
+      zh-cn:
+        - "(a) 通过：主动投资者扣除成本后平均比市场低 0.8 个百分点，并说明与被动比例无关。"
+        - "(b) 通过：指出只要被动投资者持有市场组合，主动整体扣除成本前仍等于市场收益，单个经理的盈利来自其他主动投资者；举出至少一种被动投资者不完全被动的情形（成分股调整、新股发行等）。同意“主动整体机会越来越大”，需要订正。"
+      en:
+        - "(a) OK: active investors lag the market by 0.8 percentage points after costs on average, independent of the passive share."
+        - "(b) OK: says that as long as passive investors hold the market portfolio, active investors as a group still earn the market return before costs, and individual managers' gains come from other active investors; gives at least one way passive investors are not fully passive (index changes, new issues, etc.). Agreeing that the group's chances grow needs revision."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [active-management, credit-spread]
+    expected: { credit: "0.5" }
+    question:
+      zh-cn: |-
+        一只中期优质债券基金以彭博美国综合债券指数为基准。2024 年它跑赢基准 0.6 个百分点。它平均比基准多持有 20 个百分点的公司债（相应少持有国债），利率风险（久期）与基准相同；这一年公司债扣除利率影响后比国债多赚了 2.5 个百分点。
+        (a) 多持有公司债这一项大约贡献了多少超额收益？
+        (b) 基金的宣传材料说：“我们的经理凭借出色的判断跑赢了基准。”评价这个说法。这种做法在什么样的年份会跑输基准？
+      en: |-
+        An intermediate core bond fund is benchmarked to the Bloomberg US Aggregate Bond Index. In 2024 it beat its benchmark by 0.6 percentage points. On average it held 20 percentage points more corporate bonds than the benchmark (and correspondingly fewer Treasuries), with the same interest rate risk (duration) as the benchmark; that year corporate bonds earned 2.5 percentage points more than Treasuries after removing the effect of rates.
+        (a) Roughly how much of the excess return came from the extra corporate bonds?
+        (b) The fund's marketing says: "Our managers beat the benchmark through excellent judgment." Evaluate this statement. In what kind of year would this approach lag the benchmark?
+    answer:
+      zh-cn: |-
+        (a) 约 $20\% \times 2.5\% = 0.5$ 个百分点，占 0.6 个百分点超额收益的绝大部分。
+        (b) 说法有误导。大部分超额收益来自长期多承担信用风险（[[3.6]]）：基准中公司债的比例较低，基金系统性地超配，多赚的信用利差是承担违约风险和流动性风险的补偿，而不是选债的能力。投资者自己也可以用很低的成本买公司债指数基金获得同样的暴露。在信用利差扩大的年份（例如 2008 年、2020 年 3 月），公司债跑输国债，这种基金会明显跑输基准，而且往往正是股票也在下跌的时候。评估这类基金时，应该用包含信用因子的基准或回归（[[4.6]]），看扣除信用暴露后是否还有超额收益。SPIVA 报告中投资级债券基金一年期多数跑赢基准，部分原因就在于此。
+      en: |-
+        (a) About $20\% \times 2.5\% = 0.5$ percentage points, most of the 0.6 percentage points of excess return.
+        (b) The statement is misleading. Most of the excess return comes from bearing more credit risk all the time ([[3.6]]): the benchmark holds fewer corporate bonds, the fund systematically overweights them, and the extra credit spread is pay for bearing default and liquidity risk, not bond-picking skill. Investors could get the same exposure cheaply with a corporate bond index fund. In years when credit spreads widen (such as 2008 and March 2020), corporate bonds lag Treasuries and such a fund lags its benchmark clearly, often just when stocks are falling too. Such funds should be judged against a benchmark or regression that includes a credit factor ([[4.6]]), to see whether any excess return remains after the credit exposure. This is partly why in the SPIVA reports most investment-grade bond funds beat their benchmarks over one year.
+    rubric:
+      zh-cn:
+        - "(a) 通过：约 0.5 个百分点。"
+        - "(b) 通过：指出超额收益主要来自系统性多承担信用风险，是风险补偿而不是能力；说明信用利差扩大时会跑输；提到应控制信用暴露后再评估更好。同意“凭判断跑赢”，需要订正。"
+      en:
+        - "(a) OK: about 0.5 percentage points."
+        - "(b) OK: says the excess comes mainly from systematically bearing more credit risk, which is pay for risk, not skill; explains it lags when credit spreads widen; mentioning evaluation after controlling for credit exposure is a plus. Agreeing it was judgment needs revision."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [active-management, survivorship-bias]
+    expected: { share: "9" }
+    question:
+      zh-cn: |-
+        一家基金公司 20 年前有 100 只股票基金，现在仍存续的有 36 只，其余被清盘或合并。现存的 36 只中有 25% 在 20 年中跑赢了各自的基准。
+        (a) 如果被清盘或合并的基金都没有跑赢基准，20 年前的 100 只基金中有百分之几跑赢了？
+        (b) 公司的广告说：“我们 25% 的长期基金跑赢了基准，远好于行业平均。”评价这个说法。为什么被清盘的基金大多是业绩差的？
+      en: |-
+        Twenty years ago a fund company had 100 stock funds; 36 still exist and the rest were liquidated or merged. Of the 36 survivors, 25% beat their benchmarks over the 20 years.
+        (a) If none of the liquidated or merged funds beat its benchmark, what percentage of the original 100 funds beat their benchmarks?
+        (b) The company's advertisement says: "25% of our long-term funds beat their benchmarks, far better than the industry average." Evaluate this statement. Why are liquidated funds mostly poor performers?
+    answer:
+      zh-cn: |-
+        (a) $36 \times 25\% = 9$ 只，即 9%。
+        (b) 说法有误导。25% 只是存续基金中的比例，存在幸存者偏差（[[4.9]]）：被清盘或合并的 64 只基金从统计中消失了。按 20 年前的全部基金计算，只有 9% 跑赢，与 SPIVA 20 年期大盘股约 8%（92% 跑输）相近，并不比行业好。基金公司倾向于关闭或合并业绩差的基金，因为业绩差的基金资金流出、规模变小、收入低于成本，而且会拖累公司的整体业绩记录；把它并入业绩好的基金，差的记录就消失了。SPIVA 把清盘的基金计为没有跑赢，正是为了避免这种偏差。
+      en: |-
+        (a) $36 \times 25\% = 9$ funds, or 9%.
+        (b) The statement is misleading. 25% is the share among survivors only, which suffers from survivorship bias ([[4.9]]): the 64 liquidated or merged funds have vanished from the count. Counting all the funds of 20 years ago, only 9% beat their benchmarks, close to SPIVA's roughly 8% for large-cap funds over 20 years (92% lagging), so no better than the industry. Fund companies tend to close or merge poor performers, because such funds lose money to outflows, shrink until revenue falls below cost, and drag down the company's overall record; merged into a good fund, the bad record disappears. SPIVA counts liquidated funds as not beating precisely to avoid this bias.
+    rubric:
+      zh-cn:
+        - "(a) 通过：9%。"
+        - "(b) 通过：指出幸存者偏差，按全部基金只有 9% 跑赢、与行业相近；解释业绩差的基金因资金流出、规模变小、拖累记录而被关闭或合并。同意广告，需要订正。"
+      en:
+        - "(a) OK: 9%."
+        - "(b) OK: names survivorship bias, notes only 9% of all funds beat, similar to the industry; explains that poor funds are closed or merged because of outflows, shrinking size and damage to the record. Agreeing with the ad needs revision."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [active-management, beta, jensens-alpha, r-squared]
+    expected: { alpha: "-1" }
+    question:
+      zh-cn: |-
+        一只“成长股基金”的 factsheet 显示：基准为标普 500 指数；过去 10 年基金年化收益 13%，标普 500 为 12%；基金的 beta 为 1.2，相对标普 500 的 $R^2$ 为 0.85，标准差 20%（标普 500 为 15%）；费用率 0.75%。同期无风险利率平均为 2%。
+        (a) 按 CAPM（[[4.4]]），这只基金的 Jensen alpha 约为多少？
+        (b) 基金宣传“每年跑赢基准 1 个百分点”。评价这个说法，并说明还应该看哪些信息、和什么基准比较。
+      en: |-
+        A "growth fund" factsheet shows: benchmark the S&P 500; over the past 10 years the fund returned 13% a year and the S&P 500 12%; the fund's beta is 1.2, its $R^2$ relative to the S&P 500 is 0.85, and its standard deviation 20% (15% for the S&P 500); expense ratio 0.75%. The risk-free rate averaged 2% over the period.
+        (a) By CAPM ([[4.4]]), what is the fund's Jensen alpha, roughly?
+        (b) The fund advertises that it "beats its benchmark by 1 percentage point a year". Evaluate this statement, and say what else should be looked at and against which benchmark.
+    answer:
+      zh-cn: |-
+        (a) CAPM 要求的收益为 $2\% + 1.2 \times (12\% - 2\%) = 14\%$，alpha 约为 $13\% - 14\% = -1\%$。
+        (b) 说法有误导。基金的 beta 为 1.2，承担了比标普 500 多 20% 的市场风险；在市场上涨的十年里，仅靠更高的 beta 就应该多赚 2 个百分点，实际只多赚 1 个百分点，经风险调整后是落后的。$R^2$ 0.85 说明还有相当一部分收益不能被标普 500 解释，基金的风格（成长股）与标普 500 不同，更合适的基准是成长股指数（例如标普 500 成长指数），或用包含规模、价值、动量因子的回归（[[4.6]]）计算 alpha。还应该看：alpha 的 t 值，10 年数据通常不足以区分运气和能力（[[4.9]]）；这 10 年中成长股整体是否恰好表现很好；经理是否在整个期间都管理这只基金；费用是否已经扣除（是，收益按净值计算）。
+      en: |-
+        (a) CAPM requires $2\% + 1.2 \times (12\% - 2\%) = 14\%$, so alpha is about $13\% - 14\% = -1\%$.
+        (b) The statement is misleading. With a beta of 1.2 the fund bore 20% more market risk than the S&P 500; in a decade of rising markets the higher beta alone should have earned 2 percentage points more, but the fund earned only 1 more, so it lagged after adjusting for risk. An $R^2$ of 0.85 means a good part of the return is not explained by the S&P 500: the fund's style (growth) differs from the S&P 500, and a better benchmark is a growth index (such as the S&P 500 Growth) or a regression with size, value and momentum factors ([[4.6]]). One should also look at: the t-statistic of alpha, since 10 years of data usually cannot separate luck from skill ([[4.9]]); whether growth stocks as a whole happened to do very well in these 10 years; whether the manager ran the fund the whole time; and whether fees are already deducted (they are, since returns are computed from NAV).
+    rubric:
+      zh-cn:
+        - "(a) 通过：要求收益 14%，alpha 约 −1%。"
+        - "(b) 通过：指出更高的 beta 解释了超额收益、风险调整后落后；指出 $R^2$ 和风格说明基准不合适，应该用成长股指数或因子回归；提到统计显著性或经理任期等至少一项。同意“跑赢 1 个百分点”，需要订正。"
+      en:
+        - "(a) OK: required return 14%, alpha about −1%."
+        - "(b) OK: says the higher beta explains the excess and it lags after adjusting for risk; says $R^2$ and style show the benchmark is unsuitable and a growth index or factor regression should be used; mentions at least one of statistical significance or manager tenure. Agreeing it beats by 1 percentage point needs revision."

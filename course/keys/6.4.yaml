@@ -1,0 +1,319 @@
+# Answer key for lesson 6.4. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[5.2#strategies]] (section), [[concept:beta]], [[check:Q3]], [[fig:3-1]].
+# expected: values are recomputed by course/verify/6.4.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "6.4"
+
+context:
+  - zh-cn: |-
+      学习者学过委托–代理问题（[[1.9]]）、最大回撤（[[4.1]]）、多因子模型与因子回归（[[4.6]]）、业绩评估与运气（[[4.9]]）、套利的限制（[[4.7]]）、基金的种类、成本与主动管理的证据（[[6.1]]–[[6.3]]）。百分数用百分点表示。
+    en: |-
+      The learner has studied the principal–agent problem ([[1.9]]), maximum drawdown ([[4.1]]), multifactor models and factor regressions ([[4.6]]), performance evaluation and luck ([[4.9]]), limits to arbitrage ([[4.7]]), and fund types, costs and the evidence on active management ([[6.1]]–[[6.3]]). Percentages in percentage points.
+  - concepts: [due-diligence]
+    zh-cn: |-
+      讲义：尽职调查回答三个问题：基金在做什么，是否一直按说的做，投资者付出了什么、承担了什么；五部分：策略、流程与人员、业绩、费用与容量、风险。Morningstar 的评级以人员、流程、母公司为主要支柱，结合费用，而不直接以过去收益为依据。讲义没有解释为什么不以过去收益为主（留给 [[check:C1]]）。
+    en: |-
+      The lesson: due diligence answers what the fund does, whether it consistently does what it says, and what investors pay and bear; five parts: strategy, process and people, performance, costs and capacity, risk. Morningstar's ratings use people, process and parent as main pillars, plus fees, rather than past returns directly. The lesson does not explain why past returns are not the main basis (left to [[check:C1]]).
+  - concepts: [due-diligence, principal-agent-problem]
+    zh-cn: |-
+      讲义：对照招募说明书的目标与实际持仓、换手率、风险统计；风格漂移；人员：经理任期、过去业绩是否由现团队做出、关键人风险、经理自己的投资（SAI 按区间披露，最高一档超过 100 万美元）、公司以投资还是销售为主。
+    en: |-
+      The lesson: compare the prospectus objective with actual holdings, turnover and risk statistics; style drift; people: manager tenure, whether the record belongs to the current team, key-person risk, managers' own investment (disclosed in ranges in the SAI, top range over 1 million dollars), whether the firm is investment- or sales-driven.
+  - concepts: [performance-attribution]
+    zh-cn: |-
+      讲义：Brinson 归因：配置效应 $A = \sum_i (w_i - w_i^B)(R_i^B - R^B)$，选择效应 $S = \sum_i w_i (R_i - R_i^B)$，两者之和等于 $R - R^B$（证明留给 [[check:Q1]]）；基于收益的风格分析：对市场、规模、价值等因子回归，截距才是 alpha。[[fig:3-1]]：基准 A 行业 30%（收益 20%）、B 行业 70%（收益 5%），总收益 9.5%；基金在 B 的收益为 5%；滑块基金在 A 的权重 0–60%（步长 10，默认 50），在 A 的收益 10–30%（步长 5，默认 15）；默认时基金收益 10%，配置效应 +3.0，选择效应 −2.5，合计 +0.5。
+    en: |-
+      The lesson: Brinson attribution: allocation $A = \sum_i (w_i - w_i^B)(R_i^B - R^B)$, selection $S = \sum_i w_i (R_i - R_i^B)$, summing to $R - R^B$ (proof left to [[check:Q1]]); returns-based style analysis: regress on market, size, value and other factors, and only the intercept is alpha. [[fig:3-1]]: benchmark sector A 30% (return 20%), B 70% (return 5%), total 9.5%; the fund earns 5% in B; sliders fund weight in A 0–60% (steps of 10, default 50) and fund return in A 10–30% (steps of 5, default 15); by default fund return 10%, allocation +3.0, selection −2.5, total +0.5.
+  - concepts: [due-diligence]
+    zh-cn: |-
+      讲义：比较总成本和扣除成本后相对基准的收益；主动策略有容量限制：规模变大后冲击成本上升、好机会不够；Berk 和 Green（2004）：资金流向过去业绩好的基金，直到超额收益被成本吃掉；有的基金规模过大时停止接受新投资者。
+    en: |-
+      The lesson: compare total costs and returns over the benchmark after costs; active strategies have limited capacity: larger size raises market impact and there are not enough opportunities; Berk and Green (2004): money flows to past winners until costs eat the excess return; some funds close to new investors when too large.
+  - concepts: [liquidity-mismatch]
+    zh-cn: |-
+      讲义：风险检查包括最大回撤及其环境、集中度、杠杆和衍生品、信用和流动性；流动性错配：每天可赎回却持有难以出售的资产；例：2015 年 12 月 Third Avenue Focused Credit Fund 暂停赎回，2019 年 6 月英国 Woodford Equity Income Fund 暂停赎回。讲义没有说明流动性错配为什么会引发挤兑（留给 [[check:C5]]、[[check:Q4]]）。
+    en: |-
+      The lesson: risk checks cover maximum drawdown and its setting, concentration, leverage and derivatives, credit and liquidity; liquidity mismatch: daily redemptions with hard-to-sell assets; examples: Third Avenue Focused Credit Fund suspended redemptions in December 2015, the UK's Woodford Equity Income Fund in June 2019. The lesson does not explain why a mismatch can trigger a run (left to [[check:C5]], [[check:Q4]]).
+
+common_errors:
+  - questions: [Q1]
+    zh-cn: |-
+      看到基金跑赢基准就相信经理自称的来源（例如“选股”）；没有用归因区分行业配置和行业内的选择。
+    en: |-
+      Accepting the manager's stated source of outperformance (such as "stock picking") because the fund beat its benchmark; not using attribution to separate sector allocation from selection within sectors.
+  - questions: [Q2]
+    zh-cn: |-
+      把相对标普 500 的超额收益当作 alpha；忽略这部分收益可以由规模、价值等因子暴露解释。
+    en: |-
+      Treating excess return over the S&P 500 as alpha; ignoring that it can be explained by size, value and other factor exposures.
+  - questions: [Q3]
+    zh-cn: |-
+      以为基金规模越大越好，因为费用率降低；忽略主动策略的冲击成本随规模上升，可能远超费用率的下降。
+    en: |-
+      Thinking a bigger fund is better because its expense ratio falls; ignoring that an active strategy's market impact rises with size and can far exceed the drop in expense ratio.
+  - questions: [Q4]
+    zh-cn: |-
+      以为只要净值反映公允价值，早赎回和晚赎回没有区别；忽略先赎回的人拿走流动资产，把难以出售资产的损失留给留下的人，因而人人有先赎回的动机。
+    en: |-
+      Thinking that if NAV reflects fair value it makes no difference whether one redeems early or late; ignoring that early redeemers take the liquid assets and leave the losses on hard-to-sell assets to those who stay, so everyone has a reason to redeem first.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: framework
+    concepts: [due-diligence, active-management]
+    question:
+      zh-cn: |-
+        尽职调查的框架把人员、流程等放在首位，而不直接按过去的收益来选基金。主要原因是：
+      en: |-
+        Due diligence frameworks put people and process first rather than choosing funds directly by past returns. The main reason is:
+    choices:
+      - zh-cn: 过去收益中运气的成分很大，对将来的预测力很弱；人员和流程更可能决定将来能否持续
+        en: Past returns contain much luck and predict the future poorly; people and process are more likely to decide whether results can continue
+      - zh-cn: 过去收益的数据很难得到
+        en: Past return data are hard to obtain
+        why:
+          zh-cn: factsheet 上就有各期收益。问题不在于能否得到，而在于它能告诉我们什么。
+          en: Returns over various periods are on every factsheet. The issue is not getting them but what they can tell us.
+      - zh-cn: 好的人员和流程保证基金一定会跑赢
+        en: Good people and process guarantee that the fund will outperform
+        why:
+          zh-cn: 尽职调查能保证结果吗？它能做到的是什么？
+          en: Can due diligence guarantee results? What can it do?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。几年的收益记录很难区分运气和能力（[[4.9]]），排名靠前的基金很少持续靠前（[[6.3]]）。人员、流程和激励说明收益是怎样产生的，以及产生收益的条件是否还在；它们也不能保证跑赢，但更有助于判断基金能否按它说的方式继续运作，以及会在什么情况下失败。
+      en: |-
+        (A). A few years of returns can hardly separate luck from skill ([[4.9]]), and top-ranked funds rarely stay on top ([[6.3]]). People, process and incentives show how the returns were produced and whether the conditions that produced them still hold; they cannot guarantee outperformance either, but they help judge whether the fund can keep working as it says, and in what circumstances it would fail.
+
+  - id: C2
+    kind: check
+    section: strategy-people
+    concepts: [due-diligence, principal-agent-problem]
+    question:
+      zh-cn: |-
+        一只基金的经理在自己管理的基金中投资超过 100 万美元。由此可以确定，这只基金将来会跑赢基准。
+      en: |-
+        A fund's manager has invested over 1 million dollars in the fund he runs. From this one can be sure the fund will beat its benchmark.
+    correct: false
+    hint:
+      zh-cn: 经理自己投资，说明他的利益和投资者有什么关系？这能保证他的判断是对的吗？
+      en: What does the manager investing his own money say about his interests and investors'? Does it guarantee his judgment is right?
+    answer:
+      zh-cn: |-
+        错。经理自己大量投资，使他的利益与投资者更一致（同样承担亏损和费用），减轻委托–代理问题（[[1.9]]），研究也发现这与较好的结果有一定关联。但这只是激励的证据，不是能力的证据：一个真心相信自己判断的经理，判断也可能是错的。它是尽职调查中一个有利的信号，不能单独决定结论。
+      en: |-
+        False. A large personal stake aligns the manager's interests more closely with investors' (he bears the same losses and fees), easing the principal–agent problem ([[1.9]]), and research finds some link with better results. But it is evidence about incentives, not skill: a manager who sincerely believes in his judgment can still be wrong. It is a favorable signal in due diligence, not a conclusion by itself.
+
+  - id: C3
+    kind: check
+    section: attribution
+    concepts: [performance-attribution]
+    widget: { id: attribution, set: { w: 50, ra: 15 } }
+    question:
+      zh-cn: |-
+        在 [[fig:3-1]] 的默认设置下，基金跑赢基准 0.5 个百分点。下面哪种说法正确？
+      en: |-
+        Under the default settings of [[fig:3-1]], the fund beats its benchmark by 0.5 percentage points. Which statement is correct?
+    choices:
+      - zh-cn: 超配 A 行业带来正的配置效应，但基金在 A 行业中选出的股票不如该行业基准，选择效应为负
+        en: Overweighting sector A gives a positive allocation effect, but the fund's stocks in sector A lagged that sector's benchmark, so the selection effect is negative
+      - zh-cn: 基金跑赢了，说明它的选股能力好
+        en: The fund won, which shows its stock picking is good
+        why:
+          zh-cn: 看图中的两根条：选择效应是正还是负？基金在 A 行业的收益与 A 行业基准的 20% 相比如何？
+          en: Look at the two bars. Is the selection effect positive or negative? How does the fund's return in A compare with A's benchmark return of 20%?
+      - zh-cn: 配置效应和选择效应都为正，只是都很小
+        en: Both the allocation and selection effects are positive but small
+        why:
+          zh-cn: 两种效应之和是 0.5，但各自的大小和方向呢？看读数。
+          en: The two effects sum to 0.5, but what are their individual sizes and signs? Look at the readout.
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。配置效应 $(0.5 - 0.3)(20 - 9.5) + (0.5 - 0.7)(5 - 9.5) = +3.0$：基金超配了表现好于基准整体的 A 行业。选择效应 $0.5 \times (15 - 20) = -2.5$：基金在 A 行业中只赚了 15%，不如 A 行业基准的 20%。合计 +0.5。如果经理声称“靠选股跑赢”，归因结果正好相反：跑赢来自行业配置，选股反而拖了后腿。
+      en: |-
+        (A). Allocation $(0.5 - 0.3)(20 - 9.5) + (0.5 - 0.7)(5 - 9.5) = +3.0$: the fund overweighted sector A, which beat the benchmark as a whole. Selection $0.5 \times (15 - 20) = -2.5$: the fund earned only 15% in sector A against 20% for A's benchmark. Total +0.5. If the manager claimed to win "through stock picking", the attribution says the opposite: the outperformance came from sector allocation, and stock picking held it back.
+
+  - id: C4
+    kind: check
+    section: capacity
+    concepts: [due-diligence, turnover-ratio]
+    question:
+      zh-cn: |-
+        一只小盘股主动基金过去 5 年业绩出色，资产从 5 亿美元增长到 80 亿美元，策略和经理没有变。投资者最应该担心的是：
+      en: |-
+        An active small-cap fund has done very well over the past 5 years, and its assets grew from 500 million to 8 billion dollars, with the same strategy and managers. What investors should worry about most is:
+    choices:
+      - zh-cn: 规模变大后，买卖小盘股的冲击成本大幅上升，能投资的机会不够，过去的超额收益难以重复
+        en: At the larger size, the market impact of trading small caps rises sharply and there are not enough opportunities, so the past excess return is hard to repeat
+      - zh-cn: 规模变大后费用率会上升
+        en: The expense ratio will rise as the fund grows
+        why:
+          zh-cn: 规模变大时，固定的运营成本分摊到更多资产上，费用率通常是升还是降？
+          en: As a fund grows, fixed costs are spread over more assets; does the expense ratio usually rise or fall?
+      - zh-cn: 规模大的基金更容易被监管机构调查
+        en: Large funds are more likely to be investigated by regulators
+        why:
+          zh-cn: 这与基金的投资结果有什么关系？想一想规模对执行一个小盘股策略的影响。
+          en: How would that affect investment results? Think about how size affects carrying out a small-cap strategy.
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。小盘股的成交量小，80 亿美元的基金要建立或退出一个有意义的仓位，往往要买卖一只股票好几天的成交量，推动价格，冲击成本远高于 5 亿美元时；它也可能被迫持有更多、更大的股票，越来越像指数。这正是 Berk 和 Green（2004）的机制：资金流向业绩好的基金，直到超额收益消失。费用率反而可能下降，但幅度远小于冲击成本的上升。
+      en: |-
+        (A). Small caps trade little; an 8 billion dollar fund building or exiting a meaningful position often has to trade several days' volume of a stock, moving its price, so market impact costs are far higher than at 500 million; it may also be forced to hold more and larger stocks, looking more and more like the index. This is the mechanism of Berk and Green (2004): money flows to successful funds until the excess return disappears. The expense ratio may actually fall, but by far less than market impact rises.
+
+  - id: C5
+    kind: check
+    section: risk
+    concepts: [liquidity-mismatch]
+    question:
+      zh-cn: |-
+        一只每天可以赎回的基金持有 30% 难以出售的资产。只要平时每天的赎回金额都很小，这种安排就没有什么风险。
+      en: |-
+        A fund with daily redemptions holds 30% hard-to-sell assets. As long as daily redemptions are normally small, this arrangement carries little risk.
+    correct: false
+    hint:
+      zh-cn: 如果有消息引起较多投资者赎回，基金先卖出哪些资产付钱？之后留在基金里的人持有什么？知道这一点的投资者会怎样做？
+      en: If news triggers many redemptions, which assets does the fund sell first to pay? What are the remaining holders left with? What will investors who understand this do?
+    answer:
+      zh-cn: |-
+        错。风险不在平时，而在压力时期。赎回增加时，基金先卖容易卖的资产，留下的投资者持有的难以出售资产的比例越来越高；如果最终要折价出售，损失由最后留下的人承担。因此每个投资者都有抢先赎回的动机，少量赎回可能演变成挤兑，正如 Third Avenue 和 Woodford 的基金那样。应对的办法包括限制持有难以出售资产的比例、按交易成本调整赎回价格（摆动定价），或者采用不能每天赎回的结构。
+      en: |-
+        False. The risk is not in normal times but under stress. As redemptions rise, the fund sells the easy-to-sell assets first, so remaining investors hold a growing share of hard-to-sell assets; if these must finally be sold at a discount, the loss falls on those who stay last. So every investor has a reason to redeem first, and a few redemptions can turn into a run, as with the Third Avenue and Woodford funds. Remedies include limiting the share of hard-to-sell assets, adjusting redemption prices for trading costs (swing pricing), or using a structure without daily redemptions.
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [performance-attribution]
+    expected: { alloc: "6", sel: "-1.6", total: "4.4" }
+    question:
+      zh-cn: |-
+        一只基金和它的基准在三个行业的权重和收益如下（权重为基金或基准中的比例）。科技：基准 30%、收益 25%，基金 50%、收益 20%；医疗：基准 20%、收益 5%，基金 20%、收益 8%；能源：基准 50%、收益 −5%，基金 30%、收益 −4%。
+        (a) 证明在 Brinson 分解中，配置效应与选择效应之和等于 $R - R^B$。
+        (b) 计算这一年的配置效应、选择效应和总超额收益。
+        (c) 基金经理说：“我们今年跑赢了基准，靠的是出色的选股。”评价这个说法，并说明你下一步想检查什么。
+      en: |-
+        A fund and its benchmark have the following weights and returns in three sectors (weights as shares of the fund or benchmark). Technology: benchmark 30% with a 25% return, fund 50% with 20%; Health care: benchmark 20% with 5%, fund 20% with 8%; Energy: benchmark 50% with −5%, fund 30% with −4%.
+        (a) Show that in the Brinson decomposition the allocation and selection effects sum to $R - R^B$.
+        (b) Compute the allocation effect, selection effect and total excess return for the year.
+        (c) The manager says: "We beat our benchmark this year through excellent stock picking." Evaluate this statement, and say what you would check next.
+    answer:
+      zh-cn: |-
+        (a) $A + S = \sum_i (w_i - w_i^B) R_i^B - R^B \sum_i (w_i - w_i^B) + \sum_i w_i R_i - \sum_i w_i R_i^B$。因为 $\sum_i w_i = \sum_i w_i^B = 1$，第二项为 0；合并第一、四项得 $-\sum_i w_i^B R_i^B = -R^B$；第三项是 $R$。所以 $A + S = R - R^B$。
+        (b) $R^B = 0.3 \times 25 + 0.2 \times 5 + 0.5 \times (-5) = 6\%$，$R = 0.5 \times 20 + 0.2 \times 8 + 0.3 \times (-4) = 10.4\%$。配置效应：$0.2 \times (25 - 6) + 0 + (-0.2) \times (-5 - 6) = 3.8 + 2.2 = 6$ 个百分点。选择效应：$0.5 \times (-5) + 0.2 \times 3 + 0.3 \times 1 = -1.6$ 个百分点。总超额收益 $6 - 1.6 = 4.4$ 个百分点。
+        (c) 说法不对。超额收益全部来自行业配置（超配科技、低配能源），在最大的科技仓位中选股反而落后行业基准 5 个百分点，选择效应为负。下一步要检查：这种行业偏离是经理的有意判断，还是策略本身长期偏向科技（风格或因子暴露，可用回归检验）；多年的归因是否一致；如果超配科技是长期的，投资者用一只科技行业指数基金就能以低得多的成本获得同样的暴露。一年的结果也不足以判断能力（[[4.9]]）。
+      en: |-
+        (a) $A + S = \sum_i (w_i - w_i^B) R_i^B - R^B \sum_i (w_i - w_i^B) + \sum_i w_i R_i - \sum_i w_i R_i^B$. Since $\sum_i w_i = \sum_i w_i^B = 1$, the second term is 0; the first and fourth terms combine to $-\sum_i w_i^B R_i^B = -R^B$; the third term is $R$. So $A + S = R - R^B$.
+        (b) $R^B = 0.3 \times 25 + 0.2 \times 5 + 0.5 \times (-5) = 6\%$, $R = 0.5 \times 20 + 0.2 \times 8 + 0.3 \times (-4) = 10.4\%$. Allocation: $0.2 \times (25 - 6) + 0 + (-0.2) \times (-5 - 6) = 3.8 + 2.2 = 6$ percentage points. Selection: $0.5 \times (-5) + 0.2 \times 3 + 0.3 \times 1 = -1.6$ percentage points. Total excess return $6 - 1.6 = 4.4$ percentage points.
+        (c) The statement is wrong. All the excess return came from sector allocation (overweighting technology, underweighting energy); in the largest position, technology, stock picking lagged the sector benchmark by 5 percentage points, and the selection effect is negative. Next, check: whether the sector tilt was a deliberate judgment or a lasting tilt of the strategy toward technology (a style or factor exposure, testable by regression); whether attribution is consistent across years; and, if the technology overweight is permanent, that investors could get the same exposure far more cheaply with a technology index fund. One year is also not enough to judge skill ([[4.9]]).
+    rubric:
+      zh-cn:
+        - "(a) 通过：利用权重之和为 1 证明 $A + S = R - R^B$。"
+        - "(b) 通过：配置效应 6，选择效应 −1.6，总超额收益 4.4（个百分点）。"
+        - "(c) 通过：指出超额收益来自配置而非选股，并提出至少一项后续检查（长期倾斜、多年归因、低成本替代）。同意“靠选股”，需要订正。"
+      en:
+        - "(a) OK: proves $A + S = R - R^B$ using the weights summing to 1."
+        - "(b) OK: allocation 6, selection −1.6, total 4.4 (percentage points)."
+        - "(c) OK: says the excess came from allocation, not selection, and proposes at least one further check (lasting tilt, multi-year attribution, cheaper alternative). Agreeing it was stock picking needs revision."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [performance-attribution, factor-loading, jensens-alpha]
+    expected: { fc: "3", alpha: "0" }
+    question:
+      zh-cn: |-
+        一只自称“深度研究、精选个股”的美国股票基金，过去 5 年平均每年比标普 500 指数多赚 3 个百分点。把它的超额收益（相对无风险利率）对市场、规模（SMB）和价值（HML）因子回归，得到：市场 1.0，SMB 0.6，HML −0.3。这 5 年中 SMB 因子平均每年 4%，HML 因子平均每年 −2%。
+        (a) 因子暴露大约解释了每年多少超额收益？扣除后 alpha 约为多少？
+        (b) 评价“精选个股带来每年 3 个百分点的超额收益”这个说法。还应该检查回归的什么结果？
+      en: |-
+        A US stock fund that describes itself as "deep research, selective stock picking" beat the S&P 500 by 3 percentage points a year on average over the past 5 years. Regressing its excess return (over the risk-free rate) on the market, size (SMB) and value (HML) factors gives: market 1.0, SMB 0.6, HML −0.3. Over these 5 years the SMB factor averaged 4% a year and HML −2% a year.
+        (a) Roughly how much of the yearly excess return do the factor exposures explain? What is alpha after removing them?
+        (b) Evaluate the claim that "selective stock picking produced 3 percentage points a year". What else in the regression should be checked?
+    answer:
+      zh-cn: |-
+        (a) 相对标普 500 的超额收益中，市场暴露为 1.0，与指数相同；SMB 贡献 $0.6 \times 4\% = 2.4\%$，HML 贡献 $-0.3 \times (-2\%) = 0.6\%$，合计约 3 个百分点。扣除后 alpha 约为 0。
+        (b) 说法不成立。这只基金偏向小盘股和成长股（SMB 正、HML 负），而这 5 年小盘股和成长股恰好表现好，3 个百分点几乎全部可以用这些因子暴露解释。投资者可以用低成本的小盘成长指数基金得到同样的暴露。还应该检查：各系数和 alpha 的标准误和 t 值（5 年数据的 alpha 估计误差很大）；$R^2$，看因子能解释多少收益；加入动量、质量等因子后结果是否改变；以及用滚动回归看暴露是否稳定（风格漂移）。
+      en: |-
+        (a) Relative to the S&P 500, the market exposure is 1.0, the same as the index; SMB contributes $0.6 \times 4\% = 2.4\%$ and HML $-0.3 \times (-2\%) = 0.6\%$, about 3 percentage points in total. Alpha after removing them is about 0.
+        (b) The claim does not hold. The fund tilts toward small and growth stocks (positive SMB, negative HML), and small and growth stocks happened to do well in these 5 years; the 3 percentage points are almost entirely explained by these factor exposures. Investors could get the same exposures with a low-cost small-cap growth index fund. Also check: the standard errors and t-statistics of the coefficients and of alpha (alpha estimated from 5 years is very imprecise); $R^2$, to see how much of the return the factors explain; whether adding momentum, quality or other factors changes the result; and rolling regressions to see whether exposures are stable (style drift).
+    rubric:
+      zh-cn:
+        - "(a) 通过：因子解释约 3 个百分点（SMB 2.4，HML 0.6），alpha 约 0。"
+        - "(b) 通过：指出超额收益来自小盘、成长因子暴露而非选股，可以低成本复制；提到 t 值、$R^2$、其他因子或滚动回归中的至少一项。同意“精选个股”，需要订正。"
+      en:
+        - "(a) OK: factors explain about 3 percentage points (SMB 2.4, HML 0.6), alpha about 0."
+        - "(b) OK: says the excess comes from small and growth exposures, not stock picking, and can be copied cheaply; mentions at least one of t-statistics, $R^2$, other factors or rolling regressions. Agreeing with \"selective stock picking\" needs revision."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [due-diligence, expense-ratio]
+    expected: { n1: "0.7", n8: "-1.9" }
+    question:
+      zh-cn: |-
+        一位分析师估计，某主动策略扣除费用和冲击成本前，每年能获得 2% 的超额收益；冲击成本约为每 10 亿美元资产每年 0.4%（与资产成正比）。基金规模为 10 亿美元时费用率为 0.9%，规模为 80 亿美元时降到 0.7%。
+        (a) 规模为 10 亿美元和 80 亿美元时，投资者扣除所有成本后的超额收益各约为多少？
+        (b) 基金公司说：“基金规模变大后费用率降低了，经理和策略都没变，对投资者只有好处。”评价这个说法。从基金公司的角度看，为什么它可能仍然希望规模继续扩大？
+      en: |-
+        An analyst estimates that an active strategy can earn 2% a year above its benchmark before fees and market impact; market impact costs about 0.4% a year per 1 billion dollars of assets (proportional to assets). The expense ratio is 0.9% at 1 billion dollars of assets and falls to 0.7% at 8 billion.
+        (a) At 1 billion and at 8 billion dollars, roughly what is the investor's excess return after all costs?
+        (b) The fund company says: "As the fund grows its expense ratio has fallen, and the managers and strategy are unchanged, so this only benefits investors." Evaluate this statement. From the fund company's point of view, why might it still want the fund to keep growing?
+    answer:
+      zh-cn: |-
+        (a) 10 亿美元：$2\% - 0.4\% - 0.9\% = 0.7\%$。80 亿美元：$2\% - 8 \times 0.4\% - 0.7\% = -1.9\%$。
+        (b) 说法不对。费用率只降了 0.2 个百分点，冲击成本却从 0.4% 升到 3.2%，投资者的超额收益从正变为负。经理和策略不变，但同样的策略在更大的规模下不能同样执行。基金公司的收入是费用率乘以资产：10 亿美元时约 900 万美元，80 亿美元时约 5,600 万美元，即使投资者的收益变差，公司的收入也大幅增加。这是基金公司与投资者之间的委托–代理问题（[[1.9]]）。尽职调查中应该问：策略的容量有多大？基金在什么规模会停止接受新资金？
+      en: |-
+        (a) At 1 billion dollars: $2\% - 0.4\% - 0.9\% = 0.7\%$. At 8 billion: $2\% - 8 \times 0.4\% - 0.7\% = -1.9\%$.
+        (b) The statement is wrong. The expense ratio fell by only 0.2 percentage points while market impact rose from 0.4% to 3.2%, turning investors' excess return from positive to negative. The managers and strategy are the same, but the same strategy cannot be carried out the same way at a larger size. The company's revenue is the expense ratio times assets: about 9 million dollars at 1 billion and about 56 million at 8 billion, so the company earns far more even as investors do worse. This is a principal–agent problem between fund company and investors ([[1.9]]). Due diligence should ask: what is the strategy's capacity? At what size will the fund close to new money?
+    rubric:
+      zh-cn:
+        - "(a) 通过：约 0.7% 和约 −1.9%。"
+        - "(b) 通过：指出冲击成本的上升远超费用率的下降；说明公司收入随规模增长、与投资者利益不一致。同意“只有好处”，需要订正。"
+      en:
+        - "(a) OK: about 0.7% and about −1.9%."
+        - "(b) OK: says the rise in market impact far exceeds the fall in the expense ratio; explains that company revenue grows with size, misaligned with investors. Agreeing it only benefits investors needs revision."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [liquidity-mismatch, net-asset-value]
+    expected: { s1: "37.5", loss: "15" }
+    question:
+      zh-cn: |-
+        一只每天可以赎回的基金有 100（百万美元）资产：70 是随时可以按净值卖出的资产，30 是难以出售的资产，净值按它们的公允估价计算；如果被迫在短时间内出售，难以出售的资产只能按估价的 80% 卖出。
+        (a) 第一批投资者赎回 20，基金用流动资产支付。之后难以出售的资产占基金的比例是多少？第二批投资者又赎回 40，也用流动资产支付。如果最后留下的投资者需要基金把难以出售的资产全部被迫出售，他们会损失自己资产的百分之几？
+        (b) 基金公司说：“我们的净值反映了资产的公允价值，所以早赎回和晚赎回没有区别，投资者不必担心。”评价这个说法。基金可以采取哪些措施减少这个问题？
+      en: |-
+        A fund with daily redemptions has 100 (million dollars) of assets: 70 that can be sold at NAV at any time, and 30 that are hard to sell; NAV values them at fair estimates, but if forced to sell quickly the fund gets only 80% of the estimate.
+        (a) A first group of investors redeems 20, paid from liquid assets. What share of the fund is then hard to sell? A second group redeems 40, also paid from liquid assets. If the remaining investors then need the fund to sell all its hard-to-sell assets under pressure, what percentage of their assets do they lose?
+        (b) The fund company says: "Our NAV reflects the fair value of the assets, so redeeming early or late makes no difference, and investors need not worry." Evaluate this statement. What can a fund do to reduce this problem?
+    answer:
+      zh-cn: |-
+        (a) 第一批赎回后，基金剩 80，其中难以出售的 30 占 $\frac{30}{80} = 37.5\%$。第二批赎回后剩 40，其中 30 是难以出售的资产（75%）。被迫出售损失 $30 \times 20\% = 6$，由留下的 40 承担，损失 $\frac{6}{40} = 15\%$。先赎回的投资者按净值拿到了现金，没有损失。
+        (b) 说法不对。净值按公允估价计算，但先赎回的人拿走的是流动资产，难以出售资产的折价风险集中到留下的人身上；越晚赎回，组合的流动性越差，可能承担的损失越大。因此每个人都有抢先赎回的动机，这和银行挤兑的逻辑相同（[[2.3]]）。措施：限制难以出售资产的比例（美国的规则要求开放式基金把难以出售的资产限制在净资产的 15% 以内）；按比例出售各类资产支付赎回，而不是只卖流动资产；摆动定价，让赎回者承担交易成本；设置赎回限制，或者把这类资产放在不能每天赎回的结构中（例如封闭式基金，[[6.1]]）。
+      en: |-
+        (a) After the first redemption the fund has 80, of which the 30 hard-to-sell assets are $\frac{30}{80} = 37.5\%$. After the second it has 40, of which 30 are hard to sell (75%). A forced sale loses $30 \times 20\% = 6$, borne by the remaining 40, a loss of $\frac{6}{40} = 15\%$. Those who redeemed first received cash at NAV and lost nothing.
+        (b) The statement is wrong. NAV uses fair estimates, but early redeemers take the liquid assets, concentrating the risk of a discount on hard-to-sell assets on those who stay; the later one redeems, the less liquid the portfolio and the larger the possible loss. So everyone has a reason to redeem first, the same logic as a bank run ([[2.3]]). Measures: limit the share of hard-to-sell assets (US rules limit open-end funds' illiquid investments to 15% of net assets); pay redemptions by selling all kinds of assets in proportion, not just liquid ones; use swing pricing so redeemers bear trading costs; set redemption limits, or hold such assets in a structure without daily redemptions (such as a closed-end fund, [[6.1]]).
+    rubric:
+      zh-cn:
+        - "(a) 通过：37.5%；留下的投资者损失约 15%。"
+        - "(b) 通过：指出先赎回者拿走流动资产、损失集中到留下的人，产生抢先赎回的动机；给出至少两项措施。同意“早晚赎回没有区别”，需要订正。"
+      en:
+        - "(a) OK: 37.5%; remaining investors lose about 15%."
+        - "(b) OK: says early redeemers take liquid assets and losses concentrate on those who stay, creating a reason to redeem first; gives at least two measures. Agreeing that timing makes no difference needs revision."

@@ -1,0 +1,78 @@
+---
+title: 6.1 Fund Types and Structures
+description: Open-end mutual funds and net asset value; how ETF creation and redemption works; capital gains distributions and tax efficiency; index funds and market-cap weighting; closed-end funds, money market funds and funds of funds.
+lesson: "6.1"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import TaxDrag from '../../../../components/widgets/TaxDrag.astro';
+
+Stage 6 looks at how a US household can put the theory of the earlier stages into practice. Most household investing is done through funds, so this lesson looks at the kinds of funds and how they work; the next lesson looks at what they cost.
+
+## Open-end mutual funds [#mutual-funds]
+
+A <Def id="mutual-fund">mutual fund</Def> pools money from many investors and has a manager invest it according to a stated strategy. The most common kind is the open-end fund: the number of shares is not fixed, and investors can at any time buy new shares from the fund or sell shares back to it (redeem).
+
+Purchases and redemptions take place at the <Def id="net-asset-value">net asset value</Def> (NAV):
+
+$$
+\text{NAV} = \frac{A - L}{N}
+$$
+
+$A$ is the value of the fund's assets at closing prices, $L$ its liabilities (for example fees owed), and $N$ the number of shares. US mutual funds compute their NAV once each trading day at the close (4 p.m. Eastern time). By rule, orders to buy or redeem submitted before the close are filled at the NAV computed after that day's close, which is called forward pricing; orders submitted after the close get the next trading day's NAV.
+
+By what they invest in, funds are stock funds, bond funds, balanced funds and money market funds. One fund often has several share classes, which invest in the same portfolio and differ only in how they charge fees (<Ref lesson="6.2" />).
+
+<Check id="C1" />
+
+## ETFs and creation and redemption [#etfs]
+
+An <Def id="exchange-traded-fund">exchange-traded fund</Def> (ETF) is also a fund holding a basket of assets, but its shares are listed on an exchange, and investors buy and sell them from each other at market prices at any time during trading hours, like stocks (<Ref lesson="3.1" sec="trading" />).
+
+If an ETF's price is set by buyers and sellers, why does it usually stay close to its NAV? The key is <Def id="creation-redemption">creation and redemption</Def>. Only large dealers called authorized participants (APs) can create or redeem shares directly with the ETF, usually in kind: an AP gives the ETF a basket of stocks matching the fund's holdings and receives a large block (for example 50,000) of new ETF shares; this is a creation. Conversely, an AP hands back a block of ETF shares and receives a basket of stocks; this is a redemption. When the ETF's market price moves away from the value of the basket, APs can buy and sell in the two markets and profit from the gap (<Ref concept="arbitrage" />).
+
+<Check id="C2" />
+
+## Capital gains distributions and tax efficiency [#tax-efficiency]
+
+In the US, when a mutual fund sells securities at a gain, the realized capital gains must be paid out to shareholders that year, and shareholders owe tax on them even if they have not sold any fund shares and reinvest the payout; this is a <Def id="capital-gains-distribution">capital gains distribution</Def>. Mutual funds often realize capital gains because other investors redeem and the fund must sell securities to raise cash.
+
+ETF redemptions are in kind: the fund does not sell stocks but hands them directly to the AP. Under US tax law, delivering securities in kind does not count as realizing a gain, and the fund can choose to hand over the shares with the lowest cost (the most unrealized gain). So when tracking the same index, an ETF rarely distributes capital gains, and most of its holders' tax is deferred until they sell the ETF themselves.
+
+<Figure id="3-1" title="100 growing at 7% a year: the after-tax value of two funds if sold at the end of each year. One pays out part of its capital gains each year, with the tax paid and the rest reinvested; the other pays out nothing. Both use the same tax rate on all gains." observe="Set the payout to 0, then raise it step by step, and watch how the gap between the two lines after 30 years changes; then change the tax rate.">
+	<TaxDrag />
+</Figure>
+
+<Check id="C3" />
+
+## Index funds [#index-funds]
+
+An <Def id="index-fund">index fund</Def> does not pick securities; it holds the members of an index according to rules, aiming to earn the same return as the index. It can be a mutual fund or an ETF. The theoretical basis of index funds is the capital market line (<Ref lesson="4.3" />): hold the market portfolio (<Ref concept="market-portfolio" />) and adjust risk with the riskless asset.
+
+Most broad indexes are weighted by market capitalization: each stock's weight equals its market value as a share of the index's total, as in the S&P 500 and the CRSP US Total Market Index, which covers the whole US stock market. Indexes also change their members from time to time, for example adding newly listed or grown companies and removing shrunken ones; index funds must then trade. There are also indexes weighted equally, by fundamental measures or by factors (<Ref lesson="4.6" sec="smart-beta" />).
+
+<Check id="C4" />
+
+## Other fund structures [#other-structures]
+
+- A <Def id="closed-end-fund">closed-end fund</Def> issues a fixed number of shares, which afterwards can only be bought and sold between investors on an exchange; the fund no longer creates or redeems shares.
+- Money market funds invest in short-term, high-quality debt (<Ref concept="money-market" />), aiming to keep the principal stable, and often serve as a substitute for cash.
+- Funds of funds invest in other funds. Target-date funds (<Ref concept="target-date-fund" />) are the most common kind: they hold a few stock and bond index funds and adjust the mix along a glide path.
+
+<Check id="C5" />
+
+## Summary [#summary]
+
+- Open-end mutual funds are bought and redeemed at the NAV computed after that day's close; one fund can have several share classes.
+- ETFs trade on exchanges at market prices; authorized participants create and redeem in kind, keeping the price close to NAV.
+- Mutual funds must pay out realized capital gains to shareholders, who pay the tax; ETFs redeem in kind and rarely distribute capital gains, so tax can be deferred until sale.
+- Index funds hold the members of an index by rule; broad indexes are mostly weighted by market capitalization.
+- Closed-end funds have a fixed number of shares that trade only on exchanges; money market funds substitute for cash; target-date funds are funds of funds.
+
+## Exercises [#exercises]
+
+<Exercises />

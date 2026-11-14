@@ -1,0 +1,78 @@
+---
+title: 6.1 基金的种类与结构
+description: 开放式共同基金与净值；ETF 的申购赎回机制；资本利得分配与税务效率；指数基金与市值加权；封闭式基金、货币市场基金与基金中的基金。
+lesson: "6.1"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import TaxDrag from '../../../../components/widgets/TaxDrag.astro';
+
+第 6 阶段讨论一个美国家庭怎样把前面学过的理论用到实际投资中。家庭投资大多通过基金进行，本课先看基金有哪些种类、怎样运作，下一课再看它们的成本。
+
+## 开放式共同基金 [#mutual-funds]
+
+<Def id="mutual-fund">共同基金</Def>（mutual fund）把许多投资者的钱集中起来，由基金经理按约定的策略投资。最常见的是开放式基金：基金的份额数量不固定，投资者随时可以向基金申购新份额，也可以把份额卖回给基金（赎回）。
+
+申购和赎回的价格是<Def id="net-asset-value">基金净值</Def>（net asset value，NAV）：
+
+$$
+\text{NAV} = \frac{A - L}{N}
+$$
+
+$A$ 是基金持有的资产按收盘价计算的价值，$L$ 是负债（例如应付的费用），$N$ 是份额数。美国的共同基金每个交易日按收盘价（东部时间下午 4 点）计算一次净值。按规定，投资者在当天收盘前提交的申购和赎回，按当天收盘后算出的净值成交，叫远期定价（forward pricing）；收盘后提交的，按下一个交易日的净值成交。
+
+基金按投资对象分为股票基金、债券基金、混合基金和货币市场基金。同一只基金常有几种份额类别（share class），它们投资同一个组合，只是收费方式不同（<Ref lesson="6.2" />）。
+
+<Check id="C1" />
+
+## ETF 与申购赎回机制 [#etfs]
+
+<Def id="exchange-traded-fund">交易所交易基金</Def>（exchange-traded fund，ETF）也是持有一篮子资产的基金，但它的份额在交易所上市，投资者在交易时间内随时按市场价格互相买卖，就像股票一样（<Ref lesson="3.1" sec="trading" />）。
+
+既然 ETF 的价格由买卖双方决定，为什么它通常很接近净值？关键是<Def id="creation-redemption">申购赎回机制</Def>（creation and redemption）。只有被称为授权参与者（authorized participant，AP）的大型交易商可以直接与 ETF 申购或赎回份额，而且通常是以实物进行：AP 交给 ETF 一篮子与基金持仓相同的股票，换取一大批（例如 5 万份）新的 ETF 份额，这叫申购；反过来，AP 交回一批 ETF 份额，换回一篮子股票，这叫赎回。当 ETF 的市场价格与一篮子股票的价值偏离时，AP 可以在两个市场之间买卖，从中获利（<Ref concept="arbitrage" />）。
+
+<Check id="C2" />
+
+## 资本利得分配与税务效率 [#tax-efficiency]
+
+在美国，共同基金卖出赚钱的证券时，实现的资本利得要在当年分配给持有人，持有人即使没有卖出基金份额、把分配再投资，也要为这部分利得交税，这叫<Def id="capital-gains-distribution">资本利得分配</Def>（capital gains distribution）。共同基金常常因为其他投资者赎回、需要卖出证券换取现金，而实现资本利得。
+
+ETF 的赎回以实物进行：基金不用卖出股票，而是把股票直接交给 AP。按美国税法，以实物交付证券不算实现利得；基金还可以挑选成本最低（含有最多未实现利得）的那些股票交出去。因此，同样跟踪一个指数，ETF 很少分配资本利得，持有人的税大多推迟到自己卖出 ETF 时才交。
+
+<Figure id="3-1" title="100 以每年 7% 增长，两只基金在各年末卖出后的税后价值：一只每年把一部分资本利得分配出来并交税（税后再投资），另一只不分配。两者对全部利得适用同样的税率。" observe="先把分配比例调到 0，再逐步提高，看 30 年后两条线的差距怎样变化；再改变税率。">
+	<TaxDrag />
+</Figure>
+
+<Check id="C3" />
+
+## 指数基金 [#index-funds]
+
+<Def id="index-fund">指数基金</Def>（index fund）不挑选证券，而是按规则持有一个指数的成分股，目标是获得与指数相同的收益。它可以是共同基金，也可以是 ETF。指数基金的理论基础是资本市场线（<Ref lesson="4.3" />）：持有市场组合（<Ref concept="market-portfolio" />），再用无风险资产调整风险。
+
+大多数宽基指数按市值加权：每只股票的权重等于它的市值占指数总市值的比例，例如标普 500 指数和覆盖整个美国股市的 CRSP 美国全市场指数。指数也会定期调整成分股，例如加入新上市或变大的公司、剔除变小的公司，这时指数基金需要买卖。也有按等权重、按基本面指标或按因子加权的指数（<Ref lesson="4.6" sec="smart-beta" />）。
+
+<Check id="C4" />
+
+## 其他基金结构 [#other-structures]
+
+- <Def id="closed-end-fund">封闭式基金</Def>（closed-end fund）发行固定数量的份额，之后份额只能在交易所上互相买卖，基金不再申购或赎回。
+- 货币市场基金投资短期、高质量的债务工具（<Ref concept="money-market" />），追求本金稳定，常作为现金的替代品。
+- 基金中的基金投资于其他基金。目标日期基金（<Ref concept="target-date-fund" />）是最常见的一种，它持有几只股票和债券的指数基金，并按下滑路径调整比例。
+
+<Check id="C5" />
+
+## 小结 [#summary]
+
+- 开放式共同基金按当天收盘后计算的净值申购和赎回；同一只基金可以有多种份额类别。
+- ETF 在交易所按市场价格交易；授权参与者以实物申购和赎回，使价格接近净值。
+- 共同基金要把实现的资本利得分配给持有人并由他们交税；ETF 以实物赎回，很少分配资本利得，税可以推迟到卖出时。
+- 指数基金按规则持有指数成分股；宽基指数多按市值加权。
+- 封闭式基金份额固定，只能在交易所买卖；货币市场基金替代现金；目标日期基金是基金中的基金。
+
+## 练习题 [#exercises]
+
+<Exercises />

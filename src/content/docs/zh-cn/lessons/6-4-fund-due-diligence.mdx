@@ -1,0 +1,82 @@
+---
+title: 6.4 基金尽职调查框架
+description: 尽职调查要回答的问题；策略、流程与人员；业绩归因：配置效应与选择效应；规模、容量与费用；风险与流动性错配。
+lesson: "6.4"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import Attribution from '../../../../components/widgets/Attribution.astro';
+
+## 尽职调查要回答什么 [#framework]
+
+<Def id="due-diligence">尽职调查</Def>（due diligence）是在投资一只基金之前（以及持有期间）系统地检查它，回答三个问题：这只基金在做什么？它是否一直按说的在做？投资者为此付出了什么、承担了什么？
+
+常用的框架把检查的内容分成几块：
+
+1. 策略：基金投资什么，打算怎样赚钱，为什么这种方法应该有效。
+2. 流程与人员：谁在做决策，怎样做，团队和公司是否稳定，激励是否与投资者一致。
+3. 业绩：收益来自哪里，与合适的基准和同类基金相比如何。
+4. 费用与容量：总成本是多少，规模变大后策略是否还能执行。
+5. 风险：可能怎样亏钱，最坏的情况是什么，基金的流动性能否应付赎回。
+
+Morningstar 的基金评级把人员（People）、流程（Process）和母公司（Parent）作为主要的评估支柱，再结合费用，而不是直接以过去的收益为依据。
+
+<Check id="C1" />
+
+## 策略、流程与人员 [#strategy-people]
+
+检查策略时，要把基金说的和做的对照起来：招募说明书写的投资目标和策略（<Ref lesson="6.3" sec="documents" />），与实际持仓、换手率和风险统计是否一致。持仓的风格随时间改变，例如一只“价值基金”逐渐买入大量成长股，叫风格漂移（style drift）；它使基金在组合中的作用变得不可预测。
+
+人员方面要看：基金经理的任期，过去的业绩是否是现在这个团队做出来的；决策依赖一个人还是一个团队（关键人风险）；基金经理自己在基金中投了多少钱，补充信息说明书（SAI）按区间披露这一点，最高一档是“超过 100 万美元”；基金公司是以投资为主，还是以销售和扩大规模为主（<Ref concept="principal-agent-problem" />）。
+
+<Check id="C2" />
+
+## 业绩归因 [#attribution]
+
+<Def id="performance-attribution">业绩归因</Def>（performance attribution）把基金相对基准的超额收益分解成不同的来源。常用的 Brinson 方法按行业（或地区、资产类别）分解：用 $w_i$、$R_i$ 表示基金在第 $i$ 类中的权重和收益，$w_i^B$、$R_i^B$ 表示基准的，$R^B$ 是基准的总收益。
+
+$$
+A = \sum_i \left(w_i - w_i^B\right)\left(R_i^B - R^B\right) \qquad S = \sum_i w_i \left(R_i - R_i^B\right)
+$$
+
+$A$ 是配置效应（allocation effect）：超配表现好于基准整体的行业、低配表现差的行业带来的收益。$S$ 是选择效应（selection effect）：在每个行业内选出比该行业基准更好的证券带来的收益。两者之和等于基金的总超额收益 $R - R^B$（<Ref check="Q1" />）。
+
+另一种方法不需要持仓，只用收益做回归：把基金的收益对市场、规模、价值等因子回归（<Ref lesson="4.6" />），看收益能被哪些因子暴露解释，剩下的截距才是 alpha。这叫基于收益的风格分析。
+
+<Figure id="3-1" title="两个行业的业绩归因。基准：A 行业 30%（收益 20%），B 行业 70%（收益 5%），总收益 9.5%。基金在 B 行业的收益与基准相同。" observe="先看默认设置下两种效应的方向；再把 A 行业的权重调到 30%，以及把 A 行业的收益调到 20%，分别看哪一种效应变为 0。">
+	<Attribution />
+</Figure>
+
+<Check id="C3" />
+
+## 规模、容量与费用 [#capacity]
+
+费用和其他成本（<Ref lesson="6.2" />）是尽职调查的一部分：比较的是总成本，以及扣除成本后相对基准的收益。
+
+另一个问题是规模。很多主动策略有容量（capacity）的限制：基金规模变大后，每笔交易的金额变大，买卖时推动价格，冲击成本上升（<Ref concept="turnover-ratio" />）；能买到足够数量的好机会也越来越少。Berk 和 Green（2004）的模型认为，如果投资者把钱投向过去业绩好的基金，资金会一直流入，直到基金的规模大到超额收益被成本吃掉为止。一些基金在规模过大时停止接受新的投资者。
+
+<Check id="C4" />
+
+## 风险与流动性 [#risk]
+
+风险检查不只是看标准差。还要看：最大回撤（<Ref concept="maximum-drawdown" />）及其发生在什么市场环境中；集中度（前十大持仓、行业）；是否使用杠杆和衍生品；持有资产的信用和流动性。
+
+一个特别重要的问题是<Def id="liquidity-mismatch">流动性错配</Def>（liquidity mismatch）：基金允许投资者每天赎回，却持有需要很长时间才能按合理价格卖出的资产。2015 年 12 月，美国的 Third Avenue Focused Credit Fund 因为持有大量难以出售的高收益债，暂停了赎回；2019 年 6 月，英国的 Woodford Equity Income Fund 因持有大量非上市和小盘股票，也暂停了赎回。
+
+<Check id="C5" />
+
+## 小结 [#summary]
+
+- 尽职调查回答：基金在做什么，是否一直按说的做，投资者付出了什么、承担了什么。
+- 对照策略与实际持仓，警惕风格漂移；看基金经理的任期、团队、自己的投资和公司的激励。
+- 业绩归因把超额收益分为配置效应和选择效应；基于收益的风格分析用因子回归分离因子暴露与 alpha。
+- 比较总成本；主动策略有容量限制，规模过大会侵蚀超额收益。
+- 风险包括回撤、集中度、杠杆和流动性；每天可赎回的基金持有难以出售的资产，会造成流动性错配。
+
+## 练习题 [#exercises]
+
+<Exercises />

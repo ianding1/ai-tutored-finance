@@ -1,0 +1,70 @@
+---
+title: 6.2 Fund Costs
+description: The expense ratio and what it contains; sales loads, 12b-1 fees and share classes; trading costs, turnover and cash drag; tracking difference and tracking error; how fees compound over the long run.
+lesson: "6.2"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import CostShare from '../../../../components/widgets/CostShare.astro';
+
+Expected returns can only be estimated as a range (<Ref lesson="4.11" />), but costs are almost certain: paying 1% more in fees means earning 1% less, for sure. This lesson sorts fund costs into several kinds and looks at how they affect long-run wealth.
+
+## The expense ratio [#expense-ratio]
+
+The <Def id="expense-ratio">expense ratio</Def> is a fund's yearly operating expenses as a share of its average assets. It includes the management fee paid to the fund's adviser, administrative costs such as custody, accounting and legal fees, and the 12b-1 fee discussed below. The expense ratio is not billed to investors separately; it is deducted from fund assets every day and shows up in the NAV (<Ref concept="net-asset-value" />).
+
+US fund fees have fallen sharply over the past thirty years. According to the Investment Company Institute (ICI), the asset-weighted average expense ratio of stock mutual funds fell from 1.04% in 1996 to 0.40% in 2025, and that of stock index ETFs was 0.14%; by the end of 2024, index mutual funds and ETFs held 51% of long-term fund assets. Some broad index funds charge only about 0.03%.
+
+<Check id="C1" />
+
+## Sales loads and share classes [#loads]
+
+Some funds sold through brokers also charge sales loads, which pay the brokers' commissions:
+
+- A front-end load is deducted at purchase: with 10,000 dollars invested and a 5.75% front-end load, only 9,425 dollars is actually invested. When a single purchase reaches certain amounts (breakpoints), the rate falls.
+- A back-end load (or CDSC) is charged on sales within a certain number of years and declines year by year.
+- A <Def id="twelve-b-1-fee">12b-1 fee</Def> is a yearly marketing and service fee taken from fund assets under SEC Rule 12b-1, included in the expense ratio. Under FINRA rules it is at most 1% a year.
+
+The share classes of one fund charge these fees in different ways: Class A charges a front-end load and a lower 12b-1 fee; Class C charges no front-end load but a higher 12b-1 fee, and usually converts to Class A automatically after a number of years; share classes for institutions or adviser platforms usually charge neither. Funds without sales loads are called no-load funds. ICI data show that in 2025 about 92% of the money flowing into long-term mutual funds went to share classes with neither a sales load nor a 12b-1 fee.
+
+<Check id="C2" />
+
+## Trading costs and cash drag [#trading-costs]
+
+The expense ratio does not include the cost of the fund's own trading: commissions, bid–ask spreads (<Ref concept="bid-ask-spread" />) and the market impact of large trades. These costs lower the fund's return directly but do not appear in the fee table. The measure of how much a fund trades is the <Def id="turnover-ratio">turnover ratio</Def>: the amount bought or sold in a year (whichever is smaller) as a share of average assets. A turnover of 100% roughly means the fund replaced its whole portfolio once in the year.
+
+Funds usually hold some cash to meet redemptions. When stocks are expected to earn more than cash, this cash makes the fund's return lower than if it were fully invested in stocks; this is called cash drag. On the other hand, index funds can lend their stocks to short sellers and earn securities lending income, offsetting part of their costs.
+
+<Check id="C3" />
+
+## Tracking difference and tracking error [#tracking]
+
+For an index fund, all costs end up in the gap between its return and the index's. The average of the fund's return minus the index return is the <Def id="tracking-difference">tracking difference</Def>; it measures how much the fund lags (or leads) the index per year on average. The standard deviation of this gap is the tracking error (<Ref concept="tracking-error" />); it measures how unsteady the gap is. The expense ratio, trading costs and cash drag make the tracking difference negative, and securities lending income moves it toward positive.
+
+<Check id="C4" />
+
+## How fees compound [#compounding]
+
+Fees are deducted from assets every year, and the future returns on the money taken are lost as well, so the effect of fees on final wealth builds up over time (<Ref check="Q1" />).
+
+<Figure id="5-1" title="The share of final wealth lost to a yearly fee, compared with no fee, against the number of years." observe="First see how much is lost after 30 years with a 1% fee; then keep the fee fixed and change the return before fees, and see how far the curve moves; then change the fee.">
+	<CostShare />
+</Figure>
+
+<Check id="C5" />
+
+## Summary [#summary]
+
+- The expense ratio is deducted from fund assets every day and shows up in the NAV; the average expense ratio of US stock funds has fallen sharply.
+- Sales loads (front-end and back-end) and 12b-1 fees pay the sales channel; the share classes of one fund charge in different ways.
+- Trading costs (commissions, spreads, market impact) rise with turnover and are not included in the expense ratio; holding cash causes cash drag.
+- Tracking difference measures how much an index fund lags its index on average; tracking error measures how much the gap varies.
+- The effect of fees on final wealth compounds over time.
+
+## Exercises [#exercises]
+
+<Exercises />

@@ -1,0 +1,94 @@
+---
+title: 6.3 Active vs. Passive Investing
+description: The arithmetic of active management; the SPIVA evidence; why underperformance rises with the horizon; persistence of performance; how to read fund documents, factsheets, prospectuses and active share.
+lesson: "6.3"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import BeatProb from '../../../../components/widgets/BeatProb.astro';
+
+<Ref lesson="4.7" /> and <Ref lesson="4.9" /> discussed active management from the viewpoint of market efficiency and performance evaluation. This lesson takes the viewpoint of a household choosing funds: the logic of the active-versus-passive debate, the evidence, and how to read fund documents.
+
+## The arithmetic of active management [#arithmetic]
+
+<Def id="passive-investing">Passive investing</Def> holds the whole market weighted by market capitalization (<Ref concept="index-fund" />); <Def id="active-management">active management</Def> tries to earn more than the market by picking stocks or timing the market.
+
+Sharpe (1991) pointed out a simple fact. Divide all investors into two groups: passive investors hold the market portfolio, so before costs they earn exactly the market return; all investors together hold the market portfolio, so active investors as a group can also earn, before costs, only the market return. Writing $R_M$ for the market return and $c_A$ for the average cost of active management, weighted by money:
+
+$$
+\bar{R}_A = R_M - c_A
+$$
+
+Wins and losses among active investors are zero-sum: if some beat the market, others must lag it. Since active management costs more (fees, trading costs) than passive investing, after costs the average active dollar must lag the average passive dollar. This conclusion does not depend on whether markets are efficient, only on the definition of an average (<Ref check="Q1" />).
+
+<Check id="C1" />
+
+## The SPIVA evidence [#evidence]
+
+S&P Dow Jones Indices publishes the SPIVA reports twice a year, comparing active funds with matching indexes. The reports have two features: funds that were liquidated or merged along the way are included and counted as not beating the index; and each category of funds is compared with an index of its own style. According to the SPIVA U.S. Scorecard (year-end 2024):
+
+| Fund category (benchmark) | 1 year | 5 years | 10 years | 15 years | 20 years |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Large-cap (S&P 500) | 65.2% | 76.3% | 84.3% | 89.5% | 92.0% |
+| Mid-cap (S&P MidCap 400) | 62.0% | 80.0% | 77.3% | 87.5% | 90.9% |
+| Small-cap (S&P SmallCap 600) | 29.7% | 60.4% | 82.2% | 90.7% | 90.8% |
+
+The figures are the shares of funds that lagged their index. The same report shows that only about 36% of the US stock funds that existed 20 years earlier survived to the end of 2024. In 2025, about 79% of active large-cap funds lagged the S&P 500 (SPIVA U.S. Scorecard, year-end 2025).
+
+<Check id="C2" />
+
+## The longer the horizon, the more funds lag [#horizon]
+
+One clear pattern in the table is that the longer the horizon, the larger the share of funds that lag. Suppose an active fund has no skill before costs, so its yearly excess return over the index averages $-f$ (its cost), with a standard deviation equal to its tracking error $\sigma$, independent and normally distributed from year to year. Its cumulative excess return over $T$ years averages $-fT$ with standard deviation $\sigma\sqrt{T}$, so the probability that it beats the index over the $T$ years is
+
+$$
+P = N\!\left(-\frac{f\sqrt{T}}{\sigma}\right)
+$$
+
+$N(\cdot)$ is the cumulative distribution function of the standard normal distribution (<Ref concept="normal-distribution" />).
+
+<Figure id="3-1" title="The probability that an active fund with no skill before costs beats its index cumulatively over different numbers of years." observe="First look at the probabilities for 1, 10 and 20 years under the default settings, then change the cost and the tracking error in turn.">
+	<BeatProb />
+</Figure>
+
+<Check id="C3" />
+
+## Persistence of performance [#persistence]
+
+Even if most funds lag, perhaps investors can pick the ones that win? That requires persistence: funds that did well in the past keep doing well. The SPIVA Persistence Scorecard (year-end 2025) followed the 505 US stock funds in the top quarter by return in December 2021: by December 2025, not one had stayed in the top quarter in every following year. If rankings were purely random, the chance of staying in the top quarter 4 years in a row would be $\left(\frac{1}{4}\right)^4 \approx 0.4\%$, or about 2 funds. Of the 1,010 funds in the top half, 7.92% stayed in the top half for 4 years in a row, against $\left(\frac{1}{2}\right)^4 = 6.25\%$ if random.
+
+<Check id="C4" />
+
+## How to read fund documents [#documents]
+
+Choosing or evaluating a fund means reading its public documents:
+
+- The factsheet, usually updated monthly or quarterly, lists the expense ratio, size, inception date, benchmark, top ten holdings, sector and region breakdown, style box (large, mid or small cap × value, blend or growth), returns over various periods against the benchmark, and risk statistics: standard deviation, beta (<Ref concept="beta" />), $R^2$ relative to the benchmark (<Ref concept="r-squared" />), tracking error and Sharpe ratio.
+- The prospectus is a legal document. Its summary section at the front states the investment objective, the fee table (<Ref concept="expense-ratio" />), principal investment strategies, principal risks, past returns against an index, and the managers. The statement of additional information (SAI) has more detail, such as brokerage commissions and the managers' own investment in the fund.
+- Annual and semiannual reports give the full holdings, financial statements and turnover (<Ref concept="turnover-ratio" />).
+
+For active funds, one useful measure is <Def id="active-share">active share</Def>: half the sum of the absolute differences between the fund's weights and the benchmark's weights (Cremers and Petajisto, 2009):
+
+$$
+AS = \frac{1}{2} \sum_i \left| w_{i} - w_{i}^{B} \right|
+$$
+
+$w_i$ and $w_i^B$ are the weights of stock $i$ in the fund and in the benchmark. An active share of 0 means the fund is identical to the benchmark; 100% means no overlap at all.
+
+<Check id="C5" />
+
+## Summary [#summary]
+
+- Before costs, active investors as a whole earn the market return; after costs, the average active dollar must lag passive investing.
+- The SPIVA reports show that most active funds lag their matching indexes, more so over longer horizons; liquidated funds are included.
+- The probability that a fund with no skill beats its index falls with the horizon, at a speed set by the ratio of cost to tracking error.
+- Funds ranked high in the past rarely stay high, and the results look much like random rankings.
+- Factsheets, prospectuses and annual reports give information on fees, strategy, risk and holdings; active share measures how different a fund is from its benchmark.
+
+## Exercises [#exercises]
+
+<Exercises />

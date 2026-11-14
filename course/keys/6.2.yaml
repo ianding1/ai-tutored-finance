@@ -1,0 +1,303 @@
+# Answer key for lesson 6.2. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[5.2#strategies]] (section), [[concept:beta]], [[check:Q3]], [[fig:3-1]].
+# expected: values are recomputed by course/verify/6.2.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "6.2"
+
+context:
+  - zh-cn: |-
+      学习者学过复利与连续复利的近似（[[0.1]]）、买卖价差（[[3.1]]）、委托–代理问题（[[1.9]]）、资本市场假设（[[4.11]]）、跟踪误差（[[4.9]]）、基金的种类与结构（[[6.1]]）。百分数用百分点表示。
+    en: |-
+      The learner has studied compounding and the continuous-compounding approximation ([[0.1]]), bid–ask spreads ([[3.1]]), the principal–agent problem ([[1.9]]), capital market assumptions ([[4.11]]), tracking error ([[4.9]]) and fund types and structures ([[6.1]]). Percentages in percentage points.
+  - concepts: [expense-ratio]
+    zh-cn: |-
+      讲义：费用率 = 每年运营费用 / 平均资产，含管理费、行政费用和 12b-1 费；每天从资产中扣除，体现在净值中，不单独收取。ICI：股票共同基金按资产加权的平均费用率 1996 年 1.04%、2025 年 0.40%，股票指数 ETF 0.14%；2024 年末指数共同基金和 ETF 占长期基金资产 51%；一些宽基指数基金约 0.03%。
+    en: |-
+      The lesson: expense ratio = yearly operating expenses / average assets, including the management fee, administrative costs and the 12b-1 fee; deducted daily from assets and reflected in NAV, not billed separately. ICI: asset-weighted average for stock mutual funds 1.04% in 1996 and 0.40% in 2025, stock index ETFs 0.14%; index mutual funds and ETFs held 51% of long-term fund assets at end-2024; some broad index funds charge about 0.03%.
+  - concepts: [twelve-b-1-fee]
+    zh-cn: |-
+      讲义：前端费买入时扣除（例：5.75%，投入 10,000 美元只投资 9,425），金额达到档位时降低；后端费（CDSC）在一定年限内卖出时收取、逐年递减；12b-1 费每年从资产中收取，含在费用率中，按 FINRA 规则最多 1%。A 类：前端费、12b-1 费低；C 类：无前端费、12b-1 费高，若干年后通常转为 A 类；机构份额通常都不收。2025 年约 92% 的流入资金进入无销售费、无 12b-1 费的份额类别。
+    en: |-
+      The lesson: a front-end load is deducted at purchase (example: 5.75%, so 10,000 dollars invests only 9,425), lower at breakpoints; a back-end load (CDSC) applies to sales within some years and declines yearly; the 12b-1 fee is taken from assets yearly, included in the expense ratio, at most 1% under FINRA rules. Class A: front-end load, low 12b-1; Class C: no front-end load, higher 12b-1, usually converting to A after some years; institutional classes usually charge neither. In 2025 about 92% of inflows went to classes with neither a load nor a 12b-1 fee.
+  - concepts: [turnover-ratio]
+    zh-cn: |-
+      讲义：费用率不含交易成本（佣金、买卖价差、冲击成本），它们直接降低收益而不出现在费用表中；换手率 = 一年中买入或卖出（取较小者）/ 平均资产；现金拖累；证券借出收入部分抵消成本。
+    en: |-
+      The lesson: the expense ratio excludes trading costs (commissions, spreads, market impact), which lower returns directly without appearing in the fee table; turnover = the smaller of yearly purchases or sales / average assets; cash drag; securities lending income offsets part of costs.
+  - concepts: [tracking-difference, tracking-error]
+    zh-cn: |-
+      讲义：跟踪差异 = 基金收益减指数收益的平均值，衡量平均落后多少；跟踪误差是这个差的标准差，衡量差距的波动；费用、交易成本、现金拖累使跟踪差异为负，证券借出收入使它变大。
+    en: |-
+      The lesson: tracking difference = the average of fund return minus index return, measuring the average lag; tracking error is the standard deviation of that difference, measuring how much it varies; fees, trading costs and cash drag make tracking difference negative, securities lending pushes it up.
+  - concepts: [expense-ratio, compound-interest]
+    zh-cn: |-
+      讲义只说费用的影响随时间复利累积，没有给出公式（留给 [[check:Q1]]）。[[fig:5-1]]：与不收费相比期末财富减少的比例 $1 - \left(\frac{1 + r - f}{1 + r}\right)^T$，横轴 0–40 年；滑块费用 0–2%（步长 0.1，默认 1），扣费前收益率 2–10%（步长 1，默认 6）；默认时 10、20、30、40 年后约减少 9.0%、17.3%、24.8%、31.6%；费用 1%、30 年时，收益率 2% 和 10% 分别约 25.6% 和 24.0%。
+    en: |-
+      The lesson only says the effect of fees compounds over time, without a formula (left to [[check:Q1]]). [[fig:5-1]]: share of final wealth lost compared with no fee, $1 - \left(\frac{1 + r - f}{1 + r}\right)^T$, horizontal axis 0–40 years; sliders fee 0–2% (steps of 0.1, default 1) and return before fees 2–10% (steps of 1, default 6); by default about 9.0%, 17.3%, 24.8%, 31.6% lost after 10, 20, 30, 40 years; with a 1% fee over 30 years, about 25.6% at a 2% return and 24.0% at 10%.
+
+common_errors:
+  - questions: [Q1]
+    zh-cn: |-
+      以为每年 1% 的费用只拿走 1% 的钱，或者按 $f \times T$ 线性计算；忽略被扣掉的钱以后的收益也失去了。
+    en: |-
+      Thinking a 1% yearly fee takes only 1% of the money, or computing $f \times T$ linearly; ignoring that the future returns on the money taken are lost too.
+  - questions: [Q2]
+    zh-cn: |-
+      以为不收前端费的份额类别一定更便宜，或者以为长期投资者买 A 类总是更划算；忽略按持有期比较总成本，以及 C 类转为 A 类等条款。
+    en: |-
+      Thinking a share class with no front-end load must be cheaper, or that long-term investors are always better off in Class A; ignoring comparing total cost over the holding period and terms such as C shares converting to A.
+  - questions: [Q3]
+    zh-cn: |-
+      只看费用率，忽略交易成本和现金拖累，低估主动基金的总成本。
+    en: |-
+      Looking only at the expense ratio and ignoring trading costs and cash drag, understating an active fund's total cost.
+  - questions: [Q4]
+    zh-cn: |-
+      选择指数基金时只看费用率最低的；忽略跟踪差异才是实际的成本，以及交易频繁时买卖价差的影响。
+    en: |-
+      Choosing an index fund by the lowest expense ratio alone; ignoring that tracking difference is the actual cost, and the effect of bid–ask spreads for frequent traders.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: expense-ratio
+    concepts: [expense-ratio, net-asset-value]
+    question:
+      zh-cn: |-
+        一只基金公布的过去一年的收益率为 8%，费用率为 0.6%。持有这只基金一整年的投资者，扣除费用率后的实际收益率约为 7.4%。
+      en: |-
+        A fund reports a return of 8% over the past year, and its expense ratio is 0.6%. An investor who held the fund the whole year earned about 7.4% after the expense ratio.
+    correct: false
+    hint:
+      zh-cn: 费用率是怎样收取的？公布的收益率是用什么价格计算的？
+      en: How is the expense ratio collected? Which price is the reported return computed from?
+    answer:
+      zh-cn: |-
+        错。费用率每天从基金资产中扣除，净值已经是扣除费用后的价值，按净值计算的 8% 已经扣除了费用率，不需要再减。但公布的收益率通常没有扣除销售费，也没有扣除投资者自己要交的税。
+      en: |-
+        False. The expense ratio is deducted from fund assets every day, so the NAV is already net of it, and the 8% computed from NAV is already after the expense ratio; nothing more should be subtracted. Reported returns usually do not deduct sales loads, though, or the taxes the investor owes.
+
+  - id: C2
+    kind: check
+    section: loads
+    concepts: [twelve-b-1-fee, principal-agent-problem]
+    question:
+      zh-cn: |-
+        一位经纪人向客户推荐一只收 5.75% 前端费的大盘股基金，而不是策略类似、费用率更低的免佣指数基金。最可能的原因是：
+      en: |-
+        A broker recommends to a client a large-cap fund with a 5.75% front-end load rather than a no-load index fund with a similar strategy and a lower expense ratio. The most likely reason is:
+    choices:
+      - zh-cn: 前端费的大部分是付给经纪人的佣金，推荐它对经纪人有利
+        en: Most of the front-end load is paid to the broker as commission, so recommending it benefits the broker
+      - zh-cn: 收销售费的基金通常由更好的经理管理，值得多付钱
+        en: Funds with sales loads are usually run by better managers and are worth the extra cost
+        why:
+          zh-cn: 销售费付给了谁？它是用来支付基金经理，还是销售渠道？
+          en: Who receives the load? Does it pay the fund's managers or the sales channel?
+      - zh-cn: 前端费是一次性的，交了以后这只基金的费用率就会降到比指数基金更低
+        en: The front-end load is a one-time charge, after which the fund's expense ratio falls below the index fund's
+        why:
+          zh-cn: 题目说这只基金的费用率比指数基金高。前端费会改变它以后每年的费用率吗？
+          en: The question says this fund's expense ratio is higher than the index fund's. Does the front-end load change its future yearly expense ratio?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。销售费和 12b-1 费用于支付销售渠道，其中大部分是经纪人的佣金。经纪人与客户之间存在委托–代理问题（[[1.9]]）：推荐对客户更便宜的免佣基金，经纪人拿不到佣金。这不说明每位经纪人都会这样做，但客户应该问清楚顾问的报酬从哪里来。
+      en: |-
+        (A). Loads and 12b-1 fees pay the sales channel, mostly as broker commissions. There is a principal–agent problem between broker and client ([[1.9]]): recommending the cheaper no-load fund earns the broker no commission. Not every broker acts this way, but clients should ask how their adviser is paid.
+
+  - id: C3
+    kind: check
+    section: trading-costs
+    concepts: [turnover-ratio, expense-ratio]
+    question:
+      zh-cn: |-
+        两只主动股票基金的费用率都是 0.75%，一只的换手率为 20%，另一只为 150%。既然费用率相同，两只基金每年的总成本大致相同。
+      en: |-
+        Two active stock funds both have an expense ratio of 0.75%; one has a turnover of 20% and the other 150%. Since the expense ratios are equal, the two funds' total yearly costs are about the same.
+    correct: false
+    hint:
+      zh-cn: 基金买卖股票时付出的佣金、价差和冲击成本包括在费用率中吗？换手率越高，这些成本怎样变化？
+      en: Are the commissions, spreads and market impact a fund pays when trading included in its expense ratio? How do these costs change as turnover rises?
+    answer:
+      zh-cn: |-
+        错。交易成本不包括在费用率中，而是直接降低基金的收益。换手率 150% 的基金一年要买卖相当于组合 1.5 倍的证券，假如每买卖一轮的成本为 0.3%，每年就多出约 0.45% 的隐性成本，而换手率 20% 的基金只有约 0.06%。在应税账户中，高换手率还可能带来更多的资本利得分配（[[6.1]]）。
+      en: |-
+        False. Trading costs are not in the expense ratio; they lower the fund's return directly. The fund with 150% turnover trades securities worth 1.5 times its portfolio each year; at, say, 0.3% per round trip, that adds about 0.45% a year in hidden costs, against about 0.06% for the fund with 20% turnover. In taxable accounts, high turnover can also mean larger capital gains distributions ([[6.1]]).
+
+  - id: C4
+    kind: check
+    section: tracking
+    concepts: [tracking-difference, tracking-error]
+    question:
+      zh-cn: |-
+        一只指数基金的跟踪误差非常小，接近 0。由此可以判断，它每年的收益几乎等于指数的收益。
+      en: |-
+        An index fund's tracking error is very small, close to 0. From this one can conclude that its yearly return is almost equal to the index's.
+    correct: false
+    hint:
+      zh-cn: 跟踪误差是什么的标准差？如果基金每年都稳定地落后指数 1%，它的跟踪误差是多少？
+      en: Tracking error is the standard deviation of what? If a fund lagged the index by a steady 1% every year, what would its tracking error be?
+    answer:
+      zh-cn: |-
+        错。跟踪误差衡量差距的波动，而不是差距的大小。一只每年都稳定落后指数 1% 的基金，跟踪误差接近 0，但跟踪差异是 −1%。判断一只指数基金的实际成本要看跟踪差异；跟踪误差说明这种落后有多稳定。
+      en: |-
+        False. Tracking error measures how much the gap varies, not how big it is. A fund that lags the index by a steady 1% a year has a tracking error near 0 but a tracking difference of −1%. The actual cost of an index fund shows in its tracking difference; the tracking error says how steady that lag is.
+
+  - id: C5
+    kind: check
+    section: compounding
+    concepts: [expense-ratio, compound-interest]
+    widget: { id: cost-share, set: { f: 1, r: 10 } }
+    question:
+      zh-cn: |-
+        在 [[fig:5-1]] 中，保持费用为 1%，把扣费前收益率从 2% 提高到 10%。30 年后期末财富减少的比例会怎样？
+      en: |-
+        In [[fig:5-1]], keep the fee at 1% and raise the return before fees from 2% to 10%. What happens to the share of final wealth lost after 30 years?
+    choices:
+      - zh-cn: 几乎不变，主要取决于费用和年数
+        en: It hardly changes; it depends mainly on the fee and the number of years
+      - zh-cn: 大幅增加，因为收益越高，复利越强，费用拿走的也越多
+        en: It rises sharply, because higher returns compound more, so fees take more
+        why:
+          zh-cn: 收益越高，费用拿走的金额确实越多，但期末财富也越多。看图中的读数：比例变了多少？
+          en: 'With higher returns fees do take more dollars, but final wealth is larger too. Look at the readout in the figure: how much does the share change?'
+      - zh-cn: 大幅减少，因为收益高时 1% 的费用相对不重要
+        en: It falls sharply, because with high returns a 1% fee matters less
+        why:
+          zh-cn: 1% 的费用占收益的比例确实变小了，但它占资产的比例没有变。期末财富减少的比例取决于哪一个？
+          en: The 1% fee is indeed a smaller share of the return, but it is the same share of assets. Which of these does the share of final wealth lost depend on?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。约从 25.6% 变为 24.0%。期末财富是 $(1 + r - f)^T$ 与 $(1 + r)^T$ 之比，每年的比值 $\frac{1 + r - f}{1 + r} \approx 1 - f$ 几乎与 $r$ 无关，所以减少的比例主要由 $f$ 和 $T$ 决定，约为 $1 - e^{-fT}$。费用每年拿走资产的固定比例，不论市场好坏。
+      en: |-
+        (A). It goes from about 25.6% to 24.0%. Final wealth is the ratio of $(1 + r - f)^T$ to $(1 + r)^T$, and the yearly ratio $\frac{1 + r - f}{1 + r} \approx 1 - f$ hardly depends on $r$, so the share lost is set mainly by $f$ and $T$, roughly $1 - e^{-fT}$. A fee takes a fixed share of assets every year, in good markets and bad.
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [expense-ratio, compound-interest]
+    expected: { l: "23.2", l2: "1.3" }
+    question:
+      zh-cn: |-
+        一位 30 岁的投资者打算持有一只股票基金 35 年。基金扣费前的年收益率为 6.5%。
+        (a) 写出与不收费相比，35 年后期末财富减少的比例与费用率 $f$、收益率 $r$、年数 $T$ 的关系式，并说明为什么它近似于 $1 - e^{-fT}$。计算费用率为 0.8% 和 0.04% 时减少的比例。
+        (b) 销售人员说：“这只基金每年只收 0.8%，相当于每 100 美元收 8 毛钱，对你的收益影响很小。”评价这个说法。
+      en: |-
+        A 30-year-old investor plans to hold a stock fund for 35 years. The fund's return before fees is 6.5% a year.
+        (a) Write the share of final wealth lost after 35 years, compared with no fee, in terms of the expense ratio $f$, the return $r$ and the number of years $T$, and explain why it is close to $1 - e^{-fT}$. Compute the share lost with expense ratios of 0.8% and 0.04%.
+        (b) A salesperson says: "This fund charges only 0.8% a year, 80 cents per 100 dollars, which hardly affects your returns." Evaluate this statement.
+    answer:
+      zh-cn: |-
+        (a) 不收费时期末财富为 $W_0 (1 + r)^T$，收费时为 $W_0 (1 + r - f)^T$，减少的比例为 $1 - \left(\frac{1 + r - f}{1 + r}\right)^T$。因为 $\frac{1 + r - f}{1 + r} = 1 - \frac{f}{1 + r} \approx 1 - f$，而 $(1 - f)^T \approx e^{-fT}$（[[0.1]]），所以比例约为 $1 - e^{-fT}$（更准确地是 $1 - e^{-fT/(1+r)}$）。$f = 0.8\%$：$1 - \left(\frac{1.057}{1.065}\right)^{35} \approx 23.2\%$（近似式给出约 24.4%）；$f = 0.04\%$：约 1.3%。
+        (b) 说法不对。0.8% 是每年占资产的比例，不是占收益的比例：在 6.5% 的收益中，它拿走了约八分之一。而且它每年都收，被收走的钱以后的收益也没有了；35 年后期末财富约少 23%，而费用为 0.04% 的指数基金只少约 1.3%。费用是确定的成本，而基金能否通过选股弥补这 0.8%，是不确定的。
+      en: |-
+        (a) Without fees final wealth is $W_0 (1 + r)^T$, with fees $W_0 (1 + r - f)^T$, so the share lost is $1 - \left(\frac{1 + r - f}{1 + r}\right)^T$. Since $\frac{1 + r - f}{1 + r} = 1 - \frac{f}{1 + r} \approx 1 - f$ and $(1 - f)^T \approx e^{-fT}$ ([[0.1]]), the share is about $1 - e^{-fT}$ (more precisely $1 - e^{-fT/(1+r)}$). $f = 0.8\%$: $1 - \left(\frac{1.057}{1.065}\right)^{35} \approx 23.2\%$ (the approximation gives about 24.4%); $f = 0.04\%$: about 1.3%.
+        (b) The statement is wrong. 0.8% is a yearly share of assets, not of returns: of a 6.5% return it takes about one eighth. And it is charged every year, and the future returns on the money taken are lost as well; after 35 years final wealth is about 23% lower, against about 1.3% for an index fund charging 0.04%. The fee is a certain cost, while whether the fund's stock picking can make up the 0.8% is uncertain.
+    rubric:
+      zh-cn:
+        - "(a) 通过：写出 $1 - \\left(\\frac{1 + r - f}{1 + r}\\right)^T$，说明近似的理由，算出约 23.2% 和约 1.3%。用 $f \\times T = 28\\%$ 线性计算，需要订正。"
+        - "(b) 通过：指出费用占资产而不是占收益、每年复利累积，并用 (a) 的结果比较。同意“影响很小”，需要订正。"
+      en:
+        - "(a) OK: writes $1 - \\left(\\frac{1 + r - f}{1 + r}\\right)^T$, explains the approximation, and gets about 23.2% and about 1.3%. A linear $f \\times T = 28\\%$ needs revision."
+        - "(b) OK: says the fee is a share of assets, not of returns, and compounds each year, comparing with the results of (a). Agreeing that the effect is small needs revision."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [twelve-b-1-fee, expense-ratio]
+    expected: { be: "8.35", diff: "0.25" }
+    question:
+      zh-cn: |-
+        一只基金有两种份额：A 类前端费 5.75%，费用率 0.85%；C 类没有前端费，费用率 1.60%（含 1% 的 12b-1 费），持有满 8 年后自动转为 A 类（转换时不收前端费）。基金扣除费用率前的收益率为每年 7%，按每年扣除费用率计算（年收益率为 $7\% - $ 费用率）。
+        (a) 如果 C 类永远不转换，持有多少年以上 A 类更好？
+        (b) 考虑转换后，持有 20 年时哪一类的期末财富更多，多百分之几？一位经纪人说：“长期投资者买 A 类总是更划算。”评价这个说法，并说明对这位投资者更重要的问题是什么。
+      en: |-
+        A fund has two share classes: Class A has a 5.75% front-end load and an expense ratio of 0.85%; Class C has no front-end load and an expense ratio of 1.60% (including a 1% 12b-1 fee), and converts automatically to Class A after 8 years (with no load at conversion). The fund returns 7% a year before the expense ratio, and the expense ratio is deducted yearly (the yearly return is $7\%$ minus the expense ratio).
+        (a) If Class C never converted, after how many years would Class A be better?
+        (b) Taking the conversion into account, which class ends with more wealth after 20 years, and by how many percent? A broker says: "For long-term investors, Class A is always the better deal." Evaluate this statement, and say what question matters more for this investor.
+    answer:
+      zh-cn: |-
+        (a) A 类：$0.9425 \times 1.0615^T$；C 类：$1.054^T$。两者相等时 $\left(\frac{1.0615}{1.054}\right)^T = \frac{1}{0.9425}$，$T = \frac{\ln(1 / 0.9425)}{\ln(1.0615 / 1.054)} \approx 8.35$ 年。超过约 8.35 年，A 类更好。
+        (b) 20 年后 A 类：$0.9425 \times 1.0615^{20} \approx 3.109$；C 类：$1.054^8 \times 1.0615^{12} \approx 3.117$。C 类多约 0.25%。因为 C 类在 A 类追上之前（8.35 年）就转换成了 A 类，之后两者的费用率相同，C 类一直略多。经纪人的说法在有转换条款时不成立；如果一次投入的金额达到前端费的折扣档位（例如费率降到 3.5%），A 类才明显更好。但更重要的问题是：为什么要在两种收费的份额之间选？同样策略的免佣指数基金费用率可能只有 0.05%，按 Q1 的方法，20 年后的财富比这两种都多约 23%。
+      en: |-
+        (a) Class A: $0.9425 \times 1.0615^T$; Class C: $1.054^T$. They are equal when $\left(\frac{1.0615}{1.054}\right)^T = \frac{1}{0.9425}$, $T = \frac{\ln(1 / 0.9425)}{\ln(1.0615 / 1.054)} \approx 8.35$ years. Beyond about 8.35 years Class A is better.
+        (b) After 20 years Class A: $0.9425 \times 1.0615^{20} \approx 3.109$; Class C: $1.054^8 \times 1.0615^{12} \approx 3.117$. Class C ends about 0.25% higher. Because Class C converts to A before A catches up (8.35 years), the two have the same expense ratio afterwards and C stays slightly ahead. The broker's statement fails when there is a conversion feature; only if a single purchase reaches a load breakpoint (say a rate of 3.5%) is Class A clearly better. But the more important question is why choose between two fee-charging classes at all: a no-load index fund with the same strategy might charge 0.05%, and by the method of Q1 would end about 23% richer than either after 20 years.
+    rubric:
+      zh-cn:
+        - "(a) 通过：约 8.35 年，列出两种份额的财富式子。"
+        - "(b) 通过：C 类多约 0.25%，解释原因是转换发生在 A 类追上之前；指出更重要的是与低成本免佣基金比较。同意经纪人的说法，需要订正。"
+      en:
+        - "(a) OK: about 8.35 years, with the wealth expressions for both classes."
+        - "(b) OK: Class C about 0.25% higher, explained by conversion before A catches up; says the more important comparison is with a low-cost no-load fund. Agreeing with the broker needs revision."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [turnover-ratio, expense-ratio]
+    expected: { tc: "0.32", cd: "0.2", total: "1.22" }
+    question:
+      zh-cn: |-
+        一只主动股票基金的费用率为 0.70%，换手率为 80%，估计每买卖一轮的交易成本（价差和冲击成本）为交易金额的 0.4%。它平均持有 5% 的现金，现金收益率 4%，而股票的预期收益率为 8%。
+        (a) 估计这只基金每年的交易成本、现金拖累和总成本。
+        (b) 基金的宣传材料说：“我们的总费用只有 0.70%，与同类基金相比很有竞争力。”评价这个说法。投资者可以从哪些公开资料中找到估计这些成本所需的信息？
+      en: |-
+        An active stock fund has an expense ratio of 0.70% and a turnover of 80%, and its trading cost (spread and market impact) is estimated at 0.4% of the amount traded per round trip. It holds 5% cash on average, earning 4%, while stocks are expected to return 8%.
+        (a) Estimate the fund's yearly trading cost, cash drag and total cost.
+        (b) The fund's marketing says: "Our total fees are only 0.70%, very competitive with similar funds." Evaluate this statement. In which public documents can an investor find the information needed to estimate these costs?
+    answer:
+      zh-cn: |-
+        (a) 交易成本约 $80\% \times 0.4\% = 0.32\%$；现金拖累约 $5\% \times (8\% - 4\%) = 0.2\%$；总成本约 $0.70\% + 0.32\% + 0.2\% = 1.22\%$。
+        (b) 说法只说了一部分。0.70% 只是费用率；交易成本和现金拖累不出现在费用表中，却同样降低收益，使实际成本接近 1.22%，比费用率高约四分之三。比较基金时应该比较总成本，或者直接比较扣除所有成本后相对基准的收益。信息来源：招募说明书中的费用表和换手率；补充信息说明书（SAI）中的经纪佣金；年报和季报中的持仓（包括现金比例）。冲击成本无法直接看到，只能根据换手率、基金规模和持有股票的流动性估计。
+      en: |-
+        (a) Trading cost about $80\% \times 0.4\% = 0.32\%$; cash drag about $5\% \times (8\% - 4\%) = 0.2\%$; total about $0.70\% + 0.32\% + 0.2\% = 1.22\%$.
+        (b) The statement tells only part of the story. 0.70% is just the expense ratio; trading costs and cash drag do not appear in the fee table but lower returns just the same, bringing the real cost to about 1.22%, about three quarters more than the expense ratio. Funds should be compared on total cost, or directly on returns relative to a benchmark after all costs. Sources: the fee table and turnover in the prospectus; brokerage commissions in the statement of additional information (SAI); holdings, including the cash share, in the annual and semiannual reports. Market impact cannot be seen directly and must be estimated from turnover, fund size and the liquidity of the stocks held.
+    rubric:
+      zh-cn:
+        - "(a) 通过：交易成本约 0.32%，现金拖累约 0.2%，总成本约 1.22%。"
+        - "(b) 通过：指出费用率不含交易成本和现金拖累，实际成本明显更高；说出至少两种信息来源（招募说明书、SAI、年报等）。同意“总费用只有 0.70%”，需要订正。"
+      en:
+        - "(a) OK: trading cost about 0.32%, cash drag about 0.2%, total about 1.22%."
+        - "(b) OK: says the expense ratio excludes trading costs and cash drag, so the real cost is clearly higher; names at least two sources (prospectus, SAI, annual report, etc.). Agreeing that total fees are 0.70% needs revision."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [tracking-difference, expense-ratio, bid-ask-spread]
+    expected: { x: "0.05", y: "0.04", xt: "0.17", yt: "0.4" }
+    question:
+      zh-cn: |-
+        两只跟踪标普 500 指数的 ETF：X 的费用率为 0.03%，过去 10 年平均跟踪差异为 −0.05%，买卖价差为 0.01%；Y 的费用率为 0.09%，平均跟踪差异为 −0.04%（证券借出收入较多），买卖价差为 0.03%。每买卖一轮的价差成本约等于一个买卖价差。
+        (a) 对一位买入后持有 20 年的投资者，两只 ETF 每年的成本大约各是多少？对一位每月买卖一轮的投资者呢？
+        (b) 一位朋友说：“指数基金都一样，选费用率最低的就对了。”评价这个说法。
+      en: |-
+        Two ETFs track the S&P 500. X has an expense ratio of 0.03%, an average tracking difference of −0.05% over the past 10 years and a bid–ask spread of 0.01%. Y has an expense ratio of 0.09%, an average tracking difference of −0.04% (more securities lending income) and a bid–ask spread of 0.03%. The spread cost of one round trip is about one bid–ask spread.
+        (a) For an investor who buys and holds for 20 years, roughly what is the yearly cost of each ETF? And for an investor who makes one round trip every month?
+        (b) A friend says: "Index funds are all the same; just pick the lowest expense ratio." Evaluate this statement.
+    answer:
+      zh-cn: |-
+        (a) 持有 20 年：X 约 $0.05\% + \frac{0.01\%}{20} \approx 0.05\%$；Y 约 $0.04\% + \frac{0.03\%}{20} \approx 0.04\%$，Y 略便宜。每月买卖一轮：X 约 $0.05\% + 12 \times 0.01\% = 0.17\%$；Y 约 $0.04\% + 12 \times 0.03\% = 0.40\%$，X 便宜得多。
+        (b) 说法不完全对。费用率只是成本的一部分，指数基金的实际成本体现在跟踪差异上，它还包括交易成本、现金拖累和证券借出收入；费用率低的基金不一定落后指数最少。对频繁交易的人，买卖价差可能比费用率更重要；对长期持有的人，价差摊到每年几乎可以忽略。此外还要看两只基金跟踪的指数是否相同、基金规模和流动性，以及在应税账户中的税务效率。不过，这些差别都只有百分之零点零几；与主动基金和指数基金之间的差别相比很小，长期持有任何一只低成本的宽基指数基金，差别都不大。
+      en: |-
+        (a) Holding 20 years: X about $0.05\% + \frac{0.01\%}{20} \approx 0.05\%$; Y about $0.04\% + \frac{0.03\%}{20} \approx 0.04\%$, so Y is slightly cheaper. One round trip a month: X about $0.05\% + 12 \times 0.01\% = 0.17\%$; Y about $0.04\% + 12 \times 0.03\% = 0.40\%$, so X is much cheaper.
+        (b) The statement is not quite right. The expense ratio is only part of the cost; an index fund's real cost shows in its tracking difference, which also includes trading costs, cash drag and securities lending income, and the fund with the lowest expense ratio need not lag its index least. For frequent traders the bid–ask spread may matter more than the expense ratio; for long-term holders the spread, divided over many years, is negligible. One should also check whether the two funds track the same index, their size and liquidity, and their tax efficiency in taxable accounts. Still, these differences are a few hundredths of a percent; compared with the gap between active and index funds they are small, and for a long-term holder any low-cost broad index fund will do about as well.
+    rubric:
+      zh-cn:
+        - "(a) 通过：持有 20 年时 X 约 0.05%、Y 约 0.04%；每月交易时 X 约 0.17%、Y 约 0.40%。"
+        - "(b) 通过：指出实际成本看跟踪差异，交易频率决定价差的重要性，并说明这些差别相对很小。同意“只看费用率”，需要订正。"
+      en:
+        - "(a) OK: holding 20 years, X about 0.05% and Y about 0.04%; trading monthly, X about 0.17% and Y about 0.40%."
+        - "(b) OK: says the real cost shows in tracking difference, trading frequency decides how much the spread matters, and notes these differences are small. Agreeing to look only at the expense ratio needs revision."

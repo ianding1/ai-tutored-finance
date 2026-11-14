@@ -1,0 +1,82 @@
+---
+title: 6.4 A Framework for Fund Due Diligence
+description: The questions due diligence must answer; strategy, process and people; performance attribution, allocation and selection effects; size, capacity and costs; risk and liquidity mismatch.
+lesson: "6.4"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import Attribution from '../../../../components/widgets/Attribution.astro';
+
+## What due diligence must answer [#framework]
+
+<Def id="due-diligence">Due diligence</Def> is a systematic check of a fund before investing in it (and while holding it), answering three questions: What is the fund doing? Has it consistently done what it says? What do investors pay for this, and what risks do they bear?
+
+A common framework splits the check into several parts:
+
+1. Strategy: what the fund invests in, how it plans to make money, and why that approach should work.
+2. Process and people: who makes the decisions and how, whether the team and the firm are stable, and whether incentives are aligned with investors.
+3. Performance: where returns come from, and how they compare with a suitable benchmark and with similar funds.
+4. Costs and capacity: the total cost, and whether the strategy can still be carried out as the fund grows.
+5. Risk: how the fund could lose money, what the worst case is, and whether its liquidity can meet redemptions.
+
+Morningstar's fund ratings use people, process and parent (the fund company) as their main pillars, combined with fees, rather than relying directly on past returns.
+
+<Check id="C1" />
+
+## Strategy, process and people [#strategy-people]
+
+Checking the strategy means comparing what the fund says with what it does: whether the objective and strategy in the prospectus (<Ref lesson="6.3" sec="documents" />) match its actual holdings, turnover and risk statistics. A change in the style of the holdings over time, for example a "value fund" gradually buying many growth stocks, is called style drift; it makes the fund's role in a portfolio unpredictable.
+
+On people, look at: the manager's tenure, and whether the past record was produced by the current team; whether decisions depend on one person or a team (key-person risk); how much the managers have invested in the fund themselves, which the statement of additional information (SAI) discloses in ranges, the top one being "over 1 million dollars"; and whether the fund company is mainly an investment firm or mainly focused on sales and growing assets (<Ref concept="principal-agent-problem" />).
+
+<Check id="C2" />
+
+## Performance attribution [#attribution]
+
+<Def id="performance-attribution">Performance attribution</Def> splits a fund's excess return over its benchmark into its sources. The common Brinson method splits it by sector (or region, or asset class): $w_i$ and $R_i$ are the fund's weight and return in category $i$, $w_i^B$ and $R_i^B$ the benchmark's, and $R^B$ is the benchmark's total return.
+
+$$
+A = \sum_i \left(w_i - w_i^B\right)\left(R_i^B - R^B\right) \qquad S = \sum_i w_i \left(R_i - R_i^B\right)
+$$
+
+$A$ is the allocation effect: the return from overweighting sectors that beat the benchmark as a whole and underweighting those that lagged. $S$ is the selection effect: the return from picking securities within each sector that beat that sector's benchmark. Their sum equals the fund's total excess return $R - R^B$ (<Ref check="Q1" />).
+
+Another method needs no holdings, only returns: regress the fund's returns on factors such as market, size and value (<Ref lesson="4.6" />) to see which factor exposures explain the returns; only the remaining intercept is alpha. This is called returns-based style analysis.
+
+<Figure id="3-1" title="Attribution with two sectors. Benchmark: sector A 30% (return 20%), sector B 70% (return 5%), total return 9.5%. The fund earns the same as the benchmark in sector B." observe="First look at the signs of the two effects under the default settings; then set the weight in A to 30%, and the return in A to 20%, and see which effect becomes 0 in each case.">
+	<Attribution />
+</Figure>
+
+<Check id="C3" />
+
+## Size, capacity and costs [#capacity]
+
+Fees and other costs (<Ref lesson="6.2" />) are part of due diligence: what should be compared is the total cost and the return over the benchmark after all costs.
+
+Another question is size. Many active strategies have limited capacity: as a fund grows, each trade gets larger and moves prices, raising market impact costs (<Ref concept="turnover-ratio" />), and there are fewer good opportunities available in sufficient size. The model of Berk and Green (2004) argues that if investors put money into funds with good past performance, money keeps flowing in until the fund is so large that its excess return is eaten up by costs. Some funds close to new investors when they become too large.
+
+<Check id="C4" />
+
+## Risk and liquidity [#risk]
+
+Checking risk means more than looking at the standard deviation. Also look at: the maximum drawdown (<Ref concept="maximum-drawdown" />) and the market conditions in which it happened; concentration (top ten holdings, sectors); the use of leverage and derivatives; and the credit quality and liquidity of the assets held.
+
+One especially important issue is <Def id="liquidity-mismatch">liquidity mismatch</Def>: a fund lets investors redeem every day but holds assets that take a long time to sell at a reasonable price. In December 2015 the US Third Avenue Focused Credit Fund suspended redemptions because it held many hard-to-sell high-yield bonds; in June 2019 the UK's Woodford Equity Income Fund also suspended redemptions, having held many unlisted and small-cap stocks.
+
+<Check id="C5" />
+
+## Summary [#summary]
+
+- Due diligence answers: what the fund is doing, whether it consistently does what it says, and what investors pay and bear.
+- Compare the strategy with actual holdings and watch for style drift; look at the manager's tenure, the team, the managers' own investment and the firm's incentives.
+- Performance attribution splits excess return into allocation and selection effects; returns-based style analysis uses factor regressions to separate factor exposures from alpha.
+- Compare total costs; active strategies have limited capacity, and excessive size erodes excess returns.
+- Risk includes drawdowns, concentration, leverage and liquidity; a fund with daily redemptions holding hard-to-sell assets has a liquidity mismatch.
+
+## Exercises [#exercises]
+
+<Exercises />
