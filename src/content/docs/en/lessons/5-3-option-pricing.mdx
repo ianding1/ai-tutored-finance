@@ -1,0 +1,114 @@
+---
+title: 5.3 Option Pricing
+description: Put–call parity; the binomial model, replicating portfolios and risk-neutral pricing; the meaning and assumptions of the Black–Scholes formula; the Greeks and delta hedging; implied volatility and the volatility skew.
+lesson: "5.3"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import BsCall from '../../../../components/widgets/BsCall.astro';
+
+## Put–call parity [#parity]
+
+Start without any model, using only the absence of arbitrage (<Ref concept="arbitrage" />). Take a stock that pays no dividends, and a European call and a European put on it, both with strike $K$ and expiry $T$. Compare two portfolios:
+
+- Portfolio A: one call, plus a zero-coupon bond (<Ref concept="zero-coupon-bond" />) that pays $K$ at expiry;
+- Portfolio B: one put, plus one share.
+
+At expiry, if $S_T > K$, portfolio A exercises the call, uses the bond's $K$ to buy the share and ends with $S_T$; in portfolio B the put expires worthless and it ends with $S_T$. If $S_T \le K$, the call in portfolio A expires worthless and it ends with $K$; portfolio B exercises the put, sells the share at $K$ and ends with $K$. Both portfolios pay $\max(S_T,\ K)$ in every case, so their prices today must be equal:
+
+$$
+C - P = S - K e^{-rT}
+$$
+
+This is <Def id="put-call-parity">put–call parity</Def>. $C$ and $P$ are today's prices of the call and the put, $S$ is the stock price and $K e^{-rT}$ is today's price of the bond (continuous compounding, <Ref concept="continuous-compounding" />). It links the prices of four assets, the call, the put, the stock and the bond: given three of them, the fourth is determined, and a deviation allows arbitrage (<Ref check="Q1" />). Like the forward price (<Ref lesson="5.1" sec="cost-of-carry" />), it makes no assumption about where the stock price will go.
+
+<Check id="C1" />
+
+## The binomial model [#binomial]
+
+Parity only gives the difference between a call and a put. To price a single option, we need an assumption about how the stock price moves. The simplest one is that after one period the price can take only two values. Suppose a stock is at 100 now and in one year will be either 120 or 90; the one-year risk-free rate is 4% (annual compounding). A one-year call with a strike of 100 pays 20 if the price goes up and 0 if it goes down.
+
+A portfolio of stock and borrowing whose payoff is exactly the same as the option's is called a <Def id="replicating-portfolio">replicating portfolio</Def>. Buy $\Delta$ shares and borrow $B$:
+
+$$
+\Delta = \frac{C_u - C_d}{S_u - S_d} = \frac{20 - 0}{120 - 90} = \frac{2}{3}
+$$
+
+If the price goes down, $\frac{2}{3}$ of a share is worth 60, just enough to repay the loan, so today we borrow $B = \frac{60}{1.04} \approx 57.69$. If the price goes up, $\frac{2}{3}$ of a share is worth 80; after repaying 60, 20 is left, the same as the option. Today the replicating portfolio costs
+
+$$
+C = \Delta S - B = 66.67 - 57.69 \approx 8.97
+$$
+
+Since the two pay exactly the same at expiry, the option's price must be 8.97; otherwise one could buy the cheaper one, sell the dearer one and make an arbitrage profit. This method, which allows only an up move and a down move in each period and replicates step by step, is the <Def id="binomial-model">binomial model</Def>. If the year is split into many short periods and $\Delta$ is adjusted in each one, the possible stock prices come close to a continuous distribution.
+
+The same price can be written in another form. Let
+
+$$
+p^* = \frac{(1 + r) - d}{u - d} = \frac{1.04 - 0.9}{1.2 - 0.9} \approx 0.467
+$$
+
+where $u = 1.2$ and $d = 0.9$ are the factors by which the stock price moves up or down. Then $C = \frac{p^* \times 20 + (1 - p^*) \times 0}{1.04} \approx 8.97$. $p^*$ is called the risk-neutral probability: if no investor cared about risk, the stock's expected return would equal the risk-free rate, and $p^*$ is exactly the probability of an up move that makes the stock's expected return 4%. Pricing by taking the expectation with $p^*$ and discounting at the risk-free rate is called <Def id="risk-neutral-pricing">risk-neutral pricing</Def>. What goes wrong if the probability of an up move that investors actually believe in is used instead? See <Ref check="Q2" />.
+
+<Check id="C2" />
+
+## The Black–Scholes formula [#black-scholes]
+
+When the periods of the binomial tree become very short and the log return of the stock is normally distributed, that is, the stock price is lognormally distributed (<Ref concept="lognormal-distribution" />), the price of a European call has a formula, the <Def id="black-scholes-model">Black–Scholes model</Def>:
+
+$$
+C = S\,N(d_1) - K e^{-rT} N(d_2)
+$$
+
+$$
+d_1 = \frac{\ln(S / K) + (r + \sigma^2 / 2)\,T}{\sigma \sqrt{T}} \qquad d_2 = d_1 - \sigma \sqrt{T}
+$$
+
+$N(\cdot)$ is the cumulative distribution function of the standard normal distribution (<Ref concept="normal-distribution" />), $\sigma$ is the stock's annualized volatility (<Ref concept="annualized-volatility" />), and the put price follows from parity. The two terms can be read as follows: $N(d_2)$ is the probability, under the risk-neutral probabilities, that the option is exercised, and $K e^{-rT} N(d_2)$ is the present value of paying the strike if it is; $S\,N(d_1)$ is the present value of the stock received if it is exercised.
+
+The formula has only five inputs: the stock price, the strike, the time to expiry, the risk-free rate and the volatility. Of these, only the volatility cannot be observed directly. Its assumptions include: volatility is constant over the life of the option; the stock price moves continuously, without jumps; and one can trade and sell short at any time without cost. None of these holds exactly; we will see the effects below.
+
+<Figure id="3-1" title="The Black–Scholes price of a European call with a strike of 100 against the stock price (risk-free rate 4%). The dashed line is the intrinsic value." observe="Change the volatility, then the time to expiry, and see near which stock price the gap between the price curve and the dashed line is largest.">
+	<BsCall />
+</Figure>
+
+<Check id="C3" />
+
+## The Greeks and hedging [#greeks]
+
+The sensitivities of an option's price to its inputs are written with Greek letters and called the Greeks:
+
+- <Def id="option-delta">delta</Def>: the derivative of the option price with respect to the stock price, $\frac{\partial C}{\partial S}$. A call's delta is between 0 and 1, equal to $N(d_1)$ under Black–Scholes; a put's delta is between −1 and 0. The $\Delta$ of the binomial tree is the delta.
+- gamma: the derivative of delta with respect to the stock price, that is, how curved the price curve is; it is largest near the money and close to expiry.
+- <Def id="vega">vega</Def>: the derivative of the option price with respect to volatility.
+- theta: the change in the option price as time passes, other things equal; a buyer's theta is usually negative.
+
+A market maker (<Ref concept="market-maker" />) who sells options usually does not want to bear the risk of the stock's direction. After selling one call, he buys delta shares, so that small moves in the stock price have almost no effect on the position. This is called delta hedging, a form of hedging (<Ref concept="hedging" />). It is also the idea behind the derivation of Black–Scholes: the option plus a continuously adjusted stock position forms a riskless portfolio, so the portfolio can earn only the risk-free rate.
+
+<Check id="C4" />
+
+## Implied volatility [#implied-vol]
+
+Of the five inputs to Black–Scholes, four can be observed directly. Turning it around, given an option's market price, one can solve for the volatility that makes the formula give that price; this is the <Def id="implied-volatility">implied volatility</Def>. Option traders often quote only the implied volatility: it puts the prices of options with different strikes and expiries on one scale.
+
+Implied volatility reflects how the market prices future volatility, not just past volatility. Cboe's VIX index is computed from the prices of S&P 500 index options and measures how the market prices volatility over the next 30 days; it is usually between 12 and 25, and it went above 80 in November 2008 and in March 2020.
+
+If the assumptions of Black–Scholes held exactly, options on the same underlying with the same expiry would have the same implied volatility whatever their strike. In practice they do not. For stock index options, the lower the strike, the higher the implied volatility tends to be; this is called the <Def id="volatility-skew">volatility skew</Def>. The pattern became clear after the stock market crash of October 1987.
+
+<Check id="C5" />
+
+## Summary [#summary]
+
+- Put–call parity, $C - P = S - K e^{-rT}$, depends only on the absence of arbitrage, not on any assumption about where the stock price will go.
+- The binomial model replicates an option with stock and borrowing; the option's price equals the cost of the replicating portfolio. The same price is obtained by taking the expectation with risk-neutral probabilities and discounting at the risk-free rate.
+- The inputs of the Black–Scholes formula are the stock price, the strike, the time to expiry, the risk-free rate and the volatility; only the volatility has to be estimated.
+- Delta is the option price's sensitivity to the stock price and also the number of shares needed to replicate or hedge it; gamma, vega and theta measure how delta changes and the sensitivity to volatility and to time.
+- Implied volatility is the volatility that makes the model price equal the market price; for stock index options it rises as the strike falls (the volatility skew).
+
+## Exercises [#exercises]
+
+<Exercises />

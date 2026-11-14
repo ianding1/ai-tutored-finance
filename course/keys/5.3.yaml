@@ -1,0 +1,323 @@
+# Answer key for lesson 5.3. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[5.2#strategies]] (section), [[concept:beta]], [[check:Q3]], [[fig:3-1]].
+# expected: values are recomputed by course/verify/5.3.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "5.3"
+
+context:
+  - zh-cn: |-
+      学习者学过无套利与连续复利（[[0.1]]、[[5.1]]）、正态与对数正态分布、肥尾（[[0.4]]）、道德风险与委托–代理问题（[[1.9]]）、零息债券与信用利差（[[3.3]]、[[3.6]]）、财务杠杆（[[3.8]]）、年化波动率（[[4.1]]）、远期与套期保值（[[5.1]]）、期权的基本概念（[[5.2]]）。可以用计算器或代码计算 $N(\cdot)$。百分数用百分点表示。
+    en: |-
+      The learner has studied arbitrage and continuous compounding ([[0.1]], [[5.1]]), normal and lognormal distributions and fat tails ([[0.4]]), moral hazard and the principal–agent problem ([[1.9]]), zero-coupon bonds and credit spreads ([[3.3]], [[3.6]]), financial leverage ([[3.8]]), annualized volatility ([[4.1]]), forwards and hedging ([[5.1]]) and the basics of options ([[5.2]]). A calculator or code may be used to compute $N(\cdot)$. Percentages in percentage points.
+  - concepts: [put-call-parity]
+    zh-cn: |-
+      讲义：不付股息的股票，欧式期权；组合甲（看涨 + 支付 $K$ 的零息债券）与组合乙（看跌 + 一股）到期都得到 $\max(S_T, K)$，所以 $C - P = S - K e^{-rT}$；偏离时可以套利；不依赖对股价走势的假设。讲义没有算具体的套利例子（留给 [[check:Q1]]）。
+    en: |-
+      The lesson: non-dividend stock, European options; portfolio A (call + zero-coupon bond paying $K$) and portfolio B (put + one share) both pay $\max(S_T, K)$, so $C - P = S - K e^{-rT}$; deviations allow arbitrage; no assumption about the stock's path. The lesson works no numerical arbitrage example (left to [[check:Q1]]).
+  - concepts: [replicating-portfolio, binomial-model, risk-neutral-pricing]
+    zh-cn: |-
+      讲义例子：股价 100，一年后 120 或 90，利率 4%（按年复利），执行价 100 的看涨期权；$\Delta = \frac{20}{30} = \frac{2}{3}$，借入 $\frac{60}{1.04} \approx 57.69$，$C \approx 8.97$；$p^* = \frac{1.04 - 0.9}{1.2 - 0.9} \approx 0.467$，用 $p^*$ 求期望并按无风险利率折现得到同一价格。讲义把 $p^*$ 解释为使股票预期收益率等于无风险利率的概率，没有讨论真实概率为什么不进入价格（留给 [[check:C2]] 和 [[check:Q2]]）。
+    en: |-
+      The lesson's example: stock at 100, in one year 120 or 90, rate 4% (annual compounding), call with strike 100; $\Delta = \frac{20}{30} = \frac{2}{3}$, borrow $\frac{60}{1.04} \approx 57.69$, $C \approx 8.97$; $p^* = \frac{1.04 - 0.9}{1.2 - 0.9} \approx 0.467$, and the expectation under $p^*$ discounted at the risk-free rate gives the same price. The lesson describes $p^*$ as the probability that makes the stock's expected return equal the risk-free rate; it does not discuss why actual probabilities do not enter the price (left to [[check:C2]] and [[check:Q2]]).
+  - concepts: [black-scholes-model]
+    zh-cn: |-
+      讲义：$C = S N(d_1) - K e^{-rT} N(d_2)$，$d_1 = \frac{\ln(S/K) + (r + \sigma^2/2)T}{\sigma\sqrt{T}}$，$d_2 = d_1 - \sigma\sqrt{T}$；看跌期权由平价得到；$N(d_2)$ 是风险中性概率下行权的概率；五个输入，只有波动率不能直接观察；假设波动率不变、股价无跳跃、交易无成本。[[fig:3-1]]：执行价 100，利率 4%，滑块波动率 10–60%（步长 5，默认 20），到期时间 0.1–2 年（步长 0.1，默认 1）；读数为股价 100 时的价格与 delta（默认 9.93 与 0.62）。
+    en: |-
+      The lesson: $C = S N(d_1) - K e^{-rT} N(d_2)$, $d_1 = \frac{\ln(S/K) + (r + \sigma^2/2)T}{\sigma\sqrt{T}}$, $d_2 = d_1 - \sigma\sqrt{T}$; the put from parity; $N(d_2)$ is the risk-neutral probability of exercise; five inputs, only volatility unobservable; assumes constant volatility, no jumps, costless trading. [[fig:3-1]]: strike 100, rate 4%, sliders volatility 10–60% (steps of 5, default 20) and time to expiry 0.1–2 years (steps of 0.1, default 1); the readout gives price and delta at a stock price of 100 (9.93 and 0.62 by default).
+  - concepts: [option-delta, vega]
+    zh-cn: |-
+      讲义：delta 是 $\frac{\partial C}{\partial S}$，看涨在 0 到 1 之间，等于 $N(d_1)$；gamma 是 delta 对股价的导数，平值附近和临近到期时最大；vega 是对波动率的导数；theta 是随时间的变化，买方通常为负。做市商卖出看涨期权后买入 delta 股对冲股价的小幅变化（delta 对冲）。
+    en: |-
+      The lesson: delta is $\frac{\partial C}{\partial S}$, between 0 and 1 for a call, equal to $N(d_1)$; gamma is the derivative of delta with respect to the stock price, largest near the money and close to expiry; vega is the derivative with respect to volatility; theta is the change with time, usually negative for a buyer. A market maker who sells a call buys delta shares to hedge small moves (delta hedging).
+  - concepts: [implied-volatility, volatility-skew]
+    zh-cn: |-
+      讲义：隐含波动率是使 Black–Scholes 价格等于市场价格的波动率；VIX 由标普 500 指数期权算出，衡量未来 30 天的波动率定价，平时多在 12–25，2008 年 11 月和 2020 年 3 月超过 80；股指期权执行价越低，隐含波动率越高（波动率偏斜），1987 年股灾后变得明显。讲义没有解释偏斜的原因（留给 [[check:C5]]）。
+    en: |-
+      The lesson: implied volatility is the volatility that makes the Black–Scholes price equal the market price; VIX is computed from S&P 500 index options and prices volatility over the next 30 days, usually 12–25, above 80 in November 2008 and March 2020; for index options, the lower the strike, the higher the implied volatility (the volatility skew), clear since the 1987 crash. The lesson does not explain why (left to [[check:C5]]).
+
+common_errors:
+  - questions: [Q1]
+    zh-cn: |-
+      以为平值的看涨和看跌期权应该同价，把两者的全部差价都当作错误定价；忽略执行价的时间价值 $K - K e^{-rT}$。
+    en: |-
+      Thinking an at-the-money call and put should cost the same, and treating the whole price difference as mispricing; ignoring the time value of the strike, $K - K e^{-rT}$.
+  - questions: [Q2]
+    zh-cn: |-
+      用投资者心目中真实的上涨概率求期望，再按无风险利率折现，得到期权的“真实价值”；忽略复制组合决定了价格，真实概率已经反映在股价里，而期权的风险高于股票，应当要求更高的预期收益率。
+    en: |-
+      Taking the expectation with the probability investors actually believe in and discounting at the risk-free rate to get the option's "true value"; ignoring that the replicating portfolio fixes the price, that actual probabilities are already reflected in the stock price, and that the option is riskier than the stock and requires a higher expected return.
+  - questions: [Q3]
+    zh-cn: |-
+      以为只要公司总价值不变，经营风险的高低对股东和债权人都没有影响；没有看出有负债时股权是公司资产的看涨期权，波动率上升会把价值从债权人转给股东。
+    en: |-
+      Thinking that as long as the firm's total value is unchanged, the riskiness of its business does not matter to shareholders or creditors; not seeing that with debt, equity is a call on the firm's assets, so higher volatility moves value from creditors to shareholders.
+  - questions: [Q4]
+    zh-cn: |-
+      以为只要股价朝预期的方向变动，买入期权就一定赚钱；忽略期权价格中已经包含的隐含波动率，以及消息公布后隐含波动率的下降。
+    en: |-
+      Thinking that buying an option must pay off as long as the stock moves in the expected direction; ignoring the implied volatility already in the price and its fall after the news is out.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: parity
+    concepts: [put-call-parity]
+    question:
+      zh-cn: |-
+        一只不付股息的股票，股价不变，但市场上的投资者变得更乐观，普遍认为它的预期收益率更高了。按看涨–看跌平价，同一执行价、同一到期日的看涨期权价格减去看跌期权价格的差会变大。
+      en: |-
+        A stock pays no dividends. Its price is unchanged, but investors become more optimistic and now generally expect a higher return on it. By put–call parity, the call price minus the put price, for the same strike and expiry, becomes larger.
+    correct: false
+    hint:
+      zh-cn: 看一看平价公式的两边：哪些量会因为投资者的预期变化而改变？
+      en: Look at both sides of the parity formula. Which of its quantities change when investors' expectations change?
+    answer:
+      zh-cn: |-
+        错。$C - P = S - K e^{-rT}$ 只包含股价、执行价、利率和期限。股价不变，差就不变。平价只依赖两个组合到期收益相同，不涉及股价会涨还是会跌；投资者的预期如果改变，会先反映在股价 $S$ 上。
+      en: |-
+        False. $C - P = S - K e^{-rT}$ contains only the stock price, the strike, the rate and the time. With the stock price unchanged, the difference is unchanged. Parity relies only on the two portfolios paying the same at expiry and says nothing about whether the stock will rise or fall; if investors' expectations change, that shows up first in the stock price $S$.
+
+  - id: C2
+    kind: check
+    section: binomial
+    concepts: [replicating-portfolio, risk-neutral-pricing]
+    question:
+      zh-cn: |-
+        在二叉树的例子中，计算期权价格时不需要知道投资者有多厌恶风险，也不需要知道股价上涨的真实概率。主要原因是：
+      en: |-
+        In the binomial example, the option's price was found without knowing how risk-averse investors are or the actual probability of an up move. The main reason is:
+    choices:
+      - zh-cn: 股票和借款可以完全复制期权的收益，任何其他价格都会带来套利机会
+        en: Stock and borrowing replicate the option's payoff exactly, so any other price would allow arbitrage
+      - zh-cn: 现实中的投资者实际上是风险中性的
+        en: Investors in reality are in fact risk-neutral
+        why:
+          zh-cn: 如果投资者是风险中性的，股票的预期收益率就等于无风险利率，没有风险溢价。这与 [[4.1]] 中股票的历史收益一致吗？例子中哪一步用到了投资者的偏好？
+          en: If investors were risk-neutral, stocks would earn only the risk-free rate, with no risk premium. Does that fit the history of stock returns in [[4.1]]? Which step of the example used investors' preferences?
+      - zh-cn: 上涨和下跌的概率在例子中被假设为各 50%
+        en: The example assumed that up and down moves each have a probability of 50%
+        why:
+          zh-cn: 例子中算出的 $p^*$ 约为 0.467，不是 0.5。计算 $\Delta$ 和借款时用到了任何概率吗？
+          en: The $p^*$ in the example is about 0.467, not 0.5. Did the calculation of $\Delta$ and the loan use any probability at all?
+      - zh-cn: 期权是零和博弈，买方的收益就是卖方的损失
+        en: An option is a zero-sum game, so the buyer's gain is the writer's loss
+        why:
+          zh-cn: 买卖双方的收益确实相反，但这只说明两人的输赢，不能说明期权应该值多少。价格是靠什么确定的？
+          en: The two sides' payoffs are indeed opposite, but that only says who wins and who loses, not what the option is worth. What pins down the price?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。复制组合在每种情况下的收益都与期权相同，所以两者的价格必须相同，否则可以无风险获利。构造复制组合只用到股价、两种可能的结果和利率，没有用到概率或偏好。投资者的风险偏好和对概率的看法确实存在，但已经体现在股价 100 之中；风险中性概率只是一种计算工具，不表示投资者真的不在乎风险。
+      en: |-
+        (A). The replicating portfolio pays the same as the option in every state, so the two must have the same price, or there is a riskless profit. Building it uses only the stock price, the two possible outcomes and the interest rate, not probabilities or preferences. Investors' risk preferences and beliefs about probabilities are real, but they are already reflected in the stock price of 100; the risk-neutral probability is a computing device, not a claim that investors do not care about risk.
+
+  - id: C3
+    kind: check
+    section: black-scholes
+    concepts: [black-scholes-model, time-value]
+    widget: { id: bs-call, set: { sigma: 30, t: 1 } }
+    question:
+      zh-cn: |-
+        在 [[fig:3-1]] 中，看涨期权的价格与内在价值（虚线）之差，即时间价值，在什么股价附近最大？
+      en: |-
+        In [[fig:3-1]], near which stock price is the gap between the call price and its intrinsic value (the dashed line), that is, the time value, largest?
+    choices:
+      - zh-cn: 股价接近执行价 100 时
+        en: When the stock price is close to the strike of 100
+      - zh-cn: 股价远高于执行价时，因为这时期权的价格最高
+        en: When the stock price is far above the strike, because the option's price is highest there
+        why:
+          zh-cn: 价格最高不等于时间价值最高。股价很高时，期权几乎一定会被行使，它的收益与持有股票相比还有多少不对称？
+          en: The highest price is not the highest time value. When the stock price is very high, the option will almost surely be exercised; how much asymmetry is left compared with holding the stock?
+      - zh-cn: 股价远低于执行价时，因为这时期权的全部价格都是时间价值
+        en: When the stock price is far below the strike, because the option's whole price is time value there
+        why:
+          zh-cn: 那里的价格确实都是时间价值，但看一看图中这个价格本身有多大。股价远低于执行价时，到期能行权的机会有多少？
+          en: There the whole price is indeed time value, but look at how large that price is in the figure. When the stock price is far below the strike, how likely is it that the option ends up being exercised?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。时间价值来自收益的不对称。平值附近，股价向哪个方向变动都可能，期权在上涨时获益、在下跌时损失有限，这种不对称最有价值。股价远高于执行价时，期权几乎一定会被行使，就像用借款买入股票，几乎没有不对称；股价远低于执行价时，期权很可能作废，价值很小。
+      en: |-
+        (A). Time value comes from the asymmetry of the payoff. Near the money the stock can go either way; the option gains if it rises and loses little if it falls, and this asymmetry is worth the most. Far above the strike the option will almost surely be exercised, like buying the stock with borrowed money, so there is little asymmetry; far below the strike it will probably expire worthless and is worth little.
+
+  - id: C4
+    kind: check
+    section: greeks
+    concepts: [option-delta]
+    question:
+      zh-cn: |-
+        一位做市商卖出一批平值看涨期权，并按 delta 买入股票对冲。此后股价在一天内大涨 10%。只要他不再交易，他的对冲仍然有效：股价继续变动对他的头寸几乎没有影响。
+      en: |-
+        A market maker sells a batch of at-the-money calls and buys stock according to delta to hedge. The stock then jumps 10% in one day. As long as he does not trade again, his hedge still works: further moves in the stock price hardly affect his position.
+    correct: false
+    hint:
+      zh-cn: 股价大涨之后，这些看涨期权的 delta 会怎样变化？他持有的股票数量变了吗？
+      en: After the jump, what happens to the delta of these calls? Has the number of shares he holds changed?
+    answer:
+      zh-cn: |-
+        错。股价上涨后，看涨期权更接近实值，delta 上升（gamma 为正），而他持有的股票数量没有变，对冲不再足够：他卖出的期权对股价的敏感度高于他持有的股票。delta 对冲只对小幅变动有效，需要随股价变化不断调整；平值附近 gamma 大，调整得更频繁。
+      en: |-
+        False. After the rise the calls are closer to being in the money and their delta rises (gamma is positive), while his shares are unchanged, so the hedge is no longer enough: the options he sold are now more sensitive to the stock price than the shares he holds. Delta hedging works only for small moves and must be adjusted as the price changes; near the money, where gamma is large, it must be adjusted more often.
+
+  - id: C5
+    kind: check
+    section: implied-vol
+    concepts: [implied-volatility, volatility-skew, fat-tails]
+    question:
+      zh-cn: |-
+        股指期权中，执行价远低于当前指数的看跌期权，隐含波动率通常高于平值期权。最合理的解释是：
+      en: |-
+        For stock index options, puts with strikes far below the current index level usually have higher implied volatility than at-the-money options. The most reasonable explanation is:
+    choices:
+      - zh-cn: 市场认为指数大跌的可能性比波动率不变的对数正态分布所说的更大，并且愿意为防范大跌付更多的钱
+        en: The market thinks a large fall is more likely than a lognormal distribution with constant volatility implies, and is willing to pay more for protection against it
+      - zh-cn: 这些看跌期权的价格很低，低价期权的隐含波动率自然更高
+        en: These puts are cheap, and cheap options naturally have higher implied volatility
+        why:
+          zh-cn: 执行价低的看跌期权本来就便宜，即使所有执行价用同一个波动率也是如此。隐含波动率比较的是什么？
+          en: Low-strike puts are cheap anyway, even if every strike used the same volatility. What does implied volatility compare?
+      - zh-cn: 投资者普遍预期指数未来会下跌
+        en: Investors generally expect the index to fall
+        why:
+          zh-cn: 如果大家普遍预期下跌，这种预期首先会体现在什么价格上？隐含波动率衡量的是方向还是波动的大小？
+          en: If everyone expected a fall, which price would reflect it first? Does implied volatility measure direction or the size of moves?
+      - zh-cn: 看跌期权不满足看涨–看跌平价，所以不能用同一个模型
+        en: Puts do not satisfy put–call parity, so the same model cannot be used
+        why:
+          zh-cn: 平价只依赖无套利，对欧式期权总是成立。按平价，同一执行价的看涨和看跌期权的隐含波动率应该怎样？
+          en: Parity rests only on no arbitrage and always holds for European options. By parity, how should the implied volatilities of a call and a put with the same strike compare?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。Black–Scholes 假设对数收益是正态分布、波动率不变，但实际收益有肥尾（[[0.4]]），大跌时还伴随波动率上升；1987 年股灾后，市场为大跌定的价更高。投资者愿意为组合的保险（保护性看跌）付费，而卖出这些看跌期权的人要求补偿。要让公式给出这些较高的价格，只能代入较高的波动率，于是低执行价的隐含波动率更高。
+      en: |-
+        (A). Black–Scholes assumes normally distributed log returns with constant volatility, but actual returns have fat tails ([[0.4]]), and large falls come with rising volatility; since the 1987 crash the market has priced large falls higher. Investors are willing to pay for portfolio insurance (protective puts), and those who sell these puts want compensation. To make the formula match these higher prices, a higher volatility must be used, so low strikes have higher implied volatility.
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [put-call-parity, arbitrage]
+    expected: { pv: "47.56", gap: "0.56" }
+    question:
+      zh-cn: |-
+        一只不付股息的股票价格为 50 美元，连续复利的无风险利率为 5%。1 年期、执行价 50 的欧式看涨期权价格为 6 美元，同样条件的欧式看跌期权价格为 3 美元。
+        (a) 这些价格符合看涨–看跌平价吗？如果不符合，写出一组交易（买卖哪些资产、各多少），使今天获得无风险的利润，并说明每股的利润是多少、为什么一年后不会亏损。
+        (b) 一位朋友说：“平值的看涨和看跌期权应该同价。现在看涨期权比看跌期权贵 3 美元，说明看涨期权被高估了 3 美元。”评价这个说法。
+      en: |-
+        A stock that pays no dividends is at 50 dollars, and the continuously compounded risk-free rate is 5%. A 1-year European call with a strike of 50 costs 6 dollars, and the European put with the same terms costs 3 dollars.
+        (a) Are these prices consistent with put–call parity? If not, give a set of trades (which assets to buy or sell, and how many) that earns a riskless profit today, state the profit per share, and explain why there can be no loss one year later.
+        (b) A friend says: "At-the-money calls and puts should cost the same. The call is 3 dollars dearer than the put, so it is overvalued by 3 dollars." Evaluate this statement.
+    answer:
+      zh-cn: |-
+        (a) 按平价，$C - P$ 应等于 $S - K e^{-rT} = 50 - 50 e^{-0.05} \approx 50 - 47.56 = 2.44$。实际 $C - P = 3$，看涨期权相对看跌期权贵了约 0.56。交易：卖出 1 份看涨期权（+6），买入 1 份看跌期权（−3），买入 1 股（−50），借入 47.56（一年后还 50）。今天的现金流为 $6 - 3 - 50 + 47.56 \approx 0.56$。一年后：股价高于 50 时看涨期权被行使，按 50 交出股票；低于 50 时行使看跌期权，按 50 卖出股票；两种情况都正好得到 50，用来还清借款，没有其他现金流。
+        (b) 不对。平值的看涨和看跌期权并不同价：组合甲中买债券只需付 $K e^{-rT}$，而组合乙要付整股的 $S = K$，所以看涨期权应比看跌期权贵 $K - K e^{-rT} \approx 2.44$，这是执行价的利息。真正的偏离只有约 0.56。此外，现实中这 0.56 能否获得，还要看交易成本、借款利率是否高于无风险利率、能否借到股票；期权如果是美式的，或者股票在到期前付息，平价公式也要调整。
+      en: |-
+        (a) By parity, $C - P$ should equal $S - K e^{-rT} = 50 - 50 e^{-0.05} \approx 50 - 47.56 = 2.44$. In fact $C - P = 3$, so the call is about 0.56 too dear relative to the put. Trades: sell 1 call (+6), buy 1 put (−3), buy 1 share (−50), borrow 47.56 (repay 50 in one year). Today's cash flow is $6 - 3 - 50 + 47.56 \approx 0.56$. In one year: if the stock is above 50 the call is exercised and the share is delivered at 50; if below 50 the put is exercised and the share sold at 50; either way exactly 50 comes in, repaying the loan, with no other cash flow.
+        (b) Wrong. At-the-money calls and puts do not cost the same: in portfolio A the bond costs only $K e^{-rT}$, while portfolio B pays the full $S = K$ for the share, so the call should be dearer than the put by $K - K e^{-rT} \approx 2.44$, the interest on the strike. The real deviation is only about 0.56. Moreover, whether the 0.56 can actually be earned depends on trading costs, whether one borrows at more than the risk-free rate and whether the shares can be borrowed; if the options were American, or the stock paid a dividend before expiry, the parity formula would also need adjusting.
+    rubric:
+      zh-cn:
+        - "(a) 通过：算出 $K e^{-rT} \\approx 47.56$，指出看涨相对看跌贵约 0.56，交易方向正确（卖看涨、买看跌、买股票、借款），并说明到期两种情况都得到 50。交易方向反了，或只说“不符合”没有交易，需要订正。"
+        - "(b) 通过：指出平值时看涨应比看跌贵约 2.44（执行价的利息），偏离只有约 0.56。同意朋友的说法，需要订正。提到交易成本或卖空限制更好，但不要求。"
+      en:
+        - "(a) OK: computes $K e^{-rT} \\approx 47.56$, says the call is about 0.56 too dear relative to the put, gives trades in the right direction (sell the call, buy the put, buy the stock, borrow) and shows that both cases end with 50. Trades in the wrong direction, or only saying \"not consistent\" without trades, need revision."
+        - "(b) OK: says that at the money the call should be dearer by about 2.44 (interest on the strike), so the deviation is only about 0.56. Agreeing with the friend needs revision. Mentioning trading costs or short-sale limits is good but not required."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [binomial-model, replicating-portfolio, risk-neutral-pricing, arbitrage]
+    expected: { delta: "0.56", c: "13.23", wrong: "16.67", disc: "32.3" }
+    question:
+      zh-cn: |-
+        一只股票现在为 100 美元，一年后为 125 或 80 美元。一年期无风险利率为 5%（按年复利）。考虑执行价 100 的一年期欧式看涨期权。
+        (a) 用股票和借款复制这份期权：需要多少股股票、借多少钱？期权的价格是多少？
+        (b) 一位分析师认为股价上涨的概率是 70%，于是算出期权的“真实价值”为 $\frac{0.7 \times 25}{1.05}$，并说：“市场价格低于真实价值，这份期权被低估了，应该买入。”评价这个说法：如果市场价格真的等于他算出的值，会发生什么？如果坚持用 70% 的概率，要用多高的折现率才能得到 (a) 的价格？与股票的预期收益率相比，这个折现率合理吗？
+      en: |-
+        A stock is at 100 dollars now and will be at 125 or 80 dollars in one year. The one-year risk-free rate is 5% (annual compounding). Consider a one-year European call with a strike of 100.
+        (a) Replicate the option with stock and borrowing: how many shares, and how much borrowing? What is the option's price?
+        (b) An analyst thinks the probability of an up move is 70%, so he computes the option's "true value" as $\frac{0.7 \times 25}{1.05}$ and says: "The market price is below the true value, so the option is undervalued and should be bought." Evaluate this statement: what would happen if the market price really equaled his value? If one insists on the 70% probability, what discount rate gives the price in (a)? Compared with the stock's expected return, is this discount rate reasonable?
+    answer:
+      zh-cn: |-
+        (a) $\Delta = \frac{25 - 0}{125 - 80} \approx 0.56$ 股。下跌时这些股票值 $0.556 \times 80 \approx 44.44$，所以今天借入 $\frac{44.44}{1.05} \approx 42.33$。期权价格 $C = 55.56 - 42.33 \approx 13.23$。（风险中性概率 $p^* = \frac{1.05 - 0.8}{0.45} \approx 0.556$，$\frac{0.556 \times 25}{1.05}$ 得到同一个价格。）
+        (b) 他算出的值是 $\frac{0.7 \times 25}{1.05} \approx 16.67$。如果市场价格是 16.67，任何人都可以卖出期权、花 13.23 买入复制组合，今天净得 3.44，一年后两者的收益完全抵消，这是套利，所以价格不可能停在 16.67。他的错误在于用真实概率求期望，却按无风险利率折现：期权的风险很高，投资者要求的预期收益率也高。按 70% 的概率，期权的预期收益为 $0.7 \times 25 = 17.5$，要得到 13.23，折现率为 $\frac{17.5}{13.23} - 1 \approx 32.3\%$。股票的预期价格是 $0.7 \times 125 + 0.3 \times 80 = 111.5$，预期收益率只有 11.5%。期权相当于用借款买股票，是高杠杆的头寸（[[concept:financial-leverage]]），要求的收益率远高于股票是合理的。真实概率已经反映在股价 100 之中；如果他真的认为上涨概率被市场低估，应该说股票被低估，而不是期权。
+      en: |-
+        (a) $\Delta = \frac{25 - 0}{125 - 80} \approx 0.56$ shares. If the price falls, these shares are worth $0.556 \times 80 \approx 44.44$, so borrow $\frac{44.44}{1.05} \approx 42.33$ today. The option's price is $C = 55.56 - 42.33 \approx 13.23$. (The risk-neutral probability $p^* = \frac{1.05 - 0.8}{0.45} \approx 0.556$, and $\frac{0.556 \times 25}{1.05}$ gives the same price.)
+        (b) His value is $\frac{0.7 \times 25}{1.05} \approx 16.67$. If the market price were 16.67, anyone could sell the option and buy the replicating portfolio for 13.23, pocketing 3.44 today, with the two payoffs cancelling exactly in a year; that is arbitrage, so the price cannot stay at 16.67. His mistake is to take the expectation with actual probabilities but discount at the risk-free rate: the option is very risky, and investors require a high expected return on it. With a 70% probability the option's expected payoff is $0.7 \times 25 = 17.5$; to get 13.23 the discount rate must be $\frac{17.5}{13.23} - 1 \approx 32.3\%$. The stock's expected price is $0.7 \times 125 + 0.3 \times 80 = 111.5$, an expected return of only 11.5%. The option is like buying the stock with borrowed money, a highly leveraged position ([[concept:financial-leverage]]), so a required return far above the stock's makes sense. The actual probability is already reflected in the stock price of 100; if he really believed the market underestimates the chance of a rise, he should say the stock is undervalued, not the option.
+    rubric:
+      zh-cn:
+        - "(a) 通过：$\\Delta \\approx 0.56$，借款约 42.33，价格约 13.23；用风险中性概率得到同一结果也可以。"
+        - "(b) 通过：指出价格为 16.67 时可以卖期权、买复制组合套利；指出错误是用真实概率却按无风险利率折现；算出约 32.3% 的折现率，并与股票约 11.5% 的预期收益率比较，用杠杆解释为什么期权要求更高的收益率。认为期权确实被低估，需要订正。"
+      en:
+        - "(a) OK: $\\Delta \\approx 0.56$, borrowing about 42.33, price about 13.23; getting the same result with risk-neutral probabilities is also fine."
+        - "(b) OK: shows that at 16.67 one could sell the option and buy the replicating portfolio for an arbitrage profit; names the mistake (actual probabilities discounted at the risk-free rate); computes a discount rate of about 32.3% and compares it with the stock's expected return of about 11.5%, explaining the higher required return by leverage. Agreeing that the option is undervalued needs revision."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [black-scholes-model, call-option, default-risk, principal-agent-problem]
+    expected: { eq: "16.06", debt: "83.94", eq2: "25.93", shift: "9.86" }
+    question:
+      zh-cn: |-
+        一家公司的资产现在值 100（百万美元），它唯一的负债是一年后到期、面值 90 的零息债券。一年后，如果资产价值高于 90，公司还清债务，剩下的归股东；如果低于 90，股东依靠有限责任放弃公司，债权人拿走全部资产。连续复利的无风险利率为 4%，资产价值的年化波动率为 20%，可以用 Black–Scholes 公式。
+        (a) 一年后股东得到的是什么形式的收益？据此计算股权和债务今天的价值。
+        (b) 管理层可以把业务换成另一种：资产今天的价值仍为 100，但波动率升到 50%。财务总监说：“公司价值没有变，所以换不换对股东和债权人都没有影响。”计算换业务后股权和债务的价值，评价这个说法，并说明债权人可以怎样保护自己。
+      en: |-
+        A firm's assets are worth 100 (million dollars) now, and its only debt is a zero-coupon bond with a face value of 90 due in one year. In one year, if the assets are worth more than 90, the firm repays the debt and the rest goes to shareholders; if less than 90, the shareholders, protected by limited liability, walk away and the creditors take all the assets. The continuously compounded risk-free rate is 4%, the annualized volatility of the asset value is 20%, and the Black–Scholes formula may be used.
+        (a) What form does the shareholders' payoff in one year take? Use this to value the equity and the debt today.
+        (b) Management can switch to a different business: the assets are still worth 100 today, but their volatility rises to 50%. The CFO says: "The firm's value does not change, so switching makes no difference to shareholders or creditors." Value the equity and the debt after the switch, evaluate this statement, and say how creditors can protect themselves.
+    answer:
+      zh-cn: |-
+        (a) 股东得到 $\max(V_T - 90,\ 0)$，正是以公司资产为标的、执行价 90 的看涨期权。用 $S = 100$、$K = 90$、$T = 1$、$r = 4\%$、$\sigma = 20\%$，股权价值约 16.06；债务价值 $100 - 16.06 = 83.94$（也可以看成无风险债券减去一份看跌期权）。债务的价值低于无风险时的 $90 e^{-0.04} \approx 86.47$，差额就是违约风险的代价。
+        (b) $\sigma = 50\%$ 时，股权价值约 25.93，债务约 74.07。公司总价值仍是 100，但股东多得了约 $25.93 - 16.06 \approx 9.86$，正是债权人损失的部分。说法不对：总价值不变，不等于各方的价值不变。股权是看涨期权，股东享有上涨的全部好处，下跌的损失却因有限责任而有下限，所以波动率越高，股权越值钱，代价由债权人承担。这是股东与债权人之间的委托–代理问题（[[1.9]]）：负债越多、离违约越近，股东越有动机冒险。债权人可以在借款合同中加入限制条款（例如限制改变业务、新增借款或分红），或者预先要求更高的利率（更高的信用利差），也可以要求抵押。只有在公司没有负债，或负债几乎没有违约风险时，财务总监的说法才大致成立。
+      en: |-
+        (a) Shareholders get $\max(V_T - 90,\ 0)$, exactly a call on the firm's assets with a strike of 90. With $S = 100$, $K = 90$, $T = 1$, $r = 4\%$ and $\sigma = 20\%$, the equity is worth about 16.06 and the debt $100 - 16.06 = 83.94$ (it can also be seen as a riskless bond minus a put). The debt is worth less than the riskless $90 e^{-0.04} \approx 86.47$; the difference is the cost of default risk.
+        (b) With $\sigma = 50\%$, the equity is worth about 25.93 and the debt about 74.07. The firm is still worth 100, but shareholders gain about $25.93 - 16.06 \approx 9.86$, exactly what creditors lose. The statement is wrong: an unchanged total value does not mean unchanged values for each party. Equity is a call: shareholders get all of the upside, while limited liability puts a floor under their losses, so higher volatility makes equity worth more, at the creditors' expense. This is a principal–agent problem between shareholders and creditors ([[1.9]]): the more debt and the closer to default, the stronger the shareholders' incentive to take risk. Creditors can put covenants in the loan contract (for example limits on changing the business, new borrowing or dividends), demand a higher rate in advance (a higher credit spread), or ask for collateral. The CFO's statement holds roughly only if the firm has no debt, or its debt has almost no default risk.
+    rubric:
+      zh-cn:
+        - "(a) 通过：认出股东的收益是执行价 90 的看涨期权，股权约 16.06，债务约 83.94。"
+        - "(b) 通过：股权约 25.93、债务约 74.07，指出约 9.86 的价值从债权人转到股东，用期权收益的不对称（有限责任）解释原因，并给出至少一种保护办法。同意财务总监的说法，或只算数不解释，需要订正。"
+      en:
+        - "(a) OK: recognizes the shareholders' payoff as a call with strike 90; equity about 16.06, debt about 83.94."
+        - "(b) OK: equity about 25.93 and debt about 74.07; says about 9.86 of value moves from creditors to shareholders, explains it by the asymmetric payoff (limited liability), and gives at least one way to protect creditors. Agreeing with the CFO, or computing without explaining, needs revision."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [implied-volatility, vega, option-delta, black-scholes-model]
+    expected: { after: "7.08", be: "105.9" }
+    question:
+      zh-cn: |-
+        一家公司明天收盘后公布财报。它的股票现在为 100 美元，执行价 100、还有 0.1 年到期的看涨期权价格为 7.74 美元，对应的隐含波动率为 60%（平时这只股票的隐含波动率约为 30%）。连续复利的无风险利率为 4%。一位投资者确信财报会很好，买入了这份期权。
+        (a) 财报公布后，股价涨到 105 美元，隐含波动率回到 30%，期权还剩 0.096 年到期。按 Black–Scholes 公式，期权现在值多少？在同样的隐含波动率和期限下，股价至少要涨到多少，他才不亏？
+        (b) 他说：“我判断对了方向，期权却亏了，一定是市场被操纵了。”评价这个说法。为什么财报前的隐含波动率会这么高？他的判断要满足什么条件，买期权才会赚钱？
+      en: |-
+        A company reports earnings after the close tomorrow. Its stock is at 100 dollars now, and a call with a strike of 100 and 0.1 years to expiry costs 7.74 dollars, an implied volatility of 60% (this stock's implied volatility is normally about 30%). The continuously compounded risk-free rate is 4%. An investor is sure the report will be good and buys this call.
+        (a) After the report, the stock rises to 105 dollars, the implied volatility falls back to 30%, and the option has 0.096 years left. By the Black–Scholes formula, what is the option worth now? With the same implied volatility and time left, how high must the stock go for him not to lose?
+        (b) He says: "I got the direction right and still lost on the option, so the market must be rigged." Evaluate this statement. Why was the implied volatility so high before the report? What must his view satisfy for buying the option to pay off?
+    answer:
+      zh-cn: |-
+        (a) $S = 105$、$K = 100$、$T = 0.096$、$r = 4\%$、$\sigma = 30\%$ 时，期权约值 7.08，比买入价 7.74 低，亏损约 8.5%。要使价值回到 7.74，股价要涨到约 105.9。
+        (b) 说法不对，这是正常的定价。财报前，市场知道股价可能大涨或大跌，期权的价格中已经包含了这种较大的波动：60% 的隐含波动率就是市场为财报公布时的跳跃定的价。财报公布后，不确定性消失，隐含波动率回落，期权的价格因 vega 而大幅下降；delta 带来的上涨（约 5 美元乘以约 0.6）抵不过这部分下降，时间的流逝（theta）也略有损失。买入期权实际上是在赌股价的变动大于市场已经定价的幅度，而不只是赌方向。只有当他认为股价的上涨会明显超过市场预计的波动幅度（这里约 6%），或者他的方向判断比市场更准、而且这一点还没有反映在股价中时，买期权才有正的预期利润；只看对方向，在财报前买入高隐含波动率的期权，平均来说是在为别人已经知道的不确定性付费。
+      en: |-
+        (a) With $S = 105$, $K = 100$, $T = 0.096$, $r = 4\%$ and $\sigma = 30\%$, the option is worth about 7.08, below the 7.74 he paid, a loss of about 8.5%. For its value to get back to 7.74, the stock must rise to about 105.9.
+        (b) The statement is wrong; this is normal pricing. Before the report, the market knows the stock may jump up or down, and the option price already includes this larger movement: the 60% implied volatility is the market's price for the jump at the announcement. Once the report is out the uncertainty is gone, implied volatility falls back and the option loses a lot through vega; the gain from delta (about 5 dollars times about 0.6) does not make up for it, and the passage of time (theta) costs a little too. Buying the option is really a bet that the move will be larger than the market has already priced, not just a bet on direction. Buying pays off on average only if he believes the rise will clearly exceed the move the market expects (here about 6%), or his view of the direction is better than the market's and not yet in the stock price; buying a high implied volatility option before earnings on direction alone means, on average, paying for uncertainty that everyone already knows about.
+    rubric:
+      zh-cn:
+        - "(a) 通过：期权约值 7.08（亏损），盈亏平衡股价约 105.9。"
+        - "(b) 通过：指出财报前的高隐含波动率反映了市场对公布时大幅变动的定价，公布后隐含波动率下降使期权贬值（vega），超过了股价上涨带来的收益；说明买期权要赚钱需要变动幅度超过市场已定价的幅度。同意“市场被操纵”，或只说“时间价值减少”而不提隐含波动率的下降，需要订正。"
+      en:
+        - "(a) OK: option worth about 7.08 (a loss), break-even stock price about 105.9."
+        - "(b) OK: says the high implied volatility before the report is the market's price for a large move at the announcement, and that its fall afterwards cuts the option's value (vega) by more than the gain from the stock's rise; explains that buying pays off only if the move exceeds what is already priced. Agreeing that the market is rigged, or only citing lost time value without the fall in implied volatility, needs revision."

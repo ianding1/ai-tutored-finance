@@ -2749,3 +2749,75 @@ employee-stock-option:
   short:
     zh-cn: "公司授予员工的长期看涨期权，需要归属，不能出售或对冲。"
     en: "A long-dated call granted by a company to an employee; it must vest and cannot be sold or hedged."
+
+put-call-parity:
+  defined_in: "5.3"
+  zh-cn: 看涨–看跌平价
+  en: put–call parity
+  short:
+    zh-cn: "欧式看涨与看跌期权价格之间的无套利关系 C − P = S − Ke^{−rT}。"
+    en: "The no-arbitrage relation between European call and put prices, C − P = S − Ke^{−rT}."
+
+replicating-portfolio:
+  defined_in: "5.3"
+  zh-cn: 复制组合
+  en: replicating portfolio
+  short:
+    zh-cn: "由标的资产和借贷构成、收益与某项衍生品完全相同的组合。"
+    en: "A portfolio of the underlying and borrowing whose payoff equals a derivative's in every state."
+
+binomial-model:
+  defined_in: "5.3"
+  zh-cn: 二叉树模型
+  en: binomial model
+  short:
+    zh-cn: "假设每期股价只能上涨或下跌两种结果，逐期复制期权来定价的模型。"
+    en: "A model that lets the price move only up or down each period and prices an option by replicating it step by step."
+
+risk-neutral-pricing:
+  defined_in: "5.3"
+  zh-cn: 风险中性定价
+  en: risk-neutral pricing
+  short:
+    zh-cn: "用使标的资产预期收益率等于无风险利率的概率求期望，再按无风险利率折现的定价方法。"
+    en: "Pricing by taking expectations with the probabilities that make the underlying earn the risk-free rate, then discounting at that rate."
+
+black-scholes-model:
+  defined_in: "5.3"
+  zh-cn: Black–Scholes 模型
+  en: Black–Scholes model
+  short:
+    zh-cn: "假设股价服从对数正态分布、波动率不变时欧式期权的定价公式。"
+    en: "The pricing formula for European options when the stock price is lognormal with constant volatility."
+
+option-delta:
+  defined_in: "5.3"
+  zh-cn: delta
+  en: delta
+  short:
+    zh-cn: "期权价格对标的价格的敏感度，也是复制或对冲所需的标的数量。"
+    en: "The sensitivity of an option's price to the underlying price; also the amount of the underlying needed to replicate or hedge it."
+
+vega:
+  defined_in: "5.3"
+  zh-cn: vega
+  en: vega
+  short:
+    zh-cn: "期权价格对波动率的敏感度。"
+    en: "The sensitivity of an option's price to volatility."
+
+implied-volatility:
+  defined_in: "5.3"
+  zh-cn: 隐含波动率
+  en: implied volatility
+  short:
+    zh-cn: "使期权定价模型的结果等于市场价格的波动率。"
+    en: "The volatility that makes an option pricing model match the market price."
+
+volatility-skew:
+  defined_in: "5.3"
+  zh-cn: 波动率偏斜
+  en: volatility skew
+  short:
+    zh-cn: "同一到期日的期权隐含波动率随执行价变化的形态；股指期权执行价越低隐含波动率越高。"
+    en: "The pattern of implied volatility across strikes for one expiry; for index options it rises as the strike falls."

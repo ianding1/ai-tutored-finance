@@ -486,7 +486,15 @@ stages:
         published: true
         introduces: [call-option, put-option, strike-price, option-premium, intrinsic-value, time-value, protective-put, covered-call, employee-stock-option]
         uses: [forward-contract, derivative-security, risk-aversion, certainty-equivalent, human-capital, financial-leverage, capital-allocation-line, mental-accounting, expected-value]
-      - { id: "5.3", slug: "5-3-option-pricing", title: { zh-cn: "期权定价", en: "Option Pricing" } }
+      - id: "5.3"
+        slug: "5-3-option-pricing"
+        title: { zh-cn: "期权定价", en: "Option Pricing" }
+        summary:
+          zh-cn: "看涨–看跌平价；二叉树模型、复制组合与风险中性定价；Black–Scholes 公式的含义与假设；希腊字母与 delta 对冲；隐含波动率与波动率偏斜。"
+          en: "Put–call parity; the binomial model, replicating portfolios and risk-neutral pricing; the meaning and assumptions of the Black–Scholes formula; the Greeks and delta hedging; implied volatility and the volatility skew."
+        published: true
+        introduces: [put-call-parity, replicating-portfolio, binomial-model, risk-neutral-pricing, black-scholes-model, option-delta, vega, implied-volatility, volatility-skew]
+        uses: [arbitrage, zero-coupon-bond, continuous-compounding, call-option, put-option, strike-price, time-value, intrinsic-value, forward-contract, cost-of-carry, lognormal-distribution, normal-distribution, fat-tails, annualized-volatility, market-maker, hedging, protective-put, financial-leverage, default-risk, principal-agent-problem, credit-spread, risk-premium]
       - { id: "5.4", slug: "5-4-swaps", title: { zh-cn: "互换（选学）", en: "Swaps (Optional)" } }
       - { id: "5.5", slug: "5-5-alternative-assets", title: { zh-cn: "另类资产", en: "Alternative Assets" } }
 

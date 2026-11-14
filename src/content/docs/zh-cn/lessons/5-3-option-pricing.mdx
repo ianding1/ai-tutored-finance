@@ -1,0 +1,114 @@
+---
+title: 5.3 期权定价
+description: 看涨–看跌平价；二叉树模型、复制组合与风险中性定价；Black–Scholes 公式的含义与假设；希腊字母与 delta 对冲；隐含波动率与波动率偏斜。
+lesson: "5.3"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import BsCall from '../../../../components/widgets/BsCall.astro';
+
+## 看涨–看跌平价 [#parity]
+
+先不用任何模型，只用无套利（<Ref concept="arbitrage" />）。考虑一只不付股息的股票，以及它的欧式看涨期权和看跌期权，执行价都是 $K$，到期日都是 $T$。比较两个组合：
+
+- 组合甲：一份看涨期权，加上一张到期支付 $K$ 的零息债券（<Ref concept="zero-coupon-bond" />）；
+- 组合乙：一份看跌期权，加上一股股票。
+
+到期时，如果 $S_T > K$，组合甲行使看涨期权，用债券的 $K$ 买入股票，得到 $S_T$；组合乙的看跌期权作废，得到 $S_T$。如果 $S_T \le K$，组合甲的看涨期权作废，得到 $K$；组合乙行使看跌期权，按 $K$ 卖出股票，得到 $K$。两个组合在任何情况下的收益都是 $\max(S_T,\ K)$，所以今天的价格必须相同：
+
+$$
+C - P = S - K e^{-rT}
+$$
+
+这就是<Def id="put-call-parity">看涨–看跌平价</Def>（put–call parity）。$C$、$P$ 是看涨、看跌期权今天的价格，$S$ 是股价，$K e^{-rT}$ 是债券今天的价格（连续复利，<Ref concept="continuous-compounding" />）。它把看涨期权、看跌期权、股票和债券四种资产的价格联系起来：知道其中三个，就能确定第四个，偏离时可以套利（<Ref check="Q1" />）。与远期合约（<Ref lesson="5.1" sec="cost-of-carry" />）一样，它对股价的未来走势没有做任何假设。
+
+<Check id="C1" />
+
+## 二叉树模型 [#binomial]
+
+平价只给出看涨与看跌期权的差，要给单个期权定价，需要对股价的变化做假设。最简单的假设是：一期之后股价只有两种可能。设股票现在为 100，一年后上涨到 120 或下跌到 90；一年期无风险利率为 4%（按年复利）。执行价 100 的一年期看涨期权，到期收益在上涨时为 20，下跌时为 0。
+
+用股票和借款构造一个与期权收益完全相同的组合，叫<Def id="replicating-portfolio">复制组合</Def>（replicating portfolio）。买入 $\Delta$ 股股票，借入 $B$：
+
+$$
+\Delta = \frac{C_u - C_d}{S_u - S_d} = \frac{20 - 0}{120 - 90} = \frac{2}{3}
+$$
+
+下跌时 $\frac{2}{3}$ 股值 60，正好用来还清借款，所以今天借入 $B = \frac{60}{1.04} \approx 57.69$。上涨时 $\frac{2}{3}$ 股值 80，还款 60 后剩 20，与期权相同。复制组合今天的成本是
+
+$$
+C = \Delta S - B = 66.67 - 57.69 \approx 8.97
+$$
+
+两者到期的收益完全相同，期权的价格就必须是 8.97，否则可以买入便宜的一方、卖出贵的一方套利。这种把股价变化限定为向上、向下两种可能，再一步步复制的方法叫<Def id="binomial-model">二叉树模型</Def>（binomial model）。把一年分成很多小期、每期都重新调整 $\Delta$，股价的可能结果就接近连续的分布。
+
+同一个价格也可以写成另一种形式。令
+
+$$
+p^* = \frac{(1 + r) - d}{u - d} = \frac{1.04 - 0.9}{1.2 - 0.9} \approx 0.467
+$$
+
+其中 $u = 1.2$、$d = 0.9$ 是上涨、下跌时股价的倍数。那么 $C = \frac{p^* \times 20 + (1 - p^*) \times 0}{1.04} \approx 8.97$。$p^*$ 叫风险中性概率：如果所有投资者都不在乎风险，股票的预期收益率就等于无风险利率，而 $p^*$ 正是使股票的预期收益率等于 4% 的上涨概率。用 $p^*$ 求期望、再按无风险利率折现的定价方法，叫<Def id="risk-neutral-pricing">风险中性定价</Def>（risk-neutral pricing）。如果改用投资者心目中真实的上涨概率，会出什么问题？见 <Ref check="Q2" />。
+
+<Check id="C2" />
+
+## Black–Scholes 公式 [#black-scholes]
+
+当二叉树的每一期越来越短、股价的对数收益服从正态分布，即股价服从对数正态分布（<Ref concept="lognormal-distribution" />）时，欧式看涨期权的价格有一个公式，即 <Def id="black-scholes-model">Black–Scholes 模型</Def>（Black–Scholes model）：
+
+$$
+C = S\,N(d_1) - K e^{-rT} N(d_2)
+$$
+
+$$
+d_1 = \frac{\ln(S / K) + (r + \sigma^2 / 2)\,T}{\sigma \sqrt{T}} \qquad d_2 = d_1 - \sigma \sqrt{T}
+$$
+
+$N(\cdot)$ 是标准正态分布的累积分布函数（<Ref concept="normal-distribution" />），$\sigma$ 是股票的年化波动率（<Ref concept="annualized-volatility" />），看跌期权的价格由平价得到。公式的两项可以这样理解：$N(d_2)$ 是风险中性概率下到期行权的概率，$K e^{-rT} N(d_2)$ 是行权时支付执行价的现值；$S\,N(d_1)$ 是行权时得到的股票的现值。
+
+公式的输入只有五个：股价、执行价、到期时间、无风险利率和波动率。其中只有波动率不能直接观察。公式背后的假设包括：波动率在期权存续期内不变；股价连续变化，没有跳跃；可以随时无成本地交易和卖空。这些假设都不完全成立，后面会看到它们的影响。
+
+<Figure id="3-1" title="执行价 100 的欧式看涨期权按 Black–Scholes 公式计算的价格与股价的关系（无风险利率 4%）。虚线是内在价值。" observe="先改变波动率，再改变到期时间，看价格曲线和虚线之间的距离在什么股价附近最大。">
+	<BsCall />
+</Figure>
+
+<Check id="C3" />
+
+## 希腊字母与对冲 [#greeks]
+
+期权价格对各个输入的敏感度用希腊字母表示，统称希腊字母（Greeks）：
+
+- <Def id="option-delta">delta</Def>：期权价格对股价的导数 $\frac{\partial C}{\partial S}$。看涨期权的 delta 在 0 和 1 之间，Black–Scholes 下等于 $N(d_1)$；看跌期权的 delta 在 −1 和 0 之间。二叉树中的 $\Delta$ 就是 delta。
+- gamma：delta 对股价的导数，即价格曲线的弯曲程度，平值附近、临近到期时最大。
+- <Def id="vega">vega</Def>：期权价格对波动率的导数。
+- theta：其他条件不变时，期权价格随时间流逝的变化，买方的 theta 通常为负。
+
+卖出期权的做市商（<Ref concept="market-maker" />）通常不想承担股价方向的风险。卖出一份看涨期权后，他买入 delta 股股票，股价的小幅变化对这个组合几乎没有影响，这叫 delta 对冲，是对冲（<Ref concept="hedging" />）的一种。这也是 Black–Scholes 的推导思路：期权加上随时调整的股票头寸，构成一个无风险的组合，所以组合只能获得无风险利率。
+
+<Check id="C4" />
+
+## 隐含波动率 [#implied-vol]
+
+Black–Scholes 的五个输入中，四个可以直接观察。反过来，给定市场上的期权价格，可以求出使公式的结果等于这个价格的波动率，叫<Def id="implied-volatility">隐含波动率</Def>（implied volatility）。期权交易员报价时常常只说隐含波动率：它把不同执行价、不同期限的期权价格换算到同一个尺度上。
+
+隐含波动率反映市场对未来波动的定价，而不只是历史波动率。Cboe 的 VIX 指数由标普 500 指数期权的价格算出，衡量市场对未来 30 天波动率的定价；它平时多在 12 到 25 之间，2008 年 11 月和 2020 年 3 月曾超过 80。
+
+如果 Black–Scholes 的假设完全成立，同一标的、同一到期日的期权，不论执行价高低，隐含波动率都应该相同。实际上并非如此。股指期权中，执行价越低，隐含波动率往往越高，这叫<Def id="volatility-skew">波动率偏斜</Def>（volatility skew）；这种形态在 1987 年 10 月股灾之后变得明显。
+
+<Check id="C5" />
+
+## 小结 [#summary]
+
+- 看涨–看跌平价 $C - P = S - K e^{-rT}$ 只依赖无套利，不依赖对股价走势的假设。
+- 二叉树模型用股票和借款复制期权，期权价格等于复制组合的成本；也可以用风险中性概率求期望、按无风险利率折现得到。
+- Black–Scholes 公式的输入是股价、执行价、到期时间、无风险利率和波动率；只有波动率需要估计。
+- delta 是期权价格对股价的敏感度，也是复制或对冲所需的股票数量；gamma、vega、theta 分别衡量 delta 的变化、对波动率和对时间的敏感度。
+- 隐含波动率是使模型价格等于市场价格的波动率；股指期权的隐含波动率随执行价降低而升高（波动率偏斜）。
+
+## 练习题 [#exercises]
+
+<Exercises />
