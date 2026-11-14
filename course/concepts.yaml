@@ -2605,3 +2605,75 @@ overfitting:
   short:
     zh-cn: "在同一段数据上尝试很多规则或参数并挑出最好的，使结果适应了数据中的噪声。"
     en: "Trying many rules or parameters on the same data and picking the best, so the result fits the noise in the data."
+
+forward-contract:
+  defined_in: "5.1"
+  zh-cn: 远期合约
+  en: forward contract
+  short:
+    zh-cn: "双方今天约定在未来某个日期按今天确定的价格买卖某项资产的合约。"
+    en: "A contract in which two parties agree today to trade an asset at a future date at a price fixed today."
+
+derivative-security:
+  defined_in: "5.1"
+  zh-cn: 衍生品
+  en: derivative
+  short:
+    zh-cn: "价值取决于另一项资产（标的资产）价格的金融合约，例如远期、期货、期权和互换。"
+    en: "A financial contract whose value depends on the price of another asset (the underlying), such as forwards, futures, options and swaps."
+
+cost-of-carry:
+  defined_in: "5.1"
+  zh-cn: 持有成本模型
+  en: cost-of-carry model
+  short:
+    zh-cn: "无套利时远期价格等于现货价格加上持有到期的净成本：F = S₀e^{(r − q)T}。"
+    en: "Without arbitrage, the forward price equals the spot price plus the net cost of holding the asset to maturity: F = S₀e^{(r − q)T}."
+
+contango:
+  defined_in: "5.1"
+  zh-cn: 正向市场
+  en: contango
+  short:
+    zh-cn: "远期或期货价格高于现货价格的市场；低于现货价格时叫反向市场（backwardation）。"
+    en: "A market in which forward or futures prices are above the spot price; below the spot price is called backwardation."
+
+futures-contract:
+  defined_in: "5.1"
+  zh-cn: 期货
+  en: futures contract
+  short:
+    zh-cn: "在交易所交易、由清算所担保、每天按市价结算的标准化远期合约。"
+    en: "A standardized forward contract traded on an exchange, guaranteed by a clearinghouse and settled daily at market prices."
+
+margin:
+  defined_in: "5.1"
+  zh-cn: 保证金
+  en: margin
+  short:
+    zh-cn: "交易期货（或借钱买证券）时存入的担保资金；低于维持保证金时必须补足。"
+    en: "Collateral deposited to trade futures (or to buy securities on credit); it must be topped up when it falls below the maintenance level."
+
+mark-to-market:
+  defined_in: "5.1"
+  zh-cn: 逐日盯市
+  en: mark-to-market
+  short:
+    zh-cn: "每天按市价结算盈亏，盈亏立即计入保证金账户。"
+    en: "Settling gains and losses at market prices every day, crediting them to the margin account at once."
+
+hedging:
+  defined_in: "5.1"
+  zh-cn: 套期保值
+  en: hedging
+  short:
+    zh-cn: "用衍生品等抵消已有的风险，以降低结果的不确定性。"
+    en: "Using derivatives or other positions to offset an existing risk, reducing the uncertainty of outcomes."
+
+basis:
+  defined_in: "5.1"
+  zh-cn: 基差
+  en: basis
+  short:
+    zh-cn: "现货价格与期货价格之差；基差的变化使套期保值不完美（基差风险）。"
+    en: "The spot price minus the futures price; changes in the basis make hedges imperfect (basis risk)."

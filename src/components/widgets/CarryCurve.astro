@@ -1,0 +1,92 @@
+---
+// Figure 2-1 of lesson 5.1: the no-arbitrage forward price F = S e^((r - q)T) for an asset with spot price 100,
+// against maturity T (0 to 2 years). r is the interest rate; q is the income the holder of the asset receives
+// (dividend yield, or for a commodity the convenience yield minus the storage cost), both continuous.
+// Parameters are registered in course/widgets.yaml (id: carry-curve). Same model as course/verify/5.1.py.
+import { toLang } from '../../i18n/ui';
+
+const lang = toLang(Astro.locals.starlightRoute.lang);
+const L = {
+	'zh-cn': {
+		r: '无风险利率 r（%）',
+		q: '持有资产的收益率 q（%）',
+		x: '到期时间 T（年）',
+		y: '价格',
+		fwd: '远期价格',
+		spot: '现货价格',
+		aria: '远期价格与到期时间',
+		up: '远期价格高于现货价格（正向市场）',
+		down: '远期价格低于现货价格（反向市场）',
+		flat: '远期价格等于现货价格',
+		readout: '1 年期远期价格为 {f1}，2 年期为 {f2}；{shape}。',
+	},
+	en: {
+		r: 'Risk-free rate r (%)',
+		q: 'Yield from holding the asset q (%)',
+		x: 'Time to maturity T (years)',
+		y: 'Price',
+		fwd: 'Forward price',
+		spot: 'Spot price',
+		aria: 'Forward price against time to maturity',
+		up: 'forward prices are above the spot price (contango)',
+		down: 'forward prices are below the spot price (backwardation)',
+		flat: 'forward prices equal the spot price',
+		readout: 'The 1-year forward price is {f1} and the 2-year one {f2}; {shape}.',
+	},
+}[lang];
+
+const xr = [0, 2];
+const yr = [80, 120];
+const xTicks = [0, 0.5, 1, 1.5, 2];
+const yTicks = [80, 90, 100, 110, 120];
+const layouts = [
+	{ cls: 'viz-wide', W: 640, H: 280, pad: { l: 48, r: 20, t: 14, b: 48 } },
+	{ cls: 'viz-narrow', W: 360, H: 280, pad: { l: 44, r: 12, t: 14, b: 48 } },
+].map((g) => ({
+	...g,
+	X: (v: number) => g.pad.l + ((v - xr[0]) / (xr[1] - xr[0])) * (g.W - g.pad.l - g.pad.r),
+	Y: (v: number) => g.pad.t + ((yr[1] - v) / (yr[1] - yr[0])) * (g.H - g.pad.t - g.pad.b),
+}));
+---
+
+<div class="lfwai-widget" data-widget="carry-curve" data-readout={L.readout} data-shapes={JSON.stringify([L.up, L.down, L.flat])}>
+	<div class="lfwai-sliders">
+		<label>
+			<span>{L.r} = <output data-out="r">4</output></span>
+			<input type="range" min="0" max="8" step="0.5" value="4" data-param="r" />
+		</label>
+		<label>
+			<span>{L.q} = <output data-out="q">1.5</output></span>
+			<input type="range" min="0" max="8" step="0.5" value="1.5" data-param="q" />
+		</label>
+	</div>
+	{layouts.map(({ cls, W, H, pad, X, Y }) => (
+		<svg class={`lfwai-viz ${cls}`} viewBox={`0 0 ${W} ${H}`} role="img" aria-label={L.aria} data-geom={JSON.stringify({ W, H, pad, xr, yr })}>
+			{yTicks.map((v) => (
+				<g>
+					<line class="viz-grid" x1={pad.l} x2={W - pad.r} y1={Y(v)} y2={Y(v)} />
+					<text class="viz-tick" x={pad.l - 8} y={Y(v) + 4} text-anchor="end">{v}</text>
+				</g>
+			))}
+			{xTicks.map((v) => (
+				<text class="viz-tick" x={X(v)} y={H - pad.b + 18} text-anchor="middle">{v}</text>
+			))}
+			<line class="viz-axis" x1={pad.l} x2={pad.l} y1={pad.t} y2={H - pad.b} />
+			<line class="viz-axis" x1={pad.l} x2={W - pad.r} y1={H - pad.b} y2={H - pad.b} />
+			<text class="viz-tick" x={(pad.l + W - pad.r) / 2} y={H - 8} text-anchor="middle">{L.x}</text>
+			<text class="viz-tick" transform={`translate(12 ${(pad.t + H - pad.b) / 2}) rotate(-90)`} text-anchor="middle">{L.y}</text>
+			<line class="viz-ols" x1={X(0)} x2={X(2)} y1={Y(100)} y2={Y(100)} />
+			<path class="viz-fit" fill="none" data-el="fwd" d="" />
+		</svg>
+	))}
+	<ul class="lfwai-legend">
+		<li><span class="sw sw-fit"></span>{L.fwd}</li>
+		<li><span class="sw sw-ols"></span>{L.spot}</li>
+	</ul>
+	<p class="lfwai-readout" data-el="readout" aria-live="polite"></p>
+</div>
+
+<script>
+	import { initCarryCurve } from '../../scripts/widgets/carry-curve';
+	initCarryCurve();
+</script>

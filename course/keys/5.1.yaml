@@ -1,0 +1,338 @@
+# Answer key for lesson 5.1. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[5.1#hedging]] (section), [[concept:beta]], [[check:Q3]], [[fig:2-1]].
+# expected: values are recomputed by course/verify/5.1.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "5.1"
+
+context:
+  - zh-cn: |-
+      学习者学过连续复利（[[0.1]]）、方差与协方差（[[0.3]]）、回归（[[0.5]]）、抛补利率平价（[[2.7]]）、卖空（[[4.2]]）、beta（[[4.4]]）、单指数模型与对冲 beta（[[4.5]]）、套利（[[4.6]]）。讲义还没有讲期权（[[5.2]]、[[5.3]]）和另类资产（[[5.5]]）。百分数用百分点表示。
+    en: |-
+      The learner has studied continuous compounding ([[0.1]]), variance and covariance ([[0.3]]), regression ([[0.5]]), covered interest parity ([[2.7]]), short selling ([[4.2]]), beta ([[4.4]]), the single-index model and hedging beta ([[4.5]]), and arbitrage ([[4.6]]). The lesson has not yet covered options ([[5.2]], [[5.3]]) or alternative assets ([[5.5]]). Percentages in percentage points.
+  - concepts: [forward-contract, derivative-security]
+    zh-cn: |-
+      讲义：远期合约约定在 $T$ 按 $F$ 买卖；多头收益 $S_T - F$，空头 $F - S_T$；签约时价值为 0，之后一方为正、一方为负，大小相同。
+    en: |-
+      The lesson: a forward contract fixes a price $F$ for a trade at $T$; the long's payoff is $S_T - F$, the short's $F - S_T$; its value is 0 at signing, then positive for one side and equally negative for the other.
+  - concepts: [cost-of-carry, contango]
+    zh-cn: |-
+      讲义：$F = S_0e^{rT}$（无收入资产），$F = S_0e^{(r - q)T}$（收入率 $q$）；偏离时套利（cash-and-carry 或反向）；与抛补利率平价同理。大宗商品的 $q$ 为便利收益减仓储费；$F > S$ 为正向市场（contango），$F < S$ 为反向市场（backwardation）。讲义没有直接说远期价格是否是预测（留给随堂题）。[[fig:2-1]]：现货 100；滑块 r 0–8%（步长 0.5，默认 4），q 0–8%（步长 0.5，默认 1.5）；读数为 1 年和 2 年远期价格与市场形态。
+    en: |-
+      The lesson: $F = S_0e^{rT}$ (no income), $F = S_0e^{(r - q)T}$ (income yield $q$); deviations allow arbitrage (cash-and-carry or the reverse); the same logic as covered interest parity. For commodities $q$ is the convenience yield minus storage costs; $F > S$ is contango, $F < S$ backwardation. The lesson does not say directly whether the forward price is a forecast (left to a check question). [[fig:2-1]]: spot 100; sliders r 0–8% (steps of 0.5, default 4) and q 0–8% (steps of 0.5, default 1.5); the readout gives the 1- and 2-year forward prices and the market shape.
+  - concepts: [futures-contract, margin, mark-to-market]
+    zh-cn: |-
+      讲义：期货是交易所交易的标准化远期，清算所做对手方；初始保证金为合约价值的百分之几到十几；逐日盯市，低于维持保证金须补足，否则强制平仓；杠杆高，亏损须立即用现金支付。
+    en: |-
+      The lesson: futures are standardized exchange-traded forwards with the clearinghouse as counterparty; initial margin is a few to a dozen or so percent of contract value; daily mark-to-market, with top-ups required below maintenance margin or the position is closed; high leverage, and losses must be paid in cash at once.
+  - concepts: [hedging, basis]
+    zh-cn: |-
+      讲义：空头套保（生产者）、多头套保（使用者）；套保降低不确定性而不提高预期收益；基差 = 现货 − 期货；标的不同或日期不同产生基差风险（航空煤油用取暖油或原油期货）；最小方差的套保数量是现货对期货的回归斜率（讲义没有推导，留给练习题 Q3）；股指期货可调整组合 beta。
+    en: |-
+      The lesson: short hedges (producers), long hedges (users); hedging lowers uncertainty, not expected return; basis = spot − futures; a different underlying or date creates basis risk (jet fuel hedged with heating-oil or crude futures); the minimum-variance hedge is the regression slope of spot on futures (not derived in the lesson; left to exercise Q3); index futures can adjust a portfolio's beta.
+
+common_errors:
+  - questions: [Q1]
+    zh-cn: |-
+      把远期或期货价格当作市场对未来现货价格的预测；看不出价格偏离持有成本时的套利交易。
+    en: |-
+      Treating the forward or futures price as the market's forecast of the future spot price; not seeing the arbitrage trade when the price departs from the cost of carry.
+  - questions: [Q2]
+    zh-cn: |-
+      以为期货的最大亏损就是投入的保证金；忽略逐日盯市要求追加保证金，价格大幅变化时亏损可以超过初始保证金。
+    en: |-
+      Thinking the largest possible futures loss is the margin put up; ignoring that daily mark-to-market requires more margin and that losses can exceed the initial margin when prices move a lot.
+  - questions: [Q3]
+    zh-cn: |-
+      以为用相关的期货套保就能完全消除风险，或者套保比例总是 1；不知道残余风险取决于现货与期货的相关系数。
+    en: |-
+      Thinking a hedge with a related futures contract removes all risk, or that the hedge ratio is always 1; not knowing that the remaining risk depends on the correlation between spot and futures.
+  - questions: [Q4]
+    zh-cn: |-
+      以为大宗商品期货基金的收益等于现货价格的变化，忽略正向市场中展期造成的损失。
+    en: |-
+      Thinking a commodity futures fund earns the change in the spot price, ignoring the losses from rolling contracts in contango.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: forwards
+    concepts: [forward-contract, hedging]
+    question:
+      zh-cn: |-
+        一家航空公司今天签订远期合约，按价格 $F$ 买入 6 个月后交割的燃油。6 个月后，燃油的市场价格低于 $F$。对航空公司来说：
+      en: |-
+        An airline signs a forward contract today to buy fuel for delivery in 6 months at the price $F$. In 6 months, the market price of fuel is below $F$. For the airline:
+    choices:
+      - zh-cn: 远期合约本身亏损，但它的燃油成本被锁定在 $F$，只是没有享受到价格下跌的好处
+        en: The forward contract itself loses money, but its fuel cost is locked at $F$; it simply misses the benefit of the price fall
+      - zh-cn: 没有任何损失，因为签约时没有付钱
+        en: There is no loss at all, because nothing was paid at signing
+        why:
+          zh-cn: 到期时它要按 $F$ 买入市价低于 $F$ 的燃油。合约到期时的收益 $S_T - F$ 是多少？
+          en: At maturity it must pay $F$ for fuel worth less than $F$. What is the contract's payoff $S_T - F$ at maturity?
+      - zh-cn: 可以选择不履约，按市场价格买入燃油
+        en: It can choose not to perform and buy fuel at the market price
+        why:
+          zh-cn: 远期合约是权利还是义务？
+          en: Is a forward contract a right or an obligation?
+      - zh-cn: 在远期合约上赚钱
+        en: It makes money on the forward contract
+        why:
+          zh-cn: 多头的收益是 $S_T - F$。$S_T$ 低于 $F$ 时，它是正还是负？
+          en: The long's payoff is $S_T - F$. With $S_T$ below $F$, is that positive or negative?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。多头的收益 $S_T - F < 0$，合约亏损；但航空公司按 $F$ 买到了燃油，总成本正是它签约时想锁定的。套期保值的代价是放弃了价格下跌的好处，换来的是成本的确定性。
+      en: |-
+        (A). The long's payoff $S_T - F < 0$, so the contract loses money; but the airline gets its fuel at $F$, exactly the cost it wanted to lock in. The price of hedging is giving up the benefit of a fall in exchange for a certain cost.
+
+  - id: C2
+    kind: check
+    section: cost-of-carry
+    concepts: [cost-of-carry]
+    question:
+      zh-cn: |-
+        股票指数的 1 年期期货价格比现货价格高 2.5%，说明市场预计股指一年后会上涨 2.5%。
+      en: |-
+        A stock index's 1-year futures price is 2.5% above the spot price, which shows that the market expects the index to rise 2.5% over the year.
+    correct: false
+    hint:
+      zh-cn: 想一想：期货价格由什么决定？如果期货价格不等于“现货 × 持有成本”，套利者会怎样做？
+      en: 'Think: what determines the futures price? If it differs from "spot × cost of carry", what do arbitrageurs do?'
+    answer:
+      zh-cn: |-
+        错。期货价格由持有成本决定：$F = S_0e^{(r - q)T}$，比现货高出的部分反映利率减去股息率，否则就可以套利。它不是对未来价格的预测：股票的预期收益还包含风险溢价，市场预期的一年后指数通常高于期货价格。
+      en: |-
+        False. The futures price is set by the cost of carry, $F = S_0e^{(r - q)T}$; the amount above spot reflects the interest rate minus the dividend yield, or else there would be arbitrage. It is not a forecast of the future price: stocks' expected return also includes a risk premium, so the market's expected index level in a year is usually above the futures price.
+
+  - id: C3
+    kind: check
+    section: cost-of-carry
+    concepts: [cost-of-carry, contango]
+    widget: { id: carry-curve, set: { r: 4, q: 6 } }
+    question:
+      zh-cn: |-
+        原油库存紧张时，手里有现货的好处（便利收益）很大。在 [[fig:2-1]] 中这对应 q 高于 r（例如 r = 4%、q = 6%）。这时：
+      en: |-
+        When crude oil inventories are tight, holding physical oil is very valuable (a high convenience yield). In [[fig:2-1]] this corresponds to q above r (for example r = 4% and q = 6%). Then:
+    choices:
+      - zh-cn: 期货价格低于现货价格，而且期限越长越低
+        en: Futures prices are below the spot price, and the longer the maturity the lower
+      - zh-cn: 期货价格高于现货价格，因为未来油价会上涨
+        en: Futures prices are above the spot price, because oil prices will rise
+        why:
+          zh-cn: 看图中曲线的方向。$r - q$ 为负时，$e^{(r - q)T}$ 大于还是小于 1？
+          en: Look at the direction of the curve. With $r - q$ negative, is $e^{(r - q)T}$ above or below 1?
+      - zh-cn: 期货价格等于现货价格
+        en: Futures prices equal the spot price
+        why:
+          zh-cn: 只有 $r = q$ 时才相等。这里 $r$ 和 $q$ 相等吗？
+          en: They are equal only when $r = q$. Are $r$ and $q$ equal here?
+      - zh-cn: 期货价格低于现货价格，但期限越长越接近现货价格
+        en: Futures prices are below spot, but get closer to spot at longer maturities
+        why:
+          zh-cn: 看 2 年期和 1 年期的读数：期限越长，差距变大还是变小？
+          en: Compare the 2-year and 1-year readouts. Does the gap grow or shrink with maturity?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。$r - q = -2\%$，$F = 100e^{-0.02T}$：1 年期约 98.02，2 年期约 96.08，期限越长越低，这是反向市场。持有现货的好处超过了资金成本，所以人们愿意为现货付更高的价格。
+      en: |-
+        (A). $r - q = -2\%$, so $F = 100e^{-0.02T}$: about 98.02 for 1 year and 96.08 for 2 years, falling with maturity; this is backwardation. Holding physical oil is worth more than the financing cost, so people pay more for spot.
+
+  - id: C4
+    kind: check
+    section: futures
+    concepts: [mark-to-market, margin, hedging]
+    question:
+      zh-cn: |-
+        一家公司向客户卖出了今后 10 年按固定价格供应燃油的合同，同时买入短期原油期货来对冲油价上涨的风险。油价随后大跌，最可能的结果是：
+      en: |-
+        A company sells customers contracts to supply fuel at fixed prices for the next 10 years, and buys short-term crude futures to hedge against rising oil prices. Oil prices then fall sharply. The most likely result is:
+    choices:
+      - zh-cn: 期货的亏损要立即用现金补交保证金，而供应合同的盈利要在多年后才实现，公司可能出现现金短缺
+        en: The futures losses must be paid at once in margin cash, while the gains on the supply contracts arrive only over many years, so the company may run short of cash
+      - zh-cn: 没有影响，因为对冲使两边的盈亏相互抵消
+        en: Nothing happens, because the hedge offsets the gains and losses
+        why:
+          zh-cn: 两边的盈亏在经济上相互抵消，但它们在什么时候变成现金？
+          en: The gains and losses offset economically, but when does each turn into cash?
+      - zh-cn: 期货赚钱，供应合同亏损
+        en: The futures make money and the supply contracts lose money
+        why:
+          zh-cn: 公司持有的是期货多头。油价下跌时，多头赚钱还是亏钱？
+          en: The company holds long futures. When oil falls, do longs gain or lose?
+      - zh-cn: 公司可以等油价回升后再补交保证金
+        en: The company can wait for oil prices to recover before topping up its margin
+        why:
+          zh-cn: 逐日盯市下，保证金不足时必须多久补足？不补会怎样？
+          en: Under daily mark-to-market, how soon must margin be topped up? What happens if it is not?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。期货逐日盯市，油价下跌造成的亏损每天都要用现金支付；供应合同的好处（按固定的高价卖出变便宜的燃油）要在今后 10 年里逐步实现。经济上对冲了，现金流上却不匹配。1993 年德国金属公司（Metallgesellschaft）的美国子公司就因为这种策略损失了十亿美元以上。
+      en: |-
+        (A). Futures are marked to market, so losses from falling oil must be paid in cash every day; the benefit of the supply contracts (selling cheaper fuel at fixed high prices) arrives gradually over 10 years. The hedge works economically but not in cash flow. In 1993 the US subsidiary of Metallgesellschaft lost more than a billion dollars on such a strategy.
+
+  - id: C5
+    kind: check
+    section: hedging
+    concepts: [hedging, basis]
+    question:
+      zh-cn: |-
+        一家航空公司用原油期货对冲航空煤油的成本。下列哪种情况下，对冲后的燃油成本仍会明显高于预期？
+      en: |-
+        An airline hedges its jet fuel costs with crude oil futures. In which case does its fuel cost after hedging still come in clearly above expectations?
+    choices:
+      - zh-cn: 航空煤油价格大涨，而原油价格涨得少得多（炼油价差扩大）
+        en: Jet fuel prices rise sharply while crude rises much less (the refining spread widens)
+      - zh-cn: 原油和航空煤油同步大涨
+        en: Crude and jet fuel both rise sharply together
+        why:
+          zh-cn: 两者同步上涨时，期货多头的盈利能不能抵消燃油成本的上升？
+          en: When both rise together, can the long futures' gains offset the rise in fuel costs?
+      - zh-cn: 原油和航空煤油同步大跌
+        en: Crude and jet fuel both fall sharply together
+        why:
+          zh-cn: 期货亏损，但燃油变便宜了。对冲后的总成本会比预期高吗？
+          en: The futures lose, but fuel gets cheaper. Is the total cost after hedging above expectations?
+      - zh-cn: 期货价格低于现货价格
+        en: The futures price is below the spot price
+        why:
+          zh-cn: 对冲的效果取决于价格的水平，还是取决于现货与期货价格的变化是否一致？
+          en: Does the hedge's result depend on the price level, or on whether spot and futures prices move together?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。对冲的是原油，暴露的是航空煤油。两者同步变化时对冲有效；两者的价差（基差）变化时，期货的盈利不足以抵消燃油成本的上升，这就是基差风险。
+      en: |-
+        (A). The hedge is on crude, but the exposure is jet fuel. When the two move together the hedge works; when their spread (the basis) changes, the futures gains fall short of the rise in fuel costs. This is basis risk.
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [cost-of-carry, arbitrage, futures-contract]
+    expected: { f: "5126.58", profit: "53.42" }
+    question:
+      zh-cn: |-
+        一个股票指数现在为 5,000 点，股息率为每年 1.5%（连续），无风险利率为每年 4%（连续）。1 年期指数期货的市场价格为 5,180 点。
+        (a) 按持有成本模型，期货价格应该是多少？是否存在套利机会？写出套利交易，以及每 1 点指数在到期时的利润。
+        (b) 一位财经评论员说：“期货价格比现货高 3.6%，说明市场预计股指明年上涨 3.6%。”评价这个说法。
+      en: |-
+        A stock index is at 5,000, with a dividend yield of 1.5% a year (continuous) and a risk-free rate of 4% a year (continuous). The market price of the 1-year index futures is 5,180.
+        (a) By the cost-of-carry model, what should the futures price be? Is there an arbitrage opportunity? Describe the trade and its profit per index point at maturity.
+        (b) A financial commentator says: "The futures price is 3.6% above spot, which shows the market expects the index to rise 3.6% next year." Evaluate this statement.
+    answer:
+      zh-cn: |-
+        (a) $F = 5{,}000e^{(0.04 - 0.015) \times 1} \approx 5{,}126.58$。市场价格 5,180 偏高，存在套利：以 4% 借入 5,000 买入指数（股息再投资于指数），同时卖出期货。到期时按 5,180 交付指数，偿还借款和利息并扣除股息收入后，每点利润约 $5{,}180 - 5{,}126.58 = 53.42$，没有风险。大量套利会推低期货价格、推高现货价格，直到差距消失（扣除交易成本）。
+        (b) 说法不对。期货价格比现货高，是因为持有现货要付 4% 的资金成本、只得到 1.5% 的股息，差额由期货价格补偿；它由持有成本决定，否则就有 (a) 中的套利。它不包含市场对股票风险溢价的预期：股票的预期收益通常高于无风险利率，市场预期的一年后指数水平高于期货价格。期货价格不是预测，而是无套利的价格。
+      en: |-
+        (a) $F = 5{,}000e^{(0.04 - 0.015) \times 1} \approx 5{,}126.58$. The market price of 5,180 is too high, so there is an arbitrage: borrow 5,000 at 4% and buy the index (reinvesting dividends in the index), and sell the futures. At maturity, deliver the index at 5,180, repay the loan with interest net of dividend income, and keep a riskless profit of about $5{,}180 - 5{,}126.58 = 53.42$ per point. Heavy arbitrage pushes the futures price down and the spot up until the gap disappears (net of trading costs).
+        (b) The statement is wrong. The futures price is above spot because holding the index costs 4% in financing and earns only 1.5% in dividends; the futures price makes up the difference. It is set by the cost of carry, or else there would be the arbitrage in (a). It contains no view on the equity risk premium: stocks' expected return is usually above the risk-free rate, so the market's expected index level in a year is above the futures price. The futures price is not a forecast but the no-arbitrage price.
+    rubric:
+      zh-cn:
+        - "(a) 通过：理论价格约 5,126.58，给出卖期货、借钱买现货的交易和每点约 53.42 的利润。方向相反（买期货、卖现货），需要订正。"
+        - "(b) 通过：指出期货价格由持有成本决定、不是预测，并说明预期的指数水平还包含风险溢价。同意评论员，需要订正。"
+      en:
+        - "(a) OK: a theoretical price of about 5,126.58, the trade of selling futures and borrowing to buy spot, and a profit of about 53.42 per point. The reverse trade (buying futures, selling spot) needs revision."
+        - "(b) OK: says the futures price is set by the cost of carry and is not a forecast, and that the expected index level also includes a risk premium. Agreeing with the commentator needs revision."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [margin, mark-to-market, financial-leverage]
+    expected: { call: "3000", ret: "-37.5", loss: "10000" }
+    question:
+      zh-cn: |-
+        一位投资者买入 1 手原油期货（1,000 桶），价格每桶 80 美元，初始保证金 8,000 美元，维持保证金 6,000 美元；保证金不足时须补足到初始保证金。
+        (a) 第二天油价跌到 77 美元。他需要追加多少保证金？以投入的 8,000 美元计，这一天的收益率是多少？
+        (b) 他说：“我只用 8,000 美元就控制了 8 万美元的原油，最坏也只是亏掉这 8,000 美元。”如果之后几天油价跌到 70 美元，他一共亏损多少？评价他的说法。
+      en: |-
+        An investor buys 1 crude oil futures contract (1,000 barrels) at 80 dollars a barrel, with initial margin of 8,000 dollars and maintenance margin of 6,000 dollars; when margin falls short it must be restored to the initial level.
+        (a) The next day oil falls to 77 dollars. How much more margin must he post? On the 8,000 dollars he put in, what is that day's return?
+        (b) He says: "With only 8,000 dollars I control 80,000 dollars of oil, and the worst that can happen is losing these 8,000 dollars." If oil then falls to 70 dollars over the next few days, how much does he lose in total? Evaluate his statement.
+    answer:
+      zh-cn: |-
+        (a) 亏损 $1{,}000 \times 3 = 3{,}000$ 美元，账户余额 5,000 低于维持保证金 6,000，要补足到 8,000，追加 3,000 美元。收益率 $\frac{-3{,}000}{8{,}000} = -37.5\%$，而油价只跌了 3.75%：10 倍杠杆。
+        (b) 跌到 70 美元，总亏损 $1{,}000 \times (80 - 70) = 10{,}000$ 美元，超过初始保证金。说法不对：期货的亏损没有上限在保证金上，保证金只是交易所要求的担保，亏损会通过逐日盯市要求他不断追加现金；不能追加时头寸被强制平仓，亏损已经实现，而且平仓时的价格可能更差。油价在一天内大幅跳空时，账户甚至会变成负数，他仍要承担。杠杆使收益和亏损都按合约价值而不是保证金计算。
+      en: |-
+        (a) The loss is $1{,}000 \times 3 = 3{,}000$ dollars; the balance of 5,000 is below the 6,000 maintenance margin, so it must be restored to 8,000: 3,000 dollars more. The return is $\frac{-3{,}000}{8{,}000} = -37.5\%$, while oil fell only 3.75%: 10 times leverage.
+        (b) At 70 dollars the total loss is $1{,}000 \times (80 - 70) = 10{,}000$ dollars, more than the initial margin. The statement is wrong: futures losses are not capped at the margin; the margin is only a deposit the exchange requires, and mark-to-market keeps demanding more cash as losses grow. If he cannot pay, the position is closed out, the loss is realized, and possibly at a worse price. If oil gaps down sharply in one day, the account can even go negative, and he still owes the difference. Leverage makes gains and losses scale with the contract's value, not with the margin.
+    rubric:
+      zh-cn:
+        - "(a) 通过：追加 3,000 美元，收益率 −37.5%。"
+        - "(b) 通过：总亏损 10,000 美元，指出亏损不以保证金为限，逐日盯市要求追加现金，不能追加则被强制平仓。同意他的说法，需要订正。"
+      en:
+        - "(a) OK: 3,000 dollars more margin and a return of −37.5%."
+        - "(b) OK: a total loss of 10,000 dollars, explaining that losses are not capped at the margin, that mark-to-market demands more cash, and that failure to pay leads to forced closing. Agreeing with him needs revision."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [hedging, basis, covariance, regression-coefficient]
+    expected: { h: "0.96", res: "3.6" }
+    question:
+      zh-cn: |-
+        航空煤油没有活跃的期货，一家航空公司用取暖油期货对冲。按历史数据，每月航空煤油价格变化的标准差为 6%，取暖油期货价格变化的标准差为 5%，两者的相关系数为 0.8。
+        (a) 每 1 份航空煤油的价格风险，卖出（或买入）$h$ 份期货后，组合价格变化的方差是多少？求使方差最小的 $h$。这时每月残余价格变化的标准差是多少？
+        (b) 公司的财务总监说：“我们已经按最优比例对冲，燃油价格风险被消除了。”评价这个说法。残余风险由什么决定？
+      en: |-
+        Jet fuel has no active futures market, so an airline hedges with heating-oil futures. In historical data, the monthly change in jet fuel prices has a standard deviation of 6%, the change in heating-oil futures prices 5%, and the correlation between them is 0.8.
+        (a) For each unit of jet fuel price exposure, with a position of $h$ units of futures against it, what is the variance of the combined price change? Find the $h$ that minimizes it. What is the standard deviation of the remaining monthly price change then?
+        (b) The airline's CFO says: "We have hedged at the optimal ratio, so our fuel price risk has been eliminated." Evaluate this statement. What determines the remaining risk?
+    answer:
+      zh-cn: |-
+        (a) 组合变化为 $\Delta S - h\Delta F$，方差 $\sigma_S^2 + h^2\sigma_F^2 - 2h\rho\sigma_S\sigma_F$（[[0.3]]）。对 $h$ 求导令其为 0：$h^* = \frac{\rho\sigma_S}{\sigma_F} = \frac{0.8 \times 6}{5} = 0.96$，正是 $\Delta S$ 对 $\Delta F$ 的回归斜率。代回，残余方差 $= \sigma_S^2(1 - \rho^2)$，标准差 $6 \times \sqrt{1 - 0.64} = 3.6\%$。
+        (b) 说法不对。最优对冲只把每月价格风险的标准差从 6% 降到 3.6%，还剩六成：$\sqrt{1 - \rho^2} = 0.6$。残余风险就是基差风险，由航空煤油与取暖油价格变化的相关系数决定，相关系数 0.8 看起来很高，但只消除了 64% 的方差。而且相关系数和标准差是历史估计，危机或供应冲击时（例如炼油产能突然紧张）航空煤油与取暖油的价差可能剧烈变化，实际残余风险可能更大。
+      en: |-
+        (a) The combined change is $\Delta S - h\Delta F$, with variance $\sigma_S^2 + h^2\sigma_F^2 - 2h\rho\sigma_S\sigma_F$ ([[0.3]]). Setting the derivative in $h$ to 0: $h^* = \frac{\rho\sigma_S}{\sigma_F} = \frac{0.8 \times 6}{5} = 0.96$, which is the regression slope of $\Delta S$ on $\Delta F$. Substituting back, the remaining variance is $\sigma_S^2(1 - \rho^2)$, a standard deviation of $6 \times \sqrt{1 - 0.64} = 3.6\%$.
+        (b) The statement is wrong. The optimal hedge cuts the monthly standard deviation only from 6% to 3.6%, leaving 60% of it: $\sqrt{1 - \rho^2} = 0.6$. The remaining risk is basis risk, set by the correlation between jet fuel and heating-oil price changes; a correlation of 0.8 looks high but removes only 64% of the variance. And the correlation and volatilities are historical estimates; in a crisis or a supply shock (for example a sudden shortage of refining capacity) the spread between jet fuel and heating oil can swing violently, so the actual remaining risk may be larger.
+    rubric:
+      zh-cn:
+        - "(a) 通过：写出方差，推出 $h^* = 0.96$，残余标准差约 3.6%。直接取 $h = 1$ 而不推导，需要订正。"
+        - "(b) 通过：指出风险只降到 3.6%，残余的是基差风险，由相关系数决定（$\\sqrt{1 - \\rho^2}$），并提到相关性可能变化。同意财务总监，需要订正。"
+      en:
+        - "(a) OK: writes the variance, derives $h^* = 0.96$, and finds a remaining standard deviation of about 3.6%. Taking $h = 1$ without derivation needs revision."
+        - "(b) OK: says the risk falls only to 3.6%, that what remains is basis risk set by the correlation ($\\sqrt{1 - \\rho^2}$), and mentions that the correlation can change. Agreeing with the CFO needs revision."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [contango, cost-of-carry, futures-contract]
+    expected: { roll: "-11.26" }
+    question:
+      zh-cn: |-
+        一只原油基金持有近月原油期货，每月到期前卖出近月合约、买入下一个月的合约（展期）。假设一年中现货价格一直是每桶 70 美元，期货曲线形状不变：每次展期时，近月合约按 70 美元卖出，下一个月的合约按 70.7 美元买入，到期时价格收敛到现货 70 美元。
+        (a) 不考虑保证金的利息，一年后基金的收益率是多少？
+        (b) 一位投资者说：“我认为一年后油价至少会比现在高 8%，所以我买这只原油基金，就能赚到油价的上涨。”评价这个说法。
+      en: |-
+        An oil fund holds front-month crude futures and, before each expiry, sells the front contract and buys the next month's (rolling). Suppose the spot price stays at 70 dollars a barrel all year and the futures curve keeps its shape: at each roll the front contract is sold at 70 dollars and the next month's bought at 70.7 dollars, and its price converges to the spot 70 at expiry.
+        (a) Ignoring interest on the margin, what is the fund's return over the year?
+        (b) An investor says: "I think oil will be at least 8% higher in a year, so I'll buy this oil fund and earn the rise in oil prices." Evaluate this statement.
+    answer:
+      zh-cn: |-
+        (a) 每个月按 70.7 买入的合约到期时只值 70，每月亏损 $\frac{70}{70.7} - 1 \approx -0.99\%$；一年 $\left(\frac{70}{70.7}\right)^{12} - 1 \approx -11.26\%$。现货价格没变，基金却亏了约 11%。
+        (b) 基金的收益不等于现货价格的变化：大约等于现货价格变化 + 展期收益 + 保证金利息。在这种正向市场中展期收益约为每年 −11%，即使油价真的上涨 8%，基金扣除展期损失后仍然亏损（保证金利息约 4% 只能弥补一部分）。期货价格高于现货，说明市场已经通过持有成本把未来的价格变化计入价格：投资者只有在油价涨得比期货曲线已经反映的更多时才赚钱。2020 年原油期货深度正向排列时，一些原油期货基金就在油价回升时仍大幅跑输油价。
+      en: |-
+        (a) Each month a contract bought at 70.7 is worth only 70 at expiry, a monthly loss of $\frac{70}{70.7} - 1 \approx -0.99\%$; over a year, $\left(\frac{70}{70.7}\right)^{12} - 1 \approx -11.26\%$. The spot price did not change, yet the fund lost about 11%.
+        (b) The fund's return is not the change in the spot price: it is roughly the spot change plus the roll yield plus interest on the margin. In this contango the roll yield is about −11% a year, so even if oil does rise 8%, the fund still loses after the roll losses (interest of about 4% on the margin covers only part). Futures prices above spot mean the market's cost of carry is already in the prices: the investor gains only if oil rises by more than the futures curve already reflects. In 2020, when oil futures were in deep contango, some oil futures funds lagged the oil price badly even as it recovered.
+    rubric:
+      zh-cn:
+        - "(a) 通过：约 −11.26%（每月约 −0.99%）。"
+        - "(b) 通过：指出基金收益约为现货变化加展期收益加利息，正向市场的展期损失可能超过油价涨幅，只有超过曲线已反映的上涨才赚钱。认为基金收益等于油价涨幅，需要订正。"
+      en:
+        - "(a) OK: about −11.26% (about −0.99% a month)."
+        - "(b) OK: says the fund earns roughly the spot change plus the roll yield plus interest, that contango roll losses can exceed the oil price rise, and that it gains only on a rise beyond what the curve already reflects. Thinking the fund earns the rise in the oil price needs revision."

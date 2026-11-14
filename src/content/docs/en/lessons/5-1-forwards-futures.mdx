@@ -1,0 +1,84 @@
+---
+title: 5.1 Forwards and Futures
+description: Forward contracts and their payoffs; the cost-of-carry model and no-arbitrage pricing; contango and backwardation; margin and mark-to-market in futures; hedging, the optimal hedge ratio and basis risk.
+lesson: "5.1"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import CarryCurve from '../../../../components/widgets/CarryCurve.astro';
+
+## Forward contracts [#forwards]
+
+A bakery worries that wheat will be more expensive in six months, and a farmer worries that it will be cheaper. They can agree today that in six months the farmer will sell wheat to the bakery at 6 dollars a bushel. This is a <Def id="forward-contract">forward contract</Def>: the two sides agree today to trade an asset at a future date $T$ at a price $F$ fixed today. The side that agrees to buy is long; the side that agrees to sell is short.
+
+At maturity the long buys, at $F$, an asset whose market price is $S_T$, so the payoff is
+
+$$
+S_T - F
+$$
+
+The short's payoff is the opposite, $F - S_T$. A forward contract is a <Def id="derivative-security">derivative</Def>: its value depends on the price of another asset (the underlying). Neither side pays anything at signing, so the contract's value is 0; afterwards, as the underlying price moves, one side's contract gains a positive value and the other's an equal negative value.
+
+<Check id="C1" />
+
+## Cost-of-carry pricing [#cost-of-carry]
+
+What should the forward price $F$ be? Consider an asset with price $S_0$ today that produces no income while held (a stock that pays no dividends, for example). There are two ways to own it at $T$: borrow today to buy it and hold it until $T$; or sign a forward contract and buy it then at $F$. Both give the same asset at $T$, so they must cost the same, or else there is arbitrage (<Ref concept="arbitrage" />):
+
+$$
+F = S_0\,e^{rT}
+$$
+
+This uses continuous compounding (<Ref lesson="0.1" />), with $r$ the risk-free rate. If the asset produces income while held, for example a stock index with dividend yield $q$, the holder of the spot asset receives that income, so the forward price must be correspondingly lower:
+
+$$
+F = S_0\,e^{(r - q)T}
+$$
+
+This is the <Def id="cost-of-carry">cost-of-carry model</Def>: the forward price equals the spot price plus the net cost of holding the asset until maturity (the financing cost minus the income from the asset). If the market $F$ is above this price, arbitrageurs borrow to buy the spot asset and sell the forward (cash-and-carry); if it is below, they do the reverse. Covered interest parity in <Ref lesson="2.7" sec="interest-parity" /> follows the same logic: the "income" of a foreign currency is the foreign interest rate.
+
+For commodities, holding the physical good costs storage, but it also has a benefit: inventory can be used in production at any time and avoids running out; this benefit is called the convenience yield. Then $q$ is the convenience yield minus storage costs. A market in which forward prices are above the spot price is in <Def id="contango">contango</Def>; one in which they are below is in backwardation.
+
+<Figure id="2-1" title="Forward prices from the cost-of-carry model against time to maturity, with a spot price of 100." observe="First make q smaller than r, then larger than r, and see which way the curve slopes.">
+	<CarryCurve />
+</Figure>
+
+<Check id="C2" />
+
+<Check id="C3" />
+
+## Futures: margin and mark-to-market [#futures]
+
+Forward contracts are signed privately between two parties; one side may fail to perform at maturity, and they are hard to transfer before then. A <Def id="futures-contract">futures contract</Def> standardizes the forward and trades it on an exchange: the quantity, the grade and the delivery date are fixed, and the exchange's clearinghouse becomes the seller to every buyer and the buyer to every seller.
+
+To prevent default, futures require <Def id="margin">margin</Def>. An initial margin, usually only a few percent to a dozen or so percent of the contract's value, is deposited when the position is opened. Futures are settled every day at the closing price, which is called <Def id="mark-to-market">mark-to-market</Def>: when the price rises, the long's margin account grows and the short's shrinks; when an account falls below the maintenance margin, it must be topped up within a short time, or the position is closed out.
+
+Margin gives futures high leverage: with margin of 10% of the contract value, a 1% price change moves the value of the margin by 10% (<Ref concept="financial-leverage" />). Mark-to-market also means losses must be paid in cash at once, even if the position will eventually make money (<Ref check="Q2" />).
+
+<Check id="C4" />
+
+## Hedging and basis risk [#hedging]
+
+<Def id="hedging">Hedging</Def> uses derivatives to offset an existing risk: a farmer who will sell wheat sells futures (a short hedge), and an airline that will buy fuel buys futures (a long hedge). The purpose of hedging is not to raise the expected return but to reduce the uncertainty of the outcome: when prices rise, the futures gains offset the higher cost of the physical good, and when prices fall, the futures losses offset the savings.
+
+Hedges are rarely perfect. The difference between the spot price and the futures price is called the <Def id="basis">basis</Def>. If the asset being hedged differs from the futures' underlying (jet fuel has no active futures market, for example, so heating-oil or crude futures are used instead), or the hedge date differs from the futures' delivery date, the basis changes and leaves some risk that cannot be removed, called basis risk.
+
+How many futures are best then? The number of futures that minimizes the variance of the hedged position is the same quantity as the regression slope of <Ref lesson="0.5" /> and the beta of <Ref lesson="4.4" />: the regression coefficient of spot price changes on futures price changes (<Ref check="Q3" />). In the same way, index futures can adjust the beta of a stock portfolio: selling index futures reduces the portfolio's market risk without selling stocks (<Ref lesson="4.5" sec="uses" />).
+
+<Check id="C5" />
+
+## Summary [#summary]
+
+- A forward contract fixes a price $F$ for a future trade; the long's payoff is $S_T - F$, and its value at signing is 0.
+- The cost-of-carry model: $F = S_0e^{(r - q)T}$; deviations allow arbitrage. The forward price reflects the cost of carry; it is not a forecast of the future price.
+- For commodities $q$ is the convenience yield minus storage costs; contango means $F > S$, backwardation $F < S$.
+- Futures are standardized forwards: margin, mark-to-market, high leverage, and losses paid in cash at once.
+- Hedging reduces uncertainty rather than raising expected returns; when the hedged asset differs from the futures' underlying there is basis risk; the optimal hedge ratio is the regression slope of spot on futures.
+
+## Exercises [#exercises]
+
+<Exercises />
