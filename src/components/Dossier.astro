@@ -1,0 +1,41 @@
+---
+// <Dossier id="household-a" /> — the household file of the capstone project, from course/project/<id>.yaml.
+import { toLang } from '../i18n/ui';
+import { renderRich } from '../lib/course';
+import { dossier, cellText } from '../lib/dossier';
+
+interface Props {
+	id: string;
+}
+const route = Astro.locals.starlightRoute;
+const lang = toLang(route.lang);
+const current = route.entry.data.lesson;
+const d = dossier(Astro.props.id);
+const rich = (s: string) => renderRich(s, lang, current);
+const paras = (s: string) => s.split(/\n\s*\n/).map((x) => rich(x.trim()));
+---
+
+<div class="lfwai-dossier">
+	<p class="lfwai-dossier-note" set:html={rich(d.note[lang])} />
+	{d.sections.map((s) => (
+		<details class="lfwai-dossier-section" id={`file-${s.id}`}>
+			<summary>{s.title[lang]}</summary>
+			{s.rows && s.columns && (
+				<div class="lfwai-table-wrap">
+					<table>
+						<thead>
+							<tr>{s.columns.map((c, i) => <th class={s.align?.[i] === 'r' ? 'num' : undefined}>{c[lang]}</th>)}</tr>
+						</thead>
+						<tbody>
+							{s.rows.map((r) => (
+								<tr>{r.map((c, i) => <td class={s.align?.[i] === 'r' ? 'num' : undefined} set:html={rich(cellText(c, lang))} />)}</tr>
+							))}
+						</tbody>
+					</table>
+				</div>
+			)}
+			{s.text && paras(s.text[lang]).map((h) => <p set:html={h} />)}
+			{s.after && paras(s.after[lang]).map((h) => <p set:html={h} />)}
+		</details>
+	))}
+</div>

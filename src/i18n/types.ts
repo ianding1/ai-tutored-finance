@@ -64,7 +64,13 @@ export type UiKey =
 	| 'routeTitle'
 	| 'routePublished'
 	| 'routeUpcoming'
-	| 'routeQuiz';
+	| 'routeQuiz'
+	| 'judgmentItem'
+	| 'copyDiscussion'
+	| 'copiedDiscussion'
+	| 'discussionHint'
+	| 'referenceTitle'
+	| 'referenceLocked';
 
 export type UiStrings = Record<UiKey, string>;
 
@@ -86,6 +92,8 @@ export interface GradingInput {
 	/** common errors relevant to these questions only */
 	commonErrors: string[];
 	questions: PromptQuestion[];
+	/** capstone discussions: the household file as plain text */
+	materials?: string;
 }
 
 export interface ExplainInput {
@@ -115,6 +123,11 @@ export interface PromptParts {
 export interface PromptTemplates {
 	/** feedback prompt for check questions, exercises and quizzes (not scored: "ok" / "revise") */
 	feedback(i: GradingInput, p: PromptParts): string;
+	/**
+	 * discussion prompt for the key judgments of the capstone project: the AI questions the learner's
+	 * judgment record one question at a time and marks each judgment "ok" or "revise" when done
+	 */
+	discussion(i: GradingInput, p: PromptParts): string;
 	/** explanation prompt for selected text */
 	explain(i: ExplainInput, p: PromptParts): string;
 }

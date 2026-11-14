@@ -1,0 +1,410 @@
+# The file of the main household of the capstone project (Stage 7). Every number in later lessons
+# comes from this file. Totals are checked by course/verify/7.0.py.
+# Cells: a number (shown with thousands separators), a language-neutral string, or text in every language.
+
+id: household-a
+
+title: { zh-cn: "Harlow 一家的档案", en: "The Harlow Household File" }
+
+note:
+  zh-cn: |-
+    本档案中的人物、雇主、银行、保险公司和基金都是虚构的，数字是为课程设计的。税务和账户规则按 2026 年的美国规定；市场利率是场景设定，不是真实行情。档案日期为 2026 年 1 月 2 日，金额单位为美元。
+  en: |-
+    The people, employer, bank, insurer and funds in this file are fictional, and the numbers were designed for the course. Tax and account rules are the 2026 US rules; market rates are scenario assumptions, not real quotes. The file is dated January 2, 2026, and amounts are in dollars.
+
+sections:
+  - id: members
+    title: { zh-cn: "家庭成员", en: "Household members" }
+    columns:
+      - { zh-cn: "成员", en: "Member" }
+      - { zh-cn: "年龄", en: "Age" }
+      - { zh-cn: "情况", en: "Situation" }
+    align: [l, r, l]
+    rows:
+      - - { zh-cn: "Mark Harlow（丈夫）", en: "Mark Harlow (husband)" }
+        - 38
+        - { zh-cn: "上市科技公司 Northwind Cloud（股票代码 NWCD）的高级软件工程师，入职 6 年", en: "Senior software engineer at Northwind Cloud, a listed tech company (ticker NWCD), for 6 years" }
+      - - { zh-cn: "Lisa Harlow（妻子）", en: "Lisa Harlow (wife)" }
+        - 36
+        - { zh-cn: "公立高中数学教师，教龄 10 年，参加州教师养老金计划", en: "Public high school math teacher for 10 years, in the state teachers' pension plan" }
+      - - { zh-cn: "Ella（女儿）", en: "Ella (daughter)" }
+        - 4
+        - { zh-cn: "2030 年秋天上小学", en: "Starts elementary school in fall 2030" }
+      - - { zh-cn: "Noah（儿子）", en: "Noah (son)" }
+        - 1
+        - { zh-cn: "上全日制托儿所", en: "In full-time childcare" }
+    after:
+      zh-cn: |-
+        住在华盛顿州（没有州工资所得税），2026 年夫妻合并申报，联邦普通所得的边际税率为 24%，长期资本利得税率为 15%。
+      en: |-
+        They live in Washington State (no state income tax on wages) and file jointly; in 2026 their federal marginal rate on ordinary income is 24%, and their long-term capital gains rate is 15%.
+
+  - id: cash-flow
+    title: { zh-cn: "2025 年收支（按工资单和银行记录整理）", en: "Income and spending in 2025 (from pay slips and bank records)" }
+    columns:
+      - { zh-cn: "项目", en: "Item" }
+      - { zh-cn: "金额", en: "Amount" }
+      - { zh-cn: "说明", en: "Note" }
+    align: [l, r, l]
+    rows:
+      - - { zh-cn: "**收入**", en: "**Income**" }
+        - ""
+        - ""
+      - - { zh-cn: "Mark 基本工资", en: "Mark, base salary" }
+        - 215000
+        - ""
+      - - { zh-cn: "Mark 奖金", en: "Mark, bonus" }
+        - 21500
+        - { zh-cn: "目标为工资的 10%", en: "Target 10% of salary" }
+      - - { zh-cn: "Mark RSU 归属", en: "Mark, RSUs vested" }
+        - 90000
+        - { zh-cn: "按归属日市值；以股票形式发放，其中 22% 被卖出用于预扣税，其余股票一直持有", en: "At market value on vesting; paid in shares, 22% sold to withhold tax, the remaining shares all kept" }
+      - - { zh-cn: "Lisa 工资", en: "Lisa, salary" }
+        - 78000
+        - ""
+      - - { zh-cn: "**从工资中扣除**", en: "**Deducted from pay**" }
+        - ""
+        - ""
+      - - { zh-cn: "Mark 401(k)（税前）", en: "Mark, 401(k) (pre-tax)" }
+        - 12900
+        - { zh-cn: "工资的 6%；公司按 50% 配款，最多到工资的 6%（即 6,450）", en: "6% of salary; the company matches 50%, up to 6% of salary (that is, 6,450)" }
+      - - { zh-cn: "Lisa 403(b)（税前）", en: "Lisa, 403(b) (pre-tax)" }
+        - 3900
+        - { zh-cn: "工资的 5%；学区没有配款", en: "5% of salary; no employer match" }
+      - - { zh-cn: "Lisa 养老金缴款（税前，强制）", en: "Lisa, pension contribution (pre-tax, required)" }
+        - 7020
+        - { zh-cn: "工资的 9%", en: "9% of salary" }
+      - - { zh-cn: "Mark ESPP", en: "Mark, ESPP" }
+        - 21500
+        - { zh-cn: "工资的 10%；每 6 个月按购买日股价的 85% 买入 NWCD，买到的股票一直持有", en: "10% of salary; every 6 months buys NWCD at 85% of the price on the purchase date; all shares kept" }
+      - - { zh-cn: "联邦所得税、社会保障税和医疗保险税", en: "Federal income tax, Social Security and Medicare taxes" }
+        - 88000
+        - { zh-cn: "其中 19,800 由出售 RSU 股票支付", en: "Of which 19,800 paid by selling RSU shares" }
+      - - { zh-cn: "**支出**", en: "**Spending**" }
+        - ""
+        - ""
+      - - { zh-cn: "房贷月供（本金加利息）", en: "Mortgage payments (principal and interest)" }
+        - 32364
+        - { zh-cn: "每月 2,697", en: "2,697 a month" }
+      - - { zh-cn: "房产税和房屋保险", en: "Property tax and home insurance" }
+        - 10200
+        - ""
+      - - { zh-cn: "托儿费", en: "Childcare" }
+        - 26400
+        - { zh-cn: "Noah 2030 年上幼儿园后基本停止", en: "Mostly ends when Noah starts kindergarten in 2030" }
+      - - { zh-cn: "车贷月供", en: "Car loan payments" }
+        - 9696
+        - { zh-cn: "每月 808", en: "808 a month" }
+      - - { zh-cn: "Lisa 终身寿险保费", en: "Lisa, whole life premium" }
+        - 3000
+        - ""
+      - - { zh-cn: "其他生活支出（食品、交通、医疗、旅行等）", en: "Other living costs (food, transport, health, travel and so on)" }
+        - 74340
+        - ""
+      - - { zh-cn: "支出合计", en: "Total spending" }
+        - 156000
+        - { zh-cn: "每月平均 13,000", en: "13,000 a month on average" }
+      - - { zh-cn: "**年末存入支票和储蓄账户的现金**", en: "**Cash added to checking and savings over the year**" }
+        - 44980
+        - { zh-cn: "另有 RSU 剩下的 70,200 和 ESPP 买入的约 25,300（按市值）以 NWCD 股票的形式留下", en: "In addition, 70,200 of remaining RSU shares and about 25,300 of ESPP shares (at market value) were kept as NWCD stock" }
+
+  - id: balance-sheet
+    title: { zh-cn: "资产与负债（2026 年 1 月 2 日）", en: "Assets and liabilities (January 2, 2026)" }
+    columns:
+      - { zh-cn: "项目", en: "Item" }
+      - { zh-cn: "金额", en: "Amount" }
+      - { zh-cn: "说明", en: "Note" }
+    align: [l, r, l]
+    rows:
+      - - { zh-cn: "**资产**", en: "**Assets**" }
+        - ""
+        - ""
+      - - { zh-cn: "支票和储蓄账户（Evergreen 国民银行）", en: "Checking and savings (Evergreen National Bank)" }
+        - 46000
+        - { zh-cn: "利率 0.4%", en: "Interest 0.4%" }
+      - - { zh-cn: "应税账户：NWCD 股票（RSU 归属）", en: "Taxable account: NWCD stock (from RSUs)" }
+        - 210000
+        - { zh-cn: "成本基础 152,000；其中约三分之二已持有超过一年", en: "Cost basis 152,000; about two thirds held more than a year" }
+      - - { zh-cn: "应税账户：NWCD 股票（ESPP）", en: "Taxable account: NWCD stock (from the ESPP)" }
+        - 31000
+        - { zh-cn: "成本基础（买入价）26,500，都在最近两年内买入", en: "Cost basis (purchase price) 26,500, all bought in the last two years" }
+      - - { zh-cn: "应税账户：Summit 科技成长基金", en: "Taxable account: Summit Tech Growth Fund" }
+        - 95000
+        - { zh-cn: "成本基础 70,000；费用率 0.95%；Mark 说这是“换房的钱”", en: "Cost basis 70,000; expense ratio 0.95%; Mark calls it \"the money for the new house\"" }
+      - - { zh-cn: "Mark 401(k)", en: "Mark, 401(k)" }
+        - 285000
+        - { zh-cn: "持有情况见“退休账户”", en: "See \"Retirement accounts\" for holdings" }
+      - - { zh-cn: "Lisa 403(b)", en: "Lisa, 403(b)" }
+        - 62000
+        - { zh-cn: "持有情况见“退休账户”", en: "See \"Retirement accounts\" for holdings" }
+      - - { zh-cn: "Lisa Roth IRA", en: "Lisa, Roth IRA" }
+        - 18000
+        - { zh-cn: "2055 年目标日期基金，费用率 0.12%；婚前开设，近几年没有存款", en: "2055 target-date fund, expense ratio 0.12%; opened before marriage, no contributions in recent years" }
+      - - { zh-cn: "529 计划（Ella）", en: "529 plan (Ella)" }
+        - 14000
+        - { zh-cn: "Noah 还没有 529 账户", en: "Noah has no 529 account yet" }
+      - - { zh-cn: "Lisa 终身寿险的退保价值", en: "Lisa, whole life policy, surrender value" }
+        - 24000
+        - { zh-cn: "见“保险”", en: "See \"Insurance\"" }
+      - - { zh-cn: "自住房（估计市值）", en: "Home (estimated market value)" }
+        - 980000
+        - ""
+      - - { zh-cn: "资产合计", en: "Total assets" }
+        - 1765000
+        - ""
+      - - { zh-cn: "**负债**", en: "**Liabilities**" }
+        - ""
+        - ""
+      - - { zh-cn: "房贷", en: "Mortgage" }
+        - 576600
+        - { zh-cn: "2021 年再融资，固定利率 2.875%，原为 30 年期 650,000，还剩 25 年；利息不逐项扣除", en: "Refinanced in 2021, fixed 2.875%, originally 650,000 over 30 years, 25 years left; interest not itemized" }
+      - - { zh-cn: "车贷", en: "Car loan" }
+        - 26000
+        - { zh-cn: "利率 7.4%，还剩 3 年", en: "Rate 7.4%, 3 years left" }
+      - - { zh-cn: "负债合计", en: "Total liabilities" }
+        - 602600
+        - ""
+      - - { zh-cn: "**净资产**", en: "**Net worth**" }
+        - 1162400
+        - ""
+    after:
+      zh-cn: |-
+        信用卡每月全额还清。Mark 还有尚未归属的 RSU，按今天的股价约值 260,000，在今后 3 年内按季度归属，离职时未归属的部分作废。
+      en: |-
+        Credit cards are paid in full each month. Mark also has unvested RSUs worth about 260,000 at today's price, vesting quarterly over the next 3 years; any unvested part is forfeited if he leaves.
+
+  - id: retirement-accounts
+    title: { zh-cn: "退休账户", en: "Retirement accounts" }
+    columns:
+      - { zh-cn: "账户与持有", en: "Account and holding" }
+      - { zh-cn: "市值", en: "Value" }
+      - { zh-cn: "年费用", en: "Annual cost" }
+    align: [l, r, r]
+    rows:
+      - - { zh-cn: "Mark 401(k)：标普 500 指数基金", en: "Mark, 401(k): S&P 500 index fund" }
+        - 171000
+        - "0.02%"
+      - - { zh-cn: "Mark 401(k)：大盘成长基金", en: "Mark, 401(k): large-cap growth fund" }
+        - 114000
+        - "0.68%"
+      - - { zh-cn: "Lisa 403(b)：SecureFuture 变额年金（投资于股票子账户）", en: "Lisa, 403(b): SecureFuture variable annuity (invested in stock subaccounts)" }
+        - 62000
+        - "1.60%"
+    after:
+      zh-cn: |-
+        Mark 的 401(k) 菜单还有：总债券市场指数基金（0.03%）、国际股票指数基金（0.05%）、稳定价值基金（0.30%）、2050 和 2055 年目标日期指数基金（0.08%）。计划允许超级后门 Roth（税后存款并转为 Roth），Mark 从未使用。
+
+        Lisa 的学区 403(b) 有两家供应商：她 2016 年由一位上门的销售代理开户的 SecureFuture 变额年金（年费用合计 1.60%；2026 年内转出要付 4% 的退保费，2027 年 3%，2028 年起为 0），以及另一家提供指数基金的供应商（标普 500 指数 0.04%、总债券指数 0.05%、目标日期指数基金 0.10%）。转到另一家供应商不需要交税。
+      en: |-
+        Mark's 401(k) menu also has: a total bond market index fund (0.03%), an international stock index fund (0.05%), a stable value fund (0.30%), and 2050 and 2055 target-date index funds (0.08%). The plan allows the mega backdoor Roth (after-tax contributions converted to Roth), which Mark has never used.
+
+        Lisa's district 403(b) has two providers: the SecureFuture variable annuity, opened in 2016 through a sales agent who visited the school (total annual cost 1.60%; moving out costs a 4% surrender charge in 2026, 3% in 2027 and 0 from 2028), and another provider of index funds (S&P 500 index 0.04%, total bond index 0.05%, target-date index funds 0.10%). Moving to the other provider is not taxed.
+
+  - id: insurance
+    title: { zh-cn: "保险与遗产安排", en: "Insurance and estate arrangements" }
+    columns:
+      - { zh-cn: "项目", en: "Item" }
+      - { zh-cn: "内容", en: "Details" }
+    align: [l, l]
+    rows:
+      - - { zh-cn: "Mark 团体寿险（公司提供）", en: "Mark, group life (from employer)" }
+        - { zh-cn: "工资的 2 倍，即 430,000；离职即终止", en: "2 times salary, that is 430,000; ends when he leaves the job" }
+      - - { zh-cn: "Mark 长期伤残险（公司支付保费）", en: "Mark, long-term disability (employer-paid)" }
+        - { zh-cn: "基本工资的 60%，每月最多 10,000，支付到 65 岁；因保费由公司支付，赔付要交所得税", en: "60% of base salary, at most 10,000 a month, paid to 65; because the employer pays the premium, benefits are taxable" }
+      - - { zh-cn: "Lisa 团体寿险（学区提供）", en: "Lisa, group life (from the district)" }
+        - "50,000"
+      - - { zh-cn: "Lisa 长期伤残险", en: "Lisa, long-term disability" }
+        - { zh-cn: "没有。学区提供自愿参加的伤残险：工资的 60%，支付到 65 岁，保费每年约 540", en: "None. The district offers voluntary coverage: 60% of salary, paid to 65, premium about 540 a year" }
+      - - { zh-cn: "Lisa 终身寿险（Pacific Crest 人寿，2015 年购买）", en: "Lisa, whole life policy (Pacific Crest Life, bought in 2015)" }
+        - { zh-cn: "保额 250,000；保费每年 3,000；现金价值 27,500，退保价值 24,000（退保费 2027 年结束）；保单演示：继续交费，10 年后保证的现金价值为 52,000", en: "Death benefit 250,000; premium 3,000 a year; cash value 27,500, surrender value 24,000 (surrender charge ends in 2027); policy illustration: with premiums continued, guaranteed cash value of 52,000 in 10 years" }
+      - - { zh-cn: "房屋保险和汽车保险", en: "Home and auto insurance" }
+        - { zh-cn: "免赔额都是 1,000；汽车责任险上限 100,000 / 300,000；没有伞险", en: "Deductibles 1,000; auto liability limits 100,000 / 300,000; no umbrella policy" }
+      - - { zh-cn: "医疗保险", en: "Health insurance" }
+        - { zh-cn: "Mark 公司的 PPO 家庭计划；公司也提供可以开设 HSA 的高免赔额计划，他们没有选", en: "Family PPO through Mark's employer; the employer also offers a high-deductible plan with an HSA, which they did not choose" }
+      - - { zh-cn: "遗嘱与受益人", en: "Wills and beneficiaries" }
+        - { zh-cn: "没有遗嘱，也没有为孩子指定监护人。Mark 401(k) 的受益人是 Lisa；Lisa 403(b) 的受益人是她的母亲（2016 年开户时填写，婚后没有改）", en: "No wills and no guardian named for the children. Mark's 401(k) beneficiary is Lisa; Lisa's 403(b) beneficiary is her mother (set when the account was opened in 2016, not changed after marriage)" }
+
+  - id: retirement-income
+    title: { zh-cn: "退休收入", en: "Retirement income" }
+    columns:
+      - { zh-cn: "来源", en: "Source" }
+      - { zh-cn: "62 岁", en: "At 62" }
+      - { zh-cn: "67 岁", en: "At 67" }
+      - { zh-cn: "70 岁", en: "At 70" }
+    align: [l, r, r, r]
+    rows:
+      - - { zh-cn: "Mark 社会保障金（每月，按今天的购买力）", en: "Mark, Social Security (a month, today's dollars)" }
+        - 2780
+        - 3970
+        - 4920
+      - - { zh-cn: "Lisa 社会保障金（每月，按今天的购买力）", en: "Lisa, Social Security (a month, today's dollars)" }
+        - 1610
+        - 2300
+        - 2850
+    after:
+      zh-cn: |-
+        社会保障金的估计假设两人一直工作到 67 岁；提前退休、工作年数减少时会低一些。
+
+        Lisa 的州教师养老金（课程简化的规则）：每年领取 $2\% \times$ 工作年数 $\times$ 最高 5 年平均工资，65 岁起全额领取，每提前一年减少 5%，最早 55 岁领取；领取后每年按通胀调整，最多 3%。她现在已工作 10 年。
+      en: |-
+        The Social Security estimates assume both work until 67; they are lower with early retirement and fewer working years.
+
+        Lisa's state teachers' pension (rules simplified for the course): a yearly benefit of $2\% \times$ years of service $\times$ the average of the highest 5 years' salary, in full from 65, reduced 5% for each year before 65, payable from 55 at the earliest; after it starts, it rises each year with inflation, at most 3%. She has 10 years of service now.
+
+  - id: goals
+    title: { zh-cn: "客户填写的目标（Mark 填写）", en: "Goals on the intake form (filled in by Mark)" }
+    columns:
+      - { zh-cn: "目标", en: "Goal" }
+      - { zh-cn: "Mark 写的内容", en: "What Mark wrote" }
+    align: [l, l]
+    rows:
+      - - { zh-cn: "换房", en: "A bigger home" }
+        - { zh-cn: "2030 年夏天搬进更好学区的房子；除了卖掉现有房子的所得，还需要另外 150,000 的首付", en: "Move to a better school district in summer 2030; needs 150,000 of down payment beyond the proceeds from selling the current home" }
+      - - { zh-cn: "孩子上大学", en: "College for the children" }
+        - { zh-cn: "两个孩子都上本州公立大学，我们负担一半费用；现在的费用（学费、食宿等）每年约 32,000", en: "Both children at an in-state public university, we pay half; the current cost (tuition, room and board and so on) is about 32,000 a year" }
+      - - { zh-cn: "退休", en: "Retirement" }
+        - { zh-cn: "我 55 岁退休；退休后每年花 120,000（按今天的购买力，税前）", en: "I retire at 55; spend 120,000 a year in retirement (today's dollars, before tax)" }
+      - - { zh-cn: "风险承受能力（1–10 分）", en: "Risk tolerance (1–10)" }
+        - { zh-cn: "9 分", en: "9" }
+
+  - id: market
+    title: { zh-cn: "市场利率（场景设定，2026 年 1 月）", en: "Market rates (scenario assumptions, January 2026)" }
+    columns:
+      - { zh-cn: "项目", en: "Item" }
+      - { zh-cn: "数值", en: "Value" }
+    align: [l, r]
+    rows:
+      - - { zh-cn: "高收益储蓄账户", en: "High-yield savings account" }
+        - "3.6%"
+      - - { zh-cn: "短期国债", en: "Treasury bills" }
+        - "3.8%"
+      - - { zh-cn: "2 年期 / 4 年期 / 10 年期国债收益率", en: "2-year / 4-year / 10-year Treasury yields" }
+        - "3.9% / 3.9% / 4.3%"
+      - - { zh-cn: "10 年期 TIPS 实际收益率", en: "10-year TIPS real yield" }
+        - "1.9%"
+      - - { zh-cn: "新发放的 30 年期固定利率房贷", en: "New 30-year fixed mortgages" }
+        - "6.3%"
+      - - { zh-cn: "过去 12 个月的 CPI 通胀率", en: "CPI inflation, last 12 months" }
+        - "2.7%"
+      - - { zh-cn: "NWCD 股价 / 市盈率", en: "NWCD share price / P/E" }
+        - "152 / 38"
+
+  - id: interview
+    title: { zh-cn: "初次面谈记录（节选）", en: "First meeting notes (excerpts)" }
+    text:
+      zh-cn: |-
+        **顾问**：先说说你们最关心的事情吧。
+
+        **Mark**：最重要的是 2030 年换房，Ella 那年秋天上小学，我们想搬到好一点的学区。钱应该没问题，Summit 那个基金过去三年涨了 40% 多。
+
+        **Lisa**：可是那个基金 2022 年跌得很厉害，我那年好几个月都睡不好。首付的钱我希望是稳的。搬家最多只能晚半年，不然 Ella 就要在旧学区先上一年。
+
+        **Mark**：我们年轻，能承担风险。我在表上写的是 9 分。2022 年我一股都没卖。
+
+        **顾问**：家里每个月大概花多少？
+
+        **Mark**：八千左右吧。
+
+        **Lisa**：不止吧？托儿所一个月就两千多，还有房贷。
+
+        **Mark**：哦，我说的是日常开销，房贷和托儿费没算在里面。
+
+        **顾问**：NWCD 的股票你们怎么看？
+
+        **Mark**：公司很好，我天天在里面工作，比外面的分析师都了解。RSU 我从来不卖，一卖就要交很多税。最近公司在冻结招聘，有传言说明年要裁员，不过我们组应该没事。
+
+        **顾问**：退休有什么打算？
+
+        **Mark**：我想 55 岁退休，像网上那些 FIRE 的人一样。
+
+        **Lisa**：我挺喜欢教书的，至少要教到 60 岁。我们没商量过这个。
+
+        **顾问**：孩子上大学呢？表上写的是负担一半。
+
+        **Lisa**：我希望我们能全部负担，不想让孩子背学生贷款。
+
+        **Mark**：那要存很多钱啊……我们再讨论吧。
+
+        **Lisa**：还有，我爸妈的退休金不多，也许十年后要我们每个月帮一点，具体多少还不知道。
+
+        **顾问**：保险方面呢？
+
+        **Lisa**：我有一份终身寿险，是我妈妈的朋友 2015 年卖给我的，她说既是保险又是投资。我们交了十年保费了，现在退掉太亏了。
+
+        **Mark**：我公司有寿险和伤残险，应该够了。
+
+        **顾问**：有遗嘱吗？
+
+        **Mark**：还没有，一直想做。
+
+        **Lisa**：对了，我们的邻居说应该先把房贷还清，没有负债最安全。你觉得呢？
+      en: |-
+        **Adviser**: Let's start with what matters most to you.
+
+        **Mark**: The most important thing is moving in 2030. Ella starts elementary school that fall, and we want to be in a better school district. The money should be fine; that Summit fund is up more than 40% over the past three years.
+
+        **Lisa**: But that fund fell hard in 2022, and I couldn't sleep for months that year. I want the down-payment money to be safe. We can move at most six months late; otherwise Ella would have to spend a year in the old district.
+
+        **Mark**: We're young, we can take risk. I put 9 on the form. I didn't sell a single share in 2022.
+
+        **Adviser**: About how much do you spend a month?
+
+        **Mark**: Around eight thousand.
+
+        **Lisa**: Isn't it more? Childcare alone is over two thousand a month, and there's the mortgage.
+
+        **Mark**: Oh, I meant everyday spending, without the mortgage and childcare.
+
+        **Adviser**: What do you think about the NWCD stock?
+
+        **Mark**: It's a great company. I work there every day, so I know it better than any outside analyst. I never sell my RSUs; selling means paying a lot of tax. The company has a hiring freeze right now, and there are rumors of layoffs next year, but my team should be fine.
+
+        **Adviser**: What are your plans for retirement?
+
+        **Mark**: I want to retire at 55, like the FIRE people online.
+
+        **Lisa**: I like teaching. I want to teach until at least 60. We haven't talked about this.
+
+        **Adviser**: And college for the children? The form says you'll pay half.
+
+        **Lisa**: I'd like us to pay all of it. I don't want the kids to have student loans.
+
+        **Mark**: That's a lot of saving... let's talk about it later.
+
+        **Lisa**: Also, my parents don't have much retirement income. In ten years or so they might need some help from us each month; we don't know how much yet.
+
+        **Adviser**: What about insurance?
+
+        **Lisa**: I have a whole life policy. My mom's friend sold it to me in 2015; she said it's both insurance and an investment. We've paid premiums for ten years, so cancelling it now would be a big loss.
+
+        **Mark**: My company gives me life and disability insurance. That should be enough.
+
+        **Adviser**: Do you have wills?
+
+        **Mark**: Not yet. We keep meaning to.
+
+        **Lisa**: Oh, and our neighbor says we should pay off the mortgage first, because having no debt is safest. What do you think?
+
+  - id: advice
+    title: { zh-cn: "客户转来的材料", en: "Material the clients forwarded" }
+    text:
+      zh-cn: |-
+        **1. SecureFuture 销售代理给 Lisa 的信（节选）**：“您的 403(b) 年金账户十年来表现稳健。建议您把账户转入我们新推出的指数年金：参与标普 500 上涨的 60%（每年上限 9%），市场下跌时本金零损失。另外，建议为两个孩子各买一份指数型万能寿险（IUL），作为免税的大学储蓄。”
+
+        **2. 邻居的建议（Lisa 转述）**：“先把房贷还清，没有负债最安全。我们去年就还清了，感觉特别好。”
+
+        **3. 一篇新闻（Mark 转发）**：“多位策略师警告，科技股估值处于 2000 年以来最高水平，建议投资者把一部分资金转为现金，等待回调。”
+
+        **4. 一个智能投顾网站的问卷结果（Mark 填写）**：“年龄 38 岁，风险偏好：进取。建议配置：股票 90%，债券 10%。”
+
+        **5. Mark 同事的话**：“NWCD 未来三年市值肯定翻倍，RSU 千万别卖。”
+      en: |-
+        **1. A letter from the SecureFuture sales agent to Lisa (excerpt)**: "Your 403(b) annuity account has performed steadily for ten years. We recommend moving it into our new indexed annuity: you receive 60% of the S&P 500's gains (capped at 9% a year), with zero loss of principal when markets fall. We also recommend an indexed universal life (IUL) policy for each child as tax-free college savings."
+
+        **2. The neighbor's advice (as Lisa reports it)**: "Pay off the mortgage first. Having no debt is safest. We paid ours off last year and it feels great."
+
+        **3. A news article (forwarded by Mark)**: "Several strategists warn that tech valuations are the highest since 2000 and advise investors to move some money to cash and wait for a pullback."
+
+        **4. A robo-adviser questionnaire result (filled in by Mark)**: "Age 38, risk profile: aggressive. Suggested allocation: 90% stocks, 10% bonds."
+
+        **5. What a coworker told Mark**: "NWCD's market value will definitely double in the next three years. Never sell your RSUs."

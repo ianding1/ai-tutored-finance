@@ -34,7 +34,8 @@ export interface Concept {
 
 export interface Question {
 	id: string;
-	kind: 'check' | 'exercise' | 'quiz';
+	/** 'judgment': a key judgment of the capstone project, discussed with the AI rather than graded */
+	kind: 'check' | 'exercise' | 'quiz' | 'judgment';
 	section?: string;
 	/** quiz questions only: 'judge' (true / false with reasons) or 'problem' */
 	part?: 'judge' | 'problem';
@@ -70,6 +71,8 @@ export interface CommonError {
 
 export interface LessonKey {
 	lesson: string;
+	/** capstone lessons: the household file (course/project/<id>.yaml) the judgments are about */
+	project?: string;
 	context: ContextItem[];
 	common_errors: CommonError[];
 	questions: Question[];

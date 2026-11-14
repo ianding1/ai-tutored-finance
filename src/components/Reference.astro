@@ -1,0 +1,34 @@
+---
+// <Reference /> — the reference solution of a capstone step: the reference conclusion and the judgment
+// points of each judgment. It is shown only when every judgment of the step is marked ok; the site reads
+// the stored results and stores nothing new. (A static site cannot hide it completely.)
+import { t, toLang } from '../i18n/ui';
+import { lessonKey, renderRich } from '../lib/course';
+import { questionLabel } from '../lib/grading';
+
+const route = Astro.locals.starlightRoute;
+const lang = toLang(route.lang);
+const lessonId = route.entry.data.lesson;
+if (!lessonId) throw new Error('<Reference> can only be used on a lesson page (frontmatter "lesson")');
+const qs = (lessonKey(lessonId)?.questions ?? []).filter((q) => q.kind === 'judgment');
+const rich = (s: string) => renderRich(s, lang, lessonId);
+const paras = (s: string) => s.split(/\n\s*\n/).map((x) => rich(x.trim()));
+---
+
+<section class="lfwai-reference not-content" data-reference={lessonId} data-ids={qs.map((q) => q.id).join(' ')}>
+	<p class="lfwai-hint" data-reference-locked>{t(lang, 'referenceLocked')}</p>
+	<div data-reference-body hidden>
+		{qs.map((q) => (
+			<div class="lfwai-q">
+				<div class="lfwai-q-head"><span class="lfwai-q-label">{questionLabel(q, lang)}</span></div>
+				{paras(q.answer[lang]).map((h) => <p set:html={h} />)}
+				<ul>{(q.rubric?.[lang] ?? []).map((r) => <li set:html={rich(r)} />)}</ul>
+			</div>
+		))}
+	</div>
+</section>
+
+<script>
+	import { initReference } from '../scripts/reference';
+	initReference();
+</script>

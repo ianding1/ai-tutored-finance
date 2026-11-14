@@ -91,7 +91,8 @@ export interface GradeResult {
  */
 export function parseResult(text: string): GradeResult | null {
 	let body = text;
-	const m = text.match(/<<<\s*LFWAI-RESULT([\s\S]*?)LFWAI-RESULT\s*>>>/);
+	// The closing marker is sometimes cut short (">>" instead of ">>>") or missing; the opening marker is enough.
+	const m = text.match(/<<<\s*LFWAI-RESULT([\s\S]*?)(?:LFWAI-RESULT\s*>*|$)/);
 	if (m) body = m[1];
 	const start = body.indexOf('{');
 	const end = body.lastIndexOf('}');

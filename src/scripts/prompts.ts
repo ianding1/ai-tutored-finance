@@ -29,3 +29,12 @@ export function gradingPrompt(i: GradingInput): string {
 export function explainPrompt(i: ExplainInput): string {
 	return LOCALES[i.lang].prompts.explain(i, parts());
 }
+
+/**
+ * Discussion prompt for the key judgments of the capstone project. Like the feedback prompt it holds
+ * nothing about the learner; the learner's judgment records follow it.
+ */
+export function discussionPrompt(i: GradingInput): string {
+	const first = i.questions[0];
+	return LOCALES[i.lang].prompts.discussion(i, parts({ v: 2, lesson: i.lessonId, items: [{ id: first?.id ?? '', status: 'ok' }] }));
+}

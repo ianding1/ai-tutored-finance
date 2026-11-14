@@ -1144,3 +1144,33 @@ a.lfwai-route-mark:focus-visible {
 .lfwai-legend .sw.sw-target {
 	border-top: 3px solid var(--viz-b);
 }
+
+/* The household file of the capstone project: one collapsible block per section. */
+.lfwai-dossier-note {
+	color: var(--sl-color-gray-2);
+}
+.lfwai-dossier-section {
+	margin-top: 0.5rem;
+	border-top: 1px solid var(--sl-color-gray-5);
+	padding: 0.4rem 0;
+}
+.lfwai-dossier-section > summary {
+	cursor: pointer;
+	font-weight: 600;
+}
+.lfwai-dossier-section[open] > summary {
+	margin-bottom: 0.5rem;
+}
+.lfwai-dossier .lfwai-table-wrap {
+	overflow-x: auto;
+}
+.lfwai-dossier :is(th, td).num {
+	text-align: end;
+	white-space: nowrap;
+}
+.lfwai-dossier td {
+	vertical-align: top;
+}
+.lfwai-reference {
+	margin: 1.5rem 0;
+}

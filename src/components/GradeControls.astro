@@ -7,13 +7,15 @@ import { toJson } from '../lib/grading';
 interface Props {
 	lang: Lang;
 	payload: unknown;
+	/** 'discussion' for the key judgments of the capstone project */
+	mode?: 'feedback' | 'discussion';
 }
-const { lang, payload } = Astro.props;
+const { lang, payload, mode = 'feedback' } = Astro.props;
 ---
 
 <div class="lfwai-controls">
-	<button type="button" class="lfwai-btn lfwai-btn-primary" data-grade>{t(lang, 'copyFeedback')}</button>
-	<p class="lfwai-hint">{t(lang, 'copyHint')}</p>
+	<button type="button" class="lfwai-btn lfwai-btn-primary" data-grade>{t(lang, mode === 'discussion' ? 'copyDiscussion' : 'copyFeedback')}</button>
+	<p class="lfwai-hint">{t(lang, mode === 'discussion' ? 'discussionHint' : 'copyHint')}</p>
 	<details class="lfwai-result">
 		<summary>{t(lang, 'pasteResult')}</summary>
 		<p class="lfwai-hint">{t(lang, 'pasteHint')}</p>

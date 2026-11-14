@@ -63,6 +63,8 @@ by_id = {l["id"]: l for l in lessons}
 concepts: dict = load_yaml(COURSE / "concepts.yaml")
 widgets: dict = load_yaml(COURSE / "widgets.yaml")
 keys = {p.stem: load_yaml(p) for p in sorted((COURSE / "keys").glob("*.yaml"))}
+# Household files of the capstone project (Stage 7).
+projects = {p.stem: load_yaml(p) for p in sorted((COURSE / "project").glob("*.yaml"))}
 
 
 def doc_path(lang: str, slug_path: str) -> Path:
@@ -288,6 +290,8 @@ def check_keys():
             if f not in key:
                 err(file, f"missing '{f}'")
         check_bilingual(file, key)
+        if key.get("project") and key["project"] not in projects:
+            err(file, f"project '{key['project']}' has no file course/project/{key['project']}.yaml")
         qids = [q["id"] for q in key.get("questions", [])]
         if len(qids) != len(set(qids)):
             err(file, "duplicate question ids")
@@ -318,8 +322,8 @@ def check_keys():
             if l.get("exam"):
                 if kind != "quiz":
                     err(where, "questions of a quiz must have kind: quiz")
-            elif kind not in ("check", "exercise"):
-                err(where, "kind must be check or exercise (quiz questions belong to a quiz)")
+            elif kind not in ("check", "exercise", "judgment"):
+                err(where, "kind must be check, exercise or judgment (quiz questions belong to a quiz)")
             if kind == "quiz":
                 if q.get("part") not in ("judge", "problem"):
                     err(where, "quiz questions need part: judge or problem")
@@ -415,6 +419,14 @@ def check_keys():
             n_ex = sum(1 for name, _ in tags(body) if name == "Exercises")
             if has_ex and n_ex != 1:
                 err(rel(p), "the lesson has exercises, so the page must contain <Exercises /> exactly once")
+            # Key judgments of the capstone project: discussed with one prompt, reference shown when all are ok.
+            has_j = any(q["kind"] == "judgment" for q in key["questions"])
+            for comp in ("Judgments", "Reference"):
+                n = sum(1 for name, _ in tags(body) if name == comp)
+                if has_j and n != 1:
+                    err(rel(p), f"the lesson has key judgments, so the page must contain <{comp} /> exactly once")
+                if not has_j and n:
+                    err(rel(p), f"the lesson has no key judgments, so remove <{comp} />")
             sections = section_of_tags(body)
             for q in key["questions"]:
                 if q["kind"] == "check" and q["id"] in sections and q.get("section") != sections[q["id"]]:
@@ -592,6 +604,7 @@ def lock_entries() -> dict[str, dict[str, str]]:
         }
     files = {"course/curriculum.yaml": curriculum, "course/concepts.yaml": concepts}
     files.update({f"course/keys/{k}.yaml": v for k, v in keys.items()})
+    files.update({f"course/project/{k}.yaml": v for k, v in projects.items()})
     for file, data in files.items():
         def fn(path, node, file=file):
             entries[f"{file}#{path}"] = {lang: sha(json.dumps(node[lang], ensure_ascii=False)) for lang in LANGS if lang in node}
@@ -715,6 +728,9 @@ def check_widgets():
 def check_lint():
     files = [doc_path(lang, str(r)) for r in source_docs() for lang in LANGS]
     files += [COURSE / f"keys/{k}.yaml" for k in keys]
+    files += [COURSE / f"project/{k}.yaml" for k in projects]
+    for k, data in projects.items():
+        check_bilingual(f"course/project/{k}.yaml", data)
     for p in files:
         if not p.exists():
             continue
@@ -741,6 +757,12 @@ def chinese_texts(lang: str):
         for path, v in found:
             for s in all_strings(v):
                 yield f"course/keys/{lesson_id}.yaml {path}", s, False
+    for k, data in projects.items():
+        found = []
+        walk_bilingual(data, "", lambda path, node: found.append((path, node.get(lang))))
+        for path, v in found:
+            for s in all_strings(v):
+                yield f"course/project/{k}.yaml {path}", s, False
 
 
 def check_chinese(lang: str):
@@ -797,9 +819,9 @@ def check_locales():
                     err(rel(f), f"Chinese UI string '{m.group(1)}' uses 'prompt'; write 提示词 / 提示詞")
         if not re.search(r"const DISCLAIMER\s*=", src):
             err(rel(f), "defines no DISCLAIMER (the statement that the course content is AI-generated)")
-        bodies = re.split(r"^\t\t(feedback|explain)\(", src, flags=re.M)
+        bodies = re.split(r"^\t\t(feedback|discussion|explain)\(", src, flags=re.M)
         found = dict(zip(bodies[1::2], bodies[2::2]))
-        for name in ("feedback", "explain"):
+        for name in ("feedback", "discussion", "explain"):
             if name not in found:
                 err(rel(f), f"missing prompt template {name}()")
             elif "${DISCLAIMER}" not in found[name]:

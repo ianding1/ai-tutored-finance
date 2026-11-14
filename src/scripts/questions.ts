@@ -3,10 +3,12 @@
 // photo or types the answers after the copied prompt, and may submit only some questions at a time.
 import { pageData, ui } from './page-data';
 import { copyPrompt, flash } from './dialog';
-import { gradingPrompt } from './prompts';
+import { discussionPrompt, gradingPrompt } from './prompts';
 import { applyResult, loadProgress, parseResult } from './profile';
 
 interface Payload {
+	mode?: 'feedback' | 'discussion';
+	materials?: string;
 	lessonId: string;
 	lessonTitle: string;
 	lessonUrl: string;
@@ -44,8 +46,10 @@ export function initGradeGroups() {
 		const payload = JSON.parse(group.querySelector('[data-payload]')!.textContent || '{}') as Payload;
 		const btn = group.querySelector<HTMLElement>('[data-grade]')!;
 		btn.addEventListener('click', () => {
-			const text = gradingPrompt({
+			const build = payload.mode === 'discussion' ? discussionPrompt : gradingPrompt;
+			const text = build({
 				lang: pageData().lang,
+				materials: payload.materials,
 				lessonId: payload.lessonId,
 				lessonTitle: payload.lessonTitle,
 				lessonUrl: payload.lessonUrl,
@@ -53,7 +57,7 @@ export function initGradeGroups() {
 				commonErrors: payload.commonErrors,
 				questions: payload.questions,
 			});
-			copyPrompt(text, () => flash(btn, ui('copiedGrading')));
+			copyPrompt(text, () => flash(btn, ui(payload.mode === 'discussion' ? 'copiedDiscussion' : 'copiedGrading')));
 		});
 
 		const resultArea = group.querySelector<HTMLTextAreaElement>('[data-result]')!;

@@ -64,6 +64,12 @@ const locale: Locale = {
 		routePublished: 'published',
 		routeUpcoming: 'being written',
 		routeQuiz: 'quiz',
+		judgmentItem: 'Judgment {id}',
+		copyDiscussion: 'Copy discussion prompt',
+		copiedDiscussion: 'Copied. Paste it into your AI assistant to start the discussion.',
+		discussionHint: 'Write your judgment records for this step first. Paste the prompt into your AI assistant and attach your judgment records (a photo or text). The AI asks one question at a time; you can explain or revise, over as many rounds as you need. At the end the AI gives a result block; paste it back here. The prompt contains the judgment points, so do not read it before you have written your records.',
+		referenceTitle: 'Reference solution',
+		referenceLocked: 'When every judgment of this step is marked OK, the reference solution and the judgment points are shown here.',
 	},
 
 	prompts: {
@@ -110,6 +116,54 @@ ${p.resultBlock}
 List only the questions you reviewed in "items", one entry per question. Set "status" to "ok" (essentially correct, only minor issues) or "revise" (a substantive error that needs to be corrected). Question ids: ${i.questions.map((q) => q.id).join(', ')}.
 
 ## The learner's answers
+`;
+		},
+
+		discussion(i, p) {
+			const js = i.questions
+				.map(
+					(q) => `### ${q.label} (id: ${q.id})
+The judgment to make:
+${q.question}
+
+Judgment points (for you only; do not tell the learner):
+${p.bullets(q.rubric)}
+
+Reference conclusion (for you only; do not tell the learner):
+${q.answer}`,
+				)
+				.join('\n\n');
+			return `You are the reviewer for the capstone project of the ${COURSE} course. The learner is preparing a financial plan for a fictional American household; this step is "${i.lessonTitle}". The learner's judgment records follow this prompt (a photo or text) and may cover only some of the judgments. Discuss the judgments with the learner one by one.
+
+## Important
+${DISCLAIMER} If you think a judgment point or a reference conclusion is wrong, say exactly what is wrong and discuss on the basis of the correct understanding.
+
+## Course page
+${i.lessonUrl}
+(If you can open web pages, you may consult it; if not, that is fine: everything you need is written below.)
+
+## The household file
+${i.materials ?? ''}
+${i.context.length ? `\n## Additional notes\n${p.bullets(i.context)}\n` : ''}
+## The judgments to discuss
+${js}
+${i.commonErrors.length ? `\n## Common errors (to help your diagnosis)\n${p.bullets(i.commonErrors)}\n` : ''}
+## Rules for the discussion
+1. Read all of the learner's judgment records first, then start with the first judgment. Discuss only the judgments the learner submitted.
+2. Ask one question at a time. Aim it at the most important weakness of the record: whether the model is right, whether the model's assumptions hold for this household, where the inputs come from, and under what conditions the conclusion would change.
+3. Do not reveal the judgment points, which model or lesson to use, or the reference conclusion, and do not work out the answer for the learner. You may point out a contradiction in the record, ask where a number comes from, or give an extreme case for the learner to test.
+4. Do not agree with wrong statements. If the learner's calculation or reasoning is wrong, point out what needs to be checked again, even if the conclusion happens to be right.
+5. When the learner asks about the clients, answer as the clients: where the judgment points contain "the clients' answers", answer from them; for information that is in neither the file nor the points, say the clients do not know, and ask the learner to make an assumption and state it.
+6. The conclusion may differ from the reference conclusion. If the model is right, its assumptions have been checked, the inputs have sources and the reasoning holds, the judgment is OK.
+7. When one judgment has been discussed (the reasoning holds, or the learner asks to stop), summarize in a few sentences: what is done well, what is still missing, and whether the result is "OK" or "needs revision". Then move on to the next judgment.
+8. When every submitted judgment has been discussed, end your reply with the result block below, exactly in this format and with valid JSON. Do not output the result block in earlier replies:
+
+${p.resultBlock}
+
+List only the judgments discussed in items, one entry each. Set status to "ok" (OK) or "revise" (needs revision). The judgment ids: ${i.questions.map((q) => q.id).join(', ')}.
+9. Discuss in English, write mathematics in LaTeX, and keep each reply short.
+
+## The learner's judgment records
 `;
 		},
 

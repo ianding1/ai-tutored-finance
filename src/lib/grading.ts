@@ -10,10 +10,12 @@ import {
 	errorsFor,
 	type Question,
 } from './course';
+import { dossierPlain } from './dossier';
 
 export function questionLabel(q: Question, lang: Lang, n?: number): string {
 	if (q.kind === 'check') return t(lang, 'check', { id: q.id });
 	if (q.kind === 'quiz') return t(lang, 'quizItem', { n: n ?? q.id.replace(/\D/g, '') });
+	if (q.kind === 'judgment') return t(lang, 'judgmentItem', { id: q.id });
 	return t(lang, 'exerciseItem', { n: n ?? q.id.replace(/\D/g, '') });
 }
 
@@ -26,7 +28,11 @@ export function gradingPayload(lessonId: string, qs: Question[], lang: Lang) {
 	const l = lesson(lessonId);
 	const key = lessonKey(lessonId)!;
 	const exerciseNumber = new Map(key.questions.filter((q) => q.kind === 'exercise').map((q, i) => [q.id, i + 1]));
+	const discussion = qs.some((q) => q.kind === 'judgment');
 	return {
+		// Judgments of the capstone project are discussed with the AI, with the household file in the prompt.
+		mode: discussion ? 'discussion' : 'feedback',
+		materials: discussion && key.project ? dossierPlain(key.project, lang) : '',
 		lessonId,
 		lessonTitle: l.title[lang],
 		lessonUrl: absolute(lessonPath(l, lang)),
