@@ -653,6 +653,5 @@ stages:
       - { id: "7.2", slug: "7-2-equity-tax-debt-insurance", title: { zh-cn: "关键判断二：雇主股票、税务账户、负债与保险", en: "Key Judgments II: Employer Stock, Tax Accounts, Debt and Insurance" } }
       - { id: "7.3", slug: "7-3-ips", title: { zh-cn: "投资政策说明书与执行计划", en: "The Investment Policy Statement and the Implementation Plan" } }
       - { id: "7.4", slug: "7-4-three-years", title: { zh-cn: "三年中的事件与调整", en: "Three Years of Events and Adjustments" } }
-      - { id: "7.5", slug: "7-5-short-cases", title: { zh-cn: "短案例", en: "Short Cases" } }
-      - { id: "7.6", slug: "7-6-defense-transfer", title: { zh-cn: "答辩与迁移", en: "Defense and Transfer" } }
-      - { id: "7.7", slug: "7-7-choosing-advisers", title: { zh-cn: "怎样选择与评估顾问", en: "How to Choose and Evaluate an Adviser" } }
+      - { id: "7.5", slug: "7-5-short-cases", title: { zh-cn: "短案例与迁移（含已退休家庭）", en: "Short Cases and Transfer (Including a Retired Household)" } }
+      - { id: "7.6", slug: "7-6-choosing-advisers", title: { zh-cn: "怎样选择与评估顾问", en: "How to Choose and Evaluate an Adviser" } }
