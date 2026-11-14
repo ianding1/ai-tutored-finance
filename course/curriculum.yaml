@@ -553,10 +553,42 @@ stages:
         published: true
         introduces: [due-diligence, performance-attribution, liquidity-mismatch]
         uses: [principal-agent-problem, maximum-drawdown, factor-loading, multifactor-model, jensens-alpha, expense-ratio, turnover-ratio, net-asset-value, active-management, bank-run, closed-end-fund]
-      - { id: "6.5", slug: "6-5-accounts-taxes", title: { zh-cn: "账户与税务（美国）", en: "Accounts and Taxes (US)" } }
-      - { id: "6.6", slug: "6-6-household-balance-sheet", title: { zh-cn: "家庭资产负债表与风险保障", en: "The Household Balance Sheet and Insurance" } }
-      - { id: "6.7", slug: "6-7-asset-allocation", title: { zh-cn: "资产配置", en: "Asset Allocation" } }
-      - { id: "6.8", slug: "6-8-stock-research", title: { zh-cn: "选股流程", en: "The Stock Research Process" } }
+      - id: "6.5"
+        slug: "6-5-accounts-taxes"
+        title: { zh-cn: "账户与税务（美国）", en: "Accounts and Taxes (US)" }
+        summary:
+          zh-cn: "应税账户中的资本利得与股利税；401(k)、IRA 与 Roth；HSA 与 529；后门 Roth；RSU、ESPP 与 AMT；资产位置；税损收割与洗售规则。数字为 2026 纳税年度的联邦规则。"
+          en: "Capital gains and dividend taxes in taxable accounts; 401(k), IRA and Roth; HSA and 529; the backdoor Roth; RSUs, ESPPs and the AMT; asset location; tax-loss harvesting and the wash sale rule. Figures are federal rules for tax year 2026."
+        published: true
+        introduces: [long-term-capital-gain, qualified-dividend, traditional-account, roth-account, health-savings-account, plan-529, backdoor-roth, restricted-stock-unit, employee-stock-purchase-plan, alternative-minimum-tax, asset-location, tax-loss-harvesting, wash-sale-rule]
+        uses: [compound-interest, present-value, human-capital, employee-stock-option, capital-gains-distribution, expense-ratio, index-fund]
+      - id: "6.6"
+        slug: "6-6-household-balance-sheet"
+        title: { zh-cn: "家庭资产负债表与风险保障", en: "The Household Balance Sheet and Insurance" }
+        summary:
+          zh-cn: "家庭资产负债表与人力资本；应急基金；提前还贷还是投资；定期寿险、伤残险与伞险；遗嘱、受益人指定与信托。"
+          en: "The household balance sheet and human capital; the emergency fund; prepaying debt versus investing; term life, disability and umbrella insurance; wills, beneficiary designations and trusts."
+        published: true
+        introduces: [household-balance-sheet, emergency-fund, term-life-insurance, disability-insurance, beneficiary-designation]
+        uses: [human-capital, risk-aversion, annuity, real-interest-rate, stock-bond-correlation, principal-agent-problem, traditional-account]
+      - id: "6.7"
+        slug: "6-7-asset-allocation"
+        title: { zh-cn: "资产配置", en: "Asset Allocation" }
+        summary:
+          zh-cn: "战略配置与战术配置；生命周期与下滑路径的实践；国际分散与本土偏好；再平衡的规则、成本与税务。"
+          en: "Strategic and tactical allocation; lifecycle allocation and glide paths in practice; international diversification and home bias; rebalancing rules, costs and taxes."
+        published: true
+        introduces: [strategic-asset-allocation, tactical-asset-allocation, home-bias, rebalancing]
+        uses: [capital-market-assumptions, target-date-fund, human-capital, market-portfolio, currency-hedging, portfolio-variance, momentum, asset-location, long-term-capital-gain, efficient-market-hypothesis]
+      - id: "6.8"
+        slug: "6-8-stock-research"
+        title: { zh-cn: "选股流程", en: "The Stock Research Process" }
+        summary:
+          zh-cn: "读 10-K、10-Q、8-K 与财报电话会；用五力模型分析行业；把估值反过来用：反向 DCF；写投资逻辑与反方论点；仓位与集中度。"
+          en: "Reading 10-Ks, 10-Qs, 8-Ks and earnings calls; analyzing an industry with the five forces; turning valuation around with a reverse DCF; writing an investment thesis and the case against it; position size and concentration."
+        published: true
+        introduces: [form-10-k, five-forces, reverse-dcf, investment-thesis]
+        uses: [barriers-to-entry, economic-moat, return-on-invested-capital, wacc, earnings-quality, gordon-growth-model, overconfidence, disposition-effect, firm-specific-risk, portfolio-variance, efficient-market-hypothesis, terminal-value]
       - { id: "6.9", slug: "6-9-retirement-planning", title: { zh-cn: "退休规划", en: "Retirement Planning" } }
       - { id: "6.10", slug: "6-10-risk-management", title: { zh-cn: "风险管理与常见错误", en: "Risk Management and Common Mistakes" } }
       - { id: "6.11", slug: "6-11-inflation-real-returns", title: { zh-cn: "通胀与实际收益", en: "Inflation and Real Returns" } }

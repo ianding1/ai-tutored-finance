@@ -1,0 +1,85 @@
+---
+title: 6.5 Accounts and Taxes (US)
+description: Capital gains and dividend taxes in taxable accounts; 401(k), IRA and Roth; HSA and 529; the backdoor Roth; RSUs, ESPPs and the AMT; asset location; tax-loss harvesting and the wash sale rule. Figures are federal rules for tax year 2026.
+lesson: "6.5"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import AccountCompare from '../../../../components/widgets/AccountCompare.astro';
+
+The same investment held in different accounts can give very different after-tax results. This lesson introduces the accounts US households commonly use and the main tax rules that matter for investing. Unless stated otherwise, figures are federal rules for tax year 2026 (filed in 2027), from the inflation adjustments the Internal Revenue Service (IRS) announced in October and November 2025, including changes made by the 2025 One Big Beautiful Bill Act. The figures change every year and laws change too, so check the IRS announcements for the year in question; state income tax rules are separate. This lesson explains rules and their effect on investment decisions; it is not tax advice.
+
+## Taxable accounts [#taxable]
+
+In an ordinary brokerage account (a taxable account), interest is taxed at ordinary income tax rates, like wages. In 2026, for married couples filing jointly, taxable income above 100,800 dollars is taxed at 22%, above 211,400 dollars at 24%, above 403,550 dollars at 32%, and the top rate is 37%.
+
+Gains on securities are taxed only when they are sold. A gain on a sale after holding for more than one year is a <Def id="long-term-capital-gain">long-term capital gain</Def> and is taxed at lower rates: in 2026, for married couples filing jointly, at 0% on taxable income up to 98,900 dollars, 15% up to 613,700 dollars, and 20% above. Short-term gains, on holdings of one year or less, are taxed at ordinary income rates. A dividend from a US company that meets holding-period requirements is a <Def id="qualified-dividend">qualified dividend</Def>; such dividends are also taxed at long-term capital gains rates. In addition, at higher incomes (modified adjusted gross income above 250,000 dollars for married couples filing jointly or 200,000 dollars for single filers; these thresholds are not adjusted for inflation) investment income is subject to a 3.8% net investment income tax (NIIT).
+
+<Check id="C1" />
+
+## Retirement accounts: traditional and Roth [#retirement-accounts]
+
+Both employer 401(k) plans and individual retirement accounts (IRAs) come in two forms:
+
+- A <Def id="traditional-account">traditional account</Def>: money put in is tax-free that year (deducted from pay for a 401(k), deductible below certain incomes for an IRA), investment returns are not taxed inside the account, and withdrawals are fully taxed at the ordinary income rate at the time.
+- A <Def id="roth-account">Roth account</Def>: money put in has already been taxed, investment returns are not taxed, and qualified withdrawals are tax-free.
+
+In 2026 the employee contribution limit for a 401(k) is 24,500 dollars (8,000 dollars more at age 50 or over, 11,250 dollars more at ages 60–63), with employer matching on top; the IRA limit is 7,500 dollars (1,100 dollars more at 50 or over). For married couples filing jointly, the amount that can be put directly into a Roth IRA phases out to 0 between modified adjusted gross incomes of 242,000 and 252,000 dollars. An employer match is an immediate return, so contributing at least enough to get the full match is usually wise. Money taken out of retirement accounts before age 59½ generally incurs a 10% penalty; traditional accounts require minimum distributions (RMDs) each year from age 73.
+
+<Figure id="2-1" title="After-tax wealth after 30 years at a 7% yearly return from 100 dollars of pre-tax salary saved in three accounts. Taxable account: taxed first at today's rate, then invested in a stock fund (price growth 5% a year, a 2% dividend taxed at 15% each year and reinvested), with 15% on the gain at sale." observe="First set the two tax rates equal and compare traditional and Roth; then make today's rate higher and then lower than the rate in retirement.">
+	<AccountCompare />
+</Figure>
+
+<Check id="C2" />
+
+## HSA and 529 [#hsa-529]
+
+- A <Def id="health-savings-account">health savings account</Def> (HSA) is available to people covered by a high-deductible health plan. Contributions are tax-free, growth is tax-free, and withdrawals for qualified medical expenses are tax-free. The 2026 limits are 4,400 dollars for self-only coverage and 8,750 dollars for family coverage (1,000 dollars more at 55 or over). Unused money can stay invested indefinitely; after 65, withdrawals for non-medical uses are taxed only as ordinary income, like a traditional IRA.
+- A <Def id="plan-529">529 plan</Def> is an education savings account set up by a state. Contributions are not deductible for federal tax (many states allow a state deduction), and growth and withdrawals for qualified education expenses are tax-free. Under the SECURE 2.0 Act of 2022, money left in a 529 account open for more than 15 years can be moved to the beneficiary's Roth IRA, up to 35,000 dollars over a lifetime.
+
+## Backdoor and mega backdoor Roth [#backdoor-roth]
+
+People whose income is too high for a Roth IRA can first put nondeductible money into a traditional IRA and then convert it to a Roth IRA; this is a <Def id="backdoor-roth">backdoor Roth</Def>. If the person has pre-tax money in other traditional IRAs, the taxable part of the conversion is computed from the shares of pre-tax and after-tax money across all traditional IRAs (the pro-rata rule).
+
+Some 401(k) plans allow after-tax contributions beyond the employee limit, which can be converted to Roth at any time; in 2026 the limit on total employee and employer contributions is 72,000 dollars. This is called a mega backdoor Roth.
+
+## Equity compensation [#equity-compensation]
+
+Employees of technology companies often receive equity compensation (<Ref lesson="5.2" sec="employee-options" />):
+
+- A <Def id="restricted-stock-unit">restricted stock unit</Def> (RSU): when RSUs vest, the company gives the employee shares; their market value on the vesting date is taxed as wages and becomes the shares' cost basis. When sold later, only the change after vesting is taxed as a capital gain. Companies usually withhold federal tax at 22% (37% on yearly supplemental wages above 1 million dollars), which is often too little for people in higher brackets.
+- An <Def id="employee-stock-purchase-plan">employee stock purchase plan</Def> (ESPP) qualifying under section 423 of the tax code lets employees buy company stock through payroll deductions at up to 15% below the market price, and many plans use the lower of the price at the start of the offering period and on the purchase date (a lookback); each year at most 25,000 dollars of stock, valued at the start of the offering period, can be bought. If the shares are held long enough (more than 2 years from the start of the offering and more than 1 year from purchase), part of the discount is taxed as a capital gain when sold.
+- Exercising incentive stock options (ISOs) triggers no ordinary income tax, but the difference between the market price and the exercise price counts as income for the <Def id="alternative-minimum-tax">alternative minimum tax</Def> (AMT). The AMT is a separate calculation with fewer deductions; when it gives more tax than the regular calculation, the higher amount is due. In 2026 the AMT exemption for married couples filing jointly is 140,200 dollars, phasing out for incomes above 1 million dollars.
+
+<Check id="C3" />
+
+## Asset location [#asset-location]
+
+Asset allocation (<Ref lesson="6.7" />) decides how much to hold in stocks and bonds; <Def id="asset-location">asset location</Def> decides which accounts to hold them in. Different assets produce income in different forms: bond interest is taxed each year at ordinary rates, while most of a stock index fund's return is long-term appreciation, taxed only at sale at lower rates, and its dividends are mostly qualified. Accounts also differ in tax treatment (<Ref check="Q2" />).
+
+<Check id="C4" />
+
+## Tax-loss harvesting and the wash sale rule [#tax-loss-harvesting]
+
+<Def id="tax-loss-harvesting">Tax-loss harvesting</Def> means selling securities that have lost value in a taxable account to realize capital losses, which offset realized capital gains; any loss left over can offset up to 3,000 dollars of ordinary income a year, with the rest carried forward to later years. After selling, investors usually buy a similar but not identical fund right away to keep their market exposure.
+
+The <Def id="wash-sale-rule">wash sale rule</Def> limits this: if "substantially identical" securities are bought within 30 days before or after the sale (including through dividend reinvestment, or in one's own IRA), the loss cannot be deducted that year but is added to the cost basis of the new shares; if the purchase is in an IRA, under an IRS ruling the loss can never be deducted.
+
+<Check id="C5" />
+
+## Summary [#summary]
+
+- Taxable accounts: interest and short-term gains are taxed at ordinary rates; long-term capital gains and qualified dividends at 0%, 15% or 20%; higher earners also pay the 3.8% NIIT.
+- Traditional accounts are tax-free now and taxed on withdrawal; Roth accounts are taxed now and tax-free later; 401(k)s and IRAs have contribution limits and income limits.
+- HSAs are tax-free on contribution, growth and medical withdrawals; 529 plans serve education, with limited rollovers of leftover money to a Roth IRA.
+- The backdoor Roth gets around income limits, subject to the pro-rata rule; the mega backdoor Roth uses after-tax 401(k) contributions.
+- RSUs are taxed as wages at vesting; ESPPs offer a discount; exercising ISOs can trigger the AMT.
+- Asset location decides which assets go in which account; tax-loss harvesting must respect the wash sale rule.
+
+## Exercises [#exercises]
+
+<Exercises />

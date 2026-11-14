@@ -1,0 +1,314 @@
+# Answer key for lesson 6.5. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[5.2#strategies]] (section), [[concept:beta]], [[check:Q3]], [[fig:3-1]].
+# expected: values are recomputed by course/verify/6.5.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "6.5"
+
+context:
+  - zh-cn: |-
+      学习者学过复利与现值（[[0.1]]）、人力资本与雇主股票（[[4.12]]）、员工股票期权（[[5.2]]）、基金的资本利得分配（[[6.1]]）、基金成本（[[6.2]]）。本课的税务数字是 2026 纳税年度的联邦规则（IRS 2025 年 10–11 月公布，含 One Big Beautiful Bill Act 的修改）；题目需要的其他税率直接给出。答案可以在规则细节上简化，但不能与题目给出的规则矛盾。百分数用百分点表示。
+    en: |-
+      The learner has studied compounding and present value ([[0.1]]), human capital and employer stock ([[4.12]]), employee stock options ([[5.2]]), fund capital gains distributions ([[6.1]]) and fund costs ([[6.2]]). The lesson's tax figures are federal rules for tax year 2026 (announced by the IRS in October–November 2025, including One Big Beautiful Bill Act changes); any other rates a question needs are given. Answers may simplify rule details but must not contradict the rules given in the question. Percentages in percentage points.
+  - concepts: [long-term-capital-gain, qualified-dividend]
+    zh-cn: |-
+      讲义：利息按普通税率；2026 年夫妻合并申报：超过 100,800 为 22%，211,400 为 24%，403,550 为 32%，最高 37%。持有超过一年的长期资本利得和合格股利：应税所得 98,900 以内的部分 0%，613,700 以内 15%，以上 20%（夫妻合并申报）；短期利得按普通税率；NIIT 3.8%（MAGI 超过夫妻 25 万、单身 20 万，不随通胀调整）。讲义说“应税所得在……以内的部分”，没有举例说明资本利得叠加在普通收入之上（留给 [[check:C1]]）。
+    en: |-
+      The lesson: interest at ordinary rates; 2026 married filing jointly: 22% above 100,800, 24% above 211,400, 32% above 403,550, top 37%. Long-term gains (held over one year) and qualified dividends: 0% on taxable income up to 98,900, 15% up to 613,700, 20% above (married filing jointly); short-term gains at ordinary rates; NIIT 3.8% (MAGI above 250,000 married, 200,000 single, not indexed). The lesson says "the part of taxable income up to ..." without an example of gains stacking on ordinary income (left to [[check:C1]]).
+  - concepts: [traditional-account, roth-account]
+    zh-cn: |-
+      讲义：传统账户存入免税、增长不交税、取出按普通税率交税；Roth 存入已税、增长和合格取款免税。2026 年 401(k) 员工上限 24,500（50 岁以上加 8,000，60–63 岁加 11,250），雇主配款另算；IRA 7,500（50 岁以上加 1,100）；Roth IRA 夫妻 MAGI 242,000–252,000 之间逐步取消；雇主配款应拿满；59½ 岁前取出一般罚 10%；传统账户 73 岁起 RMD。讲义没有给出传统与 Roth 的比较公式（留给 [[check:Q1]]）。[[fig:2-1]]：100 美元税前工资、30 年、年收益 7%；传统 $100 \times 1.07^{30}(1 - t_L)$，Roth $100(1 - t_N) \times 1.07^{30}$，应税：按 $t_N$ 交税后投资股票基金（价格 +5%，股息 2% 按 15% 交税再投资，卖出时利得交 15%）；滑块现在税率 10–40%（步长 2，默认 24），退休税率 10–40%（步长 2，默认 22）；默认时约 594、579、481；两者都为 24% 时传统与 Roth 都约 579。
+    en: |-
+      The lesson: traditional accounts are tax-free on the way in, untaxed while growing, and taxed at ordinary rates on withdrawal; Roth accounts take taxed money, with tax-free growth and qualified withdrawals. 2026 401(k) employee limit 24,500 (plus 8,000 at 50+, 11,250 at 60–63), employer match on top; IRA 7,500 (plus 1,100 at 50+); Roth IRA phases out for married MAGI 242,000–252,000; get the full match; withdrawals before 59½ generally incur a 10% penalty; RMDs from 73 for traditional accounts. The lesson gives no formula comparing traditional and Roth (left to [[check:Q1]]). [[fig:2-1]]: 100 dollars of pre-tax salary, 30 years, 7% a year; traditional $100 \times 1.07^{30}(1 - t_L)$, Roth $100(1 - t_N) \times 1.07^{30}$, taxable: taxed at $t_N$ then a stock fund (price +5%, 2% dividend taxed at 15% and reinvested, 15% on the gain at sale); sliders rate now 10–40% (steps of 2, default 24) and in retirement 10–40% (steps of 2, default 22); by default about 594, 579, 481; with both at 24%, traditional and Roth both about 579.
+  - concepts: [health-savings-account, plan-529, backdoor-roth]
+    zh-cn: |-
+      讲义：HSA 需要高免赔额医疗保险，存入、增长、合格医疗取款都免税，2026 年上限个人 4,400、家庭 8,750（55 岁以上加 1,000），65 岁后非医疗取款按普通所得税；529 存入不抵联邦税，增长和合格教育取款免税，开设 15 年以上可转入受益人 Roth IRA，终身最多 35,000（SECURE 2.0）。后门 Roth：不可抵扣的传统 IRA 存款转换为 Roth，有 pro-rata 规则；超级后门：401(k) 税后存款转 Roth，2026 年员工与雇主合计上限 72,000。
+    en: |-
+      The lesson: HSAs need a high-deductible health plan; contributions, growth and qualified medical withdrawals are tax-free; 2026 limits 4,400 self-only and 8,750 family (plus 1,000 at 55+); after 65 non-medical withdrawals are taxed as ordinary income. 529 contributions are not federally deductible, growth and qualified education withdrawals are tax-free, and after 15 years up to 35,000 over a lifetime can move to the beneficiary's Roth IRA (SECURE 2.0). Backdoor Roth: nondeductible traditional IRA contributions converted to Roth, subject to the pro-rata rule; mega backdoor: after-tax 401(k) contributions converted to Roth, total employee plus employer limit 72,000 in 2026.
+  - concepts: [restricted-stock-unit, employee-stock-purchase-plan, alternative-minimum-tax]
+    zh-cn: |-
+      讲义：RSU 归属日市值按工资交税并成为成本基础，之后只对归属后的涨跌交资本利得税；联邦预扣通常 22%（补充工资超过 100 万部分 37%），高税率者常预扣不足。第 423 条 ESPP：最多 15% 折扣，许多计划有回溯条款，每年最多按认购期开始市价 25,000 美元；满足持有期（认购期开始超过 2 年、购买超过 1 年）后部分折扣按资本利得交税。ISO 行权不交普通税，但价差计入 AMT 收入；2026 年夫妻 AMT 豁免 140,200，收入超过 100 万开始减少。讲义没有讨论是否继续持有 RSU（留给 [[check:C3]]）。
+    en: |-
+      The lesson: RSU market value at vesting is taxed as wages and becomes the basis; only later changes are capital gains; federal withholding usually 22% (37% on supplemental wages over 1 million), often too little for high brackets. Section 423 ESPP: up to a 15% discount, often with a lookback, at most 25,000 dollars a year valued at the start of the offering; after the holding periods (over 2 years from the offering start and 1 year from purchase) part of the discount is taxed as capital gain. ISO exercise triggers no regular tax but the spread counts for the AMT; 2026 married AMT exemption 140,200, phasing out above 1 million. The lesson does not discuss whether to keep RSU shares (left to [[check:C3]]).
+  - concepts: [asset-location]
+    zh-cn: |-
+      讲义：资产位置决定把资产放在哪个账户；债券利息每年按普通税率交税；股票指数基金收益大部分是长期增值、卖出时按较低税率交税，股利多为合格股利。讲义没有给出结论（留给 [[check:C4]]、[[check:Q2]]）。
+    en: |-
+      The lesson: asset location decides which account holds which asset; bond interest is taxed yearly at ordinary rates; most of a stock index fund's return is long-term appreciation taxed at sale at lower rates, and its dividends are mostly qualified. The lesson draws no conclusion (left to [[check:C4]], [[check:Q2]]).
+  - concepts: [tax-loss-harvesting, wash-sale-rule]
+    zh-cn: |-
+      讲义：卖出亏损证券实现损失，抵消已实现利得，剩余每年最多抵 3,000 普通收入，其余结转；卖出后买入相似但不完全相同的基金。洗售规则：卖出前后 30 天内买入实质上相同的证券（含股息再投资、在自己的 IRA 中买入），损失当年不能扣除，加到新证券的成本基础上；在 IRA 中买入时损失永久不能扣除。讲义没有说明税损收割省的是“税”还是“时间”（留给 [[check:C5]]、[[check:Q4]]）。
+    en: |-
+      The lesson: selling losing securities realizes losses that offset realized gains, with up to 3,000 dollars a year against ordinary income and the rest carried forward; afterwards buy a similar but not identical fund. Wash sale rule: buying substantially identical securities within 30 days before or after (including dividend reinvestment or purchases in one's own IRA) defers the loss into the new shares' basis; if bought in an IRA the loss is lost for good. The lesson does not say whether harvesting saves tax or only time (left to [[check:C5]], [[check:Q4]]).
+
+common_errors:
+  - questions: [Q1]
+    zh-cn: |-
+      认为 Roth 一定更好，因为“增长免税”；忽略传统账户的增长同样不交税，两者的差别只在于现在和将来的税率。
+    en: |-
+      Believing Roth is always better because "growth is tax-free"; ignoring that growth in a traditional account is also untaxed, and the difference lies only in today's versus future tax rates.
+  - questions: [Q2]
+    zh-cn: |-
+      把预期收益最高的资产放进避税账户，以为这样省的税最多；忽略债券利息每年按高税率交税，而股票在应税账户中本来就享有低税率和递延。
+    en: |-
+      Putting the highest-returning assets in tax-sheltered accounts on the theory that this saves the most tax; ignoring that bond interest is taxed every year at high rates, while stocks in taxable accounts already enjoy low rates and deferral.
+  - questions: [Q3]
+    zh-cn: |-
+      为了避税或享受折扣，长期持有大量雇主股票；忽略归属时已经按工资交过税、立即卖出几乎不再交税，以及工作收入和财富集中于同一家公司的风险。
+    en: |-
+      Holding lots of employer stock long term to avoid tax or keep a discount; ignoring that RSUs were already taxed as wages at vesting so selling right away costs almost no extra tax, and the risk of concentrating job income and wealth in one company.
+  - questions: [Q4]
+    zh-cn: |-
+      以为税损收割永久省下了等额的税；忽略它降低了成本基础，主要是推迟交税，只有在税率差、捐赠或继承等情况下才永久省税。
+    en: |-
+      Thinking tax-loss harvesting permanently saves the full tax; ignoring that it lowers the cost basis and mainly defers tax, saving for good only through rate differences, donations or inheritance.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: taxable
+    concepts: [long-term-capital-gain]
+    question:
+      zh-cn: |-
+        一对夫妻 2026 年合并申报，扣除后的应税工资所得为 90,000 美元，另外有 20,000 美元长期资本利得。因为他们的工资所得低于 98,900 美元，这 20,000 美元全部适用 0% 的税率。
+      en: |-
+        A married couple filing jointly in 2026 has taxable wage income, after deductions, of 90,000 dollars, plus 20,000 dollars of long-term capital gains. Since their wage income is below 98,900 dollars, all 20,000 dollars are taxed at 0%.
+    correct: false
+    hint:
+      zh-cn: 0% 适用于“应税所得在 98,900 美元以内的部分”。计算这个门槛时，工资和资本利得哪个先填进去？
+      en: The 0% rate applies to "the part of taxable income up to 98,900 dollars". When filling that threshold, which comes first, wages or capital gains?
+    answer:
+      zh-cn: |-
+        错。长期资本利得叠加在普通收入之上：工资的 90,000 美元先占用了 0% 区间的大部分，只剩 $98{,}900 - 90{,}000 = 8{,}900$ 美元适用 0%，其余 11,100 美元适用 15%。总应税所得为 110,000 美元，超过了 98,900 美元。
+      en: |-
+        False. Long-term capital gains stack on top of ordinary income: the 90,000 dollars of wages use up most of the 0% range, leaving only $98{,}900 - 90{,}000 = 8{,}900$ dollars at 0%, and the other 11,100 dollars are taxed at 15%. Total taxable income is 110,000 dollars, above 98,900.
+
+  - id: C2
+    kind: check
+    section: retirement-accounts
+    concepts: [traditional-account, roth-account]
+    widget: { id: account-compare, set: { tnow: 24, tlater: 24 } }
+    question:
+      zh-cn: |-
+        在 [[fig:2-1]] 中，把现在和退休时的税率都设为 24%。传统账户和 Roth 账户的税后结果：
+      en: |-
+        In [[fig:2-1]], set both the rate now and the rate in retirement to 24%. The after-tax results of the traditional and Roth accounts are:
+    choices:
+      - zh-cn: 相同
+        en: The same
+      - zh-cn: Roth 更多，因为它的增长免税，而传统账户的增长取出时要交税
+        en: Roth is higher, because its growth is tax-free while the traditional account's growth is taxed on withdrawal
+        why:
+          zh-cn: 看图中两根条的长度。传统账户取出时按 24% 交税，Roth 存入前按 24% 交税；乘法的顺序会改变结果吗？
+          en: Look at the two bars. The traditional account is taxed at 24% on withdrawal, the Roth at 24% before going in; does the order of multiplication change the result?
+      - zh-cn: 传统账户更多，因为存入的钱更多
+        en: Traditional is higher, because more money goes in
+        why:
+          zh-cn: 传统账户存入的钱确实更多，但取出时要交税。看图中两根条的长度。
+          en: More money does go into the traditional account, but withdrawals are taxed. Look at the two bars.
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。都约为 579。传统账户：$100 \times 1.07^{30} \times (1 - 0.24)$；Roth：$100 \times (1 - 0.24) \times 1.07^{30}$；乘法交换顺序结果不变。传统账户的增长同样不交税，只是取出时整体交一次税，相当于政府按同一比例持有账户的一部分。两者的差别只取决于现在和将来的税率。
+      en: |-
+        (A). Both are about 579. Traditional: $100 \times 1.07^{30} \times (1 - 0.24)$; Roth: $100 \times (1 - 0.24) \times 1.07^{30}$; the order of multiplication does not matter. Growth in the traditional account is also untaxed; it is taxed once in full on withdrawal, as if the government owned a fixed share of the account. The difference between the two depends only on today's and future tax rates.
+
+  - id: C3
+    kind: check
+    section: equity-compensation
+    concepts: [restricted-stock-unit, human-capital]
+    question:
+      zh-cn: |-
+        RSU 归属后，继续持有这些公司股票，从投资和税务的角度看，大致相当于拿到同样金额的现金工资后，用它买入公司的股票。
+      en: |-
+        After RSUs vest, keeping the shares is, from an investment and tax point of view, roughly the same as receiving the same amount as cash salary and using it to buy company stock.
+    correct: true
+    hint:
+      zh-cn: 归属时这些股票是怎样交税的？它们的成本基础是多少？如果立即卖出，还要交多少税？
+      en: How are the shares taxed at vesting? What is their cost basis? If sold immediately, how much more tax is due?
+    answer:
+      zh-cn: |-
+        对。归属时股票的市值已经按工资交税，成本基础就是归属日的市值，立即卖出几乎不再交税（只对归属后的小幅涨跌交税）。所以继续持有是一个主动的投资决定：如果拿到的是现金，你会把这么多钱投到自己公司的股票上吗？对很多科技员工来说，工作收入（人力资本，[[4.12]]）已经和公司高度相关，再集中持有公司股票会加大风险。
+      en: |-
+        True. At vesting the shares' market value is already taxed as wages, and the basis equals that value, so selling at once costs almost no further tax (only on small moves after vesting). Keeping the shares is therefore an active investment decision: if you had received cash, would you put this much into your employer's stock? For many technology employees, job income (human capital, [[4.12]]) is already closely tied to the company, and concentrating wealth in its stock adds to that risk.
+
+  - id: C4
+    kind: check
+    section: asset-location
+    concepts: [asset-location, traditional-account]
+    question:
+      zh-cn: |-
+        一个高收入家庭（普通所得边际税率 32%）有一个传统 401(k) 和一个应税账户，计划在两个账户合起来持有股票指数基金和债券基金。一般来说，更有利的安排是：
+      en: |-
+        A high-income household (marginal ordinary income tax rate 32%) has a traditional 401(k) and a taxable account and plans to hold a stock index fund and a bond fund across the two. In general, the more favorable arrangement is:
+    choices:
+      - zh-cn: 债券基金放在 401(k)，股票指数基金放在应税账户
+        en: The bond fund in the 401(k), the stock index fund in the taxable account
+      - zh-cn: 股票指数基金放在 401(k)，因为它的预期收益最高，避税的好处最大
+        en: The stock index fund in the 401(k), because it has the highest expected return and gains the most from sheltering
+        why:
+          zh-cn: 股票指数基金在应税账户中要交什么税、按什么税率、什么时候交？债券利息呢？
+          en: In a taxable account, what tax does a stock index fund pay, at what rate and when? And bond interest?
+      - zh-cn: 两种基金各一半放在两个账户里，位置不影响税后结果
+        en: Half of each fund in each account; location does not affect after-tax results
+        why:
+          zh-cn: 两类资产的收入形式和税率不同。放在哪里，每年交的税会一样吗？
+          en: The two assets produce income in different forms taxed at different rates. Would yearly taxes be the same wherever they are held?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。债券的利息每年按 32% 的普通税率交税，放在 401(k) 中可以避免这部分每年的税。股票指数基金在应税账户中本来就很省税：大部分收益是增值，卖出前不交税，卖出时按 15%（或 20%）交税，股利也多按低税率交税，去世时继承人的成本基础还会调高。在 401(k) 中，股票的收益取出时反而要按普通税率交税。具体结果还取决于预期收益和期限（[[check:Q2]]）。
+      en: |-
+        (A). Bond interest is taxed every year at the 32% ordinary rate, which the 401(k) avoids. A stock index fund is already tax-efficient in a taxable account: most of its return is appreciation, untaxed until sold and then taxed at 15% (or 20%), its dividends are mostly taxed at low rates, and heirs get a stepped-up basis. In a 401(k), stock returns would instead be taxed at ordinary rates on withdrawal. The exact result also depends on expected returns and the horizon ([[check:Q2]]).
+
+  - id: C5
+    kind: check
+    section: tax-loss-harvesting
+    concepts: [tax-loss-harvesting]
+    question:
+      zh-cn: |-
+        卖出亏损 10,000 美元的基金、立即买入一只相似的基金，用这笔损失抵消其他长期资本利得，在 15% 的税率下就永久少交了 1,500 美元的税。
+      en: |-
+        Selling a fund with a 10,000 dollar loss, immediately buying a similar fund, and using the loss against other long-term capital gains taxed at 15% permanently saves 1,500 dollars of tax.
+    correct: false
+    hint:
+      zh-cn: 新买入的基金的成本基础是多少，与原来的基金相比如何？将来卖出新基金时会怎样？
+      en: What is the cost basis of the newly bought fund compared with the old one? What happens when the new fund is sold later?
+    answer:
+      zh-cn: |-
+        错。新基金按较低的现价买入，成本基础比原来低 10,000 美元；将来卖出时利得多 10,000 美元，要多交约 1,500 美元。所以税损收割主要是推迟交税：现在少交的 1,500 美元可以继续投资，价值来自这段时间的收益。只有在将来税率更低、把证券捐给慈善机构、或者持有到去世使继承人的成本基础调高等情况下，才会永久省税。
+      en: |-
+        False. The new fund is bought at the lower current price, so its basis is 10,000 dollars lower than the old one's; when it is sold later the gain is 10,000 dollars larger, adding about 1,500 dollars of tax. So tax-loss harvesting mainly defers tax: the 1,500 dollars not paid now can stay invested, and the value comes from returns in the meantime. It saves tax for good only if the future rate is lower, the shares are given to charity, or they are held until death and heirs get a stepped-up basis.
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [traditional-account, roth-account]
+    expected: { tr: "59.38", roth: "51.76" }
+    question:
+      zh-cn: |-
+        一位员工可以把 10,000 美元税前工资存入传统 401(k)，或者先交税、把剩下的钱存入 Roth 401(k)。两种账户都投资同一只基金，年收益率 7%，30 年后全部取出。
+        (a) 设现在的边际税率为 $t_N$、退休时为 $t_L$，写出两种做法 30 年后的税后财富，说明什么条件下两者相等。
+        (b) 他现在的边际税率为 32%，预计退休时为 22%。两种做法 30 年后各有多少税后财富（千美元）？
+        (c) 同事说：“Roth 的增长免税，传统 401(k) 的增长将来要交税，所以 Roth 总是更好。”评价这个说法。在什么情况下 Roth 确实更有利？
+      en: |-
+        An employee can put 10,000 dollars of pre-tax salary into a traditional 401(k), or pay the tax first and put what is left into a Roth 401(k). Both accounts hold the same fund, returning 7% a year, and everything is withdrawn after 30 years.
+        (a) With a marginal tax rate of $t_N$ now and $t_L$ in retirement, write the after-tax wealth of each choice after 30 years, and state when the two are equal.
+        (b) His marginal rate is 32% now and he expects 22% in retirement. What after-tax wealth does each choice give after 30 years (thousand dollars)?
+        (c) A colleague says: "Roth growth is tax-free, while traditional 401(k) growth will be taxed, so Roth is always better." Evaluate this statement. When is Roth really more favorable?
+    answer:
+      zh-cn: |-
+        (a) 传统：$10{,}000 \times 1.07^{30} \times (1 - t_L)$；Roth：$10{,}000 \times (1 - t_N) \times 1.07^{30}$。当 $t_N = t_L$ 时相等。
+        (b) $1.07^{30} \approx 7.612$。传统：$10 \times 7.612 \times 0.78 \approx 59.38$；Roth：$10 \times 0.68 \times 7.612 \approx 51.76$（千美元）。传统更好。
+        (c) 说法不对。传统账户的增长同样免税，只是对整个账户在取出时交一次税；(a) 说明两者的差别只取决于现在和退休时的边际税率。Roth 更有利的情况：预计退休时税率更高（例如现在收入低、职业生涯早期，或预计税法提高税率）；存款额达到上限时，同样的名义额度下 Roth 存的是税后的钱，实际受保护的资产更多；Roth IRA 没有 RMD，可以长期增长或留给继承人；退休后取出的收入不计入应税收入，可能避免社会保障金被征税或医疗保险费提高。另外，持有两种账户可以分散对未来税率的不确定性。
+      en: |-
+        (a) Traditional: $10{,}000 \times 1.07^{30} \times (1 - t_L)$; Roth: $10{,}000 \times (1 - t_N) \times 1.07^{30}$. They are equal when $t_N = t_L$.
+        (b) $1.07^{30} \approx 7.612$. Traditional: $10 \times 7.612 \times 0.78 \approx 59.38$; Roth: $10 \times 0.68 \times 7.612 \approx 51.76$ (thousand dollars). Traditional is better.
+        (c) The statement is wrong. Growth in a traditional account is also untaxed; the whole account is simply taxed once on withdrawal, and (a) shows the difference depends only on the marginal rates now and in retirement. Roth is more favorable when: the rate in retirement is expected to be higher (for example low income now early in a career, or expected tax increases); contributions hit the limit, since the same nominal limit in a Roth holds after-tax money and so shelters more; a Roth IRA has no RMDs and can grow longer or pass to heirs; and Roth withdrawals do not count as taxable income, which may keep Social Security benefits from being taxed or Medicare premiums from rising. Holding both kinds also spreads the uncertainty about future tax rates.
+    rubric:
+      zh-cn:
+        - "(a) 通过：写出两个式子，并指出税率相同时相等。"
+        - "(b) 通过：传统约 59.38、Roth 约 51.76（千美元）。"
+        - "(c) 通过：指出传统账户增长也免税、差别只在税率；给出至少两种 Roth 更有利的情况。同意“Roth 总是更好”，需要订正。"
+      en:
+        - "(a) OK: writes both expressions and states they are equal when the rates are equal."
+        - "(b) OK: traditional about 59.38, Roth about 51.76 (thousand dollars)."
+        - "(c) OK: says traditional growth is untaxed too and only the rates differ; gives at least two situations where Roth is better. Agreeing Roth is always better needs revision."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [asset-location, traditional-account, qualified-dividend]
+    expected: { a: "1349.16", b: "1223.16" }
+    question:
+      zh-cn: |-
+        一个家庭在传统 401(k) 和应税账户中各有 25 万美元，计划各持有一半股票、一半债券，即 25 万美元股票指数基金和 25 万美元债券基金，期限 20 年。假设：债券基金每年收益 5%，全部是利息，在应税账户中按 32% 交税；股票指数基金每年价格上涨 5.5%、股息 1.5%，在应税账户中股息每年按 15% 交税后再投资，20 年后卖出时对利得交 15%；401(k) 中不交税，20 年后取出时按 24% 交税。
+        (a) 方案 A：债券在 401(k)、股票在应税账户；方案 B：股票在 401(k)、债券在应税账户。计算两种方案 20 年后的税后财富（千美元）。
+        (b) 一位朋友说：“应该把增长最快的资产放进避税账户，这样避的税最多。”评价这个说法。这个比较还忽略了什么？
+      en: |-
+        A household has 250,000 dollars in a traditional 401(k) and 250,000 in a taxable account, and plans to hold half stocks and half bonds, that is, 250,000 in a stock index fund and 250,000 in a bond fund, for 20 years. Assume: the bond fund returns 5% a year, all interest, taxed at 32% in the taxable account; the stock index fund rises 5.5% a year in price and pays a 1.5% dividend, which in the taxable account is taxed at 15% each year and reinvested, with 15% on the gain at sale after 20 years; nothing is taxed inside the 401(k), and withdrawals after 20 years are taxed at 24%.
+        (a) Plan A: bonds in the 401(k), stocks in the taxable account; plan B: stocks in the 401(k), bonds in the taxable account. Compute the after-tax wealth of each plan after 20 years (thousand dollars).
+        (b) A friend says: "Put the fastest-growing assets in the tax-sheltered account, since that shelters the most tax." Evaluate this statement. What does this comparison still leave out?
+    answer:
+      zh-cn: |-
+        (a) 方案 A：401(k) 中债券 $250 \times 1.05^{20} \times 0.76 \approx 504.13$；应税账户中股票逐年计算股息税和成本基础，20 年后卖出交税后约 845.03；合计约 1349.16。方案 B：401(k) 中股票 $250 \times 1.07^{20} \times 0.76 \approx 735.24$；应税账户中债券每年税后 $5\% \times 0.68 = 3.4\%$，$250 \times 1.034^{20} \approx 487.92$；合计约 1223.16。方案 A 多约 126。
+        (b) 说法在这里不成立。重要的不是哪种资产增长快，而是哪种资产在应税账户中被征税最重。债券的利息每年按 32% 交税，税负重、没有递延；股票在应税账户中主要按 15% 交税，而且大部分推迟到卖出时。放进 401(k) 后，股票的全部收益反而要按 24% 交税。这个比较还忽略了：401(k) 中的钱是税前的，1 美元只相当于 0.76 美元税后的钱，所以两种方案的税后股票比例并不相同，方案 A 的税后风险更高，严格比较应按税后的配置调整；继承时应税账户中的股票成本基础会调高；Roth 账户中则应放预期收益最高的资产；以及在应税账户中可以做税损收割。
+      en: |-
+        (a) Plan A: bonds in the 401(k), $250 \times 1.05^{20} \times 0.76 \approx 504.13$; stocks in the taxable account, computing the dividend tax and basis year by year, about 845.03 after the tax at sale; total about 1349.16. Plan B: stocks in the 401(k), $250 \times 1.07^{20} \times 0.76 \approx 735.24$; bonds in the taxable account earn $5\% \times 0.68 = 3.4\%$ after tax each year, $250 \times 1.034^{20} \approx 487.92$; total about 1223.16. Plan A ends about 126 higher.
+        (b) The statement fails here. What matters is not which asset grows fastest but which is taxed most heavily in a taxable account. Bond interest is taxed every year at 32%, heavily and without deferral; stocks in a taxable account are taxed mostly at 15% and mostly only at sale. Inside the 401(k), all of the stocks' return would instead be taxed at 24%. The comparison still leaves out: money in the 401(k) is pre-tax, so a dollar there is worth only 0.76 after-tax dollars, and the two plans do not have the same after-tax stock share; plan A carries more after-tax risk, and a strict comparison should adjust to the same after-tax allocation; stocks in a taxable account get a stepped-up basis at inheritance; in a Roth account the highest-returning assets do belong; and tax-loss harvesting is possible in the taxable account.
+    rubric:
+      zh-cn:
+        - "(a) 通过：方案 A 约 1349.16，方案 B 约 1223.16（千美元）；应税账户中股票的股息税和成本基础处理正确。"
+        - "(b) 通过：指出关键是哪种资产在应税账户中税负最重，而不是增长最快；提到至少一项被忽略的因素（税前与税后美元、成本基础调高、Roth 的不同、税损收割）。同意朋友的说法，需要订正。"
+      en:
+        - "(a) OK: plan A about 1349.16, plan B about 1223.16 (thousand dollars); dividend tax and basis handled correctly for stocks in the taxable account."
+        - "(b) OK: says what matters is which asset is taxed most heavily in a taxable account, not which grows fastest; names at least one omitted factor (pre-tax versus after-tax dollars, stepped-up basis, Roth differs, tax-loss harvesting). Agreeing with the friend needs revision."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [employee-stock-purchase-plan, restricted-stock-unit, human-capital]
+    expected: { ret: "17.6", at: "12" }
+    question:
+      zh-cn: |-
+        一位工程师参加公司的 ESPP：每 6 个月从工资中扣款，按购买日股价的 85% 买入公司股票（不考虑回溯条款）。他的普通所得边际税率为 32%。他每年还有价值约 20 万美元的 RSU 归属，现在公司股票已占他家庭金融资产的 60%。
+        (a) 如果他在购买日立即按市价卖出，这 6 个月的扣款得到的收益率是多少？如果折扣部分按 32% 交税，税后收益率是多少？
+        (b) 同事说：“RSU 一卖就要交很多税，ESPP 的股票要持有满期限才能省税，所以两样都应该长期持有。”评价这个说法，并给出你的建议。
+      en: |-
+        An engineer participates in his company's ESPP: every 6 months money is deducted from pay and used to buy company stock at 85% of the price on the purchase date (ignore any lookback). His marginal ordinary income tax rate is 32%. He also has about 200,000 dollars of RSUs vesting each year, and company stock already makes up 60% of his household's financial assets.
+        (a) If he sells at the market price right on the purchase date, what return does the 6 months of deductions earn? If the discount is taxed at 32%, what is the after-tax return?
+        (b) A colleague says: "Selling RSUs means paying lots of tax, and ESPP shares must be held long enough to save tax, so both should be held long term." Evaluate this statement and give your advice.
+    answer:
+      zh-cn: |-
+        (a) 花 85 买到值 100 的股票，收益 $\frac{15}{85} \approx 17.6\%$（相对扣款金额，6 个月内）。折扣 15 按 32% 交税后剩 10.2，税后收益 $\frac{10.2}{85} = 12\%$。这是很高、几乎没有风险的收益（只承担购买日到卖出之间很短时间的价格风险），值得参加。
+        (b) 说法不对。RSU 归属时已经按工资交过税，成本基础就是归属日市值，立即卖出几乎不再交税；“卖了要交很多税”是误解。ESPP 满足持有期后，只有一部分折扣能按资本利得交税，省下的税最多是折扣乘以税率差，例如 $15 \times (32\% - 15\%) \approx 2.6$ 每 85 美元，而为此要持有公司股票一年以上，承担整只股票的波动。他的工作收入（人力资本，[[4.12]]）已经与公司高度相关，公司股票又占金融资产的 60%，公司遇到困难时可能同时失去工作和大部分财富。建议：参加 ESPP 并在购买后尽快卖出；RSU 归属后按计划卖出，把钱分散投资；把公司股票的比例逐步降到一个事先定好的上限（例如金融资产的 10%）以内。
+      en: |-
+        (a) Paying 85 for stock worth 100 earns $\frac{15}{85} \approx 17.6\%$ (on the amount deducted, within 6 months). After 32% tax on the 15 discount, 10.2 is left, an after-tax return of $\frac{10.2}{85} = 12\%$. This is a high and nearly riskless return (only the price risk in the short time between purchase and sale), worth taking.
+        (b) The statement is wrong. RSUs are already taxed as wages at vesting, and the basis is the market value then, so selling right away costs almost no further tax; "selling means lots of tax" is a misunderstanding. Holding ESPP shares for the qualifying period lets only part of the discount be taxed as a capital gain, saving at most the discount times the rate difference, say $15 \times (32\% - 15\%) \approx 2.6$ per 85 dollars, at the cost of holding company stock for over a year and bearing all its swings. His job income (human capital, [[4.12]]) is already closely tied to the company, and company stock is 60% of his financial assets; if the company runs into trouble he could lose his job and most of his wealth together. Advice: participate in the ESPP and sell soon after each purchase; sell RSUs on a plan as they vest and diversify the money; reduce company stock step by step below a limit set in advance (say 10% of financial assets).
+    rubric:
+      zh-cn:
+        - "(a) 通过：约 17.6%，税后约 12%。"
+        - "(b) 通过：指出 RSU 归属时已交税、立即卖出几乎不再交税；ESPP 持有满期限省的税有限；强调人力资本与财富集中的风险，并给出分散的建议。同意长期持有，需要订正。"
+      en:
+        - "(a) OK: about 17.6%, about 12% after tax."
+        - "(b) OK: says RSUs were taxed at vesting and selling at once costs almost no further tax; the tax saved by holding ESPP shares is limited; stresses the risk of concentrating human capital and wealth, and advises diversifying. Agreeing to hold long term needs revision."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [tax-loss-harvesting, wash-sale-rule, present-value]
+    expected: { now: "3000", pv: "775", net: "2225" }
+    question:
+      zh-cn: |-
+        一位投资者在应税账户中有一只亏损 20,000 美元的股票指数基金。他卖出它，立即买入一只跟踪另一个相似指数的基金，用这笔损失抵消同一年 20,000 美元的长期资本利得（税率 15%）。他计划 20 年后卖出新基金，那时的长期资本利得税率仍为 15%；投资的年收益率为 7%。
+        (a) 今年他少交多少税？由于新基金的成本基础降低，20 年后要多交的税按 7% 折现到今天值多少？税损收割的净价值约为多少？
+        (b) 他说：“税损收割让我白赚了 3,000 美元。”评价这个说法。在什么情况下税损收割能永久省税？操作时有哪些洗售规则的陷阱需要避免？
+      en: |-
+        An investor has a stock index fund with a 20,000 dollar loss in a taxable account. He sells it, immediately buys a fund tracking a different but similar index, and uses the loss to offset 20,000 dollars of long-term capital gains that year (taxed at 15%). He plans to sell the new fund in 20 years, when the long-term rate is still 15%; investments return 7% a year.
+        (a) How much less tax does he pay this year? Because the new fund's basis is lower, what is the extra tax in 20 years worth today, discounted at 7%? Roughly what is the net value of harvesting?
+        (b) He says: "Tax-loss harvesting earned me 3,000 dollars for free." Evaluate this statement. When does harvesting save tax for good? What wash sale traps should he avoid?
+    answer:
+      zh-cn: |-
+        (a) 今年少交 $20{,}000 \times 15\% = 3{,}000$ 美元。新基金的成本基础低 20,000，20 年后多交 3,000，现值 $\frac{3{,}000}{1.07^{20}} \approx 775$。净价值约 $3{,}000 - 775 \approx 2{,}225$ 美元，来自 20 年的无息递延。
+        (b) 说法不完全对。他少交的 3,000 美元大部分只是推迟，将来要还；真正的收益是推迟带来的约 2,225 美元现值，而且如果他提前卖出，收益更小。税损收割能永久省税的情况：损失抵消的是按普通税率交税的收入（每年最多 3,000 美元，例如按 32%），而将来的利得按 15% 交税；将来卖出时税率更低（例如退休后落入 0% 区间）；把基金捐给慈善机构；持有到去世，继承人的成本基础调高。洗售陷阱：卖出前后 30 天内买回同一只基金或实质上相同的证券；同一基金的股息自动再投资；配偶的账户或自己的 IRA 中买入同一证券（在 IRA 中买入会使损失永久不能扣除）。
+      en: |-
+        (a) This year he pays $20{,}000 \times 15\% = 3{,}000$ dollars less. The new fund's basis is 20,000 lower, so in 20 years he pays 3,000 more, worth $\frac{3{,}000}{1.07^{20}} \approx 775$ today. The net value is about $3{,}000 - 775 \approx 2{,}225$ dollars, from 20 years of interest-free deferral.
+        (b) The statement is not quite right. Most of the 3,000 dollars is only deferred and must be paid later; the real gain is the present value of the deferral, about 2,225 dollars, and less if he sells sooner. Harvesting saves tax for good when: the loss offsets income taxed at ordinary rates (up to 3,000 dollars a year, say at 32%) while the later gain is taxed at 15%; the rate at the later sale is lower (for example in the 0% range in retirement); the fund is given to charity; or it is held until death and heirs get a stepped-up basis. Wash sale traps: buying back the same fund or a substantially identical security within 30 days before or after the sale; automatic dividend reinvestment in the same fund; purchases of the same security in a spouse's account or his own IRA (an IRA purchase makes the loss permanently nondeductible).
+    rubric:
+      zh-cn:
+        - "(a) 通过：今年少交 3,000；20 年后多交的税现值约 775；净价值约 2,225。"
+        - "(b) 通过：指出主要是递延而不是白赚；给出至少两种永久省税的情况和至少两个洗售陷阱。同意“白赚 3,000”，需要订正。"
+      en:
+        - "(a) OK: 3,000 less this year; present value of the later extra tax about 775; net value about 2,225."
+        - "(b) OK: says it is mainly deferral, not free money; gives at least two ways it saves tax for good and at least two wash sale traps. Agreeing it is 3,000 for free needs revision."

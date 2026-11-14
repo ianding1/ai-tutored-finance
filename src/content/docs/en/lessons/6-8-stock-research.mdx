@@ -1,0 +1,67 @@
+---
+title: 6.8 The Stock Research Process (Brief)
+description: Reading 10-Ks, 10-Qs, 8-Ks and earnings calls; analyzing an industry with the five forces; turning valuation around with a reverse DCF; writing an investment thesis and the case against it; position size and concentration.
+lesson: "6.8"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import ReverseDcf from '../../../../components/widgets/ReverseDcf.astro';
+
+Earlier lessons showed that for most households low-cost index funds are the core of the portfolio (<Ref lesson="6.3" />). This lesson briefly introduces the process of researching a single stock: even without picking stocks, these methods help in understanding the companies one owns, judging other people's recommendations, and writing the stock report in the capstone project.
+
+## Reading company filings [#filings]
+
+All filings of US listed companies are freely available on the SEC's EDGAR system:
+
+- The <Def id="form-10-k">Form 10-K</Def> is the audited annual report, filed by large companies within 60 days of the fiscal year end. The parts most worth reading are: the business description (how the company makes money, its segments and customers), risk factors, management's discussion and analysis (MD&A, which explains why results changed), and the financial statements and notes (<Ref lesson="3.7" />).
+- The 10-Q is the quarterly report: unaudited, similar to the 10-K but shorter.
+- The 8-K is filed within 4 business days of a major event (mergers, management changes, earnings releases and so on).
+- The proxy statement (DEF 14A) shows the structure and targets of executive pay and the makeup of the board.
+- On the earnings call, management presents results and answers analysts' questions, often giving guidance for the next quarter or year.
+
+<Check id="C1" />
+
+## Industry analysis [#industry]
+
+A company's long-run profitability depends heavily on its industry. Porter's (1979) <Def id="five-forces">five forces</Def> analyze how much of an industry's profit stays with the companies in it: the intensity of rivalry among existing firms; the threat of new entrants (<Ref concept="barriers-to-entry" />); the threat of substitutes; the bargaining power of suppliers; and the bargaining power of buyers. The weaker the five forces, the higher the industry's average profits.
+
+Within an industry, whether a company can earn more than its cost of capital for a long time depends on whether it has a moat (<Ref concept="economic-moat" />): network effects, switching costs, economies of scale, brands or patents. The measure is the gap between return on invested capital (<Ref concept="return-on-invested-capital" />) and the weighted average cost of capital (<Ref concept="wacc" />), and how long that gap can last (<Ref check="Q3" />).
+
+<Check id="C2" />
+
+## Valuation: running the DCF in reverse [#valuation]
+
+DCF (<Ref lesson="3.10" />) and relative valuation (<Ref lesson="3.11" />) both depend on assumptions about the future, and the results are very sensitive to growth and discount rates. A practical approach turns the question around: instead of estimating what the company is worth, ask "what growth does today's price imply the market expects?"; this is a <Def id="reverse-dcf">reverse DCF</Def>. Then judge whether that growth is reasonable: compare it with the company's history, the size of its industry and the past experience of similar companies.
+
+<Figure id="3-1" title="When the price is a multiple of this year's free cash flow, the yearly growth in free cash flow over the next 10 years that justifies the price; after 10 years, growth is 3% a year forever." observe="See how the implied growth changes as the multiple rises from 20 to 60; then change the discount rate.">
+	<ReverseDcf />
+</Figure>
+
+<Check id="C3" />
+
+## The thesis and the case against it [#thesis]
+
+The result of research should be written up as an <Def id="investment-thesis">investment thesis</Def>: why the price is below value now, how one's view differs from the market consensus, what events might make the market see it, and what evidence would prove one wrong.
+
+Just as important is writing out the case against seriously: what are the strongest reasons to be bearish? One can do a "pre-mortem": suppose that three years from now this investment has lost 50%; what is the most likely reason? The aim is to counter confirmation bias and overconfidence (<Ref concept="overconfidence" />): people tend to look for information that supports their views.
+
+Finally there is position size. Even after thorough research, a single stock's idiosyncratic risk is large (<Ref lesson="4.5" />), and the judgment of value may be wrong. A common practice is to limit any one stock's share of the portfolio, keeping individual stocks as a small part outside the index core.
+
+<Check id="C4" />
+
+<Check id="C5" />
+
+## Summary [#summary]
+
+- 10-Ks, 10-Qs, 8-Ks, proxy statements and earnings calls are the basic sources for researching a company; the 10-K is audited.
+- The five forces analyze how much of an industry's profit companies keep; a moat decides whether ROIC can stay above WACC for long.
+- A reverse DCF finds the growth implied by the price, which can then be judged for reasonableness.
+- An investment thesis should state how one differs from the market and what evidence would prove one wrong; write the case against seriously; limit the size of single-stock positions.
+
+## Exercises [#exercises]
+
+<Exercises />

@@ -441,3 +441,25 @@ attribution:
   params:
     w: { min: 0, max: 60, step: 10, default: 50 }
     ra: { min: 10, max: 30, step: 5, default: 15 }
+
+account-compare:
+  component: src/components/widgets/AccountCompare.astro
+  params:
+    tnow: { min: 10, max: 40, step: 2, default: 24 }
+    tlater: { min: 10, max: 40, step: 2, default: 22 }
+
+human-capital:
+  component: src/components/widgets/HumanCapital.astro
+  params:
+    g: { min: 0, max: 4, step: 1, default: 2 }
+    s: { min: 5, max: 30, step: 5, default: 15 }
+
+rebalance:
+  component: src/components/widgets/Rebalance.astro
+  params:
+    band: { min: 1, max: 10, step: 1, default: 5 }
+
+reverse-dcf:
+  component: src/components/widgets/ReverseDcf.astro
+  params:
+    r: { min: 7, max: 11, step: 1, default: 9 }

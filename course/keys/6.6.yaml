@@ -1,0 +1,312 @@
+# Answer key for lesson 6.6. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[5.2#strategies]] (section), [[concept:beta]], [[check:Q3]], [[fig:3-1]].
+# expected: values are recomputed by course/verify/6.6.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "6.6"
+
+context:
+  - zh-cn: |-
+      学习者学过现值与年金（[[0.1]]）、保险与风险厌恶（[[1.4]]）、道德风险与逆向选择（[[1.9]]）、通胀与实际利率（[[1.3]]、[[2.1]]）、人力资本与生命周期配置（[[4.12]]）、账户与税务（[[6.5]]）。题目需要的保险费率、利率、税率直接给出。百分数用百分点表示。
+    en: |-
+      The learner has studied present value and annuities ([[0.1]]), insurance and risk aversion ([[1.4]]), moral hazard and adverse selection ([[1.9]]), inflation and real rates ([[1.3]], [[2.1]]), human capital and lifecycle allocation ([[4.12]]) and accounts and taxes ([[6.5]]). Premiums, rates and tax rates a question needs are given. Percentages in percentage points.
+  - concepts: [household-balance-sheet, human-capital]
+    zh-cn: |-
+      讲义：家庭资产负债表含金融资产、实物资产、负债；工作年龄家庭最大的资产是人力资本，不能出售或分散，风险取决于工作稳定性和与股市、雇主股票的相关性。[[fig:1-1]]：25 岁工资 100，人力资本 = 剩余工资按 3% 实际折现，金融资本 = 每年储蓄工资的一定比例、实际收益 4%；滑块工资实际增长 0–4%（步长 1，默认 2），储蓄率 5–30%（步长 5，默认 15）；默认时人力资本占总财富 25 岁 100%、40 岁 90%、55 岁 62%、64 岁 11%。讲义没有说这对寿险需求意味着什么（留给 [[check:C1]]）。
+    en: |-
+      The lesson: the household balance sheet has financial assets, real assets and liabilities; the largest asset of a working-age household is human capital, which cannot be sold or diversified, and whose risk depends on job security and correlation with the stock market and employer stock. [[fig:1-1]]: wage 100 at 25; human capital = remaining wages discounted at 3% real; financial capital = saving a share of each wage at 4% real; sliders real wage growth 0–4% (steps of 1, default 2) and saving rate 5–30% (steps of 5, default 15); by default human capital is 100%, 90%, 62%, 11% of total wealth at 25, 40, 55, 64. The lesson does not say what this means for life insurance needs (left to [[check:C1]]).
+  - concepts: [emergency-fund]
+    zh-cn: |-
+      讲义：应急基金应对失业、生病、意外支出，随时可用、价值稳定，放在高收益储蓄、货币市场基金或短期国债；常见建议 3–6 个月必要支出，收入不稳、单一收入、行业裁员风险高的需要更多；作用是避免在不利时卖出投资或借高利率债，低收益可看作保险费。
+    en: |-
+      The lesson: an emergency fund covers job loss, illness and unexpected costs; it must be available and stable, held in high-yield savings, money market funds or short-term Treasuries; common guideline 3–6 months of essential expenses, more for unsteady income, single earners or high-layoff industries; it avoids selling investments at bad times or borrowing at high rates, and its low return can be seen as an insurance premium.
+  - concepts: [household-balance-sheet]
+    zh-cn: |-
+      讲义：信用卡利率常超过 20%，应优先还清；提前还房贷相当于获得等于房贷利率的无风险收益；不逐项扣除时也是税后收益（2026 年夫妻标准扣除 32,200）。讲义没有讨论提前还贷对流动性的影响（留给 [[check:C3]]、[[check:Q1]]）。
+    en: |-
+      The lesson: credit card rates often exceed 20% and should be paid first; prepaying a mortgage earns a riskless return equal to the mortgage rate, also after tax when not itemizing (2026 married standard deduction 32,200). The lesson does not discuss the liquidity effect of prepaying (left to [[check:C3]], [[check:Q1]]).
+  - concepts: [term-life-insurance, disability-insurance]
+    zh-cn: |-
+      讲义：保费平均高于预期赔付，保险适合少见但巨大的损失，小损失自己承担（高免赔额）。定期寿险保护家人依赖的人力资本，保费远低于终身寿险；伤残险按月支付约 60% 的收入；美国社会保障局估计今天 20 岁的人超过四分之一会在退休年龄前伤残；伞险在车险、房屋险责任限额之上提供例如 100 万美元的责任保障；另有医疗、房屋、汽车、长期护理保险。
+    en: |-
+      The lesson: premiums exceed expected payouts on average, so insurance suits rare large losses, and small losses should be self-insured (high deductibles). Term life protects the human capital the family depends on, at premiums far below whole life; disability insurance pays about 60% of income monthly; the SSA estimates more than one in four of today's 20-year-olds will become disabled before retirement age; umbrella insurance adds, say, 1 million dollars of liability coverage above car and home limits; plus health, home, car and long-term care insurance.
+  - concepts: [beneficiary-designation]
+    zh-cn: |-
+      讲义：遗嘱指定分配和监护人；退休账户、寿险等可直接指定受益人，去世后直接转给受益人、不经遗嘱认证；可撤销生前信托也不经遗嘱认证且不公开；授权书和医疗指示；2026 年联邦遗产税免税额每人 1,500 万美元（One Big Beautiful Bill Act），一些州门槛低得多。讲义没有说受益人指定与遗嘱冲突时以哪个为准（留给 [[check:C5]]）。
+    en: |-
+      The lesson: a will names the division of property and guardians; retirement accounts and life insurance can name beneficiaries directly, passing outside probate; a revocable living trust also avoids probate and stays private; powers of attorney and health care directives; the 2026 federal estate tax exemption is 15 million dollars per person (One Big Beautiful Bill Act), with much lower thresholds in some states. The lesson does not say which prevails when a beneficiary designation conflicts with a will (left to [[check:C5]]).
+
+common_errors:
+  - questions: [Q1]
+    zh-cn: |-
+      认为没有负债总是更安全，把应急基金也拿去提前还贷；忽略房屋净值不能随时变成现金，以及低利率房贷与更高的无风险利率之间的比较。
+    en: |-
+      Believing that having no debt is always safer and using the emergency fund to prepay the mortgage; ignoring that home equity cannot be turned into cash at any time, and the comparison between a low mortgage rate and a higher riskless rate.
+  - questions: [Q2]
+    zh-cn: |-
+      按收入的固定倍数或销售人员的建议决定寿险金额，或者认为终身寿险“既保障又储蓄”更划算；忽略按家人需要的现值减去已有资产计算缺口，以及需求随时间下降。
+    en: |-
+      Setting life insurance by a fixed multiple of income or a salesperson's advice, or thinking whole life is better because it "protects and saves"; ignoring computing the gap as the present value of the family's needs minus existing assets, and that the need falls over time.
+  - questions: [Q3]
+    zh-cn: |-
+      认为年轻人最大的风险是股市，伤残险可有可无；忽略年轻时人力资本占总财富的绝大部分，伤残会使它大幅损失。
+    en: |-
+      Believing a young person's biggest risk is the stock market and disability insurance is optional; ignoring that human capital is most of a young person's total wealth, and disability can destroy much of it.
+  - questions: [Q4]
+    zh-cn: |-
+      按“3 个月”的通用规则决定应急基金，或把应急基金投资于股票；忽略双方收入来自同一行业或公司时失业风险相关，以及失业往往与股市下跌同时发生。
+    en: |-
+      Sizing the emergency fund by the generic "3 months" rule, or investing it in stocks; ignoring that unemployment risk is correlated when both incomes come from the same industry or company, and that job losses tend to coincide with stock market falls.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: balance-sheet
+    concepts: [human-capital, term-life-insurance]
+    question:
+      zh-cn: |-
+        按 [[fig:1-1]] 的规律，一位有孩子的家庭主要收入者，对寿险保额的需要通常随年龄怎样变化？
+      en: |-
+        Following the pattern in [[fig:1-1]], how does a primary earner with children usually need life insurance coverage to change with age?
+    choices:
+      - zh-cn: 逐渐减少，因为家人依赖的未来收入（人力资本）越来越少，金融资产越来越多
+        en: It falls over time, because the future earnings the family depends on (human capital) shrink and financial assets grow
+      - zh-cn: 逐渐增加，因为年龄越大越可能去世
+        en: It rises over time, because the older one is, the more likely one is to die
+        why:
+          zh-cn: 死亡的概率影响保费，但保额应该保护什么？图中被保护的那部分财富随年龄怎样变化？
+          en: The probability of death affects the premium, but what should the coverage protect? How does that part of wealth change with age in the figure?
+      - zh-cn: 保持不变，因为家庭的开支不随年龄变化
+        en: It stays the same, because the family's spending does not change with age
+        why:
+          zh-cn: 孩子长大后，家人还需要多少年的收入？已经积累的金融资产能承担多少？
+          en: Once the children are grown, for how many more years does the family need the income? How much can the financial assets already saved cover?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。寿险保护的是家人依赖的那部分人力资本：如果主要收入者去世，家人失去的是剩余年份的收入。年龄越大，剩余工作年数越少，人力资本越小；同时金融资产越多，孩子也逐渐独立。所以需要的保额逐渐减少，到退休时可能不再需要。这正是定期寿险适合大多数家庭的原因：在最需要的年份提供保障。
+      en: |-
+        (A). Life insurance protects the part of human capital the family depends on: if the main earner dies, the family loses the remaining years of earnings. With age there are fewer working years left and human capital shrinks, while financial assets grow and children become independent. So the coverage needed falls over time and may vanish by retirement. This is why term life insurance suits most families: it covers the years of greatest need.
+
+  - id: C2
+    kind: check
+    section: emergency-fund
+    concepts: [emergency-fund, stock-bond-correlation]
+    question:
+      zh-cn: |-
+        应急基金放在股票指数基金里更好，因为股票的长期收益更高，而且需要时随时可以卖出。
+      en: |-
+        An emergency fund is better kept in a stock index fund, because stocks earn more in the long run and can be sold any time when needed.
+    correct: false
+    hint:
+      zh-cn: 一个家庭最可能在什么时候用到应急基金？那时股市通常处于什么状态？
+      en: When is a household most likely to need its emergency fund? What state is the stock market usually in then?
+    answer:
+      zh-cn: |-
+        错。失业最常发生在经济衰退中，而那时股市往往已经大幅下跌：最需要钱的时候，股票可能已经跌了 30% 以上。应急基金的价值在于需要时一定在那里、数额确定；股票虽然能随时卖出，但卖出的价格不确定，可能正好是最低点。长期收益低是为这种确定性付出的代价。
+      en: |-
+        False. Job losses happen most often in recessions, when stocks have often fallen sharply: just when the money is needed, stocks may be down 30% or more. The value of an emergency fund is that it is certainly there, in a known amount, when needed; stocks can be sold at any time, but at an uncertain price that may be the bottom. The lower long-run return is the price of this certainty.
+
+  - id: C3
+    kind: check
+    section: debt
+    concepts: [household-balance-sheet, emergency-fund]
+    question:
+      zh-cn: |-
+        一个没有应急基金的家庭，打算把所有储蓄都用来提前偿还利率 6% 的房贷。这样做最主要的缺点是：
+      en: |-
+        A household with no emergency fund plans to put all its savings into prepaying its 6% mortgage. The main drawback is:
+    choices:
+      - zh-cn: 还进房子的钱不能随时取出；失业时每月仍要还贷，房屋净值却很难变成现金
+        en: Money paid into the house cannot be taken out at any time; after a job loss the monthly payment is still due, while home equity is hard to turn into cash
+      - zh-cn: 提前还贷的收益低于房贷利率
+        en: Prepaying earns less than the mortgage rate
+        why:
+          zh-cn: 提前还 1 美元，以后少付多少利息？收益本身并不低。问题在别处。
+          en: Prepaying 1 dollar saves how much interest from then on? The return itself is not low. The problem lies elsewhere.
+      - zh-cn: 提前还贷会降低房子的价值
+        en: Prepaying lowers the value of the house
+        why:
+          zh-cn: 房子的价值与贷款余额有关吗？提前还贷改变的是什么？
+          en: Does the house's value depend on the loan balance? What does prepaying change?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。提前还贷的收益确实是无风险的 6%，但它把流动资产换成了房屋净值。房贷的月供并不因为提前还了一部分而减少（通常只是缩短期限），失业或生病时仍要每月付款；房屋净值要通过出售或借款才能变成现金，而在经济不好时银行可能冻结或降低房屋净值贷款的额度。应该先建立应急基金，再考虑提前还贷。
+      en: |-
+        (A). Prepaying does earn a riskless 6%, but it turns liquid assets into home equity. The monthly payment usually does not fall after a partial prepayment (the term just gets shorter), so payments are still due after a job loss or illness; home equity becomes cash only by selling or borrowing, and in bad times banks may freeze or cut home equity lines. Build the emergency fund first, then consider prepaying.
+
+  - id: C4
+    kind: check
+    section: insurance
+    concepts: [term-life-insurance, disability-insurance, risk-aversion]
+    question:
+      zh-cn: |-
+        在下面几种保险中，按“少见但损失巨大、自己承担不起”的原则，一个年轻的双职工家庭最不值得购买的是：
+      en: |-
+        Among the following, by the principle of "rare but large losses one could not afford", which is least worth buying for a young two-income household?
+    choices:
+      - zh-cn: 一台 1,500 美元电视机的 3 年延长保修
+        en: A 3-year extended warranty on a 1,500 dollar television
+      - zh-cn: 长期伤残险
+        en: Long-term disability insurance
+        why:
+          zh-cn: 一个人几十年不能工作，损失是多少？家庭能自己承担吗？
+          en: If one person could not work for decades, how large would the loss be? Could the household bear it alone?
+      - zh-cn: 100 万美元的伞险
+        en: 1 million dollars of umbrella insurance
+        why:
+          zh-cn: 被起诉要求赔偿几十万美元的可能性不大，但一旦发生，家庭能承担吗？这类保险通常贵不贵？
+          en: A lawsuit for hundreds of thousands of dollars is unlikely, but if it happened, could the household pay? Is such insurance usually expensive?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。电视机坏了的损失最多 1,500 美元，家庭完全可以自己承担；延长保修的价格通常远高于预期的维修费用，平均来说是在给卖家送利润。伤残险和伞险则保护的是可能毁掉家庭财务的大损失：前者保护人力资本，后者保护财产免受责任索赔，而伞险的保费通常每年只有几百美元。
+      en: |-
+        (A). A broken television costs at most 1,500 dollars, which the household can easily bear; extended warranties usually cost far more than the expected repairs, so on average they hand profit to the seller. Disability and umbrella insurance protect against losses that could ruin the household's finances: the first protects human capital, the second protects property from liability claims, and umbrella premiums are usually only a few hundred dollars a year.
+
+  - id: C5
+    kind: check
+    section: estate
+    concepts: [beneficiary-designation]
+    question:
+      zh-cn: |-
+        一位离婚后再婚的男士在新遗嘱中写明把全部财产留给现在的妻子，但他的 401(k) 受益人仍是前妻。他去世后，这个 401(k) 会按遗嘱交给现在的妻子。
+      en: |-
+        A man who divorced and remarried wrote a new will leaving everything to his current wife, but his 401(k) still names his former wife as beneficiary. After his death, the 401(k) goes to his current wife according to the will.
+    correct: false
+    hint:
+      zh-cn: 指定了受益人的账户在所有人去世后是怎样转移的？它要经过遗嘱认证程序吗？
+      en: How does an account with a named beneficiary pass on the owner's death? Does it go through probate?
+    answer:
+      zh-cn: |-
+        错。指定了受益人的账户直接转给指定的受益人，不经过遗嘱，遗嘱中的分配对它通常不起作用。所以结婚、离婚、生子等重大变化后，要逐一检查退休账户和寿险的受益人指定。（雇主 401(k) 还受联邦法律 ERISA 管辖，法院一般按计划文件中的受益人支付；具体结果可能还取决于离婚协议和州法，此处只说明一般原则。）
+      en: |-
+        False. An account with a named beneficiary passes straight to that beneficiary, outside the will, and the will's terms usually do not apply to it. So after marriage, divorce, the birth of a child or other major changes, check the beneficiary designations of every retirement account and life policy. (Employer 401(k) plans are also governed by the federal law ERISA, and courts generally pay the beneficiary named in the plan documents; specific outcomes may also depend on the divorce agreement and state law; this states only the general principle.)
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [household-balance-sheet, emergency-fund, real-interest-rate]
+    expected: { atb: "3.04", gap: "0.14" }
+    question:
+      zh-cn: |-
+        一对夫妻有 30 年期固定利率房贷，利率 2.9%（2021 年借入），不逐项扣除。他们有 6 万美元现金，其中 4 万是应急基金。现在短期国债收益率为 4.0%，国债利息免州税，他们的联邦边际税率为 24%。
+        (a) 把现金放在短期国债中，税后收益率是多少？比房贷利率高多少？
+        (b) 他们说：“没有负债最安全。我们应该用全部 6 万美元提前还房贷。”评价这个说法。如果房贷利率是 7%，你的建议会怎样改变？
+      en: |-
+        A couple has a 30-year fixed-rate mortgage at 2.9% (taken out in 2021) and does not itemize. They have 60,000 dollars in cash, 40,000 of which is their emergency fund. Short-term Treasury bills now yield 4.0%, Treasury interest is exempt from state tax, and their federal marginal tax rate is 24%.
+        (a) What is the after-tax yield on cash held in Treasury bills? By how much does it exceed the mortgage rate?
+        (b) They say: "Having no debt is safest. We should use all 60,000 dollars to prepay the mortgage." Evaluate this statement. How would your advice change if the mortgage rate were 7%?
+    answer:
+      zh-cn: |-
+        (a) $4.0\% \times (1 - 24\%) = 3.04\%$，比房贷利率高 $3.04\% - 2.9\% = 0.14$ 个百分点。
+        (b) 说法不对。第一，提前还 2.9% 的房贷，收益低于无风险的国债税后收益，而且是固定利率：如果通胀较高，房贷的实际利率很低甚至为负（[[1.3]]），长期低利率的固定房贷对借款人是有价值的。第二，还进房子的钱不能随时取出，用掉应急基金后，失业或生病时可能被迫借高利率的钱或卖出投资，反而更不安全。房贷的风险主要在于付不起月供，而这取决于流动性，而不是贷款余额。所以应保留应急基金，多余的现金可放在国债或按配置投资。如果房贷利率是 7%，提前还贷相当于 7% 的无风险收益，远高于国债的税后 3.04%，在保留应急基金、拿满 401(k) 配款之后，把多余的 2 万美元用来提前还贷就很有吸引力；但仍不应动用应急基金。
+      en: |-
+        (a) $4.0\% \times (1 - 24\%) = 3.04\%$, which exceeds the mortgage rate by $3.04\% - 2.9\% = 0.14$ percentage points.
+        (b) The statement is wrong. First, prepaying a 2.9% mortgage earns less than the riskless after-tax Treasury yield, and the rate is fixed: with higher inflation the mortgage's real rate is very low or even negative ([[1.3]]), and a long fixed low-rate mortgage is valuable to the borrower. Second, money paid into the house cannot be taken out at any time; after using up the emergency fund, a job loss or illness could force them to borrow at high rates or sell investments, which is less safe, not more. The risk of a mortgage lies mainly in being unable to make payments, which depends on liquidity, not on the balance. So keep the emergency fund and hold spare cash in Treasuries or invest it according to the allocation. If the mortgage rate were 7%, prepaying would earn a riskless 7%, far above the Treasury's 3.04% after tax; after keeping the emergency fund and getting the full 401(k) match, using the spare 20,000 dollars to prepay would be attractive, but the emergency fund should still not be touched.
+    rubric:
+      zh-cn:
+        - "(a) 通过：3.04%，高约 0.14 个百分点。"
+        - "(b) 通过：指出低利率固定房贷提前还的收益低于无风险收益；强调流动性和应急基金的作用；说明 7% 时应在保留应急基金的前提下考虑提前还。同意用全部现金提前还贷，需要订正。"
+      en:
+        - "(a) OK: 3.04%, about 0.14 percentage points higher."
+        - "(b) OK: says prepaying a low fixed-rate mortgage earns less than the riskless rate; stresses liquidity and the emergency fund; says at 7% prepaying makes sense while keeping the emergency fund. Agreeing to prepay with all the cash needs revision."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [term-life-insurance, annuity, human-capital]
+    expected: { pv: "1471.6", need: "1171.6" }
+    question:
+      zh-cn: |-
+        一位 35 岁的主要收入者有两个小孩。如果他去世，家人在今后 20 年中每年需要 9 万美元（按今天的购买力）维持生活和教育，之后孩子独立。实际折现率为 2%，每年的需要在年末支付。家庭现有可动用的金融资产 30 万美元。
+        (a) 家人 20 年需要的现值是多少？寿险的缺口约为多少（千美元）？
+        (b) 一位保险销售人员建议买 150 万美元的终身寿险，理由是“定期寿险到期就白交了钱，终身寿险既有保障又能储蓄，保障一辈子”。评价这个建议。
+      en: |-
+        A 35-year-old primary earner has two young children. If he dies, the family needs 90,000 dollars a year (in today's purchasing power) for the next 20 years for living and education costs, after which the children are independent. The real discount rate is 2%, and each year's need is paid at year end. The household has 300,000 dollars of usable financial assets.
+        (a) What is the present value of the family's 20 years of needs? Roughly what is the life insurance gap (thousand dollars)?
+        (b) An insurance salesperson recommends 1.5 million dollars of whole life insurance, because "with term insurance the money is wasted if you outlive it, while whole life both protects and saves, for your whole life". Evaluate this recommendation.
+    answer:
+      zh-cn: |-
+        (a) 年金现值（[[0.1]]）：$90 \times \frac{1 - 1.02^{-20}}{0.02} \approx 90 \times 16.35 \approx 1471.6$（千美元）。减去已有资产 300，缺口约 1171.6，即约 120 万美元，期限 20 年的定期寿险比较合适。
+        (b) 建议不合适。第一，保障的需要只持续约 20 年，而且逐年下降，终身寿险提供了一辈子的保障，其中大部分年份并不需要。第二，“白交了钱”是对保险的误解：没有发生损失时保费就是买到的保障，就像房屋保险不会因为房子没着火而白交（[[1.4]]）。第三，终身寿险的保费通常是同等保额定期寿险的很多倍，其中的储蓄部分费用高、透明度低、提前退保损失大，销售佣金也高（[[1.9]]）。常见的做法是买定期寿险，把省下的保费放进 401(k)、IRA 等低成本的投资中。终身寿险在一些特殊情况下有用，例如需要终身照顾的家人，或很大的遗产需要流动性交遗产税。
+      en: |-
+        (a) Present value of an annuity ([[0.1]]): $90 \times \frac{1 - 1.02^{-20}}{0.02} \approx 90 \times 16.35 \approx 1471.6$ (thousand dollars). Less the 300 of existing assets, the gap is about 1171.6, about 1.2 million dollars, suitably covered by a 20-year term policy.
+        (b) The recommendation does not fit. First, the need lasts about 20 years and shrinks each year, while whole life provides lifetime coverage that most of those years do not need. Second, "money wasted" misunderstands insurance: when no loss happens, the premium bought protection, just as home insurance is not wasted because the house did not burn ([[1.4]]). Third, whole life premiums are usually many times those of term for the same coverage, and the savings part has high costs, little transparency and large losses on early surrender, with high sales commissions ([[1.9]]). The common approach is to buy term and put the premium saved into low-cost investments such as a 401(k) or IRA. Whole life can be useful in special cases, such as a family member needing lifelong care, or a very large estate that needs liquidity to pay estate tax.
+    rubric:
+      zh-cn:
+        - "(a) 通过：现值约 1471.6，缺口约 1171.6（千美元）。"
+        - "(b) 通过：指出需求有期限且下降；纠正“白交了钱”的误解；说明终身寿险成本高，建议定期寿险加投资；提到终身寿险的适用情况更好。同意买终身寿险，需要订正。"
+      en:
+        - "(a) OK: present value about 1471.6, gap about 1171.6 (thousand dollars)."
+        - "(b) OK: says the need is limited in time and falling; corrects the \"wasted money\" idea; explains whole life's high cost and recommends term plus investing; mentioning when whole life fits is a plus. Agreeing to buy whole life needs revision."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [disability-insurance, human-capital, annuity]
+    expected: { hc: "5785", sh: "97.5" }
+    question:
+      zh-cn: |-
+        一位 30 岁的工程师税前年收入 20 万美元，预计今后每年实际增长 2%，工作到 65 岁（35 年）；实际折现率为 3%。他有 15 万美元金融资产，没有伤残险。
+        (a) 把第一年的收入看作年末收到的 20 万美元，用增长年金公式估计他的人力资本（千美元）。人力资本占他总财富的百分之几？
+        (b) 他说：“我年轻健康，伤残险是浪费钱；我最大的风险是股市下跌，所以我只持有 60% 的股票。”评价这个说法。
+      en: |-
+        A 30-year-old engineer earns 200,000 dollars a year before tax, expected to grow 2% a year in real terms, and plans to work until 65 (35 years); the real discount rate is 3%. He has 150,000 dollars of financial assets and no disability insurance.
+        (a) Treating the first year's income as 200,000 dollars received at year end, estimate his human capital with the growing annuity formula (thousand dollars). What percentage of his total wealth is human capital?
+        (b) He says: "I'm young and healthy, so disability insurance is a waste of money; my biggest risk is a stock market fall, so I hold only 60% stocks." Evaluate this statement.
+    answer:
+      zh-cn: |-
+        (a) 增长年金现值 $\frac{200}{0.03 - 0.02} \left[1 - \left(\frac{1.02}{1.03}\right)^{35}\right] \approx 20{,}000 \times 0.289 \approx 5785$（千美元）。人力资本占 $\frac{5785}{5785 + 150} \approx 97.5\%$。
+        (b) 说法不对。他的财富 97% 以上是人力资本，15 万美元金融资产即使股票下跌 40%，损失也只有约 3.6 万美元（60% × 40% × 15 万）；而如果长期伤残、不能工作，他可能失去几百万美元的人力资本。按社会保障局的估计，今天 20 岁的人中超过四分之一会在退休年龄前出现伤残（多数不是永久的，但长期伤残的损失巨大）。伤残险正是“少见但损失巨大、自己承担不起”的风险，对年轻的高收入者尤其重要。他的工作收入较稳定，像债券一样的人力资本使他的金融资产可以承担更多的股票风险（[[4.12]]），而不是更少。应该先通过雇主或个人购买长期伤残险（替代约 60% 的收入），再考虑提高股票比例。
+      en: |-
+        (a) Growing annuity: $\frac{200}{0.03 - 0.02} \left[1 - \left(\frac{1.02}{1.03}\right)^{35}\right] \approx 20{,}000 \times 0.289 \approx 5785$ (thousand dollars). Human capital is $\frac{5785}{5785 + 150} \approx 97.5\%$ of total wealth.
+        (b) The statement is wrong. Over 97% of his wealth is human capital; even if stocks fell 40%, his 150,000 dollars of financial assets would lose only about 36,000 (60% × 40% × 150,000), whereas a long-term disability that stopped him working could cost millions in human capital. The Social Security Administration estimates that more than one in four of today's 20-year-olds will become disabled before retirement age (mostly not permanently, but long-term disability is very costly). Disability is exactly a "rare but huge loss one cannot afford", especially important for young high earners. His fairly stable earnings make his human capital bond-like, which lets his financial assets bear more stock risk, not less ([[4.12]]). He should first get long-term disability insurance through his employer or on his own (replacing about 60% of income), then consider a higher stock share.
+    rubric:
+      zh-cn:
+        - "(a) 通过：人力资本约 5785（千美元），约占总财富 97.5%。"
+        - "(b) 通过：比较股市下跌与伤残对总财富的影响，指出伤残险保护人力资本；提到稳定的人力资本可以支持更高的股票比例更好。同意“伤残险是浪费”，需要订正。"
+      en:
+        - "(a) OK: human capital about 5785 (thousand dollars), about 97.5% of total wealth."
+        - "(b) OK: compares the effect of a market fall with that of disability on total wealth, and says disability insurance protects human capital; noting that stable human capital supports a higher stock share is a plus. Agreeing that disability insurance is a waste needs revision."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [emergency-fund, human-capital]
+    expected: { fund: "66" }
+    question:
+      zh-cn: |-
+        一对夫妻都在同一家科技公司工作，每月必要支出 1 万美元。在行业衰退中，他们估计可能两人同时失业，找到新工作最长需要 9 个月；失业期间两人每月合计可领约 4,000 美元失业救济，最多领 6 个月。
+        (a) 为应付这种情况，应急基金至少需要多少（千美元）？
+        (b) 他们的理财顾问建议按通用规则准备 3 个月支出（3 万美元），其余全部投资于公司股票和科技股基金，因为“你们了解这个行业”。评价这个建议。
+      en: |-
+        A couple both work at the same technology company and have essential expenses of 10,000 dollars a month. In an industry downturn they estimate they might both lose their jobs, and finding new jobs could take up to 9 months; while unemployed they would together receive about 4,000 dollars a month in unemployment benefits, for at most 6 months.
+        (a) At a minimum, how large must the emergency fund be to cover this case (thousand dollars)?
+        (b) Their adviser suggests the generic rule of 3 months of expenses (30,000 dollars), with everything else in company stock and technology funds, because "you know this industry". Evaluate this advice.
+    answer:
+      zh-cn: |-
+        (a) 9 个月支出 90，减去 6 个月救济 24，至少约 66（千美元），约 6.6 个月的支出。
+        (b) 建议不合适。通用的 3 个月规则假设两份收入的风险相互独立；这对夫妻的收入来自同一家公司，失业风险高度相关，可能同时失去全部收入，需要的应急基金明显更多。把其余资产集中于公司股票和科技股，使金融资产与人力资本承担同一种风险：行业衰退时，他们可能同时失业，而公司股票和科技股也正在大跌（[[4.12]]）。“了解这个行业”不等于能预测股价（[[4.7]]、[[4.8]]）。建议：应急基金至少按 (a) 的金额准备；金融资产分散投资，少持有甚至低配科技行业，以对冲人力资本的集中；减少公司股票。
+      en: |-
+        (a) 9 months of expenses is 90, minus 6 months of benefits, 24, so at least about 66 (thousand dollars), about 6.6 months of expenses.
+        (b) The advice does not fit. The generic 3-month rule assumes the two incomes' risks are independent; this couple's incomes come from the same company, so their job risks are highly correlated and they could lose all income at once, which calls for a clearly larger emergency fund. Concentrating the rest in company stock and technology funds makes their financial assets carry the same risk as their human capital: in an industry downturn they may lose their jobs just as company and technology stocks are falling sharply ([[4.12]]). "Knowing the industry" does not mean being able to predict stock prices ([[4.7]], [[4.8]]). Advice: hold at least the emergency fund from (a); diversify financial assets, holding little technology or even underweighting it to hedge the concentration of human capital; and reduce company stock.
+    rubric:
+      zh-cn:
+        - "(a) 通过：约 66（千美元）。"
+        - "(b) 通过：指出两份收入相关、需要更多应急基金；指出投资集中于同一行业与人力资本叠加风险；给出分散的建议。同意顾问的建议，需要订正。"
+      en:
+        - "(a) OK: about 66 (thousand dollars)."
+        - "(b) OK: says the two incomes are correlated and a larger fund is needed; says concentrating investments in the same industry stacks risk on top of human capital; advises diversifying. Agreeing with the adviser needs revision."

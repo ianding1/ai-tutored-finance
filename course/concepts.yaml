@@ -3053,3 +3053,211 @@ liquidity-mismatch:
   short:
     zh-cn: "基金允许频繁赎回，却持有难以按合理价格迅速出售的资产。"
     en: "A fund allowing frequent redemptions while holding assets that cannot be sold quickly at reasonable prices."
+
+long-term-capital-gain:
+  defined_in: "6.5"
+  zh-cn: 长期资本利得
+  en: long-term capital gain
+  short:
+    zh-cn: "持有超过一年的资产卖出时的利得，适用 0%/15%/20% 的较低税率。"
+    en: "A gain on an asset held more than one year, taxed at the lower 0%/15%/20% rates."
+
+qualified-dividend:
+  defined_in: "6.5"
+  zh-cn: 合格股利
+  en: qualified dividend
+  short:
+    zh-cn: "满足持有期要求的美国公司股利，按长期资本利得税率交税。"
+    en: "A dividend from a US company meeting holding-period rules, taxed at long-term capital gains rates."
+
+traditional-account:
+  defined_in: "6.5"
+  zh-cn: 传统账户
+  en: traditional account
+  short:
+    zh-cn: "存入免税、增长不交税、取出时按普通所得税率交税的退休账户。"
+    en: "A retirement account with tax-free contributions and growth, taxed at ordinary rates on withdrawal."
+
+roth-account:
+  defined_in: "6.5"
+  zh-cn: Roth 账户
+  en: Roth account
+  short:
+    zh-cn: "存入已税的钱、增长和合格取款都免税的退休账户。"
+    en: "A retirement account funded with taxed money, with tax-free growth and qualified withdrawals."
+
+health-savings-account:
+  defined_in: "6.5"
+  zh-cn: 健康储蓄账户
+  en: health savings account
+  short:
+    zh-cn: "配合高免赔额医疗保险的账户（HSA），存入、增长和医疗取款都免税。"
+    en: "An account paired with a high-deductible health plan (HSA); contributions, growth and medical withdrawals are tax-free."
+
+plan-529:
+  defined_in: "6.5"
+  zh-cn: 529 计划
+  en: 529 plan
+  short:
+    zh-cn: "州设立的教育储蓄账户，增长和合格教育取款免税。"
+    en: "A state education savings account with tax-free growth and qualified education withdrawals."
+
+backdoor-roth:
+  defined_in: "6.5"
+  zh-cn: 后门 Roth
+  en: backdoor Roth
+  short:
+    zh-cn: "向传统 IRA 存入不可抵扣的钱再转换为 Roth IRA，绕过收入限制。"
+    en: "Putting nondeductible money into a traditional IRA and converting it to a Roth IRA, getting around income limits."
+
+restricted-stock-unit:
+  defined_in: "6.5"
+  zh-cn: 限制性股票单位
+  en: restricted stock unit
+  short:
+    zh-cn: "归属时公司给员工股票（RSU），归属日市值按工资交税。"
+    en: "A grant of shares delivered at vesting (RSU), whose value then is taxed as wages."
+
+employee-stock-purchase-plan:
+  defined_in: "6.5"
+  zh-cn: 员工购股计划
+  en: employee stock purchase plan
+  short:
+    zh-cn: "员工通过工资扣款以折扣价购买公司股票的计划（ESPP）。"
+    en: "A plan letting employees buy company stock at a discount through payroll deductions (ESPP)."
+
+alternative-minimum-tax:
+  defined_in: "6.5"
+  zh-cn: 替代性最低税
+  en: alternative minimum tax
+  short:
+    zh-cn: "扣除项较少的另一套所得税计算（AMT），税额较高时须按它交税；ISO 行权价差计入。"
+    en: "A parallel income tax calculation with fewer deductions (AMT), due when higher; includes the ISO exercise spread."
+
+asset-location:
+  defined_in: "6.5"
+  zh-cn: 资产位置
+  en: asset location
+  short:
+    zh-cn: "决定把各类资产放在哪种税务待遇的账户中。"
+    en: "Deciding which accounts, by tax treatment, hold which assets."
+
+tax-loss-harvesting:
+  defined_in: "6.5"
+  zh-cn: 税损收割
+  en: tax-loss harvesting
+  short:
+    zh-cn: "卖出亏损证券实现资本损失以抵税，并买入相似资产保持敞口。"
+    en: "Selling losing securities to realize capital losses for tax, while buying similar assets to keep exposure."
+
+wash-sale-rule:
+  defined_in: "6.5"
+  zh-cn: 洗售规则
+  en: wash sale rule
+  short:
+    zh-cn: "卖出前后 30 天内买入实质上相同的证券时，损失不能当年扣除。"
+    en: "A loss cannot be deducted that year if substantially identical securities are bought within 30 days before or after the sale."
+
+household-balance-sheet:
+  defined_in: "6.6"
+  zh-cn: 家庭资产负债表
+  en: household balance sheet
+  short:
+    zh-cn: "列出家庭的金融资产、实物资产、人力资本和负债的表。"
+    en: "A list of a household's financial assets, real assets, human capital and liabilities."
+
+emergency-fund:
+  defined_in: "6.6"
+  zh-cn: 应急基金
+  en: emergency fund
+  short:
+    zh-cn: "为失业、生病和意外支出准备的、随时可用且价值稳定的资金。"
+    en: "Money kept stable and available for job loss, illness and unexpected costs."
+
+term-life-insurance:
+  defined_in: "6.6"
+  zh-cn: 定期寿险
+  en: term life insurance
+  short:
+    zh-cn: "在约定期限内被保险人去世时支付保额的人寿保险。"
+    en: "Life insurance paying the face amount if the insured dies within the agreed term."
+
+disability-insurance:
+  defined_in: "6.6"
+  zh-cn: 伤残险
+  en: disability insurance
+  short:
+    zh-cn: "因伤病不能工作时按月支付部分收入的保险。"
+    en: "Insurance paying part of income monthly when illness or injury prevents work."
+
+beneficiary-designation:
+  defined_in: "6.6"
+  zh-cn: 受益人指定
+  en: beneficiary designation
+  short:
+    zh-cn: "直接指定退休账户或保险在所有人去世后的受益人，不经过遗嘱。"
+    en: "Naming who receives a retirement account or insurance on the owner's death, outside the will."
+
+strategic-asset-allocation:
+  defined_in: "6.7"
+  zh-cn: 战略资产配置
+  en: strategic asset allocation
+  short:
+    zh-cn: "根据目标、风险承受能力与意愿和资本市场假设确定的长期目标比例。"
+    en: "The long-term target mix set by goals, risk capacity and tolerance, and capital market assumptions."
+
+tactical-asset-allocation:
+  defined_in: "6.7"
+  zh-cn: 战术资产配置
+  en: tactical asset allocation
+  short:
+    zh-cn: "基于短期市场判断对战略比例的暂时偏离，实际上是择时。"
+    en: "A temporary departure from the strategic mix on a short-term market view; in effect market timing."
+
+home-bias:
+  defined_in: "6.7"
+  zh-cn: 本土偏好
+  en: home bias
+  short:
+    zh-cn: "投资者持有的本国资产比例远高于本国在全球市场中的比例。"
+    en: "Investors holding far more domestic assets than the home market's share of the global market."
+
+rebalancing:
+  defined_in: "6.7"
+  zh-cn: 再平衡
+  en: rebalancing
+  short:
+    zh-cn: "卖出比例过高、买入比例过低的资产，使组合回到目标比例。"
+    en: "Selling overweight and buying underweight assets to bring the portfolio back to target."
+
+form-10-k:
+  defined_in: "6.8"
+  zh-cn: 10-K 年报
+  en: Form 10-K
+  short:
+    zh-cn: "美国上市公司向 SEC 提交的经审计的年度报告。"
+    en: "The audited annual report US listed companies file with the SEC."
+
+five-forces:
+  defined_in: "6.8"
+  zh-cn: 五力模型
+  en: five forces
+  short:
+    zh-cn: "Porter 分析行业利润的框架：现有竞争、新进入者、替代品、供应商和买方的力量。"
+    en: "Porter's framework for industry profits: rivalry, new entrants, substitutes, supplier power and buyer power."
+
+reverse-dcf:
+  defined_in: "6.8"
+  zh-cn: 反向 DCF
+  en: reverse DCF
+  short:
+    zh-cn: "从现在的股价反推市场隐含的未来增长率。"
+    en: "Working back from today's price to the future growth the market implies."
+
+investment-thesis:
+  defined_in: "6.8"
+  zh-cn: 投资逻辑
+  en: investment thesis
+  short:
+    zh-cn: "说明价格为何低于价值、与市场的分歧以及判断错误的证据的书面论证。"
+    en: "A written case for why price is below value, how one differs from the market, and what would prove one wrong."

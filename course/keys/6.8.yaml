@@ -1,0 +1,308 @@
+# Answer key for lesson 6.8. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[5.2#strategies]] (section), [[concept:beta]], [[check:Q3]], [[fig:3-1]].
+# expected: values are recomputed by course/verify/6.8.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "6.8"
+
+context:
+  - zh-cn: |-
+      本课是简讲。学习者学过市场结构、进入壁垒与护城河（[[1.6]]）、财务报表与盈余质量（[[3.7]]）、财务比率与 ROIC（[[3.8]]）、DDM、DCF、WACC 与相对估值（[[3.9]]–[[3.11]]）、单指数模型与特质风险（[[4.5]]）、市场效率与行为偏差（[[4.7]]、[[4.8]]）、主动与被动投资（[[6.3]]）。可以用计算器或代码求解。百分数用百分点表示；方差用 %²。
+    en: |-
+      This is a brief lesson. The learner has studied market structure, barriers to entry and moats ([[1.6]]), financial statements and earnings quality ([[3.7]]), financial ratios and ROIC ([[3.8]]), the DDM, DCF, WACC and relative valuation ([[3.9]]–[[3.11]]), the single-index model and idiosyncratic risk ([[4.5]]), market efficiency and behavioral biases ([[4.7]], [[4.8]]) and active versus passive investing ([[6.3]]). A calculator or code may be used to solve equations. Percentages in percentage points; variance in %².
+  - concepts: [form-10-k]
+    zh-cn: |-
+      讲义：EDGAR 免费查询；10-K 经审计，大公司财年结束后 60 天内提交，重点读业务描述、风险因素、MD&A、报表与附注；10-Q 未经审计；8-K 在重大事件后 4 个工作日内提交；委托书（DEF 14A）有高管薪酬与董事会；财报电话会常给出业绩指引。讲义没有比较指引与审计数字的可靠性（留给 [[check:C1]]）。
+    en: |-
+      The lesson: EDGAR is free; the 10-K is audited, filed by large companies within 60 days of fiscal year end, with the business description, risk factors, MD&A, statements and notes worth reading; the 10-Q is unaudited; the 8-K comes within 4 business days of a major event; the proxy (DEF 14A) covers executive pay and the board; earnings calls often give guidance. The lesson does not compare the reliability of guidance and audited figures (left to [[check:C1]]).
+  - concepts: [five-forces, economic-moat, return-on-invested-capital]
+    zh-cn: |-
+      讲义：Porter（1979）五力：现有竞争、新进入者威胁、替代品威胁、供应商议价能力、买方议价能力；力量越弱行业平均利润越高。护城河（网络效应、转换成本、规模经济、品牌、专利）决定 ROIC 能否长期高于 WACC。讲义没有给出增长、ROIC 与价值的公式（留给 [[check:Q3]]）。
+    en: |-
+      The lesson: Porter's (1979) five forces: rivalry, threat of entry, threat of substitutes, supplier power, buyer power; the weaker they are, the higher average industry profits. A moat (network effects, switching costs, scale, brands, patents) decides whether ROIC can stay above WACC. The lesson gives no formula linking growth, ROIC and value (left to [[check:Q3]]).
+  - concepts: [reverse-dcf]
+    zh-cn: |-
+      讲义：反向 DCF 求出股价隐含的增长率，再与公司历史、行业规模和同类公司的经验比较。[[fig:3-1]]：股价 = 当年自由现金流的若干倍（横轴 10–80），今后 10 年年增长率 $g$，之后 3% 永续增长；滑块折现率 7–11%（步长 1，默认 9）；读数：折现率 9% 时倍数 20、40、60 隐含增长约 5.0%、14.1%、19.4%；7% 时约 −0.1%、8.4%、13.4%；11% 时约 9.1%、18.7%、24.4%。
+    en: |-
+      The lesson: a reverse DCF finds the growth implied by the price, then compares it with the company's history, the industry's size and similar companies' experience. [[fig:3-1]]: price = a multiple of this year's free cash flow (horizontal axis 10–80), yearly growth $g$ for 10 years, then 3% forever; slider discount rate 7–11% (steps of 1, default 9); readout: at 9%, multiples 20, 40, 60 imply about 5.0%, 14.1%, 19.4%; at 7%, about −0.1%, 8.4%, 13.4%; at 11%, about 9.1%, 18.7%, 24.4%.
+  - concepts: [investment-thesis]
+    zh-cn: |-
+      讲义：投资逻辑写明为什么价格低于价值、与市场共识的分歧、可能的催化事件、证明自己错的证据；认真写反方论点，事前验尸（假设三年后亏 50%，最可能的原因）；对抗确认偏差和过度自信；单只股票特质风险大，限制仓位，个股是指数核心之外的一小部分。
+    en: |-
+      The lesson: a thesis states why the price is below value, how one differs from consensus, possible catalysts, and evidence that would prove one wrong; write the case against seriously, with a pre-mortem (suppose a 50% loss in three years; the likeliest cause); counter confirmation bias and overconfidence; single stocks carry large idiosyncratic risk, so limit position size and keep individual stocks a small part outside the index core.
+
+common_errors:
+  - questions: [Q1]
+    zh-cn: |-
+      用公司过去的高增长和“好公司”的印象作为买入理由；没有算出股价已经隐含的增长，也没有与同类公司长期维持高增长的经验比较。
+    en: |-
+      Using a company's past high growth and its reputation as a "great company" as a reason to buy; not working out the growth already implied by the price or comparing it with how rarely companies sustain high growth.
+  - questions: [Q2]
+    zh-cn: |-
+      看到利润创新高就认为业绩好；忽略应收账款增长远快于收入、经营现金流落后于利润等盈余质量的警示信号。
+    en: |-
+      Seeing record profits and concluding results are good; ignoring warning signs of earnings quality such as receivables growing far faster than sales, or operating cash flow lagging profits.
+  - questions: [Q3]
+    zh-cn: |-
+      以为增长总是创造价值；忽略只有当投入资本回报率高于资本成本时，增长才增加价值，否则增长会毁灭价值。
+    en: |-
+      Thinking growth always creates value; ignoring that growth adds value only when the return on invested capital exceeds the cost of capital, and otherwise destroys value.
+  - questions: [Q4]
+    zh-cn: |-
+      以为深入研究降低了单只股票的风险，因而可以大比例集中持有；忽略研究不能消除特质风险，判断也可能出错。
+    en: |-
+      Thinking deep research lowers a single stock's risk, so a large concentrated position is fine; ignoring that research does not remove idiosyncratic risk, and the judgment may be wrong.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: filings
+    concepts: [form-10-k]
+    question:
+      zh-cn: |-
+        管理层在财报电话会上给出的下一年业绩指引经过审计，所以比 10-K 中的历史数字更可靠。
+      en: |-
+        The guidance for next year that management gives on the earnings call is audited, so it is more reliable than the historical figures in the 10-K.
+    correct: false
+    hint:
+      zh-cn: 审计师审计的是什么：已经发生的结果，还是对将来的预测？管理层给出指引时可能有什么动机？
+      en: What do auditors audit, results that have happened or forecasts? What motives might management have when giving guidance?
+    answer:
+      zh-cn: |-
+        错。审计针对的是已经发生的财务报表，指引是管理层对将来的预测，没有经过审计，只受“前瞻性陈述”的免责条款保护。管理层可能有意给出容易达到的指引，以便将来“超出预期”，也可能过于乐观。指引有参考价值，但应与经审计的历史数字和自己的分析对照。
+      en: |-
+        False. Audits cover financial statements of what has happened; guidance is management's forecast of the future, is not audited, and is covered by "forward-looking statement" disclaimers. Management may set guidance low so it can "beat expectations" later, or may be too optimistic. Guidance is useful, but should be checked against audited history and one's own analysis.
+
+  - id: C2
+    kind: check
+    section: industry
+    concepts: [five-forces]
+    question:
+      zh-cn: |-
+        美国航空业的乘客数量长期增长，但行业长期的平均利润率很低，多次出现大公司破产。按五力模型，最主要的原因是：
+      en: |-
+        US airline passenger numbers have grown over the long run, yet the industry's long-run average profit margin is very low, with several large airlines going bankrupt. By the five forces, the main reason is:
+    choices:
+      - zh-cn: 多种力量都很强：竞争激烈且固定成本高，乘客对价格敏感、容易比价，飞机制造商、工会和机场等供应方议价能力强
+        en: 'Several forces are strong: fierce rivalry with high fixed costs, price-sensitive passengers who compare fares easily, and strong bargaining power of suppliers such as aircraft makers, unions and airports'
+      - zh-cn: 航空旅行的需求太小
+        en: Demand for air travel is too small
+        why:
+          zh-cn: 题目说乘客数量长期增长。需求大，利润就一定高吗？利润被谁拿走了？
+          en: The question says passenger numbers have grown. Does large demand guarantee high profits? Who takes the profit?
+      - zh-cn: 航空公司的管理层普遍能力较差
+        en: Airline managers are generally less capable
+        why:
+          zh-cn: 如果整个行业几十年都是这样，更可能是个人能力的问题，还是行业结构的问题？
+          en: If the whole industry has been like this for decades, is it more likely a matter of individual ability or of industry structure?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。航空业几乎每一种力量都不利：座位一旦起飞就失效、固定成本高，航空公司有很强的动力降价填满座位，竞争激烈；乘客在网上比价，转换成本几乎为 0；飞机由两家制造商供应，工会、机场和燃油价格也挤压利润。需求增长的好处主要被乘客和供应方拿走了。五力模型说明，行业的结构比需求的大小更决定利润。
+      en: |-
+        (A). Almost every force works against airlines: a seat is worthless once the plane leaves and fixed costs are high, so airlines cut fares to fill seats and rivalry is fierce; passengers compare fares online with nearly zero switching costs; aircraft come from two makers, and unions, airports and fuel prices squeeze profits too. The gains from growing demand go mainly to passengers and suppliers. The five forces show that industry structure matters more for profits than the size of demand.
+
+  - id: C3
+    kind: check
+    section: valuation
+    concepts: [reverse-dcf]
+    widget: { id: reverse-dcf, set: { r: 11 } }
+    question:
+      zh-cn: |-
+        在 [[fig:3-1]] 中，把折现率从 9% 提高到 11%。对同一个倍数（例如 40），隐含的增长率会怎样，为什么？
+      en: |-
+        In [[fig:3-1]], raise the discount rate from 9% to 11%. For the same multiple (say 40), what happens to the implied growth, and why?
+    choices:
+      - zh-cn: 上升，因为未来现金流被折现得更多，需要更高的增长才能支撑同样的价格
+        en: It rises, because future cash flows are discounted more, so higher growth is needed to support the same price
+      - zh-cn: 下降，因为折现率越高说明市场越看好
+        en: It falls, because a higher discount rate means the market is more optimistic
+        why:
+          zh-cn: 折现率越高，同样的未来现金流今天值多少？要让价值仍等于股价，增长率要怎样？
+          en: With a higher discount rate, what are the same future cash flows worth today? For the value still to equal the price, what must growth do?
+      - zh-cn: 不变，因为倍数没有变
+        en: It stays the same, because the multiple has not changed
+        why:
+          zh-cn: 看图中曲线和读数：改变折现率后，倍数 40 对应的增长率变了吗？
+          en: 'Look at the curve and the readout: after changing the discount rate, does the growth at a multiple of 40 change?'
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。倍数 40 时，隐含增长率约从 14.1% 升到 18.7%。折现率越高，未来现金流的现值越低，要使价值仍等于股价，未来的现金流必须更大，即增长更快。这也说明反向 DCF 的结论取决于所用的折现率；判断时应该在一个合理的折现率范围内看隐含增长率的变化。
+      en: |-
+        (A). At a multiple of 40, implied growth rises from about 14.1% to about 18.7%. A higher discount rate lowers the present value of future cash flows, so for value to still equal the price, future cash flows must be larger, that is, growth faster. It also shows that a reverse DCF's conclusion depends on the discount rate used; judge the implied growth across a reasonable range of discount rates.
+
+  - id: C4
+    kind: check
+    section: thesis
+    concepts: [investment-thesis, efficient-market-hypothesis]
+    question:
+      zh-cn: |-
+        一家公司有很宽的护城河、管理优秀、增长稳定，所以它的股票一定是好的投资。
+      en: |-
+        A company has a wide moat, excellent management and steady growth, so its stock must be a good investment.
+    correct: false
+    hint:
+      zh-cn: 一只股票的收益取决于公司的表现，还是取决于公司的表现与买入价格所隐含的预期之差？其他投资者知道这家公司好吗？
+      en: Does a stock's return depend on how the company performs, or on how it performs relative to the expectations built into the price paid? Do other investors know the company is good?
+    answer:
+      zh-cn: |-
+        错。好公司不一定是好投资，关键是价格。市场通常已经知道哪些公司好，并把这一点反映在较高的估值中（[[4.7]]）。如果股价已经隐含了很高的增长，公司即使继续表现优秀，只要不如预期，股票的收益也可能很低。投资逻辑需要说明自己的判断与市场已经反映的预期有什么不同。
+      en: |-
+        False. A good company is not necessarily a good investment; price is the key. The market usually knows which companies are good and reflects it in higher valuations ([[4.7]]). If the price already implies high growth, the stock can return little even if the company keeps doing well, as long as it falls short of expectations. A thesis must explain how one's view differs from the expectations already in the price.
+
+  - id: C5
+    kind: check
+    section: thesis
+    concepts: [investment-thesis, overconfidence, disposition-effect]
+    question:
+      zh-cn: |-
+        买入之前就写下“什么样的证据会证明我错了”，主要的作用是：
+      en: |-
+        Writing down before buying "what evidence would prove me wrong" mainly serves to:
+    choices:
+      - zh-cn: 防止买入后对坏消息找理由解释，或因为不愿承认亏损而一直持有
+        en: Prevent explaining away bad news after buying, or holding on because one does not want to admit a loss
+      - zh-cn: 保证这笔投资不会亏损
+        en: Guarantee that the investment will not lose money
+        why:
+          zh-cn: 写下判断错误的条件能改变股价吗？它改变的是谁的行为？
+          en: Can writing down when one would be wrong change the stock price? Whose behavior does it change?
+      - zh-cn: 让投资逻辑看起来更专业
+        en: Make the thesis look more professional
+        why:
+          zh-cn: 想一想买入之后，股价下跌、坏消息出现时，人们常有什么反应（[[4.8]]）。
+          en: Think about how people often react after buying when the price falls and bad news appears ([[4.8]]).
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。买入后，人们倾向于寻找支持原来观点的信息（确认偏差），不愿卖出亏损的股票（处置效应，[[4.8]]）。事先写下的退出条件是在没有亏损、头脑冷静时定的标准，到时候可以对照，减少事后合理化。它不能保证不亏损，但能让判断错误时的损失更小。
+      en: |-
+        (A). After buying, people tend to seek information supporting their view (confirmation bias) and are reluctant to sell losers (the disposition effect, [[4.8]]). Exit conditions written in advance are a standard set calmly, before any loss, that can be checked later, reducing after-the-fact rationalizing. They cannot prevent losses, but they can make losses smaller when one is wrong.
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [reverse-dcf, wacc]
+    expected: { g: "18.3" }
+    question:
+      zh-cn: |-
+        一家软件公司今年每股自由现金流为 4 美元，股价为 200 美元。设折现率为 9.5%，10 年后自由现金流按每年 3% 永续增长。
+        (a) 用反向 DCF 求股价隐含的今后 10 年自由现金流年增长率（可以用代码或计算器求解）。
+        (b) 一位分析师说：“这家公司过去 5 年自由现金流每年增长 20%，是一家伟大的公司，现在买入一定能赚钱。”评价这个说法。判断隐含增长率是否合理时，你会与什么比较？
+      en: |-
+        A software company has free cash flow of 4 dollars per share this year, and its stock is at 200 dollars. Use a discount rate of 9.5%, with free cash flow growing 3% a year forever after 10 years.
+        (a) Use a reverse DCF to find the yearly growth in free cash flow over the next 10 years implied by the price (code or a calculator may be used to solve).
+        (b) An analyst says: "This company's free cash flow grew 20% a year over the past 5 years; it is a great company, and buying now is sure to make money." Evaluate this statement. Against what would you judge whether the implied growth is reasonable?
+    answer:
+      zh-cn: |-
+        (a) 倍数为 $\frac{200}{4} = 50$。求 $g$ 使 $\sum_{t=1}^{10} \left(\frac{1 + g}{1.095}\right)^t + \frac{(1 + g)^{10} \times 1.03}{(0.095 - 0.03) \times 1.095^{10}} = 50$，得 $g \approx 18.3\%$：今后 10 年自由现金流每年要增长约 18.3%，10 年后约为现在的 5.4 倍。
+        (b) 说法不对。股价已经隐含了每年约 18.3% 的增长，与过去 5 年的 20% 相差不大；投资者能否赚钱，取决于将来的增长是否超过这个隐含的预期，而不是公司是否伟大。判断时可以比较：能连续 10 年保持 18% 以上增长的公司在历史上很少，增长通常会随规模变大而放慢（向平均回归）；公司所在市场的规模是否容得下 5 倍以上的现金流；竞争和护城河能否维持高 ROIC；以及在 8.5%–10.5% 等不同折现率下隐含增长的变化。如果这些比较显示 18% 已经偏乐观，“一定能赚钱”就不成立。
+      en: |-
+        (a) The multiple is $\frac{200}{4} = 50$. Solve for $g$ in $\sum_{t=1}^{10} \left(\frac{1 + g}{1.095}\right)^t + \frac{(1 + g)^{10} \times 1.03}{(0.095 - 0.03) \times 1.095^{10}} = 50$, giving $g \approx 18.3\%$: free cash flow must grow about 18.3% a year for 10 years, reaching about 5.4 times today's level.
+        (b) The statement is wrong. The price already implies about 18.3% growth a year, not far from the past 5 years' 20%; whether investors make money depends on whether future growth beats this implied expectation, not on whether the company is great. Compare: historically few companies sustain more than 18% growth for 10 straight years, and growth usually slows as companies get bigger (reversion to the mean); whether the company's market is big enough for cash flows more than 5 times larger; whether competition and the moat can keep ROIC high; and how the implied growth changes at discount rates from, say, 8.5% to 10.5%. If these comparisons suggest 18% is already optimistic, "sure to make money" does not hold.
+    rubric:
+      zh-cn:
+        - "(a) 通过：倍数 50，隐含增长约 18.3%，方程设立正确。"
+        - "(b) 通过：指出收益取决于将来增长与隐含预期之差；给出至少两个比较的依据（同类公司的经验、市场规模、护城河、折现率敏感性）。同意“一定能赚钱”，需要订正。"
+      en:
+        - "(a) OK: multiple 50, implied growth about 18.3%, equation set up correctly."
+        - "(b) OK: says returns depend on future growth relative to the implied expectation; gives at least two bases for comparison (similar companies' experience, market size, moat, sensitivity to the discount rate). Agreeing it is sure to make money needs revision."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [earnings-quality, form-10-k]
+    expected: { dso1: "60", dso2: "76.4" }
+    question:
+      zh-cn: |-
+        一家公司公布年度利润创历史新高。从 10-K 中查到：收入从 10 亿美元增长 10% 到 11 亿美元；年末应收账款从 1.644 亿美元增长 40% 到 2.302 亿美元；经营现金流比上一年下降。
+        (a) 分别计算两年的应收账款周转天数（年末应收账款 / 收入 × 365）。
+        (b) 公司新闻稿说“业绩创历史新高，增长强劲”。评价这个说法：这些数字可能说明什么？你会在 10-K 的哪些部分进一步查证？
+      en: |-
+        A company reports record annual profit. From its 10-K: revenue rose 10%, from 1 billion to 1.1 billion dollars; year-end receivables rose 40%, from 164.4 million to 230.2 million dollars; operating cash flow fell from the year before.
+        (a) Compute days sales outstanding for each year (year-end receivables / revenue × 365).
+        (b) The press release says "record results and strong growth". Evaluate this statement: what might these figures indicate? Which parts of the 10-K would you check further?
+    answer:
+      zh-cn: |-
+        (a) 上一年：$\frac{164.4}{1000} \times 365 \approx 60$ 天；今年：$\frac{230.2}{1100} \times 365 \approx 76.4$ 天。
+        (b) 说法值得怀疑。应收账款的增长远快于收入，回款天数延长了约 16 天，经营现金流反而下降：利润的增长没有变成现金。可能的原因有：为了冲业绩放宽信用条件或提前确认收入（例如在季末向渠道大量压货）、客户付款能力变差、或者坏账准备计提不足（[[3.7]]）。应进一步查：MD&A 中对应收账款和现金流变化的解释；附注中的收入确认政策是否改变、坏账准备的变化、主要客户的集中度；现金流量表中营运资本的变动；季度数据（10-Q）中收入是否集中在季末；以及审计意见和风险因素。
+      en: |-
+        (a) Last year: $\frac{164.4}{1000} \times 365 \approx 60$ days; this year: $\frac{230.2}{1100} \times 365 \approx 76.4$ days.
+        (b) The statement deserves doubt. Receivables grew far faster than revenue, collection time lengthened by about 16 days, and operating cash flow fell: the profit growth did not turn into cash. Possible causes include looser credit terms or early revenue recognition to hit targets (such as stuffing channels at quarter end), customers less able to pay, or too small an allowance for bad debts ([[3.7]]). Check further: MD&A's explanation of receivables and cash flow; the notes, for changes in revenue recognition policy, the bad-debt allowance and customer concentration; working capital changes in the cash flow statement; quarterly data (10-Q) to see whether revenue bunches at quarter ends; and the audit opinion and risk factors.
+    rubric:
+      zh-cn:
+        - "(a) 通过：约 60 天和约 76.4 天。"
+        - "(b) 通过：指出利润没有变成现金，给出至少两种可能的原因，并说出至少两个要查证的部分。同意“业绩强劲”而不提这些信号，需要订正。"
+      en:
+        - "(a) OK: about 60 and about 76.4 days."
+        - "(b) OK: says profit did not turn into cash, gives at least two possible causes, and names at least two parts to check. Accepting \"strong results\" without these signals needs revision."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [return-on-invested-capital, economic-moat, gordon-growth-model]
+    expected: { v9: "1111.1", v20: "1600", v6: "666.7" }
+    question:
+      zh-cn: |-
+        一家公司明年的税后营业利润为 100（百万美元），资本成本为 9%，打算让利润每年永续增长 4%。为了增长，它每年要把利润的一部分再投资，比例为 $\frac{g}{\text{ROIC}}$，其余作为自由现金流，所以价值为 $V = \frac{E\,(1 - g/\text{ROIC})}{r - g}$。
+        (a) 新投资的 ROIC 分别为 9%、20%、6% 时，公司的价值各是多少？与不增长（$g = 0$，价值 $\frac{100}{0.09}$）相比如何？
+        (b) 新任 CEO 宣布：“我们将把增长率从 0 提高到 4%，这将大大提升股东价值。”评价这个说法。你需要知道公司的什么情况，才能判断？这与护城河有什么关系？
+      en: |-
+        A company's after-tax operating profit next year is 100 (million dollars), its cost of capital is 9%, and it plans to grow profit 4% a year forever. To grow, it must reinvest a share $\frac{g}{\text{ROIC}}$ of profit each year, and the rest is free cash flow, so its value is $V = \frac{E\,(1 - g/\text{ROIC})}{r - g}$.
+        (a) With an ROIC on new investment of 9%, 20% and 6%, what is the company worth in each case? How does each compare with no growth ($g = 0$, worth $\frac{100}{0.09}$)?
+        (b) A new CEO announces: "We will raise growth from 0 to 4%, greatly increasing shareholder value." Evaluate this statement. What would you need to know about the company to judge it? How does this relate to moats?
+    answer:
+      zh-cn: |-
+        (a) 不增长时价值 $\frac{100}{0.09} \approx 1111.1$。ROIC 9%：$\frac{100 \times (1 - 4/9)}{0.05} \approx 1111.1$，与不增长相同；ROIC 20%：$\frac{100 \times 0.8}{0.05} = 1600$，高于不增长；ROIC 6%：$\frac{100 \times (1 - 2/3)}{0.05} \approx 666.7$，低于不增长。
+        (b) 说法不一定对。增长只有在新投资的 ROIC 高于资本成本时才创造价值；ROIC 等于资本成本时，增长不改变价值；低于资本成本时，增长反而毁灭价值，因为再投资的钱回报不如投资者在别处能得到的。所以要知道：新投资的项目能获得多高的 ROIC，公司现有业务的 ROIC 是否持续高于 WACC，增长来自扩张现有优势还是进入没有优势的领域（例如高价并购）。能长期保持 ROIC 高于资本成本，正是护城河的经济含义（[[1.6]]）；没有护城河时，竞争会把新投资的 ROIC 压到资本成本附近，增长就不再创造价值。管理层的薪酬如果按收入或规模的增长考核，还可能鼓励不创造价值的增长（[[1.9]]）。
+      en: |-
+        (a) With no growth, value is $\frac{100}{0.09} \approx 1111.1$. ROIC 9%: $\frac{100 \times (1 - 4/9)}{0.05} \approx 1111.1$, the same as no growth; ROIC 20%: $\frac{100 \times 0.8}{0.05} = 1600$, above no growth; ROIC 6%: $\frac{100 \times (1 - 2/3)}{0.05} \approx 666.7$, below no growth.
+        (b) The statement is not necessarily right. Growth creates value only when new investment earns an ROIC above the cost of capital; at an ROIC equal to the cost of capital growth leaves value unchanged; below it, growth destroys value, because reinvested money earns less than investors could get elsewhere. So one needs to know: what ROIC the new projects can earn, whether the existing business's ROIC stays above WACC, and whether growth extends existing advantages or enters areas with no advantage (such as expensive acquisitions). Keeping ROIC above the cost of capital for a long time is exactly the economic meaning of a moat ([[1.6]]); without one, competition pushes the ROIC on new investment toward the cost of capital, and growth no longer creates value. If management is paid on revenue or size growth, it may also be encouraged to pursue growth that creates no value ([[1.9]]).
+    rubric:
+      zh-cn:
+        - "(a) 通过：约 1111.1、1600、666.7，并与不增长的 1111.1 比较。"
+        - "(b) 通过：指出增长只在 ROIC 高于资本成本时创造价值，说明要了解新投资的 ROIC，并联系护城河。同意增长一定提升价值，需要订正。"
+      en:
+        - "(a) OK: about 1111.1, 1600 and 666.7, compared with 1111.1 for no growth."
+        - "(b) OK: says growth creates value only when ROIC exceeds the cost of capital, that the ROIC of new investment must be known, and links this to moats. Agreeing that growth always adds value needs revision."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [investment-thesis, firm-specific-risk, portfolio-variance]
+    expected: { sd: "20.1" }
+    question:
+      zh-cn: |-
+        一位投资者原来 100% 持有股票指数基金（波动率 16%）。他花了几个月研究一家公司，决定把组合的 30% 换成这只股票。这只股票的波动率为 40%，与指数的相关系数为 0.5。
+        (a) 换仓后组合的波动率约为多少？
+        (b) 他说：“我对这家公司研究得很透彻，所以这笔投资的风险比买一只不了解的股票低得多。”评价这个说法，并给出建议。
+      en: |-
+        An investor used to hold 100% in a stock index fund (volatility 16%). After months of researching a company, he decides to move 30% of the portfolio into its stock. The stock's volatility is 40%, and its correlation with the index is 0.5.
+        (a) Roughly what is the portfolio's volatility after the change?
+        (b) He says: "I've researched this company thoroughly, so this investment is much less risky than buying a stock I don't understand." Evaluate this statement and give advice.
+    answer:
+      zh-cn: |-
+        (a) 方差 $0.7^2 \times 16^2 + 0.3^2 \times 40^2 + 2 \times 0.7 \times 0.3 \times 0.5 \times 16 \times 40 = 125.44 + 144 + 134.4 = 403.84$（%²），波动率约 20.1%，比原来的 16% 高约四分之一。
+        (b) 说法不对。研究可以提高判断正确的概率（如果他真的有信息优势），但不能减少股价的波动：产品失败、管理层变动、诉讼、行业冲击等特质风险（[[4.5]]）不会因为他了解公司而消失。过度自信（[[4.8]]）使人高估自己判断的准确性，而市场上其他投资者也在研究同一家公司（[[4.7]]）。建议：把单只股票的比例限制在一个事先定好的上限内（例如 5%），写下投资逻辑和证明自己错误的条件，并设定复查的时间；如果他确有信心，也要按 (a) 的方法看清这一仓位使整个组合的风险增加了多少。
+      en: |-
+        (a) Variance $0.7^2 \times 16^2 + 0.3^2 \times 40^2 + 2 \times 0.7 \times 0.3 \times 0.5 \times 16 \times 40 = 125.44 + 144 + 134.4 = 403.84$ (%²), volatility about 20.1%, about a quarter higher than the original 16%.
+        (b) The statement is wrong. Research can raise the chance of being right (if he really has an information advantage), but it cannot reduce the stock's swings: idiosyncratic risks such as product failures, management changes, lawsuits and industry shocks ([[4.5]]) do not vanish because he understands the company. Overconfidence ([[4.8]]) makes people overrate the accuracy of their judgments, and other investors are researching the same company ([[4.7]]). Advice: limit any single stock to a ceiling set in advance (say 5%), write down the thesis and the conditions that would prove him wrong, and set dates to review it; even if he is confident, use the method of (a) to see how much this position adds to the risk of the whole portfolio.
+    rubric:
+      zh-cn:
+        - "(a) 通过：约 20.1%，包含协方差项。"
+        - "(b) 通过：指出研究不能消除特质风险，提到过度自信或市场竞争，并给出限制仓位等建议。同意“风险低得多”，需要订正。"
+      en:
+        - "(a) OK: about 20.1%, including the covariance term."
+        - "(b) OK: says research cannot remove idiosyncratic risk, mentions overconfidence or competition among investors, and advises limiting the position. Agreeing that the risk is much lower needs revision."

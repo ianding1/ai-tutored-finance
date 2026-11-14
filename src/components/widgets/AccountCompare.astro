@@ -1,0 +1,78 @@
+---
+// Figure 2-1 of lesson 6.5: after-tax wealth after 30 years from 100 dollars of pre-tax salary, saved in a
+// traditional account, a Roth account, or a taxable account (stock fund: 5% price growth plus a 2% dividend taxed
+// at 15% each year, 15% tax on the gain at sale). Adjustable marginal tax rates now and in retirement.
+// Parameters are registered in course/widgets.yaml (id: account-compare). Same model as course/verify/6.5.py.
+import { toLang } from '../../i18n/ui';
+
+const lang = toLang(Astro.locals.starlightRoute.lang);
+const L = {
+	'zh-cn': {
+		now: '现在的边际税率（%）',
+		later: '退休时的边际税率（%）',
+		rows: ['传统账户', 'Roth 账户', '应税账户'],
+		aria: '三种账户的税后财富',
+		readout: '100 美元税前工资 30 年后的税后财富：传统 {a}，Roth {b}，应税 {c}。',
+	},
+	en: {
+		now: 'Marginal tax rate now (%)',
+		later: 'Marginal tax rate in retirement (%)',
+		rows: ['Traditional', 'Roth', 'Taxable'],
+		aria: 'After-tax wealth in three accounts',
+		readout: 'After-tax wealth after 30 years from 100 dollars of pre-tax salary: traditional {a}, Roth {b}, taxable {c}.',
+	},
+}[lang];
+
+const xr = [0, 800];
+const xTicks = [0, 200, 400, 600, 800];
+const layouts = [
+	{ cls: 'viz-wide', W: 640, H: 200, pad: { l: 120, r: 24, t: 14, b: 40 } },
+	{ cls: 'viz-narrow', W: 360, H: 200, pad: { l: 90, r: 14, t: 14, b: 40 } },
+].map((g) => ({
+	...g,
+	X: (v: number) => g.pad.l + ((v - xr[0]) / (xr[1] - xr[0])) * (g.W - g.pad.l - g.pad.r),
+	rowY: (i: number) => g.pad.t + 8 + i * ((g.H - g.pad.t - g.pad.b) / 3),
+	barH: (g.H - g.pad.t - g.pad.b) / 3 - 16,
+}));
+---
+
+<div class="lfwai-widget" data-widget="account-compare" data-readout={L.readout}>
+	<div class="lfwai-sliders">
+		<label>
+			<span>{L.now} = <output data-out="tnow">24</output></span>
+			<input type="range" min="10" max="40" step="2" value="24" data-param="tnow" />
+		</label>
+		<label>
+			<span>{L.later} = <output data-out="tlater">22</output></span>
+			<input type="range" min="10" max="40" step="2" value="22" data-param="tlater" />
+		</label>
+	</div>
+	{layouts.map(({ cls, W, H, pad, X, rowY, barH }) => (
+		<svg class={`lfwai-viz ${cls}`} viewBox={`0 0 ${W} ${H}`} role="img" aria-label={L.aria} data-geom={JSON.stringify({ W, pad, xr })}>
+			{xTicks.map((v) => (
+				<g>
+					<line class={v === 0 ? 'viz-axis' : 'viz-grid'} x1={X(v)} x2={X(v)} y1={pad.t} y2={H - pad.b} />
+					<text class="viz-tick" x={X(v)} y={H - pad.b + 18} text-anchor="middle">{v}</text>
+				</g>
+			))}
+			{L.rows.map((name, i) => (
+				<g>
+					<text class="viz-tick" x={pad.l - 8} y={rowY(i) + barH / 2 + 4} text-anchor="end">{name}</text>
+					<rect class="viz-bar" data-bar={i} x={X(0)} y={rowY(i)} width="0" height={barH} />
+				</g>
+			))}
+		</svg>
+	))}
+	<p class="lfwai-readout" data-el="readout" aria-live="polite"></p>
+</div>
+
+<style>
+	.viz-bar {
+		fill: var(--sl-color-accent);
+	}
+</style>
+
+<script>
+	import { initAccountCompare } from '../../scripts/widgets/account-compare';
+	initAccountCompare();
+</script>
