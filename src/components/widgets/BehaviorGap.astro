@@ -10,23 +10,23 @@ const lang = toLang(Astro.locals.starlightRoute.lang);
 const L = {
 	'zh-cn': {
 		k: '追涨杀跌的程度 k',
-		rows: ['基金（时间加权）', '投资者（资金加权）'],
+		rows: ['基金', '投资者'],
 		aria: '时间加权收益与资金加权收益',
-		readout: '基金每年 {t}%，投资者每年 {d}%，相差 {g} 个百分点。',
+		readout: '基金（时间加权）每年 {t}%，投资者（资金加权）每年 {d}%，相差 {g} 个百分点。',
 	},
 	en: {
 		k: 'Return chasing k',
-		rows: ['Fund (time-weighted)', 'Investor (dollar-weighted)'],
+		rows: ['Fund', 'Investor'],
 		aria: 'Time-weighted and dollar-weighted returns',
-		readout: 'Fund {t}% a year, investor {d}% a year, a gap of {g} percentage points.',
+		readout: 'Fund (time-weighted) {t}% a year, investor (dollar-weighted) {d}% a year, a gap of {g} percentage points.',
 	},
 }[lang];
 
 const xr = [0, 10];
 const xTicks = [0, 2, 4, 6, 8, 10];
 const layouts = [
-	{ cls: 'viz-wide', W: 640, H: 160, pad: { l: 160, r: 24, t: 14, b: 40 } },
-	{ cls: 'viz-narrow', W: 360, H: 160, pad: { l: 128, r: 14, t: 14, b: 40 } },
+	{ cls: 'viz-wide', W: 640, H: 160, pad: { l: 90, r: 24, t: 14, b: 40 } },
+	{ cls: 'viz-narrow', W: 360, H: 160, pad: { l: 70, r: 14, t: 14, b: 40 } },
 ].map((g) => ({
 	...g,
 	X: (v: number) => g.pad.l + ((v - xr[0]) / (xr[1] - xr[0])) * (g.W - g.pad.l - g.pad.r),
