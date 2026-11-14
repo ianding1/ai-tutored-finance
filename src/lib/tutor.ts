@@ -36,7 +36,7 @@ const read = (p: string) => readFileSync(join(ROOT, p), 'utf8');
 const LABELS: Record<string, Record<string, string>> = {
 	'zh-cn': {
 		check: '随堂题',
-		checkNote: '（在这里提问。先让学习者作答，再按答案文件判断；答错时不要直接说出答案。）',
+		checkNote: '（在这里提问。学习者只需给出选项，不需要理由；按答案文件判断，答错时不要直接说出答案。）',
 		figure: '图',
 		figPage: '网页上的交互图（学习者也可以自己打开）',
 		figDraw: '绘图说明：请你自己画出这张图。能在对话中显示交互式 HTML 时，做成带滑块的交互图；否则按默认参数画一张静态 SVG。不要只给链接或文字描述。',
@@ -72,7 +72,7 @@ const LABELS: Record<string, Record<string, string>> = {
 	},
 	en: {
 		check: 'Check question',
-		checkNote: '(Ask it here. Let the learner answer first, then judge with the key file; do not give away the answer when it is wrong.)',
+		checkNote: '(Ask it here. The learner only gives an option, without reasons; judge with the key file, and do not give away the answer when it is wrong.)',
 		figure: 'Figure',
 		figPage: 'Interactive figure on the web page (the learner can also open it)',
 		figDraw: 'Drawing instructions: draw this figure yourself. If you can show interactive HTML in the conversation, make it an interactive figure with sliders; otherwise draw a static SVG at the default parameters. Do not give only a link or a description in words.',
