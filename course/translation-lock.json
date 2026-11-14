@@ -3903,45 +3903,49 @@
   "en": "f0f9b7b09ddf614b",
   "zh-cn": "b3c3bd2266987b4a"
  },
+ "course/curriculum.yaml#stages[7].lessons[7.0].title": {
+  "en": "e0400e3a8e28e66c",
+  "zh-cn": "3e5f21b8d9d65f5a"
+ },
  "course/curriculum.yaml#stages[7].lessons[7.10].title": {
-  "en": "644766b2efd72f7b",
-  "zh-cn": "06809924c5931f27"
+  "en": "e53fcff89c62ac83",
+  "zh-cn": "b48011b9e5f689ba"
  },
  "course/curriculum.yaml#stages[7].lessons[7.1].title": {
-  "en": "7989701e60a74dc4",
-  "zh-cn": "6ae39c67eddd2f2d"
+  "en": "81304782a93b4fb0",
+  "zh-cn": "9fabf29a0dbf18b8"
  },
  "course/curriculum.yaml#stages[7].lessons[7.2].title": {
+  "en": "000c37a747551a44",
+  "zh-cn": "e12bb954ab8ee009"
+ },
+ "course/curriculum.yaml#stages[7].lessons[7.3].title": {
   "en": "8a3214ea330f0e2d",
   "zh-cn": "a568a90de32cfb2e"
  },
- "course/curriculum.yaml#stages[7].lessons[7.3].title": {
+ "course/curriculum.yaml#stages[7].lessons[7.4].title": {
   "en": "d7af0c780e52f37a",
   "zh-cn": "fdaf508daeb05696"
  },
- "course/curriculum.yaml#stages[7].lessons[7.4].title": {
-  "en": "ed6fd7090d914b4b",
-  "zh-cn": "8f5d6c524def2fdf"
- },
  "course/curriculum.yaml#stages[7].lessons[7.5].title": {
+  "en": "6640eefb29018a61",
+  "zh-cn": "32f8fa3381d5be50"
+ },
+ "course/curriculum.yaml#stages[7].lessons[7.6].title": {
   "en": "aec5b8eecb80b66a",
   "zh-cn": "8677ded3d6f41977"
  },
- "course/curriculum.yaml#stages[7].lessons[7.6].title": {
+ "course/curriculum.yaml#stages[7].lessons[7.7].title": {
   "en": "fa4fbc1df809b39e",
   "zh-cn": "ace78be4cbb4c333"
  },
- "course/curriculum.yaml#stages[7].lessons[7.7].title": {
+ "course/curriculum.yaml#stages[7].lessons[7.8].title": {
   "en": "06b316c0b01195c9",
   "zh-cn": "d234c127b5af7535"
  },
- "course/curriculum.yaml#stages[7].lessons[7.8].title": {
+ "course/curriculum.yaml#stages[7].lessons[7.9].title": {
   "en": "ab72b4947f32556e",
   "zh-cn": "06710b886fc73ba2"
- },
- "course/curriculum.yaml#stages[7].lessons[7.9].title": {
-  "en": "e53fcff89c62ac83",
-  "zh-cn": "b48011b9e5f689ba"
  },
  "course/curriculum.yaml#stages[7].title": {
   "en": "1fb0b207994ab91a",
