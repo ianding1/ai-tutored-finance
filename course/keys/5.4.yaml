@@ -1,0 +1,323 @@
+# Answer key for lesson 5.4. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[5.2#strategies]] (section), [[concept:beta]], [[check:Q3]], [[fig:3-1]].
+# expected: values are recomputed by course/verify/5.4.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "5.4"
+
+context:
+  - zh-cn: |-
+      本课是选学内容。学习者学过无套利（[[5.1]]）、汇率风险与抛补利率平价（[[2.7]]）、债券定价、零息债与即期利率（[[3.3]]）、久期与免疫（[[3.4]]）、违约风险、回收率与信用利差（[[3.6]]）、财务杠杆（[[3.8]]）、套利的限制（[[4.7]]）、远期、期货、保证金与套期保值（[[5.1]]）。百分数用百分点表示。
+    en: |-
+      This lesson is optional. The learner has studied arbitrage ([[5.1]]), exchange-rate risk and covered interest parity ([[2.7]]), bond pricing, zero-coupon bonds and spot rates ([[3.3]]), duration and immunization ([[3.4]]), default risk, recovery rates and credit spreads ([[3.6]]), financial leverage ([[3.8]]), limits to arbitrage ([[4.7]]), and forwards, futures, margin and hedging ([[5.1]]). Percentages in percentage points.
+  - concepts: [interest-rate-swap, notional-principal]
+    zh-cn: |-
+      讲义例子：公司有 1 亿美元浮动利率贷款，利率 SOFR + 1%；签订 5 年互换，支付固定 4%、收取 SOFR；名义本金不交换，只交换利息差额；净利率 $(L + 1\%) - L + 4\% = 5\%$。SOFR 自 2023 年 6 月起完全取代美元 LIBOR。
+    en: |-
+      The lesson's example: a company has a 100 million dollar floating-rate loan at SOFR + 1%; it enters a 5-year swap paying fixed 4% and receiving SOFR; the notional principal is not exchanged, only the interest difference; net rate $(L + 1\%) - L + 4\% = 5\%$. SOFR has fully replaced dollar LIBOR since June 2023.
+  - concepts: [swap-rate]
+    zh-cn: |-
+      讲义：对支付固定利率的一方，互换 = 持有浮动利率债券 − 发行固定利率债券；结算日刚过时浮动利率债券值面值，$V = 100 - B_F$；也可看成一系列远期。互换利率使签约时价值为 0：$s = \frac{1 - Z_n}{\sum Z_t}$，等于按面值发行的债券的票面利率。讲义没有说利率变化后哪一方获益（留给 [[check:C2]]）。[[fig:2-1]]：名义本金 100，固定利率 4%，每年结算，利率曲线水平、按年复利，横轴市场利率 2%–6%；滑块剩余年数 1–10（默认 5）；读数为市场利率 5% 和 3% 时的价值（剩余 5 年时为 4.33 和 −4.58，2 年时 1.86 和 −1.91，8 年时 6.46 和 −7.02）。
+    en: |-
+      The lesson: for the fixed payer, swap = long floating-rate bond − short fixed-rate bond; just after a settlement date the floating-rate bond is worth par, $V = 100 - B_F$; also a series of forwards. The swap rate makes the value 0 at the start: $s = \frac{1 - Z_n}{\sum Z_t}$, the coupon rate of a par bond. The lesson does not say which side gains when rates change (left to [[check:C2]]). [[fig:2-1]]: notional 100, fixed rate 4%, annual settlement, flat curve with annual compounding, market rate 2%–6% on the horizontal axis; slider years remaining 1–10 (default 5); the readout gives the values at market rates of 5% and 3% (4.33 and −4.58 with 5 years left, 1.86 and −1.91 with 2, 6.46 and −7.02 with 8).
+  - concepts: [counterparty-risk]
+    zh-cn: |-
+      讲义：互换的用途是改变负债形式、调整资产或负债的久期（签约不需付钱）、表达对利率的看法（投机）；讲义没有说具体哪种机构应支付还是收取固定利率。私下的互换有交易对手风险；2010 年 Dodd–Frank 法案要求标准化互换中央清算并交保证金。讲义提到“互换能同时降低双方借款成本”的宣传，留给 [[check:Q3]]。
+    en: |-
+      The lesson: swaps are used to change the form of liabilities, adjust the duration of assets or liabilities (nothing paid up front), and express views on rates (speculation); the lesson does not say which kind of institution should pay or receive fixed. Private swaps carry counterparty risk; the 2010 Dodd–Frank Act requires central clearing with margin for standardized swaps. The lesson mentions the claim that swaps lower both sides' borrowing costs, left to [[check:Q3]].
+  - concepts: [currency-swap]
+    zh-cn: |-
+      讲义：货币互换交换两种货币的本金和利息，开始和到期时交换本金；例子是发行美元债券、业务在欧洲的美国公司把负债变成欧元负债；可看成一系列外汇远期，定价与抛补利率平价一致。
+    en: |-
+      The lesson: a currency swap exchanges principal and interest in two currencies, with principal exchanged at the start and at maturity; the example is a US company with dollar bonds and a European business turning its liability into euros; it can be seen as a series of currency forwards, priced consistently with covered interest parity.
+  - concepts: [credit-default-swap]
+    zh-cn: |-
+      讲义：CDS 的买方每年付 CDS 利差，参考实体违约时卖方支付面值减回收价值；对持有债券者像保险，但买方不必持有债券，交易量可超过债券数量；2008 年 AIG 卖出大量 CDS 保护，无法交纳抵押品，被美国政府救助。讲义没有讨论 CDS 利差与债券信用利差的关系（留给 [[check:Q4]]）。
+    en: |-
+      The lesson: a CDS buyer pays the CDS spread each year, and on default of the reference entity the seller pays face value minus recovery value; for a bondholder it is like insurance, but the buyer need not hold the bonds and volumes can exceed the bonds outstanding; in 2008 AIG had sold large amounts of protection, could not post collateral and was rescued by the US government. The lesson does not discuss how CDS spreads relate to bond credit spreads (left to [[check:Q4]]).
+
+common_errors:
+  - questions: [Q1]
+    zh-cn: |-
+      按互换本身的盈亏评价套期保值，以为互换赚钱说明公司变富了、应该加大互换；忽略互换的收益抵消了浮动利率贷款的利息上升，公司的总成本早已锁定。
+    en: |-
+      Judging a hedge by the swap's own profit or loss, thinking a gain on the swap means the company is richer and should do more; ignoring that the gain offsets the higher interest on the floating-rate loan and that the total cost was already locked in.
+  - questions: [Q2]
+    zh-cn: |-
+      以为互换利率是各期即期利率的简单平均；忽略互换利率是按面值发行的债券的票面利率，最后一期的本金使它接近长期利率。
+    en: |-
+      Thinking the swap rate is the simple average of the spot rates; ignoring that it is the coupon rate of a par bond, and the principal at the end pulls it close to the long rate.
+  - questions: [Q3]
+    zh-cn: |-
+      相信“比较优势”使互换能为双方创造免费的利益；忽略浮动利率贷款的信用利差会随借款人信用变化重新确定，得到的“固定利率”并不真正固定，还承担交易对手风险。
+    en: |-
+      Believing "comparative advantage" lets swaps create a free gain for both sides; ignoring that the credit spread on a floating-rate loan is reset as the borrower's credit changes, so the resulting "fixed rate" is not truly fixed, and that counterparty risk is added.
+  - questions: [Q4]
+    zh-cn: |-
+      以为债券加 CDS 保护就是无风险资产，收益率高于国债的部分就是可以放大杠杆获取的无风险利润；忽略融资成本、交易对手风险和价差扩大时的盯市亏损。
+    en: |-
+      Thinking a bond plus CDS protection is a riskless asset, so its yield above Treasuries is a riskless profit to be levered up; ignoring funding costs, counterparty risk and mark-to-market losses if the gap widens.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: interest-rate-swaps
+    concepts: [interest-rate-swap, notional-principal]
+    question:
+      zh-cn: |-
+        在名义本金为 1 亿美元的利率互换中，双方在开始时交换 1 亿美元，到期时再换回来。
+      en: |-
+        In an interest rate swap with a notional principal of 100 million dollars, the two sides exchange 100 million dollars at the start and exchange it back at maturity.
+    correct: false
+    hint:
+      zh-cn: 如果双方在开始时互相支付同一种货币的 1 亿美元，再在到期时互相支付回来，这些付款的净额是多少？互换真正交换的是什么？
+      en: If both sides paid each other 100 million dollars in the same currency at the start and again at maturity, what would these payments net to? What does the swap actually exchange?
+    answer:
+      zh-cn: |-
+        错。名义本金只是计算利息的基数，不交换：同一种货币的本金互相支付，净额为 0。双方只交换按名义本金计算的固定利息与浮动利息的差额。货币互换则不同，两种货币的本金在开始和到期时要交换。
+      en: |-
+        False. The notional principal is only the base for computing interest and is not exchanged: paying each other the same principal in the same currency nets to 0. The two sides exchange only the difference between the fixed and floating interest computed on the notional. A currency swap is different: the principal in two currencies is exchanged at the start and at maturity.
+
+  - id: C2
+    kind: check
+    section: valuation
+    concepts: [swap-rate, interest-rate-swap]
+    question:
+      zh-cn: |-
+        一份互换签约时价值为 0。之后各期限的市场利率都上升了。现在：
+      en: |-
+        A swap was worth 0 when it was signed. Since then, market rates at all maturities have risen. Now:
+    choices:
+      - zh-cn: 对支付固定利率的一方价值为正
+        en: It has a positive value to the party paying fixed
+      - zh-cn: 对收取固定利率的一方价值为正，因为固定收入在利率上升时更可靠
+        en: It has a positive value to the party receiving fixed, because a fixed income is more reliable when rates rise
+        why:
+          zh-cn: 收取固定利率的一方相当于持有一张固定利率债券。利率上升时，固定利率债券的价格怎样变化？
+          en: The party receiving fixed is like someone holding a fixed-rate bond. What happens to the price of a fixed-rate bond when rates rise?
+      - zh-cn: 价值仍为 0，因为互换利率是按公平价格确定的
+        en: It is still worth 0, because the swap rate was set at a fair price
+        why:
+          zh-cn: 互换利率只在签约时使价值为 0。签约后，固定的那一边不变，浮动的那一边随市场利率变化，价值还会是 0 吗？
+          en: The swap rate makes the value 0 only at signing. After that the fixed side stays the same while the floating side follows market rates; can the value still be 0?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。$V = 100 - B_F$：利率上升，固定利率债券的价格 $B_F$ 下降，支付固定利率一方的价值变为正。直观地说，他仍按签约时较低的固定利率付息，收到的浮动利息却已经随市场上升。收取固定利率的一方损失同样多，就像持有固定利率债券的人在利率上升时遭受损失。
+      en: |-
+        (A). $V = 100 - B_F$: when rates rise, the price $B_F$ of the fixed-rate bond falls, so the value to the fixed payer becomes positive. Intuitively, he still pays the lower fixed rate agreed at signing while the floating interest he receives has risen with the market. The party receiving fixed loses just as much, like a holder of a fixed-rate bond when rates rise.
+
+  - id: C3
+    kind: check
+    section: valuation
+    concepts: [swap-rate, modified-duration]
+    widget: { id: swap-value, set: { n: 8 } }
+    question:
+      zh-cn: |-
+        在 [[fig:2-1]] 中，把剩余年数从 2 年改为 8 年。市场利率为 5% 时，支付固定利率一方的价值会：
+      en: |-
+        In [[fig:2-1]], change the years remaining from 2 to 8. At a market rate of 5%, the value to the party paying fixed:
+    choices:
+      - zh-cn: 变大，因为低于市场的固定利率还要支付更多年
+        en: Grows, because the below-market fixed rate will be paid for more years
+      - zh-cn: 不变，因为市场利率与固定利率之差仍是 1 个百分点
+        en: Stays the same, because the gap between the market rate and the fixed rate is still 1 percentage point
+        why:
+          zh-cn: 每年少付 1 个百分点的利息，这种好处持续 2 年和持续 8 年，总价值一样吗？
+          en: 'Paying 1 percentage point less interest each year: is that worth the same over 2 years as over 8?'
+      - zh-cn: 变小，因为越远的现金流折现越多
+        en: Shrinks, because cash flows further away are discounted more
+        why:
+          zh-cn: 远期的现金流确实折现更多，但多出来的年份带来的价值是正还是负？看一看图中的读数。
+          en: Later cash flows are indeed discounted more, but is the value added by the extra years positive or negative? Look at the readout in the figure.
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。剩余 2 年时约为 1.86，8 年时约为 6.46。支付固定利率的一方每年少付 1 个百分点，剩余年数越多，这些好处的现值越大。这与债券的久期（[[concept:modified-duration]]）一样：期限越长，价值对利率越敏感，曲线越陡。
+      en: |-
+        (A). With 2 years left it is about 1.86; with 8 years, about 6.46. The fixed payer pays 1 percentage point less each year, and the more years remain, the larger the present value of this advantage. This is just like a bond's duration ([[concept:modified-duration]]): the longer the maturity, the more sensitive the value is to rates, and the steeper the curve.
+
+  - id: C4
+    kind: check
+    section: uses
+    concepts: [interest-rate-swap, hedging, modified-duration]
+    question:
+      zh-cn: |-
+        一家银行的资产主要是 30 年期固定利率住房贷款，负债主要是利率随市场变化的存款。为了降低利率上升带来的损失，它应该：
+      en: |-
+        A bank's assets are mainly 30-year fixed-rate mortgages, and its liabilities are mainly deposits whose rates follow the market. To reduce its losses if rates rise, it should:
+    choices:
+      - zh-cn: 签订互换，支付固定利率、收取浮动利率
+        en: Enter swaps paying fixed and receiving floating
+      - zh-cn: 签订互换，收取固定利率、支付浮动利率
+        en: Enter swaps receiving fixed and paying floating
+        why:
+          zh-cn: 利率上升时，银行哪一边受损：资产还是负债？收取固定利率的互换在利率上升时是赚还是亏？
+          en: When rates rise, which side of the bank suffers, its assets or its liabilities? Does a receive-fixed swap gain or lose when rates rise?
+      - zh-cn: 不需要互换，因为住房贷款的利率是固定的，没有利率风险
+        en: No swap is needed, because the mortgage rate is fixed, so there is no interest rate risk
+        why:
+          zh-cn: 固定的利率使现金流确定，但价值确定吗？存款的利息上升时，银行的利差会怎样？
+          en: A fixed rate makes the cash flows certain, but is the value certain? What happens to the bank's margin when deposit rates rise?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。银行的资产久期长、负债久期短，利率上升时资产的价值下降得多，存款的利息却随之上升，利差收窄。支付固定利率、收取浮动利率的互换在利率上升时获益：收到的浮动利息抵消存款成本的上升，相当于缩短了资产的久期。2023 年硅谷银行的问题就与资产久期过长、对冲不足有关（[[3.4]]）。
+      en: |-
+        (A). The bank's assets have a long duration and its liabilities a short one; when rates rise, its assets lose much value while deposit rates rise, squeezing its margin. A swap paying fixed and receiving floating gains when rates rise: the floating interest received offsets the higher deposit costs, which in effect shortens the duration of the assets. The problems of Silicon Valley Bank in 2023 were related to an over-long asset duration with too little hedging ([[3.4]]).
+
+  - id: C5
+    kind: check
+    section: cds
+    concepts: [credit-default-swap, credit-spread]
+    question:
+      zh-cn: |-
+        一位投资者没有持有 X 公司的任何债券，却买入了以 X 公司为参考实体的 CDS 保护。他的头寸最接近：
+      en: |-
+        An investor holds no bonds of company X but buys CDS protection with company X as the reference entity. His position is closest to:
+    choices:
+      - zh-cn: 押注 X 公司的信用会变差：X 的信用利差扩大或违约时他获利
+        en: A bet that X's credit will worsen; he gains if X's credit spread widens or X defaults
+      - zh-cn: 为自己的资产买保险，降低了他的总风险
+        en: Insurance on his own assets, lowering his total risk
+        why:
+          zh-cn: 他没有持有 X 的债券，X 违约时他本来会损失什么？这份合约是抵消了风险，还是带来了新的风险？
+          en: He holds no X bonds; what would he have lost if X defaulted? Does this contract offset a risk or create a new one?
+      - zh-cn: 持有 X 公司的债券
+        en: Holding X's bonds
+        why:
+          zh-cn: 持有债券的人在 X 违约时是赚是亏？CDS 的买方在 X 违约时是赚是亏？
+          en: Does a bondholder gain or lose if X defaults? Does a CDS buyer gain or lose if X defaults?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。CDS 的买方每年付利差，X 违约时得到赔付；X 的信用变差时，新签 CDS 的利差上升，他已有的合约价值上升。没有债券可保护时，这不是保险，而是一个与卖空 X 公司债券相似的头寸。这也是 CDS 交易量可以远大于债券数量的原因。
+      en: |-
+        (A). The CDS buyer pays the spread each year and is paid if X defaults; if X's credit worsens, the spread on new CDS rises and his existing contract gains value. With no bonds to protect, this is not insurance but a position similar to selling X's bonds short. This is also why CDS volumes can far exceed the bonds outstanding.
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [interest-rate-swap, hedging, swap-rate]
+    expected: { v: "2.98" }
+    question:
+      zh-cn: |-
+        3 年前，一家公司借了 8,000 万美元、期限 5 年的浮动利率贷款，利率为 SOFR + 1%，同时签订了 5 年期、名义本金 8,000 万美元的利率互换：每年支付固定利率 3%，收取 SOFR。现在刚过结算日，互换还剩 2 年，各期限的市场利率都是 5%（按年复利）。
+        (a) 互换现在对公司的价值是多少（百万美元）？
+        (b) 一位董事说：“互换让公司赚了这么多钱，我们应该再签几份支付固定利率的互换，继续赚利率上升的钱。”评价这个说法。如果 3 年来利率一路下降，这份互换的价值和公司的总借款成本会怎样？
+      en: |-
+        Three years ago a company took out an 80 million dollar, 5-year floating-rate loan at SOFR + 1% and entered a 5-year interest rate swap with a notional principal of 80 million dollars: paying a fixed 3% a year and receiving SOFR. A settlement date has just passed, the swap has 2 years left, and market rates at all maturities are 5% (annual compounding).
+        (a) What is the swap worth to the company now (million dollars)?
+        (b) A director says: "The swap has made the company a lot of money; we should enter a few more pay-fixed swaps and keep profiting from rising rates." Evaluate this statement. If rates had fallen steadily over the 3 years, what would have happened to the swap's value and to the company's total borrowing cost?
+    answer:
+      zh-cn: |-
+        (a) $V = 80 - \left(\frac{2.4}{1.05} + \frac{82.4}{1.05^2}\right) \approx 80 - 77.02 = 2.98$（百万美元）。
+        (b) 说法不对。公司签互换是为了套期保值：贷款加互换的总成本锁定在 $3\% + 1\% = 4\%$。互换的 2.98 百万美元收益，正好抵消了浮动利率贷款今后两年多付的利息（SOFR 从签约时的水平升到 5% 左右），公司并没有因此“变富”，只是没有因利率上升而受损。如果利率一路下降，互换会显示亏损，但浮动利率贷款的利息同样减少，总成本仍是 4%。按互换本身的盈亏评价套期保值是错的（[[5.1]]）。再签没有对应负债的支付固定利率的互换，就不再是对冲，而是押注利率继续上升；利率已经升到 5%，市场的远期利率已经反映了对今后利率的预期，这种押注没有理由期望获利，还会增加公司的利率风险。
+      en: |-
+        (a) $V = 80 - \left(\frac{2.4}{1.05} + \frac{82.4}{1.05^2}\right) \approx 80 - 77.02 = 2.98$ (million dollars).
+        (b) The statement is wrong. The company entered the swap as a hedge: the loan plus the swap locks its total cost at $3\% + 1\% = 4\%$. The swap's gain of 2.98 million dollars exactly offsets the extra interest the floating-rate loan will cost over the next two years (SOFR has risen to around 5% from its level at signing); the company has not become "richer", it has only avoided losing from higher rates. Had rates fallen steadily, the swap would show a loss, but the floating-rate loan's interest would have fallen just as much, and the total cost would still be 4%. Judging a hedge by the swap's own profit or loss is a mistake ([[5.1]]). More pay-fixed swaps without matching liabilities would no longer be a hedge but a bet that rates keep rising; with rates already at 5% and forward rates already reflecting expectations of future rates, there is no reason to expect such a bet to pay, and it would add to the company's interest rate risk.
+    rubric:
+      zh-cn:
+        - "(a) 通过：约 2.98（百万美元），方法是名义本金减去按 5% 折现的固定利率债券，或每年 2 个百分点的利差按 5% 折现。"
+        - "(b) 通过：指出互换的收益抵消了贷款利息的上升，总成本锁定在 4%；利率下降时互换亏损但贷款利息减少，总成本不变；再签互换是投机而不是对冲。同意董事的说法，需要订正。"
+      en:
+        - "(a) OK: about 2.98 (million dollars), as the notional minus the fixed-rate bond discounted at 5%, or as 2 percentage points a year discounted at 5%."
+        - "(b) OK: says the swap's gain offsets the higher loan interest and the total cost is locked at 4%; if rates fall the swap loses but the loan costs less, leaving the total unchanged; more swaps would be speculation, not hedging. Agreeing with the director needs revision."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [swap-rate, zero-coupon-bond, spot-rate]
+    expected: { s: "3.97", gift: "1.32" }
+    question:
+      zh-cn: |-
+        1 年、2 年、3 年期的即期利率分别为 3%、3.5%、4%（按年复利）。
+        (a) 求每年结算一次的 3 年期互换利率。
+        (b) 一位分析师说：“互换利率应该是三个即期利率的平均值 3.5%。银行报价比这高，是在多收支付固定利率的客户的钱。”评价这个说法。如果银行真的按 3.5% 与客户签订名义本金 100 的互换（客户支付固定利率），签约时这份互换对客户的价值是多少？
+      en: |-
+        The 1-, 2- and 3-year spot rates are 3%, 3.5% and 4% (annual compounding).
+        (a) Find the 3-year swap rate with annual settlement.
+        (b) An analyst says: "The swap rate should be the average of the three spot rates, 3.5%. A bank that quotes more than that is overcharging customers who pay fixed." Evaluate this statement. If the bank really entered a swap with notional 100 at 3.5% with a customer paying fixed, what would the swap be worth to the customer at signing?
+    answer:
+      zh-cn: |-
+        (a) $Z_1 = \frac{1}{1.03} \approx 0.9709$，$Z_2 = \frac{1}{1.035^2} \approx 0.9335$，$Z_3 = \frac{1}{1.04^3} \approx 0.8890$。$s = \frac{1 - 0.8890}{0.9709 + 0.9335 + 0.8890} \approx 3.97\%$。
+        (b) 说法不对。互换利率是按面值发行的 3 年期债券的票面利率，不是即期利率的平均。这张债券的现金流大部分（第 3 年的本金和利息）在第 3 年支付，所以它的收益率接近 3 年期即期利率 4%，略低一些是因为前两年的利息按较低的利率折现。3.97% 在 3% 与 4% 之间、接近 4%，是合理的。如果按 3.5% 签约，客户每年少付 $3.97\% - 3.5\%$，签约时对客户的价值为 $(0.0397 - 0.035) \times 100 \times (Z_1 + Z_2 + Z_3) \approx 1.32$：银行等于白送给客户 1.32，而不是多收了客户的钱。
+      en: |-
+        (a) $Z_1 = \frac{1}{1.03} \approx 0.9709$, $Z_2 = \frac{1}{1.035^2} \approx 0.9335$, $Z_3 = \frac{1}{1.04^3} \approx 0.8890$. $s = \frac{1 - 0.8890}{0.9709 + 0.9335 + 0.8890} \approx 3.97\%$.
+        (b) The statement is wrong. The swap rate is the coupon rate of a 3-year bond issued at par, not an average of spot rates. Most of that bond's cash flow (the principal and interest of year 3) comes in year 3, so its yield is close to the 3-year spot rate of 4%, a little lower because the first two coupons are discounted at lower rates. 3.97% lies between 3% and 4%, close to 4%, which makes sense. At 3.5%, the customer would pay $3.97\% - 3.5\%$ less each year, and the swap would be worth $(0.0397 - 0.035) \times 100 \times (Z_1 + Z_2 + Z_3) \approx 1.32$ to the customer at signing: the bank would be giving away 1.32, not overcharging.
+    rubric:
+      zh-cn:
+        - "(a) 通过：约 3.97%，用折现因子计算。"
+        - "(b) 通过：指出互换利率是面值债券的票面利率而不是平均值，用最后一期本金的权重解释它接近 4%；算出按 3.5% 签约对客户的价值约为 1.32（正值），说明银行吃亏而不是多收钱。同意平均值的说法，需要订正。"
+      en:
+        - "(a) OK: about 3.97%, computed with discount factors."
+        - "(b) OK: says the swap rate is a par bond's coupon rate, not an average, and explains by the weight of the final principal why it is close to 4%; computes the value to the customer at 3.5% as about 1.32 (positive), showing the bank would lose rather than overcharge. Agreeing with the average needs revision."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [interest-rate-swap, credit-spread, counterparty-risk, default-risk]
+    expected: { gain: "1.3", b: "5.35" }
+    question:
+      zh-cn: |-
+        A 公司信用评级很高，可以按 4.0% 借 5 年期固定利率贷款，或按 SOFR + 0.3% 借浮动利率贷款（利率每年按当时的 SOFR 和利差重新确定）。B 公司信用较差，固定利率为 6.0%，浮动利率为 SOFR + 1.0%。A 想要浮动利率负债，B 想要固定利率负债。一位银行家建议：A 借固定利率，B 借浮动利率，再签一份互换，B 每年向 A 支付固定利率 4.35%，A 向 B 支付 SOFR。
+        (a) 两家公司各自直接借自己想要的贷款时，与按银行家的方案相比，每年的借款成本合计相差几个百分点？按这个方案，B 的借款成本是多少？
+        (b) 银行家说：“两家公司的借款能力有比较优势，互换让双方都免费省下了钱。”评价这个说法：B 得到的“固定利率”与直接借 5 年期固定利率贷款的风险一样吗？两种利差的差别反映了什么？
+      en: |-
+        Company A has a high credit rating and can borrow for 5 years at a fixed 4.0% or at a floating SOFR + 0.3% (the rate is reset each year at the then SOFR plus the spread). Company B has weaker credit: fixed 6.0%, floating SOFR + 1.0%. A wants a floating-rate liability and B a fixed-rate one. A banker proposes: A borrows fixed, B borrows floating, and they enter a swap in which B pays A a fixed 4.35% a year and A pays B SOFR.
+        (a) Compared with each company directly borrowing the loan it wants, by how many percentage points a year in total does the banker's plan lower their borrowing costs? Under the plan, what is B's borrowing cost?
+        (b) The banker says: "The two companies have comparative advantages in borrowing, and the swap saves both of them money for free." Evaluate this statement: is the "fixed rate" B gets as safe as borrowing at a 5-year fixed rate directly? What does the difference between the two spreads reflect?
+    answer:
+      zh-cn: |-
+        (a) 两家公司的固定利率相差 2.0 个百分点，浮动利差相差 0.7 个百分点，合计“节省”$2.0 - 0.7 = 1.3$ 个百分点。B 的成本：$(L + 1.0\%) - L + 4.35\% = 5.35\%$，比直接借固定利率的 6.0% 少 0.65 个百分点；A 的成本：$4.0\% - 4.35\% + L = L - 0.35\%$，比 $L + 0.3\%$ 少 0.65 个百分点。
+        (b) 说法不对，节省不是免费的。B 的浮动利率贷款的利差 1.0% 只在这一年确定，以后每年都会按 B 当时的信用重新确定；如果 B 的信用变差，利差可能升到 2% 或 3%，B 的成本就不再是 5.35%。直接借 5 年期固定利率贷款时，这个风险由贷款人承担，6.0% 中包含了对它的补偿。两种利差之差（2.0 与 0.7）主要反映了信用较差的公司违约风险随时间增加：贷款人对短期贷款只要求较小的利差，对 5 年的承诺要求更大的利差（[[3.6]]）。此外，A 现在承担了 B 不履行互换的交易对手风险。只有当市场对 B 的信用定价确实有误、或者有税收和监管上的差别时，这种节省才可能是真的。
+      en: |-
+        (a) The fixed rates differ by 2.0 percentage points and the floating spreads by 0.7 percentage points, so the total "saving" is $2.0 - 0.7 = 1.3$ percentage points. B's cost: $(L + 1.0\%) - L + 4.35\% = 5.35\%$, 0.65 percentage points below the 6.0% of a direct fixed-rate loan; A's cost: $4.0\% - 4.35\% + L = L - 0.35\%$, 0.65 percentage points below $L + 0.3\%$.
+        (b) The statement is wrong; the saving is not free. The 1.0% spread on B's floating-rate loan is fixed only for this year and is reset each year according to B's credit at the time; if B's credit worsens, the spread may rise to 2% or 3%, and B's cost is no longer 5.35%. With a direct 5-year fixed-rate loan, the lender bears this risk, and the 6.0% includes pay for it. The gap between the two spreads (2.0 versus 0.7) mainly reflects that the default risk of a weaker company grows with time: lenders ask only a small spread for short-term lending but a larger one for a 5-year commitment ([[3.6]]). In addition, A now bears counterparty risk if B fails to honor the swap. The saving can be real only if the market truly misprices B's credit, or there are tax or regulatory differences.
+    rubric:
+      zh-cn:
+        - "(a) 通过：合计 1.3 个百分点，B 的成本 5.35%（A 为 $L - 0.35\\%$）。"
+        - "(b) 通过：指出 B 的浮动利差会重新确定，所以它的“固定利率”承担了信用变差的风险；两种利差之差反映违约风险随期限增加；提到 A 承担交易对手风险更好。同意“免费省钱”，需要订正。"
+      en:
+        - "(a) OK: 1.3 percentage points in total; B's cost 5.35% (A's $L - 0.35\\%$)."
+        - "(b) OK: says B's floating spread is reset, so its \"fixed rate\" bears the risk of worsening credit; the gap between the spreads reflects default risk growing with maturity; mentioning A's counterparty risk is a plus. Agreeing that the saving is free needs revision."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [credit-default-swap, credit-spread, counterparty-risk, limits-to-arbitrage, financial-leverage]
+    expected: { ret: "4.5", ex: "0.5" }
+    question:
+      zh-cn: |-
+        Y 公司的 5 年期债券按面值交易，收益率为 6.0%；5 年期国债收益率为 4.0%；以 Y 公司为参考实体的 5 年期 CDS 利差为每年 1.5%。
+        (a) 买入 Y 的债券，同时买入同样名义本金的 CDS 保护，这个组合每年的收益率大约是多少？比国债高多少？
+        (b) 一位交易员说：“债券加 CDS 就没有信用风险了，这多出来的部分是无风险利润。我们借钱把这个组合放大 20 倍。”评价这个说法。
+      en: |-
+        Company Y's 5-year bonds trade at par with a yield of 6.0%; the 5-year Treasury yields 4.0%; the 5-year CDS spread with Y as the reference entity is 1.5% a year.
+        (a) Buy Y's bonds and buy CDS protection on the same notional. What is the yearly return of this combination, roughly? How much more than Treasuries?
+        (b) A trader says: "The bond plus CDS has no credit risk, so the extra is a riskless profit. Let's borrow and scale the position up 20 times." Evaluate this statement.
+    answer:
+      zh-cn: |-
+        (a) 每年约 $6.0\% - 1.5\% = 4.5\%$，比国债高约 0.5 个百分点。如果 Y 违约，CDS 赔付面值与回收价值之差，组合大致保住面值。按无套利，这个差应该接近 0，即 CDS 利差应接近债券的信用利差 2.0%。
+        (b) 说法不对，这 0.5 个百分点不是无风险利润。第一，融资成本：交易员不能按国债利率借钱，借款利率只要比国债高 0.5 个百分点以上，利润就没有了。第二，交易对手风险：Y 违约时 CDS 的卖方必须付得出钱，而大规模违约往往发生在卖方自己也困难的时候（2008 年的 AIG）。第三，价差可能扩大：在金融危机中，这种“债券减 CDS”的价差曾大幅偏离，持有者要按市价计算亏损、追加保证金。放大 20 倍后，价差暂时扩大 1 个百分点左右就可能使他损失大部分本金，被迫在最差的时候平仓。这正是套利的限制（[[4.7]]）：理论上能锁定的利润，需要资金、时间和承担风险，才能等到它实现。此外，债券的流动性通常比国债差，部分差额是对流动性的补偿。
+      en: |-
+        (a) About $6.0\% - 1.5\% = 4.5\%$ a year, about 0.5 percentage points above Treasuries. If Y defaults, the CDS pays the face value minus the recovery value, so the combination roughly keeps the face value. By no arbitrage this gap should be close to 0, that is, the CDS spread should be close to the bond's credit spread of 2.0%.
+        (b) The statement is wrong; the 0.5 percentage points are not a riskless profit. First, funding cost: the trader cannot borrow at the Treasury rate, and if he borrows at more than 0.5 percentage points above it, the profit is gone. Second, counterparty risk: when Y defaults, the CDS seller must be able to pay, and widespread defaults tend to come when sellers are in trouble themselves (AIG in 2008). Third, the gap can widen: in the financial crisis this "bond minus CDS" gap moved far out of line, and holders had to mark losses to market and post more margin. Levered 20 times, a temporary widening of about 1 percentage point could wipe out most of his capital and force him to close the position at the worst time. These are the limits to arbitrage ([[4.7]]): a profit that can in theory be locked in needs capital, time and the bearing of risk to be realized. Also, the bond is usually less liquid than Treasuries, and part of the gap is pay for that.
+    rubric:
+      zh-cn:
+        - "(a) 通过：约 4.5%，比国债高约 0.5 个百分点，并说明 CDS 抵消了违约损失。"
+        - "(b) 通过：至少指出融资成本、交易对手风险、价差扩大时的盯市亏损（杠杆）中的两点，并联系到套利的限制。同意这是无风险利润，需要订正。"
+      en:
+        - "(a) OK: about 4.5%, about 0.5 percentage points above Treasuries, with the explanation that the CDS offsets default losses."
+        - "(b) OK: names at least two of funding cost, counterparty risk, and mark-to-market losses if the gap widens (with leverage), and links them to the limits to arbitrage. Agreeing that it is a riskless profit needs revision."

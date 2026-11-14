@@ -495,8 +495,24 @@ stages:
         published: true
         introduces: [put-call-parity, replicating-portfolio, binomial-model, risk-neutral-pricing, black-scholes-model, option-delta, vega, implied-volatility, volatility-skew]
         uses: [arbitrage, zero-coupon-bond, continuous-compounding, call-option, put-option, strike-price, time-value, intrinsic-value, forward-contract, cost-of-carry, lognormal-distribution, normal-distribution, fat-tails, annualized-volatility, market-maker, hedging, protective-put, financial-leverage, default-risk, principal-agent-problem, credit-spread, risk-premium]
-      - { id: "5.4", slug: "5-4-swaps", title: { zh-cn: "互换（选学）", en: "Swaps (Optional)" } }
-      - { id: "5.5", slug: "5-5-alternative-assets", title: { zh-cn: "另类资产", en: "Alternative Assets" } }
+      - id: "5.4"
+        slug: "5-4-swaps"
+        title: { zh-cn: "互换（选学）", en: "Swaps (Optional)" }
+        summary:
+          zh-cn: "利率互换与名义本金；互换的定价与互换利率；互换的用途与交易对手风险；货币互换；信用违约互换。"
+          en: "Interest rate swaps and notional principal; pricing swaps and the swap rate; uses of swaps and counterparty risk; currency swaps; credit default swaps."
+        published: true
+        introduces: [interest-rate-swap, notional-principal, swap-rate, counterparty-risk, currency-swap, credit-default-swap]
+        uses: [forward-contract, futures-contract, margin, hedging, arbitrage, zero-coupon-bond, spot-rate, coupon-rate, yield-to-maturity, modified-duration, immunization, credit-spread, default-risk, recovery-rate, covered-interest-parity, limits-to-arbitrage, financial-leverage, mark-to-market]
+      - id: "5.5"
+        slug: "5-5-alternative-assets"
+        title: { zh-cn: "另类资产", en: "Alternative Assets" }
+        summary:
+          zh-cn: "房地产投资信托；大宗商品与期货的收益来源；对冲基金的费用与数据偏差；私募股权的流动性、IRR 与估值平滑；加密资产的风险。"
+          en: "Real estate investment trusts; commodities and the sources of futures returns; hedge fund fees and data biases; private equity, illiquidity, IRR and smoothed valuations; the risks of crypto assets."
+        published: true
+        introduces: [reit, hedge-fund, incentive-fee, private-equity, illiquidity-premium, crypto-asset]
+        uses: [financial-leverage, dividend-discount-model, futures-contract, contango, survivorship-bias, internal-rate-of-return, inflation, compound-interest, sharpe-ratio, mean-variance-optimization, portfolio-variance, correlation, call-option, put-option, annualized-volatility]
 
   - id: "6"
     title: { zh-cn: "第 6 阶段：家庭投资实践", en: "Stage 6: Household Investing in Practice" }

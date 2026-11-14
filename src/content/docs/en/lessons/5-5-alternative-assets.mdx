@@ -1,0 +1,78 @@
+---
+title: 5.5 Alternative Assets
+description: Real estate investment trusts; commodities and the sources of futures returns; hedge fund fees and data biases; private equity, illiquidity, IRR and smoothed valuations; the risks of crypto assets.
+lesson: "5.5"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import FeeDrag from '../../../../components/widgets/FeeDrag.astro';
+
+Investments other than stocks, bonds and cash are called alternative assets. They are often promoted as a way to diversify and raise returns. This lesson looks at each in turn: where its return comes from, what its risks are, and why its published figures need careful reading.
+
+## Real estate investment trusts [#reits]
+
+A <Def id="reit">real estate investment trust</Def> (REIT) is a company that owns and runs real estate such as offices, apartments, warehouses and data centers. Under US tax law, a REIT must distribute at least 90% of its taxable income as dividends and hold at least 75% of its assets in real estate; if it meets these conditions, it pays essentially no income tax at the company level, and its income passes straight to shareholders.
+
+Listed REITs trade on exchanges every day like stocks, so investors can hold a diversified real estate portfolio with little money, without buying buildings themselves. A REIT's return comes from rents (dividends) and changes in property values; REITs usually borrow a lot (<Ref concept="financial-leverage" />), and when rates rise, their borrowing costs rise and property valuations fall (<Ref lesson="3.9" sec="gordon" />). Since most profits must be paid out, REITs grow mainly by issuing new shares and borrowing.
+
+<Check id="C1" />
+
+## Commodities [#commodities]
+
+Commodities such as oil, metals and farm products produce no cash flows: a barrel of oil pays no dividend, and storing it costs money. So investors usually do not hold the physical goods but gain exposure to commodity prices through futures (<Ref concept="futures-contract" />). Holding futures and rolling into the next contract before expiry, the total return can be split into three parts:
+
+$$
+R = \Delta S + y + r_c
+$$
+
+$\Delta S$ is the change in the spot price, $y$ is the roll yield (positive when the later contract is cheaper than the expiring one, negative in contango (<Ref concept="contango" />)), and $r_c$ is the interest earned on the cash held as margin. A commodity fund's return can therefore differ greatly from the spot price changes in the news (<Ref lesson="5.1" />).
+
+The long-run return of commodities is disputed: Gorton and Rouwenhorst (2006), using data for 1959–2004, found that a diversified portfolio of commodity futures earned returns similar to stocks; Erb and Harvey (2006) argued that the long-run average return of individual commodities is close to 0, and that portfolio returns came mainly from regular rebalancing and roll yield, which need not repeat.
+
+<Check id="C2" />
+
+## Hedge funds [#hedge-funds]
+
+A <Def id="hedge-fund">hedge fund</Def> is an investment fund that raises money only from wealthy investors and institutions, is lightly regulated, and may sell short and use leverage and derivatives; strategies include long–short equity, macro, arbitrage and event-driven investing. Hedge funds charge two kinds of fees: a management fee, a fixed percentage of assets, and an <Def id="incentive-fee">incentive fee</Def>, a percentage of returns. The traditional standard is "2 and 20": a 2% management fee and a 20% incentive fee; average levels have fallen in recent years. The incentive fee usually has a high-water mark: the fund's value must exceed its previous peak before an incentive fee is charged again.
+
+Hedge fund indexes come from databases to which funds report voluntarily and suffer from survivorship bias and backfill bias (<Ref concept="survivorship-bias" />); studies estimate these biases at up to several percentage points a year. Moreover, many strategies earn steady returns in normal times and then lose heavily in crises, as if they had sold puts (<Ref lesson="5.2" />).
+
+<Figure id="3-1" title="Growth of 100 over 20 years: before fees, and after deducting each year a management fee and a 20% incentive fee (the incentive fee is charged on the positive return after the management fee)." observe="First look at the two shares under the default settings (the share of each year's return and of the 20-year gain taken by fees), then change the return before fees and the management fee.">
+	<FeeDrag />
+</Figure>
+
+<Check id="C3" />
+
+## Private equity and private markets [#private-markets]
+
+<Def id="private-equity">Private equity</Def> funds buy stakes in unlisted companies, or take listed companies private, often with heavy borrowing (leveraged buyouts), and sell them after several years of restructuring. Venture capital is private equity that invests in start-ups. Private credit and private real estate are organized in a similar way.
+
+Such funds usually last about 10 years. Investors first commit an amount; the fund calls it in installments as it finds deals and returns money in installments as it sells them. Early on there are only outflows and management fees and the returns come later, so the cumulative cash flow first falls and then rises, which is called the J-curve. Investors can hardly exit during the fund's life; this <Def id="illiquidity-premium">illiquidity premium</Def> is one of the main reasons private investments should offer higher returns.
+
+The performance of private funds is often stated with two measures: the internal rate of return (<Ref concept="internal-rate-of-return" />), and the ratio of the total amount returned to the amount invested (the multiple). The two can rank funds differently (<Ref check="Q2" />). Private assets have no daily market prices; each quarter the fund reports values based on appraisals or the manager's own models.
+
+<Check id="C4" />
+
+## Crypto assets [#crypto]
+
+A <Def id="crypto-asset">crypto asset</Def> is a digital asset recorded on a blockchain. Bitcoin was launched in 2009, with a cap of 21 million coins. In January 2024 the US Securities and Exchange Commission approved spot bitcoin ETFs, so individuals can buy it as they would a stock.
+
+Crypto assets are very volatile: bitcoin's annualized volatility is often between 50% and 80%, 3 to 5 times that of stocks; it has several times fallen more than 70% from a peak, for example by more than 80% from December 2017 to December 2018 and by about 77% from November 2021 to November 2022. Many other tokens fell to nearly 0. In November 2022 the exchange FTX collapsed after misusing customer funds; customers' money was frozen and could be recovered only through bankruptcy proceedings.
+
+<Check id="C5" />
+
+## Summary [#summary]
+
+- Listed REITs are companies that own real estate; they must distribute most of their income, use high leverage and trade on exchanges every day.
+- A commodity futures return = change in the spot price + roll yield + interest on margin; the long-run return is disputed.
+- Hedge funds charge management and incentive fees; their indexes suffer from survivorship and backfill bias.
+- Private equity is illiquid and valued by appraisal; IRR and the multiple can rank funds differently.
+- Crypto assets have very large swings and drawdowns, and trading platforms themselves can fail.
+
+## Exercises [#exercises]
+
+<Exercises />

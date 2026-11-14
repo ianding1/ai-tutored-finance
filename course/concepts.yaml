@@ -2821,3 +2821,99 @@ volatility-skew:
   short:
     zh-cn: "同一到期日的期权隐含波动率随执行价变化的形态；股指期权执行价越低隐含波动率越高。"
     en: "The pattern of implied volatility across strikes for one expiry; for index options it rises as the strike falls."
+
+interest-rate-swap:
+  defined_in: "5.4"
+  zh-cn: 利率互换
+  en: interest rate swap
+  short:
+    zh-cn: "双方按名义本金交换固定利息与浮动利息的合约，只交换差额。"
+    en: "A contract in which two parties exchange fixed and floating interest on a notional principal, paying only the difference."
+
+notional-principal:
+  defined_in: "5.4"
+  zh-cn: 名义本金
+  en: notional principal
+  short:
+    zh-cn: "计算互换利息所依据的金额，在利率互换中不交换。"
+    en: "The amount on which swap interest is computed; not exchanged in an interest rate swap."
+
+swap-rate:
+  defined_in: "5.4"
+  zh-cn: 互换利率
+  en: swap rate
+  short:
+    zh-cn: "使互换在签约时价值为 0 的固定利率，等于按面值发行的债券的票面利率。"
+    en: "The fixed rate that makes a swap worth 0 at the start; equal to the coupon rate of a par bond."
+
+counterparty-risk:
+  defined_in: "5.4"
+  zh-cn: 交易对手风险
+  en: counterparty risk
+  short:
+    zh-cn: "合约的另一方违约、无法履行支付义务的风险。"
+    en: "The risk that the other party to a contract defaults and cannot make its payments."
+
+currency-swap:
+  defined_in: "5.4"
+  zh-cn: 货币互换
+  en: currency swap
+  short:
+    zh-cn: "交换两种货币的本金和利息的合约，开始和到期时交换本金。"
+    en: "A contract exchanging principal and interest in two currencies, with principal exchanged at the start and at maturity."
+
+credit-default-swap:
+  defined_in: "5.4"
+  zh-cn: 信用违约互换
+  en: credit default swap
+  short:
+    zh-cn: "保护买方每年付利差，参考实体违约时卖方赔付损失的合约。"
+    en: "A contract in which the protection buyer pays a yearly spread and the seller pays the loss if the reference entity defaults."
+
+reit:
+  defined_in: "5.5"
+  zh-cn: 房地产投资信托
+  en: real estate investment trust
+  short:
+    zh-cn: "持有并经营房地产、把大部分收入作为股息分配的公司（REIT）。"
+    en: "A company that owns and runs real estate and pays out most of its income as dividends (REIT)."
+
+hedge-fund:
+  defined_in: "5.5"
+  zh-cn: 对冲基金
+  en: hedge fund
+  short:
+    zh-cn: "只向富裕投资者和机构募集、可卖空和使用杠杆、收取管理费和业绩报酬的基金。"
+    en: "A fund for wealthy investors and institutions that may sell short and use leverage, charging management and incentive fees."
+
+incentive-fee:
+  defined_in: "5.5"
+  zh-cn: 业绩报酬
+  en: incentive fee
+  short:
+    zh-cn: "按基金收益的一定比例收取的费用，常设高水位线。"
+    en: "A fee equal to a share of a fund's returns, usually with a high-water mark."
+
+private-equity:
+  defined_in: "5.5"
+  zh-cn: 私募股权
+  en: private equity
+  short:
+    zh-cn: "投资非上市公司股权的长期基金，流动性差，按评估估值。"
+    en: "Long-lived funds investing in unlisted companies; illiquid and valued by appraisal."
+
+illiquidity-premium:
+  defined_in: "5.5"
+  zh-cn: 流动性溢价
+  en: illiquidity premium
+  short:
+    zh-cn: "投资者因资产难以随时卖出而要求的额外收益。"
+    en: "The extra return investors require for holding an asset that cannot easily be sold."
+
+crypto-asset:
+  defined_in: "5.5"
+  zh-cn: 加密资产
+  en: crypto asset
+  short:
+    zh-cn: "记录在区块链上的数字资产，例如比特币；价格波动很大。"
+    en: "A digital asset recorded on a blockchain, such as bitcoin; its price is very volatile."

@@ -1,0 +1,313 @@
+# Answer key for lesson 5.5. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[5.2#strategies]] (section), [[concept:beta]], [[check:Q3]], [[fig:3-1]].
+# expected: values are recomputed by course/verify/5.5.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "5.5"
+
+context:
+  - zh-cn: |-
+      学习者学过内部收益率（[[3.2]]）、股利折现与 Gordon 模型（[[3.9]]）、财务杠杆（[[3.8]]）、波动率与夏普比率（[[4.1]]）、组合方差与均值–方差优化（[[4.2]]）、估计误差（[[4.10]]）、幸存者偏差与回填偏差（[[4.9]]）、期货与展期（[[5.1]]）、期权（[[5.2]]、[[5.3]]）。百分数用百分点表示；方差用 %²。
+    en: |-
+      The learner has studied the internal rate of return ([[3.2]]), dividend discounting and the Gordon model ([[3.9]]), financial leverage ([[3.8]]), volatility and the Sharpe ratio ([[4.1]]), portfolio variance and mean–variance optimization ([[4.2]]), estimation error ([[4.10]]), survivorship and backfill bias ([[4.9]]), futures and rolling ([[5.1]]) and options ([[5.2]], [[5.3]]). Percentages in percentage points; variance in %².
+  - concepts: [reit]
+    zh-cn: |-
+      讲义：REIT 持有并经营房地产；按美国税法至少分配 90% 的应税收入、至少 75% 的资产为房地产，公司层面基本不交所得税；上市 REIT 每天交易；杠杆较高，利率上升时借款成本上升、估值下降；扩张靠发新股和借款。讲义没有给出 REIT 与股票的相关性或 2008 年的表现（留给 [[check:C1]]）。
+    en: |-
+      The lesson: REITs own and run real estate; under US tax law they distribute at least 90% of taxable income and hold at least 75% of assets in real estate, paying essentially no corporate income tax; listed REITs trade daily; leverage is high, and rising rates raise borrowing costs and lower valuations; they grow by issuing shares and borrowing. The lesson gives no correlation with stocks or 2008 performance (left to [[check:C1]]).
+  - concepts: [futures-contract, contango]
+    zh-cn: |-
+      讲义：大宗商品不产生现金流，投资者通常通过期货持有；收益 $R = \Delta S + y + r_c$（现货变化、展期收益、保证金利息），正向市场中展期收益为负。Gorton 和 Rouwenhorst（2006，1959–2004 年数据）发现分散的商品期货组合收益与股票相近；Erb 和 Harvey（2006）认为单个商品长期平均收益接近 0，组合收益主要来自再平衡和展期收益。讲义没有讨论商品与通胀的关系（留给 [[check:C2]]）。
+    en: |-
+      The lesson: commodities produce no cash flows and are usually held through futures; return $R = \Delta S + y + r_c$ (spot change, roll yield, interest on margin), with negative roll yield in contango. Gorton and Rouwenhorst (2006, data for 1959–2004) found diversified commodity futures earned returns similar to stocks; Erb and Harvey (2006) argued individual commodities average close to 0 in the long run, with portfolio returns mainly from rebalancing and roll yield. The lesson does not discuss commodities and inflation (left to [[check:C2]]).
+  - concepts: [hedge-fund, incentive-fee]
+    zh-cn: |-
+      讲义：对冲基金只向富裕投资者和机构募集、监管较少，可卖空、用杠杆和衍生品；收取管理费和业绩报酬，传统为“2 和 20”，近年平均下降；高水位线：净值超过以前的最高点才再收业绩报酬。指数受幸存者偏差和回填偏差影响，研究估计每年可达几个百分点；很多策略平时稳定、危机中集中亏损，像卖出看跌期权。[[fig:3-1]]：100 在 20 年中的增长；业绩报酬 20%，按扣除管理费后的正收益每年计算；滑块扣费前收益率 4–14%（步长 1，默认 10），管理费 0–3%（步长 0.5，默认 2）；默认时扣费后 6.4%，费用拿走每年收益的 36%，20 年后 673 对 346，费用拿走总增值的 57%。
+    en: |-
+      The lesson: hedge funds raise money only from wealthy investors and institutions, are lightly regulated, and may sell short and use leverage and derivatives; they charge management and incentive fees, traditionally "2 and 20", lower on average recently; high-water mark: no new incentive fee until the value exceeds its previous peak. Indexes suffer from survivorship and backfill bias, estimated at up to several percentage points a year; many strategies are steady normally and lose heavily in crises, as if they had sold puts. [[fig:3-1]]: growth of 100 over 20 years; incentive fee 20%, charged each year on the positive return after the management fee; sliders return before fees 4–14% (steps of 1, default 10), management fee 0–3% (steps of 0.5, default 2); by default 6.4% after fees, fees take 36% of each year's return, after 20 years 673 versus 346, fees take 57% of the total gain.
+  - concepts: [private-equity, illiquidity-premium]
+    zh-cn: |-
+      讲义：私募股权收购非上市公司或把上市公司私有化，常用杠杆收购；风险投资投资初创公司；基金存续约 10 年，承诺资金、分次催缴、分次返还，J 曲线；存续期内几乎不能退出，流动性溢价是要求更高收益的理由；业绩用 IRR 和倍数表示，两者可能排序不同（留给 [[check:Q2]]）；私募资产没有每天的市价，按季度评估或模型估值。讲义没有说估值方式对公布的波动率和相关性有什么影响（留给 [[check:C4]]）。
+    en: |-
+      The lesson: private equity buys unlisted companies or takes listed ones private, often via leveraged buyouts; venture capital invests in start-ups; funds last about 10 years, with commitments, capital calls and distributions in installments, and the J-curve; investors can hardly exit, and the illiquidity premium is the reason to demand higher returns; performance is stated as IRR and the multiple, which can rank funds differently (left to [[check:Q2]]); private assets have no daily prices and are valued quarterly by appraisal or models. The lesson does not say how this valuation affects reported volatility and correlation (left to [[check:C4]]).
+  - concepts: [crypto-asset]
+    zh-cn: |-
+      讲义：加密资产记录在区块链上；比特币 2009 年推出，上限 2,100 万枚；2024 年 1 月美国批准现货比特币 ETF；年化波动率常在 50%–80%，是股票的 3–5 倍；2017 年 12 月到 2018 年 12 月下跌 80% 以上，2021 年 11 月到 2022 年 11 月下跌约 77%；很多代币跌到接近 0；2022 年 11 月 FTX 因挪用客户资金倒闭。讲义没有讨论加密资产能否用现金流折现估值（留给 [[check:C5]]）。
+    en: |-
+      The lesson: crypto assets are recorded on blockchains; bitcoin launched in 2009 with a 21 million coin cap; US spot bitcoin ETFs approved in January 2024; annualized volatility often 50%–80%, 3–5 times stocks; fell more than 80% from December 2017 to December 2018 and about 77% from November 2021 to November 2022; many tokens fell to nearly 0; FTX collapsed in November 2022 after misusing customer funds. The lesson does not discuss whether crypto assets can be valued by discounting cash flows (left to [[check:C5]]).
+
+common_errors:
+  - questions: [Q1]
+    zh-cn: |-
+      以为“只在赚钱时收业绩报酬”就使管理人与投资者的利益一致；忽略管理费每年都收，以及业绩报酬的不对称（像看涨期权）鼓励管理人冒险。
+    en: |-
+      Thinking that "an incentive fee only when we make money" aligns the manager with investors; ignoring that the management fee is charged every year and that the asymmetric incentive fee (like a call option) encourages the manager to take risk.
+  - questions: [Q2]
+    zh-cn: |-
+      直接按 IRR 比较不同时间返还资金的私募基金，忽略早返还的资金要以什么收益率再投资；或者只看倍数，忽略时间。
+    en: |-
+      Comparing private funds that return money at different times by IRR alone, ignoring at what rate early distributions can be reinvested; or looking only at the multiple and ignoring time.
+  - questions: [Q3]
+    zh-cn: |-
+      把按评估计算的私募资产收益的低波动率、低相关性当作真实的风险，用它计算夏普比率并放进优化器。
+    en: |-
+      Taking the low volatility and low correlation of appraisal-based private asset returns as the true risk, and using them for Sharpe ratios and in an optimizer.
+  - questions: [Q4]
+    zh-cn: |-
+      以为组合中只占很小比例的资产对组合风险的影响也很小；忽略高波动、与股票正相关的资产按风险贡献远超它的权重。
+    en: |-
+      Thinking a small weight means a small effect on portfolio risk; ignoring that a highly volatile asset positively correlated with stocks contributes far more risk than its weight.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: reits
+    concepts: [reit, financial-leverage]
+    question:
+      zh-cn: |-
+        REIT 持有的是实物房产，收入主要是稳定的租金，所以在股票组合中加入上市 REIT，分散风险的效果与加入债券差不多。
+      en: |-
+        REITs own physical buildings and their income is mainly steady rent, so adding listed REITs to a stock portfolio diversifies about as well as adding bonds.
+    correct: false
+    hint:
+      zh-cn: 上市 REIT 在哪里定价、由谁买卖？它们的杠杆和对经济、利率的敏感度，更像债券还是更像股票？
+      en: Where are listed REITs priced, and by whom? Do their leverage and their sensitivity to the economy and to rates make them more like bonds or more like stocks?
+    answer:
+      zh-cn: |-
+        错。上市 REIT 是在股票市场每天交易、杠杆较高的公司，租金和房产价值都随经济变化，利率上升时也受损。它们的收益与股票的相关性通常较高：2008 年美国权益型 REIT 指数（FTSE Nareit All Equity REITs）下跌约 38%，与标普 500 指数相近。REIT 能带来一些不同于其他行业的敞口，但分散效果远不如高质量债券。
+      en: |-
+        False. Listed REITs are leveraged companies traded every day on the stock market; rents and property values move with the economy, and REITs also suffer when rates rise. Their returns usually correlate highly with stocks: in 2008 the US equity REIT index (FTSE Nareit All Equity REITs) fell about 38%, close to the S&P 500. REITs add some exposure unlike other sectors, but they diversify far less than high-quality bonds.
+
+  - id: C2
+    kind: check
+    section: commodities
+    concepts: [futures-contract, inflation]
+    question:
+      zh-cn: |-
+        在通胀意外上升的年份，分散的大宗商品期货组合的收益往往较好，而股票和长期债券往往较差。
+      en: |-
+        In years when inflation rises unexpectedly, a diversified portfolio of commodity futures tends to do well, while stocks and long-term bonds tend to do poorly.
+    correct: true
+    hint:
+      zh-cn: 通胀衡量的是哪些东西的价格？意外的通胀会使利率和长期债券的价格怎样变化？
+      en: Inflation measures the prices of what? How does unexpected inflation affect interest rates and the prices of long-term bonds?
+    answer:
+      zh-cn: |-
+        对。能源、食品和原材料的价格本身就是通胀的一部分，通胀意外上升往往正是由商品涨价引起的，商品期货的现货部分随之上涨。意外的通胀使利率上升，长期债券的价格下跌（[[3.4]]），股票的估值通常也受压。Gorton 和 Rouwenhorst（2006）发现商品期货与通胀正相关、与股票和债券负相关；2022 年就是一个例子。但这种对冲并不稳定：商品价格也会因需求下降而下跌，与通胀无关。
+      en: |-
+        True. The prices of energy, food and raw materials are themselves part of inflation, and unexpected inflation is often caused by commodity prices rising, so the spot part of commodity futures rises with it. Unexpected inflation raises interest rates and lowers long-term bond prices ([[3.4]]), and stock valuations usually suffer too. Gorton and Rouwenhorst (2006) found commodity futures positively correlated with inflation and negatively with stocks and bonds; 2022 is an example. But the hedge is not reliable: commodity prices can also fall on weaker demand, unrelated to inflation.
+
+  - id: C3
+    kind: check
+    section: hedge-funds
+    concepts: [incentive-fee, compound-interest]
+    widget: { id: fee-drag, set: { g: 10, m: 2 } }
+    question:
+      zh-cn: |-
+        在 [[fig:3-1]] 的默认设置下，费用每年拿走收益的 36%，却拿走了 20 年总增值的 57%。主要原因是：
+      en: |-
+        Under the default settings of [[fig:3-1]], fees take 36% of each year's return but 57% of the total 20-year gain. The main reason is:
+    choices:
+      - zh-cn: 被收走的费用本来在以后每一年都会继续产生收益
+        en: The money taken as fees would otherwise have kept earning returns in every later year
+      - zh-cn: 业绩报酬的比例随时间上升
+        en: The incentive fee rate rises over time
+        why:
+          zh-cn: 图中的业绩报酬始终是 20%，管理费也不变。每年被收走的比例变了吗？
+          en: In the figure the incentive fee is always 20%, and the management fee does not change. Does the share taken each year change?
+      - zh-cn: 高水位线使后期的业绩报酬更高
+        en: The high-water mark makes later incentive fees higher
+        why:
+          zh-cn: 高水位线只会在亏损之后减少业绩报酬，而这里每年的收益都是正的。差别从哪里来？
+          en: A high-water mark can only reduce incentive fees after a loss, and here every year's return is positive. Where does the difference come from?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。每年的收益率从 10% 降到 6.4%，但财富是复利增长的（[[0.1]]）：第一年被收走的钱，在之后 19 年里都不再产生收益。年收益率相差 3.6 个百分点，20 年后财富相差近一倍（673 对 346）。期限越长，费用拿走的总增值比例越高。
+      en: |-
+        (A). The yearly return falls from 10% to 6.4%, but wealth compounds ([[0.1]]): money taken in the first year earns nothing in the 19 years that follow. A gap of 3.6 percentage points a year leaves wealth almost halved after 20 years (673 versus 346). The longer the horizon, the larger the share of the total gain taken by fees.
+
+  - id: C4
+    kind: check
+    section: private-markets
+    concepts: [private-equity, sharpe-ratio]
+    question:
+      zh-cn: |-
+        一只私募房地产基金按季度公布的收益，年化波动率只有 6%，与股票的相关性只有 0.2，夏普比率远高于股票。最合理的解释是：
+      en: |-
+        A private real estate fund's reported quarterly returns have an annualized volatility of only 6% and a correlation of only 0.2 with stocks, giving a Sharpe ratio far above that of stocks. The most reasonable explanation is:
+    choices:
+      - zh-cn: 估值依据评估，变化缓慢、滞后于市场，公布的收益被平滑，低估了真实的波动和相关性
+        en: Valuations are based on appraisals that change slowly and lag the market, so reported returns are smoothed and understate the true volatility and correlation
+      - zh-cn: 不能随时交易的资产不受市场情绪影响，所以风险确实更低
+        en: Assets that cannot be traded at any time are not affected by market sentiment, so their risk really is lower
+        why:
+          zh-cn: 写字楼的租户、租金和融资成本会因为没有每天的报价而不受经济衰退影响吗？没有报价，改变的是风险本身，还是我们看到的数字？
+          en: Are an office building's tenants, rents and financing costs shielded from a recession just because there is no daily quote? Does the lack of a quote change the risk itself, or the numbers we see?
+      - zh-cn: 私募基金的管理人能力更强
+        en: Private fund managers are more skilled
+        why:
+          zh-cn: 能力可以解释更高的平均收益，但能解释波动率和与股票的相关性都这么低吗？
+          en: Skill could explain a higher average return, but can it explain why both the volatility and the correlation with stocks are so low?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。评估师参考过去的交易，估值每季度只调整一部分，市场下跌时公布的价值要过几个季度才跟着下降。这样算出的收益像是真实收益的移动平均，波动率和与股票的相关性都被低估，夏普比率被高估。上市 REIT 持有类似的房产，波动却大得多，差别主要来自定价方式而不是资产本身。
+      en: |-
+        (A). Appraisers rely on past transactions and adjust values only partly each quarter, so after a market fall the reported values follow only several quarters later. Returns computed this way are like a moving average of the true returns: volatility and correlation with stocks are understated and the Sharpe ratio is overstated. Listed REITs own similar properties but swing far more; the difference comes mainly from how prices are set, not from the assets themselves.
+
+  - id: C5
+    kind: check
+    section: crypto
+    concepts: [crypto-asset, dividend-discount-model]
+    question:
+      zh-cn: |-
+        为什么不能像 [[3.9]] 和 [[3.10]] 给股票估值那样，用折现现金流给比特币估出一个内在价值？
+      en: |-
+        Why can bitcoin not be given an intrinsic value by discounting cash flows, the way [[3.9]] and [[3.10]] value stocks?
+    choices:
+      - zh-cn: 持有它不带来任何现金流，它的价值只取决于以后别人愿意出多少钱（以及它作为支付或储值手段的用途）
+        en: Holding it brings no cash flows; its value depends only on what others will pay for it later (and on its use as a means of payment or store of value)
+      - zh-cn: 它的波动太大，折现率无法确定
+        en: It is too volatile, so the discount rate cannot be determined
+        why:
+          zh-cn: 很多初创公司的股票波动也很大，仍然可以按预期现金流估值，只是不确定性大。比特币缺的是折现率，还是别的东西？
+          en: Many start-up stocks are also very volatile and can still be valued from expected cash flows, just with great uncertainty. Is it the discount rate bitcoin lacks, or something else?
+      - zh-cn: 它现在还没有利润，但以后会有，只是时间无法预测
+        en: It has no profits yet but will have some later; only the timing is unknown
+        why:
+          zh-cn: 一枚比特币是对什么的索取权？它的持有人会在将来分得谁的利润吗？
+          en: What is one bitcoin a claim on? Will its holder ever share in anyone's profits?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。股票的价值是对公司未来现金流的索取权，比特币不是任何人的负债或股权，不付利息也不付股息，就像大宗商品一样没有现金流可折现。它的价格只能由供求决定：作为支付或储值手段的需求，以及对未来价格的预期。这并不说明它的价格一定会涨或跌，但意味着没有一个现金流的“锚”，价格可以在很大的范围内变动。
+      en: |-
+        (A). A stock's value is a claim on the company's future cash flows; bitcoin is no one's liability or equity, pays no interest and no dividends, and like a commodity has no cash flows to discount. Its price can only be set by supply and demand: demand for it as a means of payment or store of value, and expectations about its future price. This does not mean its price must rise or fall, but there is no cash-flow "anchor", so the price can move over a very wide range.
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [incentive-fee, hedge-fund, call-option]
+    expected: { net: "105.18", share: "65.9" }
+    question:
+      zh-cn: |-
+        一只对冲基金收取 2% 的管理费（每年年末按扣费前的净值收取）和 20% 的业绩报酬（管理费之后，只对超过高水位线的部分收取，高水位线最初为 100）。投资者投入 100，基金扣费前的收益率三年分别为 +20%、−20%、+20%。
+        (a) 三年后投资者的净值是多少？扣费前的总增值中，有百分之几被费用拿走？
+        (b) 基金的宣传说：“我们只在为您赚钱时才收取业绩报酬，所以我们与您的利益完全一致。”评价这个说法。从管理人的角度看，业绩报酬像哪种期权？当净值远低于高水位线时，管理人会有什么动机？
+      en: |-
+        A hedge fund charges a 2% management fee (at the end of each year, on the value before fees) and a 20% incentive fee (after the management fee, only on the part above the high-water mark, which starts at 100). An investor puts in 100, and the fund's returns before fees in three years are +20%, −20% and +20%.
+        (a) What is the investor's value after three years? What percentage of the total gain before fees is taken by fees?
+        (b) The fund's marketing says: "We charge an incentive fee only when we make money for you, so our interests are fully aligned with yours." Evaluate this statement. From the manager's point of view, what kind of option is the incentive fee like? What incentive does the manager have when the fund's value is far below the high-water mark?
+    answer:
+      zh-cn: |-
+        (a) 第 1 年：$100 \times 1.2 = 120$，管理费 2.4，余 117.6；超过高水位线 17.6，业绩报酬 3.52，余 114.08，高水位线升到 114.08。第 2 年：$114.08 \times 0.8 = 91.26$，管理费 1.83，余 89.44，没有业绩报酬。第 3 年：$89.44 \times 1.2 = 107.33$，管理费 2.15，余 105.18，仍低于高水位线，没有业绩报酬。扣费前净值为 $100 \times 1.2 \times 0.8 \times 1.2 = 115.2$，总增值 15.2；投资者只得到 5.18，费用拿走了 $\frac{115.2 - 105.18}{15.2} \approx 65.9\%$。
+        (b) 说法不完全对。第一，管理费不论盈亏每年都收：第 2 年亏损时仍收了 1.83。第二，业绩报酬只分享收益、不分担亏损，对管理人来说就像一份以基金净值为标的、执行价为高水位线的看涨期权（[[5.2]]）。期权的价值随波动率上升（[[5.3]]），所以管理人有动机提高风险：赢了分 20%，输了由投资者承担。净值远低于高水位线时，这份期权深度虚值，管理人可能孤注一掷地冒险，也可能干脆关闭基金、另起炉灶，重新开始收取业绩报酬。第三，高水位线按基金整体计算时，不同时间加入的投资者负担的费用也不同。管理人自己大量投资于基金、设置门槛收益率或较长的计算期，可以部分缓解这些问题。
+      en: |-
+        (a) Year 1: $100 \times 1.2 = 120$, management fee 2.4, leaving 117.6; 17.6 above the high-water mark, incentive fee 3.52, leaving 114.08, and the high-water mark rises to 114.08. Year 2: $114.08 \times 0.8 = 91.26$, management fee 1.83, leaving 89.44, no incentive fee. Year 3: $89.44 \times 1.2 = 107.33$, management fee 2.15, leaving 105.18, still below the high-water mark, no incentive fee. Before fees the value would be $100 \times 1.2 \times 0.8 \times 1.2 = 115.2$, a gain of 15.2; the investor gets only 5.18, so fees take $\frac{115.2 - 105.18}{15.2} \approx 65.9\%$.
+        (b) The statement is not fully right. First, the management fee is charged every year, gain or loss: 1.83 was charged in the losing year 2. Second, the incentive fee shares in gains but not losses; for the manager it is like a call on the fund's value with the high-water mark as strike ([[5.2]]). An option's value rises with volatility ([[5.3]]), so the manager has a reason to take more risk: he gets 20% of a win, and investors bear the losses. When the value is far below the high-water mark, this option is deep out of the money; the manager may gamble, or simply close the fund and start a new one to charge incentive fees again. Third, when the high-water mark applies to the fund as a whole, investors who joined at different times bear different fees. A manager investing heavily in the fund himself, a hurdle rate, or a longer measurement period can partly ease these problems.
+    rubric:
+      zh-cn:
+        - "(a) 通过：净值约 105.18，费用拿走总增值的约 65.9%；逐年计算管理费和高水位线正确。第 3 年仍收业绩报酬，需要订正。"
+        - "(b) 通过：指出管理费亏损时也收；业绩报酬像以高水位线为执行价的看涨期权，鼓励提高风险；说出净值远低于高水位线时冒险或关闭基金的动机。同意“利益完全一致”，需要订正。"
+      en:
+        - "(a) OK: value about 105.18, fees take about 65.9% of the total gain; management fees and the high-water mark handled correctly year by year. Charging an incentive fee in year 3 needs revision."
+        - "(b) OK: says the management fee is charged even in losses; the incentive fee is like a call with the high-water mark as strike, encouraging more risk; names the incentive to gamble or close the fund when far below the high-water mark. Agreeing that interests are fully aligned needs revision."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [private-equity, internal-rate-of-return]
+    expected: { irra: "26.5", irrb: "12.1", fa: "253.9" }
+    question:
+      zh-cn: |-
+        两只私募股权基金在同一年各从投资者处催缴 100。基金 A 在第 2 年末一次返还 160；基金 B 在第 8 年末一次返还 250。不考虑费用和中间的现金流。
+        (a) 两只基金的 IRR 和倍数各是多少？
+        (b) 基金 A 的宣传材料说：“我们的 IRR 是 B 的两倍多，业绩远远领先。”评价这个说法。假设投资者从 A 收回的 160 只能投资于预期收益率 8% 的上市股票指数基金，到第 8 年末两种选择的财富各是多少？什么情况下 A 确实更好？
+      en: |-
+        Two private equity funds each call 100 from investors in the same year. Fund A returns 160 in one payment at the end of year 2; fund B returns 250 in one payment at the end of year 8. Ignore fees and any other cash flows.
+        (a) What are the IRR and the multiple of each fund?
+        (b) Fund A's marketing says: "Our IRR is more than twice B's; our performance is far ahead." Evaluate this statement. If the 160 received from A can only be invested in a listed stock index fund with an expected return of 8%, what is the wealth under each choice at the end of year 8? When is A really better?
+    answer:
+      zh-cn: |-
+        (a) A：$1.6^{1/2} - 1 \approx 26.5\%$，倍数 1.6。B：$2.5^{1/8} - 1 \approx 12.1\%$，倍数 2.5。
+        (b) 说法有误导。IRR 衡量的是资金在基金中的年化收益率，但 A 只占用资金 2 年，之后的 6 年取决于投资者能把钱投到哪里。如果只能获得 8%，第 8 年末 A 的财富为 $160 \times 1.08^6 \approx 253.9$，与 B 的 250 几乎相同。IRR 高不等于为投资者创造的财富多；倍数忽略了时间，同样有缺陷。比较时应该在同一时点、按合理的再投资收益率比较财富，或者与同期投入上市指数的结果比较。只有当投资者能把提前返还的资金再投到收益率明显高于约 7.7% 的地方（例如又一只同样好的基金），A 才明显更好；B 的 IRR 12.1% 也高于 8%，两者都优于指数。此外，B 资金被锁定的时间更长，流动性差，应该要求更高的收益。
+      en: |-
+        (a) A: $1.6^{1/2} - 1 \approx 26.5\%$, multiple 1.6. B: $2.5^{1/8} - 1 \approx 12.1\%$, multiple 2.5.
+        (b) The statement is misleading. IRR measures the annual return while money is in the fund, but A uses the money for only 2 years; the following 6 years depend on where the investor can put it. If only 8% is available, A gives $160 \times 1.08^6 \approx 253.9$ at the end of year 8, almost the same as B's 250. A higher IRR does not mean more wealth for the investor; the multiple ignores time and is flawed as well. Comparisons should be of wealth at the same date with a reasonable reinvestment return, or against putting the same money into a listed index over the same period. A is clearly better only if the investor can reinvest the early distributions at well above about 7.7% (for example in another equally good fund); B's IRR of 12.1% is also above 8%, so both beat the index. In addition, B locks money up longer and is less liquid, so it should be required to earn more.
+    rubric:
+      zh-cn:
+        - "(a) 通过：A 约 26.5%、1.6 倍；B 约 12.1%、2.5 倍。"
+        - "(b) 通过：算出 A 再投资到第 8 年约 253.9，与 B 的 250 接近；指出 IRR 的高低取决于提前返还资金的再投资机会，并说明 A 更好的条件。只按 IRR 认为 A 远远领先，需要订正。"
+      en:
+        - "(a) OK: A about 26.5%, 1.6 times; B about 12.1%, 2.5 times."
+        - "(b) OK: computes A reinvested to year 8 as about 253.9, close to B's 250; says the comparison depends on reinvesting early distributions, and gives the condition under which A is better. Judging A far ahead by IRR alone needs revision."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [private-equity, sharpe-ratio, mean-variance-optimization]
+    expected: { vol: "16", sr: "0.6", srt: "0.3" }
+    question:
+      zh-cn: |-
+        一只私募房地产基金按评估公布的年收益，超额收益率平均 4.8%，波动率 8%。一个简单的模型认为，公布的收益是真实收益与上一期公布收益的加权平均：$r^*_t = (1 - a)\,r_t + a\,r^*_{t-1}$，这时公布的波动率等于真实波动率乘以 $\sqrt{\frac{1 - a}{1 + a}}$。对这类基金，$a$ 约为 0.6。
+        (a) 按公布的数据，夏普比率是多少？按这个模型，真实的波动率和夏普比率大约是多少？
+        (b) 一位顾问把公布的数据放进均值–方差优化器，得出组合应把 40% 投资于这类基金，理由是“它的夏普比率是股票的两倍，与股票的相关性又低”。评价这个建议。
+      en: |-
+        A private real estate fund's appraisal-based annual returns have an average excess return of 4.8% and a volatility of 8%. A simple model says the reported return is a weighted average of the true return and last period's reported return: $r^*_t = (1 - a)\,r_t + a\,r^*_{t-1}$, in which case the reported volatility equals the true volatility times $\sqrt{\frac{1 - a}{1 + a}}$. For such funds, $a$ is about 0.6.
+        (a) What is the Sharpe ratio on the reported figures? By this model, what are the true volatility and Sharpe ratio, roughly?
+        (b) A consultant puts the reported figures into a mean–variance optimizer and concludes the portfolio should hold 40% in such funds, "because its Sharpe ratio is twice that of stocks and its correlation with stocks is low". Evaluate this advice.
+    answer:
+      zh-cn: |-
+        (a) 公布的夏普比率为 $\frac{4.8}{8} = 0.6$。$\sqrt{\frac{0.4}{1.6}} = 0.5$，所以真实波动率约为 $\frac{8}{0.5} = 16\%$，与股票相近；真实的夏普比率约为 $\frac{4.8}{16} = 0.3$，并不比股票高。
+        (b) 建议不可靠。第一，平滑使波动率被低估一半，夏普比率被高估一倍；同样的平滑也使与股票的相关性被低估，真实的相关性要高得多。第二，均值–方差优化器会放大输入的误差（[[4.10]]），偏向波动率被低估的资产，40% 的结果主要是数据的假象。第三，这类基金流动性差，市场下跌时无法卖出，也难以再平衡；投资者还承担更高的费用。合理的做法是先对收益去平滑，或参考上市 REIT 的波动，再决定配置比例，并考虑流动性需求。这类基金可以有一定比例，但理由应是流动性溢价等真实的收益来源，而不是平滑出来的低波动。
+      en: |-
+        (a) The reported Sharpe ratio is $\frac{4.8}{8} = 0.6$. $\sqrt{\frac{0.4}{1.6}} = 0.5$, so the true volatility is about $\frac{8}{0.5} = 16\%$, close to that of stocks; the true Sharpe ratio is about $\frac{4.8}{16} = 0.3$, no higher than stocks'.
+        (b) The advice is unreliable. First, smoothing halves the measured volatility and doubles the Sharpe ratio; the same smoothing also understates the correlation with stocks, which is really much higher. Second, a mean–variance optimizer amplifies errors in its inputs ([[4.10]]) and favors assets whose volatility is understated, so the 40% is mainly an artifact of the data. Third, such funds are illiquid: they cannot be sold in a falling market and are hard to rebalance, and investors also pay higher fees. A sound approach is to unsmooth the returns, or look at the volatility of listed REITs, before choosing a weight, and to consider liquidity needs. Such funds can have a place, but the reason should be real sources of return such as an illiquidity premium, not low volatility created by smoothing.
+    rubric:
+      zh-cn:
+        - "(a) 通过：公布的夏普比率 0.6；真实波动率约 16%，真实夏普比率约 0.3。"
+        - "(b) 通过：指出平滑同时低估波动率和相关性，优化器偏向被低估风险的资产，并提到流动性。只按公布的数据同意 40%，需要订正。"
+      en:
+        - "(a) OK: reported Sharpe ratio 0.6; true volatility about 16%, true Sharpe ratio about 0.3."
+        - "(b) OK: says smoothing understates both volatility and correlation, the optimizer favors assets with understated risk, and mentions liquidity. Accepting 40% based on the reported figures needs revision."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [crypto-asset, portfolio-variance, correlation]
+    expected: { v0: "9.9", v1: "11.23", rc: "19.8" }
+    question:
+      zh-cn: |-
+        一位投资者持有 60% 股票、40% 债券的组合。股票波动率 16%，债券 6%，两者相关系数为 0。他打算把组合的 5% 换成比特币（股票和债券按比例减少到 57% 和 38%），比特币的波动率为 70%，与股票的相关系数为 0.4，与债券为 0。
+        (a) 加入比特币前后，组合的波动率各是多少？加入后，比特币贡献了组合方差的百分之几？（资产 $i$ 对组合方差的贡献为 $w_i \operatorname{Cov}(R_i, R_p)$。）
+        (b) 他说：“只放 5%，就算比特币归零也只亏 5%，对整个组合的风险影响很小。”评价这个说法。
+      en: |-
+        An investor holds 60% stocks and 40% bonds. Stocks have a volatility of 16%, bonds 6%, and their correlation is 0. He plans to switch 5% of the portfolio into bitcoin (cutting stocks and bonds in proportion to 57% and 38%); bitcoin has a volatility of 70%, a correlation of 0.4 with stocks and 0 with bonds.
+        (a) What is the portfolio's volatility before and after adding bitcoin? After adding it, what percentage of the portfolio variance comes from bitcoin? (Asset $i$'s contribution to portfolio variance is $w_i \operatorname{Cov}(R_i, R_p)$.)
+        (b) He says: "It's only 5%; even if bitcoin goes to zero I lose only 5%, so the effect on the risk of the whole portfolio is small." Evaluate this statement.
+    answer:
+      zh-cn: |-
+        (a) 加入前：方差 $0.6^2 \times 16^2 + 0.4^2 \times 6^2 = 92.16 + 5.76 = 97.92$（%²），波动率约 9.9%。加入后：方差 $= 0.57^2 \times 256 + 0.38^2 \times 36 + 0.05^2 \times 4900 + 2 \times 0.57 \times 0.05 \times 0.4 \times 16 \times 70 \approx 83.17 + 5.20 + 12.25 + 25.54 = 126.16$，波动率约 11.23%。比特币的贡献：$\operatorname{Cov}(R_b, R_p) = 0.05 \times 4900 + 0.57 \times 0.4 \times 16 \times 70 = 245 + 255.36 = 500.36$，贡献 $0.05 \times 500.36 \approx 25.02$，占方差的 $\frac{25.02}{126.16} \approx 19.8\%$。
+        (b) 说法只对了一半。最大亏损确实以 5% 为限，但风险不只是最坏情况：5% 的权重贡献了约五分之一的方差，组合波动率从约 9.9% 升到约 11.23%，相当于把 60/40 组合中的股票比例提高近 10 个百分点。原因是比特币的波动率是股票的 4 倍多，又与股票正相关，往往在股市下跌时同时下跌。他可以按风险贡献而不是权重来决定比例，或者问自己：如果组合波动率要保持不变，股票要减少多少。这里的波动率和相关系数是估计值，也会变化（[[4.10]]）。
+      en: |-
+        (a) Before: variance $0.6^2 \times 16^2 + 0.4^2 \times 6^2 = 92.16 + 5.76 = 97.92$ (%²), volatility about 9.9%. After: variance $= 0.57^2 \times 256 + 0.38^2 \times 36 + 0.05^2 \times 4900 + 2 \times 0.57 \times 0.05 \times 0.4 \times 16 \times 70 \approx 83.17 + 5.20 + 12.25 + 25.54 = 126.16$, volatility about 11.23%. Bitcoin's contribution: $\operatorname{Cov}(R_b, R_p) = 0.05 \times 4900 + 0.57 \times 0.4 \times 16 \times 70 = 245 + 255.36 = 500.36$, so it contributes $0.05 \times 500.36 \approx 25.02$, or $\frac{25.02}{126.16} \approx 19.8\%$ of the variance.
+        (b) The statement is only half right. The largest loss is indeed capped at 5%, but risk is not only the worst case: a 5% weight contributes about a fifth of the variance, and the portfolio's volatility rises from about 9.9% to about 11.23%, comparable to raising the stock share of the 60/40 portfolio by nearly ten percentage points. The reason is that bitcoin is more than 4 times as volatile as stocks and positively correlated with them, so it tends to fall when stocks fall. He can size the position by risk contribution rather than weight, or ask how much stock he would have to cut to keep the portfolio's volatility unchanged. The volatilities and correlations here are estimates and can change ([[4.10]]).
+    rubric:
+      zh-cn:
+        - "(a) 通过：加入前约 9.9%，加入后约 11.23%，比特币贡献约 19.8% 的方差；协方差项计算正确。漏掉比特币与股票的协方差项，需要订正。"
+        - "(b) 通过：区分最大亏损与风险，指出 5% 的权重贡献了约五分之一的风险，用高波动和与股票正相关解释原因。同意“影响很小”，需要订正。"
+      en:
+        - "(a) OK: about 9.9% before, about 11.23% after, bitcoin contributes about 19.8% of the variance; covariance terms correct. Leaving out the bitcoin–stock covariance term needs revision."
+        - "(b) OK: separates the largest loss from risk, says the 5% weight contributes about a fifth of the risk, and explains it by high volatility and positive correlation with stocks. Agreeing that the effect is small needs revision."

@@ -1,0 +1,90 @@
+---
+title: 5.4 Swaps (Optional)
+description: Interest rate swaps and notional principal; pricing swaps and the swap rate; uses of swaps and counterparty risk; currency swaps; credit default swaps.
+lesson: "5.4"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import SwapValue from '../../../../components/widgets/SwapValue.astro';
+
+This lesson is optional. Later lessons do not depend on it, but swaps are widely used in corporate finance and in banks' management of assets and liabilities.
+
+## Interest rate swaps [#interest-rate-swaps]
+
+A company has borrowed 100 million dollars at a floating rate of SOFR + 1%. SOFR (the Secured Overnight Financing Rate) is the floating reference rate commonly used in dollar markets; since June 2023 it has fully replaced LIBOR. The company worries that rising rates will increase its interest burden, but taking out a new fixed-rate loan would be costly. It can enter an <Def id="interest-rate-swap">interest rate swap</Def> with a bank: for the next 5 years, the company pays the bank interest at a fixed rate of 4% each year, and the bank pays the company interest at SOFR.
+
+The amount on which the interest is computed (here 100 million dollars) is the <Def id="notional-principal">notional principal</Def>. At each settlement, the two sides exchange only the difference between the interest payments. Writing $L$ for SOFR, the company's net rate with the swap is
+
+$$
+(L + 1\%) - L + 4\% = 5\%
+$$
+
+The floating-rate loan has become a fixed-rate loan.
+
+<Check id="C1" />
+
+## Pricing swaps [#valuation]
+
+For the party paying fixed, a swap is equivalent to two transactions: holding a floating-rate bond with a face value equal to the notional principal (receiving SOFR), and issuing a bond whose coupon is the fixed rate (paying the fixed interest). The floating-rate bond's interest is reset to the market rate each period, so right after each reset it is worth exactly its face value. Therefore, just after a settlement date, for the party paying fixed:
+
+$$
+V = 100 - B_F
+$$
+
+where the notional principal is written as 100 and $B_F$ is the price of the fixed-rate bond discounted at current market rates (<Ref lesson="3.3" />). A swap can also be seen as a series of forward contracts (<Ref lesson="5.1" />), each agreeing to exchange the floating rate for the fixed rate in one period.
+
+At the start, the two sides choose the fixed rate that makes the swap worth 0; this rate is the <Def id="swap-rate">swap rate</Def>. Writing $Z_t$ for the price of a zero-coupon bond paying 1 dollar in $t$ years (<Ref lesson="3.3" sec="spot-rates" />), the swap rate $s$ of an $n$-year swap settled once a year satisfies $s \sum_{t=1}^{n} Z_t + Z_n = 1$, that is,
+
+$$
+s = \frac{1 - Z_n}{\sum_{t=1}^{n} Z_t}
+$$
+
+It is the coupon rate of an $n$-year bond issued at par. After the start, market rates change and the swap is no longer worth 0.
+
+<Figure id="2-1" title="The value, to the party paying fixed, of an interest rate swap with notional principal 100, a fixed rate of 4% and annual settlement, just after a settlement date, against the market rate (the same rate for all maturities, annual compounding)." observe="Change the number of years remaining and watch how the curve changes; compare the values when the market rate is above and below 4%.">
+	<SwapValue />
+</Figure>
+
+<Check id="C2" />
+
+<Check id="C3" />
+
+## Uses of swaps [#uses]
+
+- Changing the form of a liability: like the company above, turning a floating-rate liability into a fixed-rate one, or the reverse.
+- Managing interest rate risk: banks, insurers and pension funds use swaps to adjust the duration (<Ref concept="modified-duration" />) of their assets or liabilities without buying or selling large amounts of bonds. Entering a swap costs nothing up front, so the adjustment is cheap.
+- Expressing a view on rates: someone who expects rates to rise can pay fixed, and someone who expects them to fall can receive fixed. The swap is then not a hedge but speculation.
+
+A swap is a private contract between two parties. If one side defaults, the other loses whatever value the swap has for it; this is <Def id="counterparty-risk">counterparty risk</Def>. After the 2008 financial crisis, the US Dodd–Frank Act of 2010 required standardized swaps to be cleared through central clearing houses, with margin, much like futures (<Ref lesson="5.1" sec="futures" />).
+
+Swaps are sometimes also promoted as a tool that lowers both sides' borrowing costs at once; <Ref check="Q3" /> tests this claim.
+
+<Check id="C4" />
+
+## Currency swaps [#currency-swaps]
+
+A <Def id="currency-swap">currency swap</Def> exchanges the principal and interest in two currencies. For example, a US company issues dollar bonds, but its business is in Europe and needs euros. At the start it can exchange the dollar principal for euros; in between it pays the other side euro interest and receives dollar interest; at maturity it exchanges the euro principal back into dollars. Its liability has in effect become a euro liability, matched to its euro income, reducing exchange-rate risk (<Ref lesson="2.7" sec="fx-risk" />). Unlike an interest rate swap, a currency swap exchanges principal at the start and at maturity. It can also be seen as a series of currency forwards, and its pricing agrees with covered interest parity (<Ref concept="covered-interest-parity" />).
+
+## Credit default swaps [#cds]
+
+A <Def id="credit-default-swap">credit default swap</Def> (CDS) transfers the default risk of a company or a country from one side to the other. The protection buyer pays the seller a fixed fraction of the notional principal each year, called the CDS spread; if the reference entity defaults, the seller pays the buyer the loss, that is, the face value minus the recovery value of the bond (<Ref concept="recovery-rate" />).
+
+For an investor who holds the company's bonds, a CDS is like insurance on them. But a CDS buyer need not hold the bonds, and the amount of CDS traded can be far larger than the amount of bonds. In 2008 the insurer AIG had sold large amounts of CDS protection referencing mortgage securities; when those securities fell in value, AIG could not post the collateral its counterparties demanded, and the US government had to rescue it to keep its counterparties from suffering losses together.
+
+<Check id="C5" />
+
+## Summary [#summary]
+
+- An interest rate swap exchanges fixed interest for floating interest; the notional principal is not exchanged, only the difference in interest.
+- For the party paying fixed, a swap is like holding a floating-rate bond and issuing a fixed-rate bond; the fixed rate at the start (the swap rate) makes its value 0 and equals the coupon rate of a bond issued at par.
+- Swaps are used to change the form of liabilities, adjust duration and express views on rates; privately agreed swaps carry counterparty risk, and standardized swaps must now be centrally cleared.
+- A currency swap exchanges principal and interest in two currencies and can turn a liability into another currency.
+- A credit default swap transfers default risk; the buyer need not hold the bonds, and the seller's own ability to pay is a risk too.
+
+## Exercises [#exercises]
+
+<Exercises />
