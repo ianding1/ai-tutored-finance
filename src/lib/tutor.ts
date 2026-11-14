@@ -2,7 +2,7 @@
 // a course index, a concept list, and for each published lesson a lesson pack (the lesson as plain
 // Markdown, with check questions and exercises in place) and a key file (answers, grading points,
 // common errors). The website stores nothing about the learner; the AI keeps track of progress.
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parse } from 'yaml';
 import { t, type Lang } from '../i18n/ui';
@@ -69,6 +69,15 @@ const LABELS: Record<string, Record<string, string>> = {
 		conceptsIntro: '每个概念：名称、简短说明，以及定义它的课。',
 		definedIn: '定义于',
 		prerequisite: '预备知识',
+		goals: '本课目标',
+		prereq: '用到的前面的概念',
+		planNote: '这是讲课计划，不是讲稿。按小节的顺序，用你自己的话讲解；必须讲到“要点”中的每一条，术语用这里给出的名称；例子的数字必须与“例子”一致（随堂题、练习题和后面的课程要用到）。“讲法”是建议，可以根据学习者的反应调整。“不要讲”中的内容留给练习题，讲课时不要说出。不要补充本课要点之外的结论；补充的例子要说明是补充的。',
+		planConcepts: '本节定义的概念',
+		planPoints: '要点',
+		planExamples: '例子（数字固定）',
+		planApproach: '讲法',
+		planPitfalls: '常见误解（讲解时留意）',
+		planLeave: '不要讲',
 	},
 	en: {
 		check: 'Check question',
@@ -105,6 +114,15 @@ const LABELS: Record<string, Record<string, string>> = {
 		conceptsIntro: 'Each concept: its name, a short description, and the lesson that defines it.',
 		definedIn: 'Defined in',
 		prerequisite: 'prerequisite',
+		goals: 'Goals of the lesson',
+		prereq: 'Concepts from earlier lessons',
+		planNote: 'This is a teaching plan, not a script. Teach the sections in order in your own words; cover every item under "Points", use the terms given here, and keep the numbers of the examples exactly as given (check questions, exercises and later lessons use them). "Approach" is a suggestion; adapt it to the learner. What is under "Do not teach" is left to the exercises: do not say it. Do not add conclusions beyond the points of the lesson; say so when you add an example.',
+		planConcepts: 'Concepts defined in this section',
+		planPoints: 'Points',
+		planExamples: 'Examples (fixed numbers)',
+		planApproach: 'Approach',
+		planPitfalls: 'Common misconceptions (watch for them)',
+		planLeave: 'Do not teach',
 	},
 };
 const L = (lang: Lang) => LABELS[lang] ?? LABELS.en;
@@ -175,8 +193,91 @@ function figureSpec(lessonId: string, figId: string, lang: Lang): string {
 	return _figs![`${lessonId}/${figId}`]?.[lang] ?? '';
 }
 
+function figureBlock(lessonId: string, lang: Lang, id: string, title: string, observe: string): string {
+	const lb = L(lang);
+	const l = lesson(lessonId);
+	const lines = [`**${lb.figure} ${id}** ${plainRich(title, lang, lessonId)}`.trim()];
+	const spec = figureSpec(lessonId, id, lang);
+	lines.push(spec ? `- ${lb.figDraw}\n  ${plainRich(spec, lang, lessonId).replace(/\n/g, '\n  ')}` : `- ${lb.figNoSpec}`);
+	if (observe) lines.push(`- ${lb.figObserve}${C(lang)}${plainRich(observe, lang, lessonId)}`);
+	lines.push(`- ${lb.figPage}${C(lang)}${absolute(lessonPath(l, lang, `fig-${id}`))}`);
+	return lines.join('\n');
+}
+
+function checkBlock(lessonId: string, lang: Lang, id: string): string {
+	const lb = L(lang);
+	const x = lessonKey(lessonId)?.questions.find((y) => y.id === id);
+	if (!x) return '';
+	return `> ${questionText(x, lang, lessonId, `${lb.check} ${id}`).replace(/\n/g, '\n> ')}\n>\n> ${lb.checkNote}`;
+}
+
+function exercisesBlock(lessonId: string, lang: Lang): string {
+	const lb = L(lang);
+	let n = 0;
+	const ex = (lessonKey(lessonId)?.questions ?? []).filter((x) => x.kind === 'exercise');
+	return [lb.exercisesNote, ...ex.map((x) => questionText(x, lang, lessonId, `${lb.exercises} ${t(lang, 'exerciseItem', { n: ++n })} (id: ${x.id})`))].join('\n\n');
+}
+
+// ---------- lesson plan (course/plans/<id>.yaml) ----------
+
+type Text = Record<string, string>;
+type List = Record<string, string[]>;
+interface PlanSection {
+	id: string;
+	title: Text;
+	concepts?: string[];
+	points?: List;
+	examples?: List;
+	approach?: Text;
+	leave?: Text;
+	pitfalls?: List;
+	figures?: { id: string; title?: Text; observe?: Text }[];
+	checks?: string[];
+}
+interface Plan {
+	lesson: string;
+	goals?: List;
+	prerequisites?: string[];
+	sections: PlanSection[];
+}
+
+export function lessonPlan(lessonId: string): Plan | undefined {
+	const p = join(ROOT, `course/plans/${lessonId}.yaml`);
+	if (!existsSync(p)) return undefined;
+	return parse(readFileSync(p, 'utf8')) as Plan;
+}
+
+/** Lesson pack built from a lesson plan: structure and content for the tutor to teach in its own words. */
+function planPackText(lessonId: string, lang: Lang, plan: Plan): string {
+	const l = lesson(lessonId);
+	const lb = L(lang);
+	const rich = (s: string) => plainRich(s, lang, lessonId);
+	const list = (xs?: string[]) => (xs ?? []).map((x) => `- ${rich(x)}`).join('\n');
+	const cs = concepts();
+	const term = (id: string) => (cs[id] ? `${cs[id][lang]} (${id})` : id);
+	const out = [`# ${l.id} ${l.title[lang]}`, lb.planNote, `${lb.key}${C(lang)}${aiUrl(lang, `lessons/${l.id}-key.md`)}`];
+	if (plan.goals?.[lang]?.length) out.push(`## ${lb.goals}`, list(plan.goals[lang]));
+	if (plan.prerequisites?.length) out.push(`${lb.prereq}${C(lang)}${plan.prerequisites.map(term).join(lang.startsWith('zh') ? '、' : ', ')}`);
+	for (const s of plan.sections) {
+		const parts = [`## ${s.title[lang]}`];
+		if (s.concepts?.length) parts.push(`${lb.planConcepts}${C(lang)}${s.concepts.map(term).join(lang.startsWith('zh') ? '、' : ', ')}`);
+		if (s.points?.[lang]?.length) parts.push(`**${lb.planPoints}**\n\n${list(s.points[lang])}`);
+		if (s.examples?.[lang]?.length) parts.push(`**${lb.planExamples}**\n\n${list(s.examples[lang])}`);
+		if (s.approach?.[lang]) parts.push(`**${lb.planApproach}**${C(lang)}${rich(s.approach[lang])}`);
+		if (s.pitfalls?.[lang]?.length) parts.push(`**${lb.planPitfalls}**\n\n${list(s.pitfalls[lang])}`);
+		if (s.leave?.[lang]) parts.push(`**${lb.planLeave}**${C(lang)}${rich(s.leave[lang])}`);
+		for (const f of s.figures ?? []) parts.push(figureBlock(lessonId, lang, f.id, f.title?.[lang] ?? '', f.observe?.[lang] ?? ''));
+		for (const c of s.checks ?? []) parts.push(checkBlock(lessonId, lang, c));
+		out.push(parts.join('\n\n'));
+	}
+	if ((lessonKey(lessonId)?.questions ?? []).some((x) => x.kind === 'exercise')) out.push(`## ${lb.exercises}`, exercisesBlock(lessonId, lang));
+	return out.join('\n\n') + '\n';
+}
+
 /** The lesson as plain Markdown for the AI tutor, with check questions, figures and exercises in place. */
 export function lessonPackText(lessonId: string, lang: Lang): string {
+	const plan = lessonPlan(lessonId);
+	if (plan) return planPackText(lessonId, lang, plan);
 	const l = lesson(lessonId);
 	const lb = L(lang);
 	const key = lessonKey(lessonId);
@@ -184,31 +285,17 @@ export function lessonPackText(lessonId: string, lang: Lang): string {
 	const fm = /^---\n([\s\S]*?)\n---\n/.exec(src);
 	const meta = fm ? parse(fm[1]) : {};
 	let body = fm ? src.slice(fm[0].length) : src;
-	const q = (id: string) => key?.questions.find((x) => x.id === id);
-	let exNo = 0;
 
 	body = body
 		.replace(/^import .*\n/gm, '')
 		.replace(/^(#{2,6}[ \t]+.*?)[ \t]*\[#[a-z0-9-]+\][ \t]*$/gm, '$1')
 		.replace(/<Figure([^>]*)>([\s\S]*?)<\/Figure>/g, (_, a) => {
 			const at = attrs(a);
-			const lines = [`**${lb.figure} ${at.id}** ${plainRich(at.title ?? '', lang, lessonId)}`];
-			const spec = figureSpec(lessonId, at.id, lang);
-			lines.push(spec ? `- ${lb.figDraw}\n  ${plainRich(spec, lang, lessonId).replace(/\n/g, '\n  ')}` : `- ${lb.figNoSpec}`);
-			lines.push(`- ${lb.figObserve}${C(lang)}${plainRich(at.observe ?? '', lang, lessonId)}`);
-			lines.push(`- ${lb.figPage}${C(lang)}${absolute(lessonPath(l, lang, `fig-${at.id}`))}`);
-			return lines.join('\n');
+			return figureBlock(lessonId, lang, at.id, at.title ?? '', at.observe ?? '');
 		})
-		.replace(/<Check id="([^"]+)"\s*\/>/g, (_, id) => {
-			const x = q(id);
-			if (!x) return '';
-			return `> ${questionText(x, lang, lessonId, `${lb.check} ${id}`).replace(/\n/g, '\n> ')}\n>\n> ${lb.checkNote}`;
-		})
+		.replace(/<Check id="([^"]+)"\s*\/>/g, (_, id) => checkBlock(lessonId, lang, id))
 		.replace(/<CheckAll\s*\/>/g, '')
-		.replace(/<Exercises\s*\/>/g, () => {
-			const ex = (key?.questions ?? []).filter((x) => x.kind === 'exercise');
-			return [lb.exercisesNote, ...ex.map((x) => questionText(x, lang, lessonId, `${lb.exercises} ${t(lang, 'exerciseItem', { n: ++exNo })} (id: ${x.id})`))].join('\n\n');
-		})
+		.replace(/<Exercises\s*\/>/g, () => exercisesBlock(lessonId, lang))
 		.replace(/<Quiz\s*\/>/g, () => {
 			const qs = (key?.questions ?? []).filter((x) => x.kind === 'quiz');
 			const judge = qs.filter((x) => x.part === 'judge');

@@ -498,6 +498,10 @@ def check_references():
         for s in all_strings(key):
             for tok in re.findall(r"\[\[([^\]]+)\]\]", s):
                 check_ref(f"course/keys/{lesson_id}.yaml", parse_token(tok), lesson_id)
+    for lesson_id, plan in plans().items():
+        for s in all_strings(plan):
+            for tok in re.findall(r"\[\[([^\]]+)\]\]", s):
+                check_ref(f"course/plans/{lesson_id}.yaml", parse_token(tok), lesson_id)
 
 
 # ---------------------------------------------------------------- 5. plain-text reference lint
@@ -537,6 +541,9 @@ def check_plain_references():
     for lesson_id, key in keys.items():
         for s in all_strings(key):
             lint_plain(f"course/keys/{lesson_id}.yaml", MATH.sub(" ", s))
+    for lesson_id, plan in plans().items():
+        for s in all_strings(plan):
+            lint_plain(f"course/plans/{lesson_id}.yaml", MATH.sub(" ", s))
 
 
 # ---------------------------------------------------------------- 6. headings and translation parity
@@ -595,6 +602,7 @@ def lock_entries() -> dict[str, dict[str, str]]:
     # Teaching rules and figure descriptions for the AI tutor (served under /ai/).
     files["course/ai/protocol.yaml"] = load_yaml(COURSE / "ai/protocol.yaml")
     files["course/ai/figures.yaml"] = load_yaml(COURSE / "ai/figures.yaml")
+    files.update({f"course/plans/{k}.yaml": v for k, v in plans().items()})
     for file, data in files.items():
         def fn(path, node, file=file):
             entries[f"{file}#{path}"] = {lang: sha(json.dumps(node[lang], ensure_ascii=False)) for lang in LANGS if lang in node}
@@ -715,6 +723,57 @@ def check_widgets():
 
 # ---------------------------------------------------------------- 10. content lint and prompts
 
+def plans() -> dict:
+    """Lesson plans (course/plans/<id>.yaml): the lesson pack is built from them instead of the page."""
+    return {p.stem: load_yaml(p) for p in sorted((COURSE / "plans").glob("*.yaml"))}
+
+
+def check_plans():
+    figs = load_yaml(COURSE / "ai/figures.yaml") or {}
+    for lesson_id, plan in plans().items():
+        file = f"course/plans/{lesson_id}.yaml"
+        if lesson_id not in by_id:
+            err(file, "no such lesson in curriculum.yaml")
+            continue
+        if str(plan.get("lesson")) != lesson_id:
+            err(file, f"'lesson' must be \"{lesson_id}\"")
+        check_bilingual(file, plan)
+        key = keys.get(lesson_id, {})
+        checks = {q["id"]: q for q in key.get("questions", []) if q.get("kind") == "check"}
+        seen: dict[str, str] = {}
+        sids = [s.get("id") for s in plan.get("sections", [])]
+        if len(sids) != len(set(sids)):
+            err(file, "duplicate section ids")
+        defined = []
+        for sec in plan.get("sections", []):
+            where = f"{file} [{sec.get('id')}]"
+            for c in sec.get("concepts", []):
+                defined.append(c)
+                if c not in concepts:
+                    err(where, f"unknown concept '{c}'")
+            for f in sec.get("figures", []):
+                if f"{lesson_id}/{f.get('id')}" not in figs:
+                    err(where, f"figure {f.get('id')} has no drawing instructions in course/ai/figures.yaml")
+            for c in sec.get("checks", []):
+                if c not in checks:
+                    err(where, f"unknown check question '{c}'")
+                elif c in seen:
+                    err(where, f"check question {c} appears twice")
+                else:
+                    seen[c] = sec.get("id")
+                    if checks[c].get("section") != sec.get("id"):
+                        err(where, f"{c} has section '{checks[c].get('section')}' in the key file")
+        for c in checks:
+            if c not in seen:
+                err(file, f"check question {c} is not placed in any section")
+        for c in plan.get("prerequisites", []):
+            if c not in concepts:
+                err(file, f"unknown prerequisite concept '{c}'")
+        intro = by_id[lesson_id].get("introduces", [])
+        if sorted(defined) != sorted(intro):
+            err(file, f"section concepts {sorted(defined)} differ from 'introduces' {sorted(intro)}")
+
+
 def check_lint():
     files = [doc_path(lang, str(r)) for r in source_docs() for lang in LANGS]
     files += [COURSE / f"keys/{k}.yaml" for k in keys]
@@ -740,7 +799,7 @@ def chinese_texts(lang: str):
         p = doc_path(lang, str(r))
         if p.exists():
             yield rel(p), body_of(p.read_text(encoding="utf-8")), True
-    for lesson_id, key in keys.items():
+    for lesson_id, key in list(keys.items()) + [(f"plan {k}", v) for k, v in plans().items()]:
         found = []
         walk_bilingual(key, "", lambda path, node: found.append((path, node.get(lang))))
         for path, v in found:
@@ -843,6 +902,7 @@ def main():
         check_numbers,
         check_widgets,
         check_lint,
+        check_plans,
     ):
         fn()
     check_lock(update=False)

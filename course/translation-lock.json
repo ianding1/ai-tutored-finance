@@ -18463,6 +18463,142 @@
   "en": "2fa53c8353f88eaa",
   "zh-cn": "ed60f8359d79cefd"
  },
+ "course/plans/1.1.yaml#goals": {
+  "en": "aea86561287aee09",
+  "zh-cn": "f506bb75c03d3222"
+ },
+ "course/plans/1.1.yaml#sections[comparative-statics].approach": {
+  "en": "c8828e6bc1e92d42",
+  "zh-cn": "d94e17ca8f929628"
+ },
+ "course/plans/1.1.yaml#sections[comparative-statics].examples": {
+  "en": "20258134a3abd41b",
+  "zh-cn": "b67f72e24623bbe7"
+ },
+ "course/plans/1.1.yaml#sections[comparative-statics].figures[4-1].observe": {
+  "en": "172447930d782681",
+  "zh-cn": "38f3773cc38688cb"
+ },
+ "course/plans/1.1.yaml#sections[comparative-statics].leave": {
+  "en": "5460e603161ca4b8",
+  "zh-cn": "a34b0aa790194dec"
+ },
+ "course/plans/1.1.yaml#sections[comparative-statics].pitfalls": {
+  "en": "102f4f42fdefcebd",
+  "zh-cn": "2ddab3f0feb158c7"
+ },
+ "course/plans/1.1.yaml#sections[comparative-statics].points": {
+  "en": "6c12b059471136a0",
+  "zh-cn": "a353def473737232"
+ },
+ "course/plans/1.1.yaml#sections[comparative-statics].title": {
+  "en": "824207aed14a6ff8",
+  "zh-cn": "7c162f5af9fc2b8a"
+ },
+ "course/plans/1.1.yaml#sections[demand].approach": {
+  "en": "f14fe956f4467970",
+  "zh-cn": "571fbe40c425dc53"
+ },
+ "course/plans/1.1.yaml#sections[demand].examples": {
+  "en": "ef4081cd52edf874",
+  "zh-cn": "6e67575c76656ed7"
+ },
+ "course/plans/1.1.yaml#sections[demand].pitfalls": {
+  "en": "0c9531540b1b3a0b",
+  "zh-cn": "18e9ab9ffeaa3f72"
+ },
+ "course/plans/1.1.yaml#sections[demand].points": {
+  "en": "f38afc944e9cb850",
+  "zh-cn": "84182e8ab5902491"
+ },
+ "course/plans/1.1.yaml#sections[demand].title": {
+  "en": "e13d934bae74307d",
+  "zh-cn": "c22a04bb1037f13e"
+ },
+ "course/plans/1.1.yaml#sections[equilibrium].approach": {
+  "en": "373e323e8abb9902",
+  "zh-cn": "05b9a497b5aaa529"
+ },
+ "course/plans/1.1.yaml#sections[equilibrium].examples": {
+  "en": "d6cd383a5c91c0a2",
+  "zh-cn": "ca37cc4fa7628424"
+ },
+ "course/plans/1.1.yaml#sections[equilibrium].points": {
+  "en": "ff3c0b68a31a6817",
+  "zh-cn": "ee3c9396c3d88a31"
+ },
+ "course/plans/1.1.yaml#sections[equilibrium].title": {
+  "en": "7766dcff12c8ef8b",
+  "zh-cn": "108fa21493d64f96"
+ },
+ "course/plans/1.1.yaml#sections[other-elasticities].approach": {
+  "en": "25a339405b8e6c46",
+  "zh-cn": "a4673fe660f7d878"
+ },
+ "course/plans/1.1.yaml#sections[other-elasticities].examples": {
+  "en": "db592b3165ec7a6b",
+  "zh-cn": "fc61deed5ba93772"
+ },
+ "course/plans/1.1.yaml#sections[other-elasticities].leave": {
+  "en": "defbbb56d460c57f",
+  "zh-cn": "ac6b63d70635b366"
+ },
+ "course/plans/1.1.yaml#sections[other-elasticities].pitfalls": {
+  "en": "b1d0562a0a836c80",
+  "zh-cn": "0745b41b8c442366"
+ },
+ "course/plans/1.1.yaml#sections[other-elasticities].points": {
+  "en": "2ff72063ebe77223",
+  "zh-cn": "bca254eae65f1e16"
+ },
+ "course/plans/1.1.yaml#sections[other-elasticities].title": {
+  "en": "f2cc9a9f24839c99",
+  "zh-cn": "6392fb7c4034d95a"
+ },
+ "course/plans/1.1.yaml#sections[price-elasticity].approach": {
+  "en": "11599b6005e41874",
+  "zh-cn": "88e86e1b329e0fb2"
+ },
+ "course/plans/1.1.yaml#sections[price-elasticity].examples": {
+  "en": "639827ac9305e834",
+  "zh-cn": "8bec3106701d2bc4"
+ },
+ "course/plans/1.1.yaml#sections[price-elasticity].leave": {
+  "en": "8b38126fabdfe28d",
+  "zh-cn": "7d8d8bbf95506cac"
+ },
+ "course/plans/1.1.yaml#sections[price-elasticity].pitfalls": {
+  "en": "52fe3166d11d6516",
+  "zh-cn": "162989dc7a647ad4"
+ },
+ "course/plans/1.1.yaml#sections[price-elasticity].points": {
+  "en": "f59a3c42d2c5a6c0",
+  "zh-cn": "c3b5a1ccf40526bf"
+ },
+ "course/plans/1.1.yaml#sections[price-elasticity].title": {
+  "en": "918ba46bd81428c7",
+  "zh-cn": "c10513132c449450"
+ },
+ "course/plans/1.1.yaml#sections[supply].approach": {
+  "en": "9f2129468f980039",
+  "zh-cn": "cd63dc17a62c3d33"
+ },
+ "course/plans/1.1.yaml#sections[supply].examples": {
+  "en": "6a51bed1d9195f91",
+  "zh-cn": "7103edce9e777135"
+ },
+ "course/plans/1.1.yaml#sections[supply].pitfalls": {
+  "en": "18d32c72ed8d83f8",
+  "zh-cn": "35c473252442d771"
+ },
+ "course/plans/1.1.yaml#sections[supply].points": {
+  "en": "3cd0001ae5f8055f",
+  "zh-cn": "f2d05401fb762179"
+ },
+ "course/plans/1.1.yaml#sections[supply].title": {
+  "en": "b45f382a67d6c0eb",
+  "zh-cn": "0a82094ece54fdad"
+ },
  "src/content/docs/<lang>/index.mdx": {
   "en": "e39870cee555044b",
   "zh-cn": "0693820c9ad0b9ee"
