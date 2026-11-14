@@ -217,7 +217,7 @@ export function lessonPackText(lessonId: string, lang: Lang): string {
 		.replace(/<CheckAll\s*\/>/g, '')
 		.replace(/<Exercises\s*\/>/g, () => {
 			const ex = (key?.questions ?? []).filter((x) => x.kind === 'exercise');
-			return [lb.exercisesNote, ...ex.map((x) => questionText(x, lang, lessonId, `${t(lang, 'exerciseItem', { n: ++exNo })} (id: ${x.id})`))].join('\n\n');
+			return [lb.exercisesNote, ...ex.map((x) => questionText(x, lang, lessonId, `${lb.exercises} ${t(lang, 'exerciseItem', { n: ++exNo })} (id: ${x.id})`))].join('\n\n');
 		})
 		.replace(/<Quiz\s*\/>/g, () => {
 			const qs = (key?.questions ?? []).filter((x) => x.kind === 'quiz');
@@ -255,7 +255,7 @@ export function keyText(lessonId: string, lang: Lang): string {
 			q.kind === 'check'
 				? `${lb.check} ${q.id}`
 				: q.kind === 'exercise'
-					? `${t(lang, 'exerciseItem', { n: ++exNo })} (id: ${q.id})`
+					? `${lb.exercises} ${t(lang, 'exerciseItem', { n: ++exNo })} (id: ${q.id})`
 					: q.id;
 		const parts = [`## ${label}`, rich(q.question[lang])];
 		if (q.choices?.length) {
