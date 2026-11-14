@@ -41,8 +41,8 @@ sections:
       en:
         - Weekly demand for coffee beans in a city is $Q_d = 100 - 2P$, where $P$ is the price per bag (dollars) and $Q_d$ the quantity demanded (thousand bags). At prices 10, 20, 30 and 40, the quantity demanded is 80, 60, 40 and 20.
     approach:
-      zh-cn: 先让学习者自己用需求函数算出几个价格下的需求量，再讲需求曲线。用一个生活中的例子让学习者判断是“沿着曲线移动”还是“曲线移动”。
-      en: Let the learner compute the quantity demanded at a few prices from the demand function before introducing the demand curve. Use an everyday example and ask whether it is a movement along the curve or a shift of the curve.
+      zh-cn: 先用需求函数算出几个价格下的需求量，再画出需求曲线。用一个生活中的例子说明“沿着曲线移动”和“曲线移动”的区别。
+      en: Compute the quantity demanded at a few prices from the demand function, then draw the demand curve. Use an everyday example to show the difference between a movement along the curve and a shift of the curve.
     pitfalls:
       zh-cn:
         - 把“需求减少”和“需求量减少”混为一谈：价格上升只减少需求量，不移动需求曲线。
@@ -69,8 +69,8 @@ sections:
       en:
         - The supply of coffee beans is $Q_s = -20 + 4P$. Below 5 dollars no seller is willing to sell, so the formula applies only for $P \ge 5$.
     approach:
-      zh-cn: 先问学习者：根据[[0.2]]的利润最大化，价格上升时厂商为什么愿意多生产？让他自己说出“价格等于边际成本”。
-      en: First ask the learner why, by the profit maximization of [[0.2]], firms want to produce more when the price rises; let them state "price equals marginal cost" themselves.
+      zh-cn: 从[[0.2]]的利润最大化出发，说明为什么价格上升时厂商愿意多生产：关键是“价格等于边际成本”，而不只是“价格高了赚得多”。
+      en: 'Start from the profit maximization of [[0.2]] to explain why firms produce more when the price rises: the key is "price equals marginal cost", not only "a higher price means more profit".'
     pitfalls:
       zh-cn:
         - 忘记供给函数的适用范围（$P \ge 5$），在低价格处得到负的供给量。
@@ -95,8 +95,8 @@ sections:
         - 'Coffee-bean market: $100 - 2P = -20 + 4P$, equilibrium price $P^* = 20$ dollars, equilibrium quantity $Q^* = 60$ thousand bags.'
         - 'At a price of 25, quantity demanded is 50 and quantity supplied 80: a surplus of 30 thousand bags. At 15, quantity demanded is 70 and quantity supplied 40: a shortage of 30 thousand bags.'
     approach:
-      zh-cn: 让学习者自己解出均衡；再让他算价格为 25 和 15 时的需求量和供给量，说出会发生什么。
-      en: Let the learner solve for the equilibrium; then have them compute quantities at 25 and at 15 and say what happens.
+      zh-cn: 先解出均衡，再算价格为 25 和 15 时的需求量和供给量，说明过剩和短缺怎样把价格推回均衡。
+      en: Solve for the equilibrium, then compute the quantities at 25 and at 15 and explain how the surplus and the shortage push the price back to equilibrium.
     checks: [C1]
 
   - id: comparative-statics
@@ -117,8 +117,8 @@ sections:
       en:
         - 'Income rises and quantity demanded increases by 30 thousand bags at every price: $Q_d = 130 - 2P$. New equilibrium $P^* = 25$, $Q^* = 80$: the price rises by 5 dollars and quantity by 20 thousand bags.'
     approach:
-      zh-cn: 先让学习者预测价格和数量变化的方向，再计算新的均衡。
-      en: Have the learner predict the direction of the price and quantity changes before computing the new equilibrium.
+      zh-cn: 先用三个步骤判断价格和数量变化的方向，再计算新的均衡，验证判断。
+      en: Use the three steps to find the directions of the price and quantity changes first, then compute the new equilibrium to confirm them.
     pitfalls:
       zh-cn:
         - 以为需求增加后价格上升，会使需求再下降，于是“需求曲线又移回来”；混淆曲线移动和沿着曲线移动。
@@ -154,11 +154,11 @@ sections:
       en:
         - 'At the equilibrium of the coffee-bean market, $P = 20$, $Q = 60$, $\frac{dQ}{dP} = -2$ and $\varepsilon = -2 \times \frac{20}{60} \approx -0.67$: a 1% higher price lowers quantity demanded by about 0.67%; demand is inelastic at this point.'
     approach:
-      zh-cn: 先用“换单位后斜率变了”引出为什么要用百分比；让学习者自己算均衡点的弹性。
-      en: Start from "the slope changes when units change" to motivate percentages; let the learner compute the elasticity at the equilibrium.
+      zh-cn: 先用“换单位后斜率变了”引出为什么要用百分比，再算均衡点的弹性。
+      en: Start from "the slope changes when units change" to motivate percentages, then compute the elasticity at the equilibrium.
     leave:
-      zh-cn: 不要说出沿着直线需求曲线弹性是否处处相同（[[check:Q1]]），也不要推导提价时总收入怎样随弹性变化（[[check:Q2]]）；不要解释为什么要用中点法、起点和终点作基数会有什么不同（[[check:Q5]]）；不要讨论歉收时整个行业的收入怎样变化（[[check:Q4]]）。可以把这些问题提出来，告诉学习者会在练习题中回答。
-      en: Do not say whether elasticity is the same everywhere along a straight-line demand curve ([[check:Q1]]), do not derive how total revenue changes with a price increase depending on elasticity ([[check:Q2]]), do not explain why the midpoint method is used or what happens with the start or end point as the base ([[check:Q5]]), and do not discuss how a bad harvest changes the revenue of a whole industry ([[check:Q4]]). You may raise these questions and say the exercises will answer them.
+      zh-cn: 不要说出沿着直线需求曲线弹性是否处处相同（[[check:Q1]]），也不要推导提价时总收入怎样随弹性变化（[[check:Q2]]）；不要解释为什么要用中点法、起点和终点作基数会有什么不同（[[check:Q5]]）；不要讨论歉收时整个行业的收入怎样变化（[[check:Q4]]）。可以提一句这些问题会在练习题中回答。
+      en: Do not say whether elasticity is the same everywhere along a straight-line demand curve ([[check:Q1]]), do not derive how total revenue changes with a price increase depending on elasticity ([[check:Q2]]), do not explain why the midpoint method is used or what happens with the start or end point as the base ([[check:Q5]]), and do not discuss how a bad harvest changes the revenue of a whole industry ([[check:Q4]]). You may mention that the exercises will answer these questions.
     pitfalls:
       zh-cn:
         - 把斜率当作弹性；或者以为直线需求曲线的弹性处处相同。
@@ -191,8 +191,8 @@ sections:
       zh-cn: 不要讨论竞争对手同时涨价时提价效果怎样变化（[[check:Q6]]）。
       en: Do not discuss how a price increase works out when competitors raise their prices at the same time ([[check:Q6]]).
     approach:
-      zh-cn: 让学习者自己举出一个劣等品和一对互补品的例子，并判断弹性的符号。
-      en: Ask the learner to give their own example of an inferior good and of a pair of complements, and to say the sign of each elasticity.
+      zh-cn: 用例子说明每种弹性的符号；劣等品的例子要强调它不是“质量差的商品”。
+      en: Use the examples to show the sign of each elasticity; with the inferior good, stress that it is not a "low-quality good".
     pitfalls:
       zh-cn:
         - 以为劣等品就是质量差的商品；劣等品只由收入弹性为负来定义。
