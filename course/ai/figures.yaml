@@ -1,0 +1,154 @@
+# What each figure shows, for the AI tutor (lesson packs under /ai/). Keyed by "<lesson>/<figure>".
+# Each description is enough for an assistant to rebuild the figure as an interactive HTML widget;
+# assistants that cannot show HTML use the static image in public/ai/fig/ or the web page instead.
+# Keep these in sync with the widget components and course/widgets.yaml.
+
+"0.1/4-1":
+  zh-cn: |-
+    一笔年金：每年年末支付 100，共 $n$ 年，利率 $r$。每笔支付画成一个空心柱（高 100），它的现值 $\frac{100}{(1+r)^t}$ 画成柱内的实心部分。滑块：利率 $r$ 从 0 到 20%（步长 1%，默认 10%），年数 $n$ 从 1 到 10（默认 3）。显示现值合计。
+  en: |-
+    An annuity: 100 paid at the end of each year for $n$ years at rate $r$. Each payment is an outline bar (height 100), and its present value $\frac{100}{(1+r)^t}$ is the filled part inside it. Sliders: rate $r$ from 0 to 20% (step 1%, default 10%), years $n$ from 1 to 10 (default 3). Shows the total present value.
+
+"0.2/2-1":
+  zh-cn: |-
+    利润 $\pi(q) = 40q - q^2 - F$ 随产量 $q$（0 到 40）的曲线。滑块：固定成本 $F$ 从 0 到 600（步长 10，默认 100）。曲线整体上下平移，最高点始终在 $q = 20$。
+  en: |-
+    Profit $\pi(q) = 40q - q^2 - F$ against output $q$ (0 to 40). Slider: fixed cost $F$ from 0 to 600 (step 10, default 100). The curve shifts up or down as a whole; its peak stays at $q = 20$.
+
+"0.2/3-1":
+  zh-cn: |-
+    $f(x, y) = -x^2 - y^2 + 2x + 8y$ 的等高线，是以最高点 $(1, 4)$ 为圆心的同心圆，最高点处 $f = 17$。静态图。
+  en: |-
+    Contour lines of $f(x, y) = -x^2 - y^2 + 2x + 8y$: circles centered on the highest point $(1, 4)$, where $f = 17$. Static.
+
+"0.2/5-1":
+  zh-cn: |-
+    预算线 $2x + 4y = 100$ 和 $U = xy$ 的等高线。滑块把一个点沿预算线移动（$x$ 从 2 到 48，步长 0.5，默认 10），画出过这个点的等高线以及梯度方向 $\nabla U = (y, x)$ 和 $\nabla g = (2, 4)$。两轴比例相同。在 $x = 25$、$y = 12.5$ 处等高线与预算线相切，两个梯度方向相同。
+  en: |-
+    The budget line $2x + 4y = 100$ and contour lines of $U = xy$. A slider moves a point along the budget line ($x$ from 2 to 48, step 0.5, default 10); the figure shows the contour through the point and the gradient directions $\nabla U = (y, x)$ and $\nabla g = (2, 4)$. Both axes use the same scale. At $x = 25$, $y = 12.5$ the contour is tangent to the budget line and the two gradients point the same way.
+
+"0.2/7-1":
+  zh-cn: |-
+    $U = \ln x + y$，$p_x = 1$，$p_y = 10$，$M = 5$。拉格朗日条件给出的解 $(10, -0.5)$ 落在预算线延长到 $x$ 轴下方的部分，不可行；可行的最优选择是角点 $(5, 0)$。画出预算线、几条等高线和这两个点。静态图。
+  en: |-
+    $U = \ln x + y$ with $p_x = 1$, $p_y = 10$, $M = 5$. The Lagrange solution $(10, -0.5)$ lies on the extension of the budget line below the $x$ axis and is not feasible; the best feasible choice is the corner $(5, 0)$. Shows the budget line, a few contours and both points. Static.
+
+"0.3/3-1":
+  zh-cn: |-
+    两项资产在三种情景下的收益（%），概率分别为 25%、50%、25%：A 为 30、10、−10；B 为 1、5、3。两行数轴各画一行，点的面积与概率成正比。静态图。
+  en: |-
+    Returns (%) of two assets in three scenarios with probabilities 25%, 50% and 25%: A is 30, 10, −10; B is 1, 5, 3. One number line per asset; the area of each dot is proportional to its probability. Static.
+
+"0.3/4-1":
+  zh-cn: |-
+    同一组情景（概率 25%、50%、25%；A 为 30、10、−10；B 为 1、5、3）中，每种情景下 A、B 相对各自均值的偏差，以及“概率 × 偏差之积”对协方差的贡献，画成条形。贡献相加就是协方差。静态图。
+  en: |-
+    For the same scenarios (probabilities 25%, 50%, 25%; A is 30, 10, −10; B is 1, 5, 3): each scenario's deviations of A and B from their means, and its contribution "probability × product of deviations" to the covariance, as bars. The contributions add up to the covariance. Static.
+
+"0.3/6-1":
+  zh-cn: |-
+    两项资产组合的标准差随 A 的权重 $w$（0 到 1）的曲线，$\sigma_A = 20\%$、$\sigma_B = 10\%$，$\sigma_p = \sqrt{w^2\sigma_A^2 + (1-w)^2\sigma_B^2 + 2w(1-w)\rho\sigma_A\sigma_B}$；直线是两者标准差的加权平均。滑块：相关系数 $\rho$ 从 −1 到 1（步长 0.05，默认 0.5），以及标出的权重 $w$（步长 0.01，默认 0.5）。
+  en: |-
+    Standard deviation of a two-asset portfolio against the weight $w$ in A (0 to 1), with $\sigma_A = 20\%$, $\sigma_B = 10\%$ and $\sigma_p = \sqrt{w^2\sigma_A^2 + (1-w)^2\sigma_B^2 + 2w(1-w)\rho\sigma_A\sigma_B}$; the straight line is the weighted average of the two standard deviations. Sliders: correlation $\rho$ from −1 to 1 (step 0.05, default 0.5), and the marked weight $w$ (step 0.01, default 0.5).
+
+"0.4/1-1":
+  zh-cn: |-
+    正态分布 $N(8, 16^2)$ 的密度曲线（单位 %），阴影标出 $\mu \pm \sigma$ 和 $\mu \pm 2\sigma$ 的范围及各段的概率：中间 68%，两侧各 13.5%，两端尾部各约 2.5%。静态图。
+  en: |-
+    The density of the normal distribution $N(8, 16^2)$ (in %), with the ranges $\mu \pm \sigma$ and $\mu \pm 2\sigma$ shaded and the probability of each band: 68% in the middle, 13.5% on each side, about 2.5% in each tail. Static.
+
+"0.4/2-1":
+  zh-cn: |-
+    标准正态分布与一个肥尾分布（自由度为 3 的 t 分布，缩放到标准差也为 1）的密度。左图是整条曲线；右图把 2.5 到 5 个标准差的尾部放大，显示肥尾分布在尾部的概率远高于正态分布。静态图。
+  en: |-
+    Densities of the standard normal distribution and a fat-tailed distribution (a t distribution with 3 degrees of freedom, scaled to standard deviation 1). Left: the whole curves. Right: the tail from 2.5 to 5 standard deviations, enlarged, showing much more probability in the tail for the fat-tailed distribution. Static.
+
+"0.4/3-1":
+  zh-cn: |-
+    初始 100，每年以相同概率乘以 1.5 或 0.6，共 $n$ 年。条形是各种结果的概率，横轴为财富的对数刻度（高于 100 为绿色，低于 100 为红色）；两条竖线分别是均值（$100 \times 1.05^n$）和中位数。滑块：年数 $n$ 从 1 到 20（默认 10）。
+  en: |-
+    Start with 100; each year it is multiplied by 1.5 or 0.6 with equal probability, for $n$ years. Bars: the probability of each outcome, with wealth on a log scale (green above 100, red below). Two vertical lines: the mean ($100 \times 1.05^n$) and the median. Slider: years $n$ from 1 to 20 (default 10).
+
+"0.4/5-1":
+  zh-cn: |-
+    100 条平行的历史：每条从均值 8%、标准差 16% 的正态分布中抽取 $n$ 年收益，算出样本均值（点）和 95% 置信区间 样本均值 $\pm 1.96\frac{s}{\sqrt{n}}$（横线）。区间包含 8% 的为灰色，不包含的为红色。滑块：年数 $n$ 从 2 到 50（默认 20）；按钮：重新抽样。大约 95 条区间包含真值，区间宽度随 $\sqrt{n}$ 缩小。
+  en: |-
+    100 parallel histories: each draws $n$ yearly returns from a normal distribution with mean 8% and standard deviation 16%, and computes its sample mean (dot) and 95% confidence interval sample mean $\pm 1.96\frac{s}{\sqrt{n}}$ (line). Intervals that contain 8% are gray; those that do not are red. Slider: years $n$ from 2 to 50 (default 20); a button draws new histories. About 95 intervals contain the true value, and their width shrinks with $\sqrt{n}$.
+
+"0.5/2-1":
+  zh-cn: |-
+    六个月的市场收益 $x$ 与一只股票的收益 $y$（%）：$(-4, -4)$、$(-2, -3)$、$(-1, -0.5)$、$(1, 2.5)$、$(2, 3)$、$(4, 8)$。滑块设定直线 $y = a + bx$ 的截距 $a$（−3 到 5，步长 0.1，默认 0）和斜率 $b$（0 到 3，步长 0.05，默认 1）；红色线段是残差，图中显示残差平方和。虚线是最小二乘直线（$a = 1$，$b = 1.5$）。
+  en: |-
+    Six months of market returns $x$ and a stock's returns $y$ (%): $(-4, -4)$, $(-2, -3)$, $(-1, -0.5)$, $(1, 2.5)$, $(2, 3)$, $(4, 8)$. Sliders set the intercept $a$ (−3 to 5, step 0.1, default 0) and slope $b$ (0 to 3, step 0.05, default 1) of the line $y = a + bx$; red segments are the residuals, and the sum of squared residuals is shown. Dashed: the least-squares line ($a = 1$, $b = 1.5$).
+
+"1.1/4-1":
+  zh-cn: |-
+    需求 $Q = 100 + \Delta D - 2P$ 和供给 $Q = -20 + \Delta S + 4P$（横轴 $Q$，纵轴 $P$）。滑块：需求移动 $\Delta D$ 和供给移动 $\Delta S$，各从 −30 到 30（步长 5，默认 0）。虚线是原来的曲线，标出新的均衡价格和数量（原均衡 $P = 20$、$Q = 60$）。
+  en: |-
+    Demand $Q = 100 + \Delta D - 2P$ and supply $Q = -20 + \Delta S + 4P$ ($Q$ on the horizontal axis, $P$ on the vertical). Sliders: demand shift $\Delta D$ and supply shift $\Delta S$, each from −30 to 30 (step 5, default 0). Dashed lines are the original curves; the new equilibrium price and quantity are marked (originally $P = 20$, $Q = 60$).
+
+"1.2/5-1":
+  zh-cn: |-
+    效用 $U = xy$，收入 $M = 40$，$p_y = 1$。$x$ 的价格从 2 变为滑块的值（0.5 到 4，步长 0.25，默认 1）。A 是原来的选择 $(10, 20)$；B 是按新价格、用 Slutsky 补偿后的收入（恰好买得起 A）时的选择；C 是新的选择。A→B 是替代效应，B→C 是收入效应。画出三条预算线和对应的无差异曲线。
+  en: |-
+    Utility $U = xy$, income $M = 40$, $p_y = 1$. The price of $x$ changes from 2 to the slider value (0.5 to 4, step 0.25, default 1). A is the original choice $(10, 20)$; B is the choice at the new prices with Slutsky-compensated income (A just affordable); C is the new choice. A→B is the substitution effect and B→C the income effect. Shows the three budget lines and the matching indifference curves.
+
+"1.3/3-1":
+  zh-cn: |-
+    两期消费：效用 $U = \ln c_1 + \beta \ln c_2$，$\beta = 0.95$，今天收入 $y_1 = 80$，明天收入 $y_2$。预算线经过禀赋点 $(y_1, y_2)$，斜率为 $-(1 + r)$；最优点满足 $c_2 = \beta(1+r)c_1$。滑块：利率 $r$ 从 0 到 30%（步长 1%，默认 10%），明天收入 $y_2$ 从 0 到 60（步长 2，默认 22）。显示储蓄 $y_1 - c_1$。
+  en: |-
+    Two-period consumption: utility $U = \ln c_1 + \beta \ln c_2$, $\beta = 0.95$, income $y_1 = 80$ today and $y_2$ tomorrow. The budget line passes through the endowment $(y_1, y_2)$ with slope $-(1 + r)$; the optimum satisfies $c_2 = \beta(1+r)c_1$. Sliders: interest rate $r$ from 0 to 30% (step 1%, default 10%), tomorrow's income $y_2$ from 0 to 60 (step 2, default 22). Shows saving $y_1 - c_1$.
+
+"1.4/4-1":
+  zh-cn: |-
+    以 50% 的概率得到 $100 - h$ 或 $100 + h$（千美元）的赌局，CRRA 效用，相对风险厌恶系数为 $\gamma$。效用缩放到 $u(100 - h) = 0$、$u(100 + h) = 1$；弦的中点是期望效用，曲线达到这个效用的财富是确定性等价，与期望值 100 的差是风险溢价。滑块：$\gamma$ 从 0 到 5（步长 0.5，默认 1），$h$ 从 10 到 90（步长 10，默认 50）。
+  en: |-
+    A 50/50 gamble between $100 - h$ and $100 + h$ (thousand dollars) under CRRA utility with relative risk aversion $\gamma$. Utility is rescaled so that $u(100 - h) = 0$ and $u(100 + h) = 1$; the midpoint of the chord is the expected utility, the wealth at which the curve reaches it is the certainty equivalent, and its gap from the expected value 100 is the risk premium. Sliders: $\gamma$ from 0 to 5 (step 0.5, default 1), $h$ from 10 to 90 (step 10, default 50).
+
+"1.5/4-1":
+  zh-cn: |-
+    价格接受者的短期成本 $C(q) = 72 + q^3 - 10q^2 + 40q$，画出 MC、AVC、ATC 曲线和市场价格水平线。滑块：价格 $P$ 从 10 到 50（步长 1，默认 35）。厂商在 MC 上升段 $P = MC$ 处生产；价格低于 AVC 最低点（15）时停产。阴影矩形是利润（绿色）或亏损（红色）。
+  en: |-
+    A price-taking firm with short-run cost $C(q) = 72 + q^3 - 10q^2 + 40q$: MC, AVC and ATC curves and a horizontal line at the market price. Slider: price $P$ from 10 to 50 (step 1, default 35). The firm produces where $P = MC$ on the rising part of MC, and shuts down when the price is below the minimum of AVC (15). The shaded rectangle is profit (green) or loss (red).
+
+"1.6/3-1":
+  zh-cn: |-
+    $n$ 家相同的厂商进行 Cournot 竞争，需求 $P = 100 - Q$，边际成本恒为 20。均衡总产量 $Q = \frac{n}{n+1} \times 80$，价格 $P = 20 + \frac{80}{n+1}$。点是均衡 $(Q, P)$，阴影是行业总利润，空心点是竞争结果 $P = MC$。滑块：厂商数 $n$ 从 1 到 20（默认 2）。
+  en: |-
+    Cournot competition among $n$ identical firms with demand $P = 100 - Q$ and constant marginal cost 20. Equilibrium total output $Q = \frac{n}{n+1} \times 80$ and price $P = 20 + \frac{80}{n+1}$. The point is the equilibrium $(Q, P)$, the shaded area is total industry profit, and the hollow point is the competitive outcome $P = MC$. Slider: number of firms $n$ from 1 to 20 (default 2).
+
+"1.7/4-1":
+  zh-cn: |-
+    进入阻止的博弈树（收益为（进入者，在位者），百万美元）：进入者先选择不进入 (0, 100) 或进入；进入后在位者选择价格战 (−10, 30) 或接纳 (20, 50)。静态图。
+  en: |-
+    Game tree of entry deterrence (payoffs are (entrant, incumbent), million dollars): the entrant first chooses to stay out (0, 100) or enter; after entry the incumbent chooses a price war (−10, 30) or accommodation (20, 50). Static.
+
+"1.7/5-1":
+  zh-cn: |-
+    重复定价博弈中的触发策略：一直维持高价每期得 10；现在降价本期得 15，以后每期得 5。滑块：贴现因子 $\delta$ 从 0.05 到 0.95（步长 0.05，默认 0.3）。两条线是 30 期内累计的现值；读数给出无限期的总现值 $\frac{10}{1-\delta}$ 和 $15 + \frac{5\delta}{1-\delta}$（$\delta \ge 0.5$ 时维持高价更好）。
+  en: |-
+    A trigger strategy in a repeated pricing game: keeping the high price earns 10 every period; cutting the price now earns 15 now and then 5 every period. Slider: discount factor $\delta$ from 0.05 to 0.95 (step 0.05, default 0.3). The two lines are cumulative present values over 30 periods; the readout gives the infinite-horizon totals $\frac{10}{1-\delta}$ and $15 + \frac{5\delta}{1-\delta}$ (keeping the high price is better when $\delta \ge 0.5$).
+
+"1.8/1-1":
+  zh-cn: |-
+    咖啡豆市场：需求 $Q_d = 100 - 2P$，供给 $Q_s = -20 + 4P$，均衡 $P = 20$、$Q = 60$。阴影标出消费者剩余（价格以上、需求曲线以下）和生产者剩余（价格以下、供给曲线以上）。没有税，静态图。
+  en: |-
+    The coffee-bean market: demand $Q_d = 100 - 2P$, supply $Q_s = -20 + 4P$, equilibrium $P = 20$, $Q = 60$. Shaded: consumer surplus (above the price, below demand) and producer surplus (below the price, above supply). No tax; static.
+
+"1.8/3-1":
+  zh-cn: |-
+    同一个咖啡豆市场（$Q_d = 100 - 2P$，$Q_s = -20 + 4P$），对卖方每单位征税 $t$。滑块：$t$ 从 0 到 30（步长 1，默认 0）。显示买方支付的价格、卖方得到的价格、成交量，以及消费者剩余、生产者剩余、税收和无谓损失（三角形）。
+  en: |-
+    The same coffee-bean market ($Q_d = 100 - 2P$, $Q_s = -20 + 4P$) with a per-unit tax $t$ paid by sellers. Slider: $t$ from 0 to 30 (step 1, default 0). Shows the price buyers pay, the price sellers receive, the quantity, and consumer surplus, producer surplus, tax revenue and the deadweight loss (triangle).
+
+"1.9/2-1":
+  zh-cn: |-
+    柠檬市场：买方认为好车值 10,000、坏车值 4,000；卖方的保留价分别为 8,000 和 3,000。买方分辨不出好坏，最多支付平均价值。横轴是市场上好车的比例 $q$（滑块从 0 到 1，步长 0.05，默认 0.5）；实线是买方愿意支付的价格 $4{,}000 + 6{,}000q$，虚线是好车车主愿意出售的最低价 8,000。实线低于虚线时好车退出市场。
+  en: |-
+    The lemons market: buyers value a good car at 10,000 and a lemon at 4,000; sellers' reservation prices are 8,000 and 3,000. Buyers cannot tell them apart and pay at most the average value. The horizontal axis is the share $q$ of good cars on the market (slider from 0 to 1, step 0.05, default 0.5); the solid line is what buyers will pay, $4{,}000 + 6{,}000q$, and the dashed line is the lowest price at which owners of good cars sell, 8,000. Where the solid line is below the dashed line, good cars leave the market.
+
+"5.3/3-1":
+  zh-cn: |-
+    横轴为股价 $S$（50 到 150），纵轴为期权价格（0 到 60）。实线是执行价 $K = 100$ 的欧式看涨期权按 Black–Scholes 公式计算的价格，无风险利率 $r = 4\%$（连续复利），不付股息；虚线是内在价值 $\max(S - 100,\ 0)$。滑块：波动率 $\sigma$ 从 10% 到 60%（步长 5%，默认 20%），距到期时间 $T$ 从 0.1 到 2 年（步长 0.1，默认 1）。图下显示股价为 100 时的期权价格和 delta（默认约 9.93 和 0.62）。
+  en: |-
+    The horizontal axis is the stock price $S$ (50 to 150); the vertical axis is the option price (0 to 60). The solid line is the Black–Scholes price of a European call with strike $K = 100$, risk-free rate $r = 4\%$ (continuous compounding) and no dividends; the dashed line is the intrinsic value $\max(S - 100,\ 0)$. Sliders: volatility $\sigma$ from 10% to 60% (step 5%, default 20%) and time to expiry $T$ from 0.1 to 2 years (step 0.1, default 1). Below the plot: the option price and delta at a stock price of 100 (about 9.93 and 0.62 by default).

@@ -60,7 +60,6 @@ export default defineConfig({
 				MarkdownContent: './src/components/overrides/MarkdownContent.astro',
 				Footer: './src/components/overrides/Footer.astro',
 				Pagination: './src/components/overrides/Pagination.astro',
-				Sidebar: './src/components/overrides/Sidebar.astro',
 				Hero: './src/components/overrides/Hero.astro',
 			},
 			sidebar: [

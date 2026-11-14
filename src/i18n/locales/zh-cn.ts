@@ -16,34 +16,9 @@ const locale: Locale = {
 		check: '随堂题 {id}',
 		exerciseItem: '第 {n} 题',
 		observe: '请观察：',
-		checksTitle: '提交随堂题',
-		checksHelp: '本课的随堂题在这里一起提交。',
-		copyHint: '把提示词粘贴到你的 AI 助手里，再附上答案的照片，或者直接把答案写在提示词后面。可以一次提交全部答案，也可以分几次提交。',
-		copiedGrading: '已复制，粘贴到 AI 助手即可',
 		copiedExplain: '已复制讲解提示词',
-		notAnswered: '未作答',
 		choiceTrue: '对',
 		choiceFalse: '错',
-		submitAnswer: '提交',
-		answerCorrect: '回答正确。',
-		answerWrong: '回答不正确。',
-		chooseFirst: '请先选择一个答案。',
-		quizItem: '第 {n} 题',
-		quizPartJudge: '一、判断题',
-		quizPartJudgeHelp: '判断“真”或“假”，并说明理由。只写判断、没有理由的，需要订正。',
-		quizPartProblems: '二、计算与分析',
-		quizSubmit: '提交测验',
-		lessonNotStarted: '未开始',
-		lessonInProgress: '学习中',
-		lessonDone: '已完成',
-		copyFeedback: '复制批改提示词',
-		statusOk: '通过',
-		statusRevise: '需要订正',
-		pasteResult: '粘贴 AI 返回的结果',
-		pasteHint: '把 AI 回答末尾 <<<LFWAI-RESULT 到 LFWAI-RESULT>>> 之间的内容（或整个回答）粘贴到这里。',
-		saveResult: '保存结果',
-		saved: '已保存。',
-		parseFailed: '没有找到可以识别的结果块。请确认粘贴了 AI 回答中 <<<LFWAI-RESULT 开头的部分。',
 		promptTitle: '复制下面的提示词',
 		promptHelp: '没有自动复制成功，请手动选中下面的全部内容并复制。',
 		copy: '复制',
@@ -58,11 +33,12 @@ const locale: Locale = {
 		exercisesHeading: '练习题',
 		prevPage: '上一页',
 		nextPage: '下一页',
-		continueAt: '继续：{title}',
 		routeTitle: '课程路线',
 		routePublished: '已发布',
 		routeUpcoming: '编写中',
 		routeQuiz: '测验',
+		exercisesNote: '练习题由 AI 老师在讲完本课后布置并批改。点击页面顶部的“开始学习本课”。',
+		quizNote: '测验题由 AI 老师逐题给出并批改。点击页面顶部的“开始学习本课”。',
 		startLearning: '开始学习本课',
 		startHint: '复制一段提示词，粘贴到能访问网页的 AI 助手中，它会读取本课的教案并开始讲解和提问。网站不保存学习进度，由 AI 助手记录。',
 		copiedStart: '已复制，粘贴到你的 AI 助手中开始学习',
@@ -70,52 +46,6 @@ const locale: Locale = {
 	},
 
 	prompts: {
-		feedback(i, p) {
-			const qs = i.questions
-				.map(
-					(q) => `### ${q.label}（id：${q.id}）
-题目：
-${q.question}
-
-参考答案：
-${q.answer}
-
-批改要点：
-${p.bullets(q.rubric)}`,
-				)
-				.join('\n\n');
-			return `你是${COURSE}课程的老师。请批改学习者在《${i.lessonTitle}》中的作答。学习者的答案附在本提示词之后（照片或文字），可能只包含其中一部分题目。
-
-## 重要说明
-${DISCLAIMER}如果你认为参考答案或批改要点本身有误，请明确指出错在哪里，并按正确的答案批改，不要因为学习者没有照搬错误的参考答案而判错。
-
-## 课程页面
-${i.lessonUrl}
-（如果你能访问网页，可以参考；不能访问也没有关系，批改需要的内容都已写在下面。）
-
-## 与这些题目相关的课程要点
-${p.bullets(i.context)}
-
-## 题目、参考答案与批改要点
-${qs}
-${i.commonErrors.length ? `\n## 常见错误（供诊断参考）\n${p.bullets(i.commonErrors)}\n` : ''}
-## 请这样回复
-1. 这些题**不打分**。只批改学习者这次作答了的题目，没有作答的题目不要提及，它们会在以后提交。
-2. 逐题指出哪里正确、哪里有错。重点检查推理和理由，不只看最终数字。
-3. 对错误之处，用学习者能理解的方式讲解，必要时举一个小例子。不要只重复参考答案。
-4. 如果作答反映出对某个概念的误解，明确指出是哪个概念。
-5. 题目要求给出理由的，只有结论、没有理由的需要订正。题目要求给出几条理由或几个答案时，只按要求的数量、按作答顺序批改，多写的不看。
-6. 用中文回复，数学公式使用 LaTeX。
-7. 在回复的最后，原样输出下面格式的结果块，JSON 必须合法：
-
-${p.resultBlock}
-
-items 中只列出这次批改了的题目，每题一项。status 填 "ok"（基本正确，只有小问题）或 "revise"（有实质错误，需要订正）。各题的 id：${i.questions.map((q) => q.id).join('、')}。
-
-## 学习者的答案
-`;
-		},
-
 		explain(i, p) {
 			const where = i.lessonId ? `第 ${i.lessonId} 课《${i.lessonTitle}》` : `《${i.pageTitle}》页面`;
 			const parts = [

@@ -406,13 +406,6 @@ bs-call:
   params:
     sigma: { min: 10, max: 60, step: 5, default: 20 }
     t: { min: 0.1, max: 2, step: 0.1, default: 1 }
-  # What the figure shows, for the AI tutor (lesson packs under /ai/): enough to rebuild it.
-  spec:
-    zh-cn: |-
-      横轴为股价 $S$（50 到 150），纵轴为期权价格（0 到 60）。实线是执行价 $K = 100$ 的欧式看涨期权按 Black–Scholes 公式计算的价格，无风险利率 $r = 4\%$（连续复利），不付股息；虚线是内在价值 $\max(S - 100,\ 0)$。滑块：波动率 $\sigma$ 从 10% 到 60%（步长 5%，默认 20%），距到期时间 $T$ 从 0.1 到 2 年（步长 0.1，默认 1）。图下显示股价为 100 时的期权价格和 delta（默认约 9.93 和 0.62）。
-    en: |-
-      The horizontal axis is the stock price $S$ (50 to 150); the vertical axis is the option price (0 to 60). The solid line is the Black–Scholes price of a European call with strike $K = 100$, risk-free rate $r = 4\%$ (continuous compounding) and no dividends; the dashed line is the intrinsic value $\max(S - 100,\ 0)$. Sliders: volatility $\sigma$ from 10% to 60% (step 5%, default 20%) and time to expiry $T$ from 0.1 to 2 years (step 0.1, default 1). Below the plot: the option price and delta at a stock price of 100 (about 9.93 and 0.62 by default).
-
 swap-value:
   component: src/components/widgets/SwapValue.astro
   params:

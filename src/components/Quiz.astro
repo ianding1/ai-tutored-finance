@@ -1,32 +1,9 @@
 ---
-// <Quiz /> — all questions of a quiz, grouped into the true / false part and the
-// problems, and one grading prompt for the whole quiz. Like other questions, each is marked ok or revise.
+// <Quiz /> — the questions of a comprehensive quiz. The AI tutor gives and grades them from the
+// lesson pack and key file under /ai/; the page only says so.
 import { toLang, t } from '../i18n/ui';
-import { lessonKey } from '../lib/course';
-import { gradingPayload, questionLabel } from '../lib/grading';
-import QuestionBody from './QuestionBody.astro';
-import GradeControls from './GradeControls.astro';
 
-const route = Astro.locals.starlightRoute;
-const lang = toLang(route.lang);
-const lessonId = route.entry.data.lesson;
-if (!lessonId) throw new Error('<Quiz> can only be used on a quiz page (frontmatter "lesson")');
-const qs = (lessonKey(lessonId)?.questions ?? []).filter((q) => q.kind === 'quiz');
-const parts = [
-	{ title: t(lang, 'quizPartJudge'), help: t(lang, 'quizPartJudgeHelp'), qs: qs.filter((q) => q.part === 'judge') },
-	{ title: t(lang, 'quizPartProblems'), help: '', qs: qs.filter((q) => q.part !== 'judge') },
-].filter((p) => p.qs.length);
+const lang = toLang(Astro.locals.starlightRoute.lang);
 ---
 
-{parts.map((p) => (
-	<section class="lfwai-group lfwai-quiz-part not-content">
-		<div class="lfwai-q-head"><span class="lfwai-q-label">{p.title}</span></div>
-		{p.help && <p class="lfwai-all-help">{p.help}</p>}
-		{p.qs.map((q) => <QuestionBody q={q} lang={lang} lessonId={lessonId} label={questionLabel(q, lang)} />)}
-	</section>
-))}
-
-<section class="lfwai-group not-content" data-lfwai-group id="quiz-submit">
-	<div class="lfwai-q-head"><span class="lfwai-q-label">{t(lang, 'quizSubmit')}</span></div>
-	<GradeControls lang={lang} payload={gradingPayload(lessonId, qs, lang)} />
-</section>
+<p class="lfwai-hint not-content">{t(lang, 'quizNote')}</p>

@@ -17,34 +17,9 @@ const locale: Locale = {
 		check: 'Check {id}',
 		exerciseItem: 'Question {n}',
 		observe: 'Observe: ',
-		checksTitle: 'Submit the check questions',
-		checksHelp: 'The check questions of this lesson are submitted together here.',
-		copyHint: 'Paste the prompt into your AI assistant, then attach a photo of your answers or type your answers after the prompt. You can submit all your answers at once or in several parts.',
-		copiedGrading: 'Copied. Paste it into your AI assistant.',
 		copiedExplain: 'Explanation prompt copied',
-		notAnswered: 'Not answered',
 		choiceTrue: 'True',
 		choiceFalse: 'False',
-		submitAnswer: 'Submit',
-		answerCorrect: 'Correct.',
-		answerWrong: 'Not correct.',
-		chooseFirst: 'Choose an answer first.',
-		quizItem: 'Question {n}',
-		quizPartJudge: 'Part 1. True or false',
-		quizPartJudgeHelp: 'Answer true or false, and give your reason. An answer without a reason needs revision.',
-		quizPartProblems: 'Part 2. Problems',
-		quizSubmit: 'Submit the quiz',
-		lessonNotStarted: 'Not started',
-		lessonInProgress: 'In progress',
-		lessonDone: 'Done',
-		copyFeedback: 'Copy feedback prompt',
-		statusOk: 'OK',
-		statusRevise: 'needs revision',
-		pasteResult: 'Paste the result from your AI',
-		pasteHint: 'Paste the part of the AI reply between <<<LFWAI-RESULT and LFWAI-RESULT>>> (or the whole reply) here.',
-		saveResult: 'Save result',
-		saved: 'Saved.',
-		parseFailed: 'No result block was found. Make sure you pasted the part of the reply that starts with <<<LFWAI-RESULT.',
 		promptTitle: 'Copy the prompt below',
 		promptHelp: 'Automatic copying did not work. Select all of the text below and copy it.',
 		copy: 'Copy',
@@ -59,11 +34,12 @@ const locale: Locale = {
 		exercisesHeading: 'Exercises',
 		prevPage: 'Previous',
 		nextPage: 'Next',
-		continueAt: 'Continue: {title}',
 		routeTitle: 'The course',
 		routePublished: 'published',
 		routeUpcoming: 'being written',
 		routeQuiz: 'quiz',
+		exercisesNote: 'The AI tutor assigns and grades the exercises after the lesson. Click "Start this lesson" at the top of the page.',
+		quizNote: 'The AI tutor gives and grades the quiz questions. Click "Start this lesson" at the top of the page.',
 		startLearning: 'Start this lesson',
 		startHint: 'Copies a short prompt. Paste it into an AI assistant that can open web pages; it reads the lesson plan for this lesson and starts teaching and asking questions. The site does not store your progress; the AI assistant keeps track of it.',
 		copiedStart: 'Copied. Paste it into your AI assistant to start.',
@@ -71,52 +47,6 @@ const locale: Locale = {
 	},
 
 	prompts: {
-		feedback(i, p) {
-			const qs = i.questions
-				.map(
-					(q) => `### ${q.label} (id: ${q.id})
-Question:
-${q.question}
-
-Reference answer:
-${q.answer}
-
-What to check:
-${p.bullets(q.rubric)}`,
-				)
-				.join('\n\n');
-			return `You are a teacher for the course ${COURSE}. Review the learner's answers for "${i.lessonTitle}". The learner's answers follow this prompt (a photo or text) and may cover only some of the questions.
-
-## Important
-${DISCLAIMER} If you believe a reference answer or a checking point is itself wrong, say clearly what is wrong and judge against the correct answer. Do not mark the learner wrong because they did not copy a wrong reference answer.
-
-## Lesson page
-${i.lessonUrl}
-(You may consult it if you can open web pages. If you cannot, that is fine: everything you need is written below.)
-
-## Lesson facts relevant to these questions
-${p.bullets(i.context)}
-
-## Questions, reference answers and what to check
-${qs}
-${i.commonErrors.length ? `\n## Common errors (for diagnosis)\n${p.bullets(i.commonErrors)}\n` : ''}
-## How to reply
-1. These questions are **not scored**. Review only the questions the learner answered this time. Do not mention unanswered questions; they will be submitted later.
-2. For each question, say what is correct and what is wrong. Check the reasoning, not only the final numbers.
-3. For each error, explain it in a way the learner can understand, with a small example if useful. Do not only repeat the reference answer.
-4. If an answer shows a misunderstanding of a concept, name the concept.
-5. When a question asks for a reason, an answer with a conclusion but no reason needs revision. When a question asks for a given number of reasons or answers, review only that number, in the order written, and ignore extra ones.
-6. Reply in English. Use LaTeX for formulas.
-7. At the end of your reply, output a result block in exactly this format. The JSON must be valid:
-
-${p.resultBlock}
-
-List only the questions you reviewed in "items", one entry per question. Set "status" to "ok" (essentially correct, only minor issues) or "revise" (a substantive error that needs to be corrected). Question ids: ${i.questions.map((q) => q.id).join(', ')}.
-
-## The learner's answers
-`;
-		},
-
 		explain(i, p) {
 			const where = i.lessonId ? `Lesson ${i.lessonId}, "${i.lessonTitle}"` : `the page "${i.pageTitle}"`;
 			const parts = [

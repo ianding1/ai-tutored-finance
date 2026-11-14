@@ -1,21 +1,7 @@
 ---
-// Home page hero: title, tagline and the start button from the page's `hero` frontmatter. Once the
-// learner has progress, the button leads to the first lesson that is not done (src/scripts/home.ts).
-import { toLang, t } from '../../i18n/ui';
-import { lessons, lessonKey, lessonPath } from '../../lib/course';
-
-const route = Astro.locals.starlightRoute;
-const lang = toLang(route.lang);
-const hero = route.entry.data.hero!;
+// Home page hero: title, tagline and the start button from the page's `hero` frontmatter.
+const hero = Astro.locals.starlightRoute.entry.data.hero!;
 const action = hero.actions?.[0];
-
-const data = {
-	label: t(lang, 'continueAt', { title: '{title}' }),
-	lessons: lessons()
-		.filter((l) => l.published && (lessonKey(l.id)?.questions.length ?? 0) > 0)
-		.map((l) => ({ id: l.id, title: `${l.id} ${l.title[lang]}`, href: lessonPath(l, lang), questions: lessonKey(l.id)!.questions.map((q) => q.id) })),
-};
-const json = JSON.stringify(data).replace(/</g, '\\u003c');
 ---
 
 <div class="lfwai-hero">
@@ -23,13 +9,7 @@ const json = JSON.stringify(data).replace(/</g, '\\u003c');
 		<h1 id="_top" data-page-title>{hero.title}</h1>
 		{hero.tagline && <p class="lfwai-hero-tagline" set:html={hero.tagline} />}
 		{action && (
-			<a class="lfwai-hero-start" href={action.link} data-start>{action.text}</a>
+			<a class="lfwai-hero-start" href={action.link}>{action.text}</a>
 		)}
 	</div>
 </div>
-<script type="application/json" id="lfwai-home-data" set:html={json}></script>
-
-<script>
-	import { initHome } from '../../scripts/home';
-	initHome();
-</script>

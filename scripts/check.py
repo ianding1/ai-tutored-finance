@@ -594,7 +594,7 @@ def lock_entries() -> dict[str, dict[str, str]]:
     files.update({f"course/keys/{k}.yaml": v for k, v in keys.items()})
     # Teaching rules and figure descriptions for the AI tutor (served under /ai/).
     files["course/ai/protocol.yaml"] = load_yaml(COURSE / "ai/protocol.yaml")
-    files["course/widgets.yaml"] = load_yaml(COURSE / "widgets.yaml")
+    files["course/ai/figures.yaml"] = load_yaml(COURSE / "ai/figures.yaml")
     for file, data in files.items():
         def fn(path, node, file=file):
             entries[f"{file}#{path}"] = {lang: sha(json.dumps(node[lang], ensure_ascii=False)) for lang in LANGS if lang in node}
@@ -719,6 +719,7 @@ def check_lint():
     files = [doc_path(lang, str(r)) for r in source_docs() for lang in LANGS]
     files += [COURSE / f"keys/{k}.yaml" for k in keys]
     check_bilingual("course/ai/protocol.yaml", load_yaml(COURSE / "ai/protocol.yaml"))
+    check_bilingual("course/ai/figures.yaml", load_yaml(COURSE / "ai/figures.yaml"))
     for p in files:
         if not p.exists():
             continue
@@ -801,9 +802,9 @@ def check_locales():
                     err(rel(f), f"Chinese UI string '{m.group(1)}' uses 'prompt'; write 提示词 / 提示詞")
         if not re.search(r"const DISCLAIMER\s*=", src):
             err(rel(f), "defines no DISCLAIMER (the statement that the course content is AI-generated)")
-        bodies = re.split(r"^\t\t(feedback|explain)\(", src, flags=re.M)
+        bodies = re.split(r"^\t\t(explain)\(", src, flags=re.M)
         found = dict(zip(bodies[1::2], bodies[2::2]))
-        for name in ("feedback", "explain"):
+        for name in ("explain",):
             if name not in found:
                 err(rel(f), f"missing prompt template {name}()")
             elif "${DISCLAIMER}" not in found[name]:

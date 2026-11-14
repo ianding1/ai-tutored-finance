@@ -1,22 +1,7 @@
 ---
-// <Check id="C3" /> — shows a check question from course/keys/<lesson>.yaml.
-// It is graded together with the other exercises by <CheckAll /> at the end of the lesson.
-import { toLang } from '../i18n/ui';
-import { question } from '../lib/course';
-import { questionLabel } from '../lib/grading';
-import QuestionBody from './QuestionBody.astro';
-
+// <Check id="C3" /> — marks where a check question belongs in the lesson. The page shows nothing:
+// the AI tutor asks the question at this point (see the lesson pack under /ai/, src/lib/tutor.ts).
 interface Props {
 	id: string;
 }
-const route = Astro.locals.starlightRoute;
-const lang = toLang(route.lang);
-const lessonId = route.entry.data.lesson;
-if (!lessonId) throw new Error('<Check> can only be used on a lesson page (frontmatter "lesson")');
-const q = question(lessonId, Astro.props.id);
-if (q.kind === 'exercise') throw new Error(`<Check id="${q.id}">: exercises are rendered by <Exercises />`);
 ---
-
-<section class="lfwai-group not-content">
-	<QuestionBody q={q} lang={lang} lessonId={lessonId} label={questionLabel(q, lang)} />
-</section>

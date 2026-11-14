@@ -177,14 +177,11 @@ function questionText(q: Question, lang: Lang, lessonId: string, label: string):
 	return parts.join('\n\n');
 }
 
-function widgetSpec(component: string, lang: Lang): string {
-	const widgets = parse(read('course/widgets.yaml'));
-	for (const w of Object.values<any>(widgets)) {
-		if (typeof w?.component === 'string' && w.component.endsWith(`/${component}.astro`)) {
-			return w.spec?.[lang] ?? '';
-		}
-	}
-	return '';
+let _figs: Record<string, Record<string, string>> | undefined;
+/** What a figure shows (course/ai/figures.yaml), enough for an assistant to rebuild it. */
+function figureSpec(lessonId: string, figId: string, lang: Lang): string {
+	_figs ??= parse(read('course/ai/figures.yaml')) ?? {};
+	return _figs![`${lessonId}/${figId}`]?.[lang] ?? '';
 }
 
 /** The lesson as plain Markdown for the AI tutor, with check questions, figures and exercises in place. */
@@ -202,13 +199,12 @@ export function lessonPackText(lessonId: string, lang: Lang): string {
 	body = body
 		.replace(/^import .*\n/gm, '')
 		.replace(/^(#{2,6}[ \t]+.*?)[ \t]*\[#[a-z0-9-]+\][ \t]*$/gm, '$1')
-		.replace(/<Figure([^>]*)>([\s\S]*?)<\/Figure>/g, (_, a, inner) => {
+		.replace(/<Figure([^>]*)>([\s\S]*?)<\/Figure>/g, (_, a) => {
 			const at = attrs(a);
-			const comp = /<([A-Z]\w*)/.exec(inner)?.[1] ?? '';
 			const lines = [`**${lb.figure} ${at.id}** ${plainRich(at.title ?? '', lang, lessonId)}`];
 			lines.push(`- ${lb.figPage}${C(lang)}${absolute(lessonPath(l, lang, `fig-${at.id}`))}`);
 			if (figureImageExists(lang, lessonId, at.id)) lines.push(`- ${lb.figImage}${C(lang)}${figureImageUrl(lang, lessonId, at.id)}`);
-			const spec = comp ? widgetSpec(comp, lang) : '';
+			const spec = figureSpec(lessonId, at.id, lang);
 			if (spec) lines.push(`- ${lb.figSpec}${C(lang)}${plainRich(spec, lang, lessonId)}`);
 			lines.push(`- ${lb.figObserve}${C(lang)}${plainRich(at.observe ?? '', lang, lessonId)}`);
 			return lines.join('\n');

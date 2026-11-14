@@ -18,34 +18,9 @@ export type UiKey =
 	| 'check'
 	| 'exerciseItem'
 	| 'observe'
-	| 'checksTitle'
-	| 'checksHelp'
-	| 'copyHint'
-	| 'copiedGrading'
 	| 'copiedExplain'
-	| 'notAnswered'
 	| 'choiceTrue'
 	| 'choiceFalse'
-	| 'submitAnswer'
-	| 'answerCorrect'
-	| 'answerWrong'
-	| 'chooseFirst'
-	| 'quizItem'
-	| 'quizPartJudge'
-	| 'quizPartJudgeHelp'
-	| 'quizPartProblems'
-	| 'quizSubmit'
-	| 'lessonNotStarted'
-	| 'lessonInProgress'
-	| 'lessonDone'
-	| 'copyFeedback'
-	| 'statusOk'
-	| 'statusRevise'
-	| 'pasteResult'
-	| 'pasteHint'
-	| 'saveResult'
-	| 'saved'
-	| 'parseFailed'
 	| 'promptTitle'
 	| 'promptHelp'
 	| 'copy'
@@ -60,37 +35,18 @@ export type UiKey =
 	| 'exercisesHeading'
 	| 'prevPage'
 	| 'nextPage'
-	| 'continueAt'
 	| 'routeTitle'
 	| 'routePublished'
 	| 'routeUpcoming'
 	| 'routeQuiz'
+	| 'exercisesNote'
+	| 'quizNote'
 	| 'startLearning'
 	| 'startHint'
 	| 'copiedStart'
 	| 'startPrompt';
 
 export type UiStrings = Record<UiKey, string>;
-
-export interface PromptQuestion {
-	id: string;
-	label: string;
-	question: string;
-	answer: string;
-	rubric: string[];
-}
-
-export interface GradingInput {
-	lang: Lang;
-	lessonId: string;
-	lessonTitle: string;
-	lessonUrl: string;
-	/** lesson facts relevant to these questions only */
-	context: string[];
-	/** common errors relevant to these questions only */
-	commonErrors: string[];
-	questions: PromptQuestion[];
-}
 
 export interface ExplainInput {
 	lang: Lang;
@@ -106,8 +62,6 @@ export interface ExplainInput {
 
 /** Language-independent pieces that every prompt template uses. */
 export interface PromptParts {
-	/** the result block the AI must end its reply with, already filled in */
-	resultBlock: string;
 	bullets(xs: string[]): string;
 	fence(s: string): string;
 }
@@ -117,8 +71,6 @@ export interface PromptParts {
  * course content is AI-generated (scripts/check.py checks that each template uses DISCLAIMER).
  */
 export interface PromptTemplates {
-	/** feedback prompt for check questions, exercises and quizzes (not scored: "ok" / "revise") */
-	feedback(i: GradingInput, p: PromptParts): string;
 	/** explanation prompt for selected text */
 	explain(i: ExplainInput, p: PromptParts): string;
 }
