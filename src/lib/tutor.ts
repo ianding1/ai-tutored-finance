@@ -2,7 +2,7 @@
 // a course index, a concept list, and for each published lesson a lesson pack (the lesson as plain
 // Markdown, with check questions and exercises in place) and a key file (answers, grading points,
 // common errors). The website stores nothing about the learner; the AI keeps track of progress.
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parse } from 'yaml';
 import { t, type Lang } from '../i18n/ui';
@@ -27,15 +27,6 @@ export function aiUrl(lang: Lang, file: string): string {
 	return absolute(`${BASE}ai/${lang}/${file}`);
 }
 
-/** Absolute URL of the static preview image of a figure. */
-export function figureImageUrl(lang: Lang, lessonId: string, figId: string): string {
-	return absolute(`${BASE}ai/fig/${lang}/${lessonId}-${figId}.png`);
-}
-
-export function figureImageExists(lang: Lang, lessonId: string, figId: string): boolean {
-	return existsSync(join(ROOT, `public/ai/fig/${lang}/${lessonId}-${figId}.png`));
-}
-
 export function publishedLessons(): Lesson[] {
 	return lessons().filter((l) => l.published);
 }
@@ -47,9 +38,9 @@ const LABELS: Record<string, Record<string, string>> = {
 		check: '随堂题',
 		checkNote: '（在这里提问。先让学习者作答，再按答案文件判断；答错时不要直接说出答案。）',
 		figure: '图',
-		figPage: '网页上的交互图',
-		figImage: '静态图片（默认参数）',
-		figSpec: '图的内容（可据此做交互图）',
+		figPage: '网页上的交互图（学习者也可以自己打开）',
+		figDraw: '绘图说明：请你自己画出这张图。能在对话中显示交互式 HTML 时，做成带滑块的交互图；否则按默认参数画一张静态 SVG。不要只给链接或文字描述。',
+		figNoSpec: '这张图还没有绘图说明：请给学习者网页链接，并告诉他要调什么、观察什么。',
 		figObserve: '让学习者观察',
 		exercises: '练习题',
 		exercisesNote: '讲完后布置。答案和批改要点在答案文件中。',
@@ -83,9 +74,9 @@ const LABELS: Record<string, Record<string, string>> = {
 		check: 'Check question',
 		checkNote: '(Ask it here. Let the learner answer first, then judge with the key file; do not give away the answer when it is wrong.)',
 		figure: 'Figure',
-		figPage: 'Interactive figure on the web page',
-		figImage: 'Static image (default parameters)',
-		figSpec: 'What the figure shows (enough to build an interactive version)',
+		figPage: 'Interactive figure on the web page (the learner can also open it)',
+		figDraw: 'Drawing instructions: draw this figure yourself. If you can show interactive HTML in the conversation, make it an interactive figure with sliders; otherwise draw a static SVG at the default parameters. Do not give only a link or a description in words.',
+		figNoSpec: 'This figure has no drawing instructions yet: give the learner the link to the web page and say what to change and what to observe.',
 		figObserve: 'What the learner should observe',
 		exercises: 'Exercises',
 		exercisesNote: 'Assign them after the lesson. Answers and grading points are in the key file.',
@@ -202,11 +193,10 @@ export function lessonPackText(lessonId: string, lang: Lang): string {
 		.replace(/<Figure([^>]*)>([\s\S]*?)<\/Figure>/g, (_, a) => {
 			const at = attrs(a);
 			const lines = [`**${lb.figure} ${at.id}** ${plainRich(at.title ?? '', lang, lessonId)}`];
-			lines.push(`- ${lb.figPage}${C(lang)}${absolute(lessonPath(l, lang, `fig-${at.id}`))}`);
-			if (figureImageExists(lang, lessonId, at.id)) lines.push(`- ${lb.figImage}${C(lang)}${figureImageUrl(lang, lessonId, at.id)}`);
 			const spec = figureSpec(lessonId, at.id, lang);
-			if (spec) lines.push(`- ${lb.figSpec}${C(lang)}${plainRich(spec, lang, lessonId)}`);
+			lines.push(spec ? `- ${lb.figDraw}\n  ${plainRich(spec, lang, lessonId).replace(/\n/g, '\n  ')}` : `- ${lb.figNoSpec}`);
 			lines.push(`- ${lb.figObserve}${C(lang)}${plainRich(at.observe ?? '', lang, lessonId)}`);
+			lines.push(`- ${lb.figPage}${C(lang)}${absolute(lessonPath(l, lang, `fig-${at.id}`))}`);
 			return lines.join('\n');
 		})
 		.replace(/<Check id="([^"]+)"\s*\/>/g, (_, id) => {

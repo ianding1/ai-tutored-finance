@@ -34,8 +34,7 @@ languages; the site root sends each visitor to the language of their browser.
 | `src/scripts/` | Browser code: the start button, selection "Explain this", the copy dialog. Nothing is stored. |
 | `src/lib/tutor.ts`, `src/pages/ai/` | Generate the AI files at build time: `/ai/<code>/protocol.md` (teaching rules), `index.md`, `concepts.md`, `lessons/<id>.md` (lesson pack: the lesson as Markdown with check questions, figures and exercises in place) and `lessons/<id>-key.md` (answers, grading points, common errors); `/llms.txt`. |
 | `course/ai/protocol.yaml` | The teaching rules for the AI tutor, in every language. |
-| `course/ai/figures.yaml` | For each figure (`<lesson>/<figure>`), what it shows, in enough detail for an assistant to rebuild it as an interactive widget. |
-| `public/ai/fig/<code>/` | Static preview images of the figures, rendered by `python3 scripts/render_figures.py <local site URL> [lesson ids]`. |
+| `course/ai/figures.yaml` | For each figure (`<lesson>/<figure>`), drawing instructions for the AI tutor: what it shows, the formula or data, axis ranges, parameters and defaults. The tutor draws the figure itself (interactive HTML or SVG); assistants often cannot load images from other sites. |
 | `scripts/check.py` | Blocking consistency checks (CI). |
 | `.github/review-rules.md` | Rules for the advisory AI review of pull requests. |
 
@@ -175,7 +174,7 @@ No question is scored: every result is "ok" or "revise".
   answers after a wrong answer, exercises graded "ok" / "revise", no answers before the learner tries,
   and a learning record kept in the assistant's own memory (or given to the learner to keep).
 - Lesson packs and key files are generated from the MDX pages and key files; never edit them by hand.
-  Every figure needs an entry in `course/ai/figures.yaml` and a preview image in `public/ai/fig/`.
+  Every figure needs drawing instructions in `course/ai/figures.yaml`.
 - The "Explain this" button builds a self-contained explanation prompt with the selected text, its
   paragraph, its section and the lesson context. Its wording is in the locale module.
 

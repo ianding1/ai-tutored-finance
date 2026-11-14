@@ -1,6 +1,6 @@
-# What each figure shows, for the AI tutor (lesson packs under /ai/). Keyed by "<lesson>/<figure>".
-# Each description is enough for an assistant to rebuild the figure as an interactive HTML widget;
-# assistants that cannot show HTML use the static image in public/ai/fig/ or the web page instead.
+# Drawing instructions for the AI tutor (lesson packs under /ai/), keyed by "<lesson>/<figure>".
+# Each description is enough for an assistant to draw the figure itself, as an interactive HTML widget
+# or as a static SVG; assistants often cannot load images from other sites.
 # Keep these in sync with the widget components and course/widgets.yaml.
 
 "0.1/4-1":
