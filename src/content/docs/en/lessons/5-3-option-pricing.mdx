@@ -13,9 +13,9 @@ import BsCall from '../../../../components/widgets/BsCall.astro';
 
 ## Put–call parity [#parity]
 
-Start without any model, using only the absence of arbitrage (<Ref concept="arbitrage" />). Take a stock that pays no dividends, and a European call and a European put on it, both with strike $K$ and expiry $T$. Compare two portfolios:
+Start without any model, using only the absence of <Ref concept="arbitrage" />. Take a stock that pays no dividends, and a European call and a European put on it, both with strike $K$ and expiry $T$. Compare two portfolios:
 
-- Portfolio A: one call, plus a zero-coupon bond (<Ref concept="zero-coupon-bond" />) that pays $K$ at expiry;
+- Portfolio A: one call, plus a <Ref concept="zero-coupon-bond" /> that pays $K$ at expiry;
 - Portfolio B: one put, plus one share.
 
 At expiry, if $S_T > K$, portfolio A exercises the call, uses the bond's $K$ to buy the share and ends with $S_T$; in portfolio B the put expires worthless and it ends with $S_T$. If $S_T \le K$, the call in portfolio A expires worthless and it ends with $K$; portfolio B exercises the put, sells the share at $K$ and ends with $K$. Both portfolios pay $\max(S_T,\ K)$ in every case, so their prices today must be equal:
@@ -68,7 +68,7 @@ $$
 d_1 = \frac{\ln(S / K) + (r + \sigma^2 / 2)\,T}{\sigma \sqrt{T}} \qquad d_2 = d_1 - \sigma \sqrt{T}
 $$
 
-$N(\cdot)$ is the cumulative distribution function of the standard normal distribution (<Ref concept="normal-distribution" />), $\sigma$ is the stock's annualized volatility (<Ref concept="annualized-volatility" />), and the put price follows from parity. The two terms can be read as follows: $N(d_2)$ is the probability, under the risk-neutral probabilities, that the option is exercised, and $K e^{-rT} N(d_2)$ is the present value of paying the strike if it is; $S\,N(d_1)$ is the present value of the stock received if it is exercised.
+$N(\cdot)$ is the cumulative distribution function of the standard <Ref concept="normal-distribution" />, $\sigma$ is the stock's <Ref concept="annualized-volatility" />, and the put price follows from parity. The two terms can be read as follows: $N(d_2)$ is the probability, under the risk-neutral probabilities, that the option is exercised, and $K e^{-rT} N(d_2)$ is the present value of paying the strike if it is; $S\,N(d_1)$ is the present value of the stock received if it is exercised.
 
 The formula has only five inputs: the stock price, the strike, the time to expiry, the risk-free rate and the volatility. Of these, only the volatility cannot be observed directly. Its assumptions include: volatility is constant over the life of the option; the stock price moves continuously, without jumps; and one can trade and sell short at any time without cost. None of these holds exactly; we will see the effects below.
 
@@ -87,7 +87,7 @@ The sensitivities of an option's price to its inputs are written with Greek lett
 - <Def id="vega">vega</Def>: the derivative of the option price with respect to volatility.
 - theta: the change in the option price as time passes, other things equal; a buyer's theta is usually negative.
 
-A market maker (<Ref concept="market-maker" />) who sells options usually does not want to bear the risk of the stock's direction. After selling one call, he buys delta shares, so that small moves in the stock price have almost no effect on the position. This is called delta hedging, a form of hedging (<Ref concept="hedging" />). It is also the idea behind the derivation of Black–Scholes: the option plus a continuously adjusted stock position forms a riskless portfolio, so the portfolio can earn only the risk-free rate.
+A <Ref concept="market-maker" /> who sells options usually does not want to bear the risk of the stock's direction. After selling one call, he buys delta shares, so that small moves in the stock price have almost no effect on the position. This is called delta hedging, a form of <Ref concept="hedging" />. It is also the idea behind the derivation of Black–Scholes: the option plus a continuously adjusted stock position forms a riskless portfolio, so the portfolio can earn only the risk-free rate.
 
 <Check id="C4" />
 

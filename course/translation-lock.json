@@ -18376,36 +18376,36 @@
   "zh-cn": "0a82aa41a4d07f32"
  },
  "src/content/docs/<lang>/lessons/0-4-distributions-inference.mdx": {
-  "en": "e4e1a87c0a8c26b0",
-  "zh-cn": "48d88e0a971d6efa"
+  "en": "c8b8a4d575be8335",
+  "zh-cn": "3d2fc1551c667767"
  },
  "src/content/docs/<lang>/lessons/0-5-regression.mdx": {
-  "en": "0ca43712f233eb70",
-  "zh-cn": "9155f06a136f1be6"
+  "en": "e30c6a536e24082d",
+  "zh-cn": "5a072b915c267992"
  },
  "src/content/docs/<lang>/lessons/1-1-supply-demand.mdx": {
-  "en": "8236aeb2720d5b1b",
-  "zh-cn": "0deeea0bd1b459f7"
+  "en": "da6e14cfd5f71148",
+  "zh-cn": "6eefdd7d87be3417"
  },
  "src/content/docs/<lang>/lessons/1-2-consumer-theory.mdx": {
-  "en": "330c442d14a5d5c3",
-  "zh-cn": "578dd1cfd64dcd62"
+  "en": "d9cc3779e1afda49",
+  "zh-cn": "45caeefb7d1bda9b"
  },
  "src/content/docs/<lang>/lessons/1-3-intertemporal-choice.mdx": {
   "en": "53968a96300a512e",
-  "zh-cn": "09988a840adb185b"
+  "zh-cn": "920b56cbc53abf2f"
  },
  "src/content/docs/<lang>/lessons/1-4-choice-under-uncertainty.mdx": {
   "en": "0b5a7a987df780f1",
   "zh-cn": "c6f35c8907c2692c"
  },
  "src/content/docs/<lang>/lessons/1-5-producer-theory.mdx": {
-  "en": "6828db907c868dac",
-  "zh-cn": "4c0ec6413fe385ea"
+  "en": "eedf7531fdfa3299",
+  "zh-cn": "18985cfec372227a"
  },
  "src/content/docs/<lang>/lessons/1-6-market-structure.mdx": {
-  "en": "f8608f678dda8927",
-  "zh-cn": "4ea193f0049ac074"
+  "en": "5cd2f651d0727e90",
+  "zh-cn": "ac1a5a6684b43678"
  },
  "src/content/docs/<lang>/lessons/1-7-game-theory.mdx": {
   "en": "6cbc445a81016b88",
@@ -18424,7 +18424,7 @@
   "zh-cn": "a27ced9ff1245ce8"
  },
  "src/content/docs/<lang>/lessons/2-2-long-run-growth.mdx": {
-  "en": "641a2e170aaa869c",
+  "en": "ce90f6828d597273",
   "zh-cn": "8d52dfe1dc2a27a5"
  },
  "src/content/docs/<lang>/lessons/2-3-money-banking.mdx": {
@@ -18441,7 +18441,7 @@
  },
  "src/content/docs/<lang>/lessons/2-6-fiscal-policy.mdx": {
   "en": "389b03633d6c4cc8",
-  "zh-cn": "fa67643293d8a90a"
+  "zh-cn": "946ec05e38d378f6"
  },
  "src/content/docs/<lang>/lessons/2-7-open-economy.mdx": {
   "en": "496a5b3d28741d32",
@@ -18456,12 +18456,12 @@
   "zh-cn": "e3be49e4f28fcd4a"
  },
  "src/content/docs/<lang>/lessons/3-10-equity-valuation-dcf.mdx": {
-  "en": "00c14dd609ed9c82",
+  "en": "3dcdc9af621e0804",
   "zh-cn": "873876c3fff4a466"
  },
  "src/content/docs/<lang>/lessons/3-11-relative-valuation.mdx": {
-  "en": "d3b2a4fe0a590828",
-  "zh-cn": "60e8d424b2633f10"
+  "en": "9dbcc213ddd83483",
+  "zh-cn": "81b62a1db2586d88"
  },
  "src/content/docs/<lang>/lessons/3-2-npv-irr.mdx": {
   "en": "db0ed71b1c8d19b8",
@@ -18496,8 +18496,8 @@
   "zh-cn": "ce3bd5a1588d54e1"
  },
  "src/content/docs/<lang>/lessons/4-1-risk-return-measures.mdx": {
-  "en": "3d58256c73221d1d",
-  "zh-cn": "e9b869c5996f2deb"
+  "en": "ea3c03b63ebea0a3",
+  "zh-cn": "0c965cd5873c2383"
  },
  "src/content/docs/<lang>/lessons/4-10-estimation-error.mdx": {
   "en": "528e187a2b848eff",
@@ -18513,27 +18513,27 @@
  },
  "src/content/docs/<lang>/lessons/4-13-simulation-backtesting.mdx": {
   "en": "907d521e2e304b89",
-  "zh-cn": "877067eec2f7c46a"
+  "zh-cn": "5ebc66b09bd5f6e0"
  },
  "src/content/docs/<lang>/lessons/4-2-markowitz.mdx": {
-  "en": "5480334711366fcc",
-  "zh-cn": "f57fbf691ca6bf6d"
+  "en": "2075329f3e44f660",
+  "zh-cn": "c07ba5d54c9d1981"
  },
  "src/content/docs/<lang>/lessons/4-3-capital-allocation.mdx": {
-  "en": "fd9f92f18d1edf84",
-  "zh-cn": "918146943698a034"
+  "en": "43f076feb2315e8e",
+  "zh-cn": "e132b5f28f81b7a1"
  },
  "src/content/docs/<lang>/lessons/4-4-capm.mdx": {
-  "en": "5e0a3db18e3127ad",
-  "zh-cn": "c22431323199b602"
+  "en": "d0fafae9fd0077fa",
+  "zh-cn": "76007fb8179a27a5"
  },
  "src/content/docs/<lang>/lessons/4-5-single-index-model.mdx": {
   "en": "ffa9bbfe14e85261",
-  "zh-cn": "27797fa30a114d65"
+  "zh-cn": "8becd1d1f9b1298a"
  },
  "src/content/docs/<lang>/lessons/4-6-multifactor-models.mdx": {
   "en": "78a5e74ffae52ac0",
-  "zh-cn": "9d741a3cecdf963a"
+  "zh-cn": "c65ada92dd4830eb"
  },
  "src/content/docs/<lang>/lessons/4-7-market-efficiency.mdx": {
   "en": "85dd04d7045746ce",
@@ -18545,75 +18545,75 @@
  },
  "src/content/docs/<lang>/lessons/4-9-performance-evaluation.mdx": {
   "en": "2515d67ebbe125f4",
-  "zh-cn": "77709ed9a4bc3e02"
+  "zh-cn": "09948a1efd56a6ff"
  },
  "src/content/docs/<lang>/lessons/5-1-forwards-futures.mdx": {
-  "en": "d8e97a8ff0172aef",
-  "zh-cn": "eaaa065efb452c81"
+  "en": "a8935183be7a8c3a",
+  "zh-cn": "a2b7e69f8755fe59"
  },
  "src/content/docs/<lang>/lessons/5-2-options-basics.mdx": {
   "en": "41cefbb667ad551d",
   "zh-cn": "7807f0ffe5e2644b"
  },
  "src/content/docs/<lang>/lessons/5-3-option-pricing.mdx": {
-  "en": "21bafe7c855e06f2",
-  "zh-cn": "007ace67395fabe5"
+  "en": "5208e5bf6cbee126",
+  "zh-cn": "b414c0c093050ff6"
  },
  "src/content/docs/<lang>/lessons/5-4-swaps.mdx": {
-  "en": "c4849bbe4e30c3d6",
-  "zh-cn": "30f2aa7608344bbc"
+  "en": "74aebc6618bf8293",
+  "zh-cn": "f6d871c873b5197c"
  },
  "src/content/docs/<lang>/lessons/5-5-alternative-assets.mdx": {
-  "en": "f54b80611da38786",
-  "zh-cn": "eee1dd1c11176014"
+  "en": "eb70fe5bf6f39767",
+  "zh-cn": "e925fc7aacf07bda"
  },
  "src/content/docs/<lang>/lessons/6-1-fund-types.mdx": {
-  "en": "bbeb9c3d15241fb9",
-  "zh-cn": "03f6df402e3468fe"
+  "en": "ea07c71aa7918b33",
+  "zh-cn": "078c7d86d2160d7c"
  },
  "src/content/docs/<lang>/lessons/6-10-risk-management.mdx": {
-  "en": "a07e2b4f3d62a728",
-  "zh-cn": "950ad3b598e28c94"
+  "en": "c707387d6788fdd3",
+  "zh-cn": "1f20892abbc31dde"
  },
  "src/content/docs/<lang>/lessons/6-11-inflation-real-returns.mdx": {
   "en": "8f7266bff0ef3f34",
-  "zh-cn": "10ac1d65758e89e8"
+  "zh-cn": "2012bcd48484d9c5"
  },
  "src/content/docs/<lang>/lessons/6-12-goals-based-investing.mdx": {
-  "en": "1c6e5fa78e2f85c6",
-  "zh-cn": "f89643eb6160dcdf"
+  "en": "2127bd8cddc78715",
+  "zh-cn": "f13719efbc4edc78"
  },
  "src/content/docs/<lang>/lessons/6-13-monitoring-review.mdx": {
   "en": "d78320d4283273c0",
   "zh-cn": "77c33c9d7869a183"
  },
  "src/content/docs/<lang>/lessons/6-2-fund-costs.mdx": {
-  "en": "0d5f26203cf2e772",
-  "zh-cn": "8e01655c6241e93c"
+  "en": "c26c62c375429590",
+  "zh-cn": "2e41b3f36e337171"
  },
  "src/content/docs/<lang>/lessons/6-3-active-vs-passive.mdx": {
-  "en": "55bf628eeebfa505",
-  "zh-cn": "7685d7684492ed70"
+  "en": "07e172a6621611ad",
+  "zh-cn": "15d0408d53c94b9f"
  },
  "src/content/docs/<lang>/lessons/6-4-fund-due-diligence.mdx": {
-  "en": "f42567afae28f4dc",
-  "zh-cn": "4e9c1fabcf71e0d5"
+  "en": "77f108f7c9a75a06",
+  "zh-cn": "b42d570f28784129"
  },
  "src/content/docs/<lang>/lessons/6-5-accounts-taxes.mdx": {
   "en": "28b75240b6eb19ad",
   "zh-cn": "e59d3b0dc6ace428"
  },
  "src/content/docs/<lang>/lessons/6-6-household-balance-sheet.mdx": {
-  "en": "bb62e9c4b6343d57",
-  "zh-cn": "8ae2e989c3b09c75"
+  "en": "2252c4709731bfc7",
+  "zh-cn": "ff8aa6de84f2d692"
  },
  "src/content/docs/<lang>/lessons/6-7-asset-allocation.mdx": {
-  "en": "0e7f755b76a9e609",
-  "zh-cn": "c4bb71f468040c84"
+  "en": "399bb93ea45d40cb",
+  "zh-cn": "85f5060a62d3ea3a"
  },
  "src/content/docs/<lang>/lessons/6-8-stock-research.mdx": {
-  "en": "f66574c5929f0fbd",
-  "zh-cn": "4edde3c25af8d88a"
+  "en": "13c623e38d6fffd0",
+  "zh-cn": "4c97563507d51699"
  },
  "src/content/docs/<lang>/lessons/6-9-retirement-planning.mdx": {
   "en": "16a77b35d605c38c",

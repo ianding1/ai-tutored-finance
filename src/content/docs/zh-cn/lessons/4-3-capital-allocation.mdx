@@ -25,13 +25,13 @@ $$
 \mu_c = r_f + \frac{\mu_P - r_f}{\sigma_P}\,\sigma_c
 $$
 
-在“标准差–预期收益”图上，这些组合是一条从 $(0, r_f)$ 出发、经过 P 的直线，叫<Def id="capital-allocation-line">资本配置线</Def>（capital allocation line，CAL）。它的斜率正是 P 的夏普比率（<Ref concept="sharpe-ratio" />）。$y > 1$ 表示按无风险利率借款、加杠杆投资 P。
+在“标准差–预期收益”图上，这些组合是一条从 $(0, r_f)$ 出发、经过 P 的直线，叫<Def id="capital-allocation-line">资本配置线</Def>（capital allocation line，CAL）。它的斜率正是 P 的<Ref concept="sharpe-ratio" />。$y > 1$ 表示按无风险利率借款、加杠杆投资 P。
 
 <Check id="C1" />
 
 ## 切点组合与分离定理 [#tangency]
 
-投资者可以选择任何一个风险组合作为 P。P 不同，资本配置线的斜率也不同。斜率越大，同样的风险下预期收益越高，所以最好的选择是使资本配置线最陡的那个风险组合。转动这条直线，最陡的位置是它与有效前沿（<Ref concept="efficient-frontier" />）相切的地方。切点处的风险组合叫<Def id="tangency-portfolio">切点组合</Def>（tangency portfolio），也叫最优风险组合。
+投资者可以选择任何一个风险组合作为 P。P 不同，资本配置线的斜率也不同。斜率越大，同样的风险下预期收益越高，所以最好的选择是使资本配置线最陡的那个风险组合。转动这条直线，最陡的位置是它与<Ref concept="efficient-frontier" />相切的地方。切点处的风险组合叫<Def id="tangency-portfolio">切点组合</Def>（tangency portfolio），也叫最优风险组合。
 
 <Figure id="2-1" title="资产 A（预期收益 10%，标准差 20%）和 B（5%，10%）的组合，相关系数 0.2。虚线是从无风险利率出发、经过所选风险组合的资本配置线。" observe="移动 A 的权重，找到使资本配置线最陡的风险组合；再改变无风险利率，重新找一次。">
 	<TangencyCal />
@@ -45,7 +45,7 @@ $$
 
 ## 最优的风险资产比例 [#allocation]
 
-投入多少由风险厌恶决定（<Ref concept="risk-aversion" />）。<Ref lesson="1.4" sec="crra" /> 说明，CRRA 投资者对一个标准差为 $\sigma$ 的比例风险要求的风险溢价约为 $\frac{1}{2}\gamma\sigma^2$。所以可以用下面的<Def id="mean-variance-utility">均值–方差效用</Def>（mean–variance utility）评价一个组合，它近似等于组合收益的确定性等价（<Ref concept="certainty-equivalent" />）：
+投入多少由风险厌恶决定（<Ref concept="risk-aversion" />）。<Ref lesson="1.4" sec="crra" /> 说明，CRRA 投资者对一个标准差为 $\sigma$ 的比例风险要求的风险溢价约为 $\frac{1}{2}\gamma\sigma^2$。所以可以用下面的<Def id="mean-variance-utility">均值–方差效用</Def>（mean–variance utility）评价一个组合，它近似等于组合收益的<Ref concept="certainty-equivalent" />：
 
 $$
 U = \mu_c - \frac{1}{2}\gamma\sigma_c^2

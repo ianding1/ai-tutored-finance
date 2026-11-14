@@ -25,13 +25,13 @@ $$
 \mu_c = r_f + \frac{\mu_P - r_f}{\sigma_P}\,\sigma_c
 $$
 
-On the standard deviation–expected return chart, these portfolios form a straight line starting at $(0, r_f)$ and passing through P: the <Def id="capital-allocation-line">capital allocation line</Def> (CAL). Its slope is exactly P's Sharpe ratio (<Ref concept="sharpe-ratio" />). $y > 1$ means borrowing at the risk-free rate to invest in P with leverage.
+On the standard deviation–expected return chart, these portfolios form a straight line starting at $(0, r_f)$ and passing through P: the <Def id="capital-allocation-line">capital allocation line</Def> (CAL). Its slope is exactly P's <Ref concept="sharpe-ratio" />. $y > 1$ means borrowing at the risk-free rate to invest in P with leverage.
 
 <Check id="C1" />
 
 ## The tangency portfolio and the separation theorem [#tangency]
 
-An investor can choose any risky portfolio as P. Different choices of P give capital allocation lines with different slopes. The steeper the line, the higher the expected return for the same risk, so the best choice is the risky portfolio that makes the line steepest. Turning the line, the steepest position is where it touches the efficient frontier (<Ref concept="efficient-frontier" />). The risky portfolio at that point is the <Def id="tangency-portfolio">tangency portfolio</Def>, also called the optimal risky portfolio.
+An investor can choose any risky portfolio as P. Different choices of P give capital allocation lines with different slopes. The steeper the line, the higher the expected return for the same risk, so the best choice is the risky portfolio that makes the line steepest. Turning the line, the steepest position is where it touches the <Ref concept="efficient-frontier" />. The risky portfolio at that point is the <Def id="tangency-portfolio">tangency portfolio</Def>, also called the optimal risky portfolio.
 
 <Figure id="2-1" title="Portfolios of asset A (expected return 10%, standard deviation 20%) and B (5%, 10%), with correlation 0.2. The dashed line is the capital allocation line from the risk-free rate through the chosen risky portfolio." observe="Move the weight of A to find the risky portfolio that makes the capital allocation line steepest; then change the risk-free rate and find it again.">
 	<TangencyCal />
@@ -45,7 +45,7 @@ This leads to an important conclusion: as long as investors agree about the expe
 
 ## The optimal share in risky assets [#allocation]
 
-How much to invest is decided by risk aversion (<Ref concept="risk-aversion" />). <Ref lesson="1.4" sec="crra" /> showed that a CRRA investor requires a risk premium of about $\frac{1}{2}\gamma\sigma^2$ for a proportional risk with standard deviation $\sigma$. So a portfolio can be valued with the following <Def id="mean-variance-utility">mean–variance utility</Def>, which is approximately the certainty equivalent (<Ref concept="certainty-equivalent" />) of the portfolio return:
+How much to invest is decided by <Ref concept="risk-aversion" />. <Ref lesson="1.4" sec="crra" /> showed that a CRRA investor requires a risk premium of about $\frac{1}{2}\gamma\sigma^2$ for a proportional risk with standard deviation $\sigma$. So a portfolio can be valued with the following <Def id="mean-variance-utility">mean–variance utility</Def>, which is approximately the <Ref concept="certainty-equivalent" /> of the portfolio return:
 
 $$
 U = \mu_c - \frac{1}{2}\gamma\sigma_c^2

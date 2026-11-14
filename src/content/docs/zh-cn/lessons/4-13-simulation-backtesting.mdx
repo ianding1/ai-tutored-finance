@@ -50,7 +50,7 @@ $z$ 是标准正态分布的分位数。<Ref fig="1-1" /> 就是按这个公式�
 <Def id="backtest">回测</Def>（backtest）是用历史数据检验一个投资策略：假设过去按策略的规则交易，计算会得到什么结果。回测很容易得到过于乐观的结果，常见的问题有：
 
 - <Def id="look-ahead-bias">前视偏差</Def>（look-ahead bias）：使用了当时还无法得到的信息。例如财务报表在会计年度结束几个月后才公布，指数成分股是事后才知道的，数据后来被修订过。
-- 幸存者偏差（<Ref concept="survivorship-bias" />）：只用现在还存在的股票或基金，漏掉了退市和清盘的。
+- <Ref concept="survivorship-bias" />：只用现在还存在的股票或基金，漏掉了退市和清盘的。
 - <Def id="overfitting">过度拟合</Def>（overfitting）：在同一段数据上尝试很多种规则和参数，挑出表现最好的。挑出的规则适应的是这段数据中的噪声（<Ref lesson="4.7" sec="anomalies" />、<Ref lesson="4.10" sec="error-maximization" />）。
 - 交易成本、税和冲击成本：回测常常忽略它们，高换手的策略受影响最大。
 - 环境变化：利率、市场结构、参与者都会变，过去有效的规律可能不再有效。

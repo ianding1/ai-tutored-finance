@@ -13,7 +13,7 @@ import BsCall from '../../../../components/widgets/BsCall.astro';
 
 ## 看涨–看跌平价 [#parity]
 
-先不用任何模型，只用无套利（<Ref concept="arbitrage" />）。考虑一只不付股息的股票，以及它的欧式看涨期权和看跌期权，执行价都是 $K$，到期日都是 $T$。比较两个组合：
+先不用任何模型，只用无<Ref concept="arbitrage" />。考虑一只不付股息的股票，以及它的欧式看涨期权和看跌期权，执行价都是 $K$，到期日都是 $T$。比较两个组合：
 
 - 组合甲：一份看涨期权，加上一张到期支付 $K$ 的零息债券（<Ref concept="zero-coupon-bond" />）；
 - 组合乙：一份看跌期权，加上一股股票。
@@ -58,7 +58,7 @@ $$
 
 ## Black–Scholes 公式 [#black-scholes]
 
-当二叉树的每一期越来越短、股价的对数收益服从正态分布，即股价服从对数正态分布（<Ref concept="lognormal-distribution" />）时，欧式看涨期权的价格有一个公式，即 <Def id="black-scholes-model">Black–Scholes 模型</Def>（Black–Scholes model）：
+当二叉树的每一期越来越短、股价的对数收益服从正态分布，即股价服从<Ref concept="lognormal-distribution" />时，欧式看涨期权的价格有一个公式，即 <Def id="black-scholes-model">Black–Scholes 模型</Def>（Black–Scholes model）：
 
 $$
 C = S\,N(d_1) - K e^{-rT} N(d_2)
@@ -68,7 +68,7 @@ $$
 d_1 = \frac{\ln(S / K) + (r + \sigma^2 / 2)\,T}{\sigma \sqrt{T}} \qquad d_2 = d_1 - \sigma \sqrt{T}
 $$
 
-$N(\cdot)$ 是标准正态分布的累积分布函数（<Ref concept="normal-distribution" />），$\sigma$ 是股票的年化波动率（<Ref concept="annualized-volatility" />），看跌期权的价格由平价得到。公式的两项可以这样理解：$N(d_2)$ 是风险中性概率下到期行权的概率，$K e^{-rT} N(d_2)$ 是行权时支付执行价的现值；$S\,N(d_1)$ 是行权时得到的股票的现值。
+$N(\cdot)$ 是标准正态分布的累积分布函数（<Ref concept="normal-distribution" />），$\sigma$ 是股票的<Ref concept="annualized-volatility" />，看跌期权的价格由平价得到。公式的两项可以这样理解：$N(d_2)$ 是风险中性概率下到期行权的概率，$K e^{-rT} N(d_2)$ 是行权时支付执行价的现值；$S\,N(d_1)$ 是行权时得到的股票的现值。
 
 公式的输入只有五个：股价、执行价、到期时间、无风险利率和波动率。其中只有波动率不能直接观察。公式背后的假设包括：波动率在期权存续期内不变；股价连续变化，没有跳跃；可以随时无成本地交易和卖空。这些假设都不完全成立，后面会看到它们的影响。
 
@@ -87,7 +87,7 @@ $N(\cdot)$ 是标准正态分布的累积分布函数（<Ref concept="normal-dis
 - <Def id="vega">vega</Def>：期权价格对波动率的导数。
 - theta：其他条件不变时，期权价格随时间流逝的变化，买方的 theta 通常为负。
 
-卖出期权的做市商（<Ref concept="market-maker" />）通常不想承担股价方向的风险。卖出一份看涨期权后，他买入 delta 股股票，股价的小幅变化对这个组合几乎没有影响，这叫 delta 对冲，是对冲（<Ref concept="hedging" />）的一种。这也是 Black–Scholes 的推导思路：期权加上随时调整的股票头寸，构成一个无风险的组合，所以组合只能获得无风险利率。
+卖出期权的<Ref concept="market-maker" />通常不想承担股价方向的风险。卖出一份看涨期权后，他买入 delta 股股票，股价的小幅变化对这个组合几乎没有影响，这叫 delta 对冲，是对冲（<Ref concept="hedging" />）的一种。这也是 Black–Scholes 的推导思路：期权加上随时调整的股票头寸，构成一个无风险的组合，所以组合只能获得无风险利率。
 
 <Check id="C4" />
 

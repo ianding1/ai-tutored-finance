@@ -78,7 +78,7 @@ The regression line is $\hat y = 1 + 1.5x$. The 6 residuals are 1, âˆ’1, 0, 0, â
 
 The number in front of the explanatory variable in a regression is a <Def id="regression-coefficient">regression coefficient</Def>. The slope $b$ means: when $x$ rises by one unit, $y$ changes by $b$ units on average.
 
-In the example, $b = 1.5$: for each percentage point of market return, the stock's monthly return is 1.5 percentage points higher on average. The intercept $a = 1$: in months when the market return is 0, the stock returns 1% on average. In finance, the slope from regressing a stock's return on the market return is the stock's beta (<Ref concept="beta" />), which <Ref lesson="4.5" /> covers in detail.
+In the example, $b = 1.5$: for each percentage point of market return, the stock's monthly return is 1.5 percentage points higher on average. The intercept $a = 1$: in months when the market return is 0, the stock returns 1% on average. In finance, the slope from regressing a stock's return on the market return is the stock's <Ref concept="beta" />, which <Ref lesson="4.5" /> covers in detail.
 
 Three things to keep in mind when reading a regression coefficient:
 
@@ -116,7 +116,7 @@ $$
 
 $s_e$ is the standard deviation of the residuals. The divisor is $n - 2$ because two parameters, $a$ and $b$, were estimated, so 2 degrees of freedom are lost (<Ref concept="degrees-of-freedom" />).
 
-In the example, $s_e = \sqrt{4 / 4} = 1$ and $\text{SE}(b) = \frac{1}{\sqrt{42}} \approx 0.154$. The t-statistic (<Ref concept="t-statistic" />) for testing whether the slope is 0 is
+In the example, $s_e = \sqrt{4 / 4} = 1$ and $\text{SE}(b) = \frac{1}{\sqrt{42}} \approx 0.154$. The <Ref concept="t-statistic" /> for testing whether the slope is 0 is
 
 $$
 t = \frac{b}{\text{SE}(b)} = \frac{1.5}{0.154} \approx 9.7
