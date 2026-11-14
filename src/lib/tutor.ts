@@ -117,6 +117,8 @@ const LABELS: Record<string, Record<string, string>> = {
 	},
 };
 const L = (lang: Lang) => LABELS[lang] ?? LABELS.en;
+/** Label separator: full-width colon in Chinese. */
+const C = (lang: Lang) => (lang.startsWith('zh') ? '：' : ': ');
 
 // ---------- teaching rules ----------
 
@@ -129,7 +131,7 @@ export function protocolText(lang: Lang): string {
 
 export function indexText(lang: Lang): string {
 	const lb = L(lang);
-	const out = [`# ${lb.indexTitle}`, lb.indexIntro, `- ${lb.rules}: ${aiUrl(lang, 'protocol.md')}`, `- ${lb.conceptsFile}: ${aiUrl(lang, 'concepts.md')}`];
+	const out = [`# ${lb.indexTitle}`, lb.indexIntro, `- ${lb.rules}${C(lang)}${aiUrl(lang, 'protocol.md')}`, `- ${lb.conceptsFile}${C(lang)}${aiUrl(lang, 'concepts.md')}`];
 	let stage = '';
 	for (const l of publishedLessons()) {
 		if (l.stage.id !== stage) {
@@ -138,7 +140,7 @@ export function indexText(lang: Lang): string {
 		}
 		const summary = l.summary?.[lang] ? ` ${l.summary[lang]}` : '';
 		out.push(
-			`- ${l.id} ${l.title[lang]}.${summary}\n  ${lb.pack}: ${aiUrl(lang, `lessons/${l.id}.md`)}\n  ${lb.key}: ${aiUrl(lang, `lessons/${l.id}-key.md`)}\n  ${lb.page}: ${absolute(lessonPath(l, lang))}`,
+			`- ${l.id} ${l.title[lang]}${summary ? C(lang) + summary.trim() : ''}\n  ${lb.pack}${C(lang)}${aiUrl(lang, `lessons/${l.id}.md`)}\n  ${lb.key}${C(lang)}${aiUrl(lang, `lessons/${l.id}-key.md`)}\n  ${lb.page}${C(lang)}${absolute(lessonPath(l, lang))}`,
 		);
 	}
 	return out.join('\n') + '\n';
@@ -151,8 +153,8 @@ export function conceptsText(lang: Lang): string {
 	for (const c of Object.values(concepts())) {
 		if (c.defined_in !== 'prerequisite' && !published.has(c.defined_in)) continue;
 		const where = c.defined_in === 'prerequisite' ? lb.prerequisite : `${c.defined_in} ${lesson(c.defined_in).title[lang]}`;
-		const short = c.short?.[lang] ? `: ${plainRich(c.short[lang], lang)}` : '';
-		out.push(`- **${c[lang]}** (${c.id})${short} (${lb.definedIn} ${where})`);
+		const short = c.short?.[lang] ? `${C(lang)}${plainRich(c.short[lang], lang)}` : '';
+		out.push(`- **${c[lang]}** (${c.id})${short}${lang.startsWith('zh') ? '（' : ' ('}${lb.definedIn} ${where}${lang.startsWith('zh') ? '）' : ')'}`);
 	}
 	return out.join('\n') + '\n';
 }
@@ -199,16 +201,16 @@ export function lessonPackText(lessonId: string, lang: Lang): string {
 
 	body = body
 		.replace(/^import .*\n/gm, '')
-		.replace(/^(#{2,6}\s+.*?)\s*\[#[a-z0-9-]+\]\s*$/gm, '$1')
+		.replace(/^(#{2,6}[ \t]+.*?)[ \t]*\[#[a-z0-9-]+\][ \t]*$/gm, '$1')
 		.replace(/<Figure([^>]*)>([\s\S]*?)<\/Figure>/g, (_, a, inner) => {
 			const at = attrs(a);
 			const comp = /<([A-Z]\w*)/.exec(inner)?.[1] ?? '';
 			const lines = [`**${lb.figure} ${at.id}** ${plainRich(at.title ?? '', lang, lessonId)}`];
-			lines.push(`- ${lb.figPage}: ${absolute(lessonPath(l, lang, `fig-${at.id}`))}`);
-			if (figureImageExists(lang, lessonId, at.id)) lines.push(`- ${lb.figImage}: ${figureImageUrl(lang, lessonId, at.id)}`);
+			lines.push(`- ${lb.figPage}${C(lang)}${absolute(lessonPath(l, lang, `fig-${at.id}`))}`);
+			if (figureImageExists(lang, lessonId, at.id)) lines.push(`- ${lb.figImage}${C(lang)}${figureImageUrl(lang, lessonId, at.id)}`);
 			const spec = comp ? widgetSpec(comp, lang) : '';
-			if (spec) lines.push(`- ${lb.figSpec}: ${plainRich(spec, lang, lessonId)}`);
-			lines.push(`- ${lb.figObserve}: ${plainRich(at.observe ?? '', lang, lessonId)}`);
+			if (spec) lines.push(`- ${lb.figSpec}${C(lang)}${plainRich(spec, lang, lessonId)}`);
+			lines.push(`- ${lb.figObserve}${C(lang)}${plainRich(at.observe ?? '', lang, lessonId)}`);
 			return lines.join('\n');
 		})
 		.replace(/<Check id="([^"]+)"\s*\/>/g, (_, id) => {
@@ -219,7 +221,7 @@ export function lessonPackText(lessonId: string, lang: Lang): string {
 		.replace(/<CheckAll\s*\/>/g, '')
 		.replace(/<Exercises\s*\/>/g, () => {
 			const ex = (key?.questions ?? []).filter((x) => x.kind === 'exercise');
-			return [`## ${lb.exercises}`, lb.exercisesNote, ...ex.map((x) => questionText(x, lang, lessonId, `${t(lang, 'exerciseItem', { n: ++exNo })} (id: ${x.id})`))].join('\n\n');
+			return [lb.exercisesNote, ...ex.map((x) => questionText(x, lang, lessonId, `${t(lang, 'exerciseItem', { n: ++exNo })} (id: ${x.id})`))].join('\n\n');
 		})
 		.replace(/<Quiz\s*\/>/g, () => {
 			const qs = (key?.questions ?? []).filter((x) => x.kind === 'quiz');
@@ -235,9 +237,9 @@ export function lessonPackText(lessonId: string, lang: Lang): string {
 		.replace(/\n{3,}/g, '\n\n')
 		.trim();
 
-	const head = [`# ${l.id} ${meta.title ?? l.title[lang]}`];
+	const head = [`# ${meta.title ?? `${l.id} ${l.title[lang]}`}`];
 	if (meta.description) head.push(String(meta.description));
-	head.push(`${lb.key}: ${aiUrl(lang, `lessons/${l.id}-key.md`)}`);
+	head.push(`${lb.key}${C(lang)}${aiUrl(lang, `lessons/${l.id}-key.md`)}`);
 	return head.join('\n\n') + '\n\n' + body + '\n';
 }
 
@@ -265,20 +267,20 @@ export function keyText(lessonId: string, lang: Lang): string {
 				q.choices
 					.map((c, i) => {
 						const right = String(q.correct) === letters[i];
-						const why = !right && c.why ? `\n  ${lb.why}: ${rich(c.why[lang])}` : '';
+						const why = !right && c.why ? `\n  ${lb.why}${C(lang)}${rich(c.why[lang])}` : '';
 						return `- (${letters[i]}) ${rich(c[lang])}${right ? ` ← ${lb.correct}` : ''}${why}`;
 					})
 					.join('\n'),
 			);
 		} else if (q.correct !== undefined) {
-			parts.push(`${lb.correct}: ${String(q.correct)}`);
-			if (q.hint) parts.push(`${lb.hint}: ${rich(q.hint[lang])}`);
+			parts.push(`${lb.correct}${C(lang)}${q.correct === true ? t(lang, 'choiceTrue') : q.correct === false ? t(lang, 'choiceFalse') : String(q.correct)}`);
+			if (q.hint) parts.push(`${lb.hint}${C(lang)}${rich(q.hint[lang])}`);
 		}
 		parts.push(`**${lb.answer}**\n\n${rich(q.answer[lang])}`);
 		const rubric = q.rubric?.[lang] ?? [];
 		if (rubric.length) parts.push(`**${lb.rubric}**\n\n${rubric.map((r) => `- ${rich(r)}`).join('\n')}`);
 		const exp = (q as any).expected as Record<string, string> | undefined;
-		if (exp) parts.push(`${lb.expected}: ${Object.entries(exp).map(([k, v]) => `${k} = ${v}`).join(', ')}`);
+		if (exp) parts.push(`${lb.expected}${C(lang)}${Object.entries(exp).map(([k, v]) => `${k} = ${v}`).join(', ')}`);
 		const errs = key.common_errors.filter((e) => e.questions.includes(q.id));
 		if (errs.length) parts.push(`**${lb.errors}**\n\n${errs.map((e) => `- ${rich(e[lang])}`).join('\n')}`);
 		out.push(parts.join('\n\n'));
