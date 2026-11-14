@@ -634,7 +634,16 @@ stages:
         published: true
         introduces: [annual-review, decision-journal]
         uses: [standard-error, capital-market-assumptions, investment-policy-statement, rebalancing, funded-ratio, expense-ratio, long-term-capital-gain, strategic-asset-allocation, overconfidence, normal-distribution]
-      - { id: "T3", slug: "t3-quiz", exam: true, title: { zh-cn: "综合测验三：衍生品与家庭投资实践", en: "Comprehensive Quiz 3: Derivatives and Household Investing" } }
+      - id: "T3"
+        slug: "t3-quiz"
+        exam: true
+        title: { zh-cn: "综合测验三：衍生品与家庭投资实践", en: "Comprehensive Quiz 3: Derivatives and Household Investing" }
+        summary:
+          zh-cn: "第 5–6 阶段的综合测验：在具体情境中认出适用的概念，建立简单的模型并得出结论。建议用时 150 分钟。"
+          en: "The comprehensive quiz for Stages 5–6: recognize the concepts that apply in a situation, build a simple model and draw the conclusion. About 150 minutes."
+        published: true
+        introduces: []
+        uses: [risk-neutral-pricing, funded-ratio, monte-carlo-simulation, capital-market-assumptions, futures-contract, cost-of-carry, rebalancing, long-term-capital-gain, human-capital, household-balance-sheet, full-retirement-age, strategic-asset-allocation, roth-account, traditional-account, efficient-market-hypothesis, expense-ratio, money-illusion, fisher-equation, sharpe-ratio, put-option, volatility-skew, fat-tails, due-diligence, employee-stock-option, black-scholes-model, time-value, put-call-parity, firm-specific-risk, restricted-stock-unit, private-equity, goals-based-investing, illiquidity-premium, risk-premium, certainty-equivalent, expected-value, emergency-fund, call-option, replicating-portfolio, protective-put, covered-call, longevity-risk, adverse-selection, tips, annuity, covered-interest-parity, forward-contract, currency-hedging]
 
   - id: "7"
     title: { zh-cn: "第 7 阶段：毕业项目", en: "Stage 7: Capstone Project" }

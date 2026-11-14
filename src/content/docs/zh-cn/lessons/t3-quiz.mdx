@@ -1,0 +1,45 @@
+---
+title: 综合测验三：衍生品与家庭投资实践
+description: 第 5–6 阶段的综合测验：在具体情境中认出适用的概念，建立简单的模型并得出结论。建议用时 150 分钟。
+lesson: "T3"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Quiz from '../../../../components/Quiz.astro';
+
+## 说明 [#instructions]
+
+- 本测验考 <Ref lesson="5.1" /> 到 <Ref lesson="6.13" /> 的内容，也可能用到第 0–4 阶段的工具。大多数题会用到不同阶段的知识，题目不说明要用哪个概念：先判断情境中什么是关键，再建立模型。计算都不复杂。题目中的税率等制度按 2026 年的美国规定。建议用时 150 分钟。
+- 可以使用计算器或代码，不要查看讲义。需要的公式见下面的公式表，其中有些公式不一定用得上。
+- 计算题要写出过程。批改时看过程和理由：只有答案、没有过程的部分，以及只写“真”或“假”、没有理由的判断题，都需要订正。
+- 把答案写在纸上（或打字）。做完后点击页面底部的“复制批改提示词”，连同答案一起发给你的 AI 助手；也可以分几次提交。
+
+## 公式表 [#formulas]
+
+**现值与利率**
+
+- 年金（每期期末付款 $C$，共 $n$ 期）：$PV = \frac{C}{r}\left[1 - (1 + r)^{-n}\right]$；增长年金（第一期付款 $C$，每期增长 $g$）：$PV = \frac{C}{r - g}\left[1 - \left(\frac{1 + g}{1 + r}\right)^n\right]$
+- Fisher 方程：$1 + r = \frac{1 + i}{1 + \pi}$
+
+**远期、期货与互换**
+
+- 持有成本模型：$F = S e^{(r - q)T}$
+- 抛补利率平价（汇率为每单位外币的本币价格）：$F = S \left(\frac{1 + i_d}{1 + i_f}\right)^T$
+- 最小方差对冲比率：$h^* = \rho\frac{\sigma_S}{\sigma_F}$
+- 互换利率（$Z_t$ 为 $t$ 年期的折现因子）：$s = \frac{1 - Z_n}{\sum_{t=1}^{n} Z_t}$
+
+**期权**
+
+- 看涨–看跌平价：$C - P = S - K e^{-rT}$
+- Black–Scholes：$C = S\,N(d_1) - K e^{-rT} N(d_2)$，$d_1 = \frac{\ln(S/K) + (r + \sigma^2/2)T}{\sigma\sqrt{T}}$，$d_2 = d_1 - \sigma\sqrt{T}$
+
+**基金与家庭投资**
+
+- 费用使 $T$ 年后的期末财富减少的比例：$\approx 1 - e^{-fT}$
+- 资金充足率 $=$ 为目标准备的资产 $/$ 目标按无风险利率折现的现值
+- 两项资产组合的方差：$\sigma_p^2 = w^2\sigma_A^2 + (1 - w)^2\sigma_B^2 + 2w(1 - w)\rho\sigma_A\sigma_B$
+- 夏普比率：$\frac{\mu - r_f}{\sigma}$；alpha 的 t 值：$t \approx IR\sqrt{T}$
+
+## 题目 [#questions]
+
+<Quiz />

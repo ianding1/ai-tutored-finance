@@ -1,0 +1,45 @@
+---
+title: "Comprehensive Quiz 3: Derivatives and Household Investing"
+description: "The comprehensive quiz for Stages 5–6: recognize the concepts that apply in a situation, build a simple model and draw the conclusion. About 150 minutes."
+lesson: "T3"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Quiz from '../../../../components/Quiz.astro';
+
+## Instructions [#instructions]
+
+- This quiz covers <Ref lesson="5.1" /> to <Ref lesson="6.13" /> and may also use tools from Stages 0–4. Most questions draw on more than one stage, and no question says which concept to use: first decide what matters in the situation, then build a model. None of the calculations is complicated. Tax rates and other rules in the questions are the 2026 US rules. The suggested time is 150 minutes.
+- You may use a calculator or code, but do not look at the lessons. The formulas you need are in the formula sheet below; some of them may not be needed.
+- Show your working for calculations. Grading looks at working and reasons: a part with only an answer and no working, and a true / false question answered only "true" or "false" without a reason, need revision.
+- Write your answers on paper (or type them). When you are done, click "Copy grading prompt" at the bottom of the page and send it to your AI assistant together with your answers; you may also submit in several rounds.
+
+## Formula sheet [#formulas]
+
+**Present value and interest rates**
+
+- Annuity (payment $C$ at the end of each of $n$ periods): $PV = \frac{C}{r}\left[1 - (1 + r)^{-n}\right]$; growing annuity (first payment $C$, growing by $g$ each period): $PV = \frac{C}{r - g}\left[1 - \left(\frac{1 + g}{1 + r}\right)^n\right]$
+- Fisher equation: $1 + r = \frac{1 + i}{1 + \pi}$
+
+**Forwards, futures and swaps**
+
+- Cost-of-carry model: $F = S e^{(r - q)T}$
+- Covered interest parity (exchange rate as the home-currency price of one unit of foreign currency): $F = S \left(\frac{1 + i_d}{1 + i_f}\right)^T$
+- Minimum-variance hedge ratio: $h^* = \rho\frac{\sigma_S}{\sigma_F}$
+- Swap rate ($Z_t$ is the discount factor for $t$ years): $s = \frac{1 - Z_n}{\sum_{t=1}^{n} Z_t}$
+
+**Options**
+
+- Put–call parity: $C - P = S - K e^{-rT}$
+- Black–Scholes: $C = S\,N(d_1) - K e^{-rT} N(d_2)$, $d_1 = \frac{\ln(S/K) + (r + \sigma^2/2)T}{\sigma\sqrt{T}}$, $d_2 = d_1 - \sigma\sqrt{T}$
+
+**Funds and household investing**
+
+- Share of final wealth after $T$ years lost to fees: $\approx 1 - e^{-fT}$
+- Funded ratio $=$ assets set aside for a goal $/$ present value of the goal discounted at the risk-free rate
+- Variance of a two-asset portfolio: $\sigma_p^2 = w^2\sigma_A^2 + (1 - w)^2\sigma_B^2 + 2w(1 - w)\rho\sigma_A\sigma_B$
+- Sharpe ratio: $\frac{\mu - r_f}{\sigma}$; t-value of alpha: $t \approx IR\sqrt{T}$
+
+## Questions [#questions]
+
+<Quiz />
