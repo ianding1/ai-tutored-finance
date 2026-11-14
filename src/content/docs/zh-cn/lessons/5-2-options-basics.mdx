@@ -1,0 +1,82 @@
+---
+title: 5.2 期权基础
+description: 看涨期权与看跌期权；到期收益与利润；内在价值与时间价值；保护性看跌与备兑看涨；员工股票期权的特点。
+lesson: "5.2"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import OptionStrategies from '../../../../components/widgets/OptionStrategies.astro';
+
+## 看涨期权与看跌期权 [#calls-puts]
+
+远期合约（<Ref lesson="5.1" />）是义务：到期必须按约定的价格买卖。期权则是权利：买方可以选择是否行使。
+
+- <Def id="call-option">看涨期权</Def>（call option）给买方在到期日（或之前）按约定的价格 $K$ 买入标的资产的权利。
+- <Def id="put-option">看跌期权</Def>（put option）给买方按价格 $K$ 卖出标的资产的权利。
+
+$K$ 叫<Def id="strike-price">执行价</Def>（strike price）。只能在到期日行权的期权叫欧式期权，到期前任何时候都可以行权的叫美式期权。买方为这项权利付给卖方（也叫写方）的价格叫<Def id="option-premium">期权费</Def>（option premium）。
+
+到期时，买方只在有利时行权，所以收益不会为负：
+
+$$
+C_T = \max(S_T - K,\ 0) \qquad P_T = \max(K - S_T,\ 0)
+$$
+
+$C_T$ 是看涨期权到期时的收益，$P_T$ 是看跌期权到期时的收益。
+
+买方的利润等于收益减去期权费；卖方的利润正好相反。股价高于执行价时，看涨期权叫实值（in the money），低于时叫虚值（out of the money），相等时叫平值（at the money）；看跌期权正好相反。
+
+<Check id="C1" />
+
+## 内在价值与时间价值 [#time-value]
+
+到期前，期权的价格可以分成两部分：立即行权能得到的<Def id="intrinsic-value">内在价值</Def>（intrinsic value），对看涨期权是 $\max(S - K,\ 0)$；以及超出内在价值的部分，叫<Def id="time-value">时间价值</Def>（time value）。
+
+时间价值来自收益的不对称：到期前股价还会变化，变得有利时期权的收益随之增加，变得不利时损失最多是期权费。股价波动越大、离到期越久，这种不对称越有价值。<Ref lesson="5.3" /> 会把这个想法变成定价公式。
+
+<Check id="C2" />
+
+## 常用策略 [#strategies]
+
+把期权与股票组合起来，可以改变收益的形状：
+
+- <Def id="protective-put">保护性看跌</Def>（protective put）：持有股票，同时买入看跌期权。股价跌到执行价以下时，看跌期权的收益抵消股票的损失，最坏的结果被限定住，像是给股票买了保险（<Ref lesson="1.4" sec="insurance" />）。
+- <Def id="covered-call">备兑看涨</Def>（covered call）：持有股票，同时卖出看涨期权，收取期权费。股价涨到执行价以上时，股票的上涨被看涨期权的亏损抵消。
+
+两者结合（买入看跌、卖出看涨）叫领口（collar），常用于在不卖出股票的情况下限定一段时间内的损益范围。
+
+<Figure id="3-1" title="以 100 买入股票后，三种做法 1 年后到期时的利润。期权价格按 [[5.3]] 的 Black–Scholes 公式计算（波动率 20%，无风险利率 4%），不考虑期权费的利息。" observe="分别移动两个执行价，看最坏的亏损、最大的利润和期权价格怎样变化。">
+	<OptionStrategies />
+</Figure>
+
+<Check id="C3" />
+
+<Check id="C4" />
+
+## 员工股票期权 [#employee-options]
+
+很多公司，尤其是科技公司和初创公司，把股票期权作为员工薪酬的一部分。<Def id="employee-stock-option">员工股票期权</Def>（employee stock option）本质上是以授予日股价为执行价的长期看涨期权，但有几点与交易所交易的期权不同：
+
+- 期限很长，通常 10 年。
+- 需要经过归属期（vesting），例如 4 年内分批归属；离职时未归属的部分通常作废，已归属的往往要在短时间内行权。
+- 不能出售，公司政策通常也禁止员工用其他衍生品对冲。
+- 行权和出售时的税务处理比较复杂（<Ref lesson="6.5" />）。
+
+对员工来说，这意味着财富和工作收入都集中在同一家公司上（<Ref lesson="4.12" sec="human-capital" />）。对公司现有股东来说，期权虽然不需要付现金，却会在行权时稀释他们的股权。
+
+<Check id="C5" />
+
+## 小结 [#summary]
+
+- 看涨期权是按 $K$ 买入的权利，到期收益 $\max(S_T - K, 0)$；看跌期权是按 $K$ 卖出的权利，到期收益 $\max(K - S_T, 0)$；买方付期权费。
+- 期权价格 = 内在价值 + 时间价值；时间价值来自收益的不对称，波动越大、期限越长越高。
+- 保护性看跌限定最坏的结果，代价是期权费；备兑看涨收取期权费，代价是放弃执行价以上的上涨。
+- 员工股票期权期限长、要归属、不能出售或对冲，使员工的财富与工作收入集中在同一家公司。
+
+## 练习题 [#exercises]
+
+<Exercises />

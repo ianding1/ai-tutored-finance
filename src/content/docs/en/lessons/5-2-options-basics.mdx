@@ -1,0 +1,80 @@
+---
+title: 5.2 Option Basics
+description: Calls and puts; payoffs and profits at expiry; intrinsic value and time value; protective puts and covered calls; the features of employee stock options.
+lesson: "5.2"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import OptionStrategies from '../../../../components/widgets/OptionStrategies.astro';
+
+## Calls and puts [#calls-puts]
+
+A forward contract (<Ref lesson="5.1" />) is an obligation: at maturity the trade must happen at the agreed price. An option is a right: its buyer can choose whether to use it.
+
+- A <Def id="call-option">call option</Def> gives its buyer the right to buy the underlying asset at an agreed price $K$ on (or before) the expiry date.
+- A <Def id="put-option">put option</Def> gives its buyer the right to sell the underlying asset at the price $K$.
+
+$K$ is called the <Def id="strike-price">strike price</Def>. An option that can be exercised only on the expiry date is European; one that can be exercised at any time before expiry is American. The price the buyer pays the seller (also called the writer) for this right is the <Def id="option-premium">option premium</Def>.
+
+At expiry the buyer exercises only when it pays, so the payoff is never negative:
+
+$$
+C_T = \max(S_T - K,\ 0) \qquad P_T = \max(K - S_T,\ 0)
+$$
+
+$C_T$ is the payoff of a call at expiry and $P_T$ that of a put. The buyer's profit is the payoff minus the premium; the writer's profit is the opposite. When the stock price is above the strike, a call is in the money; below it, out of the money; equal to it, at the money; for a put it is the other way round.
+
+<Check id="C1" />
+
+## Intrinsic value and time value [#time-value]
+
+Before expiry, an option's price can be split into two parts: the <Def id="intrinsic-value">intrinsic value</Def>, what immediate exercise would bring, $\max(S - K,\ 0)$ for a call; and the part above the intrinsic value, called the <Def id="time-value">time value</Def>.
+
+Time value comes from the asymmetry of the payoff: the stock price will keep moving before expiry; when it moves favorably the option's payoff rises with it, and when it moves unfavorably the loss is at most the premium. The more the price swings and the longer until expiry, the more this asymmetry is worth. <Ref lesson="5.3" /> turns this idea into a pricing formula.
+
+<Check id="C2" />
+
+## Common strategies [#strategies]
+
+Combining options with the stock changes the shape of the payoff:
+
+- A <Def id="protective-put">protective put</Def>: hold the stock and buy a put. When the stock falls below the strike, the put's payoff offsets the stock's loss, so the worst outcome is capped, like buying insurance on the stock (<Ref lesson="1.4" sec="insurance" />).
+- A <Def id="covered-call">covered call</Def>: hold the stock and sell a call, collecting the premium. When the stock rises above the strike, the stock's gain is offset by the loss on the call.
+
+Combining the two (buying a put and selling a call) is called a collar, often used to limit the range of gains and losses over a period without selling the stock.
+
+<Figure id="3-1" title="Profit at expiry, 1 year later, of three approaches after buying the stock at 100. Option prices come from the Black–Scholes formula of [[5.3]] (volatility 20%, risk-free rate 4%); interest on the premiums is ignored." observe="Move each strike in turn and watch how the worst loss, the largest profit and the option prices change.">
+	<OptionStrategies />
+</Figure>
+
+<Check id="C3" />
+
+<Check id="C4" />
+
+## Employee stock options [#employee-options]
+
+Many companies, especially technology companies and startups, pay part of their employees' compensation in stock options. An <Def id="employee-stock-option">employee stock option</Def> is essentially a long-dated call struck at the share price on the grant date, but it differs from exchange-traded options in several ways:
+
+- The term is long, usually 10 years.
+- It must vest, for example in installments over 4 years; unvested options are usually forfeited when the employee leaves, and vested ones often must be exercised within a short time.
+- It cannot be sold, and company policy usually also forbids employees to hedge it with other derivatives.
+- The tax treatment of exercising and selling is complicated (<Ref lesson="6.5" />).
+
+For the employee, this means that wealth and job income are concentrated in the same company (<Ref lesson="4.12" sec="human-capital" />). For the company's existing shareholders, the options cost no cash, but they dilute their ownership when exercised.
+
+<Check id="C5" />
+
+## Summary [#summary]
+
+- A call is the right to buy at $K$, with payoff $\max(S_T - K, 0)$ at expiry; a put is the right to sell at $K$, with payoff $\max(K - S_T, 0)$; the buyer pays a premium.
+- Option price = intrinsic value + time value; time value comes from the asymmetry of the payoff and is higher with more volatility and a longer term.
+- A protective put caps the worst outcome at the cost of the premium; a covered call collects a premium at the cost of giving up gains above the strike.
+- Employee stock options are long-dated, must vest, and cannot be sold or hedged, so the employee's wealth and job income are concentrated in the same company.
+
+## Exercises [#exercises]
+
+<Exercises />

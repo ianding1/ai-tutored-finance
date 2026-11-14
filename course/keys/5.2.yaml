@@ -1,0 +1,335 @@
+# Answer key for lesson 5.2. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[5.2#strategies]] (section), [[concept:beta]], [[check:Q3]], [[fig:3-1]].
+# expected: values are recomputed by course/verify/5.2.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "5.2"
+
+context:
+  - zh-cn: |-
+      学习者学过期望值（[[0.3]]）、保险与风险厌恶（[[1.4]]）、股息率与总收益（[[3.9]]、[[4.11]]）、资本配置线（[[4.3]]）、心理账户（[[4.8]]）、人力资本（[[4.12]]）、远期与期货（[[5.1]]）。讲义还没有讲期权定价（[[5.3]]）和账户税务（[[6.5]]）。百分数用百分点表示。
+    en: |-
+      The learner has studied expected value ([[0.3]]), insurance and risk aversion ([[1.4]]), dividend yield and total return ([[3.9]], [[4.11]]), the capital allocation line ([[4.3]]), mental accounting ([[4.8]]), human capital ([[4.12]]), and forwards and futures ([[5.1]]). The lesson has not yet covered option pricing ([[5.3]]) or account taxation ([[6.5]]). Percentages in percentage points.
+  - concepts: [call-option, put-option, strike-price, option-premium]
+    zh-cn: |-
+      讲义：期权是权利；看涨期权按 $K$ 买入，看跌期权按 $K$ 卖出；欧式与美式；买方付期权费。$C_T = \max(S_T - K, 0)$，$P_T = \max(K - S_T, 0)$；利润 = 收益 − 期权费，卖方相反；实值、虚值、平值。讲义没有说卖方的最大亏损（留给随堂题）。
+    en: |-
+      The lesson: options are rights; a call is the right to buy at $K$, a put to sell at $K$; European and American; the buyer pays a premium. $C_T = \max(S_T - K, 0)$, $P_T = \max(K - S_T, 0)$; profit = payoff − premium, the writer's the opposite; in, out of and at the money. The lesson does not state the writer's largest possible loss (left to a check question).
+  - concepts: [intrinsic-value, time-value]
+    zh-cn: |-
+      讲义：期权价格 = 内在价值（看涨为 $\max(S - K, 0)$）+ 时间价值；时间价值来自收益的不对称，波动越大、期限越长越高。
+    en: |-
+      The lesson: option price = intrinsic value ($\max(S - K, 0)$ for a call) + time value; time value comes from the asymmetry of payoffs and is higher with more volatility and longer time.
+  - concepts: [protective-put, covered-call]
+    zh-cn: |-
+      讲义：保护性看跌（股票 + 买入看跌）限定最坏结果，像保险；备兑看涨（股票 + 卖出看涨）收取期权费，上涨超过执行价的部分被抵消；领口（买入看跌、卖出看涨）在不卖出股票时限定损益范围。[[fig:3-1]]：以 100 买入股票，1 年期；Black–Scholes 价格（波动率 20%，利率 4%）：看跌期权执行价 80、85、90、95、100 时约 0.77、1.47、2.53、4.03、6.00；看涨期权执行价 100、105、110、115、120、125、130 时约 9.93、7.57、5.66、4.16、3.00、2.13、1.49；滑块看跌执行价 80–100（步长 5，默认 90），看涨执行价 100–130（步长 5，默认 110）。
+    en: |-
+      The lesson: a protective put (stock + long put) caps the worst outcome, like insurance; a covered call (stock + short call) collects a premium, and gains above the strike are offset; a collar (long put, short call) limits the range of outcomes without selling the stock. [[fig:3-1]]: stock bought at 100, 1-year options; Black–Scholes prices (volatility 20%, rate 4%): puts with strikes 80, 85, 90, 95, 100 about 0.77, 1.47, 2.53, 4.03, 6.00; calls with strikes 100, 105, 110, 115, 120, 125, 130 about 9.93, 7.57, 5.66, 4.16, 3.00, 2.13, 1.49; sliders: put strike 80–100 (steps of 5, default 90), call strike 100–130 (steps of 5, default 110).
+  - concepts: [employee-stock-option]
+    zh-cn: |-
+      讲义：员工股票期权是执行价为授予日股价的长期看涨期权；通常 10 年；有归属期，离职时未归属部分作废；不能出售，通常禁止对冲；税务复杂（[[6.5]]）；员工的财富与收入集中于同一公司；行权会稀释现有股东。
+    en: |-
+      The lesson: employee stock options are long-dated calls struck at the grant-date price; usually 10 years; they vest over time and unvested options are forfeited on leaving; they cannot be sold and hedging is usually banned; taxes are complex ([[6.5]]); the employee's wealth and income are concentrated in one company; exercise dilutes existing shareholders.
+
+common_errors:
+  - questions: [Q1]
+    zh-cn: |-
+      以为买看涨期权“最多亏期权费”所以比买股票风险小；忽略按投入的金额计，期权全部亏掉的可能性大得多，杠杆很高。
+    en: |-
+      Thinking buying calls is less risky than buying stock because "the most you can lose is the premium"; ignoring that per dollar invested, losing everything is far more likely and leverage is high.
+  - questions: [Q2]
+    zh-cn: |-
+      以为长期持续买保护性看跌就能“没有风险又不影响收益”；忽略期权费的长期成本，以及降低股票比例也能降低风险。
+    en: |-
+      Thinking that buying protective puts year after year gives "no risk and no cost to returns"; ignoring the long-run cost of premiums, and that holding less stock also lowers risk.
+  - questions: [Q3]
+    zh-cn: |-
+      把备兑看涨的期权费当作额外的“收益率”，像股息一样；忽略它是卖出上涨潜力换来的，总收益在大涨时被封顶。
+    en: |-
+      Treating covered-call premiums as an extra "yield", like dividends; ignoring that they are the price of selling upside, and that total return is capped in large rallies.
+  - questions: [Q4]
+    zh-cn: |-
+      以为期权对员工的价值等于按模型算出的市场价值，或者以为公司不付现金就没有成本。
+    en: |-
+      Thinking options are worth their model market value to employees, or that they cost the company nothing because no cash is paid.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: calls-puts
+    concepts: [call-option, option-premium]
+    question:
+      zh-cn: |-
+        一位投资者卖出（写出）一份没有持有股票作为担保的看涨期权，收到期权费。他可能的最大亏损是：
+      en: |-
+        An investor sells (writes) a call option without owning the stock, collecting the premium. His largest possible loss is:
+    choices:
+      - zh-cn: 没有上限
+        en: Unlimited
+      - zh-cn: 期权费
+        en: The premium
+        why:
+          zh-cn: 期权费是谁的最大亏损？到期时他要付出 $\max(S_T - K, 0)$，股价越高这个数越大吗？
+          en: Whose largest loss is the premium? At expiry he must pay $\max(S_T - K, 0)$. Does that grow as the price rises?
+      - zh-cn: 执行价
+        en: The strike price
+        why:
+          zh-cn: 看涨期权的卖方在股价上涨时亏损。股价上涨有上限吗？
+          en: A call writer loses when the price rises. Is there a limit to how far the price can rise?
+      - zh-cn: 股票的当前价格
+        en: The current stock price
+        why:
+          zh-cn: 那是看跌期权卖方在股价跌到 0 时的情形。看涨期权的卖方什么时候亏损？
+          en: That is the case of a put writer if the price falls to 0. When does a call writer lose?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。到期时他要按 $K$ 卖出市价为 $S_T$ 的股票，亏损 $S_T - K$ 减去期权费；股价没有上限，亏损也没有上限。这与买方相反：买方的最大亏损是期权费，卖方收到的期权费是承担这种风险的补偿。
+      en: |-
+        (A). At expiry he must sell at $K$ a stock worth $S_T$, losing $S_T - K$ minus the premium; the price has no upper limit, so neither does the loss. This is the mirror of the buyer, whose largest loss is the premium; the premium the writer collects is pay for bearing this risk.
+
+  - id: C2
+    kind: check
+    section: time-value
+    concepts: [intrinsic-value, time-value]
+    question:
+      zh-cn: |-
+        一份还有 6 个月到期的平值看涨期权，内在价值为 0，所以它的价格应该接近 0。
+      en: |-
+        An at-the-money call with 6 months to expiry has an intrinsic value of 0, so its price should be close to 0.
+    correct: false
+    hint:
+      zh-cn: 想一想：6 个月里股价还会变化。股价上涨时期权的收益怎样变化？下跌时期权持有人的损失最多是多少？
+      en: 'Think: the price will keep moving over 6 months. How does the option''s payoff change if the price rises? What is the most its holder can lose if the price falls?'
+    answer:
+      zh-cn: |-
+        错。它的价格全部是时间价值。到期前股价可能上涨，期权的收益随之增加；可能下跌，但收益最低为 0。这种不对称使期权有正的价值：例如 [[fig:3-1]] 的条件下，1 年期平值看涨期权约值 9.93。离到期越远、波动越大，时间价值越高。
+      en: |-
+        False. Its whole price is time value. Before expiry the price may rise, raising the payoff, or fall, but the payoff cannot go below 0. This asymmetry gives the option a positive value: under the conditions of [[fig:3-1]], for example, a 1-year at-the-money call is worth about 9.93. The longer to expiry and the higher the volatility, the larger the time value.
+
+  - id: C3
+    kind: check
+    section: strategies
+    concepts: [protective-put]
+    widget: { id: option-strategies, set: { kp: 85, kc: 110 } }
+    question:
+      zh-cn: |-
+        在 [[fig:3-1]] 中，把保护性看跌的执行价从 85 提高到 100。会怎样？
+      en: |-
+        In [[fig:3-1]], raise the protective put's strike from 85 to 100. What happens?
+    choices:
+      - zh-cn: 最坏的亏损变小，但股价上涨时的利润也变少
+        en: The worst loss shrinks, but the profit when the stock rises shrinks too
+      - zh-cn: 最坏的亏损变小，而股价上涨时的利润不变
+        en: The worst loss shrinks, and the profit when the stock rises is unchanged
+        why:
+          zh-cn: 看读数中看跌期权的价格。股价上涨时看跌期权作废，期权费还能收回吗？
+          en: Look at the put price in the readout. When the stock rises the put expires worthless; is the premium recovered?
+      - zh-cn: 最坏的亏损变大，因为期权费更贵
+        en: The worst loss grows, because the premium is higher
+        why:
+          zh-cn: 最坏的亏损 $= 100 - K + $ 期权费。$K$ 提高 15，期权费增加了多少？
+          en: The worst loss is $100 - K +$ the premium. $K$ rises by 15; by how much does the premium rise?
+      - zh-cn: 两者都不变
+        en: Neither changes
+        why:
+          zh-cn: 看图中实线的水平部分和上升部分是否移动。
+          en: Watch whether the flat part and the rising part of the solid line move.
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。执行价 85 时期权费约 1.47，最坏亏损约 16.47；执行价 100 时期权费约 6.00，最坏亏损约 6.00。保护更多，保险费更贵：股价上涨时，利润比只持有股票少的正是期权费，从约 1.47 增加到约 6.00。
+      en: |-
+        (A). With a strike of 85 the premium is about 1.47 and the worst loss about 16.47; with a strike of 100 the premium is about 6.00 and the worst loss about 6.00. More protection costs a larger premium: when the stock rises, the profit falls short of the stock alone by exactly the premium, which goes from about 1.47 to about 6.00.
+
+  - id: C4
+    kind: check
+    section: strategies
+    concepts: [protective-put, covered-call]
+    question:
+      zh-cn: |-
+        一位高管持有大量本公司股票，今后一年内不能卖出。他担心股价大跌，但不想为保护付出太多现金。下列哪种做法最符合他的需要？
+      en: |-
+        An executive holds a large amount of his company's stock and cannot sell it for a year. He worries about a big fall but does not want to spend much cash on protection. Which approach fits his needs best?
+    choices:
+      - zh-cn: 买入执行价较低的看跌期权，同时卖出执行价较高的看涨期权
+        en: Buy a put with a lower strike and sell a call with a higher strike
+      - zh-cn: 只卖出看涨期权
+        en: Only sell a call
+        why:
+          zh-cn: 卖出看涨期权收到期权费，但股价大跌时它能提供多少保护？
+          en: Selling a call brings in a premium, but how much protection does it give in a big fall?
+      - zh-cn: 再买入一些看涨期权
+        en: Buy some calls as well
+        why:
+          zh-cn: 看涨期权在股价下跌时有什么作用？
+          en: What do calls do when the price falls?
+      - zh-cn: 卖出看跌期权，收取期权费
+        en: Sell puts to collect premiums
+        why:
+          zh-cn: 卖出看跌期权的人在股价下跌时要按执行价买入股票。这会减少还是增加他的下跌风险？
+          en: A put writer must buy the stock at the strike when the price falls. Does that reduce or increase his downside?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。这是领口：看跌期权限定了下跌的损失，卖出看涨期权收到的期权费抵消了买看跌期权的成本，代价是放弃执行价以上的上涨。（实际中，高管的这类交易要遵守公司政策和证券法规。）
+      en: |-
+        (A). This is a collar: the put caps the loss on the way down, and the premium from the call pays for the put, at the cost of giving up gains above the call's strike. (In practice, such trades by executives must follow company policy and securities rules.)
+
+  - id: C5
+    kind: check
+    section: employee-options
+    concepts: [employee-stock-option, human-capital]
+    question:
+      zh-cn: |-
+        一位员工获得了公司的 10 年期期权，还在归属期内，不能出售或对冲。与条款相同、可以在交易所买卖的期权相比，这些期权对他的价值：
+      en: |-
+        An employee receives 10-year options from his company, still vesting, which cannot be sold or hedged. Compared with options of the same terms traded on an exchange, these options are worth to him:
+    choices:
+      - zh-cn: 更低，因为不能出售或对冲、离职会失去，而且他的工作收入已经依赖这家公司
+        en: Less, because they cannot be sold or hedged, are lost if he leaves, and his job income already depends on the company
+      - zh-cn: 更高，因为期限很长
+        en: More, because the term is very long
+        why:
+          zh-cn: 长期限已经算在“条款相同”的交易所期权里了。两者真正的区别在哪里？
+          en: The long term is already in the exchange-traded option "of the same terms". What really differs between them?
+      - zh-cn: 相同，因为条款相同
+        en: The same, because the terms are the same
+        why:
+          zh-cn: 他能像交易所期权的持有人那样，在需要时卖掉或者对冲风险吗？
+          en: Can he sell them or hedge the risk when needed, as a holder of exchange-traded options can?
+      - zh-cn: 更高，因为他比市场更了解公司
+        en: More, because he knows the company better than the market
+        why:
+          zh-cn: 即使他了解公司，他能分散这部分风险吗？这部分风险与他的工作收入有什么关系？
+          en: Even if he knows the company well, can he diversify this risk? How is it related to his job income?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。交易所期权的价值假设持有人可以随时卖出或对冲。员工不能出售、不能对冲，离职会失去未归属部分，往往被迫提前行权；而且他的人力资本已经集中在这家公司，公司出问题时工作和期权一起受损。对一个风险厌恶、无法分散的员工，这些期权的价值明显低于市场价值。
+      en: |-
+        (A). An exchange-traded option's value assumes the holder can sell or hedge at any time. The employee cannot sell or hedge, loses unvested options on leaving, and is often forced to exercise early; and his human capital is already concentrated in the company, so if it gets into trouble his job and his options suffer together. To a risk-averse employee who cannot diversify, these options are worth clearly less than their market value.
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [call-option, option-premium, financial-leverage]
+    expected: { be: "106", r90: "-100", r110: "66.7", r130: "400" }
+    question:
+      zh-cn: |-
+        一只股票现在为 100 美元。3 个月期、执行价 100 的看涨期权价格为 6 美元。一位投资者有 6,000 美元，认为股价会上涨。
+        (a) 期权到期时，股价至少要多少，买看涨期权才不亏？如果 3 个月后股价分别为 90、110、130 美元，把 6,000 美元全部用来买股票和全部用来买看涨期权，收益率各是多少？
+        (b) 他说：“买看涨期权最多只会亏掉期权费，所以比买股票的风险小。”评价这个说法。
+      en: |-
+        A stock is at 100 dollars. A 3-month call with a strike of 100 costs 6 dollars. An investor has 6,000 dollars and thinks the stock will rise.
+        (a) At expiry, what is the lowest stock price at which buying the call does not lose money? If the stock is at 90, 110 or 130 dollars in 3 months, what are the returns from putting all 6,000 dollars into the stock and from putting it all into calls?
+        (b) He says: "With calls the most I can lose is the premium, so they are less risky than the stock." Evaluate this statement.
+    answer:
+      zh-cn: |-
+        (a) 盈亏平衡点 $100 + 6 = 106$ 美元。股票：−10%、+10%、+30%。看涨期权（买 1,000 份）：股价 90 时期权作废，收益率 −100%；110 时每份收益 10，$\frac{10 - 6}{6} \approx 66.7\%$；130 时每份收益 30，$\frac{30 - 6}{6} = 400\%$。
+        (b) 说法不对。“最多亏期权费”是按每份期权说的；按投入的金额看，同样 6,000 美元买期权，股价只要不超过 106（包括只是不涨），他就会亏损，不超过 100 时全部亏光；而买股票全部亏光需要公司倒闭。期权是高杠杆的投资：收益率的波动远大于股票。只有当他用少得多的钱买期权（例如用 600 美元买 100 份，其余放在无风险资产中）时，最大亏损才确实小于持有股票，这时的风险敞口也相应小得多。
+      en: |-
+        (a) The break-even price is $100 + 6 = 106$ dollars. Stock: −10%, +10%, +30%. Calls (1,000 of them): at 90 they expire worthless, a return of −100%; at 110 each pays 10, so $\frac{10 - 6}{6} \approx 66.7\%$; at 130 each pays 30, so $\frac{30 - 6}{6} = 400\%$.
+        (b) The statement is wrong. "The most I can lose is the premium" is per option; per dollar invested, with the same 6,000 dollars in calls he loses unless the stock ends above 106 (including if it merely stays flat), and loses everything if it ends at or below 100, whereas losing everything in the stock would take the company failing. Options are a highly leveraged investment: their returns swing far more than the stock's. Only if he spends much less on calls (say 600 dollars for 100 calls, keeping the rest in a riskless asset) is his largest loss really smaller than with the stock, and his exposure is correspondingly much smaller too.
+    rubric:
+      zh-cn:
+        - "(a) 通过：盈亏平衡 106；股票 −10%、10%、30%；期权 −100%、约 66.7%、400%。"
+        - "(b) 通过：指出按投入的金额看期权更容易全部亏掉、收益率波动更大（杠杆），并说明只有少投入时最大亏损才更小。同意他的说法，需要订正。"
+      en:
+        - "(a) OK: break-even 106; stock −10%, 10%, 30%; calls −100%, about 66.7%, 400%."
+        - "(b) OK: says that per dollar invested, calls are more likely to be wiped out and their returns swing more (leverage), and that the largest loss is smaller only if less is invested. Agreeing with him needs revision."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [protective-put, option-premium, capital-allocation-line]
+    expected: { floor: "-12.53", cost: "1.33" }
+    question:
+      zh-cn: |-
+        一位退休者把 100 万美元全部投资于股票指数，每年年初买入 1 年期、执行价为当时指数 90% 的看跌期权，期权费为指数的 2.53%。按他的估计，一年后指数低于执行价的概率约为 20%，这时看跌期权平均支付指数的 6%。
+        (a) 每一年他最坏的亏损是百分之几（不考虑股息和期权费的利息）？按他的估计，这份保险平均每年让他的收益减少几个百分点？
+        (b) 他说：“我每年都买保险，所以持有 100% 股票也没有风险，收益也不受影响。”评价这个说法。还有什么办法可以降低他的最坏亏损？
+      en: |-
+        A retiree puts all 1 million dollars into a stock index and, at the start of each year, buys 1-year puts with a strike at 90% of the index level then, paying a premium of 2.53% of the index. By his estimate, the chance that the index ends below the strike is about 20%, in which case the puts pay on average 6% of the index.
+        (a) What is his worst loss in any year, in percent (ignoring dividends and interest on the premium)? By his estimate, by how many percentage points does the insurance reduce his return on average each year?
+        (b) He says: "I buy insurance every year, so holding 100% stocks carries no risk, and my returns are unaffected." Evaluate this statement. What else could lower his worst loss?
+    answer:
+      zh-cn: |-
+        (a) 最坏的情况：指数跌到执行价以下，损失 10%（由看跌期权抵消更多的下跌）再加上 2.53% 的期权费，共 −12.53%。平均每年的成本 $= 2.53\% - 20\% \times 6\% = 2.53\% - 1.2\% = 1.33$ 个百分点。
+        (b) 说法不对。风险没有消失：每年仍可能亏损 12.53%，连续几年下跌时会累积。收益也受影响：按他的估计，保险平均每年减少约 1.33 个百分点，30 年下来复利的差距很大；看跌期权的价格通常高于按真实概率计算的平均赔付，因为保险的需求大、卖方要求风险补偿（与 [[1.4]] 的保险一样，风险厌恶的人付出这个代价可能是合理的，但不是免费的）。降低最坏亏损的另一种办法是少持有股票：按资本配置线（[[4.3]]），把一部分钱放在无风险资产中，同样降低了风险，而且不付期权费；也可以买执行价更低的看跌期权，只保护极端的下跌，成本更低。
+      en: |-
+        (a) The worst case: the index falls below the strike, losing 10% (the put offsets any further fall) plus the 2.53% premium, for −12.53%. The average yearly cost is $2.53\% - 20\% \times 6\% = 2.53\% - 1.2\% = 1.33$ percentage points.
+        (b) The statement is wrong. The risk has not vanished: he can still lose 12.53% every year, and several bad years in a row add up. The return is affected too: by his own estimate, the insurance costs about 1.33 points a year on average, which compounds into a large gap over 30 years; puts usually cost more than their average payout under real probabilities, because demand for insurance is high and sellers want pay for the risk (as with insurance in [[1.4]], a risk-averse person may reasonably pay this, but it is not free). Another way to lower the worst loss is to hold less stock: along the capital allocation line ([[4.3]]), putting part of the money in a riskless asset also lowers risk, without paying premiums; or he could buy puts with a lower strike, protecting only against extreme falls, at lower cost.
+    rubric:
+      zh-cn:
+        - "(a) 通过：最坏亏损 −12.53%，平均成本约 1.33 个百分点。"
+        - "(b) 通过：指出仍有亏损且保险有长期成本，并提出降低股票比例（或较低执行价）等替代办法。同意他的说法，需要订正。"
+      en:
+        - "(a) OK: a worst loss of −12.53% and an average cost of about 1.33 percentage points."
+        - "(b) OK: says losses remain and the insurance has a long-run cost, and proposes alternatives such as holding less stock (or a lower strike). Agreeing with him needs revision."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [covered-call, option-premium, mental-accounting]
+    expected: { y: "8.76", up: "5.73", down: "-9.27" }
+    question:
+      zh-cn: |-
+        一只“高收益”基金的宣传材料说：“我们持有股票，每个月卖出 1 个月期、执行价高于股价 5% 的看涨期权，每月收取约 0.73% 的期权费。加上股息，每年可以给投资者提供很高的分红收益。”
+        (a) 按每月 0.73% 计算，期权费一年合计约多少（不复利）？如果某个月股价从 100 涨到 115，或者从 100 跌到 90，这一个月基金（每 100 美元股票）的收益率各是多少（不考虑股息）？
+        (b) 评价把期权费说成“分红收益”的做法。这种基金在什么样的市场里会明显跑输它持有的股票？
+      en: |-
+        A "high-income" fund advertises: "We hold stocks and each month sell 1-month calls with a strike 5% above the share price, collecting about 0.73% a month in premiums. With dividends, we pay investors a very high distribution yield."
+        (a) At 0.73% a month, about how much do the premiums come to over a year (without compounding)? If in some month the stock goes from 100 to 115, or from 100 to 90, what is the fund's return that month (per 100 dollars of stock, ignoring dividends)?
+        (b) Evaluate calling the premiums a "distribution yield". In what kind of market does such a fund clearly lag the stocks it holds?
+    answer:
+      zh-cn: |-
+        (a) 一年约 $0.73\% \times 12 = 8.76\%$。涨到 115：股票涨 15，但要按 105 交出，所以基金的收益为 $5 + 0.73 = 5.73$，即 5.73%，而股票本身涨了 15%。跌到 90：$-10 + 0.73 = -9.27\%$，只比股票的 −10% 少亏一点。
+        (b) 期权费不是额外的收入，而是卖出股价大涨可能性的价格：基金每个月放弃了超过 5% 的上涨，换来 0.73%。把它称为“收益率”类似把卖出资产的所得说成收入（心理账户，[[4.8]]），也像只看股息率而不看总收益（[[3.9]]）。下跌时基金几乎承担全部亏损，上涨时收益被封顶：总收益的分布被削去了右尾。在股价持续大幅上涨、或者大跌后迅速反弹的市场中，它会明显跑输持有的股票；在横盘的市场中表现较好。期权费是否“合算”，取决于期权的价格是否高于它承担的风险，而不取决于每月收到的现金。
+      en: |-
+        (a) About $0.73\% \times 12 = 8.76\%$ a year. Up to 115: the stock gains 15, but must be handed over at 105, so the fund earns $5 + 0.73 = 5.73$, that is 5.73%, while the stock itself rose 15%. Down to 90: $-10 + 0.73 = -9.27\%$, only a little better than the stock's −10%.
+        (b) The premium is not extra income but the price of selling the chance of a big rise: each month the fund gives up gains beyond 5% in exchange for 0.73%. Calling it a "yield" is like calling the proceeds of selling an asset income (mental accounting, [[4.8]]), or looking at the dividend yield instead of the total return ([[3.9]]). The fund bears almost all of the losses in falls while its gains are capped in rises: the right tail of the return distribution is cut off. In markets that rise strongly and steadily, or rebound quickly after a crash, it clearly lags the stocks it holds; in sideways markets it does better. Whether the premiums are a "good deal" depends on whether options are priced above the risk they carry, not on the cash collected each month.
+    rubric:
+      zh-cn:
+        - "(a) 通过：约 8.76%；上涨月 5.73%，下跌月 −9.27%。"
+        - "(b) 通过：指出期权费是卖出上涨潜力的价格、不是额外收入，下跌承担大部分亏损而上涨被封顶，并指出在大涨或快速反弹的市场中跑输。把期权费当作类似股息的收益，需要订正。"
+      en:
+        - "(a) OK: about 8.76%; 5.73% in the up month and −9.27% in the down month."
+        - "(b) OK: says the premium is the price of selling upside, not extra income, that the fund bears most losses while gains are capped, and that it lags in strong rallies or quick rebounds. Treating premiums as a dividend-like yield needs revision."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [employee-stock-option, human-capital, call-option]
+    question:
+      zh-cn: |-
+        一家初创公司的财务总监在招聘时对候选人说：“我们给你 1 万份期权，按期权定价模型每份值 15 美元，相当于 15 万美元的薪酬。而且公司不用付一分钱现金，所以对公司来说几乎没有成本。”这些期权 4 年归属、10 年到期，不能出售，公司禁止员工对冲。
+        评价这两句话。对候选人来说，在比较这份工作和另一份现金薪酬高 3 万美元、没有期权的工作时，应该考虑什么？
+      en: |-
+        At a startup, the CFO tells a candidate: "We're giving you 10,000 options, worth 15 dollars each by an option pricing model, so that's 150,000 dollars of pay. And the company doesn't pay a cent in cash, so they cost the company almost nothing." The options vest over 4 years, expire in 10, cannot be sold, and employees are not allowed to hedge them.
+        Evaluate both statements. In comparing this job with another that pays 30,000 dollars more in cash and has no options, what should the candidate consider?
+    answer:
+      zh-cn: |-
+        第一句：15 美元是可以自由交易、可以对冲的期权的市场价值。对员工来说价值更低：他不能出售或对冲；离职时未归属的部分作废，已归属的通常要在短时间内行权；他的工作收入已经依赖这家公司（人力资本，[[4.12]]），公司失败时工作和期权同时损失；作为风险厌恶、无法分散的人，他对这种集中风险的确定性等价远低于市场价值（[[1.4]]）。初创公司的股价通常没有市场价格，模型的输入（波动率、价值）本身也很不确定。
+        第二句：公司不付现金，但现有股东付出了成本。公司本可以把这些期权（或等价的股票）按市场价值卖给投资者换取现金；发给员工，行权时股东的股权被稀释，价值转移给了员工。这正是会计准则要求把股票期权计为薪酬费用的原因（[[3.7]] 的股票薪酬）。
+        候选人应该：按低于 15 万的主观价值评估期权（例如考虑公司失败的概率、需要待满 4 年的可能性）；看自己的财富和收入有多集中在这家公司，能否承受期权最终一文不值；比较两份工作的现金收入差额能带来多少确定的储蓄；如果接受期权，规划好归属后的分散化（[[5.2#employee-options]]）。
+      en: |-
+        First statement: 15 dollars is the market value of an option that can be traded and hedged freely. To the employee it is worth less: he cannot sell or hedge; unvested options are forfeited if he leaves, and vested ones usually must be exercised soon after; his job income already depends on the company (human capital, [[4.12]]), so if the company fails he loses his job and his options together; and as a risk-averse person who cannot diversify, his certainty equivalent for such concentrated risk is well below the market value ([[1.4]]). A startup's stock usually has no market price, so the model's inputs (volatility, value) are themselves very uncertain.
+        Second statement: the company pays no cash, but existing shareholders bear a cost. The company could have sold these options (or the equivalent shares) to investors at market value for cash; giving them to employees dilutes shareholders when they are exercised, transferring value to the employees. That is why accounting rules require stock options to be expensed as pay (stock compensation, as in [[3.7]]).
+        The candidate should value the options below 150,000 dollars, by his own reckoning (for example, the chance the company fails and the chance he stays the full 4 years); consider how concentrated his wealth and income already are in the company and whether he could bear the options ending worthless; compare how much certain saving the extra cash pay in the other job would provide; and, if he takes the options, plan to diversify after they vest ([[5.2#employee-options]]).
+    rubric:
+      zh-cn:
+        - "通过：指出员工期权对员工的价值低于模型的市场价值（不能出售或对冲、归属与作废、与人力资本集中、风险厌恶），指出公司股东承担了稀释或机会成本，并对候选人的比较给出有理由的考虑。只评价其中一句，或同意任一句，需要订正。"
+      en:
+        - "OK: says the options are worth less to the employee than their model market value (no selling or hedging, vesting and forfeiture, concentration with human capital, risk aversion), says existing shareholders bear dilution or an opportunity cost, and gives reasoned considerations for the candidate's comparison. Evaluating only one statement, or agreeing with either, needs revision."

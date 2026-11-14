@@ -394,3 +394,9 @@ carry-curve:
   params:
     r: { min: 0, max: 8, step: 0.5, default: 4 }
     q: { min: 0, max: 8, step: 0.5, default: 1.5 }
+
+option-strategies:
+  component: src/components/widgets/OptionStrategies.astro
+  params:
+    kp: { min: 80, max: 100, step: 5, default: 90 }
+    kc: { min: 100, max: 130, step: 5, default: 110 }

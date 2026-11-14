@@ -477,7 +477,15 @@ stages:
         published: true
         introduces: [forward-contract, derivative-security, cost-of-carry, contango, futures-contract, margin, mark-to-market, hedging, basis]
         uses: [arbitrage, continuous-compounding, covered-interest-parity, financial-leverage, covariance, regression-coefficient, beta, single-index-model, short-selling]
-      - { id: "5.2", slug: "5-2-options-basics", title: { zh-cn: "期权基础", en: "Option Basics" } }
+      - id: "5.2"
+        slug: "5-2-options-basics"
+        title: { zh-cn: "期权基础", en: "Option Basics" }
+        summary:
+          zh-cn: "看涨期权与看跌期权；到期收益与利润；内在价值与时间价值；保护性看跌与备兑看涨；员工股票期权的特点。"
+          en: "Calls and puts; payoffs and profits at expiry; intrinsic value and time value; protective puts and covered calls; the features of employee stock options."
+        published: true
+        introduces: [call-option, put-option, strike-price, option-premium, intrinsic-value, time-value, protective-put, covered-call, employee-stock-option]
+        uses: [forward-contract, derivative-security, risk-aversion, certainty-equivalent, human-capital, financial-leverage, capital-allocation-line, mental-accounting, expected-value]
       - { id: "5.3", slug: "5-3-option-pricing", title: { zh-cn: "期权定价", en: "Option Pricing" } }
       - { id: "5.4", slug: "5-4-swaps", title: { zh-cn: "互换（选学）", en: "Swaps (Optional)" } }
       - { id: "5.5", slug: "5-5-alternative-assets", title: { zh-cn: "另类资产", en: "Alternative Assets" } }

@@ -2677,3 +2677,75 @@ basis:
   short:
     zh-cn: "现货价格与期货价格之差；基差的变化使套期保值不完美（基差风险）。"
     en: "The spot price minus the futures price; changes in the basis make hedges imperfect (basis risk)."
+
+call-option:
+  defined_in: "5.2"
+  zh-cn: 看涨期权
+  en: call option
+  short:
+    zh-cn: "在到期日（或之前）按执行价买入标的资产的权利；到期收益 max(S_T − K, 0)。"
+    en: "The right to buy the underlying at the strike price on (or before) expiry; payoff max(S_T − K, 0)."
+
+put-option:
+  defined_in: "5.2"
+  zh-cn: 看跌期权
+  en: put option
+  short:
+    zh-cn: "在到期日（或之前）按执行价卖出标的资产的权利；到期收益 max(K − S_T, 0)。"
+    en: "The right to sell the underlying at the strike price on (or before) expiry; payoff max(K − S_T, 0)."
+
+strike-price:
+  defined_in: "5.2"
+  zh-cn: 执行价
+  en: strike price
+  short:
+    zh-cn: "期权约定的买入或卖出标的资产的价格。"
+    en: "The price at which an option lets its holder buy or sell the underlying."
+
+option-premium:
+  defined_in: "5.2"
+  zh-cn: 期权费
+  en: option premium
+  short:
+    zh-cn: "期权买方为获得期权付给卖方的价格。"
+    en: "The price the option buyer pays the writer for the option."
+
+intrinsic-value:
+  defined_in: "5.2"
+  zh-cn: 内在价值
+  en: intrinsic value
+  short:
+    zh-cn: "期权立即行权能得到的价值，看涨期权为 max(S − K, 0)。"
+    en: "What an option would bring if exercised immediately; max(S − K, 0) for a call."
+
+time-value:
+  defined_in: "5.2"
+  zh-cn: 时间价值
+  en: time value
+  short:
+    zh-cn: "期权价格超出内在价值的部分，来自到期前收益的不对称。"
+    en: "The part of an option's price above its intrinsic value, coming from the asymmetry of payoffs before expiry."
+
+protective-put:
+  defined_in: "5.2"
+  zh-cn: 保护性看跌
+  en: protective put
+  short:
+    zh-cn: "持有股票并买入看跌期权，限定最坏的结果。"
+    en: "Holding a stock and buying a put on it, capping the worst outcome."
+
+covered-call:
+  defined_in: "5.2"
+  zh-cn: 备兑看涨
+  en: covered call
+  short:
+    zh-cn: "持有股票并卖出看涨期权，收取期权费、放弃执行价以上的上涨。"
+    en: "Holding a stock and selling a call on it, collecting the premium and giving up gains above the strike."
+
+employee-stock-option:
+  defined_in: "5.2"
+  zh-cn: 员工股票期权
+  en: employee stock option
+  short:
+    zh-cn: "公司授予员工的长期看涨期权，需要归属，不能出售或对冲。"
+    en: "A long-dated call granted by a company to an employee; it must vest and cannot be sold or hedged."
