@@ -1,0 +1,314 @@
+# Answer key for lesson 6.12. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[5.2#strategies]] (section), [[concept:beta]], [[check:Q3]], [[fig:3-1]].
+# expected: values are recomputed by course/verify/6.12.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "6.12"
+
+context:
+  - zh-cn: |-
+      学习者学过现值（[[0.1]]）、对数正态分布（[[0.4]]）、久期与免疫（[[3.4]]）、TIPS（[[3.6]]）、心理账户（[[4.8]]）、蒙特卡洛模拟（[[4.13]]）、保护性看跌（[[5.2]]）、资产配置与再平衡（[[6.7]]）、退休规划（[[6.9]]）、IPS（[[6.10]]）、通胀与实际收益（[[6.11]]）。可以用计算器或代码计算 $N(\cdot)$。百分数用百分点表示。
+    en: |-
+      The learner has studied present value ([[0.1]]), the lognormal distribution ([[0.4]]), duration and immunization ([[3.4]]), TIPS ([[3.6]]), mental accounting ([[4.8]]), Monte Carlo simulation ([[4.13]]), protective puts ([[5.2]]), asset allocation and rebalancing ([[6.7]]), retirement planning ([[6.9]]), the IPS ([[6.10]]) and inflation and real returns ([[6.11]]). A calculator or code may be used for $N(\cdot)$. Percentages in percentage points.
+  - concepts: [goals-based-investing, funded-ratio]
+    zh-cn: |-
+      讲义：每个目标是一笔负债：金额（今天的购买力）、时间、重要程度（需要、想要、愿望）；资金充足率 = 为目标准备的资产 / 目标按无风险利率折现的现值；充足率 100% 时用期限匹配的无风险资产可以确定地达成。
+    en: |-
+      The lesson: each goal is a liability: amount (today's purchasing power), date, importance (needs, wants, wishes); funded ratio = assets set aside / the goal's present value at the riskless rate; at 100%, maturity-matched riskless assets meet the goal with certainty.
+  - concepts: [funded-ratio, lognormal-distribution]
+    zh-cn: |-
+      讲义：[[fig:2-1]]：实际收益无风险 1%，股票预期 5%、波动率 17%；组合期望 $1\% + 4\% w$、波动率 $17\% w$；对数正态近似 $P = N\left(\frac{\ln F + (m - \ln 1.01)T}{\sigma_p\sqrt{T}}\right)$，$m = \ln(1 + \mu_p) - \sigma_p^2/2$；滑块年数 1–30（默认 5）、充足率 60–120%（步长 10，默认 100）；股票 0%、25%、50%、75%、100% 时：充足率 100%、5 年为 100、68.1、66.3、64.5、62.6；70%、5 年为 0、0.1、7.3、18.9、26.8；100%、30 年为 100、87.6、84.9、81.8、78.4；120%、5 年为 100、99.2、91.6、84.4、78.8。讲义没有解释这些规律（留给 [[check:C2]]、[[check:C3]]）。
+    en: |-
+      The lesson: [[fig:2-1]]: real returns riskless 1%, stocks 5% expected with 17% volatility; portfolio mean $1\% + 4\% w$, volatility $17\% w$; lognormal approximation $P = N\left(\frac{\ln F + (m - \ln 1.01)T}{\sigma_p\sqrt{T}}\right)$ with $m = \ln(1 + \mu_p) - \sigma_p^2/2$; sliders years 1–30 (default 5) and funded ratio 60–120% (steps of 10, default 100); at 0%, 25%, 50%, 75%, 100% stocks: funded 100% over 5 years 100, 68.1, 66.3, 64.5, 62.6; 70% over 5 years 0, 0.1, 7.3, 18.9, 26.8; 100% over 30 years 100, 87.6, 84.9, 81.8, 78.4; 120% over 5 years 100, 99.2, 91.6, 84.4, 78.8. The lesson does not explain these patterns (left to [[check:C2]], [[check:C3]]).
+  - concepts: [goals-based-investing, mental-accounting]
+    zh-cn: |-
+      讲义：必须达成的目标先用期限匹配的安全资产锁定（负债驱动投资），剩余资产承担风险追求愿望；结构类似保护性看跌；按目标分开看似心理账户，但有实际用处：写下金额与时间、风险与期限和重要性相符、更容易坚持计划。各目标的配置按金额加权平均得到总配置；总配置要与 IPS 相符；可在家庭层面再平衡；定期调整。
+    en: |-
+      The lesson: goals that must be met are first locked in with maturity-matched safe assets (liability-driven investing), with the rest taking risk for wishes; the structure resembles a protective put; splitting by goal looks like mental accounting but has real uses: writing down amounts and dates, matching risk to horizon and importance, making the plan easier to keep. Goal allocations weighted by amount give the overall allocation, which must fit the IPS; rebalancing can happen at the household level; revisit regularly.
+
+common_errors:
+  - questions: [Q1]
+    zh-cn: |-
+      资金略有不足的短期目标，试图靠投资股票“追上”；忽略短期内股票下跌的可能，以及增加储蓄或调整目标更可靠。
+    en: |-
+      Trying to "catch up" on a slightly underfunded short-term goal by investing in stocks; ignoring the chance of a short-term fall, and that saving more or adjusting the goal is more reliable.
+  - questions: [Q2]
+    zh-cn: |-
+      以为期限长就一定能用股票达成目标；忽略即使期限很长，资金不足时失败的概率仍然很大。
+    en: |-
+      Thinking a long horizon guarantees reaching a goal with stocks; ignoring that even with a long horizon the chance of failure stays large when the goal is underfunded.
+  - questions: [Q3]
+    zh-cn: |-
+      只看家庭的总配置，或者以为分目标管理后各目标承担相同的风险；忽略总配置是各目标配置的加权平均，各目标的风险不同。
+    en: |-
+      Looking only at the household's overall allocation, or thinking each goal bears the same risk after splitting by goal; ignoring that the overall allocation is a weighted average of different goal allocations with different risks.
+  - questions: [Q4]
+    zh-cn: |-
+      把短期债券基金当作远期目标的“安全资产”；忽略利率变化时目标的现值与资产的价值变化不匹配（久期不匹配）。
+    en: |-
+      Treating a short-term bond fund as the "safe asset" for a distant goal; ignoring that when rates change, the goal's present value and the assets' value move differently (a duration mismatch).
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: goals
+    concepts: [funded-ratio, present-value]
+    question:
+      zh-cn: |-
+        计算一个目标的资金充足率时，目标的现值为什么用无风险利率折现，而不是用组合的预期收益率折现？
+      en: |-
+        When computing a goal's funded ratio, why is the goal's present value discounted at the riskless rate rather than the portfolio's expected return?
+    choices:
+      - zh-cn: 用无风险利率折现得到的是今天能确定地锁定这个目标所需的钱；用预期收益率折现，会把不确定的收益当作确定的
+        en: Discounting at the riskless rate gives the money needed today to lock in the goal for certain; discounting at the expected return treats uncertain returns as certain
+      - zh-cn: 因为无风险利率通常更高
+        en: Because the riskless rate is usually higher
+        why:
+          zh-cn: 无风险利率通常比股票的预期收益率高还是低？用较低的利率折现，现值会更大还是更小？
+          en: Is the riskless rate usually higher or lower than the expected stock return? Discounting at a lower rate gives a larger or smaller present value?
+      - zh-cn: 因为目标的金额是确定的，所以任何利率都可以
+        en: Because the goal amount is certain, any rate will do
+        why:
+          zh-cn: 用不同的利率折现，充足率会不同。哪一个利率对应的是“确定能达成”？
+          en: Different rates give different funded ratios. Which rate corresponds to "certain to be met"?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。按无风险利率折现的现值，是今天买入期限匹配的无风险资产、确定地达成目标所需的金额。如果用较高的预期收益率折现，现值会变小，充足率看起来更高，但那只是在收益达到预期时才够；而实际收益有一半左右的可能低于预期。这与养老金用预期收益率折现负债而显得资金充足、后来出现缺口的问题相同。
+      en: |-
+        (A). The present value at the riskless rate is the amount needed today to buy maturity-matched riskless assets that meet the goal for certain. Discounting at a higher expected return makes the present value smaller and the funded ratio look higher, but it suffices only if returns meet expectations, and actual returns fall short about half the time. This is the same problem as pension plans that discount liabilities at expected returns, look fully funded, and later find a shortfall.
+
+  - id: C2
+    kind: check
+    section: probability
+    concepts: [funded-ratio, goals-based-investing]
+    widget: { id: goal-prob, set: { t: 5, f: 100 } }
+    question:
+      zh-cn: |-
+        在 [[fig:2-1]] 中，资金充足率 100%、期限 5 年时，股票比例从 0 提高后，达成目标的概率怎样变化，为什么？
+      en: |-
+        In [[fig:2-1]], with a 100% funded ratio and 5 years, how does the probability of reaching the goal change as the stock share rises from 0, and why?
+    choices:
+      - zh-cn: 下降：0% 股票时用无风险资产已经确定达成，加入股票只会带来低于目标的可能
+        en: 'It falls: with 0% stocks the goal is already met for certain with riskless assets, and adding stocks only brings the chance of falling short'
+      - zh-cn: 上升：股票的预期收益更高，所以达成目标的概率更高
+        en: 'It rises: stocks have higher expected returns, so the probability of reaching the goal is higher'
+        why:
+          zh-cn: 看图中 0% 股票时的概率是多少。预期收益更高，能使一个已经确定的结果更确定吗？
+          en: Look at the probability with 0% stocks in the figure. Can a higher expected return make a certain outcome more certain?
+      - zh-cn: 不变，因为充足率是 100%
+        en: It stays the same, because the funded ratio is 100%
+        why:
+          zh-cn: 看读数：股票 50% 和 100% 时的概率是多少？
+          en: 'Look at the readout: what are the probabilities with 50% and 100% stocks?'
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。充足率 100% 时，期限匹配的无风险资产正好能达成目标，概率为 100%。加入股票提高了期望的财富，但也带来了低于目标的可能：5 年中股票表现不佳的概率并不小，概率降到约 60%–70%。对一个已经充足、而且重要的短期目标，承担风险只会带来失败的可能，多出来的期望财富只对超出目标的部分有意义。
+      en: |-
+        (A). At a 100% funded ratio, maturity-matched riskless assets meet the goal exactly, with probability 100%. Adding stocks raises expected wealth but also brings the chance of falling short: stocks doing poorly over 5 years is far from unlikely, and the probability drops to about 60%–70%. For an important short-term goal that is already fully funded, taking risk only creates a chance of failure; the extra expected wealth matters only for amounts beyond the goal.
+
+  - id: C3
+    kind: check
+    section: probability
+    concepts: [funded-ratio, goals-based-investing]
+    widget: { id: goal-prob, set: { t: 5, f: 70 } }
+    question:
+      zh-cn: |-
+        在 [[fig:2-1]] 中，把资金充足率降到 70%，期限仍为 5 年。下面哪种说法最合理？
+      en: |-
+        In [[fig:2-1]], lower the funded ratio to 70% with 5 years still to go. Which statement is most reasonable?
+    choices:
+      - zh-cn: 即使全部投资股票，达成的概率也只有约四分之一；更可靠的办法是增加储蓄、推迟或缩小目标
+        en: Even with all stocks, the probability is only about a quarter; saving more, delaying or shrinking the goal is more reliable
+      - zh-cn: 全部投资股票就能补上缺口，因为股票的长期收益高
+        en: Putting everything in stocks closes the gap, because stocks earn more in the long run
+        why:
+          zh-cn: 看读数：100% 股票时概率是多少？5 年算长期吗？
+          en: 'Look at the readout: what is the probability with 100% stocks? Is 5 years the long run?'
+      - zh-cn: 应该全部持有无风险资产，因为这样概率最高
+        en: Hold everything in riskless assets, since that gives the highest probability
+        why:
+          zh-cn: 看读数：0% 股票时概率是多少？资金不足时，无风险资产能达成目标吗？
+          en: 'Look at the readout: what is the probability with 0% stocks? When underfunded, can riskless assets meet the goal?'
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。充足率 70% 时，无风险资产一定达不到目标（概率 0）；提高股票比例能提高概率，但 100% 股票也只有约 27%，而且失败时可能差得更远。短期内缺口很难靠承担风险补上。更可靠的办法是改变输入：增加储蓄提高充足率、推迟目标的时间、或者缩小目标的金额。如果目标只是愿望而不是必须，承担风险换取一定的达成概率也可以接受，但要清楚失败的可能有多大。
+      en: |-
+        (A). At a 70% funded ratio, riskless assets surely miss the goal (probability 0); more stocks raise the probability, but even 100% stocks give only about 27%, and failures may fall further short. A gap is hard to close in a short time by taking risk. More reliable is to change the inputs: save more to raise the funded ratio, delay the goal, or shrink it. If the goal is only a wish rather than a need, taking risk for some chance of success can be acceptable, as long as the chance of failure is understood.
+
+  - id: C4
+    kind: check
+    section: priorities
+    concepts: [goals-based-investing]
+    question:
+      zh-cn: |-
+        家庭最重要、必须达成的目标，应该用预期收益最高的组合来投资，以确保它能达成。
+      en: |-
+        A household's most important goal, which must be met, should be invested in the portfolio with the highest expected return, to make sure it is met.
+    correct: false
+    hint:
+      zh-cn: “确保达成”需要的是期望高，还是不确定性小？预期收益最高的组合风险怎样？
+      en: Does "making sure it is met" call for a high expected value or low uncertainty? How risky is the portfolio with the highest expected return?
+    answer:
+      zh-cn: |-
+        错。必须达成的目标需要的是确定性，而不是最高的期望。预期收益最高的组合风险也最大，可能恰好在需要用钱的时候大跌。应该先用期限匹配的安全资产（如 TIPS 阶梯）锁定这个目标，如果资产不够，就增加储蓄或调整其他目标；剩余的资产再用于承担风险、追求不那么重要的目标。
+      en: |-
+        False. A goal that must be met needs certainty, not the highest expected value. The portfolio with the highest expected return is also the riskiest and may fall sharply just when the money is needed. Lock in the goal first with maturity-matched safe assets (such as a TIPS ladder); if assets fall short, save more or adjust other goals; then use what is left to take risk for less important goals.
+
+  - id: C5
+    kind: check
+    section: household
+    concepts: [goals-based-investing, mental-accounting, strategic-asset-allocation]
+    question:
+      zh-cn: |-
+        一个家庭按目标把资产分成三份，各自有不同的股票比例。与只设一个统一的股票比例相比，这样做的主要好处是：
+      en: |-
+        A household splits its assets into three parts by goal, each with its own stock share. Compared with a single overall stock share, the main benefit is:
+    choices:
+      - zh-cn: 每个目标的风险与它的期限和重要性相符，家庭也更清楚每笔钱的用途，市场下跌时更容易坚持计划
+        en: Each goal's risk fits its horizon and importance, the household understands what each sum is for, and it is easier to stick to the plan when markets fall
+      - zh-cn: 分开后总的预期收益一定更高
+        en: Splitting always raises the total expected return
+        why:
+          zh-cn: 家庭总配置是各部分的加权平均。分开本身会改变总的预期收益吗？
+          en: The overall allocation is a weighted average of the parts. Does splitting by itself change the total expected return?
+      - zh-cn: 分开后不需要再平衡
+        en: After splitting, no rebalancing is needed
+        why:
+          zh-cn: 各部分的比例仍会随市场漂移，期限缩短时配置也要调整。还需要再平衡吗？
+          en: Each part's mix still drifts with markets, and allocations must change as horizons shorten. Is rebalancing still needed?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。分目标管理本身不改变总的预期收益（总配置是加权平均），它的价值在于决策质量：每个目标的风险与它的期限和重要性相符，例如首付的钱不放在股票中；家庭清楚每笔钱为什么存在，下跌时不必为“退休金跌了”而恐慌地动用首付的钱，反之亦然。这是在利用心理账户（[[4.8]]）的好处，同时要注意在家庭整体层面检查总配置和再平衡。
+      en: |-
+        (A). Splitting by goal does not by itself change the total expected return (the overall allocation is a weighted average); its value lies in better decisions: each goal's risk fits its horizon and importance, so for example down payment money is not in stocks; the household knows why each sum exists, and a fall in retirement money need not cause panic about the down payment, or the reverse. It uses the strengths of mental accounting ([[4.8]]), while the overall allocation and rebalancing should still be checked at the household level.
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [funded-ratio, present-value]
+    expected: { pv: "102.58", f: "97.5" }
+    question:
+      zh-cn: |-
+        一对夫妻计划 4 年后买房，需要 12 万美元的首付（名义金额），现在为此存了 10 万美元。4 年期国债的年收益率为 4.0%。
+        (a) 这个目标按国债收益率折现的现值是多少？资金充足率是多少？
+        (b) 他们说：“我们还差一点，所以把这 10 万美元都投进股票，4 年里很可能就补上了。”评价这个说法，并给出更好的方案。
+      en: |-
+        A couple plans to buy a home in 4 years and needs a 120,000 dollar down payment (nominal); they have saved 100,000 dollars for it. 4-year Treasuries yield 4.0% a year.
+        (a) What is the goal's present value discounted at the Treasury yield? What is the funded ratio?
+        (b) They say: "We're a little short, so we'll put all 100,000 dollars in stocks; in 4 years we'll very likely make up the difference." Evaluate this statement and give a better plan.
+    answer:
+      zh-cn: |-
+        (a) 现值 $\frac{120}{1.04^4} \approx 102.58$（千美元），充足率 $\frac{100}{102.58} \approx 97.5\%$。
+        (b) 说法不妥。缺口只有约 2,580 美元的现值（4 年后约 3,000 美元），而 4 年中股票下跌 20% 以上的可能并不小（[[fig:2-1]] 显示，即使充足率 100%，5 年期全部投资股票也只有约 63% 的概率达成），一旦下跌，可能缺 2 万到 3 万美元，买房计划被迫推迟。为了补一个很小的缺口承担大的风险，不划算。更好的方案：把 10 万美元放在 4 年期国债或相应期限的国债阶梯中，锁定约 11.7 万美元；缺的约 3,000 美元，在 4 年中每月多存约 60 美元就能补上，或者适当降低首付、推迟几个月。如果这对夫妻的购房时间很灵活，可以放一小部分在股票中，但不应全部。
+      en: |-
+        (a) The present value is $\frac{120}{1.04^4} \approx 102.58$ (thousand dollars), and the funded ratio is $\frac{100}{102.58} \approx 97.5\%$.
+        (b) The statement is unwise. The gap is only about 2,580 dollars in present value (about 3,000 in 4 years), while a fall of 20% or more in stocks within 4 years is far from unlikely ([[fig:2-1]] shows that even 100% funded, all stocks over 5 years meets the goal only about 63% of the time); after a fall they could be 20,000 to 30,000 short, forcing them to delay the purchase. Taking a large risk to close a small gap is a poor trade. A better plan: put the 100,000 in 4-year Treasuries or a ladder of matching maturities, locking in about 117,000; the missing 3,000 or so can be covered by saving about 60 dollars more a month for 4 years, or by a slightly smaller down payment or a delay of a few months. If their timing is very flexible, a small part could go into stocks, but not all of it.
+    rubric:
+      zh-cn:
+        - "(a) 通过：现值约 102.58（千美元），充足率约 97.5%。"
+        - "(b) 通过：指出缺口很小而股票短期风险大，失败的代价远大于缺口；给出锁定加增加储蓄（或调整目标）的方案。同意全部投资股票，需要订正。"
+      en:
+        - "(a) OK: present value about 102.58 (thousand dollars), funded ratio about 97.5%."
+        - "(b) OK: says the gap is small while short-term stock risk is large, and failure costs far more than the gap; proposes locking in plus saving more (or adjusting the goal). Agreeing to put it all in stocks needs revision."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [funded-ratio, lognormal-distribution]
+    expected: { p60: "59.7", p100: "61.8" }
+    question:
+      zh-cn: |-
+        一个家庭为 18 年后孩子的大学教育存钱，按实际 1% 折现，资金充足率为 80%。用 [[fig:2-1]] 的模型（无风险实际收益 1%，股票实际预期收益 5%、波动率 17%）：
+        (a) 股票比例为 60% 和 100% 时，达成目标的概率各是多少？
+        (b) 他们说：“18 年是很长的时间，全部投资股票就一定能达成。”评价这个说法，并说明怎样提高达成的概率。
+      en: |-
+        A household is saving for a child's college in 18 years; discounted at 1% real, the funded ratio is 80%. Using the model of [[fig:2-1]] (riskless real return 1%, stocks 5% expected real with 17% volatility):
+        (a) With 60% and 100% stocks, what is the probability of reaching the goal?
+        (b) They say: "18 years is a long time; with all stocks we're sure to get there." Evaluate this statement, and say how to raise the probability.
+    answer:
+      zh-cn: |-
+        (a) 60% 股票：$\mu_p = 3.4\%$，$\sigma_p = 10.2\%$，$m = \ln 1.034 - 0.0052 \approx 0.0282$，$P = N\left(\frac{\ln 0.8 + (0.0282 - 0.00995) \times 18}{0.102\sqrt{18}}\right) \approx 59.7\%$。100% 股票：$\mu_p = 5\%$，$\sigma_p = 17\%$，$P \approx 61.8\%$。
+        (b) 说法不对。即使期限 18 年、全部投资股票，失败的概率仍有约 38%；从 60% 股票提高到 100%，概率只增加约 2 个百分点，失败时的缺口却更大。期限长确实使股票的平均收益更可能超过无风险资产，但财富的离散程度也随期限增加（[[4.12]] 的时间分散化误区）。提高达成概率最可靠的办法是提高充足率：每年多存一些，或者降低目标（例如公立大学的费用，或者部分由学生贷款、奖学金承担）；临近入学时逐步降低股票比例，锁定已经达成的部分。
+      en: |-
+        (a) 60% stocks: $\mu_p = 3.4\%$, $\sigma_p = 10.2\%$, $m = \ln 1.034 - 0.0052 \approx 0.0282$, $P = N\left(\frac{\ln 0.8 + (0.0282 - 0.00995) \times 18}{0.102\sqrt{18}}\right) \approx 59.7\%$. 100% stocks: $\mu_p = 5\%$, $\sigma_p = 17\%$, $P \approx 61.8\%$.
+        (b) The statement is wrong. Even over 18 years with all stocks, the chance of failure is about 38%; going from 60% to 100% stocks raises the probability by only about 2 percentage points while making shortfalls larger when they occur. A long horizon does make stocks more likely to beat the riskless asset on average, but the spread of wealth also grows with the horizon (the time-diversification fallacy of [[4.12]]). The most reliable way to raise the probability is to raise the funded ratio: save more each year, or lower the goal (for example the cost of a public university, or partly covering it with loans or scholarships); and reduce stocks gradually as college approaches, locking in what has been reached.
+    rubric:
+      zh-cn:
+        - "(a) 通过：约 59.7% 和约 61.8%，公式代入正确。"
+        - "(b) 通过：指出即使全部股票失败概率仍约 38%、提高股票比例收效很小；联系时间分散化误区；建议提高充足率或调整目标，以及临近时降低风险。同意“一定能达成”，需要订正。"
+      en:
+        - "(a) OK: about 59.7% and about 61.8%, with the formula applied correctly."
+        - "(b) OK: says failure is still about 38% likely even with all stocks and more stocks help little; links to the time-diversification fallacy; advises raising the funded ratio or adjusting the goal and reducing risk as the date nears. Agreeing it is sure to work needs revision."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [goals-based-investing, strategic-asset-allocation]
+    expected: { w: "65" }
+    question:
+      zh-cn: |-
+        一个家庭有 100 万美元，按目标分为：应急基金和 3 年后的首付共 15 万美元，全部是现金和短期国债；12 年后的教育金 10 万美元，50% 股票；25 年后的退休金 75 万美元，80% 股票。
+        (a) 家庭整体的股票比例是多少？
+        (b) 一位朋友说：“你们整体就是 65/35，和一个 65/35 的平衡基金一样，分目标管理只是多此一举。”评价这个说法。
+      en: |-
+        A household has 1 million dollars split by goal: an emergency fund plus a down payment in 3 years, 150,000 dollars, all in cash and short-term Treasuries; a college fund for 12 years from now, 100,000 dollars, 50% stocks; and a retirement fund for 25 years from now, 750,000 dollars, 80% stocks.
+        (a) What is the household's overall stock share?
+        (b) A friend says: "Overall you're 65/35, the same as a 65/35 balanced fund; managing by goal is pointless." Evaluate this statement.
+    answer:
+      zh-cn: |-
+        (a) $\frac{0 \times 150 + 0.5 \times 100 + 0.8 \times 750}{1000} = \frac{650}{1000} = 65\%$。
+        (b) 说法只对了一半。在某一时刻，整体的预期收益和波动确实与 65/35 的组合相近。但分目标管理与一个 65/35 的基金有重要的区别。第一，现金流的来源不同：首付从安全资产中支付，不会在股市下跌时被迫卖出股票；如果持有一只 65/35 的基金，三年后无论市场好坏都要从中取出 15 万美元，其中 65% 来自股票。第二，配置会随目标变化：首付付出后，整体的股票比例自动升高；教育金临近使用时降低股票比例；每个目标按自己的期限调整，而一只平衡基金的比例固定。第三，行为上的好处：家庭清楚每笔钱的用途，更容易在下跌时坚持计划。当然，各部分的总和仍应与 IPS 中的风险承受能力相符，并在整体层面检查和再平衡。
+      en: |-
+        (a) $\frac{0 \times 150 + 0.5 \times 100 + 0.8 \times 750}{1000} = \frac{650}{1000} = 65\%$.
+        (b) The statement is only half right. At any one moment the overall expected return and volatility are close to a 65/35 portfolio. But managing by goal differs from a 65/35 fund in important ways. First, the source of cash flows: the down payment comes from safe assets, so stocks need not be sold after a fall; with a 65/35 fund, 150,000 would have to come out in three years whatever the market did, 65% of it from stocks. Second, the allocation changes with the goals: after the down payment is paid the overall stock share rises automatically; the college fund cuts stocks as its date nears; each goal adjusts to its own horizon, while a balanced fund's mix is fixed. Third, the behavioral benefit: the household knows what each sum is for and finds it easier to stick to the plan in a downturn. Of course, the sum of the parts must still fit the risk capacity in the IPS and be checked and rebalanced as a whole.
+    rubric:
+      zh-cn:
+        - "(a) 通过：65%。"
+        - "(b) 通过：承认某一时刻整体相近；指出至少两项区别（取款来自哪类资产、配置随目标期限变化、行为上的好处）。同意“多此一举”，需要订正。"
+      en:
+        - "(a) OK: 65%."
+        - "(b) OK: grants that the totals match at a moment; names at least two differences (which assets fund withdrawals, allocations changing with goal horizons, behavioral benefit). Agreeing it is pointless needs revision."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [immunization, modified-duration, tips, funded-ratio]
+    expected: { pv: "167.32", pv2: "184.68" }
+    question:
+      zh-cn: |-
+        一位 55 岁的人有一个必须达成的目标：10 年后（按今天的购买力）需要 20 万美元。10 年期 TIPS 的实际收益率为 1.8%。
+        (a) 这个目标按 1.8% 实际折现的现值是多少？如果实际利率降到 0.8%，现值变为多少（千美元）？
+        (b) 他已经准备了等于 (a) 中第一个现值的资金，并把它放在一只修正久期为 3 的短期 TIPS 基金中，理由是“短期债券基金最安全”。评价这个做法：实际利率下降 1 个百分点后，他的资金充足率大约会怎样变化？更好的做法是什么？
+      en: |-
+        A 55-year-old has a goal that must be met: 200,000 dollars (in today's purchasing power) in 10 years. 10-year TIPS yield 1.8% real.
+        (a) What is the goal's present value discounted at 1.8% real? If the real rate falls to 0.8%, what does the present value become (thousand dollars)?
+        (b) He has set aside exactly the first present value from (a) and holds it in a short-term TIPS fund with a modified duration of 3, because "short-term bond funds are the safest". Evaluate this choice: roughly how does his funded ratio change after the real rate falls 1 percentage point? What would be better?
+    answer:
+      zh-cn: |-
+        (a) $\frac{200}{1.018^{10}} \approx 167.32$；实际利率降到 0.8% 时 $\frac{200}{1.008^{10}} \approx 184.68$（千美元），上升约 10.4%。
+        (b) 做法不妥。短期基金的价格波动小，但这里的风险不是价格波动，而是资产与负债的不匹配（[[3.4]]）。实际利率下降 1 个百分点，目标的现值上升约 10.4%，而久期为 3 的基金只上涨约 3%，资金充足率从 100% 降到约 $\frac{1.03}{1.104} \approx 93\%$：他今后还要多存钱，或者承担风险，才能达成目标。“安全”要相对负债来判断：对 10 年后的实际负债，最安全的资产是 10 年后到期的 TIPS（或久期约为 10 的 TIPS 组合），它的价值与目标的现值同步变化，持有到期就确定地得到所需的实际金额。这就是用 TIPS 实现的免疫。
+      en: |-
+        (a) $\frac{200}{1.018^{10}} \approx 167.32$; at a 0.8% real rate, $\frac{200}{1.008^{10}} \approx 184.68$ (thousand dollars), a rise of about 10.4%.
+        (b) The choice is unwise. A short-term fund's price moves little, but the risk here is not price volatility but a mismatch between assets and liability ([[3.4]]). When the real rate falls 1 percentage point, the goal's present value rises about 10.4%, while a duration-3 fund gains only about 3%, so the funded ratio falls from 100% to about $\frac{1.03}{1.104} \approx 93\%$: he must now save more or take risk to reach the goal. "Safe" must be judged relative to the liability: for a real liability 10 years away, the safest asset is a TIPS maturing in 10 years (or a TIPS portfolio with a duration of about 10), whose value moves with the goal's present value, paying the required real amount for certain if held to maturity. This is immunization with TIPS.
+    rubric:
+      zh-cn:
+        - "(a) 通过：约 167.32 和约 184.68（千美元）。"
+        - "(b) 通过：指出风险是资产与负债的久期不匹配，算出充足率约降到 93%；建议期限匹配的 TIPS（免疫）。同意“短期基金最安全”，需要订正。"
+      en:
+        - "(a) OK: about 167.32 and about 184.68 (thousand dollars)."
+        - "(b) OK: says the risk is a duration mismatch between assets and liability, and the funded ratio falls to about 93%; recommends maturity-matched TIPS (immunization). Agreeing short-term funds are safest needs revision."

@@ -1,0 +1,313 @@
+# Answer key for lesson 6.13. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[5.2#strategies]] (section), [[concept:beta]], [[check:Q3]], [[fig:3-1]].
+# expected: values are recomputed by course/verify/6.13.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "6.13"
+
+context:
+  - zh-cn: |-
+      学习者学过标准误（[[0.4]]）、资本市场假设（[[4.11]]）、模拟与回测（[[4.13]]）、运气与能力（[[4.9]]）、行为偏差（[[4.8]]）、基金成本（[[6.2]]）、账户与税务（[[6.5]]）、家庭资产负债表（[[6.6]]）、资产配置与再平衡（[[6.7]]）、IPS 与常见错误（[[6.10]]）、目标导向投资与资金充足率（[[6.12]]）。可以用计算器或代码计算 $N(\cdot)$。百分数用百分点表示。
+    en: |-
+      The learner has studied the standard error ([[0.4]]), capital market assumptions ([[4.11]]), simulation and backtesting ([[4.13]]), luck versus skill ([[4.9]]), behavioral biases ([[4.8]]), fund costs ([[6.2]]), accounts and taxes ([[6.5]]), the household balance sheet ([[6.6]]), asset allocation and rebalancing ([[6.7]]), the IPS and common mistakes ([[6.10]]) and goals-based investing and funded ratios ([[6.12]]). A calculator or code may be used for $N(\cdot)$. Percentages in percentage points.
+  - concepts: [annual-review, rebalancing]
+    zh-cn: |-
+      讲义：监控由定期（每季度看再平衡区间、每年全面复盘）、资金流动、生活事件（结婚、生子、换工作、失业、继承、买房、健康、临近退休）触发；市场大幅波动本身不是修改计划的理由，但可作为检查时机。年度复盘清单：资产负债表和充足率、配置与再平衡、成本、税务、保障、预测对照与 IPS。
+    en: |-
+      The lesson: monitoring is triggered by schedule (quarterly band checks, a yearly full review), cash flows and life events (marriage, children, job change or loss, inheritance, home purchase, health, nearing retirement); large market moves are not reasons to change the plan but can be moments to check. The annual review checklist: balance sheet and funded ratios, allocation and rebalancing, costs, taxes, protection, forecast comparison and the IPS.
+  - concepts: [standard-error]
+    zh-cn: |-
+      讲义：实际结果在预测分布中的位置；$N$ 年平均收益的标准差约 $\frac{\sigma}{\sqrt{N}}$，百分位约 $N\left(\frac{(\bar r - \mu)\sqrt N}{\sigma}\right)$。[[fig:3-1]]：预测平均 6%、波动率 16%；滑块实际年平均收益 0–10%（步长 1，默认 3）；实际 3% 时 1、5、20 年后约处于第 43、34、20 百分位；0% 时约 35、20、5；9% 时约 57、66、80。讲义没有说明短期结果的含义（留给 [[check:C3]]）。
+    en: |-
+      The lesson: where actual results fall in the forecast distribution; the average return over $N$ years has a standard deviation of about $\frac{\sigma}{\sqrt{N}}$, and the percentile is about $N\left(\frac{(\bar r - \mu)\sqrt N}{\sigma}\right)$. [[fig:3-1]]: forecast mean 6%, volatility 16%; slider realized average 0–10% (steps of 1, default 3); at 3% realized, about the 43rd, 34th, 20th percentile after 1, 5, 20 years; at 0%, about 35, 20, 5; at 9%, about 57, 66, 80. The lesson does not spell out what short-term results mean (left to [[check:C3]]).
+  - concepts: [investment-policy-statement, decision-journal]
+    zh-cn: |-
+      讲义：IPS 写明修改的条件和程序；合理理由：目标、期限或风险承受能力实质变化，资本市场假设有理由的调整，发现原计划有错；不合理理由：近期收益或市场情绪；程序：写下理由和预期效果、冷静期（例如一个月）、温和地修改。决策记录：日期、当时的信息、理由、预期结果和风险、什么会说明自己错了；评价推理而不只是结果。
+    en: |-
+      The lesson: the IPS states when and how it may change; sound reasons: material changes in goals, horizon or risk capacity, reasoned revisions of capital market assumptions, finding a mistake; unsound: recent returns or sentiment; procedure: write the reason and expected effect, wait a cooling-off period (say a month), change modestly. Decision journal: date, information then, reasoning, expected outcome and risks, what would show one wrong; judge reasoning, not just outcomes.
+
+common_errors:
+  - questions: [Q1]
+    zh-cn: |-
+      实际收益低于预测就认为预测方法错了、资本市场假设没用；忽略预测是一个分布，要看实际结果落在分布的什么位置，以及记录的长度。
+    en: |-
+      Concluding the forecasting method is wrong and capital market assumptions useless because returns fell short; ignoring that a forecast is a distribution, so what matters is where the result falls in it and how long the record is.
+  - questions: [Q2]
+    zh-cn: |-
+      只用组合的市值评价计划是否在正轨上；忽略目标的现值也随利率变化，应该看资金充足率。
+    en: |-
+      Judging whether the plan is on track by portfolio value alone; ignoring that goals' present values also move with interest rates, so the funded ratio is what to watch.
+  - questions: [Q3]
+    zh-cn: |-
+      因为卖出会产生资本利得税，就永远不更换高成本的基金；或者不考虑税就立即更换。忽略比较一次性的税与每年节省的费用。
+    en: |-
+      Never replacing a high-cost fund because selling triggers capital gains tax, or replacing it at once without considering tax; ignoring the comparison of the one-time tax with the yearly fee saving.
+  - questions: [Q4]
+    zh-cn: |-
+      在市场大涨之后提高风险，或在大跌之后降低风险，并把这当作根据新情况修改 IPS；忽略风险承受能力由家庭的情况决定，而不是由近期收益决定。
+    en: |-
+      Raising risk after big gains or cutting it after big losses and calling it updating the IPS for new circumstances; ignoring that risk capacity depends on the household's situation, not on recent returns.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: triggers
+    concepts: [investment-policy-statement, annual-review]
+    question:
+      zh-cn: |-
+        下面哪件事最应该促使一个家庭重新审视整个投资计划和 IPS？
+      en: |-
+        Which of the following should most prompt a household to re-examine its whole investment plan and IPS?
+    choices:
+      - zh-cn: 家里有了第一个孩子
+        en: The birth of their first child
+      - zh-cn: 股市一个月内下跌了 15%
+        en: The stock market fell 15% in a month
+        why:
+          zh-cn: 下跌改变了家庭的目标、期限或风险承受能力吗？还是只需要按规则检查再平衡？
+          en: Did the fall change the household's goals, horizon or risk capacity? Or does it only call for checking rebalancing by the rules?
+      - zh-cn: 朋友推荐了一只今年涨了 40% 的基金
+        en: A friend recommended a fund that rose 40% this year
+        why:
+          zh-cn: 一只基金一年的业绩能说明什么（[[6.3]]）？这会改变家庭的计划吗？
+          en: What does one year of a fund's performance show ([[6.3]])? Would it change the household's plan?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。孩子出生改变了家庭的目标（教育金）、支出、保险需求（寿险、伤残险）、遗产安排（监护人、受益人）和风险承受能力，需要全面审视计划。股市下跌是检查再平衡的时机，但本身不改变计划；朋友推荐的基金一年的业绩几乎不包含信息，按 IPS 中选择基金的标准评估即可。
+      en: |-
+        (A). A child changes the household's goals (college), spending, insurance needs (life and disability), estate plans (guardians, beneficiaries) and risk capacity, calling for a full review of the plan. A market fall is a moment to check rebalancing but does not by itself change the plan; one year of a recommended fund's performance carries almost no information and can be judged by the IPS's fund selection criteria.
+
+  - id: C2
+    kind: check
+    section: annual-review
+    concepts: [annual-review]
+    question:
+      zh-cn: |-
+        年度复盘时，只要组合今年的收益率超过了它的基准，就说明家庭的投资计划一切正常。
+      en: |-
+        In the annual review, as long as the portfolio beat its benchmark this year, the household's investment plan is in good order.
+    correct: false
+    hint:
+      zh-cn: 复盘清单上除了组合的收益，还有哪些项目？组合跑赢基准，能说明目标的充足率、保险或受益人指定没有问题吗？
+      en: Besides portfolio returns, what else is on the review checklist? Does beating the benchmark show that funded ratios, insurance or beneficiary designations are in order?
+    answer:
+      zh-cn: |-
+        错。组合相对基准的收益只是一项，而且一年的结果主要是噪声。年度复盘要看整个家庭：目标的资金充足率是否下降（例如利率下降使目标的现值上升）、配置是否偏离、成本和税务是否可以改进、应急基金和保险是否足够、受益人指定和遗嘱是否需要更新、IPS 是否需要修改。组合跑赢基准时，这些问题都可能存在。
+      en: |-
+        False. Return relative to a benchmark is just one item, and one year's result is mostly noise. The annual review looks at the whole household: whether goals' funded ratios fell (for example because lower rates raised goals' present values), whether the allocation drifted, whether costs and taxes can be improved, whether the emergency fund and insurance are adequate, whether beneficiary designations and wills need updating, and whether the IPS should change. All of these problems can exist while the portfolio beats its benchmark.
+
+  - id: C3
+    kind: check
+    section: forecast-review
+    concepts: [standard-error, capital-market-assumptions]
+    widget: { id: forecast-check, set: { r: 3 } }
+    question:
+      zh-cn: |-
+        计划预测组合的年平均收益为 6%，波动率 16%。第一年实际收益只有 3%。按 [[fig:3-1]]，最合理的结论是：
+      en: |-
+        A plan forecasts an average yearly return of 6% with 16% volatility. In the first year the actual return is only 3%. Following [[fig:3-1]], the most reasonable conclusion is:
+    choices:
+      - zh-cn: 1 年后结果约在第 43 百分位，完全在正常范围内，不能说明预测有误
+        en: After 1 year the result is at about the 43rd percentile, well within the normal range, and does not show the forecast is wrong
+      - zh-cn: 实际收益只有预测的一半，应该把预测下调到 3%
+        en: The actual return is only half the forecast, so the forecast should be cut to 3%
+        why:
+          zh-cn: 一年的收益的标准差是 16%。3% 与 6% 的差距相对于这个波动有多大？看图中 1 年时的百分位。
+          en: One year's return has a standard deviation of 16%. How big is the gap between 3% and 6% relative to that? Look at the percentile at 1 year in the figure.
+      - zh-cn: 应该等到 3 年后，如果还低于 6%，就说明预测错了
+        en: Wait 3 years; if still below 6%, the forecast was wrong
+        why:
+          zh-cn: 看图：实际年平均 3% 持续 5 年时，百分位是多少？这样的结果罕见吗？
+          en: 'Look at the figure: with a 3% realized average over 5 years, what is the percentile? Is that rare?'
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。一年的收益波动很大（16%），3% 只比平均低 0.19 个标准差，约处于第 43 百分位。即使连续 5 年平均 3%，也只在第 34 百分位左右；要到 20 年左右，持续偏低才会落在较低的百分位（约第 20）。短期结果几乎不能区分预测是否有误，复盘时应关注结果是否长期系统地偏向一侧，并结合估值、利率等新信息有理由地调整假设（[[4.11]]）。
+      en: |-
+        (A). One year's return swings widely (16%), so 3% is only 0.19 standard deviations below the mean, about the 43rd percentile. Even a 3% average over 5 years sits around the 34th percentile; only after about 20 years does a persistent shortfall reach a low percentile (about the 20th). Short-term results can hardly tell whether a forecast was wrong; reviews should watch for results leaning systematically to one side over long periods, and adjust assumptions for reasons such as new information on valuations and rates ([[4.11]]).
+
+  - id: C4
+    kind: check
+    section: changing-ips
+    concepts: [investment-policy-statement]
+    question:
+      zh-cn: |-
+        下面哪一项是修改 IPS 中战略配置的合理理由？
+      en: |-
+        Which of the following is a sound reason to change the strategic allocation in an IPS?
+    choices:
+      - zh-cn: 主要收入者计划 3 年后退休，家庭的期限和风险承受能力随之改变
+        en: The main earner plans to retire in 3 years, changing the household's horizon and risk capacity
+      - zh-cn: 过去两年股票大涨，组合的收益很好，所以可以承担更多风险
+        en: Stocks have soared for two years and the portfolio has done well, so more risk can be taken
+        why:
+          zh-cn: 近期的收益改变了家庭的目标、期限或承受损失的能力吗？这与追涨有什么区别？
+          en: Did recent returns change the household's goals, horizon or ability to bear losses? How does this differ from chasing returns?
+      - zh-cn: 新闻上很多专家预测明年会衰退
+        en: Many experts on the news predict a recession next year
+        why:
+          zh-cn: 专家对短期经济的预测有多准确（[[4.7]]）？战略配置是针对多长的期限？
+          en: How accurate are experts' short-term economic forecasts ([[4.7]])? What horizon is the strategic allocation meant for?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。临近退休改变了期限、收入来源和收益顺序风险（[[6.9]]），是修改战略配置的合理理由，而且这一点应该事先在 IPS 中有所规划（例如下滑路径）。近期收益好并不提高家庭承受损失的能力，据此提高风险是追涨；对衰退的短期预测是择时，也不是修改战略配置的理由。
+      en: |-
+        (A). Approaching retirement changes the horizon, income sources and sequence risk ([[6.9]]), a sound reason to change the strategic allocation, ideally planned in the IPS in advance (for example a glide path). Good recent returns do not raise the household's ability to bear losses, so raising risk on them is return chasing; short-term recession forecasts are market timing, not a reason to change the strategic allocation.
+
+  - id: C5
+    kind: check
+    section: records
+    concepts: [decision-journal, overconfidence]
+    question:
+      zh-cn: |-
+        一位朋友三年前把一半的积蓄投进了一种加密货币，现在涨了三倍。评价这个决定，最合理的做法是：
+      en: |-
+        A friend put half his savings into a cryptocurrency three years ago, and it has since tripled. The most reasonable way to judge this decision is:
+    choices:
+      - zh-cn: 看当时的理由、他对风险的认识和仓位的大小是否合理，而不只看结果
+        en: Look at his reasons at the time, his understanding of the risk, and whether the position size was reasonable, not just the outcome
+      - zh-cn: 结果很好，所以这是一个好决定
+        en: The outcome was great, so it was a good decision
+        why:
+          zh-cn: 如果同样的决定在另一种情况下亏了 80%（[[5.5]] 中这样的情况发生过多次），它还是好决定吗？
+          en: If the same decision had lost 80% in a different case (which has happened several times, [[5.5]]), would it still be good?
+      - zh-cn: 结果好说明他有能力，以后可以继续这样做
+        en: The good result shows skill, so he can keep doing it
+        why:
+          zh-cn: 一次结果能区分运气和能力吗（[[4.9]]）？
+          en: Can one outcome separate luck from skill ([[4.9]])?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。结果受运气影响很大：把一半积蓄放在一项波动率常超过 50%、曾多次下跌 70% 以上的资产上（[[5.5]]），即使碰巧赚了，承担的风险也可能远超他的承受能力。评价决定要看当时的信息和推理：他是否了解可能的损失、仓位是否与整体财务相称、是否有退出规则。只看结果会强化碰巧成功的做法，增加过度自信（[[4.8]]）。
+      en: |-
+        (A). Outcomes depend heavily on luck: putting half one's savings into an asset whose volatility often exceeds 50% and which has several times fallen more than 70% ([[5.5]]) may have taken far more risk than he could bear, even though it happened to pay. A decision should be judged by the information and reasoning at the time: did he understand the possible loss, was the position sized to his overall finances, did he have exit rules? Judging only by outcomes reinforces lucky successes and feeds overconfidence ([[4.8]]).
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [standard-error, capital-market-assumptions]
+    expected: { z: "-0.92", pct: "17.8" }
+    question:
+      zh-cn: |-
+        一个家庭 10 年前制定计划时，按资本市场假设预测 60/40 组合的实际收益平均每年 5%，波动率 12%。10 年来实际的年平均实际收益为 1.5%。
+        (a) 实际结果在预测分布中约处于第几百分位（按 $N$ 年平均收益的标准差 $\frac{\sigma}{\sqrt{N}}$ 计算）？
+        (b) 他们说：“预测差了这么多，资本市场假设根本没用，以后不再做预测了。”评价这个说法。复盘时应该怎样利用这个结果？
+      en: |-
+        Ten years ago a household's plan forecast, from capital market assumptions, an average real return of 5% a year for a 60/40 portfolio with 12% volatility. Over the 10 years the realized average real return was 1.5% a year.
+        (a) Roughly at what percentile of the forecast distribution is the actual result (using a standard deviation of $\frac{\sigma}{\sqrt{N}}$ for the $N$-year average)?
+        (b) They say: "The forecast was so far off that capital market assumptions are useless; we'll stop forecasting." Evaluate this statement. How should the review use this result?
+    answer:
+      zh-cn: |-
+        (a) $z = \frac{(1.5 - 5)\sqrt{10}}{12} \approx -0.92$，$N(-0.92) \approx 17.8\%$，约在第 18 百分位。
+        (b) 说法不对。第 18 百分位虽然偏低，但大约每 5 次就有 1 次会出现这样或更差的结果，仍在预测分布的正常范围之内；预测给出的是一个区间，而不是保证（[[4.13]]）。不做预测并不能消除不确定性，只是让计划失去依据。复盘时应该：检查偏低的原因，是市场整体（例如起始估值高、通胀意外上升）、成本和税、还是自己的行为（追涨杀跌造成的资金加权收益偏低，[[6.10]]）；根据当前的估值和利率重新估计资本市场假设，并在计划中使用更保守的假设或更宽的区间（[[4.11]]）；更新各目标的资金充足率，必要时增加储蓄或调整目标。
+      en: |-
+        (a) $z = \frac{(1.5 - 5)\sqrt{10}}{12} \approx -0.92$, and $N(-0.92) \approx 17.8\%$, about the 18th percentile.
+        (b) The statement is wrong. The 18th percentile is low, but a result this bad or worse happens about 1 time in 5, still within the normal range of the forecast; a forecast gives a range, not a guarantee ([[4.13]]). Not forecasting does not remove uncertainty; it only leaves the plan without a basis. The review should: look for the causes of the shortfall, whether the market as a whole (say high starting valuations or unexpected inflation), costs and taxes, or their own behavior (return chasing lowering dollar-weighted returns, [[6.10]]); re-estimate capital market assumptions from current valuations and rates, using more conservative assumptions or wider ranges in the plan ([[4.11]]); and update each goal's funded ratio, saving more or adjusting goals if needed.
+    rubric:
+      zh-cn:
+        - "(a) 通过：$z \\approx -0.92$，约第 18 百分位（17.8%）。"
+        - "(b) 通过：指出结果仍在正常范围、预测是区间而非保证；给出至少两项复盘的做法（找原因、重估假设、更新充足率等）。同意“不再做预测”，需要订正。"
+      en:
+        - "(a) OK: $z \\approx -0.92$, about the 18th percentile (17.8%)."
+        - "(b) OK: says the result is within the normal range and a forecast is a range, not a guarantee; gives at least two review steps (find causes, re-estimate assumptions, update funded ratios, etc.). Agreeing to stop forecasting needs revision."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [funded-ratio, annual-review]
+    expected: { f1: "71.8", f2: "56.7" }
+    question:
+      zh-cn: |-
+        一个家庭为 15 年后的退休准备，按今天的购买力需要 150 万美元。去年复盘时，组合价值 80 万美元，15 年期 TIPS 的实际收益率为 2.0%。今年组合价值降到 68 万美元，而实际收益率降到 1.5%（为简化，仍按 15 年计算）。
+        (a) 两次复盘时的资金充足率各是多少？
+        (b) 他们说：“组合跌了 15%，等市场回来就好了。”评价这个说法：充足率下降的原因有哪些？这对计划意味着什么？
+      en: |-
+        A household is saving for retirement in 15 years and needs 1.5 million dollars in today's purchasing power. At last year's review the portfolio was worth 800,000 dollars and 15-year TIPS yielded 2.0% real. This year the portfolio has fallen to 680,000 dollars and the real yield to 1.5% (for simplicity, still use 15 years).
+        (a) What was the funded ratio at each review?
+        (b) They say: "The portfolio is down 15%; once the market comes back we'll be fine." Evaluate this statement: what lowered the funded ratio? What does this mean for the plan?
+    answer:
+      zh-cn: |-
+        (a) 去年：目标现值 $\frac{1500}{1.02^{15}} \approx 1114.5$，充足率 $\frac{800}{1114.5} \approx 71.8\%$。今年：现值 $\frac{1500}{1.015^{15}} \approx 1199.8$，充足率 $\frac{680}{1199.8} \approx 56.7\%$。
+        (b) 说法不完整。充足率从约 71.8% 降到约 56.7%，原因有两个：资产下跌 15%，以及实际利率下降使目标的现值上升约 7.6%。即使市场回到原来的水平，在更低的实际利率下，用安全资产锁定目标的成本也更高了。这个家庭的组合与目标之间存在利率风险的不匹配（[[3.4]]、[[6.12]]）。对计划的含义：重新估计在当前假设下达成目标的概率（[[4.13]]）；考虑增加储蓄、推迟退休或调整目标；按规则再平衡；如果目标是必须达成的，可以逐步用期限更长的 TIPS 匹配一部分负债，减少以后利率变化的影响。
+      en: |-
+        (a) Last year: the goal's present value was $\frac{1500}{1.02^{15}} \approx 1114.5$, funded ratio $\frac{800}{1114.5} \approx 71.8\%$. This year: present value $\frac{1500}{1.015^{15}} \approx 1199.8$, funded ratio $\frac{680}{1199.8} \approx 56.7\%$.
+        (b) The statement is incomplete. The funded ratio fell from about 71.8% to about 56.7% for two reasons: assets fell 15%, and the lower real rate raised the goal's present value by about 7.6%. Even if the market returns to its old level, locking in the goal with safe assets now costs more at the lower real rate. The household's portfolio and goal have an interest rate mismatch ([[3.4]], [[6.12]]). For the plan: re-estimate the probability of reaching the goal under current assumptions ([[4.13]]); consider saving more, retiring later or adjusting the goal; rebalance by the rules; and if the goal must be met, gradually match part of the liability with longer TIPS to reduce the effect of future rate changes.
+    rubric:
+      zh-cn:
+        - "(a) 通过：约 71.8% 和约 56.7%。"
+        - "(b) 通过：指出资产下跌和实际利率下降两方面的原因，说明市场回升不能完全恢复充足率；给出至少两项对计划的调整。只看组合市值，需要订正。"
+      en:
+        - "(a) OK: about 71.8% and about 56.7%."
+        - "(b) OK: names both the asset fall and the lower real rate, explains that a market recovery alone does not restore the funded ratio; gives at least two adjustments to the plan. Looking only at portfolio value needs revision."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [expense-ratio, long-term-capital-gain, annual-review]
+    expected: { tax: "18", save: "3.24", be: "5.56" }
+    question:
+      zh-cn: |-
+        年度复盘时发现，应税账户中有 40 万美元投资于一只费用率 0.85% 的大盘股主动基金，其中未实现的长期资本利得为 12 万美元；一只同类的指数基金费用率为 0.04%。长期资本利得税率为 15%。
+        (a) 现在换成指数基金要交多少税？每年节省多少费用（千美元）？大约多少年能收回这笔税（不考虑增长和折现）？
+        (b) 他们说：“换基金要交 1.8 万美元的税，太亏了，还是一直持有吧。”评价这个说法。还有哪些办法可以减少更换的成本？
+      en: |-
+        The annual review finds 400,000 dollars in a taxable account invested in an active large-cap fund with a 0.85% expense ratio, with 120,000 dollars of unrealized long-term gains; a comparable index fund charges 0.04%. The long-term capital gains rate is 15%.
+        (a) How much tax would switching to the index fund cost now? How much in fees would it save each year (thousand dollars)? Roughly how many years would it take to recover the tax (ignoring growth and discounting)?
+        (b) They say: "Switching costs 18,000 dollars in tax, too much; we'll just keep holding." Evaluate this statement. What else could reduce the cost of switching?
+    answer:
+      zh-cn: |-
+        (a) 税 $120 \times 15\% = 18$（千美元）。每年节省 $(0.85\% - 0.04\%) \times 400 = 3.24$（千美元）。约 $\frac{18}{3.24} \approx 5.56$ 年收回。
+        (b) 说法不对。这笔税并不完全是额外的成本：如果将来卖出，这些利得终究要交税（除非持有到去世，继承人的成本基础调高），换基金主要是把交税的时间提前；而费用是每年都有的确定的成本，资产增长后节省的金额还会更大。约 5.6 年就能收回，对长期持有者来说更换通常是划算的；何况主动基金还可能每年分配资本利得（[[6.1]]）。如果打算持有到去世或预计很快要用这笔钱，结论可能不同。减少更换成本的办法：分几年逐步卖出，利用较低的税率区间（例如退休后收入低的年份可能适用 0%）；优先卖出成本基础高的份额；与税损收割结合，用其他亏损抵消利得；把以后的新资金和股息投到指数基金，不再买入旧基金；把有大量利得的份额捐给慈善机构（如果本来就打算捐赠）。
+      en: |-
+        (a) Tax $120 \times 15\% = 18$ (thousand dollars). Yearly saving $(0.85\% - 0.04\%) \times 400 = 3.24$ (thousand dollars). About $\frac{18}{3.24} \approx 5.56$ years to recover.
+        (b) The statement is wrong. The tax is not wholly an extra cost: the gains will be taxed whenever the fund is sold (unless held until death, when heirs get a stepped-up basis), so switching mainly pays the tax earlier; the fee, by contrast, is a certain cost every year, and the saving grows as assets grow. With about 5.6 years to recover, switching usually pays for a long-term holder; and active funds may also pay out capital gains each year ([[6.1]]). If they plan to hold until death or will need the money soon, the answer may differ. Ways to reduce the cost: sell over several years to use lower tax brackets (for example the 0% rate in low-income years after retirement); sell high-basis lots first; combine with tax-loss harvesting so other losses offset the gains; direct new money and dividends to the index fund and stop buying the old fund; and give highly appreciated shares to charity if they planned to give anyway.
+    rubric:
+      zh-cn:
+        - "(a) 通过：税 18，每年节省 3.24（千美元），约 5.56 年。"
+        - "(b) 通过：指出税主要是提前而非新增，费用是每年确定的成本；给出至少两种减少成本的办法。同意“一直持有”而不比较，需要订正。"
+      en:
+        - "(a) OK: tax 18, yearly saving 3.24 (thousand dollars), about 5.56 years."
+        - "(b) OK: says the tax is mostly paid earlier rather than added, while fees are a certain yearly cost; gives at least two ways to reduce the cost. Agreeing to hold forever without comparison needs revision."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [investment-policy-statement, strategic-asset-allocation]
+    expected: { l60: "24", l80: "32" }
+    question:
+      zh-cn: |-
+        一对 58 岁的夫妻计划 5 年后退休，IPS 中的战略配置为 60% 股票、40% 债券。过去三年股票大涨，组合远超计划。他们提出把股票提高到 80%，理由是“市场表现这么好，我们的风险承受能力也提高了”。
+        (a) 如果之后股票下跌 40%、债券不变，60% 和 80% 股票的组合各下跌多少？
+        (b) 评价他们修改 IPS 的理由。如果组合确实远超计划，有什么更合理的调整？
+      en: |-
+        A couple aged 58 plans to retire in 5 years; their IPS sets a strategic allocation of 60% stocks and 40% bonds. Stocks have soared for three years and the portfolio is well ahead of plan. They propose raising stocks to 80%, because "the market has done so well that our risk capacity has gone up too".
+        (a) If stocks then fall 40% and bonds are unchanged, how much do portfolios with 60% and 80% stocks lose?
+        (b) Evaluate their reason for changing the IPS. If the portfolio really is well ahead of plan, what would be a more reasonable adjustment?
+    answer:
+      zh-cn: |-
+        (a) 60%：$0.6 \times 40\% = 24\%$；80%：$0.8 \times 40\% = 32\%$。
+        (b) 理由不成立。近期收益好并不改变他们的期限（5 年后退休，期限在缩短）和收益顺序风险（[[6.9]]）；退休前后的大跌危害最大，此时提高股票比例与下滑路径的方向相反。把“市场表现好”当作“风险承受能力提高”，是在追涨（[[6.10]]），也可能受到近期偏差和过度自信的影响（[[4.8]]）。组合远超计划，真正改变的是资金充足率：如果退休目标已经接近或超过 100% 充足，更合理的做法是降低风险，用安全资产（例如 TIPS 阶梯）锁定已经达成的部分（[[6.12]]），只把超出必要目标的部分用于承担更多风险；或者提前退休、增加愿望类的目标。按 IPS 的程序，写下理由并经过冷静期再决定。
+      en: |-
+        (a) 60%: $0.6 \times 40\% = 24\%$; 80%: $0.8 \times 40\% = 32\%$.
+        (b) The reason does not hold. Good recent returns do not change their horizon (retiring in 5 years, and shortening) or their sequence risk ([[6.9]]); falls around retirement do the most harm, and raising stocks now runs against the direction of a glide path. Treating "the market did well" as "our risk capacity rose" is return chasing ([[6.10]]), possibly driven by recency bias and overconfidence ([[4.8]]). What being well ahead of plan actually changes is the funded ratio: if the retirement goal is near or above 100% funded, the more reasonable step is to reduce risk, locking in what has been reached with safe assets (such as a TIPS ladder, [[6.12]]), and to take more risk only with money beyond the essential goals; or to retire earlier or add wish-type goals. Following the IPS procedure, write down the reason and wait a cooling-off period before deciding.
+    rubric:
+      zh-cn:
+        - "(a) 通过：24% 和 32%。"
+        - "(b) 通过：指出近期收益不改变期限和收益顺序风险，提高股票是追涨；说明充足率提高时更合理的做法是锁定已达成的部分；提到 IPS 的修改程序更好。同意提高到 80%，需要订正。"
+      en:
+        - "(a) OK: 24% and 32%."
+        - "(b) OK: says recent returns do not change the horizon or sequence risk and raising stocks is return chasing; explains that with a higher funded ratio the sounder move is to lock in what has been reached; mentioning the IPS change procedure is a plus. Agreeing to go to 80% needs revision."

@@ -1,0 +1,318 @@
+# Answer key for lesson 6.10. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[5.2#strategies]] (section), [[concept:beta]], [[check:Q3]], [[fig:3-1]].
+# expected: values are recomputed by course/verify/6.10.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "6.10"
+
+context:
+  - zh-cn: |-
+      学习者学过 IRR（[[3.2]]）、财务杠杆（[[3.8]]）、波动拖累与杠杆（[[4.1]]）、CAPM 与特质风险（[[4.4]]、[[4.5]]）、市场效率与行为金融（[[4.7]]、[[4.8]]）、保证金（[[5.1]]）、账户与税务（[[6.5]]）、家庭资产负债表（[[6.6]]）、资产配置与再平衡（[[6.7]]）、选股流程（[[6.8]]）。百分数用百分点表示。
+    en: |-
+      The learner has studied IRR ([[3.2]]), financial leverage ([[3.8]]), volatility drag and leverage ([[4.1]]), CAPM and idiosyncratic risk ([[4.4]], [[4.5]]), market efficiency and behavioral finance ([[4.7]], [[4.8]]), margin ([[5.1]]), accounts and taxes ([[6.5]]), the household balance sheet ([[6.6]]), asset allocation and rebalancing ([[6.7]]) and stock research ([[6.8]]). Percentages in percentage points.
+  - concepts: [financial-leverage, margin]
+    zh-cn: |-
+      讲义：保证金贷款在自有资金比例低于维持要求时追加或强制卖出，常在大跌后发生，把暂时的下跌变成实际亏损；杠杆 ETF 每天调整杠杆，持有超过一天时收益不等于指数收益的固定倍数（[[4.1]]）。讲义没有说震荡市中杠杆 ETF 的表现（留给 [[check:C1]]、[[check:Q2]]）。
+    en: |-
+      The lesson: margin loans trigger calls or forced sales when own funds fall below the maintenance level, often after crashes, turning temporary falls into real losses; leveraged ETFs reset daily, so over more than a day their return is not a fixed multiple of the index's ([[4.1]]). The lesson does not discuss leveraged ETFs in choppy markets (left to [[check:C1]], [[check:Q2]]).
+  - concepts: [time-weighted-return, dollar-weighted-return]
+    zh-cn: |-
+      讲义：择时要做对两次决定；最好和最坏的交易日常出现在同一段动荡时期；市场在大多数年份上涨，持有现金的机会成本持续。时间加权收益（期初一笔钱持有，各期几何平均）与资金加权收益（现金流的 IRR）；追涨杀跌使资金加权低于时间加权。Morningstar“Mind the Gap”（2025 年）：截至 2024 年末 10 年，投资者每年比所持基金低约 1.2 个百分点，约为总收益的 15%；行业基金约 1.5，配置型基金几乎没有差距。[[fig:3-1]]：基金 8 年收益 +20%、+25%、+15%、−30%、−10%、+25%、+20%、+10%，时间加权约 7.57%；投资者期初 100，之后每年年初投入 $20 + 100k \times$ 上一年收益；滑块 k 0–2（步长 0.5，默认 1）；资金加权：k=0 约 7.39%，k=1 约 6.51%，k=2 约 5.85%。
+    en: |-
+      The lesson: timing needs two right decisions; best and worst days cluster in turbulent periods; markets rise in most years, so cash has an ongoing opportunity cost. Time-weighted return (a lump sum held, geometric average) versus dollar-weighted return (IRR of the cash flows); return chasing pushes dollar-weighted below time-weighted. Morningstar "Mind the Gap" (2025): over the 10 years to end-2024 investors lagged their funds by about 1.2 percentage points a year, about 15% of total return; about 1.5 for sector funds, almost none for allocation funds. [[fig:3-1]]: fund returns over 8 years +20%, +25%, +15%, −30%, −10%, +25%, +20%, +10%, time-weighted about 7.57%; the investor puts in 100, then $20 + 100k \times$ last year's return at the start of each later year; slider k 0–2 (steps of 0.5, default 1); dollar-weighted about 7.39% at k=0, 6.51% at k=1, 5.85% at k=2.
+  - concepts: [firm-specific-risk, overconfidence]
+    zh-cn: |-
+      讲义：频繁交易增加成本，在应税账户中把长期利得变为短期利得；Barber 和 Odean：交易最频繁的个人投资者收益最差（[[4.8]]）；集中于雇主股票、一个行业或少数股票，可能有无法恢复的损失，特质风险得不到补偿（[[4.4]]）。
+    en: |-
+      The lesson: frequent trading adds costs and turns long-term gains into short-term ones in taxable accounts; Barber and Odean: the most active individual traders earned the worst returns ([[4.8]]); concentration in employer stock, one industry or a few stocks can bring unrecoverable losses, and idiosyncratic risk is not compensated ([[4.4]]).
+  - concepts: [investment-policy-statement]
+    zh-cn: |-
+      讲义：在冷静时事先写下规则；IPS 写明目标、期限、风险承受能力、战略配置、再平衡规则、选基金标准、在什么情况下修改（[[6.13]]）；纪律清单（这次交易是 IPS 规定的吗？理由？事后怎样检验？）；自动储蓄和再平衡。讲义没有具体说明什么情况下应修改 IPS（留给 [[check:C5]]）。
+    en: |-
+      The lesson: write rules in advance while calm; the IPS states goals, horizon, risk capacity, strategic allocation, rebalancing rules, fund selection criteria and when to change them ([[6.13]]); a discipline checklist (Does the IPS call for this trade? Why? How will I check later?); automatic saving and rebalancing. The lesson does not say when an IPS should change (left to [[check:C5]]).
+
+common_errors:
+  - questions: [Q1]
+    zh-cn: |-
+      认为自己是长期投资者，所以借保证金买股票不怕短期下跌；忽略追加保证金和强制平仓会在最低点把账面亏损变成实际亏损。
+    en: |-
+      Believing that as a long-term investor one need not fear short-term falls when buying on margin; ignoring that margin calls and forced sales turn paper losses into real ones at the bottom.
+  - questions: [Q2]
+    zh-cn: |-
+      以为每日 2 倍的杠杆 ETF 在任何期限内都提供指数收益的 2 倍。
+    en: |-
+      Thinking a daily 2x leveraged ETF delivers twice the index return over any horizon.
+  - questions: [Q3]
+    zh-cn: |-
+      以为只要预测正确的次数超过一半，择时就能提高收益；忽略市场上涨的年份多、上涨时错过的损失大，需要高得多的准确率才能打平。
+    en: |-
+      Thinking market timing pays as long as more than half the calls are right; ignoring that up years are more common and missing them is costly, so a much higher accuracy is needed just to break even.
+  - questions: [Q4]
+    zh-cn: |-
+      用基金公布的收益率代表自己的收益，或者看到自己的收益远低于基金就认为基金的数据有误；忽略时间加权与资金加权的区别。
+    en: |-
+      Taking the fund's reported return as one's own, or concluding the fund's figures are wrong because one's own return is much lower; ignoring the difference between time-weighted and dollar-weighted returns.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: leverage
+    concepts: [financial-leverage, volatility-drag]
+    question:
+      zh-cn: |-
+        一个月里，指数每天交替上涨和下跌，来回震荡，月末回到了月初的水平。追求指数日收益 2 倍的杠杆 ETF 在这个月的收益最可能是：
+      en: |-
+        Over a month, an index swings up and down day after day and ends the month where it started. A leveraged ETF seeking twice the index's daily return most likely ends the month:
+    choices:
+      - zh-cn: 亏损
+        en: With a loss
+      - zh-cn: 收益为 0，因为指数收益为 0，0 的 2 倍还是 0
+        en: Flat, since the index return is 0 and twice 0 is 0
+        why:
+          zh-cn: 试一个两天的例子：指数先涨 10%、再跌约 9.1% 回到原点。2 倍 ETF 先涨 20%、再跌约 18.2%，结果是多少？
+          en: 'Try a two-day example: the index rises 10% and then falls about 9.1%, back to where it was. A 2x ETF rises 20% and then falls about 18.2%; where does it end?'
+      - zh-cn: 盈利，因为杠杆放大了每天的上涨
+        en: With a gain, because leverage magnifies each day's rise
+        why:
+          zh-cn: 杠杆同样放大了每天的下跌。在震荡中，放大后的涨跌相乘，结果比原来高还是低？
+          en: Leverage magnifies each day's fall just as much. In a choppy market, when magnified rises and falls are multiplied, is the result higher or lower than before?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。例如指数先涨 10%、再跌约 9.1%，回到原点；2 倍 ETF 为 $1.2 \times (1 - 0.182) \approx 0.982$，亏损约 1.8%。每天的涨跌被放大后，波动拖累（[[4.1]]）大约按杠杆的平方增加。所以在震荡市中，即使指数最终不变，杠杆 ETF 也会亏损；持有越久、波动越大，偏离越大。杠杆 ETF 是为短期交易设计的工具，不适合长期持有。
+      en: |-
+        (A). For example the index rises 10% and then falls about 9.1%, back where it started; a 2x ETF ends at $1.2 \times (1 - 0.182) \approx 0.982$, a loss of about 1.8%. With daily moves magnified, volatility drag ([[4.1]]) grows roughly with the square of the leverage. So in choppy markets a leveraged ETF loses even when the index ends unchanged; the longer it is held and the more volatile the market, the larger the shortfall. Leveraged ETFs are built for short-term trading, not long-term holding.
+
+  - id: C2
+    kind: check
+    section: market-timing
+    concepts: [efficient-market-hypothesis]
+    question:
+      zh-cn: |-
+        2020 年 3 月股市大跌时，一位投资者卖出所有股票，打算“等局势明朗后再买回来”。这个策略最大的问题是：
+      en: |-
+        When stocks crashed in March 2020, an investor sold everything, planning to "buy back once things are clearer". The biggest problem with this plan is:
+    choices:
+      - zh-cn: 它还需要第二次正确的判断：市场往往在局势明朗之前就已经大幅反弹
+        en: 'It needs a second correct decision: markets often rebound sharply before things become clear'
+      - zh-cn: 卖出时要交易费，这是主要的成本
+        en: Selling incurs trading fees, which is the main cost
+        why:
+          zh-cn: 今天大多数券商的佣金已经很低。错过反弹的代价与交易费相比哪个更大？
+          en: Most brokers charge very low commissions today. Which is larger, the cost of missing a rebound or the trading fee?
+      - zh-cn: 没有问题，躲开下跌就能保护财富
+        en: There is no problem; avoiding the fall protects wealth
+        why:
+          zh-cn: 他卖出时已经承受了多少下跌？什么时候买回来、价格是多少，决定了结果。
+          en: How much of the fall had he already suffered when he sold? When he buys back, and at what price, decides the result.
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。他在下跌之后才卖出，已经承受了大部分损失；要获益，还必须在比卖出价更低的价格买回。2020 年，标普 500 指数在 3 月 23 日见底后迅速反弹，8 月就回到了大跌前的高点，而那时疫情和经济的前景仍很不明朗。“等局势明朗”往往意味着以更高的价格买回。市场价格反映的是对未来的预期，而不是当前的新闻（[[4.7]]）。
+      en: |-
+        (A). He sold after the fall and had already suffered most of the loss; to gain, he must also buy back below his selling price. In 2020 the S&P 500 bottomed on March 23 and rebounded quickly, regaining its pre-crash high by August, while the outlook for the pandemic and the economy was still very unclear. "Waiting for clarity" often means buying back higher. Market prices reflect expectations about the future, not today's news ([[4.7]]).
+
+  - id: C3
+    kind: check
+    section: behavior-gap
+    concepts: [dollar-weighted-return, time-weighted-return]
+    widget: { id: behavior-gap, set: { k: 0 } }
+    question:
+      zh-cn: |-
+        在 [[fig:3-1]] 中把 k 设为 0，即投资者每年固定投入 20，不追涨杀跌。他的资金加权收益仍与基金的时间加权收益略有不同。原因是：
+      en: |-
+        In [[fig:3-1]], set k to 0, so the investor puts in a fixed 20 each year without chasing returns. His dollar-weighted return still differs slightly from the fund's time-weighted return. The reason is:
+    choices:
+      - zh-cn: 资金加权收益按每年投入的金额给各年的收益加权，账户中钱多的年份权重更大，即使投入是固定的
+        en: The dollar-weighted return weights each year's return by the money in the account, so years with more money count more, even with fixed contributions
+      - zh-cn: 基金在计算时间加权收益时扣除了费用
+        en: The fund deducts fees when computing its time-weighted return
+        why:
+          zh-cn: 图中的基金收益对投资者和基金是同一组数字。差别来自哪里？
+          en: In the figure the investor and the fund face the same returns. Where does the difference come from?
+      - zh-cn: 固定投入本身就是一种追涨杀跌
+        en: Fixed contributions are themselves a form of return chasing
+        why:
+          zh-cn: 固定投入的金额不随收益变化，算追涨杀跌吗？想一想钱在各年账户中的多少。
+          en: Fixed amounts do not change with returns; is that chasing? Think about how much money is in the account in each year.
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。时间加权收益给每一年同样的权重；资金加权收益中，账户里钱越多的年份对结果影响越大。固定投入使账户越来越大，后几年的收益权重更高。在这条路径上，后几年的平均收益略低于前几年，所以资金加权收益略低（约 7.39% 对 7.57%）。这种差别取决于路径，可正可负；而追涨杀跌系统性地在高位多投、低位少投，使差距持续变大。
+      en: |-
+        (A). The time-weighted return gives every year the same weight; in the dollar-weighted return, years with more money in the account count more. Fixed contributions make the account grow, so later years carry more weight. On this path, later years average slightly lower returns than earlier ones, so the dollar-weighted return is slightly lower (about 7.39% against 7.57%). This difference depends on the path and can go either way; return chasing, by contrast, systematically buys more when high and less when low, widening the gap consistently.
+
+  - id: C4
+    kind: check
+    section: overtrading
+    concepts: [firm-specific-risk, capm]
+    question:
+      zh-cn: |-
+        把大部分财富集中在少数几只股票上，承担的额外风险为什么通常得不到更高预期收益的补偿？
+      en: |-
+        Why is the extra risk of concentrating most of one's wealth in a few stocks usually not compensated by higher expected returns?
+    choices:
+      - zh-cn: 这部分是特质风险，可以通过分散投资几乎免费地消除，市场不会为它支付溢价
+        en: It is idiosyncratic risk, which diversification removes almost for free, so the market pays no premium for it
+      - zh-cn: 少数几只股票的预期收益一定低于市场
+        en: A few stocks must have lower expected returns than the market
+        why:
+          zh-cn: 少数几只股票的预期收益不一定更低。问题是它们多出来的风险有没有对应的补偿。
+          en: A few stocks need not have lower expected returns. The question is whether their extra risk is matched by extra reward.
+      - zh-cn: 集中的组合 beta 更高
+        en: A concentrated portfolio has a higher beta
+        why:
+          zh-cn: 集中的组合 beta 不一定更高；即使更高，beta 带来的风险是有补偿的。没有补偿的是哪一部分？
+          en: A concentrated portfolio need not have a higher beta, and beta risk is compensated anyway. Which part is not?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。按 CAPM（[[4.4]]），只有系统性风险（beta）有风险溢价；公司特有的风险可以通过持有许多股票相互抵消，愿意分散的投资者不需要补偿就能消除它，所以市场价格不会为它提供额外的预期收益。集中持有的投资者承担了更大的波动和更大的灾难性损失的可能，预期收益却没有相应提高。
+      en: |-
+        (A). Under CAPM ([[4.4]]) only systematic risk (beta) earns a premium; firm-specific risk cancels out across many stocks, investors willing to diversify can remove it without compensation, so prices offer no extra expected return for it. A concentrated investor bears larger swings and a greater chance of disastrous loss without a matching increase in expected return.
+
+  - id: C5
+    kind: check
+    section: discipline
+    concepts: [investment-policy-statement]
+    question:
+      zh-cn: |-
+        投资政策说明书一旦写好，在任何情况下都不应该修改，否则就失去了约束作用。
+      en: |-
+        Once written, an investment policy statement should never be changed under any circumstances, or it loses its power to restrain.
+    correct: false
+    hint:
+      zh-cn: IPS 的内容依据什么而定？如果家庭有了孩子、换了工作或者临近退休，这些依据会改变吗？市场大跌会改变它们吗？
+      en: What is the IPS based on? Would those bases change if the household had a child, changed jobs or neared retirement? Would a market crash change them?
+    answer:
+      zh-cn: |-
+        错。IPS 依据的是家庭的目标、期限、风险承受能力和对长期收益的估计。当这些发生实质变化时（结婚、生子、失业、继承遗产、临近退休、长期资本市场假设明显改变），应该修改 IPS。不应该修改的理由是市场的短期波动或情绪：大跌后想降低股票比例，正是 IPS 要防止的。IPS 本身应写明修改的条件和程序（[[6.13]]）。
+      en: |-
+        False. An IPS rests on the household's goals, horizon, risk capacity and long-run return estimates. When these change materially (marriage, children, job loss, an inheritance, nearing retirement, a clear change in long-run capital market assumptions), the IPS should be updated. What should not trigger a change is short-term market moves or emotion: wanting to cut stocks after a crash is exactly what the IPS is meant to prevent. The IPS itself should state when and how it may be changed ([[6.13]]).
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [margin, financial-leverage]
+    expected: { drop: "33.3" }
+    question:
+      zh-cn: |-
+        一位投资者用 5 万美元自有资金，再借 5 万美元保证金贷款，买入 10 万美元的股票指数基金。券商的维持保证金要求为 25%（账户中自有资金占股票市值的比例不得低于 25%）。
+        (a) 股价下跌百分之几时，他会收到追加保证金的通知？
+        (b) 他说：“我是长期投资者，短期下跌不影响我，而且贷款利率只有 6%，低于股票的长期收益，所以借钱投资很划算。”评价这个说法。
+      en: |-
+        An investor uses 50,000 dollars of his own money plus a 50,000 dollar margin loan to buy 100,000 dollars of a stock index fund. The broker's maintenance requirement is 25% (own funds must be at least 25% of the stocks' market value).
+        (a) At what percentage fall in price does he get a margin call?
+        (b) He says: "I'm a long-term investor, short-term falls don't affect me, and the loan rate is only 6%, below stocks' long-run return, so investing with borrowed money is a good deal." Evaluate this statement.
+    answer:
+      zh-cn: |-
+        (a) 设股票市值为 $V$，自有资金为 $V - 50$。$\frac{V - 50}{V} = 25\%$ 时 $V = \frac{50}{0.75} \approx 66.67$（千美元），即下跌约 33.3%。
+        (b) 说法不对。第一，“长期投资者不怕短期下跌”对借钱投资不成立：股市下跌 33% 并不罕见（2008 年、2020 年 3 月都超过了），那时他必须追加资金或被强制卖出，暂时的下跌变成了实际的亏损，他也失去了等到反弹的机会。第二，6% 的贷款利率是确定的成本，股票的收益是不确定的；股票相对现金的风险溢价只有几个百分点，扣除贷款利率后，借钱部分的预期超额收益很小，风险却翻倍。第三，杠杆使组合的波动加倍，波动拖累使复合增长率进一步降低（[[4.1]]）。第四，下跌往往与失业、收入下降同时发生，那时最难追加资金。
+      en: |-
+        (a) With stock value $V$, own funds are $V - 50$. Setting $\frac{V - 50}{V} = 25\%$ gives $V = \frac{50}{0.75} \approx 66.67$ (thousand dollars), a fall of about 33.3%.
+        (b) The statement is wrong. First, "long-term investors need not fear short-term falls" does not hold with borrowed money: a 33% fall is not rare (2008 and March 2020 both went further), and then he must add money or be sold out, turning a temporary fall into a real loss and losing the chance to wait for a rebound. Second, the 6% loan rate is a certain cost while stock returns are uncertain; the equity premium over cash is only a few percentage points, so after the loan rate the borrowed part's expected excess return is small while the risk doubles. Third, leverage doubles the portfolio's volatility, and volatility drag lowers the compound growth rate further ([[4.1]]). Fourth, falls often coincide with job losses and lower income, just when adding money is hardest.
+    rubric:
+      zh-cn:
+        - "(a) 通过：约 33.3%。"
+        - "(b) 通过：指出追加保证金和强制平仓使短期下跌变为实际亏损；说明贷款利率确定而股票收益不确定、超额收益小；提到波动拖累或下跌与失业同时发生更好。同意借钱划算，需要订正。"
+      en:
+        - "(a) OK: about 33.3%."
+        - "(b) OK: says margin calls and forced sales turn short-term falls into real losses; explains that the loan rate is certain while stock returns are not and the excess return is small; mentioning volatility drag or falls coinciding with job loss is a plus. Agreeing borrowing is a good deal needs revision."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [financial-leverage, volatility-drag]
+    expected: { i: "-1", l: "-4" }
+    question:
+      zh-cn: |-
+        一个指数第一天上涨 10%，第二天下跌 10%。一只追求指数日收益 2 倍的杠杆 ETF 也每天调整杠杆。
+        (a) 两天后，指数和杠杆 ETF 各涨跌了百分之几？
+        (b) 一位投资者说：“我看好股市未来 10 年的表现，所以买 2 倍杠杆 ETF 并持有 10 年，能得到指数收益的 2 倍。”评价这个说法。在什么情况下，杠杆 ETF 长期的收益可能超过指数收益的 2 倍？
+      en: |-
+        An index rises 10% on the first day and falls 10% on the second. A leveraged ETF seeking twice the index's daily return resets its leverage daily.
+        (a) After two days, by what percentage have the index and the leveraged ETF changed?
+        (b) An investor says: "I'm bullish on stocks for the next 10 years, so I'll buy a 2x leveraged ETF and hold it for 10 years to get twice the index return." Evaluate this statement. Under what conditions might a leveraged ETF's long-run return exceed twice the index's?
+    answer:
+      zh-cn: |-
+        (a) 指数：$1.1 \times 0.9 = 0.99$，即 −1%。杠杆 ETF：$1.2 \times 0.8 = 0.96$，即 −4%，而不是 −2%。
+        (b) 说法不对。每天调整杠杆的 ETF，长期收益取决于路径：复合增长率约为 $2\mu - \frac{(2\sigma)^2}{2}$，波动拖累是指数的 4 倍（[[4.1]]）。例如指数年均收益 8%、波动率 20% 时，指数的复合增长约 $8\% - 2\% = 6\%$，2 倍 ETF 约 $16\% - 8\% = 8\%$，还要扣除借款成本和较高的费用，远不是 12%。在大跌之中，杠杆 ETF 可能损失大部分价值，难以恢复。只有在市场持续单边上涨、波动很小时（每天的收益方向一致，杠杆每天按上涨后的净值放大），杠杆 ETF 的长期收益才可能超过指数的 2 倍；而在震荡或下跌的市场中会远低于 2 倍。看好股市的投资者如果想承担更多风险，提高股票比例比持有杠杆 ETF 更稳妥。
+      en: |-
+        (a) Index: $1.1 \times 0.9 = 0.99$, that is −1%. Leveraged ETF: $1.2 \times 0.8 = 0.96$, that is −4%, not −2%.
+        (b) The statement is wrong. A daily-reset ETF's long-run return depends on the path: its compound growth is about $2\mu - \frac{(2\sigma)^2}{2}$, with four times the index's volatility drag ([[4.1]]). With an index averaging 8% a year at 20% volatility, the index compounds at about $8\% - 2\% = 6\%$ and the 2x ETF at about $16\% - 8\% = 8\%$, before borrowing costs and higher fees, far from 12%. In a crash a leveraged ETF can lose most of its value and struggle to recover. Only in steady one-way rises with low volatility (daily returns in the same direction, with leverage applied to a growing value each day) can a leveraged ETF's long-run return exceed twice the index's; in choppy or falling markets it falls far short. A bullish investor wanting more risk is better served by a higher stock share than by holding a leveraged ETF.
+    rubric:
+      zh-cn:
+        - "(a) 通过：指数 −1%，杠杆 ETF −4%。"
+        - "(b) 通过：指出长期收益依赖路径、波动拖累约为指数的 4 倍，给出数量级的例子；说明在持续低波动上涨时才可能超过 2 倍。同意“得到 2 倍收益”，需要订正。"
+      en:
+        - "(a) OK: index −1%, leveraged ETF −4%."
+        - "(b) OK: says the long-run return depends on the path with about four times the volatility drag, with an order-of-magnitude example; explains it can exceed 2x only in steady low-volatility rises. Agreeing it gives twice the return needs revision."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [efficient-market-hypothesis, expected-value]
+    expected: { p: "68.8" }
+    question:
+      zh-cn: |-
+        设股市上涨的年份占 70%，上涨年份平均收益 +20%；下跌的年份占 30%，平均收益 −15%；现金每年收益 3%。一位择时者每年年初判断当年涨跌：判断上涨就持有股票，判断下跌就持有现金；他判断正确的概率为 $p$，与当年实际涨跌无关。
+        (a) 一直持有股票的预期年收益是多少？择时者的预期年收益是 $p$ 的什么函数？$p$ 至少要多少，择时才不比一直持有股票差（不考虑交易成本和税）？
+        (b) 他说：“我判断方向的准确率有 60%，比抛硬币好，所以择时能提高收益。”评价这个说法。
+      en: |-
+        Suppose stocks rise in 70% of years, averaging +20% in up years, and fall in 30% of years, averaging −15%; cash returns 3% a year. A market timer calls each year's direction at the start: if he calls up he holds stocks, if down he holds cash; he is right with probability $p$, regardless of what the market actually does.
+        (a) What is the expected yearly return of always holding stocks? What is the timer's expected return as a function of $p$? How large must $p$ be for timing to do no worse than always holding stocks (ignoring trading costs and taxes)?
+        (b) He says: "I call the direction right 60% of the time, better than a coin flip, so timing raises my returns." Evaluate this statement.
+    answer:
+      zh-cn: |-
+        (a) 一直持有：$0.7 \times 20\% + 0.3 \times (-15\%) = 9.5\%$。择时：上涨年份以概率 $p$ 持有股票得 20%，否则持有现金得 3%；下跌年份以概率 $p$ 持有现金得 3%，否则得 −15%。预期收益 $0.7\,[20p + 3(1 - p)] + 0.3\,[3p - 15(1 - p)] = 17.3p - 2.4$（%）。令其等于 9.5，$p = \frac{11.9}{17.3} \approx 68.8\%$。
+        (b) 说法不对。60% 的准确率给出的预期收益为 $17.3 \times 0.6 - 2.4 = 7.98\%$，比一直持有股票低约 1.5 个百分点。原因是市场上涨的年份多，而且错过上涨的代价（少赚 17 个百分点）与躲过下跌的收益（少亏 18 个百分点）相近：多数时候判断“下跌”都是错的。所以择时需要约 69% 以上的准确率才能打平，还没有算交易成本、税和两次判断（何时卖出、何时买回）的困难。几乎没有证据表明投资者能持续达到这样的准确率（[[4.7]]）。
+      en: |-
+        (a) Always holding: $0.7 \times 20\% + 0.3 \times (-15\%) = 9.5\%$. Timing: in up years he holds stocks with probability $p$ and earns 20%, otherwise cash at 3%; in down years he holds cash with probability $p$ at 3%, otherwise −15%. Expected return $0.7\,[20p + 3(1 - p)] + 0.3\,[3p - 15(1 - p)] = 17.3p - 2.4$ (%). Setting it equal to 9.5 gives $p = \frac{11.9}{17.3} \approx 68.8\%$.
+        (b) The statement is wrong. With 60% accuracy the expected return is $17.3 \times 0.6 - 2.4 = 7.98\%$, about 1.5 percentage points below always holding stocks. Up years are more common, and the cost of missing a rise (17 percentage points less) is about as large as the gain from avoiding a fall (18 percentage points less lost): most of the time, calling a fall is wrong. So timing needs about 69% accuracy just to break even, before trading costs, taxes and the difficulty of two decisions (when to sell, when to buy back). There is almost no evidence that investors can sustain such accuracy ([[4.7]]).
+    rubric:
+      zh-cn:
+        - "(a) 通过：9.5%；$17.3p - 2.4$；$p \\approx 68.8\\%$。"
+        - "(b) 通过：算出 60% 时约 7.98%，低于一直持有；解释上涨年份多、错过上涨代价大；提到成本、税或证据中的至少一项。同意择时能提高收益，需要订正。"
+      en:
+        - "(a) OK: 9.5%; $17.3p - 2.4$; $p \\approx 68.8\\%$."
+        - "(b) OK: computes about 7.98% at 60%, below always holding; explains that up years are more common and missing them is costly; mentions at least one of costs, taxes or the evidence. Agreeing timing raises returns needs revision."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [dollar-weighted-return, time-weighted-return, internal-rate-of-return]
+    expected: { twr: "-5.13", dwr: "-23.93" }
+    question:
+      zh-cn: |-
+        一只基金第一年上涨 50%，第二年下跌 40%。一位投资者第一年初投入 100，看到第一年的表现后，第二年初又投入 200，第二年末账户里还剩多少就算多少。
+        (a) 基金这两年的时间加权年收益是多少？投资者的资金加权年收益（IRR）是多少？
+        (b) 他说：“基金公布的年收益只是 −5%，我却亏了这么多，一定是基金的数据有问题。”评价这个说法，并说明怎样避免这种结果。
+      en: |-
+        A fund rises 50% in the first year and falls 40% in the second. An investor puts in 100 at the start of year one and, after seeing year one's performance, another 200 at the start of year two; the account balance at the end of year two is what he has.
+        (a) What is the fund's time-weighted yearly return over the two years? What is the investor's dollar-weighted yearly return (IRR)?
+        (b) He says: "The fund reports only about −5% a year, yet I lost so much; the fund's figures must be wrong." Evaluate this statement, and say how such an outcome can be avoided.
+    answer:
+      zh-cn: |-
+        (a) 时间加权：$\sqrt{1.5 \times 0.6} - 1 \approx -5.13\%$。投资者：第一年末 150，加 200 后为 350，第二年末 $350 \times 0.6 = 210$。IRR 满足 $-100 - \frac{200}{1 + x} + \frac{210}{(1 + x)^2} = 0$，解得 $x \approx -23.93\%$。他共投入 300，最后剩 210。
+        (b) 说法不对，基金的数据没有问题。基金公布的是时间加权收益，衡量的是基金经理的表现，与投资者何时投入无关；投资者的结果是资金加权收益，取决于他的现金流。他在基金大涨之后投入了大部分的钱，正好赶上下跌，所以亏得比基金多得多。这正是 Morningstar 的研究中普遍存在的“行为差距”。避免的方法：按事先定好的计划定期投入，不因为近期的表现追加或撤出；使用配置型基金（如目标日期基金）而不是热门的行业基金；在 IPS 中写明投入和再平衡的规则。
+      en: |-
+        (a) Time-weighted: $\sqrt{1.5 \times 0.6} - 1 \approx -5.13\%$. The investor: 150 at the end of year one, 350 after adding 200, and $350 \times 0.6 = 210$ at the end of year two. The IRR solves $-100 - \frac{200}{1 + x} + \frac{210}{(1 + x)^2} = 0$, giving $x \approx -23.93\%$. He put in 300 and ended with 210.
+        (b) The statement is wrong; the fund's figures are fine. The fund reports its time-weighted return, which measures the manager's performance regardless of when investors put money in; the investor's result is a dollar-weighted return that depends on his cash flows. He put most of his money in after the fund's big rise, just in time for the fall, so he lost far more than the fund. This is the "behavior gap" found widely in Morningstar's research. To avoid it: invest regularly on a plan set in advance, not adding or withdrawing because of recent performance; use allocation funds (such as target-date funds) rather than hot sector funds; and write the rules for contributions and rebalancing into the IPS.
+    rubric:
+      zh-cn:
+        - "(a) 通过：时间加权约 −5.13%；资金加权约 −23.93%，方程设立正确。"
+        - "(b) 通过：解释时间加权与资金加权的区别，指出差距来自他的投入时机；给出至少一项避免的方法。同意“数据有问题”，需要订正。"
+      en:
+        - "(a) OK: time-weighted about −5.13%; dollar-weighted about −23.93%, equation set up correctly."
+        - "(b) OK: explains the difference between time-weighted and dollar-weighted returns and that the gap comes from his timing; gives at least one way to avoid it. Agreeing the figures are wrong needs revision."

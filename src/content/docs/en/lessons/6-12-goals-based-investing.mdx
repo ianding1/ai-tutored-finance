@@ -1,0 +1,58 @@
+---
+title: 6.12 Goals-Based Investing
+description: Treating each household goal as a liability; the funded ratio; matching assets by horizon and importance; the probability of reaching a goal; from goal portfolios to the household's overall allocation.
+lesson: "6.12"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import GoalProb from '../../../../components/widgets/GoalProb.astro';
+
+## Goals are liabilities [#goals]
+
+A household does not invest to make a portfolio number as large as possible, but to pay certain amounts at certain times: a down payment in a few years, college tuition in a dozen years, decades of retirement. <Def id="goals-based-investing">Goals-based investing</Def> treats each goal as a liability and records three things: the amount (in today's purchasing power), the date, and its importance. Importance is often split into three classes: needs that must be met (such as basic retirement living), wants one hopes to meet (such as a private college for a child), and wishes that would be good to meet (such as a bequest).
+
+The state of a goal is measured by the ratio of the assets set aside for it to its present value, called the <Def id="funded-ratio">funded ratio</Def>. The present value uses the riskless rate (<Ref concept="present-value" />): it is the money needed today to lock in the goal with riskless assets. At a funded ratio of 100%, maturity-matched riskless assets (such as TIPS or Treasuries, <Ref lesson="6.11" sec="retirement-income" />) can meet the goal with certainty.
+
+<Check id="C1" />
+
+## Risk and the probability of reaching a goal [#probability]
+
+Taking risk has different effects for goals with different funded ratios and horizons. The figure assumes a riskless real return of 1% and stocks with a real expected return of 5% and 17% volatility, and computes the probability that final wealth is at least the goal for different stock shares.
+
+<Figure id="2-1" title="The probability of reaching a goal against the stock share. Real returns: riskless asset 1%, stocks 5% expected with 17% volatility; lognormal approximation. Funded ratio = today's assets / the goal's present value discounted at 1%." observe="First look at the curve for a 100% funded ratio and 5 years; then lower the funded ratio to 70%; then raise the number of years to 30.">
+	<GoalProb />
+</Figure>
+
+<Check id="C2" />
+
+<Check id="C3" />
+
+## Layering by importance [#priorities]
+
+Goals of different importance call for different risk. Goals that must be met should first be locked in with maturity-matched safe assets, as pension funds match pension liabilities with bonds; this is liability-driven investing. Only the assets left above this base are used to take risk in pursuit of wishes. The structure resembles a protective put (<Ref lesson="5.2" sec="strategies" />): first secure a floor, then keep the chance of upside.
+
+Splitting money into "accounts" for different goals looks like mental accounting (<Ref concept="mental-accounting" />), which is usually seen as a bias. Here, though, separating by goal has real uses: it forces the household to write down each goal's amount and date, matches each goal's risk to its horizon and importance, and makes it easier to stick to the plan when markets fall.
+
+<Check id="C4" />
+
+## From goals to the household allocation [#household]
+
+Adding up the assets and allocations of all the goals gives the household's overall allocation. For example, with the down payment money all in Treasury bills, the college fund half in stocks and the retirement fund 80% in stocks, the household's overall stock share is the average of these shares weighted by amount (<Ref check="Q3" />). The overall allocation must fit the risk capacity in the IPS (<Ref lesson="6.10" sec="discipline" />), and rebalancing can be done at the household level (<Ref lesson="6.7" sec="rebalancing" />). As time passes, each goal's horizon shortens and its funded ratio changes, so allocations should be revisited regularly (<Ref lesson="6.13" />).
+
+<Check id="C5" />
+
+## Summary [#summary]
+
+- Goals-based investing treats each goal as a liability with an amount, a date and an importance.
+- Funded ratio = assets / the goal's present value at the riskless rate; at 100%, maturity-matched safe assets can meet the goal with certainty.
+- Whether taking risk raises the probability of reaching a goal depends on its funded ratio and horizon.
+- First lock in the goals that must be met with safe assets, then pursue other goals with what is left.
+- The goals' allocations, averaged by amount, give the household's overall allocation.
+
+## Exercises [#exercises]
+
+<Exercises />

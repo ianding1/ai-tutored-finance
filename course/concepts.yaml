@@ -3261,3 +3261,115 @@ investment-thesis:
   short:
     zh-cn: "说明价格为何低于价值、与市场的分歧以及判断错误的证据的书面论证。"
     en: "A written case for why price is below value, how one differs from the market, and what would prove one wrong."
+
+replacement-ratio:
+  defined_in: "6.9"
+  zh-cn: 替代率
+  en: replacement ratio
+  short:
+    zh-cn: "退休后支出（或收入）占退休前收入的比例。"
+    en: "Retirement spending (or income) as a share of pre-retirement income."
+
+safe-withdrawal-rate:
+  defined_in: "6.9"
+  zh-cn: 安全提款率
+  en: safe withdrawal rate
+  short:
+    zh-cn: "第一年从组合中取出、以后按通胀调整，在设定期限内大概率不会用完的比例。"
+    en: "The first-year withdrawal share, raised with inflation after, that very likely lasts the planned horizon."
+
+sequence-of-returns-risk:
+  defined_in: "6.9"
+  zh-cn: 收益顺序风险
+  en: sequence-of-returns risk
+  short:
+    zh-cn: "提款期间，同样的收益因顺序不同而使结果差别很大的风险。"
+    en: "The risk that, during withdrawals, the same returns in a different order give very different outcomes."
+
+full-retirement-age:
+  defined_in: "6.9"
+  zh-cn: 完全退休年龄
+  en: full retirement age
+  short:
+    zh-cn: "领取全额社会保障金的年龄，1960 年及以后出生者为 67 岁。"
+    en: "The age at which full Social Security benefits are paid; 67 for those born 1960 or later."
+
+longevity-risk:
+  defined_in: "6.9"
+  zh-cn: 长寿风险
+  en: longevity risk
+  short:
+    zh-cn: "活得比预期长、钱不够用的风险。"
+    en: "The risk of living longer than planned and running out of money."
+
+time-weighted-return:
+  defined_in: "6.10"
+  zh-cn: 时间加权收益
+  en: time-weighted return
+  short:
+    zh-cn: "假设期初投入一笔钱并持有，各期收益的几何平均；基金公布的收益。"
+    en: "The geometric average of period returns for a lump sum held throughout; what funds report."
+
+dollar-weighted-return:
+  defined_in: "6.10"
+  zh-cn: 资金加权收益
+  en: dollar-weighted return
+  short:
+    zh-cn: "考虑每次投入和取出的时间与金额的收益率，即现金流的内部收益率。"
+    en: "The return that accounts for the timing and size of each purchase and withdrawal; the IRR of the cash flows."
+
+investment-policy-statement:
+  defined_in: "6.10"
+  zh-cn: 投资政策说明书
+  en: investment policy statement
+  short:
+    zh-cn: "写明家庭的目标、期限、风险承受能力、配置和规则的文件（IPS）。"
+    en: "A document stating a household's goals, horizon, risk capacity, allocation and rules (IPS)."
+
+money-illusion:
+  defined_in: "6.11"
+  zh-cn: 货币幻觉
+  en: money illusion
+  short:
+    zh-cn: "用名义金额而不是实际购买力思考的倾向。"
+    en: "The tendency to think in nominal amounts rather than real purchasing power."
+
+i-bond:
+  defined_in: "6.11"
+  zh-cn: I 债券
+  en: I bond
+  short:
+    zh-cn: "美国财政部的储蓄债券，利率由固定利率和按 CPI 调整的通胀利率组成，名义价值不降。"
+    en: "A US Treasury savings bond whose rate combines a fixed rate and a CPI-based inflation rate; its nominal value never falls."
+
+goals-based-investing:
+  defined_in: "6.12"
+  zh-cn: 目标导向投资
+  en: goals-based investing
+  short:
+    zh-cn: "把每个家庭目标看作有金额、时间和重要程度的负债，并分别匹配资产。"
+    en: "Treating each household goal as a liability with an amount, date and importance, and matching assets to each."
+
+funded-ratio:
+  defined_in: "6.12"
+  zh-cn: 资金充足率
+  en: funded ratio
+  short:
+    zh-cn: "为目标准备的资产与目标按无风险利率折现的现值之比。"
+    en: "Assets set aside for a goal divided by the goal's present value at the riskless rate."
+
+annual-review:
+  defined_in: "6.13"
+  zh-cn: 年度复盘
+  en: annual review
+  short:
+    zh-cn: "每年按固定清单检查家庭的资产负债、目标、配置、成本、税务、保障和 IPS。"
+    en: "A yearly check, against a fixed list, of the household's balance sheet, goals, allocation, costs, taxes, protection and IPS."
+
+decision-journal:
+  defined_in: "6.13"
+  zh-cn: 决策记录
+  en: decision journal
+  short:
+    zh-cn: "做重要决定时写下信息、理由、预期和退出条件，用来评价推理而不只是结果。"
+    en: "A written record, at each important decision, of information, reasoning, expectations and exit conditions, for judging reasoning rather than outcomes."

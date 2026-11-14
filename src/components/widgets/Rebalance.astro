@@ -1,7 +1,8 @@
 ---
 // Figure 4-1 of lesson 6.7: the stock weight of a 60/40 portfolio over 40 years along one simulated path of yearly
 // returns (stocks 7% mean, 17% volatility; bonds 4%, 6%; independent; fixed seed), never rebalanced versus
-// rebalanced back to 60% at year end whenever the weight is outside an adjustable band.
+// rebalanced back to 60% at year end whenever the weight is outside an adjustable band (plotted: the weight
+// at each year end before rebalancing).
 // Parameters are registered in course/widgets.yaml (id: rebalance). Same model as course/verify/6.7.py.
 import { toLang } from '../../i18n/ui';
 
@@ -13,7 +14,6 @@ const L = {
 		y: '股票比例（%）',
 		none: '从不再平衡',
 		band2: '超出区间时再平衡',
-		target: '目标 60%',
 		aria: '股票比例随时间的漂移',
 		readout: '从不再平衡：40 年后股票占 {e}%，最高 {m}%；按区间再平衡：40 年中再平衡 {n} 次。',
 	},
@@ -23,7 +23,6 @@ const L = {
 		y: 'Stock weight (%)',
 		none: 'Never rebalanced',
 		band2: 'Rebalanced when outside the band',
-		target: 'Target 60%',
 		aria: 'Drift of the stock weight over time',
 		readout: 'Never rebalanced: stocks are {e}% after 40 years, at most {m}%; with the band: {n} rebalances in 40 years.',
 	},
@@ -65,7 +64,6 @@ const layouts = [
 			<line class="viz-axis" x1={pad.l} x2={W - pad.r} y1={H - pad.b} y2={H - pad.b} />
 			<text class="viz-tick" x={(pad.l + W - pad.r) / 2} y={H - 8} text-anchor="middle">{L.x}</text>
 			<text class="viz-tick" transform={`translate(12 ${(pad.t + H - pad.b) / 2}) rotate(-90)`} text-anchor="middle">{L.y}</text>
-			<line class="viz-target" x1={pad.l} x2={W - pad.r} y1={Y(60)} y2={Y(60)} />
 			<path class="viz-ols" fill="none" data-el="none" d="" />
 			<path class="viz-fit" fill="none" data-el="band" d="" />
 		</svg>
@@ -73,7 +71,6 @@ const layouts = [
 	<ul class="lfwai-legend">
 		<li><span class="sw sw-ols"></span>{L.none}</li>
 		<li><span class="sw sw-fit"></span>{L.band2}</li>
-		<li><span class="sw sw-target"></span>{L.target}</li>
 	</ul>
 	<p class="lfwai-readout" data-el="readout" aria-live="polite"></p>
 </div>

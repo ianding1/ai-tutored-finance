@@ -1,0 +1,66 @@
+---
+title: 6.9 Retirement Planning
+description: How much is needed for retirement; withdrawal rate research and the assumptions behind the "4% rule"; sequence-of-returns risk; when to claim Social Security; longevity risk and annuities.
+lesson: "6.9"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import SequenceRisk from '../../../../components/widgets/SequenceRisk.astro';
+
+## How much is needed [#needs]
+
+Retirement planning starts from spending: how much is needed each year in retirement (in today's purchasing power), how much of it Social Security, pensions and other steady income will provide, and the remaining gap, which the portfolio must fill.
+
+Spending in retirement is usually lower than income before it: there is no more saving for retirement, no payroll tax, and fewer work-related costs. A common rule of thumb is that retirement spending is about 70% to 85% of pre-retirement income; this share is the <Def id="replacement-ratio">replacement ratio</Def>, but it varies widely between households: health spending rises with age, travel and similar spending may be higher early in retirement, and whether the mortgage is paid off matters a lot.
+
+<Check id="C1" />
+
+## Withdrawal rates and the "4% rule" [#withdrawal-rate]
+
+Once the gap is known, the assets needed depend on how much can safely be taken from the portfolio each year. Bengen (1994) tested this with US historical data from 1926: withdraw a share of the portfolio in the first year of retirement, raise that amount with inflation every year after, hold 50% to 75% in stocks, and continue for 30 years. He found that with an initial withdrawal rate of about 4%, the money never ran out for any historical starting year. The "Trinity study" of Cooley, Hubbard and Walz (1998) reached a similar conclusion. This is the well-known "4% rule", which gives one kind of <Def id="safe-withdrawal-rate">safe withdrawal rate</Def>.
+
+The result rests on important assumptions: the data are from the US, whose stock market was among the world's best in the 20th century; the horizon is 30 years; no fees or taxes are deducted; and real spending is fixed each year, not adjusted to markets. Based on current valuations and rates, Morningstar estimates that for people retiring in 2026 with 30% to 50% in stocks, the initial withdrawal rate with a 90% chance of lasting 30 years is about 3.9% (2025 research). People willing to cut spending when markets fall can start at a higher rate.
+
+<Check id="C2" />
+
+## Sequence-of-returns risk [#sequence-risk]
+
+While saving, the order of yearly returns does not affect final wealth as long as the returns are the same: the order of multiplication does not matter. With withdrawals it is different. <Def id="sequence-of-returns-risk">Sequence-of-returns risk</Def> is the risk that the same set of returns, arriving in a different order, gives very different results for a portfolio being drawn down.
+
+<Figure id="3-1" title="A portfolio of 1,000 at retirement, with 40 in real terms withdrawn at the start of each year (an initial rate of 4%). The real return is 5% every year except one year of −30%. Dashed: the fall comes in the last year." observe="Move the year of the fall from year 1 step by step to year 30, and see how the amount left after 30 years changes.">
+	<SequenceRisk />
+</Figure>
+
+<Check id="C3" />
+
+## When to claim Social Security [#social-security]
+
+US Social Security benefits can start at any age from 62 to 70. For people born in 1960 or later, the <Def id="full-retirement-age">full retirement age</Def> is 67: starting at 67 gives the full benefit; starting at 62 reduces the monthly amount by 30%; each year of delay adds 8%, reaching 124% of the full benefit at 70. Benefits are adjusted for inflation each year (by 2.8% in 2026) and paid for life; when one spouse dies, the other can receive the larger of the two benefits.
+
+Social Security's finances should also be considered: according to the Trustees Report released in June 2026, the retirement trust fund is projected to run out in the fourth quarter of 2032, after which, unless Congress acts, continuing income would pay only about 78% of scheduled benefits.
+
+<Check id="C4" />
+
+## Longevity risk and annuities [#longevity]
+
+Another risk in retirement planning is living longer than expected: <Def id="longevity-risk">longevity risk</Def>. Life expectancy is only an average: for a couple aged 65, the chance that at least one lives past 90 is far from small. Planning for average life expectancy means a large chance that the money runs short.
+
+Ways to deal with longevity risk include: delaying Social Security (itself an inflation-adjusted lifetime income); buying an immediate annuity, paying an insurer a lump sum in exchange for regular payments for life; and leaving room in the withdrawal plan. An annuity pools many people's longevity risk: money left by those who die early pays those who live long; this is called the mortality credit.
+
+<Check id="C5" />
+
+## Summary [#summary]
+
+- Retirement planning starts from the spending gap; replacement ratios are often 70% to 85%, but vary by household.
+- The "4% rule" rests on US historical data, a 30-year horizon and fixed real spending; at current valuations some research puts it at about 3.9%.
+- With withdrawals, the same returns in a different order give very different results; falls early in retirement do the most harm.
+- Social Security can start from 62 to 70, rising 8% for each year of delay, adjusted for inflation and paid for life.
+- Longevity risk can be met by delaying Social Security, annuities and a conservative withdrawal plan.
+
+## Exercises [#exercises]
+
+<Exercises />

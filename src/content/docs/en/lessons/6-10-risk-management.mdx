@@ -1,0 +1,68 @@
+---
+title: 6.10 Risk Management and Common Mistakes
+description: Leverage and margin; the difficulty of market timing; time-weighted and dollar-weighted returns, or why investors lag their own funds; overtrading and concentration; the investment policy statement and a discipline checklist.
+lesson: "6.10"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import BehaviorGap from '../../../../components/widgets/BehaviorGap.astro';
+
+The largest losses in household investing often come not from picking the wrong fund but from a few common mistakes: investing with borrowed money, trying to time the market, chasing returns, trading too much and concentrating too much. This lesson looks at each in turn, and at how rules written in advance can help avoid them.
+
+## Leverage [#leverage]
+
+Investing with borrowed money magnifies both gains and losses (<Ref concept="financial-leverage" />). Margin loans in a brokerage account (<Ref concept="margin" />) carry an extra risk: when the share of the account's own funds falls below the maintenance requirement, the broker demands more money or sells the holdings. This tends to happen after large market falls, turning a temporary fall into a real loss.
+
+Another common form of leverage is the leveraged ETF, for example a fund that seeks twice the index's daily return. It resets its leverage every day, so when held for more than a day its return is not twice the index's return over that period (<Ref lesson="4.1" sec="volatility-drag" />).
+
+<Check id="C1" />
+
+## Market timing [#market-timing]
+
+Market timing means moving between stocks and cash based on a view of the market. It requires two correct decisions: when to sell, and when to buy back. The market's best days and worst days often come in the same turbulent periods, and people who leave the market to avoid falls easily miss the rebounds that follow. Since the market rises in most years, the opportunity cost of holding cash is ongoing (<Ref check="Q3" />).
+
+<Check id="C2" />
+
+## Why investors lag their own funds [#behavior-gap]
+
+A fund's reported return is its <Def id="time-weighted-return">time-weighted return</Def>: the geometric average of period returns, as if a lump sum had been invested at the start and held. What an investor actually earns is the <Def id="dollar-weighted-return">dollar-weighted return</Def>: the rate that makes the net present value of all cash flows zero, taking into account the timing and size of each purchase and withdrawal, that is, the internal rate of return (<Ref concept="internal-rate-of-return" />). If investors put in more after a fund has risen and take money out after it has fallen, the dollar-weighted return falls below the time-weighted return.
+
+Morningstar's "Mind the Gap" study (2025) found that over the 10 years to the end of 2024, US fund investors' dollar-weighted returns averaged about 1.2 percentage points a year less than the time-weighted returns of the funds they held, about 15% of the total return; the gap was about 1.5 percentage points for sector funds, while allocation funds such as target-date funds showed almost no gap.
+
+<Figure id="3-1" title="A fund returns, in order, +20%, +25%, +15%, −30%, −10%, +25%, +20%, +10% over 8 years. The investor puts in 100 at the start, then at the start of each later year puts in 20 plus an amount that adds or withdraws according to the previous year's return (100 × k × last year's return)." observe="First set k to 0, then raise it step by step, and see how the gap between the investor's return and the fund's changes.">
+	<BehaviorGap />
+</Figure>
+
+<Check id="C3" />
+
+## Overtrading and concentration [#overtrading]
+
+Frequent trading adds trading costs and, in taxable accounts, turns long-term gains into short-term gains taxed at higher rates (<Ref lesson="6.5" />). Barber and Odean's research showed that the individual investors who traded most earned the worst returns (<Ref lesson="4.8" />). Overconfidence leads people to overrate their information and judgment, while the other side of their trades is often a better-informed professional.
+
+Concentration is another common risk: putting most of one's wealth in employer stock, one industry or a few stocks (<Ref lesson="6.6" />, <Ref lesson="6.8" sec="thesis" />). A concentrated portfolio may bring very high returns, but it may also bring losses that cannot be recovered, and the idiosyncratic risk it carries earns no compensation (<Ref lesson="4.4" />).
+
+<Check id="C4" />
+
+## Investment discipline [#discipline]
+
+Most of these mistakes happen when emotions run high: panic in a crash, excitement in a boom. The remedy is to write down rules in advance, while calm. The <Def id="investment-policy-statement">investment policy statement</Def> (IPS) is such a document: it states the household's goals, horizon, risk capacity, strategic allocation (<Ref lesson="6.7" />), rebalancing rules, criteria for choosing funds, and the circumstances under which these may be changed (<Ref lesson="6.13" />).
+
+Beyond the IPS, a short discipline checklist can be consulted whenever one feels like trading, for example: Does the IPS call for this trade? If not, what is my reason, and how will I check it afterwards? Making saving and rebalancing automatic also reduces the number of decisions to be made.
+
+<Check id="C5" />
+
+## Summary [#summary]
+
+- Margin loans can be forcibly closed after a crash; leveraged ETFs reset leverage daily, so their long-run return is not a fixed multiple of the index's.
+- Market timing requires being right twice; the opportunity cost of being out of the market is ongoing.
+- Investors' dollar-weighted returns often fall below their funds' time-weighted returns, mainly because of return chasing.
+- Frequent trading adds costs and taxes; concentration bears idiosyncratic risk that is not compensated.
+- An investment policy statement and a discipline checklist set rules while calm, to restrain emotional decisions.
+
+## Exercises [#exercises]
+
+<Exercises />

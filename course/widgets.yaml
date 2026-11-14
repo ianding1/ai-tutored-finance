@@ -463,3 +463,29 @@ reverse-dcf:
   component: src/components/widgets/ReverseDcf.astro
   params:
     r: { min: 7, max: 11, step: 1, default: 9 }
+
+sequence-risk:
+  component: src/components/widgets/SequenceRisk.astro
+  params:
+    k: { min: 1, max: 30, step: 1, default: 1 }
+
+behavior-gap:
+  component: src/components/widgets/BehaviorGap.astro
+  params:
+    k: { min: 0, max: 2, step: 0.5, default: 1 }
+
+real-value:
+  component: src/components/widgets/RealValue.astro
+  params:
+    pi: { min: 0, max: 8, step: 0.5, default: 3 }
+
+goal-prob:
+  component: src/components/widgets/GoalProb.astro
+  params:
+    t: { min: 1, max: 30, step: 1, default: 5 }
+    f: { min: 60, max: 120, step: 10, default: 100 }
+
+forecast-check:
+  component: src/components/widgets/ForecastCheck.astro
+  params:
+    r: { min: 0, max: 10, step: 1, default: 3 }

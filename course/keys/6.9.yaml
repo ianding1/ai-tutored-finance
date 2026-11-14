@@ -1,0 +1,313 @@
+# Answer key for lesson 6.9. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[5.2#strategies]] (section), [[concept:beta]], [[check:Q3]], [[fig:3-1]].
+# expected: values are recomputed by course/verify/6.9.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "6.9"
+
+context:
+  - zh-cn: |-
+      学习者学过年金与现值（[[0.1]]）、期望值与分布（[[0.3]]、[[0.4]]）、保险与风险厌恶（[[1.4]]）、逆向选择（[[1.9]]）、通胀与实际收益（[[2.1]]）、波动拖累（[[4.1]]）、生命周期配置（[[4.12]]）、蒙特卡洛模拟（[[4.13]]）、账户与税务（[[6.5]]）、资产配置（[[6.7]]）。题目需要的社会保障金额、年金价格直接给出。百分数用百分点表示。
+    en: |-
+      The learner has studied annuities and present value ([[0.1]]), expected values and distributions ([[0.3]], [[0.4]]), insurance and risk aversion ([[1.4]]), adverse selection ([[1.9]]), inflation and real returns ([[2.1]]), volatility drag ([[4.1]]), lifecycle allocation ([[4.12]]), Monte Carlo simulation ([[4.13]]), accounts and taxes ([[6.5]]) and asset allocation ([[6.7]]). Social Security amounts and annuity prices a question needs are given. Percentages in percentage points.
+  - concepts: [replacement-ratio]
+    zh-cn: |-
+      讲义：从支出缺口开始规划；退休后支出通常低于退休前收入（不再储蓄、不交工资税、工作开支减少），替代率常为 70%–85%，但医疗、旅行、房贷等使家庭差别很大。
+    en: |-
+      The lesson: planning starts from the spending gap; spending usually falls after retirement (no saving, no payroll tax, fewer work costs), replacement ratios are often 70%–85%, but health, travel and mortgages make households differ widely.
+  - concepts: [safe-withdrawal-rate]
+    zh-cn: |-
+      讲义：Bengen（1994）：1926 年以来美国数据，第一年取出一定比例，以后按通胀调整金额，50%–75% 股票，30 年，约 4% 时所有起始年份都没有用完；Trinity 研究（1998）类似。假设：美国数据（20 世纪表现最好的市场之一）、30 年、不扣费用和税、固定实际支出。Morningstar（2025 年研究）：2026 年退休、30%–50% 股票、30 年成功率 90% 的初始提款率约 3.9%；愿意在下跌时减少支出可以从较高的提款率开始。
+    en: |-
+      The lesson: Bengen (1994): US data from 1926, withdraw a share in year one and raise the amount with inflation after, 50%–75% stocks, 30 years; about 4% never ran out for any start year; the Trinity study (1998) is similar. Assumptions: US data (one of the best 20th-century markets), 30 years, no fees or taxes, fixed real spending. Morningstar (2025 research): for 2026 retirees with 30%–50% stocks, about 3.9% gives a 90% chance of lasting 30 years; those willing to cut spending in downturns can start higher.
+  - concepts: [sequence-of-returns-risk]
+    zh-cn: |-
+      讲义：积累期收益顺序不影响最终财富；提款期顺序很重要。[[fig:3-1]]：退休时 1,000，每年年初取 40（实际），各年实际收益 5%，只有一年 −30%；滑块下跌年份 1–30（默认 1）；30 年后剩余：第 1 年下跌约 148，第 5 年约 353，第 10 年约 558，第 20 年约 845，第 30 年约 1021；不取钱时任何顺序都是约 2881。讲义没有解释原因（留给 [[check:C3]]）。
+    en: |-
+      The lesson: while saving, the order of returns does not matter; with withdrawals it does. [[fig:3-1]]: 1,000 at retirement, 40 (real) withdrawn at the start of each year, real return 5% every year except one year of −30%; slider year of the fall 1–30 (default 1); left after 30 years: about 148 with the fall in year 1, 353 in year 5, 558 in year 10, 845 in year 20, 1021 in year 30; without withdrawals about 2881 in any order. The lesson does not explain why (left to [[check:C3]]).
+  - concepts: [full-retirement-age]
+    zh-cn: |-
+      讲义：社会保障金 62–70 岁开始领取；1960 年及以后出生者完全退休年龄 67 岁；62 岁领取减少 30%；每推迟一年加 8%，70 岁为 124%；每年按通胀调整（2026 年 2.8%），终身支付；配偶一方去世后另一方可领两人中较高的一份。2026 年 6 月受托人报告：养老信托基金预计 2032 年第四季度耗尽，之后收入约够支付 78%。
+    en: |-
+      The lesson: Social Security can start from 62 to 70; full retirement age is 67 for those born 1960 or later; claiming at 62 cuts benefits 30%; each year of delay adds 8%, reaching 124% at 70; benefits are inflation-adjusted (2.8% in 2026) and lifelong; a surviving spouse can take the larger of the two benefits. June 2026 Trustees Report: the retirement trust fund is projected to run out in Q4 2032, after which income covers about 78%.
+  - concepts: [longevity-risk]
+    zh-cn: |-
+      讲义：长寿风险；65 岁夫妻中至少一人活到 90 岁以上的概率不小；为平均寿命规划意味着很大概率不够用；应对：推迟领取社会保障金、即期年金、提款计划留余地；年金的死亡率收益。
+    en: |-
+      The lesson: longevity risk; for a 65-year-old couple, the chance that one lives past 90 is far from small; planning for average life expectancy means a large chance of running short; remedies: delay Social Security, immediate annuities, slack in the withdrawal plan; the annuity's mortality credit.
+
+common_errors:
+  - questions: [Q1]
+    zh-cn: |-
+      把“4% 规则”当作保证，用 4% 直接倒推所需的资产，忽略社会保障金等其他收入的作用、规则的历史假设，以及按当前估值可能需要更低的提款率。
+    en: |-
+      Treating the "4% rule" as a guarantee and using 4% directly to back out the assets needed, ignoring the role of Social Security and other income, the rule's historical assumptions, and that current valuations may call for a lower rate.
+  - questions: [Q2]
+    zh-cn: |-
+      以为平均收益相同，提款组合的结果就相同；忽略下跌时取出的钱把损失固定下来，留下更少的钱参与之后的上涨。
+    en: |-
+      Thinking that with the same average return a drawn-down portfolio ends the same; ignoring that withdrawals during a fall lock in losses and leave less money to share in the later recovery.
+  - questions: [Q3]
+    zh-cn: |-
+      只按平均寿命或不折现的“盈亏平衡年龄”决定社会保障金的领取时间；忽略它是对长寿风险的保险、配偶的遗属福利，以及活得长时最需要钱。
+    en: |-
+      Deciding when to claim Social Security by average life expectancy or an undiscounted break-even age alone; ignoring that it insures longevity risk, the survivor benefit, and that money matters most when one lives long.
+  - questions: [Q4]
+    zh-cn: |-
+      认为年金在早去世时“亏了”，所以是坏交易；或者忽略固定名义年金的购买力会被通胀侵蚀。
+    en: |-
+      Thinking an annuity is a bad deal because one "loses" by dying early; or ignoring that a fixed nominal annuity's purchasing power is eroded by inflation.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: needs
+    concepts: [replacement-ratio]
+    question:
+      zh-cn: |-
+        一个家庭退休前税前收入 20 万美元，每年存入退休账户 3 万美元，房贷将在退休时还清。下面哪一项最不可能是退休后支出低于退休前收入的原因？
+      en: |-
+        A household earns 200,000 dollars a year before tax, puts 30,000 dollars a year into retirement accounts, and will pay off its mortgage at retirement. Which of the following is least likely a reason that spending after retirement is lower than income before it?
+    choices:
+      - zh-cn: 退休后医疗支出会下降
+        en: Health spending falls after retirement
+      - zh-cn: 不再需要每年为退休储蓄 3 万美元
+        en: The 30,000 dollars a year of retirement saving is no longer needed
+        why:
+          zh-cn: 退休后还需要为退休储蓄吗？这部分收入以前是花掉了还是存起来了？
+          en: Is retirement saving still needed after retiring? Was this part of income spent or saved before?
+      - zh-cn: 不再交工资税，房贷也还清了
+        en: No more payroll tax, and the mortgage is paid off
+        why:
+          zh-cn: 工资税只对工资征收；房贷还清后每月的还款还需要吗？
+          en: Payroll tax applies only to wages; once the mortgage is paid off, are monthly payments still needed?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。医疗支出通常随年龄上升，是退休后支出中增长最快的部分之一，而不是下降的原因。不再储蓄、不交工资税、还清房贷才是退休后支出低于退休前收入的主要原因。所以替代率不是一个固定的数，要按家庭的具体情况估计。
+      en: |-
+        (A). Health spending usually rises with age and is one of the fastest-growing parts of retirement spending, not a reason for it to fall. No more saving, no payroll tax and a paid-off mortgage are the main reasons spending falls below pre-retirement income. So the replacement ratio is not a fixed number; it must be estimated for each household.
+
+  - id: C2
+    kind: check
+    section: withdrawal-rate
+    concepts: [safe-withdrawal-rate]
+    question:
+      zh-cn: |-
+        按“4% 规则”，退休者每年取出当年年初组合价值的 4%。
+      en: |-
+        Under the "4% rule", a retiree withdraws 4% of the portfolio's value at the start of each year.
+    correct: false
+    hint:
+      zh-cn: Bengen 研究中，第二年及以后取出的金额是怎样确定的？它与当年的组合价值有关吗？
+      en: In Bengen's study, how is the amount withdrawn in the second and later years set? Does it depend on that year's portfolio value?
+    answer:
+      zh-cn: |-
+        错。4% 只用于第一年：第一年取出初始组合的 4%，以后每年取出的金额按通胀调整，与当年的组合价值无关。这样支出稳定，但组合下跌时实际提款率会升高，这正是收益顺序风险的来源。如果每年取出当年价值的 4%，组合永远不会用完，但每年的支出会随市场大幅波动。
+      en: |-
+        False. The 4% applies only to the first year: 4% of the initial portfolio is withdrawn, and afterwards the amount rises with inflation each year regardless of the portfolio's value. Spending is stable, but the effective withdrawal rate rises when the portfolio falls, which is the source of sequence risk. Withdrawing 4% of each year's value would never exhaust the portfolio, but spending would swing widely with the market.
+
+  - id: C3
+    kind: check
+    section: sequence-risk
+    concepts: [sequence-of-returns-risk]
+    widget: { id: sequence-risk, set: { k: 1 } }
+    question:
+      zh-cn: |-
+        在 [[fig:3-1]] 中，同样的一组收益，下跌发生在第 1 年时 30 年后约剩 148，发生在第 30 年时约剩 1021。主要原因是：
+      en: |-
+        In [[fig:3-1]], with the same set of returns, about 148 is left after 30 years when the fall comes in year 1, against about 1021 when it comes in year 30. The main reason is:
+    choices:
+      - zh-cn: 早期下跌后，每年仍取出同样的金额，相当于以低价卖出更大比例的资产，留下参与以后上涨的钱更少
+        en: After an early fall the same amount is still withdrawn each year, selling a larger share of assets at low prices and leaving less money to share in later gains
+      - zh-cn: 两种情况的平均收益不同
+        en: The two cases have different average returns
+        why:
+          zh-cn: 两种情况都是 29 年 5%、1 年 −30%。平均收益一样吗？
+          en: Both cases have 29 years of 5% and one year of −30%. Are the average returns the same?
+      - zh-cn: 下跌越早，下跌的幅度越大
+        en: The earlier the fall, the larger it is
+        why:
+          zh-cn: 图中下跌的幅度始终是 30%。差别来自什么？
+          en: In the figure the fall is always 30%. Where does the difference come from?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。不取钱时，乘法的顺序不影响结果，两者都是约 2881。取钱时，第 1 年就下跌 30%，之后每年取出的 40 占组合的比例更大，相当于在低价时卖出更多，这些钱不再能参与以后的上涨；下跌发生在最后一年时，组合已经在前 29 年中增长，损失作用于一个较大的余额，而之前的提款都按较高的价格取出。所以退休前后几年的市场表现对能否维持支出影响最大。
+      en: |-
+        (A). Without withdrawals the order of multiplication does not matter, and both end at about 2881. With withdrawals, a 30% fall in year 1 means each later withdrawal of 40 is a larger share of the portfolio, selling more at low prices, and that money no longer shares in later gains; when the fall comes in the last year, the portfolio has grown for 29 years and earlier withdrawals were taken at higher prices. So the market in the years around retirement matters most for whether spending can be sustained.
+
+  - id: C4
+    kind: check
+    section: social-security
+    concepts: [full-retirement-age, longevity-risk]
+    question:
+      zh-cn: |-
+        一对 62 岁的夫妻身体都很健康，丈夫的社会保障金远高于妻子。从整个家庭的角度看，推迟到 70 岁领取最有价值的是：
+      en: |-
+        A healthy couple aged 62; the husband's Social Security benefit is far higher than the wife's. For the household as a whole, delaying to 70 is most valuable for:
+    choices:
+      - zh-cn: 丈夫，因为他的福利较高，而且两人中任何一人在世，较高的那份都会继续支付
+        en: The husband, because his benefit is larger and the larger benefit keeps being paid as long as either spouse is alive
+      - zh-cn: 妻子，因为女性的平均寿命更长
+        en: The wife, because women live longer on average
+        why:
+          zh-cn: 丈夫去世后，妻子领的是谁的那份？推迟哪一份能增加活得较长的人的收入？
+          en: After the husband dies, whose benefit does the wife receive? Delaying which benefit raises the income of whoever lives longer?
+      - zh-cn: 两人都应尽早领取，因为社会保障基金可能耗尽
+        en: Both should claim as early as possible, because the trust fund may run out
+        why:
+          zh-cn: 按报告，基金耗尽后仍能支付约 78%。提前领取会减少多少？推迟带来的增加会因此消失吗？
+          en: According to the report, about 78% would still be paid after the fund runs out. How much does claiming early cut? Does that erase the gain from delaying?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。丈夫的福利较高，丈夫去世后妻子可以改领这份较高的福利，所以推迟丈夫的领取，增加的是“两人中较长寿的那个人”的终身收入，相当于对夫妻共同的长寿风险买了保险。妻子的较低福利可以早些领取。基金耗尽的风险会使所有人的福利按比例减少，并不改变推迟带来的相对增加。
+      en: |-
+        (A). The husband's benefit is larger, and after he dies the wife can switch to it, so delaying his claim raises the lifetime income of "whichever spouse lives longer", insuring the couple's joint longevity risk. The wife's smaller benefit can be claimed earlier. Trust fund depletion would cut everyone's benefits proportionally and does not change the relative gain from delaying.
+
+  - id: C5
+    kind: check
+    section: longevity
+    concepts: [longevity-risk]
+    question:
+      zh-cn: |-
+        一位 65 岁的退休者预期寿命为 85 岁，所以他只需要准备够用 20 年的钱。
+      en: |-
+        A 65-year-old retiree has a life expectancy of 85, so he needs only enough money to last 20 years.
+    correct: false
+    hint:
+      zh-cn: 预期寿命是平均值。实际寿命超过平均值的概率有多大？钱在 85 岁用完而他活到 95 岁会怎样？
+      en: Life expectancy is an average. How likely is it that he lives beyond it? What happens if the money runs out at 85 and he lives to 95?
+    answer:
+      zh-cn: |-
+        错。预期寿命是平均值，大约一半的人会活得更久，其中相当多的人会活到 90 岁甚至更久。按平均寿命准备，意味着有约一半的概率在晚年钱不够用，而那时已经无法重新工作。合理的规划应该覆盖较长的寿命（例如活到 95 岁），或者用年金、推迟领取社会保障金等方式把长寿风险转移出去。
+      en: |-
+        False. Life expectancy is an average; about half of people live longer, and many reach 90 or beyond. Planning for the average means roughly a half chance of running short late in life, when going back to work is no longer possible. A sound plan should cover a long life (say to 95), or move longevity risk elsewhere through annuities, delayed Social Security and similar means.
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [safe-withdrawal-rate, replacement-ratio]
+    expected: { need: "1571.4", need4: "1375" }
+    question:
+      zh-cn: |-
+        一对 60 岁的夫妻计划 65 岁退休，退休后每年需要 10 万美元（按今天的购买力）。他们 67 岁时两人的社会保障金合计每年 4.5 万美元，为简化，设从退休开始就有这笔收入，没有其他养老金。不考虑税。
+        (a) 按 3.5% 和 4% 的初始提款率，需要的组合规模各是多少（千美元）？
+        (b) 他们说：“4% 规则说明，只要攒够 100 万美元就可以安全退休。”评价这个说法。在什么情况下 4% 可能偏高？他们可以做哪些调整？
+      en: |-
+        A couple aged 60 plans to retire at 65 and needs 100,000 dollars a year (in today's purchasing power) in retirement. Their combined Social Security at 67 will be 45,000 dollars a year; for simplicity assume this income starts at retirement, with no other pension. Ignore taxes.
+        (a) At initial withdrawal rates of 3.5% and 4%, how large must the portfolio be (thousand dollars)?
+        (b) They say: "The 4% rule shows that 1 million dollars is enough to retire safely." Evaluate this statement. When might 4% be too high? What adjustments could they make?
+    answer:
+      zh-cn: |-
+        (a) 缺口为 $100 - 45 = 55$（千美元/年）。3.5%：$\frac{55}{0.035} \approx 1571.4$；4%：$\frac{55}{0.04} = 1375$。
+        (b) 说法不对。按他们的支出，即使用 4%，也需要约 137.5 万美元，而不是 100 万；100 万只能支持每年 4 万美元的缺口。“4% 规则”本身也不是保证：它来自美国 20 世纪的历史数据、30 年的期限、不扣费用和税、持有 50%–75% 股票的假设；如果退休期更长（例如 65 岁退休、活到 95 岁以上）、费用较高、当前估值高而预期收益低（按 Morningstar 2025 年的估计约 3.9%）、或者退休初期遇到大跌（收益顺序风险），4% 就可能偏高。此外，他们 65 岁退休、67 岁才开始领社会保障金，前两年的缺口更大。可以做的调整：多工作几年或推迟领取社会保障金；降低支出或采用灵活的提款规则（市场下跌时减少支出）；用一部分资产购买年金覆盖基本支出；在退休前几年降低风险，减少收益顺序风险。
+      en: |-
+        (a) The gap is $100 - 45 = 55$ (thousand dollars a year). At 3.5%: $\frac{55}{0.035} \approx 1571.4$; at 4%: $\frac{55}{0.04} = 1375$.
+        (b) The statement is wrong. For their spending, even at 4% they need about 1.375 million dollars, not 1 million; 1 million supports only a 40,000 dollar yearly gap. And the "4% rule" itself is no guarantee: it comes from 20th-century US data, a 30-year horizon, no fees or taxes and 50%–75% stocks; 4% may be too high with a longer retirement (retiring at 65 and living past 95), higher fees, high current valuations and low expected returns (about 3.9% by Morningstar's 2025 estimate), or a large fall early in retirement (sequence risk). Also, retiring at 65 but claiming Social Security only at 67 leaves a larger gap for the first two years. Possible adjustments: work a few years longer or delay Social Security; spend less or use a flexible withdrawal rule (cut spending after falls); buy an annuity with part of the assets to cover essential spending; reduce risk in the years around retirement to limit sequence risk.
+    rubric:
+      zh-cn:
+        - "(a) 通过：缺口 55，约 1571.4 和 1375（千美元）。"
+        - "(b) 通过：指出 100 万不够；说明 4% 规则的至少两个假设及偏高的情况；给出至少两项调整。同意“100 万就够”，需要订正。"
+      en:
+        - "(a) OK: gap 55; about 1571.4 and 1375 (thousand dollars)."
+        - "(b) OK: says 1 million is not enough; states at least two assumptions of the 4% rule and when it is too high; gives at least two adjustments. Agreeing that 1 million is enough needs revision."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [sequence-of-returns-risk]
+    expected: { a: "950.3", b: "1002.8" }
+    question:
+      zh-cn: |-
+        两位退休者各有 1,000（千美元），每年年初取出 50，三年的收益率分别为：甲 −20%、+10%、+30%；乙 +30%、+10%、−20%。
+        (a) 三年后两人各剩多少？
+        (b) 一位顾问说：“两人三年的收益率完全一样，只是顺序不同，算术平均和几何平均都相同，所以结果应该一样。”评价这个说法。如果两人都不取钱，结果会怎样？这对临近退休的人的资产配置有什么含义？
+      en: |-
+        Two retirees each have 1,000 (thousand dollars) and withdraw 50 at the start of each year; their returns over three years are: A −20%, +10%, +30%; B +30%, +10%, −20%.
+        (a) How much does each have left after three years?
+        (b) An adviser says: "Their three returns are exactly the same, just in a different order; the arithmetic and geometric means are equal, so the results should be the same." Evaluate this statement. What if neither withdrew anything? What does this imply for the asset allocation of people near retirement?
+    answer:
+      zh-cn: |-
+        (a) 甲：$(1000 - 50) \times 0.8 = 760$，$(760 - 50) \times 1.1 = 781$，$(781 - 50) \times 1.3 \approx 950.3$。乙：$(1000 - 50) \times 1.3 = 1235$，$(1235 - 50) \times 1.1 = 1303.5$，$(1303.5 - 50) \times 0.8 \approx 1002.8$。乙多约 52.5。
+        (b) 说法只在不取钱时成立。不取钱时，两人都是 $1000 \times 0.8 \times 1.1 \times 1.3 = 1144$，顺序不影响结果。取钱时，甲在第一年下跌后仍取出同样的金额，被取走的钱占剩余资产的比例更大，也错过了之后的上涨；乙在上涨后取钱，下跌发生时已经取出了大部分要用的钱。平均收益相同并不意味着结果相同。含义：退休前后几年的大跌危害最大，所以这段时间可以适当降低股票比例（目标日期基金的下滑路径就是这样设计的，[[4.12]]），或者准备几年的支出放在现金和短期债券中，下跌时不必卖出股票；也可以采用灵活的提款规则。
+      en: |-
+        (a) A: $(1000 - 50) \times 0.8 = 760$, $(760 - 50) \times 1.1 = 781$, $(781 - 50) \times 1.3 \approx 950.3$. B: $(1000 - 50) \times 1.3 = 1235$, $(1235 - 50) \times 1.1 = 1303.5$, $(1303.5 - 50) \times 0.8 \approx 1002.8$. B has about 52.5 more.
+        (b) The statement holds only without withdrawals. Without them both end at $1000 \times 0.8 \times 1.1 \times 1.3 = 1144$, and order does not matter. With withdrawals, A keeps withdrawing the same amount after the first-year fall, taking a larger share of what is left and missing the later gains on it; B withdraws after gains, and by the time of the fall most of the money needed has already been taken. Equal average returns do not mean equal results. Implication: large falls around retirement do the most harm, so the stock share can be reduced somewhat in those years (as target-date glide paths do, [[4.12]]), or a few years of spending can be kept in cash and short-term bonds so stocks need not be sold after a fall; a flexible withdrawal rule also helps.
+    rubric:
+      zh-cn:
+        - "(a) 通过：甲约 950.3，乙约 1002.8。"
+        - "(b) 通过：指出不取钱时结果相同（1144），取钱时顺序重要并解释机制；给出至少一项对退休前后配置的含义。同意“结果应该一样”，需要订正。"
+      en:
+        - "(a) OK: A about 950.3, B about 1002.8."
+        - "(b) OK: notes both end at 1144 without withdrawals, while with withdrawals order matters, explaining why; gives at least one implication for allocation around retirement. Agreeing the results should be the same needs revision."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [full-retirement-age, longevity-risk, present-value]
+    expected: { be: "80.4" }
+    question:
+      zh-cn: |-
+        一位单身人士 62 岁开始领取，每月可得 2,100 美元；70 岁开始领取，每月可得 3,720 美元（都按今天的购买力，以后按通胀调整）。
+        (a) 不考虑折现，活到多少岁时两种选择累计领取的总额相等？
+        (b) 他说：“很多人活不到 80 岁，所以提前领取更划算。”评价这个说法。考虑折现、长寿风险，以及推迟领取期间要靠什么生活。
+      en: |-
+        A single person can receive 2,100 dollars a month starting at 62, or 3,720 dollars a month starting at 70 (both in today's purchasing power, adjusted for inflation afterwards).
+        (a) Ignoring discounting, at what age are the cumulative totals of the two choices equal?
+        (b) He says: "Many people don't live to 80, so claiming early is better." Evaluate this statement, considering discounting, longevity risk, and what he lives on while delaying.
+    answer:
+      zh-cn: |-
+        (a) 设活到 $A$ 岁：$2100 \times 12 \times (A - 62) = 3720 \times 12 \times (A - 70)$，得 $A = 62 + \frac{3720 \times 8}{3720 - 2100} \approx 80.4$ 岁。
+        (b) 说法不完全对。按实际利率 2% 折现，盈亏平衡年龄推迟到约 83 岁；单看这个数，身体不好、预期寿命短的人提前领取可能更合适。但把社会保障金当作一笔“赌寿命”的投资是错误的角度：它是一份按通胀调整的终身年金，真正的价值在于活得很长时提供收入（[[1.4]] 的保险逻辑）。如果他早逝，钱多领少领对他已经不重要；如果他活到 95 岁，推迟领取每月多 77% 的收入可能决定晚年是否够用。按 62 岁时的平均余命，相当多的人会活过 83 岁。推迟期间需要用自己的储蓄生活，相当于用组合的钱“购买”更高的终身年金，这通常比在市场上买年金便宜。适合提前领取的情况：健康状况差、没有其他储蓄可以维持到 70 岁、或者急需现金。
+      en: |-
+        (a) Living to age $A$: $2100 \times 12 \times (A - 62) = 3720 \times 12 \times (A - 70)$, so $A = 62 + \frac{3720 \times 8}{3720 - 2100} \approx 80.4$.
+        (b) The statement is not quite right. Discounting at a 2% real rate pushes the break-even to about 83; looking only at this, people in poor health with short life expectancy may do better claiming early. But treating Social Security as a bet on longevity is the wrong view: it is an inflation-adjusted lifetime annuity whose real value lies in paying income if one lives very long (the insurance logic of [[1.4]]). If he dies early, how much he collected no longer matters to him; if he lives to 95, a monthly income 77% higher from delaying may decide whether his old age is covered. Given average remaining life at 62, many people live past 83. While delaying he must live on his savings, in effect using portfolio money to "buy" a larger lifetime annuity, usually cheaper than buying one in the market. Claiming early suits people in poor health, with no savings to bridge to 70, or with an urgent need for cash.
+    rubric:
+      zh-cn:
+        - "(a) 通过：约 80.4 岁。"
+        - "(b) 通过：提到折现使盈亏平衡推迟；指出社会保障金是对长寿风险的保险，活得长时价值最大；说明推迟期间用储蓄生活的含义或适合提前领取的情况。只按盈亏平衡年龄同意他的说法，需要订正。"
+      en:
+        - "(a) OK: about 80.4."
+        - "(b) OK: mentions that discounting pushes the break-even later; says Social Security insures longevity risk and is worth most when one lives long; explains living on savings while delaying or when early claiming fits. Agreeing based only on the break-even age needs revision."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [longevity-risk, safe-withdrawal-rate, inflation]
+    expected: { pay: "35", real: "19.38", sw: "20" }
+    question:
+      zh-cn: |-
+        一位 65 岁的退休者有 50 万美元。方案一：买一份即期终身年金，每年固定支付 7%（名义金额，不随通胀调整）。方案二：自己投资，按 4% 的初始提款率取钱，以后按通胀调整。设通胀率为每年 3%。
+        (a) 方案一每年支付多少（千美元）？20 年后这笔支付按今天的购买力约值多少？方案二第一年取出多少？
+        (b) 他的朋友说：“年金是坏交易：如果早死，剩下的钱全归保险公司了。”评价这个说法，并比较两个方案各自的风险。
+      en: |-
+        A 65-year-old retiree has 500,000 dollars. Option one: buy an immediate life annuity paying a fixed 7% a year (nominal, not adjusted for inflation). Option two: invest it himself and withdraw at an initial rate of 4%, raised with inflation afterwards. Inflation is 3% a year.
+        (a) How much does option one pay each year (thousand dollars)? Roughly what is that payment worth in today's purchasing power after 20 years? How much does option two withdraw in the first year?
+        (b) His friend says: "An annuity is a bad deal: if you die early, the insurer keeps all the money." Evaluate this statement, and compare the risks of the two options.
+    answer:
+      zh-cn: |-
+        (a) 方案一：$500 \times 7\% = 35$（千美元/年）；20 年后按今天的购买力约为 $\frac{35}{1.03^{20}} \approx 19.38$。方案二第一年：$500 \times 4\% = 20$。
+        (b) 说法不对。早死的人“留下”的钱正是用来支付长寿的人的，这就是死亡率收益：年金是对长寿风险的保险，不是投资；就像房子没有着火时房屋保险的保费并没有白交（[[1.4]]）。年金每年支付 7%，高于自己投资可以安全取出的 4%，正是因为它不需要为活得很长留出余地。两个方案的风险不同：方案一消除了长寿风险和收益顺序风险，但固定名义支付的购买力会被通胀侵蚀，20 年后只剩约 55%；保险公司也有违约风险（各州有保障基金，但有上限）；钱一旦交出就不能取回，也不能留给继承人。方案二保留了灵活性和遗产，有机会获得更高的收益，但承担市场风险、收益顺序风险和长寿风险。常见的折中是用一部分资产购买年金，加上社会保障金覆盖基本支出，其余自己投资。此外，年金的定价也受逆向选择影响：买年金的人往往预期自己长寿（[[1.9]]）。
+      en: |-
+        (a) Option one: $500 \times 7\% = 35$ (thousand dollars a year); after 20 years it is worth about $\frac{35}{1.03^{20}} \approx 19.38$ in today's purchasing power. Option two in the first year: $500 \times 4\% = 20$.
+        (b) The statement is wrong. The money "left" by those who die early is exactly what pays those who live long; this is the mortality credit. An annuity is insurance against longevity risk, not an investment, just as a home insurance premium is not wasted because the house did not burn ([[1.4]]). The annuity pays 7%, more than the 4% one can safely withdraw alone, precisely because it need not leave room for a very long life. The options carry different risks: option one removes longevity and sequence risk, but inflation erodes the purchasing power of the fixed nominal payment, leaving about 55% after 20 years; the insurer can also default (states have guaranty associations, with limits); and the money cannot be taken back or left to heirs. Option two keeps flexibility and a bequest and may earn more, but bears market, sequence and longevity risk. A common compromise is to annuitize part of the assets so that, with Social Security, essential spending is covered, and invest the rest. Annuity pricing is also affected by adverse selection: people who buy annuities tend to expect to live long ([[1.9]]).
+    rubric:
+      zh-cn:
+        - "(a) 通过：35；约 19.38；20（千美元）。"
+        - "(b) 通过：解释死亡率收益、年金是长寿保险；比较两方案的风险（通胀、违约、灵活性与遗产 vs 市场、顺序、长寿风险）；提出部分年金化更好。同意“坏交易”，需要订正。"
+      en:
+        - "(a) OK: 35; about 19.38; 20 (thousand dollars)."
+        - "(b) OK: explains the mortality credit and that annuities insure longevity; compares the risks (inflation, default, flexibility and bequest versus market, sequence and longevity risk); suggesting partial annuitization is a plus. Agreeing it is a bad deal needs revision."

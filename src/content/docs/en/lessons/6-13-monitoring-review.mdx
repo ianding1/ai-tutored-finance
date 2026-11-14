@@ -1,0 +1,83 @@
+---
+title: 6.13 Monitoring and Review
+description: When to check and adjust; an annual review checklist; comparing results with forecasts; when to change the IPS; a decision journal to separate decision quality from outcomes.
+lesson: "6.13"
+---
+
+import Ref from '../../../../components/Ref.astro';
+import Def from '../../../../components/Def.astro';
+import Figure from '../../../../components/Figure.astro';
+import Check from '../../../../components/Check.astro';
+import Exercises from '../../../../components/Exercises.astro';
+import ForecastCheck from '../../../../components/widgets/ForecastCheck.astro';
+
+Once an investment plan is written, it needs regular checking: the household changes, markets change, and the plan itself may be wrong. But checking too often and reacting too strongly turns into the return chasing this course warns against. This lesson discusses how to monitor and review so as to find real problems without being led by noise.
+
+## When to check [#triggers]
+
+Monitoring can be triggered by time or by events:
+
+- Regularly: each quarter, see whether the allocation is outside its rebalancing bands (<Ref lesson="6.7" sec="rebalancing" />); each year, do a full review.
+- Cash flows: when a large amount goes in or comes out, use it to adjust the allocation.
+- Life events: marriage, children, a job change, job loss, an inheritance, buying a home, a change in health, approaching retirement. These can change goals, horizons and risk capacity, and call for a fresh look at the whole plan.
+
+A large market move is not in itself a reason to change the plan, but it can be a moment to check: that the rebalancing rules are being followed, that the emergency fund is adequate, and whether the household's situation has changed as a result (for example a job loss).
+
+<Check id="C1" />
+
+## The annual review [#annual-review]
+
+An <Def id="annual-review">annual review</Def> checks the household's whole finances against a fixed checklist, not just the portfolio's return:
+
+1. Update the household balance sheet (<Ref lesson="6.6" />) and each goal's funded ratio (<Ref lesson="6.12" />).
+2. Compare each asset class's share with the strategic allocation, and rebalance by the rules.
+3. Check costs: the funds' expense ratios and tracking differences, and whether cheaper equivalents exist (<Ref lesson="6.2" />).
+4. Check taxes: whether retirement accounts are maxed, whether there are tax-loss harvesting opportunities, and whether asset location is sound (<Ref lesson="6.5" />).
+5. Check protection: whether the emergency fund, insurance coverage, beneficiary designations and wills need updating.
+6. Compare actual results with the plan's forecasts (next section), and check whether the IPS needs changing.
+
+<Check id="C2" />
+
+## Comparing results with forecasts [#forecast-review]
+
+The simulations of <Ref lesson="4.13" /> give a distribution of wealth, not a single number. A review can ask: where does the actual result fall in the forecast distribution? If results keep landing at one extreme, the assumptions may be systematically off; if they are within the normal range, a result below expectations does not show the plan was wrong.
+
+A simple check: if the forecast for yearly returns has mean $\mu$ and standard deviation $\sigma$, independent across years, then the average return over $N$ years has a standard deviation of about $\frac{\sigma}{\sqrt{N}}$ (<Ref concept="standard-error" />), and the realized average return $\bar{r}$ sits at about the following percentile of the forecast distribution:
+
+$$
+N\!\left(\frac{(\bar{r} - \mu)\sqrt{N}}{\sigma}\right)
+$$
+
+<Figure id="3-1" title="The percentile of the realized average yearly return in the forecast distribution against the length of the record. Forecast: average yearly return 6%, volatility 16%, independent years." observe="First look at the percentiles after 1, 5 and 20 years when the realized return is 3%; then change the realized return.">
+	<ForecastCheck />
+</Figure>
+
+<Check id="C3" />
+
+## When to change the IPS [#changing-ips]
+
+The IPS (<Ref concept="investment-policy-statement" />) should state when and how it may be changed. Sound reasons include: a material change in the household's goals, horizon or risk capacity; a reasoned revision of capital market assumptions based on new data (<Ref lesson="4.11" />); or finding a mistake in the original plan. Unsound reasons are recent returns or market sentiment.
+
+A practical procedure: when proposing a change, write down the reason and the expected effect, wait a cooling-off period (say a month) before acting, and usually make the change modest rather than all in or all out.
+
+<Check id="C4" />
+
+## A decision journal [#records]
+
+A good outcome is not the same as a good decision. Investment outcomes depend heavily on luck: an unsound decision may make money by chance, and a sound one may lose by chance. Judging decisions only by outcomes reinforces mistakes that happened to work.
+
+A <Def id="decision-journal">decision journal</Def> records, at each important decision: the date, the information known then, the reasoning, the expected outcome and possible risks, and what would show one was wrong. At review time, the journal lets one judge whether the reasoning was sound at the time, not just how things turned out.
+
+<Check id="C5" />
+
+## Summary [#summary]
+
+- Monitoring is triggered by regular checks, cash flows and life events; market moves by themselves are no reason to change the plan.
+- The annual review follows a checklist: balance sheet, funded ratios, allocation, costs, taxes, protection and the IPS.
+- Place actual results within the forecast distribution; their percentile depends on the size of the deviation and the length of the record.
+- Change the IPS when circumstances change materially, with written reasons and a cooling-off period.
+- A decision journal helps separate the quality of decisions from the luck of outcomes.
+
+## Exercises [#exercises]
+
+<Exercises />

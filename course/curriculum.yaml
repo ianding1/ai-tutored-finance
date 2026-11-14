@@ -589,11 +589,51 @@ stages:
         published: true
         introduces: [form-10-k, five-forces, reverse-dcf, investment-thesis]
         uses: [barriers-to-entry, economic-moat, return-on-invested-capital, wacc, earnings-quality, gordon-growth-model, overconfidence, disposition-effect, firm-specific-risk, portfolio-variance, efficient-market-hypothesis, terminal-value]
-      - { id: "6.9", slug: "6-9-retirement-planning", title: { zh-cn: "退休规划", en: "Retirement Planning" } }
-      - { id: "6.10", slug: "6-10-risk-management", title: { zh-cn: "风险管理与常见错误", en: "Risk Management and Common Mistakes" } }
-      - { id: "6.11", slug: "6-11-inflation-real-returns", title: { zh-cn: "通胀与实际收益", en: "Inflation and Real Returns" } }
-      - { id: "6.12", slug: "6-12-goals-based-investing", title: { zh-cn: "目标导向投资", en: "Goals-Based Investing" } }
-      - { id: "6.13", slug: "6-13-monitoring-review", title: { zh-cn: "监控与复盘", en: "Monitoring and Review" } }
+      - id: "6.9"
+        slug: "6-9-retirement-planning"
+        title: { zh-cn: "退休规划", en: "Retirement Planning" }
+        summary:
+          zh-cn: "退休需要多少资产；提款率研究与“4% 规则”的假设；收益顺序风险；社会保障金的领取时间；长寿风险与年金。"
+          en: "How much is needed for retirement; withdrawal rate research and the assumptions behind the \"4% rule\"; sequence-of-returns risk; when to claim Social Security; longevity risk and annuities."
+        published: true
+        introduces: [replacement-ratio, safe-withdrawal-rate, sequence-of-returns-risk, full-retirement-age, longevity-risk]
+        uses: [annuity, present-value, inflation, risk-aversion, asymmetric-information, volatility-drag, target-date-fund, human-capital, strategic-asset-allocation]
+      - id: "6.10"
+        slug: "6-10-risk-management"
+        title: { zh-cn: "风险管理与常见错误", en: "Risk Management and Common Mistakes" }
+        summary:
+          zh-cn: "杠杆与保证金；择时的难度；时间加权与资金加权收益：投资者为什么跑输自己持有的基金；过度交易与集中；投资政策说明书与纪律清单。"
+          en: "Leverage and margin; the difficulty of market timing; time-weighted and dollar-weighted returns, or why investors lag their own funds; overtrading and concentration; the investment policy statement and a discipline checklist."
+        published: true
+        introduces: [time-weighted-return, dollar-weighted-return, investment-policy-statement]
+        uses: [financial-leverage, margin, volatility-drag, internal-rate-of-return, firm-specific-risk, capm, overconfidence, efficient-market-hypothesis, expected-value, strategic-asset-allocation, rebalancing]
+      - id: "6.11"
+        slug: "6-11-inflation-real-returns"
+        title: { zh-cn: "通胀与实际收益", en: "Inflation and Real Returns" }
+        summary:
+          zh-cn: "以实际收益为规划的主线；各类资产与负债对通胀的保护；I 债券；用 TIPS 匹配退休支出；个人的通胀率与 CPI。"
+          en: "Planning in real returns; how assets and liabilities protect against inflation; I bonds; matching retirement spending with TIPS; personal inflation and the CPI."
+        published: true
+        introduces: [money-illusion, i-bond]
+        uses: [real-interest-rate, inflation, cpi, tips, breakeven-inflation, immunization, modified-duration, stock-bond-correlation, annuity, household-balance-sheet, capital-market-assumptions]
+      - id: "6.12"
+        slug: "6-12-goals-based-investing"
+        title: { zh-cn: "目标导向投资", en: "Goals-Based Investing" }
+        summary:
+          zh-cn: "把每个家庭目标看作一笔负债；资金充足率；按期限与重要性匹配资产；达成目标的概率；从各目标的组合到家庭的总配置。"
+          en: "Treating each household goal as a liability; the funded ratio; matching assets by horizon and importance; the probability of reaching a goal; from goal portfolios to the household's overall allocation."
+        published: true
+        introduces: [goals-based-investing, funded-ratio]
+        uses: [present-value, lognormal-distribution, immunization, modified-duration, tips, mental-accounting, protective-put, strategic-asset-allocation, rebalancing, investment-policy-statement]
+      - id: "6.13"
+        slug: "6-13-monitoring-review"
+        title: { zh-cn: "监控与复盘", en: "Monitoring and Review" }
+        summary:
+          zh-cn: "什么时候需要检查和调整；年度复盘清单；把实际结果与预测对照；什么时候修改 IPS；决策记录：区分决策的质量与结果的好坏。"
+          en: "When to check and adjust; an annual review checklist; comparing results with forecasts; when to change the IPS; a decision journal to separate decision quality from outcomes."
+        published: true
+        introduces: [annual-review, decision-journal]
+        uses: [standard-error, capital-market-assumptions, investment-policy-statement, rebalancing, funded-ratio, expense-ratio, long-term-capital-gain, strategic-asset-allocation, overconfidence, normal-distribution]
       - { id: "T3", slug: "t3-quiz", exam: true, title: { zh-cn: "综合测验三：衍生品与家庭投资实践", en: "Comprehensive Quiz 3: Derivatives and Household Investing" } }
 
   - id: "7"

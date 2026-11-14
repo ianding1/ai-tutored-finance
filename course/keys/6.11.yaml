@@ -1,0 +1,307 @@
+# Answer key for lesson 6.11. Shown to learners only inside generated grading prompts.
+# Text fields support: $inline math$, $$display math$$, **bold**, line breaks,
+# and references: [[1.5]] (lesson), [[5.2#strategies]] (section), [[concept:beta]], [[check:Q3]], [[fig:3-1]].
+# expected: values are recomputed by course/verify/6.11.py in CI and must appear verbatim in every answer text.
+#
+# context: lesson facts for the grader. A grading prompt includes an item when
+#   - the item has neither `concepts` nor `questions` (always included), or
+#   - one of its `concepts` is tested by a question being graded, or
+#   - one of its `questions` is being graded.
+# common_errors: each item lists the `questions` it is relevant to. Only those go into a prompt.
+# Check questions are answered on the page: `correct` is true / false, or the letter of one of `choices`.
+# A wrong answer shows the `why` of the chosen option (or the `hint` of a true / false question), never the
+# right answer; `answer` is the full explanation for reference. They have no expected and no rubric.
+
+lesson: "6.11"
+
+context:
+  - zh-cn: |-
+      学习者学过 Fisher 方程与实际利率（[[1.3]]）、CPI（[[2.1]]）、经济周期与股债相关性（[[2.8]]）、久期与免疫（[[3.4]]）、TIPS 与盈亏平衡通胀率（[[3.6]]）、资本市场假设（[[4.11]]）、另类资产（[[5.5]]）、账户与税务（[[6.5]]）、家庭资产负债表与房贷（[[6.6]]）、退休规划（[[6.9]]）。百分数用百分点表示。
+    en: |-
+      The learner has studied the Fisher equation and real rates ([[1.3]]), the CPI ([[2.1]]), business cycles and stock-bond correlation ([[2.8]]), duration and immunization ([[3.4]]), TIPS and breakeven inflation ([[3.6]]), capital market assumptions ([[4.11]]), alternative assets ([[5.5]]), accounts and taxes ([[6.5]]), the household balance sheet and mortgages ([[6.6]]) and retirement planning ([[6.9]]). Percentages in percentage points.
+  - concepts: [money-illusion, real-interest-rate]
+    zh-cn: |-
+      讲义：货币幻觉；规划用今天的购买力、实际收益率；社会保障金随通胀调整，多数私人养老金和普通年金、固定利率房贷月供是固定名义金额。[[fig:1-1]]：每年 1,000 的固定名义收入的实际价值；滑块通胀率 0–8%（步长 0.5，默认 3）；3% 时 10、20、30 年后约 744、554、412；5% 时约 614、377、231。
+    en: |-
+      The lesson: money illusion; plan in today's purchasing power and real returns; Social Security adjusts for inflation, while most private pensions, ordinary annuities and fixed mortgage payments are fixed nominal amounts. [[fig:1-1]]: real value of a fixed nominal 1,000 a year; slider inflation 0–8% (steps of 0.5, default 3); at 3%, about 744, 554, 412 after 10, 20, 30 years; at 5%, about 614, 377, 231.
+  - concepts: [i-bond, tips]
+    zh-cn: |-
+      讲义：现金和国库券短期跟上通胀但实际收益常近 0；名义债券怕意外通胀，期限越长损失越大；TIPS 持有到期保证实际收益；I 债券：固定利率 + 每半年按 CPI 调整的通胀利率，不交易，可按累计价值赎回，名义价值不降，至少持有 1 年，5 年内赎回放弃最后 3 个月利息，每人每年最多 1 万美元，赎回时交联邦税、免州税；2026 年 11 月至 2027 年 4 月固定利率 1.40%、综合利率 5.51%。股票长期跟上通胀、短期意外通胀伴随利率上升和估值下降；商品、房地产有一定正相关；固定利率负债对借款人有利。讲义没有给出 I 债券综合利率的公式（留给 [[check:Q3]]）。
+    en: |-
+      The lesson: cash and bills keep up in the short run but often earn near 0 real; nominal bonds suffer from unexpected inflation, more at longer maturities; TIPS held to maturity guarantee a real return; I bonds: a fixed rate plus an inflation rate reset every six months from the CPI, not traded, redeemable at accrued value, nominal value never falls, held at least 1 year, redeeming within 5 years forfeits the last 3 months of interest, at most 10,000 dollars a person a year, federal tax at redemption, state-tax exempt; November 2026–April 2027 fixed rate 1.40%, composite 5.51%. Stocks keep up in the long run, but unexpected inflation in the short run brings higher rates and lower valuations; commodities and real estate are somewhat positively related; fixed-rate liabilities favor borrowers. The lesson does not give the I bond composite rate formula (left to [[check:Q3]]).
+  - concepts: [tips, immunization]
+    zh-cn: |-
+      讲义：退休支出大多随物价上涨，是实际负债；用不同到期日的 TIPS 阶梯每年到期一只匹配支出；与免疫同一思路，把名义负债换成实际负债。
+    en: |-
+      The lesson: most retirement spending rises with prices, a real liability; a ladder of TIPS maturing one per year can match it; the same idea as immunization, with a real liability in place of a nominal one.
+  - concepts: [cpi]
+    zh-cn: |-
+      讲义：CPI 是城镇消费者一篮子的平均价格变化；家庭支出结构不同；退休者医疗和住房支出更多，涨幅常高于平均；BLS 有按 62 岁以上家庭加权的实验性指数 CPI-E；社会保障金按 CPI-W 调整，2026 年 2.8%。
+    en: |-
+      The lesson: the CPI is the average price change of an urban consumer basket; households spend differently; retirees spend more on health care and housing, whose prices often rise faster; the BLS publishes the experimental CPI-E weighted for households 62 and over; Social Security adjusts by the CPI-W, 2.8% in 2026.
+
+common_errors:
+  - questions: [Q1]
+    zh-cn: |-
+      把名义的目标金额与实际的收益率混用，或者把将来的名义金额当作今天的购买力。
+    en: |-
+      Mixing nominal target amounts with real returns, or taking a future nominal amount as today's purchasing power.
+  - questions: [Q2]
+    zh-cn: |-
+      只比较两种债券阶梯今天的价格，忽略它们提供的现金流一个是名义的、一个是实际的，不是同一样东西。
+    en: |-
+      Comparing only today's prices of two bond ladders, ignoring that one provides nominal and the other real cash flows, which are not the same thing.
+  - questions: [Q3]
+    zh-cn: |-
+      用 I 债券的综合利率（名义）与 TIPS 的实际收益率比较；忽略应该比较的是 I 债券的固定利率与 TIPS 的实际收益率。
+    en: |-
+      Comparing an I bond's composite (nominal) rate with a TIPS real yield; ignoring that the I bond's fixed rate is what should be compared with the TIPS real yield.
+  - questions: [Q4]
+    zh-cn: |-
+      只看资产一方受通胀的影响，忽略固定利率负债的实际价值也随通胀下降。
+    en: |-
+      Looking only at how inflation affects assets, ignoring that the real value of fixed-rate liabilities also falls with inflation.
+
+questions:
+  # ---------- Check questions (随堂题) ----------
+  - id: C1
+    kind: check
+    section: real-terms
+    concepts: [money-illusion, inflation]
+    question:
+      zh-cn: |-
+        一位 65 岁的退休者有一份每月 3,000 美元、不随通胀调整的养老金。按 [[fig:1-1]] 的规律，如果通胀率为 3%，下面哪种说法最准确？
+      en: |-
+        A 65-year-old retiree has a pension of 3,000 dollars a month that does not adjust for inflation. Following the pattern in [[fig:1-1]], with 3% inflation, which statement is most accurate?
+    choices:
+      - zh-cn: 到 85 岁时，这份养老金的购买力只剩现在的大约一半多一点
+        en: By 85, the pension buys only a little over half of what it does now
+      - zh-cn: 金额一直是 3,000 美元，所以他的生活水平不变
+        en: The amount stays 3,000 dollars, so his standard of living is unchanged
+        why:
+          zh-cn: 3,000 美元在 20 年后能买到的东西与今天一样多吗？看图中 20 年时的读数。
+          en: Will 3,000 dollars buy as much in 20 years as today? Look at the readout for 20 years.
+      - zh-cn: 3% 的通胀每年只减少 3%，20 年后购买力约减少 60%，剩 40%
+        en: 3% inflation cuts only 3% a year, so after 20 years purchasing power falls by about 60%, leaving 40%
+        why:
+          zh-cn: 通胀是复利累积的，而且每年减少的是剩余购买力的约 3%。$\frac{1}{1.03^{20}}$ 约是多少？
+          en: Inflation compounds, and each year removes about 3% of the remaining purchasing power. Roughly what is $\frac{1}{1.03^{20}}$?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。$\frac{1}{1.03^{20}} \approx 0.554$：20 年后约剩 55% 的购买力，30 年后约 41%。名义金额不变的收入在长期的退休中会大幅贬值，规划时应按实际金额计算，并用社会保障金、TIPS 或股票等能跟上通胀的资产补充。
+      en: |-
+        (A). $\frac{1}{1.03^{20}} \approx 0.554$: about 55% of the purchasing power is left after 20 years and about 41% after 30. An income fixed in nominal terms loses much of its value over a long retirement; plans should be made in real terms and supplemented with Social Security, TIPS, stocks or other assets that keep up with inflation.
+
+  - id: C2
+    kind: check
+    section: hedges
+    concepts: [inflation, household-balance-sheet]
+    question:
+      zh-cn: |-
+        一个家庭有一笔 30 年期固定利率房贷，同时持有大量长期名义国债。如果今后几年通胀意外地大幅上升，对这个家庭的实际净资产：
+      en: |-
+        A household has a 30-year fixed-rate mortgage and also holds many long-term nominal Treasuries. If inflation rises sharply and unexpectedly over the next few years, the household's real net worth:
+    choices:
+      - zh-cn: 资产一方的债券受损，负债一方的房贷实际负担减轻，两者部分抵消
+        en: Suffers on the asset side from the bonds, but gains on the liability side as the mortgage's real burden falls; the two partly offset
+      - zh-cn: 只会受损，因为债券的实际价值下降
+        en: Can only suffer, because the bonds lose real value
+        why:
+          zh-cn: 房贷是固定的名义金额。通胀上升后，这笔负债的实际价值怎样变化？
+          en: The mortgage is a fixed nominal amount. When inflation rises, what happens to the real value of this debt?
+      - zh-cn: 不受影响，因为房子的价格会随通胀上涨
+        en: Is unaffected, because the house's price rises with inflation
+        why:
+          zh-cn: 房价也许能跟上通胀，但题目问的是债券和房贷这两项。它们各受什么影响？
+          en: House prices may keep up with inflation, but the question is about the bonds and the mortgage. How is each affected?
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。意外的通胀使名义长期债券的实际价值下降（利率上升，价格下跌），也使固定利率房贷的实际负担下降：以后每月还的是贬值的美元。看通胀风险要看整个家庭资产负债表（[[6.6]]）：持有名义债券的同时又有固定利率房贷，两者的通胀敞口部分相互抵消；净敞口取决于两者的金额和期限（[[check:Q4]]）。
+      en: |-
+        (A). Unexpected inflation lowers the real value of long nominal bonds (rates rise, prices fall) and also lowers the real burden of a fixed-rate mortgage: future payments are made in cheaper dollars. Inflation risk should be judged on the whole household balance sheet ([[6.6]]): holding nominal bonds while owing a fixed-rate mortgage, the two exposures partly offset; the net exposure depends on their sizes and durations ([[check:Q4]]).
+
+  - id: C3
+    kind: check
+    section: hedges
+    concepts: [i-bond, tips, real-interest-rate]
+    question:
+      zh-cn: |-
+        2026 年 11 月，I 债券的综合利率为 5.51%，5 年期 TIPS 的实际收益率约为 2.31%。所以持有 5 年，I 债券的实际收益明显高于 TIPS。
+      en: |-
+        In November 2026 the I bond's composite rate is 5.51%, and the 5-year TIPS real yield is about 2.31%. So over 5 years, the I bond's real return is clearly higher than TIPS'.
+    correct: false
+    hint:
+      zh-cn: I 债券的综合利率包括哪两部分？哪一部分是扣除通胀后的实际收益？应该拿哪个数与 TIPS 的实际收益率比较？
+      en: What two parts make up the I bond's composite rate? Which part is the real return after inflation? Which number should be compared with the TIPS real yield?
+    answer:
+      zh-cn: |-
+        错。5.51% 是名义利率，包含了当前约 4.08% 的通胀部分；I 债券的实际收益主要由固定利率 1.40% 决定。与 TIPS 2.31% 的实际收益率相比，I 债券的实际收益约低 0.9 个百分点。I 债券的优势在别处：名义价值不会下降、利息可以推迟到赎回时交税、免州税；但它有购买限额和持有期限制。（TIPS 也免州税，但通胀调整每年交联邦税，[[3.6]]。）
+      en: |-
+        False. 5.51% is a nominal rate that includes the current inflation part of about 4.08%; the I bond's real return is set mainly by its fixed rate of 1.40%. Against the TIPS real yield of 2.31%, the I bond's real return is about 0.9 percentage points lower. The I bond's advantages lie elsewhere: its nominal value never falls, interest can be taxed only at redemption, and it is state-tax exempt; but it has purchase limits and holding restrictions. (TIPS are also state-tax exempt, but their inflation adjustments are taxed federally every year, [[3.6]].)
+
+  - id: C4
+    kind: check
+    section: retirement-income
+    concepts: [tips, immunization]
+    question:
+      zh-cn: |-
+        一位退休者希望今后 10 年每年有一笔按今天物价计算固定不变的生活费。与持有一只中期名义债券基金相比，一个每年到期一只的 TIPS 阶梯更好的地方是：
+      en: |-
+        A retiree wants a fixed amount of spending money in today's prices each year for the next 10 years. Compared with holding an intermediate nominal bond fund, a ladder of TIPS maturing one per year is better because:
+    choices:
+      - zh-cn: 每年到期的金额按通胀调整、在需要时到期，与实际支出在金额和时间上都匹配，不受利率和通胀变化的影响
+        en: Each year's maturing amount adjusts for inflation and arrives when needed, matching real spending in both amount and timing, unaffected by changes in rates and inflation
+      - zh-cn: TIPS 的预期收益一定高于名义债券
+        en: TIPS always have higher expected returns than nominal bonds
+        why:
+          zh-cn: 两者的预期收益取决于实际通胀与盈亏平衡通胀率的比较（[[3.6]]）。TIPS 阶梯的优势是收益更高，还是风险更小？
+          en: Their expected returns depend on actual versus breakeven inflation ([[3.6]]). Is the ladder's advantage a higher return or lower risk?
+      - zh-cn: 债券基金不能卖出
+        en: A bond fund cannot be sold
+        why:
+          zh-cn: 债券基金随时可以卖出。问题是卖出时能得到多少，以及它够不够那一年的实际支出。
+          en: A bond fund can be sold at any time. The issue is what it fetches when sold, and whether that covers the year's real spending.
+    correct: A
+    answer:
+      zh-cn: |-
+        (A)。TIPS 阶梯是用实际资产匹配实际负债：每年到期的 TIPS 持有到期，得到确定的实际金额，正好用于那一年的支出，与免疫的思路相同（[[3.4]]）。名义债券基金没有到期日，卖出时的价格取决于当时的利率，名义金额也不随通胀调整：如果通胀意外上升，利率上升使基金价格下跌，而支出上涨。TIPS 阶梯的优势是风险更小，不一定是收益更高。
+      en: |-
+        (A). A TIPS ladder matches a real liability with real assets: each TIPS held to maturity pays a certain real amount just when that year's spending is due, the same idea as immunization ([[3.4]]). A nominal bond fund has no maturity date; what it fetches depends on rates at the time of sale, and its nominal value does not adjust for inflation: if inflation rises unexpectedly, rising rates cut the fund's price just as spending goes up. The ladder's advantage is lower risk, not necessarily a higher return.
+
+  - id: C5
+    kind: check
+    section: personal-inflation
+    concepts: [cpi]
+    question:
+      zh-cn: |-
+        如果一年中 CPI 上涨 2.8%，那么每个退休者这一年的生活成本都上涨了约 2.8%。
+      en: |-
+        If the CPI rose 2.8% over a year, then every retiree's cost of living rose by about 2.8% that year.
+    correct: false
+    hint:
+      zh-cn: CPI 是哪一篮子商品的平均价格？一个退休者的支出结构与这一篮子一样吗？
+      en: The CPI is the average price of which basket? Is a retiree's spending the same as that basket?
+    answer:
+      zh-cn: |-
+        错。CPI 是城镇消费者平均的一篮子商品和服务的价格变化，个人的通胀率取决于自己的支出结构。退休者在医疗、住房上的支出比例更高，这些价格的涨幅常常高于平均；已经还清房贷的人不受房租上涨影响；开车多的人受油价影响大。所以退休规划可以考虑比 CPI 略高的支出增长率，尤其是医疗支出。
+      en: |-
+        False. The CPI tracks the price of an average urban consumer's basket; a person's inflation rate depends on their own spending. Retirees spend larger shares on health care and housing, whose prices often rise faster than average; people who have paid off their homes are not hit by rent increases; people who drive a lot are hit more by fuel prices. So retirement plans may assume spending grows a bit faster than the CPI, especially health spending.
+
+  # ---------- Exercises (练习题) ----------
+  - id: Q1
+    kind: exercise
+    level: B
+    concepts: [money-illusion, real-interest-rate]
+    expected: { pv: "824", real: "3.88" }
+    question:
+      zh-cn: |-
+        一位 35 岁的投资者看到一个网上计算器说：“要在 65 岁时退休，你需要 200 万美元。”计算器假设通胀率 3%，投资的名义收益率为 7%。
+        (a) 30 年后的 200 万美元相当于今天的多少购买力（千美元）？名义收益率 7% 对应的实际收益率是多少？
+        (b) 他说：“200 万美元，按每年 4% 取，每年有 8 万美元，足够我现在每年 7 万美元的生活。”评价这个说法，并说明怎样避免这类错误。
+      en: |-
+        A 35-year-old investor sees an online calculator saying: "To retire at 65, you need 2 million dollars." The calculator assumes 3% inflation and a 7% nominal return.
+        (a) What is 2 million dollars in 30 years worth in today's purchasing power (thousand dollars)? What real return corresponds to the 7% nominal return?
+        (b) He says: "At 4% a year, 2 million dollars gives 80,000 dollars a year, enough for my current 70,000 dollars a year of spending." Evaluate this statement, and say how to avoid this kind of mistake.
+    answer:
+      zh-cn: |-
+        (a) $\frac{2000}{1.03^{30}} \approx 824$（千美元）。实际收益率 $\frac{1.07}{1.03} - 1 \approx 3.88\%$（[[1.3]]）。
+        (b) 说法不对。他把 30 年后的名义金额当成了今天的购买力。按今天的物价，200 万美元只相当于约 82.4 万美元，按 4% 每年只能取约 3.3 万美元（今天的购买力），远低于 7 万美元。要按今天的购买力维持 7 万美元，按 4% 需要约 175 万美元（今天的购买力），即 30 年后名义上约 $1750 \times 1.03^{30} \approx 4248$ 千美元。避免的方法：所有目标都用今天的购买力表示，用实际收益率（约 3.88%）计算，结果也按今天的购买力解读；或者全部用名义金额，但两边一致。
+      en: |-
+        (a) $\frac{2000}{1.03^{30}} \approx 824$ (thousand dollars). The real return is $\frac{1.07}{1.03} - 1 \approx 3.88\%$ ([[1.3]]).
+        (b) The statement is wrong. He treated a nominal amount 30 years away as today's purchasing power. In today's prices 2 million dollars is worth only about 824,000, which at 4% gives about 33,000 a year in today's purchasing power, far below 70,000. Sustaining 70,000 a year in today's money at 4% takes about 1.75 million in today's purchasing power, about $1750 \times 1.03^{30} \approx 4248$ thousand nominal in 30 years. To avoid this: state every goal in today's purchasing power, compute with the real return (about 3.88%), and read results in today's purchasing power; or use nominal amounts throughout, consistently on both sides.
+    rubric:
+      zh-cn:
+        - "(a) 通过：约 824（千美元），实际收益率约 3.88%。"
+        - "(b) 通过：指出混用了名义与实际，按今天的购买力只能取约 3.3 万；给出一致使用实际（或名义）金额的方法。同意“足够”，需要订正。"
+      en:
+        - "(a) OK: about 824 (thousand dollars), real return about 3.88%."
+        - "(b) OK: says nominal and real were mixed, and only about 33,000 a year is available in today's money; gives the method of using real (or nominal) amounts consistently. Agreeing it is enough needs revision."
+
+  - id: Q2
+    kind: exercise
+    level: B
+    concepts: [tips, breakeven-inflation, annuity]
+    expected: { tips: "363.09", fixed: "321.23", nom3: "375.52" }
+    question:
+      zh-cn: |-
+        一位 65 岁的退休者希望今后 10 年每年年末有 4 万美元（按今天的购买力）。TIPS 各期限的实际收益率都是 1.8%，名义国债各期限的收益率都是 4.2%。
+        (a) 用 TIPS 阶梯提供这笔支出，今天要花多少（千美元）？用名义国债阶梯每年提供固定的 4 万美元名义金额，今天要花多少？如果通胀率为 3%，要用名义国债每年提供按通胀调整后的金额 $40 \times 1.03^t$，今天要花多少？
+        (b) 他说：“名义国债阶梯只要 32 万美元，TIPS 要 36 万美元，当然选名义的。”评价这个说法。
+      en: |-
+        A 65-year-old retiree wants 40,000 dollars (in today's purchasing power) at the end of each of the next 10 years. TIPS at all maturities yield 1.8% real, and nominal Treasuries at all maturities yield 4.2%.
+        (a) How much does a TIPS ladder providing this spending cost today (thousand dollars)? How much does a nominal Treasury ladder paying a fixed 40,000 nominal dollars a year cost? With 3% inflation, how much would nominal Treasuries cost to pay the inflation-adjusted amounts $40 \times 1.03^t$?
+        (b) He says: "The nominal ladder costs only 320,000 dollars and TIPS 360,000, so obviously choose nominal." Evaluate this statement.
+    answer:
+      zh-cn: |-
+        (a) TIPS：$40 \times \frac{1 - 1.018^{-10}}{0.018} \approx 363.09$（千美元）。固定名义：$40 \times \frac{1 - 1.042^{-10}}{0.042} \approx 321.23$。按 3% 通胀调整的金额：$\sum_{t=1}^{10} \frac{40 \times 1.03^t}{1.042^t} \approx 375.52$。
+        (b) 说法不对，两者买到的不是同一样东西。321 千美元的名义阶梯每年支付 4 万名义美元，购买力逐年下降：通胀 3% 时，第 10 年的 4 万美元只相当于今天的约 2.98 万。要用名义国债提供与 TIPS 相同的实际金额，在 3% 通胀下要花约 375.52，比 TIPS 还贵；只有当实际通胀低于盈亏平衡通胀率（约 $\frac{1.042}{1.018} - 1 \approx 2.36\%$，[[3.6]]）时，名义阶梯才更便宜。更重要的是，通胀是不确定的：TIPS 阶梯锁定了实际支出，名义阶梯让他承担通胀风险，而退休者正是最难承受这种风险的人。
+      en: |-
+        (a) TIPS: $40 \times \frac{1 - 1.018^{-10}}{0.018} \approx 363.09$ (thousand dollars). Fixed nominal: $40 \times \frac{1 - 1.042^{-10}}{0.042} \approx 321.23$. Inflation-adjusted amounts at 3%: $\sum_{t=1}^{10} \frac{40 \times 1.03^t}{1.042^t} \approx 375.52$.
+        (b) The statement is wrong; the two do not buy the same thing. The 321 nominal ladder pays 40,000 nominal dollars a year, whose purchasing power falls year by year: at 3% inflation, 40,000 in year 10 is worth only about 29,800 today. Providing the same real amounts as TIPS with nominal bonds would cost about 375.52 at 3% inflation, more than TIPS; the nominal ladder is cheaper only if inflation turns out below the breakeven rate (about $\frac{1.042}{1.018} - 1 \approx 2.36\%$, [[3.6]]). More important, inflation is uncertain: the TIPS ladder locks in real spending, while the nominal ladder leaves him bearing inflation risk, and retirees are the people least able to bear it.
+    rubric:
+      zh-cn:
+        - "(a) 通过：约 363.09、321.23、375.52（千美元）。"
+        - "(b) 通过：指出两者提供的现金流不同（名义 vs 实际）；用盈亏平衡通胀率说明哪个更便宜取决于实际通胀；指出 TIPS 消除了通胀风险。同意选名义的，需要订正。"
+      en:
+        - "(a) OK: about 363.09, 321.23 and 375.52 (thousand dollars)."
+        - "(b) OK: says the two provide different cash flows (nominal versus real); uses breakeven inflation to show which is cheaper depends on actual inflation; notes TIPS remove inflation risk. Agreeing to choose nominal needs revision."
+
+  - id: Q3
+    kind: exercise
+    level: B
+    concepts: [i-bond, tips]
+    expected: { comp: "5.51" }
+    question:
+      zh-cn: |-
+        I 债券的综合利率按 $f + 2i + f \times i$ 计算，其中 $f$ 是固定利率，$i$ 是半年的通胀率。2026 年 11 月公布：$f = 1.40\%$，$i = 2.04\%$。
+        (a) 计算综合利率。
+        (b) 一个家庭有 5 万美元，3 到 5 年后可能用来付房子的首付。一位朋友建议：“全部买 I 债券，利率 5.51%，又能防通胀，没有比这更好的了。”评价这个建议。还应考虑哪些限制和替代选择？
+      en: |-
+        The I bond composite rate is $f + 2i + f \times i$, where $f$ is the fixed rate and $i$ the semiannual inflation rate. In November 2026: $f = 1.40\%$, $i = 2.04\%$.
+        (a) Compute the composite rate.
+        (b) A household has 50,000 dollars that may go toward a home down payment in 3 to 5 years. A friend suggests: "Put it all in I bonds: 5.51% and inflation protection, nothing beats it." Evaluate this suggestion. What limits and alternatives should be considered?
+    answer:
+      zh-cn: |-
+        (a) $1.40\% + 2 \times 2.04\% + 1.40\% \times 2.04\% \approx 1.40\% + 4.08\% + 0.03\% \approx 5.51\%$。
+        (b) 建议有可取之处，但不能“全部”。第一，购买限额：每人每年最多 1 万美元，夫妻两人一年最多 2 万美元，5 万美元无法一次全部买入。第二，5.51% 中约 4.08% 是当前的通胀部分，每半年按 CPI 重新确定；通胀下降时综合利率会下降。真实的实际收益由固定利率 1.40% 决定，低于同期 TIPS 约 2.3% 的实际收益率。第三，5 年内赎回要放弃最后 3 个月的利息，1 年内不能赎回。对 3 到 5 年后用于首付的钱，I 债券的优点是名义价值不会下降、利息可推迟交税并免州税，适合放一部分；其余可以考虑期限匹配的短期国债或 TIPS（持有到期，[[3.6]]）、高收益储蓄或货币市场基金。首付的金额通常与房价挂钩，而房价不一定跟着 CPI 变化，所以还要留有余地。
+      en: |-
+        (a) $1.40\% + 2 \times 2.04\% + 1.40\% \times 2.04\% \approx 1.40\% + 4.08\% + 0.03\% \approx 5.51\%$.
+        (b) The suggestion has merit, but not "all of it". First, the purchase limit: at most 10,000 dollars per person per year, so a couple can buy at most 20,000 a year, and 50,000 cannot all go in at once. Second, about 4.08% of the 5.51% is the current inflation part, reset every six months from the CPI; if inflation falls, the composite rate falls. The true real return is set by the 1.40% fixed rate, below TIPS' real yield of about 2.3%. Third, redeeming within 5 years forfeits the last 3 months of interest, and nothing can be redeemed in the first year. For money needed for a down payment in 3 to 5 years, I bonds' strengths are that their nominal value never falls and interest is tax-deferred and state-tax exempt, so part of it can go there; the rest could go to maturity-matched Treasury bills or TIPS (held to maturity, [[3.6]]), high-yield savings or money market funds. A down payment is usually tied to home prices, which need not track the CPI, so some slack is also wise.
+    rubric:
+      zh-cn:
+        - "(a) 通过：约 5.51%。"
+        - "(b) 通过：指出购买限额、综合利率中通胀部分会变、实际收益由固定利率决定、持有期限制中的至少两项；给出至少一种替代或组合方案。同意“全部买 I 债券”，需要订正。"
+      en:
+        - "(a) OK: about 5.51%."
+        - "(b) OK: names at least two of the purchase limit, the changing inflation part of the composite rate, the real return being set by the fixed rate, and holding restrictions; gives at least one alternative or combination. Agreeing to put it all in I bonds needs revision."
+
+  - id: Q4
+    kind: exercise
+    level: B
+    concepts: [modified-duration, household-balance-sheet, inflation]
+    expected: { bl: "-42", ml: "64", net: "22" }
+    question:
+      zh-cn: |-
+        一个家庭持有 30 万美元的中长期名义国债（修正久期 7），同时有 40 万美元的 30 年期固定利率房贷，按市场利率估值的修正久期约为 8。假设通胀意外上升，使各期限的利率都上升 2 个百分点。
+        (a) 用久期近似（[[3.4]]），债券的市场价值约变化多少？房贷这笔负债的市场价值约变化多少？家庭的净资产约变化多少（千美元）？
+        (b) 他们说：“通胀对我们很不利，因为我们的债券会大跌。”评价这个说法。这种计算忽略了什么？
+      en: |-
+        A household holds 300,000 dollars of intermediate and long nominal Treasuries (modified duration 7) and owes a 400,000 dollar 30-year fixed-rate mortgage whose modified duration, valued at market rates, is about 8. Suppose unexpected inflation raises rates at all maturities by 2 percentage points.
+        (a) Using the duration approximation ([[3.4]]), roughly how much does the bonds' market value change? How much does the market value of the mortgage liability change? How much does the household's net worth change (thousand dollars)?
+        (b) They say: "Inflation is very bad for us, because our bonds will drop sharply." Evaluate this statement. What does this calculation leave out?
+    answer:
+      zh-cn: |-
+        (a) 债券：$-7 \times 2\% \times 300 = -42$。房贷负债的市场价值：$-8 \times 2\% \times 400 = -64$，负债减少 64。净资产约增加 $-42 + 64 = 22$（千美元）。
+        (b) 说法只看了资产一方。在家庭资产负债表上，固定利率房贷是一笔名义的负债，相当于“做空”名义债券；利率因通胀上升时，它的市场价值下降，对家庭有利，在这个例子中甚至超过了债券的损失。所以这个家庭对意外通胀的净敞口实际上是正的。这个计算忽略了：房贷的收益不能立即变成现金，它体现为以后几十年每月还款的实际负担较轻，而债券的损失如果被迫卖出就会实现；房贷有提前还款权，利率下降时可以再融资、利率上升时则持有，这种不对称是借款人的期权（[[5.2]]），使用久期近似时没有考虑；家庭的其他资产（股票、房子）和收入对通胀的反应；以及通胀上升对生活费用的直接影响。
+      en: |-
+        (a) Bonds: $-7 \times 2\% \times 300 = -42$. The mortgage liability's market value: $-8 \times 2\% \times 400 = -64$, so the liability falls by 64. Net worth rises by about $-42 + 64 = 22$ (thousand dollars).
+        (b) The statement looks only at the asset side. On the household balance sheet, a fixed-rate mortgage is a nominal liability, like a short position in nominal bonds; when inflation pushes rates up its market value falls, which helps the household, in this example by more than the bond loss. So this household's net exposure to unexpected inflation is actually positive. The calculation leaves out: the mortgage gain cannot be turned into cash at once, showing up instead as a lighter real burden of monthly payments over decades, while a bond loss is realized if the bonds must be sold; the mortgage carries a prepayment option, refinancing when rates fall and holding when they rise, an asymmetry that is an option for the borrower ([[5.2]]) not captured by the duration approximation; how the household's other assets (stocks, the house) and income respond to inflation; and the direct effect of higher inflation on living costs.
+    rubric:
+      zh-cn:
+        - "(a) 通过：债券约 −42，房贷负债约减少 64，净资产约增加 22（千美元）。"
+        - "(b) 通过：指出要同时看资产和负债，固定利率房贷在通胀中对借款人有利，净敞口可能为正；提到至少一项被忽略的因素。同意“通胀很不利”，需要订正。"
+      en:
+        - "(a) OK: bonds about −42, mortgage liability down about 64, net worth up about 22 (thousand dollars)."
+        - "(b) OK: says both assets and liabilities must be considered, a fixed-rate mortgage helps the borrower under inflation, and the net exposure may be positive; mentions at least one omitted factor. Agreeing inflation is very bad needs revision."

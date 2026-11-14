@@ -29,7 +29,7 @@ export function returnPath(seed = SEED, years = 40): [number, number][] {
 	return out;
 }
 
-// Stock weights at the end of each year (after any rebalancing) and the number of rebalances.
+// Stock weights at the end of each year before any rebalancing, and the number of rebalances.
 export function simulate(path: [number, number][], band: number | null) {
 	let s = 60;
 	let b = 40;
@@ -38,13 +38,13 @@ export function simulate(path: [number, number][], band: number | null) {
 	for (const [rs, rb] of path) {
 		s *= 1 + rs;
 		b *= 1 + rb;
+		w.push(s / (s + b));
 		if (band !== null && Math.abs(s / (s + b) - 0.6) > band) {
 			const tot = s + b;
 			s = 0.6 * tot;
 			b = 0.4 * tot;
 			n++;
 		}
-		w.push(s / (s + b));
 	}
 	return { w, n };
 }
