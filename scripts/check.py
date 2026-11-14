@@ -592,6 +592,9 @@ def lock_entries() -> dict[str, dict[str, str]]:
         }
     files = {"course/curriculum.yaml": curriculum, "course/concepts.yaml": concepts}
     files.update({f"course/keys/{k}.yaml": v for k, v in keys.items()})
+    # Teaching rules and figure descriptions for the AI tutor (served under /ai/).
+    files["course/ai/protocol.yaml"] = load_yaml(COURSE / "ai/protocol.yaml")
+    files["course/widgets.yaml"] = load_yaml(COURSE / "widgets.yaml")
     for file, data in files.items():
         def fn(path, node, file=file):
             entries[f"{file}#{path}"] = {lang: sha(json.dumps(node[lang], ensure_ascii=False)) for lang in LANGS if lang in node}
@@ -715,6 +718,7 @@ def check_widgets():
 def check_lint():
     files = [doc_path(lang, str(r)) for r in source_docs() for lang in LANGS]
     files += [COURSE / f"keys/{k}.yaml" for k in keys]
+    check_bilingual("course/ai/protocol.yaml", load_yaml(COURSE / "ai/protocol.yaml"))
     for p in files:
         if not p.exists():
             continue

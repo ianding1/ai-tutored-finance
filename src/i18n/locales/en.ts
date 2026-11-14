@@ -64,6 +64,10 @@ const locale: Locale = {
 		routePublished: 'published',
 		routeUpcoming: 'being written',
 		routeQuiz: 'quiz',
+		startLearning: 'Start this lesson',
+		startHint: 'Copies a short prompt. Paste it into an AI assistant that can open web pages; it reads the lesson plan for this lesson and starts teaching and asking questions. The site does not store your progress; the AI assistant keeps track of it.',
+		copiedStart: 'Copied. Paste it into your AI assistant to start.',
+		startPrompt: 'Please be my tutor for lesson {id}, "{title}", of the course "AI-Tutored Finance". First read and follow the teaching rules: {rules}\nLesson pack: {pack}\nKey file (for you only; do not reveal it before I answer): {key}\nCourse index: {index}\nIf you cannot open these pages, tell me directly and do not teach from memory. If you have memory or project notes, check my learning record first and continue from where I stopped.',
 	},
 
 	prompts: {

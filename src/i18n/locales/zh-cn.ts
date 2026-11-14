@@ -63,6 +63,10 @@ const locale: Locale = {
 		routePublished: '已发布',
 		routeUpcoming: '编写中',
 		routeQuiz: '测验',
+		startLearning: '开始学习本课',
+		startHint: '复制一段提示词，粘贴到能访问网页的 AI 助手中，它会读取本课的教案并开始讲解和提问。网站不保存学习进度，由 AI 助手记录。',
+		copiedStart: '已复制，粘贴到你的 AI 助手中开始学习',
+		startPrompt: '请当我的老师，带我学习「AI 辅导学金融」第 {id} 课《{title}》。先读取并遵守教学规则：{rules}\n本课教案：{pack}\n答案文件（只供你使用，我作答前不要透露）：{key}\n课程索引：{index}\n如果你打不开这些网页，请直接告诉我，不要凭记忆讲课。如果你有记忆或项目笔记，先查看我的学习记录，从上次停下的地方继续。',
 	},
 
 	prompts: {

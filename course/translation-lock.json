@@ -1,4 +1,8 @@
 {
+ "course/ai/protocol.yaml#protocol": {
+  "en": "3a14fcc243caebb3",
+  "zh-cn": "fd2fc91818b10c1b"
+ },
  "course/concepts.yaml#abnormal-return": {
   "en": "ea4dd104e452d36b",
   "zh-cn": "f709096ca3fd3548"
@@ -18358,6 +18362,10 @@
  "course/keys/T3.yaml#questions[Q9].rubric": {
   "en": "2fa53c8353f88eaa",
   "zh-cn": "ed60f8359d79cefd"
+ },
+ "course/widgets.yaml#bs-call.spec": {
+  "en": "ba18273bb66a4819",
+  "zh-cn": "a5859919280f3d96"
  },
  "src/content/docs/<lang>/index.mdx": {
   "en": "e39870cee555044b",

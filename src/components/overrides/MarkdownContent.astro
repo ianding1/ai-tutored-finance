@@ -4,6 +4,7 @@
 import Default from '@astrojs/starlight/components/MarkdownContent.astro';
 import { toLang, UI, t } from '../../i18n/ui';
 import { lesson, lessonKey, absolute, plainRich, lessonPath } from '../../lib/course';
+import { startPrompt } from '../../lib/tutor';
 
 const route = Astro.locals.starlightRoute;
 const lang = toLang(route.lang);
@@ -36,6 +37,13 @@ const json = JSON.stringify(data).replace(/</g, '\\u003c');
 	<p>{t(lang, 'aiNotice')}</p>
 </details>
 
+{l?.published && (
+	<div class="lfwai-start not-content">
+		<button type="button" class="lfwai-btn lfwai-btn-primary" data-start-prompt={startPrompt(l.id, lang)}>{t(lang, 'startLearning')}</button>
+		<p class="lfwai-hint">{t(lang, 'startHint')}</p>
+	</div>
+)}
+
 <Default><slot /></Default>
 
 <script type="application/json" id="lfwai-page" set:html={json}></script>
@@ -54,5 +62,7 @@ const json = JSON.stringify(data).replace(/</g, '\\u003c');
 
 <script>
 	import { initExplain } from '../../scripts/explain';
+	import { initStart } from '../../scripts/start';
 	initExplain();
+	initStart();
 </script>

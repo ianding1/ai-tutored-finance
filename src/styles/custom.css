@@ -1144,3 +1144,11 @@ a.lfwai-route-mark:focus-visible {
 .lfwai-legend .sw.sw-target {
 	border-top: 3px solid var(--viz-b);
 }
+
+/* "Start this lesson" at the top of each lesson page. */
+.lfwai-start {
+	margin: 1rem 0 1.5rem;
+}
+.lfwai-start .lfwai-hint {
+	margin-top: 0.4rem;
+}

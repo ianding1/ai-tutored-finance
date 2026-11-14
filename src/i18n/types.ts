@@ -64,7 +64,11 @@ export type UiKey =
 	| 'routeTitle'
 	| 'routePublished'
 	| 'routeUpcoming'
-	| 'routeQuiz';
+	| 'routeQuiz'
+	| 'startLearning'
+	| 'startHint'
+	| 'copiedStart'
+	| 'startPrompt';
 
 export type UiStrings = Record<UiKey, string>;
 
